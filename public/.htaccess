@@ -1,0 +1,45 @@
+RewriteEngine On
+
+# --- Security: block sensitive files ---
+<FilesMatch "\.(db|db-shm|db-wal|sqlite)$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "^(config|db|router|helpers|sitemap|redirect)\.php$">
+    Require all denied
+</FilesMatch>
+
+RewriteRule ^templates/ - [F,L]
+RewriteRule ^data/ - [F,L]
+
+# --- Cache headers for static assets ---
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType application/pdf "access plus 1 month"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|ico)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.pdf$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+</IfModule>
+
+# --- Legacy redirects (migrated from Caddyfile) ---
+RewriteRule ^archiv/(\d+)_chronologisch_d\.php$ /archiv/$1 [R=301,L]
+RewriteRule ^pdfs/(\d+)/(.+)$ /download/$1/$2 [R=301,L]
+RewriteRule ^abstract/abstract_only\.php$ /redirect/abstract [QSA,R=301,L]
+
+# --- Front controller ---
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+RewriteRule ^ index.php [L]
