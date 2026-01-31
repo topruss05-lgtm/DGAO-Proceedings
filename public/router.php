@@ -15,6 +15,7 @@ function matchRoute(string $uri): array
         '/suche'       => 'suche',
         '/impressum'   => 'impressum',
         '/datenschutz' => 'datenschutz',
+        '/kontakt'     => 'kontakt',
     ];
 
     if (isset($staticRoutes[$path])) {

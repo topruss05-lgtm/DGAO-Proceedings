@@ -1,15 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Mobile navbar toggle ---
-    const toggler = document.getElementById('navbarToggler');
-    const navMenu = document.getElementById('navbarNav');
-    if (toggler && navMenu) {
-        toggler.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-            const expanded = toggler.getAttribute('aria-expanded') === 'true';
-            toggler.setAttribute('aria-expanded', String(!expanded));
-        });
+    // --- Mobile sidebar toggle ---
+    const sidebar   = document.getElementById('siteSidebar');
+    const backdrop  = document.getElementById('sidebarBackdrop');
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const closeBtn  = document.getElementById('sidebarClose');
+
+    function openSidebar() {
+        if (!sidebar) return;
+        sidebar.classList.add('open');
+        if (backdrop) backdrop.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        toggleBtn?.setAttribute('aria-expanded', 'true');
     }
+
+    function closeSidebar() {
+        if (!sidebar) return;
+        sidebar.classList.remove('open');
+        if (backdrop) backdrop.classList.remove('show');
+        document.body.style.overflow = '';
+        toggleBtn?.setAttribute('aria-expanded', 'false');
+    }
+
+    if (toggleBtn) toggleBtn.addEventListener('click', openSidebar);
+    if (closeBtn)  closeBtn.addEventListener('click', closeSidebar);
+    if (backdrop)  backdrop.addEventListener('click', closeSidebar);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && sidebar?.classList.contains('open')) {
+            closeSidebar();
+        }
+    });
 
     // --- Paper sorting on conference detail page ---
     const sortButtons = document.querySelectorAll('[data-sort]');

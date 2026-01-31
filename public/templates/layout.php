@@ -25,67 +25,97 @@
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body>
 
-    <header class="site-header">
-        <div class="container container-narrow py-3">
+    <!-- Sidebar -->
+    <aside class="site-sidebar" id="siteSidebar">
+        <button type="button" class="sidebar-close d-lg-none" id="sidebarClose"
+                aria-label="Navigation schliessen">
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+        <div class="sidebar-logo">
             <a href="/">
                 <img src="/assets/images/logo-dgao-proceedings.gif"
-                     alt="DGaO-Proceedings" class="header-logo-img">
+                     alt="DGaO-Proceedings" class="sidebar-logo-img">
             </a>
         </div>
-    </header>
 
-    <nav class="navbar navbar-expand-sm site-nav p-0">
-        <div class="container container-narrow">
-            <button class="navbar-toggler py-2" type="button" id="navbarToggler"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link<?= isActivePage('/archiv') ? ' active' : '' ?>" href="/archiv">Archiv</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link<?= isActivePage('/suche') ? ' active' : '' ?>" href="/suche">Suche</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link<?= isActivePage('/autoren') ? ' active' : '' ?>" href="/autoren">Autoren</a>
-                    </li>
-                </ul>
+        <nav class="sidebar-nav" aria-label="Hauptnavigation">
+            <ul class="sidebar-nav-list">
+                <li>
+                    <a class="sidebar-link<?= isActivePage('/archiv') ? ' active' : '' ?>" href="/archiv">
+                        <i class="bi bi-archive me-2"></i>Archiv
+                    </a>
+                </li>
+                <li>
+                    <a class="sidebar-link<?= isActivePage('/suche') ? ' active' : '' ?>" href="/suche">
+                        <i class="bi bi-search me-2"></i>Suche
+                    </a>
+                </li>
+                <li>
+                    <a class="sidebar-link<?= isActivePage('/autoren') ? ' active' : '' ?>" href="/autoren">
+                        <i class="bi bi-people me-2"></i>Autoren
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-footer-meta">
+                ISSN <?= SITE_ISSN ?>
+            </div>
+            <div class="sidebar-footer-links">
+                <a href="/kontakt">Kontakt</a>
+                <a href="/impressum">Impressum</a>
+                <a href="/datenschutz">Datenschutz</a>
+                <a href="https://www.dgao.de/" target="_blank" rel="noopener">DGaO</a>
             </div>
         </div>
-    </nav>
+    </aside>
 
-    <?php if (($pageSlug ?? '') === 'home'): ?>
-    <div class="hero-banner">
-        <div class="container container-narrow text-center">
-            <h1 class="hero-title">DGaO-Proceedings</h1>
-            <p class="hero-subtitle">ISSN: <?= SITE_ISSN ?></p>
-            <p class="hero-description">Die Online-Zeitschrift der Deutschen Gesellschaft f&uuml;r angewandte Optik e.V.</p>
-        </div>
-    </div>
-    <?php endif; ?>
+    <!-- Backdrop (mobile) -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
-    <main class="flex-grow-1">
-        <div class="container container-narrow py-4">
-            <?= $pageContent ?>
-        </div>
-    </main>
+    <!-- Content wrapper -->
+    <div class="site-content-wrapper d-flex flex-column min-vh-100">
 
-    <footer class="site-footer mt-auto">
-        <div class="container container-narrow py-3">
-            <div class="d-flex flex-column flex-sm-row align-items-center justify-content-between small">
-                <span>DGaO-Proceedings &middot; ISSN <?= SITE_ISSN ?></span>
-                <div class="d-flex gap-3 mt-2 mt-sm-0">
-                    <a href="/impressum">Impressum</a>
-                    <a href="/datenschutz">Datenschutz</a>
-                    <a href="https://www.dgao.de/" target="_blank" rel="noopener">DGaO</a>
+        <!-- Mobile top bar -->
+        <header class="mobile-topbar d-lg-none">
+            <button type="button" class="mobile-topbar-toggle" id="sidebarToggle"
+                    aria-label="Navigation oeffnen" aria-controls="siteSidebar" aria-expanded="false">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="mobile-topbar-logo">
+                <img src="/assets/images/logo-dgao-proceedings.gif"
+                     alt="DGaO-Proceedings" class="mobile-topbar-logo-img">
+            </a>
+        </header>
+
+        <main class="flex-grow-1">
+            <?php if (!empty($fullWidthLayout)): ?>
+                <?= $pageContent ?>
+            <?php else: ?>
+                <div class="container container-narrow py-4">
+                    <?= $pageContent ?>
+                </div>
+            <?php endif; ?>
+        </main>
+
+        <footer class="site-footer mt-auto">
+            <div class="container container-narrow py-3">
+                <div class="d-flex flex-column flex-sm-row align-items-center justify-content-between small">
+                    <span>DGaO-Proceedings &middot; ISSN <?= SITE_ISSN ?></span>
+                    <div class="d-flex gap-3 mt-2 mt-sm-0">
+                        <a href="/kontakt">Kontakt</a>
+                        <a href="/impressum">Impressum</a>
+                        <a href="/datenschutz">Datenschutz</a>
+                        <a href="https://www.dgao.de/" target="_blank" rel="noopener">DGaO</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <script src="/assets/js/app.js"></script>
 </body>
