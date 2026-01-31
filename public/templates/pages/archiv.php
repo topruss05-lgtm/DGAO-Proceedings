@@ -7,9 +7,9 @@ $tagungen = getAllTagungen();
 
 <h1 class="h3 mb-4">Archiv</h1>
 
-<div class="list-group">
+<div class="list-group list-group-flush">
     <?php foreach ($tagungen as $t): ?>
-    <a href="/archiv/<?= $t['nummer'] ?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    <a href="/archiv/<?= $t['nummer'] ?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center archive-item">
         <div>
             <strong><?= $t['nummer'] ?>. Jahrestagung</strong>
             <span class="text-muted ms-2">
@@ -24,7 +24,7 @@ $tagungen = getAllTagungen();
                 </small>
             <?php endif; ?>
         </div>
-        <span class="badge bg-secondary rounded-pill"><?= $t['paper_anzahl'] ?></span>
+        <span class="badge badge-count rounded-pill"><?= $t['paper_anzahl'] ?></span>
     </a>
     <?php endforeach; ?>
 </div>

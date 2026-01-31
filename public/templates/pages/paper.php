@@ -30,7 +30,7 @@ $keywords = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
 // Authors
 $stmt = $db->prepare('
-    SELECT a.id, a.name, a.name_display, pa.position, pa.ist_hauptautor
+    SELECT a.id, a.vorname, a.nachname, pa.position, pa.ist_hauptautor
     FROM autoren a
     JOIN paper_autoren pa ON pa.autor_id = a.id
     WHERE pa.paper_id = ?
@@ -105,19 +105,19 @@ $pdfRelUrl = pdfUrl($paper);
     </ol>
 </nav>
 
-<article class="bg-white border rounded p-4">
+<article class="article-detail">
 
-    <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+    <div class="article-meta d-flex flex-wrap align-items-center gap-2">
         <span class="badge <?= typeBadgeClass($paper['typ']) ?>"><?= typeLabel($paper['typ']) ?></span>
         <span class="badge <?= typeBadgeClass($paper['typ']) ?>"><?= e($paper['code']) ?></span>
         <?php if ($paper['zeit']): ?>
-            <small class="text-muted"><?= e($paper['zeit']) ?></small>
+            <small><?= e($paper['zeit']) ?></small>
         <?php endif; ?>
         <?php if ($paper['raum']): ?>
-            <small class="text-muted">Raum <?= e($paper['raum']) ?></small>
+            <small>Raum <?= e($paper['raum']) ?></small>
         <?php endif; ?>
         <?php if ($paper['datum']): ?>
-            <small class="text-muted"><?= formatDateLong($paper['datum']) ?></small>
+            <small><?= formatDateLong($paper['datum']) ?></small>
         <?php endif; ?>
     </div>
 
@@ -125,8 +125,8 @@ $pdfRelUrl = pdfUrl($paper);
 
     <div class="mb-3">
         <?php foreach ($autoren as $a): ?>
-            <a href="/autor/<?= $a['id'] ?>" class="text-decoration-none me-2">
-                <?= e($a['name_display']) ?><?php if ($a['ist_hauptautor']): ?> <i class="bi bi-star-fill text-warning small"></i><?php endif; ?>
+            <a href="/autor/<?= $a['id'] ?>" class="accent-link me-2">
+                <?= e(trim($a['vorname'] . ' ' . $a['nachname'])) ?><?php if ($a['ist_hauptautor']): ?> <i class="bi bi-star-fill text-warning small"></i><?php endif; ?>
             </a>
         <?php endforeach; ?>
     </div>
@@ -138,14 +138,16 @@ $pdfRelUrl = pdfUrl($paper);
     <?php if ($paper['kontakt_email']): ?>
     <p class="small mb-3">
         <i class="bi bi-envelope"></i>
-        <a href="mailto:<?= e($paper['kontakt_email']) ?>"><?= e($paper['kontakt_email']) ?></a>
+        <a href="mailto:<?= e($paper['kontakt_email']) ?>" class="accent-link"><?= e($paper['kontakt_email']) ?></a>
     </p>
     <?php endif; ?>
 
     <?php if ($paper['abstract_text']): ?>
     <div class="mb-4">
         <h2 class="h6 fw-bold">Abstract</h2>
-        <p style="white-space: pre-line;"><?= e($paper['abstract_text']) ?></p>
+        <div class="abstract-block">
+            <p><?= e($paper['abstract_text']) ?></p>
+        </div>
     </div>
     <?php endif; ?>
 
@@ -154,7 +156,7 @@ $pdfRelUrl = pdfUrl($paper);
         <h2 class="h6 fw-bold">Keywords</h2>
         <div class="d-flex flex-wrap gap-1">
             <?php foreach ($keywords as $kw): ?>
-                <span class="badge bg-light text-dark border"><?= e($kw) ?></span>
+                <span class="badge keyword-badge"><?= e($kw) ?></span>
             <?php endforeach; ?>
         </div>
     </div>
@@ -162,7 +164,7 @@ $pdfRelUrl = pdfUrl($paper);
 
     <div class="d-flex flex-wrap gap-2 mb-4">
         <?php if ($pdfRelUrl): ?>
-        <a href="<?= e($pdfRelUrl) ?>" class="btn btn-danger btn-sm" target="_blank" rel="noopener">
+        <a href="<?= e($pdfRelUrl) ?>" class="btn btn-accent btn-sm" target="_blank" rel="noopener">
             <i class="bi bi-file-earmark-pdf"></i> PDF herunterladen
         </a>
         <?php endif; ?>
@@ -174,7 +176,7 @@ $pdfRelUrl = pdfUrl($paper);
 
     <div id="bibtex-block" class="d-none mb-3">
         <div class="bibtex-block" id="bibtex-output"><?= e($bibtex) ?></div>
-        <button type="button" class="btn btn-sm btn-outline-primary mt-2" id="bibtex-copy-btn">
+        <button type="button" class="btn btn-sm btn-outline-accent mt-2" id="bibtex-copy-btn">
             <i class="bi bi-clipboard"></i> In Zwischenablage kopieren
         </button>
     </div>

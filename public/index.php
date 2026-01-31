@@ -39,6 +39,68 @@ $route  = matchRoute($_SERVER['REQUEST_URI']);
 $page   = $route['page'];
 $params = $route['params'];
 
+$isAdmin = str_starts_with($page, 'admin/');
+
+// Admin-Bereich: Auth + Helpers laden
+if ($isAdmin) {
+    require_once __DIR__ . '/admin/auth.php';
+    require_once __DIR__ . '/admin/helpers.php';
+
+    // Login und Logout ohne Auth-Check
+    if ($page === 'admin/login') {
+        // Login-POST verarbeiten
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            verifyCsrf();
+            if (adminLogin($_POST['user'] ?? '', $_POST['password'] ?? '')) {
+                header('Location: /admin');
+                exit;
+            }
+            $loginError = 'Ungültiger Benutzername oder Passwort.';
+        }
+        ob_start();
+        require __DIR__ . '/admin/templates/pages/login.php';
+        $pageContent = ob_get_clean();
+        $adminPageTitle = 'Login - Admin';
+        require __DIR__ . '/admin/templates/layout.php';
+        exit;
+    }
+
+    if ($page === 'admin/logout') {
+        adminLogout();
+        header('Location: /admin/login');
+        exit;
+    }
+
+    // Alle anderen Admin-Seiten: Login erforderlich
+    requireAdmin();
+
+    try {
+        $adminPageTitle = 'Admin';
+        ob_start();
+
+        $templateFile = __DIR__ . '/admin/templates/pages/' . str_replace('admin/', '', $page) . '.php';
+        if (file_exists($templateFile)) {
+            require $templateFile;
+        } else {
+            http_response_code(404);
+            echo '<h1>Seite nicht gefunden</h1>';
+        }
+
+        $pageContent = ob_get_clean();
+        require __DIR__ . '/admin/templates/layout.php';
+    } catch (Exception $e) {
+        if (ob_get_level() > 0) ob_end_clean();
+        http_response_code(500);
+        ob_start();
+        echo '<div class="alert alert-danger">Fehler: ' . e($e->getMessage()) . '</div>';
+        $pageContent = ob_get_clean();
+        $adminPageTitle = 'Fehler - Admin';
+        require __DIR__ . '/admin/templates/layout.php';
+    }
+    exit;
+}
+
+// --- Frontend (unverändert) ---
 try {
     if ($page === 'sitemap') {
         require __DIR__ . '/sitemap.php';

@@ -12,6 +12,9 @@ RewriteEngine On
 RewriteRule ^templates/ - [F,L]
 RewriteRule ^data/ - [F,L]
 
+# Block direct access to admin PHP files (routed via front controller)
+RewriteRule ^admin/(?!assets/).+\.php$ - [F,L]
+
 # --- Cache headers for static assets ---
 <IfModule mod_expires.c>
     ExpiresActive On

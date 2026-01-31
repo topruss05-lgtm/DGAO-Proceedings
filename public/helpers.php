@@ -118,3 +118,12 @@ function getAllTagungen(): array
         ORDER BY t.nummer DESC
     ')->fetchAll();
 }
+
+function getSiteStats(): array
+{
+    $db = getDb();
+    $papers   = (int) $db->query('SELECT COUNT(*) FROM papers')->fetchColumn();
+    $tagungen = (int) $db->query('SELECT COUNT(*) FROM tagungen')->fetchColumn();
+    $autoren  = (int) $db->query('SELECT COUNT(*) FROM autoren')->fetchColumn();
+    return compact('papers', 'tagungen', 'autoren');
+}

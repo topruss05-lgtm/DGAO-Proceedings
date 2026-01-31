@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?= e($adminPageTitle ?? 'Admin') ?> - DGaO-Proceedings</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="/admin/assets/css/admin.css" rel="stylesheet">
+</head>
+<body>
+
+<?php if (isAdminLoggedIn()): ?>
+<div class="admin-wrapper">
+    <nav class="admin-sidebar">
+        <div class="sidebar-header">
+            <a href="/admin" class="sidebar-brand">DGaO Admin</a>
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="/admin" class="<?= ($page ?? '') === 'admin/dashboard' ? 'active' : '' ?>">
+                <i class="bi bi-speedometer2"></i> Dashboard</a></li>
+            <li><a href="/admin/import" class="<?= ($page ?? '') === 'admin/import' ? 'active' : '' ?>">
+                <i class="bi bi-upload"></i> CSV-Import</a></li>
+            <li class="sidebar-divider"></li>
+            <li><a href="/admin/tagungen" class="<?= str_starts_with($page ?? '', 'admin/tagung') ? 'active' : '' ?>">
+                <i class="bi bi-calendar-event"></i> Tagungen</a></li>
+            <li><a href="/admin/papers" class="<?= str_starts_with($page ?? '', 'admin/paper') ? 'active' : '' ?>">
+                <i class="bi bi-file-earmark-text"></i> Papers</a></li>
+            <li><a href="/admin/autoren" class="<?= str_starts_with($page ?? '', 'admin/autor') ? 'active' : '' ?>">
+                <i class="bi bi-people"></i> Autoren</a></li>
+            <li><a href="/admin/keywords" class="<?= str_starts_with($page ?? '', 'admin/keyword') ? 'active' : '' ?>">
+                <i class="bi bi-tags"></i> Keywords</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="/" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Zur Website</a>
+            <a href="/admin/logout"><i class="bi bi-box-arrow-left"></i> Logout</a>
+        </div>
+    </nav>
+
+    <main class="admin-main">
+        <?php $flash = getFlash(); if ($flash): ?>
+        <div class="alert alert-<?= e($flash['type']) ?> alert-dismissible fade show" role="alert">
+            <?= e($flash['message']) ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        <?php endif; ?>
+
+        <?= $pageContent ?>
+    </main>
+</div>
+
+<?php else: ?>
+<div class="admin-login-wrapper">
+    <?= $pageContent ?>
+</div>
+<?php endif; ?>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/admin/assets/js/admin.js"></script>
+</body>
+</html>

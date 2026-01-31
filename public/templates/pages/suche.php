@@ -44,11 +44,11 @@ if (mb_strlen($q) >= 2) {
 
 <form action="/suche" method="get" class="row g-2 mb-4">
     <div class="col">
-        <input type="search" name="q" class="form-control" value="<?= e($q) ?>"
+        <input type="search" name="q" class="form-control search-input" value="<?= e($q) ?>"
                placeholder="Titel, Autor oder Stichwort suchen&hellip;" autofocus>
     </div>
     <div class="col-auto">
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-accent">
             <i class="bi bi-search"></i> Suchen
         </button>
     </div>

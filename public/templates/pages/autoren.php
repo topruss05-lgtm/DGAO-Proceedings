@@ -4,16 +4,16 @@ $canonicalUrl = canonicalUrl('/autoren');
 
 $db = getDb();
 $autoren = $db->query('
-    SELECT a.id, a.name, a.name_display, COUNT(pa.paper_id) AS paper_count
+    SELECT a.id, a.vorname, a.nachname, COUNT(pa.paper_id) AS paper_count
     FROM autoren a
     JOIN paper_autoren pa ON pa.autor_id = a.id
     GROUP BY a.id
-    ORDER BY a.name COLLATE NOCASE
+    ORDER BY a.nachname COLLATE NOCASE, a.vorname COLLATE NOCASE
 ')->fetchAll();
 
 $grouped = [];
 foreach ($autoren as $a) {
-    $letter = mb_strtoupper(mb_substr($a['name'], 0, 1));
+    $letter = mb_strtoupper(mb_substr($a['nachname'], 0, 1));
     $grouped[$letter][] = $a;
 }
 ksort($grouped, SORT_LOCALE_STRING);
@@ -28,8 +28,8 @@ ksort($grouped, SORT_LOCALE_STRING);
     <div class="row g-1">
         <?php foreach ($authors as $a): ?>
         <div class="col-sm-6 col-lg-4">
-            <a href="/autor/<?= $a['id'] ?>" class="text-decoration-none d-block py-1">
-                <?= e($a['name_display']) ?>
+            <a href="/autor/<?= $a['id'] ?>" class="accent-link d-block py-1">
+                <?= e(trim($a['vorname'] . ' ' . $a['nachname'])) ?>
                 <small class="text-muted">(<?= $a['paper_count'] ?>)</small>
             </a>
         </div>

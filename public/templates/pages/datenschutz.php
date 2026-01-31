@@ -4,7 +4,7 @@ $pageTitle = 'Datenschutz - ' . SITE_NAME;
 
 <h1 class="h3 mb-4">Datenschutz</h1>
 
-<div class="bg-white rounded border p-4">
+<div class="article-detail">
     <h2 class="h5">Datenverarbeitung</h2>
     <p>
         Auf dieser Webseite werden keine personenbezogenen Daten erhoben.
@@ -20,6 +20,6 @@ $pageTitle = 'Datenschutz - ' . SITE_NAME;
     <h2 class="h5 mt-4">Kontakt</h2>
     <p>
         Bei Fragen zum Datenschutz wenden Sie sich bitte an die
-        <a href="https://www.dgao.de/" target="_blank" rel="noopener">DGaO</a>.
+        <a href="https://www.dgao.de/" target="_blank" rel="noopener" class="accent-link">DGaO</a>.
     </p>
 </div>
