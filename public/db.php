@@ -30,8 +30,17 @@ function getDbAdmin(): PDO
         ]);
         $pdo->exec('PRAGMA journal_mode = WAL');
         $pdo->exec('PRAGMA foreign_keys = ON');
+        runMigrations($pdo);
     }
     return $pdo;
+}
+
+function runMigrations(PDO $db): void
+{
+    $columns = $db->query("PRAGMA table_info(autoren)")->fetchAll(PDO::FETCH_COLUMN, 1);
+    if (!in_array('affiliation', $columns, true)) {
+        $db->exec("ALTER TABLE autoren ADD COLUMN affiliation TEXT NOT NULL DEFAULT ''");
+    }
 }
 
 function rebuildFtsIndex(PDO $db): void

@@ -1,5 +1,5 @@
 <?php
-$pageTitle    = 'Suche - ' . SITE_NAME;
+$pageTitle    = t('suche.title') . ' - ' . SITE_NAME;
 $canonicalUrl = canonicalUrl('/suche');
 
 $q = trim($_GET['q'] ?? '');
@@ -40,27 +40,27 @@ if (mb_strlen($q) >= 2) {
 }
 ?>
 
-<h1 class="h3 mb-4">Suche</h1>
+<h1 class="h3 mb-4"><?= t('suche.title') ?></h1>
 
 <form action="/suche" method="get" class="row g-2 mb-4">
     <div class="col">
         <input type="search" name="q" class="form-control search-input" value="<?= e($q) ?>"
-               placeholder="Titel, Autor oder Stichwort suchen&hellip;" autofocus>
+               placeholder="<?= t('suche.placeholder') ?>" autofocus>
     </div>
     <div class="col-auto">
         <button type="submit" class="btn btn-accent">
-            <i class="bi bi-search"></i> Suchen
+            <i class="bi bi-search"></i> <?= t('suche.btn') ?>
         </button>
     </div>
 </form>
 
 <?php if ($searched): ?>
     <p class="text-muted mb-3">
-        <?= count($results) ?> <?= count($results) === 1 ? 'Ergebnis' : 'Ergebnisse' ?> gefunden
+        <?= count($results) ?> <?= count($results) === 1 ? t('suche.result_singular') : t('suche.result_plural') ?> <?= t('suche.result_suffix') ?>
     </p>
 
     <?php if (empty($results)): ?>
-        <p class="text-muted">Keine Ergebnisse gefunden.</p>
+        <p class="text-muted"><?= t('suche.no_results') ?></p>
     <?php else: ?>
         <div>
             <?php foreach ($results as $p):

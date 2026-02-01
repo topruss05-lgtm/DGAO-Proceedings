@@ -1,16 +1,15 @@
 <?php
-$pageTitle = 'Kontakt - ' . SITE_NAME;
+$pageTitle = t('kontakt.title') . ' - ' . SITE_NAME;
 ?>
 
-<h1 class="h3 mb-4">Kontakt</h1>
+<h1 class="h3 mb-4"><?= t('kontakt.title') ?></h1>
 
 <div class="article-detail">
     <p>
-        &bdquo;DGaO-Proceedings&ldquo; ist ein Service der Deutschen Gesellschaft f&uuml;r angewandte Optik e.V.
+        <?= t('kontakt.intro') ?>
     </p>
     <p>
-        Wenn Sie Fragen oder Anregungen zur Webseite oder zum Erstellen und Einsenden von Artikeln haben,
-        dann wenden Sie sich bitte an:
+        <?= t('kontakt.questions') ?>
     </p>
 
     <div class="ms-3 mb-4">
@@ -18,7 +17,7 @@ $pageTitle = 'Kontakt - ' . SITE_NAME;
             Frau Katja Richter<br>
             E-Mail: <a href="mailto:info@dgao-proceedings.de" class="accent-link">info@dgao-proceedings.de</a>
         </p>
-        <p>oder an</p>
+        <p><?= t('kontakt.or') ?></p>
         <p>
             DGaO Sekretariat<br>
             Technische Universit&auml;t Ilmenau<br>
@@ -33,7 +32,7 @@ $pageTitle = 'Kontakt - ' . SITE_NAME;
         </p>
     </div>
 
-    <p>Ihre fertigen Artikel schicken Sie bitte per E-Mail an:</p>
+    <p><?= t('kontakt.submit_intro') ?></p>
 
     <div class="ms-3 mb-4">
         <p>
@@ -41,13 +40,13 @@ $pageTitle = 'Kontakt - ' . SITE_NAME;
         </p>
     </div>
 
-    <p>Die Kontaktadresse der DGaO:</p>
+    <p><?= t('kontakt.dgao_address') ?></p>
 
     <div class="ms-3 mb-4">
         <p>
             <strong>Deutsche Gesellschaft f&uuml;r angewandte Optik e.V.</strong><br>
             c/o Elizabeth Erhard<br>
-            &ndash; DGaO Sekretariat &ndash;<br>
+            <?= t('kontakt.dgao_sekretariat') ?><br>
             Im Wolfsgarten 28<br>
             D-91056 Erlangen
         </p>

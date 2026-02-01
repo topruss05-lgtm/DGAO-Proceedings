@@ -2,7 +2,7 @@
 $autorId = $params['id'];
 $db = getDb();
 
-$stmt = $db->prepare('SELECT id, vorname, nachname FROM autoren WHERE id = ?');
+$stmt = $db->prepare('SELECT id, vorname, nachname, affiliation FROM autoren WHERE id = ?');
 $stmt->execute([$autorId]);
 $autor = $stmt->fetch();
 
@@ -28,24 +28,27 @@ $papers = $stmt->fetchAll();
 $pageTitle    = $autorName . ' - ' . SITE_NAME;
 $canonicalUrl = canonicalUrl('/autor/' . $autor['id']);
 $metaTags = [
-    ['name' => 'description', 'content' => $autorName . ' - ' . count($papers) . ' Beiträge in DGaO-Proceedings'],
+    ['name' => 'description', 'content' => $autorName . ' - ' . count($papers) . ' ' . t('autor.meta_suffix')],
 ];
 ?>
 
 <nav aria-label="breadcrumb" class="mb-3">
     <ol class="breadcrumb small">
-        <li class="breadcrumb-item"><a href="/autoren">Autoren</a></li>
+        <li class="breadcrumb-item"><a href="/autoren"><?= t('autor.breadcrumb') ?></a></li>
         <li class="breadcrumb-item active"><?= e($autorName) ?></li>
     </ol>
 </nav>
 
 <h1 class="h3 mb-1"><?= e($autorName) ?></h1>
-<p class="text-muted mb-4"><?= count($papers) ?> <?= count($papers) === 1 ? 'Beitrag' : 'Beiträge' ?></p>
+<?php if (!empty($autor['affiliation'])): ?>
+<p class="text-muted mb-1"><i class="bi bi-building"></i> <?= e($autor['affiliation']) ?></p>
+<?php endif; ?>
+<p class="text-muted mb-4"><?= count($papers) ?> <?= count($papers) === 1 ? t('autor.beitrag_singular') : t('autor.beitrag_plural') ?></p>
 
 <div>
     <?php foreach ($papers as $p):
         $showTagung = true;
-        $tagungLabel = $p['tagung_nummer'] . '. Tagung (' . $p['jahr'] . ')';
+        $tagungLabel = $p['tagung_nummer'] . '. ' . t('autor.tagung') . ' (' . $p['jahr'] . ')';
     ?>
         <?php require __DIR__ . '/../partials/paper_card.php'; ?>
     <?php endforeach; ?>

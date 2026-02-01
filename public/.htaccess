@@ -38,6 +38,9 @@ RewriteRule ^archiv/(\d+)_chronologisch_d\.php$ /archiv/$1 [R=301,L]
 RewriteRule ^pdfs/(\d+)/(.+)$ /download/$1/$2 [R=301,L]
 RewriteRule ^abstract/abstract_only\.php$ /redirect/abstract [QSA,R=301,L]
 
+# --- Route /admin directory to front controller ---
+RewriteRule ^admin/?$ index.php [L]
+
 # --- Front controller ---
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]

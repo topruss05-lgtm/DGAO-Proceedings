@@ -18,7 +18,8 @@ function formatDateLong(?string $iso): string
 {
     if (!$iso) return '';
     $dt = new DateTime($iso);
-    $formatter = new IntlDateFormatter('de_DE', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+    $locale = currentLang() === 'en' ? 'en_US' : 'de_DE';
+    $formatter = new IntlDateFormatter($locale, IntlDateFormatter::LONG, IntlDateFormatter::NONE);
     return $formatter->format($dt);
 }
 
@@ -35,10 +36,10 @@ function typeBadgeClass(string $typ): string
 function typeLabel(string $typ): string
 {
     return match ($typ) {
-        'hauptvortrag'  => 'Hauptvortrag',
-        'sondervortrag' => 'Sondervortrag',
-        'poster'        => 'Poster',
-        default         => 'Vortrag',
+        'hauptvortrag'  => t('type.hauptvortrag'),
+        'sondervortrag' => t('type.sondervortrag'),
+        'poster'        => t('type.poster'),
+        default         => t('type.vortrag'),
     };
 }
 
@@ -46,7 +47,7 @@ function generateBibtex(array $paper): string
 {
     $key = 'dgao' . $paper['tagung_nummer'] . '-' . strtolower($paper['code']);
     $year = $paper['datum'] ? substr($paper['datum'], 0, 4) : ($paper['jahr'] ?? '');
-    $note = ($paper['typ'] === 'poster' ? 'Poster' : 'Vortrag') . ' ' . $paper['code'];
+    $note = ($paper['typ'] === 'poster' ? t('type.poster') : t('type.vortrag')) . ' ' . $paper['code'];
 
     return "@inproceedings{{$key},\n"
          . "  title     = {{$paper['titel']}},\n"

@@ -30,7 +30,7 @@ $keywords = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
 // Authors
 $stmt = $db->prepare('
-    SELECT a.id, a.vorname, a.nachname, pa.position, pa.ist_hauptautor
+    SELECT a.id, a.vorname, a.nachname, a.affiliation, pa.position, pa.ist_hauptautor
     FROM autoren a
     JOIN paper_autoren pa ON pa.autor_id = a.id
     WHERE pa.paper_id = ?
@@ -54,7 +54,7 @@ $metaTags = [
     ['name' => 'citation_journal_title', 'content' => 'DGaO-Proceedings'],
     ['name' => 'citation_issn', 'content' => SITE_ISSN],
     ['name' => 'citation_publisher', 'content' => SITE_PUBLISHER],
-    ['name' => 'citation_conference_title', 'content' => $paper['tagung_nummer'] . '. Jahrestagung der DGaO'],
+    ['name' => 'citation_conference_title', 'content' => $paper['tagung_nummer'] . '. ' . t('paper.jahrestagung_der_dgao')],
     // Dublin Core
     ['name' => 'DC.title', 'content' => $paper['titel']],
     ['name' => 'DC.creator', 'content' => $paper['autoren_text']],
@@ -99,8 +99,8 @@ $pdfRelUrl = pdfUrl($paper);
 
 <nav aria-label="breadcrumb" class="mb-3">
     <ol class="breadcrumb small">
-        <li class="breadcrumb-item"><a href="/archiv">Archiv</a></li>
-        <li class="breadcrumb-item"><a href="/archiv/<?= $paper['tagung_nummer'] ?>"><?= $paper['tagung_nummer'] ?>. Jahrestagung</a></li>
+        <li class="breadcrumb-item"><a href="/archiv"><?= t('paper.breadcrumb_archiv') ?></a></li>
+        <li class="breadcrumb-item"><a href="/archiv/<?= $paper['tagung_nummer'] ?>"><?= $paper['tagung_nummer'] ?>. <?= t('paper.jahrestagung') ?></a></li>
         <li class="breadcrumb-item active"><?= e($paper['code']) ?></li>
     </ol>
 </nav>
@@ -114,7 +114,7 @@ $pdfRelUrl = pdfUrl($paper);
             <small><?= e($paper['zeit']) ?></small>
         <?php endif; ?>
         <?php if ($paper['raum']): ?>
-            <small>Raum <?= e($paper['raum']) ?></small>
+            <small><?= t('paper.raum') ?> <?= e($paper['raum']) ?></small>
         <?php endif; ?>
         <?php if ($paper['datum']): ?>
             <small><?= formatDateLong($paper['datum']) ?></small>
@@ -125,7 +125,7 @@ $pdfRelUrl = pdfUrl($paper);
 
     <div class="mb-3">
         <?php foreach ($autoren as $a): ?>
-            <a href="/autor/<?= $a['id'] ?>" class="accent-link me-2">
+            <a href="/autor/<?= $a['id'] ?>" class="accent-link me-2"<?php if (!empty($a['affiliation'])): ?> title="<?= e($a['affiliation']) ?>"<?php endif; ?>>
                 <?= e(trim($a['vorname'] . ' ' . $a['nachname'])) ?><?php if ($a['ist_hauptautor']): ?> <i class="bi bi-star-fill text-warning small"></i><?php endif; ?>
             </a>
         <?php endforeach; ?>
@@ -165,24 +165,24 @@ $pdfRelUrl = pdfUrl($paper);
     <div class="d-flex flex-wrap gap-2 mb-4">
         <?php if ($pdfRelUrl): ?>
         <a href="<?= e($pdfRelUrl) ?>" class="btn btn-accent btn-sm" target="_blank" rel="noopener">
-            <i class="bi bi-file-earmark-pdf"></i> PDF herunterladen
+            <i class="bi bi-file-earmark-pdf"></i> <?= t('paper.pdf_download') ?>
         </a>
         <?php endif; ?>
 
         <button type="button" class="btn btn-outline-secondary btn-sm" id="bibtex-toggle-btn">
-            <i class="bi bi-quote"></i> Zitieren (BibTeX)
+            <i class="bi bi-quote"></i> <?= t('paper.cite_bibtex') ?>
         </button>
     </div>
 
     <div id="bibtex-block" class="d-none mb-3">
         <div class="bibtex-block" id="bibtex-output"><?= e($bibtex) ?></div>
         <button type="button" class="btn btn-sm btn-outline-accent mt-2" id="bibtex-copy-btn">
-            <i class="bi bi-clipboard"></i> In Zwischenablage kopieren
+            <i class="bi bi-clipboard"></i> <?= t('paper.copy_clipboard') ?>
         </button>
     </div>
 
     <div class="text-muted small border-top pt-3">
-        <?= $paper['tagung_nummer'] ?>. Jahrestagung der DGaO
+        <?= $paper['tagung_nummer'] ?>. <?= t('paper.jahrestagung_der_dgao') ?>
         <?php if ($paper['ort']): ?>&middot; <?= e($paper['ort']) ?><?php endif; ?>
         &middot; <?= $year ?>
     </div>

@@ -1,36 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Mobile sidebar toggle ---
-    const sidebar   = document.getElementById('siteSidebar');
-    const backdrop  = document.getElementById('sidebarBackdrop');
-    const toggleBtn = document.getElementById('sidebarToggle');
-    const closeBtn  = document.getElementById('sidebarClose');
+    // --- Language detection ---
+    const lang = document.body.dataset.lang || 'de';
 
-    function openSidebar() {
-        if (!sidebar) return;
-        sidebar.classList.add('open');
-        if (backdrop) backdrop.classList.add('show');
-        document.body.style.overflow = 'hidden';
-        toggleBtn?.setAttribute('aria-expanded', 'true');
+    // --- Mobile navbar toggle ---
+    const toggler = document.getElementById('navbarToggler');
+    const navMenu = document.getElementById('navbarNav');
+    if (toggler && navMenu) {
+        toggler.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            const expanded = toggler.getAttribute('aria-expanded') === 'true';
+            toggler.setAttribute('aria-expanded', String(!expanded));
+        });
     }
-
-    function closeSidebar() {
-        if (!sidebar) return;
-        sidebar.classList.remove('open');
-        if (backdrop) backdrop.classList.remove('show');
-        document.body.style.overflow = '';
-        toggleBtn?.setAttribute('aria-expanded', 'false');
-    }
-
-    if (toggleBtn) toggleBtn.addEventListener('click', openSidebar);
-    if (closeBtn)  closeBtn.addEventListener('click', closeSidebar);
-    if (backdrop)  backdrop.addEventListener('click', closeSidebar);
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && sidebar?.classList.contains('open')) {
-            closeSidebar();
-        }
-    });
 
     // --- Paper sorting on conference detail page ---
     const sortButtons = document.querySelectorAll('[data-sort]');
@@ -47,9 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 items.sort((a, b) => {
                     if (sortBy === 'titel') {
-                        return (a.dataset.title || '').localeCompare(b.dataset.title || '', 'de');
+                        return (a.dataset.title || '').localeCompare(b.dataset.title || '', lang);
                     } else if (sortBy === 'autor') {
-                        return (a.dataset.author || '').localeCompare(b.dataset.author || '', 'de');
+                        return (a.dataset.author || '').localeCompare(b.dataset.author || '', lang);
                     } else {
                         return parseInt(a.dataset.sortOrder) - parseInt(b.dataset.sortOrder);
                     }
@@ -72,6 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const copyBtn = document.getElementById('bibtex-copy-btn');
     if (copyBtn) {
+        const copiedLabel = lang === 'en' ? ' Copied!' : ' Kopiert!';
+        const copyLabel = lang === 'en' ? ' Copy to Clipboard' : ' In Zwischenablage kopieren';
+
         copyBtn.addEventListener('click', () => {
             const bibtexText = document.getElementById('bibtex-output').textContent;
             navigator.clipboard.writeText(bibtexText).then(() => {
@@ -80,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 copyBtn.textContent = '';
                 copyBtn.appendChild(checkIcon);
-                copyBtn.appendChild(document.createTextNode(' Kopiert!'));
+                copyBtn.appendChild(document.createTextNode(copiedLabel));
 
                 setTimeout(() => {
                     const clipIcon = document.createElement('i');
@@ -88,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     copyBtn.textContent = '';
                     copyBtn.appendChild(clipIcon);
-                    copyBtn.appendChild(document.createTextNode(' In Zwischenablage kopieren'));
+                    copyBtn.appendChild(document.createTextNode(copyLabel));
                 }, 2000);
             });
         });

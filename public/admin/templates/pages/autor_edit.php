@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $vorname = trim($_POST['vorname'] ?? '');
     $nachname = trim($_POST['nachname'] ?? '');
+    $affiliation = trim($_POST['affiliation'] ?? '');
 
     $errors = [];
     if (empty($nachname)) $errors[] = 'Nachname erforderlich.';
@@ -33,8 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($errors)) {
         $dbw = getDbAdmin();
-        $dbw->prepare('UPDATE autoren SET vorname = ?, nachname = ? WHERE id = ?')
-            ->execute([$vorname, $nachname, $autorId]);
+        $dbw->prepare('UPDATE autoren SET vorname = ?, nachname = ?, affiliation = ? WHERE id = ?')
+            ->execute([$vorname, $nachname, $affiliation, $autorId]);
 
         setFlash('success', 'Autor aktualisiert.');
         header('Location: /admin/autoren');
@@ -72,6 +73,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="text" class="form-control" id="nachname" name="nachname"
                            value="<?= e($nachname ?? $autor['nachname']) ?>" required>
                     <div class="form-text">z.B. "Schiebelbein", "von Bally"</div>
+                </div>
+                <div class="col-md-4">
+                    <label for="affiliation" class="form-label">Affiliation</label>
+                    <input type="text" class="form-control" id="affiliation" name="affiliation"
+                           value="<?= e($affiliation ?? $autor['affiliation']) ?>">
+                    <div class="form-text">z.B. "Universität Erlangen"</div>
                 </div>
             </div>
 

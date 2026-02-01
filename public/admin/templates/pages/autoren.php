@@ -8,9 +8,9 @@ $perPage = 100;
 
 // Zählen
 if (!empty($search)) {
-    $countStmt = $db->prepare('SELECT COUNT(*) FROM autoren WHERE nachname LIKE ? OR vorname LIKE ?');
+    $countStmt = $db->prepare('SELECT COUNT(*) FROM autoren WHERE nachname LIKE ? OR vorname LIKE ? OR affiliation LIKE ?');
     $searchParam = '%' . $search . '%';
-    $countStmt->execute([$searchParam, $searchParam]);
+    $countStmt->execute([$searchParam, $searchParam, $searchParam]);
 } else {
     $countStmt = $db->query('SELECT COUNT(*) FROM autoren');
 }
@@ -20,19 +20,19 @@ $pag = paginate($total, $perPage, $currentPage);
 // Autoren laden
 if (!empty($search)) {
     $stmt = $db->prepare('
-        SELECT a.id, a.vorname, a.nachname,
+        SELECT a.id, a.vorname, a.nachname, a.affiliation,
                COUNT(pa.paper_id) as paper_count
         FROM autoren a
         LEFT JOIN paper_autoren pa ON pa.autor_id = a.id
-        WHERE a.nachname LIKE ? OR a.vorname LIKE ?
+        WHERE a.nachname LIKE ? OR a.vorname LIKE ? OR a.affiliation LIKE ?
         GROUP BY a.id
         ORDER BY a.nachname COLLATE NOCASE, a.vorname COLLATE NOCASE
         LIMIT ? OFFSET ?
     ');
-    $stmt->execute([$searchParam, $searchParam, $pag['per_page'], $pag['offset']]);
+    $stmt->execute([$searchParam, $searchParam, $searchParam, $pag['per_page'], $pag['offset']]);
 } else {
     $stmt = $db->prepare('
-        SELECT a.id, a.vorname, a.nachname,
+        SELECT a.id, a.vorname, a.nachname, a.affiliation,
                COUNT(pa.paper_id) as paper_count
         FROM autoren a
         LEFT JOIN paper_autoren pa ON pa.autor_id = a.id
@@ -74,6 +74,7 @@ $autoren = $stmt->fetchAll();
                 <tr>
                     <th>Vorname</th>
                     <th>Nachname</th>
+                    <th>Affiliation</th>
                     <th>Papers</th>
                     <th class="text-end">Aktionen</th>
                 </tr>
@@ -83,6 +84,7 @@ $autoren = $stmt->fetchAll();
                 <tr>
                     <td><?= e($a['vorname']) ?></td>
                     <td><strong><?= e($a['nachname']) ?></strong></td>
+                    <td class="text-muted small text-truncate" style="max-width: 200px;"><?= e($a['affiliation']) ?></td>
                     <td><?= $a['paper_count'] ?></td>
                     <td class="text-end text-nowrap">
                         <a href="/admin/autoren/<?= $a['id'] ?>/edit" class="btn btn-sm btn-outline-primary" title="Bearbeiten">

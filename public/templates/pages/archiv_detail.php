@@ -29,24 +29,24 @@ $stmt = $db->prepare('
 $stmt->execute([$nummer]);
 $papers = $stmt->fetchAll();
 
-$pageTitle    = $tagung['nummer'] . '. Jahrestagung (' . $tagung['jahr'] . ') - ' . SITE_NAME;
+$pageTitle    = $tagung['nummer'] . '. ' . t('archiv_detail.jahrestagung') . ' (' . $tagung['jahr'] . ') - ' . SITE_NAME;
 $canonicalUrl = canonicalUrl('/archiv/' . $tagung['nummer']);
 $metaTags = [
-    ['name' => 'description', 'content' => $tagung['nummer'] . '. Jahrestagung der DGaO'
+    ['name' => 'description', 'content' => $tagung['nummer'] . '. ' . t('archiv_detail.jahrestagung_der_dgao')
         . ($tagung['ort'] ? ', ' . $tagung['ort'] : '') . ' ' . $tagung['jahr']
-        . ' - ' . count($papers) . ' Beiträge'],
+        . ' - ' . count($papers) . ' ' . t('archiv_detail.meta_suffix')],
 ];
 ?>
 
 <nav aria-label="breadcrumb" class="mb-3">
     <ol class="breadcrumb small">
-        <li class="breadcrumb-item"><a href="/archiv">Archiv</a></li>
-        <li class="breadcrumb-item active"><?= $tagung['nummer'] ?>. Jahrestagung</li>
+        <li class="breadcrumb-item"><a href="/archiv"><?= t('archiv_detail.breadcrumb') ?></a></li>
+        <li class="breadcrumb-item active"><?= $tagung['nummer'] ?>. <?= t('archiv_detail.jahrestagung') ?></li>
     </ol>
 </nav>
 
 <div class="mb-4">
-    <h1 class="h3"><?= $tagung['nummer'] ?>. Jahrestagung</h1>
+    <h1 class="h3"><?= $tagung['nummer'] ?>. <?= t('archiv_detail.jahrestagung') ?></h1>
     <p class="text-muted">
         <?php if ($tagung['ort']): ?><?= e($tagung['ort']) ?>, <?php endif; ?>
         <?= $tagung['jahr'] ?>
@@ -54,14 +54,14 @@ $metaTags = [
             &middot; <?= formatDateLong($tagung['datum_von']) ?>
             <?php if ($tagung['datum_bis']): ?> &ndash; <?= formatDateLong($tagung['datum_bis']) ?><?php endif; ?>
         <?php endif; ?>
-        &middot; <?= count($papers) ?> Beiträge
+        &middot; <?= count($papers) ?> <?= t('archiv_detail.beitraege') ?>
     </p>
 </div>
 
 <div class="d-flex gap-2 mb-3">
-    <button type="button" class="btn btn-sm btn-outline-secondary sort-btn active" data-sort="chronologisch">Chronologisch</button>
-    <button type="button" class="btn btn-sm btn-outline-secondary sort-btn" data-sort="titel">Titel</button>
-    <button type="button" class="btn btn-sm btn-outline-secondary sort-btn" data-sort="autor">Autor</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary sort-btn active" data-sort="chronologisch"><?= t('archiv_detail.sort_chrono') ?></button>
+    <button type="button" class="btn btn-sm btn-outline-secondary sort-btn" data-sort="titel"><?= t('archiv_detail.sort_title') ?></button>
+    <button type="button" class="btn btn-sm btn-outline-secondary sort-btn" data-sort="autor"><?= t('archiv_detail.sort_author') ?></button>
 </div>
 
 

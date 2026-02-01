@@ -1,10 +1,10 @@
 <?php
-$pageTitle    = 'Autoren - ' . SITE_NAME;
+$pageTitle    = t('autoren.title') . ' - ' . SITE_NAME;
 $canonicalUrl = canonicalUrl('/autoren');
 
 $db = getDb();
 $autoren = $db->query('
-    SELECT a.id, a.vorname, a.nachname, COUNT(pa.paper_id) AS paper_count
+    SELECT a.id, a.vorname, a.nachname, a.affiliation, COUNT(pa.paper_id) AS paper_count
     FROM autoren a
     JOIN paper_autoren pa ON pa.autor_id = a.id
     GROUP BY a.id
@@ -19,8 +19,8 @@ foreach ($autoren as $a) {
 ksort($grouped, SORT_LOCALE_STRING);
 ?>
 
-<h1 class="h3 mb-4">Autoren</h1>
-<p class="text-muted mb-4"><?= count($autoren) ?> Autoren</p>
+<h1 class="h3 mb-4"><?= t('autoren.title') ?></h1>
+<p class="text-muted mb-4"><?= count($autoren) ?> <?= t('autoren.count_label') ?></p>
 
 <?php foreach ($grouped as $letter => $authors): ?>
 <div class="mb-4">
@@ -28,7 +28,7 @@ ksort($grouped, SORT_LOCALE_STRING);
     <div class="row g-1">
         <?php foreach ($authors as $a): ?>
         <div class="col-sm-6 col-lg-4">
-            <a href="/autor/<?= $a['id'] ?>" class="accent-link d-block py-1">
+            <a href="/autor/<?= $a['id'] ?>" class="accent-link d-block py-1"<?php if (!empty($a['affiliation'])): ?> title="<?= e($a['affiliation']) ?>"<?php endif; ?>>
                 <?= e(trim($a['vorname'] . ' ' . $a['nachname'])) ?>
                 <small class="text-muted">(<?= $a['paper_count'] ?>)</small>
             </a>

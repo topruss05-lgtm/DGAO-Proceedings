@@ -12,6 +12,7 @@ function matchRoute(string $uri): array
         '/'            => 'home',
         '/archiv'      => 'archiv',
         '/autoren'     => 'autoren',
+        '/statistik'   => 'statistik',
         '/suche'       => 'suche',
         '/impressum'   => 'impressum',
         '/datenschutz' => 'datenschutz',
