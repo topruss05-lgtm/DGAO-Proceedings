@@ -16,20 +16,22 @@ $oldestYear = !empty($tagungen) ? $tagungen[count($tagungen) - 1]['jahr'] : '190
 $extraHead = <<<'STYLES'
 <style>
 /* =============================================
-   Homepage-specific v4 sections
-   (Global tokens, layout, animations in custom.css)
+   Homepage — "Corporate Spectral" Hero
+   Dark prismatic hero with integrated search.
+   Floating card bridges the dark-to-light edge.
+   Global tokens from custom.css.
    ============================================= */
 
-/* --- HERO — Dark with prismatic light rays --- */
+/* --- HERO — Dark prismatic with warm undertone --- */
 .v4-hero {
     position: relative;
-    background: linear-gradient(170deg, #080b16 0%, #0d1025 40%, #111433 100%);
-    padding: 5.5rem 0 4rem;
+    background: linear-gradient(170deg, #0b0910 0%, #0e0d20 40%, #141230 100%);
+    padding: 5.5rem 0 9.5rem;
     overflow: hidden;
     text-align: center;
 }
 
-/* Dot grid texture overlay */
+/* Dot grid texture — fine white points */
 .v4-hero::before {
     content: '';
     position: absolute;
@@ -40,7 +42,7 @@ $extraHead = <<<'STYLES'
     pointer-events: none;
 }
 
-/* Prismatic light rays — 7 spectral beams */
+/* Prismatic light rays — 7 spectral beams, last ray shifted to burgundy */
 .v4-hero::after {
     content: '';
     position: absolute;
@@ -54,10 +56,10 @@ $extraHead = <<<'STYLES'
         linear-gradient(127deg, transparent 38%, rgba(5, 150, 105, 0.04) 42.5%, transparent 44.5%),
         linear-gradient(130deg, transparent 39%, rgba(202, 138, 4, 0.04) 44%, transparent 46%),
         linear-gradient(133deg, transparent 40%, rgba(234, 88, 12, 0.05) 45.5%, transparent 47.5%),
-        linear-gradient(136deg, transparent 41%, rgba(220, 38, 38, 0.06) 47%, transparent 49%);
+        linear-gradient(136deg, transparent 41%, rgba(180, 46, 66, 0.07) 47%, transparent 49%);
 }
 
-/* Ambient glow — pulsing indigo in bottom-right */
+/* Ambient glow — warm burgundy-rose pulse */
 .v4-hero-glow {
     position: absolute;
     bottom: -20%;
@@ -65,7 +67,7 @@ $extraHead = <<<'STYLES'
     width: 500px;
     height: 500px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(67, 56, 202, 0.06) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(134, 46, 66, 0.05) 0%, transparent 70%);
     pointer-events: none;
     animation: v4-heroPulseGlow 8s ease-in-out infinite;
 }
@@ -81,14 +83,21 @@ $extraHead = <<<'STYLES'
     50%      { opacity: 0.8; }
 }
 
+@keyframes v4-spectrumShimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+/* --- Hero inner content --- */
 .v4-hero-inner {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 780px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
+/* Eyebrow — desaturated rose for contrast on dark */
 .v4-hero-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -98,8 +107,8 @@ $extraHead = <<<'STYLES'
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--accent-light);
-    margin-bottom: 1.25rem;
+    color: #c4828f;
+    margin-bottom: 1.5rem;
 }
 
 .v4-hero-eyebrow::before,
@@ -108,70 +117,84 @@ $extraHead = <<<'STYLES'
     display: inline-block;
     width: 28px;
     height: 2px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     flex-shrink: 0;
     border-radius: 1px;
 }
 
+/* Title — warm white */
 .v4-hero h1 {
     font-family: var(--font-display);
     font-size: 3.6rem;
     font-weight: 800;
-    color: #ffffff;
+    color: #f5f4f0;
     letter-spacing: -0.04em;
     line-height: 1.05;
-    margin: 0 0 0.5rem;
+    margin: 0 0 1rem;
 }
 
-.v4-hero-issn {
-    font-family: var(--font-display);
-    font-size: 0.74rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.45);
-    letter-spacing: 0.08em;
-    margin-bottom: 0.9rem;
-}
-
+/* Tagline — readable on dark, weight 400 */
 .v4-hero-tagline {
     font-family: var(--font-body);
     font-size: 1.08rem;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.55);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
     line-height: 1.65;
     max-width: 480px;
-    margin: 0 auto 2.25rem;
+    margin: 0 auto 2.75rem;
 }
 
+/* Spectrum bar — burgundy-anchored with slow shimmer */
 .v4-hero-bar {
     display: block;
     height: 3px;
-    max-width: 80px;
+    max-width: 110px;
     margin: 0 auto;
     border: none;
     border-radius: 2px;
-    background: var(--accent-light);
+    background: linear-gradient(90deg,
+        #862e42 0%, #7c3aed 15%, #2563eb 30%,
+        #0891b2 45%, #059669 55%, #ca8a04 70%,
+        #ea580c 85%, #862e42 100%
+    );
+    background-size: 200% 100%;
+    animation: v4-spectrumShimmer 11s linear infinite;
 }
 
-/* --- SEARCH --- */
-.v4-search {
-    background: var(--paper);
-    padding: 3rem 0 2.5rem;
-    border-bottom: 1px solid var(--border-light);
-}
-
-.v4-search-inner {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 0 2rem;
+/* --- SEARCH CARD — floating white, sole bridge between dark hero and light content --- */
+.v4-search-card {
+    position: relative;
+    z-index: 3;
+    background: #ffffff;
+    border-radius: 14px;
+    border-top: 3px solid var(--accent);
+    padding: 2rem 2rem 1.5rem;
+    max-width: 600px;
+    margin: 2.5rem auto -3.5rem;
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.10),
+        0 8px 24px rgba(0, 0, 0, 0.10),
+        0 24px 56px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.06);
     text-align: center;
+    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.v4-search-card:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        0 12px 32px rgba(0, 0, 0, 0.10),
+        0 32px 64px rgba(0, 0, 0, 0.07),
+        0 0 40px rgba(134, 46, 66, 0.04);
 }
 
 .v4-search-heading {
     font-family: var(--font-display);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 1.35rem;
+    margin-bottom: 1.15rem;
     letter-spacing: -0.01em;
 }
 
@@ -246,18 +269,19 @@ $extraHead = <<<'STYLES'
 
 .v4-search-meta {
     font-family: var(--font-body);
-    font-size: 0.84rem;
+    font-size: 0.82rem;
     color: var(--text-muted);
-    margin-top: 1rem;
+    margin-top: 0.9rem;
     line-height: 1.55;
 }
 
 .v4-search-meta strong { color: var(--text-mid); font-weight: 600; }
 
-/* --- STATS --- */
+/* --- STATS — with afterglow from hero --- */
 .v4-stats {
-    background: var(--white);
-    padding: 2.75rem 0;
+    background-color: var(--white);
+    background-image: radial-gradient(ellipse at center top, rgba(134, 46, 66, 0.03) 0%, transparent 50%);
+    padding: 4.75rem 0 2.75rem;
     border-bottom: 1px solid var(--border-light);
 }
 
@@ -632,10 +656,17 @@ $extraHead = <<<'STYLES'
 
 /* --- RESPONSIVE — TABLET --- */
 @media (max-width: 767.98px) {
-    .v4-hero { padding: 4rem 0 3rem; }
+    .v4-hero { padding: 4.5rem 0 8rem; }
     .v4-hero h1 { font-size: 2.4rem; }
     .v4-hero-tagline { font-size: 0.98rem; }
+    .v4-hero-bar { max-width: 90px; }
 
+    .v4-search-card {
+        padding: 1.5rem 1.5rem 1.25rem;
+        margin: 2rem auto -2.5rem;
+        max-width: 520px;
+    }
+    .v4-search-heading { font-size: 1rem; }
     .v4-search-wrap { flex-direction: column; border-radius: 10px; }
     .v4-search-input { width: 100%; padding: 0.9rem 1rem 0.9rem 3rem; }
     .v4-search-btn {
@@ -645,6 +676,7 @@ $extraHead = <<<'STYLES'
     }
     .v4-search-icon { top: 1.05rem; transform: none; }
 
+    .v4-stats { padding-top: 3.75rem; }
     .v4-stats-inner { gap: 2.25rem; flex-wrap: wrap; }
     .v4-stat-number { font-size: 2rem; }
     .v4-stat-divider { display: none; }
@@ -656,11 +688,22 @@ $extraHead = <<<'STYLES'
 
 /* --- RESPONSIVE — MOBILE --- */
 @media (max-width: 575.98px) {
-    .v4-hero { padding: 3rem 0 2.25rem; }
-    .v4-hero h1 { font-size: 1.95rem; }
-    .v4-hero-eyebrow { font-size: 0.62rem; }
+    .v4-hero { padding: 3rem 0 7rem; }
+    .v4-hero h1 { font-size: 1.95rem; margin-bottom: 0.75rem; }
+    .v4-hero-eyebrow { font-size: 0.62rem; margin-bottom: 1.15rem; }
+    .v4-hero-tagline { font-size: 0.96rem; margin-bottom: 2rem; }
+    .v4-hero-bar { max-width: 80px; }
 
-    .v4-hero-inner, .v4-search-inner, .v4-section-inner { padding: 0 1.25rem; }
+    .v4-search-card {
+        padding: 1.25rem 1.15rem 1rem;
+        max-width: calc(100% - 2.5rem);
+        margin: 1.75rem auto -2.5rem;
+        border-radius: 12px;
+    }
+    .v4-search-heading { font-size: 0.92rem; margin-bottom: 0.9rem; }
+
+    .v4-hero-inner, .v4-section-inner { padding: 0 1.25rem; }
+    .v4-stats { padding-top: 3.5rem; }
     .v4-stats-inner { padding: 0 1.25rem; gap: 1.75rem; }
     .v4-stat-number { font-size: 1.75rem; }
     .v4-stat-bar { width: 28px; margin-bottom: 0.6rem; }
@@ -673,7 +716,7 @@ $extraHead = <<<'STYLES'
 STYLES;
 ?>
 
-<!-- 1. HERO -->
+<!-- 1. HERO with integrated search -->
 <section class="v4-hero">
     <div class="v4-hero-glow" aria-hidden="true"></div>
     <div class="v4-hero-inner">
@@ -681,37 +724,34 @@ STYLES;
         <h1 class="v4-anim v4-d2">DGaO-Proceedings</h1>
         <p class="v4-hero-tagline v4-anim v4-d3"><?= t('home.tagline') ?></p>
         <hr class="v4-hero-bar v4-anim v4-d4">
+
+        <div class="v4-search-card v4-anim v4-d5">
+            <div class="v4-search-heading"><?= t('home.landing.search_papers') ?></div>
+            <form action="/suche" method="get" class="v4-search-form">
+                <div class="v4-search-wrap">
+                    <i class="bi bi-search v4-search-icon"></i>
+                    <input type="search" name="q" class="v4-search-input form-control"
+                           placeholder="<?= t('home.search_placeholder') ?>"
+                           aria-label="<?= t('nav.suche') ?>"
+                           autocomplete="off">
+                    <button type="submit" class="v4-search-btn">
+                        <?= t('home.search_btn') ?>
+                    </button>
+                </div>
+            </form>
+            <p class="v4-search-meta">
+                <?= sprintf(
+                    t('home.landing.search_across'),
+                    '<strong>' . $nf($stats['papers']) . '</strong>',
+                    '<strong>' . $nf($stats['autoren']) . '</strong>',
+                    '<strong>' . $stats['tagungen'] . '</strong>'
+                ) ?>
+            </p>
+        </div>
     </div>
 </section>
 
-<!-- 2. SEARCH -->
-<section class="v4-search">
-    <div class="v4-search-inner">
-        <div class="v4-search-heading v4-anim v4-d3"><?= t('home.landing.search_papers') ?></div>
-        <form action="/suche" method="get" class="v4-search-form v4-anim v4-d4">
-            <div class="v4-search-wrap">
-                <i class="bi bi-search v4-search-icon"></i>
-                <input type="search" name="q" class="v4-search-input form-control"
-                       placeholder="<?= t('home.search_placeholder') ?>"
-                       aria-label="<?= t('nav.suche') ?>"
-                       autocomplete="off">
-                <button type="submit" class="v4-search-btn">
-                    <?= t('home.search_btn') ?>
-                </button>
-            </div>
-        </form>
-        <p class="v4-search-meta v4-anim v4-d5">
-            <?= sprintf(
-                t('home.landing.search_across'),
-                '<strong>' . $nf($stats['papers']) . '</strong>',
-                '<strong>' . $nf($stats['autoren']) . '</strong>',
-                '<strong>' . $stats['tagungen'] . '</strong>'
-            ) ?>
-        </p>
-    </div>
-</section>
-
-<!-- 3. STATS -->
+<!-- 2. STATS -->
 <section class="v4-stats">
     <div class="v4-stats-inner v4-reveal">
         <div class="v4-stat">
@@ -734,7 +774,7 @@ STYLES;
     </div>
 </section>
 
-<!-- 4. CURRENT CONFERENCES -->
+<!-- 3. CURRENT CONFERENCES -->
 <section class="v4-conferences">
     <div class="v4-section-inner">
         <h2 class="v4-section-title v4-reveal"><?= t('home.section_current') ?></h2>
@@ -776,7 +816,7 @@ STYLES;
     </div>
 </section>
 
-<!-- 5. ARCHIVE -->
+<!-- 4. ARCHIVE -->
 <section class="v4-archive">
     <div class="v4-section-inner">
         <h2 class="v4-section-title v4-reveal"><?= t('home.section_archive') ?></h2>
@@ -805,7 +845,7 @@ STYLES;
     </div>
 </section>
 
-<!-- 6. QUICK LINKS + TRUST -->
+<!-- 5. QUICK LINKS + TRUST -->
 <section class="v4-features">
     <div class="v4-section-inner">
         <div class="v4-ql-grid">
