@@ -45,6 +45,20 @@ return [
     'home.tagung_suffix'       => 'Tagung',
     'home.show_all'            => 'Alle Tagungen anzeigen &rarr;',
 
+    // -- Landing page variants --
+    'home.landing.browse_archive'      => 'Archiv durchsuchen',
+    'home.landing.browse_archive_desc' => 'Entdecken Sie alle ver&ouml;ffentlichten Tagungsb&auml;nde seit den Anf&auml;ngen der DGaO.',
+    'home.landing.search_papers'       => 'Beitr&auml;ge suchen',
+    'home.landing.search_papers_desc'  => 'Volltextsuche &uuml;ber Titel, Autoren und Abstracts aller Beitr&auml;ge.',
+    'home.landing.explore_authors'     => 'Autoren entdecken',
+    'home.landing.explore_authors_desc'=> 'Alle Autoren &ndash; alphabetisch sortiert mit Publikationsliste.',
+    'home.landing.search_across'       => 'Durchsuchen Sie %s Beitr&auml;ge von %s Autoren aus %s Tagungen',
+    'home.landing.open_access'         => 'Freier Zugang',
+    'home.landing.open_access_desc'    => 'Alle Beitr&auml;ge sind frei zug&auml;nglich &ndash; ohne Anmeldung oder Geb&uuml;hren.',
+    'home.landing.peer_community'      => 'Wissenschaftliche Gemeinschaft',
+    'home.landing.peer_community_desc' => 'Aktive Teilnehmer der DGaO-Jahrestagungen ver&ouml;ffentlichen hier ihre Forschungsergebnisse.',
+    'home.landing.since_year'          => 'Proceedings seit',
+
     // -- Archive page --
     'archiv.title'         => 'Archiv',
     'archiv.jahrestagung'  => 'Jahrestagung',

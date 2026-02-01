@@ -45,6 +45,20 @@ return [
     'home.tagung_suffix'       => 'Conference',
     'home.show_all'            => 'Show all conferences &rarr;',
 
+    // -- Landing page variants --
+    'home.landing.browse_archive'      => 'Browse Archive',
+    'home.landing.browse_archive_desc' => 'Explore all published proceedings since the early days of the DGaO.',
+    'home.landing.search_papers'       => 'Search Papers',
+    'home.landing.search_papers_desc'  => 'Full-text search across titles, authors, and abstracts of all papers.',
+    'home.landing.explore_authors'     => 'Explore Authors',
+    'home.landing.explore_authors_desc'=> 'All authors &ndash; sorted alphabetically with publication lists.',
+    'home.landing.search_across'       => 'Search %s papers by %s authors from %s conferences',
+    'home.landing.open_access'         => 'Open Access',
+    'home.landing.open_access_desc'    => 'All papers are freely accessible &ndash; no registration or fees required.',
+    'home.landing.peer_community'      => 'Scientific Community',
+    'home.landing.peer_community_desc' => 'Active participants of DGaO annual conferences publish their research results here.',
+    'home.landing.since_year'          => 'Proceedings since',
+
     // -- Archive page --
     'archiv.title'         => 'Archive',
     'archiv.jahrestagung'  => 'Annual Conference',

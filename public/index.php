@@ -131,6 +131,9 @@ try {
         require __DIR__ . '/templates/pages/404.php';
     } else {
         $templateFile = __DIR__ . '/templates/pages/' . $page . '.php';
+        if ($page === 'home' && isset($_GET['landing']) && in_array($_GET['landing'], ['1','2','3','4'], true)) {
+            $templateFile = __DIR__ . '/templates/pages/home_v' . $_GET['landing'] . '.php';
+        }
         if (file_exists($templateFile)) {
             require $templateFile;
         } else {
