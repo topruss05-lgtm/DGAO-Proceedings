@@ -20,50 +20,65 @@ $extraHead = <<<'STYLES'
    (Global tokens, layout, animations in custom.css)
    ============================================= */
 
-/* --- HERO — White with prismatic light --- */
+/* --- HERO — Dark with prismatic light rays --- */
 .v4-hero {
     position: relative;
-    background: var(--white);
-    padding: 5rem 0 3.5rem;
+    background: linear-gradient(170deg, #080b16 0%, #0d1025 40%, #111433 100%);
+    padding: 5.5rem 0 4rem;
     overflow: hidden;
     text-align: center;
 }
 
+/* Dot grid texture overlay */
 .v4-hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    opacity: 0.022;
-    background-image: radial-gradient(circle, var(--text) 0.7px, transparent 0.7px);
-    background-size: 22px 22px;
+    opacity: 0.035;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px);
+    background-size: 24px 24px;
     pointer-events: none;
 }
 
+/* Prismatic light rays — 7 spectral beams */
 .v4-hero::after {
     content: '';
     position: absolute;
-    inset: -20% -10% -20% -10%;
+    inset: 0;
     pointer-events: none;
-    animation: v4-rayDrift 25s ease-in-out infinite;
+    animation: v4-heroRayDrift 20s ease-in-out infinite;
     background:
-        linear-gradient(116deg, transparent 28%, rgba(124, 58, 237, 0.045) 31%, transparent 33.5%),
-        linear-gradient(119deg, transparent 29%, rgba(37, 99, 235, 0.04) 32.5%, transparent 35%),
-        linear-gradient(122deg, transparent 30%, rgba(8, 145, 178, 0.035) 34%, transparent 36.5%),
-        linear-gradient(125deg, transparent 31%, rgba(5, 150, 105, 0.03) 35.5%, transparent 38%),
-        linear-gradient(128deg, transparent 32%, rgba(202, 138, 4, 0.03) 37%, transparent 39.5%),
-        linear-gradient(131deg, transparent 33%, rgba(234, 88, 12, 0.035) 38.5%, transparent 41%),
-        linear-gradient(134deg, transparent 34%, rgba(220, 38, 38, 0.04) 40%, transparent 42.5%);
+        linear-gradient(118deg, transparent 35%, rgba(124, 58, 237, 0.07) 38%, transparent 40%),
+        linear-gradient(121deg, transparent 36%, rgba(37, 99, 235, 0.06) 39.5%, transparent 41.5%),
+        linear-gradient(124deg, transparent 37%, rgba(8, 145, 178, 0.055) 41%, transparent 43%),
+        linear-gradient(127deg, transparent 38%, rgba(5, 150, 105, 0.04) 42.5%, transparent 44.5%),
+        linear-gradient(130deg, transparent 39%, rgba(202, 138, 4, 0.04) 44%, transparent 46%),
+        linear-gradient(133deg, transparent 40%, rgba(234, 88, 12, 0.05) 45.5%, transparent 47.5%),
+        linear-gradient(136deg, transparent 41%, rgba(220, 38, 38, 0.06) 47%, transparent 49%);
 }
 
+/* Ambient glow — pulsing indigo in bottom-right */
 .v4-hero-glow {
     position: absolute;
-    bottom: -30%;
+    bottom: -20%;
     right: -10%;
-    width: 550px;
-    height: 550px;
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(134,46,66,0.025) 0%, rgba(134,46,66,0.012) 35%, transparent 65%);
+    background: radial-gradient(circle, rgba(67, 56, 202, 0.06) 0%, transparent 70%);
     pointer-events: none;
+    animation: v4-heroPulseGlow 8s ease-in-out infinite;
+}
+
+@keyframes v4-heroRayDrift {
+    0%   { transform: translateX(-5%) rotate(0deg); }
+    50%  { transform: translateX(5%) rotate(0.5deg); }
+    100% { transform: translateX(-5%) rotate(0deg); }
+}
+
+@keyframes v4-heroPulseGlow {
+    0%, 100% { opacity: 0.4; }
+    50%      { opacity: 0.8; }
 }
 
 .v4-hero-inner {
@@ -83,7 +98,7 @@ $extraHead = <<<'STYLES'
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-light);
     margin-bottom: 1.25rem;
 }
 
@@ -93,7 +108,7 @@ $extraHead = <<<'STYLES'
     display: inline-block;
     width: 28px;
     height: 2px;
-    background: var(--accent);
+    background: rgba(255, 255, 255, 0.2);
     flex-shrink: 0;
     border-radius: 1px;
 }
@@ -102,7 +117,7 @@ $extraHead = <<<'STYLES'
     font-family: var(--font-display);
     font-size: 3.6rem;
     font-weight: 800;
-    color: var(--text);
+    color: #ffffff;
     letter-spacing: -0.04em;
     line-height: 1.05;
     margin: 0 0 0.5rem;
@@ -112,7 +127,7 @@ $extraHead = <<<'STYLES'
     font-family: var(--font-display);
     font-size: 0.74rem;
     font-weight: 500;
-    color: var(--text-light);
+    color: rgba(255, 255, 255, 0.45);
     letter-spacing: 0.08em;
     margin-bottom: 0.9rem;
 }
@@ -120,8 +135,8 @@ $extraHead = <<<'STYLES'
 .v4-hero-tagline {
     font-family: var(--font-body);
     font-size: 1.08rem;
-    font-weight: 400;
-    color: var(--text-muted);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.55);
     line-height: 1.65;
     max-width: 480px;
     margin: 0 auto 2.25rem;
@@ -134,14 +149,13 @@ $extraHead = <<<'STYLES'
     margin: 0 auto;
     border: none;
     border-radius: 2px;
-    background: var(--accent);
+    background: var(--accent-light);
 }
 
 /* --- SEARCH --- */
 .v4-search {
     background: var(--paper);
     padding: 3rem 0 2.5rem;
-    border-top: 1px solid var(--border-light);
     border-bottom: 1px solid var(--border-light);
 }
 
@@ -618,7 +632,7 @@ $extraHead = <<<'STYLES'
 
 /* --- RESPONSIVE — TABLET --- */
 @media (max-width: 767.98px) {
-    .v4-hero { padding: 3.5rem 0 2.5rem; }
+    .v4-hero { padding: 4rem 0 3rem; }
     .v4-hero h1 { font-size: 2.4rem; }
     .v4-hero-tagline { font-size: 0.98rem; }
 
@@ -642,7 +656,7 @@ $extraHead = <<<'STYLES'
 
 /* --- RESPONSIVE — MOBILE --- */
 @media (max-width: 575.98px) {
-    .v4-hero { padding: 2.5rem 0 2rem; }
+    .v4-hero { padding: 3rem 0 2.25rem; }
     .v4-hero h1 { font-size: 1.95rem; }
     .v4-hero-eyebrow { font-size: 0.62rem; }
 
