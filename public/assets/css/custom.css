@@ -146,23 +146,7 @@ h1, h2, h3, h4, h5, h6,
 
 
 /* ============================
-   SITE HEADER
-   ============================ */
-
-.site-header {
-    background: var(--white);
-    border-bottom: none;
-    box-shadow: none;
-}
-
-.site-header .header-logo-img {
-    height: 64px;
-    width: auto;
-}
-
-
-/* ============================
-   NAVIGATION
+   NAVIGATION (merged header + nav)
    ============================ */
 
 .site-nav {
@@ -170,6 +154,25 @@ h1, h2, h3, h4, h5, h6,
     border-top: 3px solid var(--accent);
     border-bottom: 1px solid var(--border);
     border-image: none;
+}
+
+.site-nav-logo {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-right: 1.5rem;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.site-nav-logo:hover {
+    text-decoration: none;
+}
+
+.header-logo-img {
+    height: 42px;
+    width: auto;
+    display: block;
 }
 
 .site-nav .nav-link {
@@ -542,12 +545,13 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .badge-count {
-    background: var(--paper);
-    color: var(--text-muted);
-    border: 1px solid var(--border);
+    background: var(--accent-pale);
+    color: var(--accent);
+    border: 1px solid transparent;
     font-family: var(--font-display);
     font-weight: 600;
     font-size: var(--text-xs);
+    transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
 }
 
 .badge-count-new {
@@ -563,26 +567,101 @@ h1, h2, h3, h4, h5, h6,
    ARCHIVE LIST
    ============================ */
 
-.archive-item {
-    border: 1px solid var(--border-light);
+.v4-archive-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.v4-archive-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
     border-left: 3px solid transparent;
-    background: var(--white);
-    transition: border-left-color 0.22s var(--ease),
-                box-shadow 0.22s var(--ease),
-                background-color 0.22s var(--ease),
-                padding-left 0.22s var(--ease);
+    border-bottom: 1px solid var(--border-light);
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.22s var(--ease);
 }
 
-.archive-item:hover {
-    border-left-color: var(--accent);
+.v4-archive-item:first-child {
+    border-top: 1px solid var(--border-light);
+}
+
+.v4-archive-item:hover {
     background: var(--accent-pale);
-    box-shadow: var(--shadow-sm);
-    padding-left: 1.15rem;
+    border-left-color: var(--accent);
+    padding-left: 1.35rem;
+    text-decoration: none;
+    color: var(--text);
 }
 
-.archive-item strong {
+.v4-archive-year {
+    font-family: var(--font-display);
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--text);
+    min-width: 48px;
+    flex-shrink: 0;
+}
+
+.v4-archive-loc {
+    font-family: var(--font-body);
+    font-size: 0.86rem;
+    color: var(--text-muted);
+    flex: 1;
+    margin-left: 0.85rem;
+}
+
+.v4-archive-loc strong {
     font-family: var(--font-display);
     font-weight: 600;
+    color: var(--text);
+}
+
+.v4-archive-nr {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    color: var(--text-light);
+    margin-left: 0.5rem;
+}
+
+.v4-archive-badge {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-pale);
+    border-radius: 20px;
+    padding: 0.15rem 0.6rem;
+    flex-shrink: 0;
+    margin-left: 1rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.v4-archive-item:hover .v4-archive-badge {
+    background: var(--accent);
+    color: var(--white);
+}
+
+.v4-archive-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: var(--font-display);
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    margin-top: 1.15rem;
+    transition: color 0.2s, gap 0.25s;
+}
+
+.v4-archive-more:hover {
+    color: var(--accent-light);
+    gap: 0.55rem;
+    text-decoration: none;
 }
 
 
@@ -1168,12 +1247,20 @@ a.accent-link:hover {
         border-left-width: 3px;
     }
 
-    .site-header .header-logo-img {
-        height: 56px;
+    .header-logo-img {
+        height: 34px;
     }
 
     .paper-card {
         padding: 1rem 1.15rem;
+    }
+
+    .v4-archive-item {
+        padding: 0.7rem 0.75rem;
+    }
+
+    .v4-archive-loc {
+        font-size: 0.8rem;
     }
 
     .search-form-integrated {

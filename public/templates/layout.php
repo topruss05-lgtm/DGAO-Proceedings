@@ -31,17 +31,12 @@
 </head>
 <body class="d-flex flex-column min-vh-100" data-lang="<?= currentLang() ?>">
 
-    <header class="site-header">
-        <div class="container container-narrow py-3">
-            <a href="/">
+    <nav class="navbar navbar-expand-sm site-nav p-0">
+        <div class="container container-narrow">
+            <a href="/" class="navbar-brand site-nav-logo">
                 <img src="/assets/images/logo-dgao-proceedings.gif"
                      alt="DGaO-Proceedings" class="header-logo-img">
             </a>
-        </div>
-    </header>
-
-    <nav class="navbar navbar-expand-sm site-nav p-0">
-        <div class="container container-narrow">
             <button class="navbar-toggler py-2" type="button" id="navbarToggler"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="<?= t('nav.aria_label') ?>">
                 <span class="navbar-toggler-icon"></span>

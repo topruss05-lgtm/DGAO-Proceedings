@@ -144,6 +144,22 @@ $extraHead = <<<'STYLES'
     margin: 0 auto 2.75rem;
 }
 
+/* Tagline link — editorial underline on dark glass */
+.v4-hero-tagline-link {
+    color: rgba(255, 255, 255, 0.72);
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.18);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: color 0.3s var(--ease),
+                text-decoration-color 0.3s var(--ease);
+}
+
+.v4-hero-tagline-link:hover {
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration-color: rgba(255, 255, 255, 0.45);
+}
+
 /* Spectrum bar — burgundy-anchored with slow shimmer */
 .v4-hero-bar {
     display: block;
@@ -440,108 +456,59 @@ $extraHead = <<<'STYLES'
 
 .v4-conf-alert {
     font-family: var(--font-body);
-    font-size: 0.78rem;
-    color: var(--text-mid);
-    background: var(--accent-pale);
-    border: 1px solid rgba(134,46,66,0.1);
-    border-radius: 6px;
-    padding: 0.6rem 1rem;
-    margin-top: 0.75rem;
-    line-height: 1.5;
+    font-size: 0.88rem;
+    color: var(--text);
+    background: rgba(134, 46, 66, 0.05);
+    border: none;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 1.05rem 1.35rem;
+    margin-top: 0.85rem;
+    line-height: 1.65;
+    position: relative;
+    box-shadow:
+        0 1px 4px rgba(134, 46, 66, 0.045),
+        inset 0 1px 0 rgba(134, 46, 66, 0.06);
+    transition: background 0.25s var(--ease),
+                box-shadow 0.25s var(--ease);
 }
 
-.v4-conf-alert strong { color: var(--accent); font-weight: 600; }
+.v4-conf-alert:hover {
+    background: rgba(134, 46, 66, 0.075);
+    box-shadow:
+        0 2px 8px rgba(134, 46, 66, 0.06),
+        inset 0 1px 0 rgba(134, 46, 66, 0.08);
+}
 
-/* --- ARCHIVE --- */
+.v4-conf-alert::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -4px;
+    right: 0;
+    height: 2.5px;
+    background: linear-gradient(90deg, var(--accent) 0%, rgba(134, 46, 66, 0.12) 100%);
+    border-radius: 0 8px 0 0;
+}
+
+.v4-conf-alert strong {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.92rem;
+    letter-spacing: -0.005em;
+    background: rgba(134, 46, 66, 0.06);
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    margin-right: 0.15rem;
+}
+
+/* --- ARCHIVE (section wrapper — homepage only) --- */
 .v4-archive {
     background: var(--white);
     padding: 3.25rem 0 3.5rem;
     border-bottom: 1px solid var(--border-light);
 }
-
-.v4-archive-list { list-style: none; margin: 0; padding: 0; }
-
-.v4-archive-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.8rem 1rem;
-    border-left: 3px solid transparent;
-    border-bottom: 1px solid var(--border-light);
-    text-decoration: none;
-    color: var(--text);
-    transition: all 0.22s var(--ease);
-}
-
-.v4-archive-item:first-child { border-top: 1px solid var(--border-light); }
-
-.v4-archive-item:hover {
-    background: var(--accent-pale);
-    border-left-color: var(--accent);
-    padding-left: 1.35rem;
-    text-decoration: none;
-    color: var(--text);
-}
-
-.v4-archive-year {
-    font-family: var(--font-display);
-    font-size: 1.02rem;
-    font-weight: 700;
-    color: var(--text);
-    min-width: 48px;
-}
-
-.v4-archive-loc {
-    font-family: var(--font-body);
-    font-size: 0.86rem;
-    color: var(--text-muted);
-    flex: 1;
-    margin-left: 0.85rem;
-}
-
-.v4-archive-nr {
-    font-family: var(--font-display);
-    font-size: 0.72rem;
-    color: var(--text-light);
-    margin-left: 0.5rem;
-}
-
-.v4-archive-badge {
-    font-family: var(--font-display);
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--accent);
-    background: var(--accent-pale);
-    border-radius: 20px;
-    padding: 0.15rem 0.6rem;
-    flex-shrink: 0;
-    margin-left: 1rem;
-    transition: background 0.2s, color 0.2s;
-}
-
-.v4-archive-item:hover .v4-archive-badge {
-    background: var(--accent);
-    color: var(--white);
-}
-
-.v4-archive-more {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    font-family: var(--font-display);
-    font-size: 0.86rem;
-    font-weight: 600;
-    color: var(--accent);
-    text-decoration: none;
-    margin-top: 1.15rem;
-    transition: color 0.2s, gap 0.25s;
-}
-
-.v4-archive-more:hover {
-    color: var(--accent-light);
-    gap: 0.55rem;
-    text-decoration: none;
-}
+/* v4-archive-item styles are in custom.css */
 
 /* --- QUICK LINKS + TRUST --- */
 .v4-features {
@@ -707,8 +674,6 @@ $extraHead = <<<'STYLES'
     .v4-stats-inner { padding: 0 1.25rem; gap: 1.75rem; }
     .v4-stat-number { font-size: 1.75rem; }
     .v4-stat-bar { width: 28px; margin-bottom: 0.6rem; }
-    .v4-archive-item { padding: 0.7rem 0.75rem; }
-    .v4-archive-loc { font-size: 0.8rem; }
     .v4-conf-body { padding: 1rem 1.15rem 1.25rem; }
     .v4-ql-card { padding: 1.5rem 1.25rem; }
 }

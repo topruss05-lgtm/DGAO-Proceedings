@@ -7,24 +7,24 @@ $tagungen = getAllTagungen();
 
 <h1 class="h3 mb-4"><?= t('archiv.title') ?></h1>
 
-<div class="list-group list-group-flush">
+<ul class="v4-archive-list">
     <?php foreach ($tagungen as $tg): ?>
-    <a href="/archiv/<?= $tg['nummer'] ?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center archive-item">
-        <div>
-            <strong><?= $tg['nummer'] ?>. <?= t('archiv.jahrestagung') ?></strong>
-            <span class="text-muted ms-2">
+    <li>
+        <a href="/archiv/<?= $tg['nummer'] ?>" class="v4-archive-item">
+            <span class="v4-archive-year"><?= $tg['jahr'] ?></span>
+            <span class="v4-archive-loc">
+                <strong><?= $tg['nummer'] ?>. <?= t('archiv.jahrestagung') ?></strong>
                 <?php if ($tg['ort']): ?>
-                    <?= e($tg['ort']) ?>,
+                    &mdash; <?= e($tg['ort']) ?>
                 <?php endif; ?>
-                <?= $tg['jahr'] ?>
+                <?php if ($tg['datum_von']): ?>
+                    <span class="v4-archive-nr d-none d-sm-inline">
+                        (<?= formatDate($tg['datum_von']) ?><?php if ($tg['datum_bis']): ?> &ndash; <?= formatDate($tg['datum_bis']) ?><?php endif; ?>)
+                    </span>
+                <?php endif; ?>
             </span>
-            <?php if ($tg['datum_von']): ?>
-                <small class="text-muted d-none d-sm-inline ms-2">
-                    (<?= formatDate($tg['datum_von']) ?><?php if ($tg['datum_bis']): ?> &ndash; <?= formatDate($tg['datum_bis']) ?><?php endif; ?>)
-                </small>
-            <?php endif; ?>
-        </div>
-        <span class="badge badge-count rounded-pill"><?= $tg['paper_anzahl'] ?></span>
-    </a>
+            <span class="v4-archive-badge"><?= $tg['paper_anzahl'] ?></span>
+        </a>
+    </li>
     <?php endforeach; ?>
-</div>
+</ul>

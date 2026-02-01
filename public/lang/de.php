@@ -23,7 +23,7 @@ return [
     'type.vortrag'       => 'Vortrag',
 
     // -- Home page --
-    'home.tagline'             => 'Die Online-Zeitschrift der Deutschen Gesellschaft f&uuml;r angewandte Optik e.V.',
+    'home.tagline'             => 'Die Online-Zeitschrift der <a href="https://www.dgao.de/" target="_blank" rel="noopener" class="v4-hero-tagline-link">Deutschen Gesellschaft f&uuml;r angewandte Optik e.V.</a>',
     'home.stat.papers'         => 'Beitr&auml;ge',
     'home.stat.conferences'    => 'Tagungen',
     'home.stat.authors'        => 'Autoren',

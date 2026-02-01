@@ -23,7 +23,7 @@ return [
     'type.vortrag'       => 'Talk',
 
     // -- Home page --
-    'home.tagline'             => 'The Online Journal of the German Society for Applied Optics',
+    'home.tagline'             => 'The Online Journal of the <a href="https://www.dgao.de/" target="_blank" rel="noopener" class="v4-hero-tagline-link">German Society for Applied Optics</a>',
     'home.stat.papers'         => 'Papers',
     'home.stat.conferences'    => 'Conferences',
     'home.stat.authors'        => 'Authors',
