@@ -22,10 +22,18 @@ $extraHead = <<<'STYLES'
    - DGaO touch: optical spectrum + diffraction wavefronts
    ============================================= */
 
-/* --- HERO container — full-bleed, 1280px inner --- */
+/* --- HERO container — full-bleed, 1280px inner.
+   Background carries a soft dispersive atmosphere (DGaO-Optik anchor)
+   that survives even when the right-side visual block is hidden on mobile. --- */
 .hero {
     position: relative;
-    background: var(--accent-dark);
+    background:
+        linear-gradient(132deg, transparent 55%, rgba(124, 58, 237, 0.07) 70%, transparent 88%),
+        linear-gradient(138deg, transparent 60%, rgba(8, 145, 178, 0.06) 75%, transparent 92%),
+        linear-gradient(144deg, transparent 65%, rgba(202, 138, 4, 0.06) 80%, transparent 96%),
+        linear-gradient(150deg, transparent 70%, rgba(234, 88, 12, 0.07) 85%, transparent 100%),
+        linear-gradient(156deg, transparent 75%, rgba(180, 46, 66, 0.12) 90%, transparent 100%),
+        var(--accent-dark);
     color: #fff;
     overflow: hidden;
     isolation: isolate;
@@ -40,12 +48,15 @@ $extraHead = <<<'STYLES'
     align-items: stretch;
 }
 
+.hero__inner > * { min-width: 0; }
+
 /* --- LEFT: editorial content --- */
 .hero__content {
     position: relative;
     z-index: 2;
     padding: 4rem 3rem 3.25rem 1.5rem;
     max-width: 640px;
+    min-width: 0;
 }
 
 /* Eyebrow with leading rule */
@@ -113,11 +124,12 @@ $extraHead = <<<'STYLES'
     margin-bottom: 0.55rem;
 }
 
-.hero__search-form { margin: 0; }
+.hero__search-form { margin: 0; width: 100%; max-width: 520px; }
 
 .hero__search {
     display: flex;
     align-items: stretch;
+    width: 100%;
     background: #fff;
     border-radius: 6px;
     overflow: hidden;
@@ -125,7 +137,7 @@ $extraHead = <<<'STYLES'
 }
 
 .hero__search-input {
-    flex: 1;
+    flex: 1 1 0;
     min-width: 0;
     border: 1px solid #1a1d2e;
     border-right: none;
@@ -166,28 +178,10 @@ $extraHead = <<<'STYLES'
 .hero__search-btn:hover { background: var(--accent-light); border-color: var(--accent-light); }
 .hero__search-btn:focus-visible { outline: 3px solid #66a3c7; outline-offset: 2px; }
 
-.hero__search-advanced {
-    display: inline-block;
-    margin-top: 0.85rem;
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 0.92rem;
-    color: #fff;
-    text-decoration: underline;
-    text-decoration-color: rgba(255, 255, 255, 0.45);
-    text-underline-offset: 4px;
-    text-decoration-thickness: 1.5px;
-    transition: text-decoration-color 0.18s var(--ease);
-}
-.hero__search-advanced:hover {
-    color: #fff;
-    text-decoration-color: #fff;
-}
-
 /* --- STATS inline — Springer-style three-up under search --- */
 .hero__stats {
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, minmax(0, auto));
     column-gap: 3rem;
     row-gap: 1rem;
     margin-top: 2.5rem;
@@ -238,35 +232,7 @@ $extraHead = <<<'STYLES'
     pointer-events: none;
 }
 
-/* Layer 2: concentric wavefronts (diffraction) */
-.hero__visual::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at 78% 38%,
-            transparent 0,
-            transparent 8%,
-            rgba(255, 255, 255, 0.045) 8.4%,
-            rgba(255, 255, 255, 0.045) 9%,
-            transparent 9.4%,
-            transparent 14%,
-            rgba(255, 255, 255, 0.035) 14.4%,
-            rgba(255, 255, 255, 0.035) 15%,
-            transparent 15.4%,
-            transparent 22%,
-            rgba(255, 255, 255, 0.025) 22.4%,
-            rgba(255, 255, 255, 0.025) 23%,
-            transparent 23.4%,
-            transparent 32%,
-            rgba(255, 255, 255, 0.020) 32.4%,
-            rgba(255, 255, 255, 0.020) 33%,
-            transparent 33.4%
-        );
-    pointer-events: none;
-}
-
-/* Layer 3: warm bloom right side, edge-fade left for clean transition */
+/* Layer 2: warm bloom right side, edge-fade left for clean transition */
 .hero__visual-glow {
     position: absolute;
     inset: 0;
@@ -299,19 +265,17 @@ $extraHead = <<<'STYLES'
     z-index: 3;
 }
 
-/* --- Tablet --- */
+/* --- Tablet & below: visual is decorative-only — hide it,
+       Burgundy hero stays clean, edge spectrum line is the only DGaO accent --- */
 @media (max-width: 991.98px) {
     .hero__inner {
         grid-template-columns: 1fr;
     }
     .hero__content {
-        padding: 3rem 1.5rem 2.5rem 1.5rem;
+        padding: 3rem 1.5rem 2.5rem;
         max-width: none;
     }
-    .hero__visual {
-        min-height: 180px;
-        order: -1;
-    }
+    .hero__visual { display: none; }
     .hero__stats { column-gap: 2rem; }
 }
 
@@ -320,13 +284,13 @@ $extraHead = <<<'STYLES'
     .hero__title { font-size: 1.85rem; }
     .hero__tagline { font-size: 0.98rem; margin-bottom: 1.75rem; }
     .hero__stats {
-        grid-template-columns: 1fr 1fr;
-        column-gap: 1.5rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        column-gap: 1rem;
         margin-top: 1.75rem;
         padding-top: 1.5rem;
     }
-    .hero__stat-num { font-size: 1.55rem; }
-    .hero__visual { min-height: 140px; }
+    .hero__stat-num { font-size: 1.4rem; }
+    .hero__stat-lbl { font-size: 0.78rem; }
 }
 
 /* --- DOWNSTREAM SECTIONS (unchanged but cleaned spacing) --- */
@@ -364,15 +328,18 @@ $extraHead = <<<'STYLES'
 
 .v4-conf-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 1.5rem;
 }
+
+.v4-conf-grid > * { min-width: 0; }
 
 .v4-conf-card {
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 10px;
     overflow: hidden;
+    min-width: 0;
     transition: box-shadow 0.25s var(--ease);
 }
 
@@ -505,9 +472,6 @@ STYLES;
                         <i class="bi bi-search" aria-hidden="true"></i>
                     </button>
                 </div>
-                <a href="/suche" class="hero__search-advanced">
-                    <?= currentLang() === 'en' ? 'Advanced search' : 'Erweiterte Suche' ?>
-                </a>
             </form>
 
             <div class="hero__stats">
