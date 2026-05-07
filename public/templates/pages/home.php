@@ -25,38 +25,84 @@ $extraHead = <<<'STYLES'
 /* --- HERO — Dark prismatic with warm undertone --- */
 .v4-hero {
     position: relative;
-    background: linear-gradient(170deg, #0b0910 0%, #0e0d20 40%, #141230 100%);
+    background: transparent;
     padding: 5.5rem 0 9.5rem;
-    overflow: hidden;
+    overflow: visible;
     text-align: center;
+    z-index: 1;
+}
+
+/* --- Fixed prisma background — stays in place while content scrolls over --- */
+.v4-hero-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(170deg, #0b0910 0%, #0e0d20 40%, #141230 100%);
+    pointer-events: none;
 }
 
 /* Dot grid texture — fine white points */
-.v4-hero::before {
+.v4-hero-bg::before {
     content: '';
     position: absolute;
     inset: 0;
-    opacity: 0.035;
+    opacity: 0.055;
     background-image: radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px);
     background-size: 24px 24px;
     pointer-events: none;
 }
 
-/* Prismatic light rays — 7 spectral beams, last ray shifted to burgundy */
-.v4-hero::after {
+/* Prismatic light rays — realistic dispersion spectrum, overlapping bands.
+   Subtle intensity breathing simulates natural light scintillation —
+   the way dispersed light gently fluctuates through optical media. */
+.v4-hero-bg::after {
     content: '';
     position: absolute;
     inset: 0;
     pointer-events: none;
-    animation: v4-heroRayDrift 20s ease-in-out infinite;
+    opacity: 0.9;
+    animation: v4-rayBreathe 40s ease-in-out infinite;
     background:
-        linear-gradient(118deg, transparent 35%, rgba(124, 58, 237, 0.07) 38%, transparent 40%),
-        linear-gradient(121deg, transparent 36%, rgba(37, 99, 235, 0.06) 39.5%, transparent 41.5%),
-        linear-gradient(124deg, transparent 37%, rgba(8, 145, 178, 0.055) 41%, transparent 43%),
-        linear-gradient(127deg, transparent 38%, rgba(5, 150, 105, 0.04) 42.5%, transparent 44.5%),
-        linear-gradient(130deg, transparent 39%, rgba(202, 138, 4, 0.04) 44%, transparent 46%),
-        linear-gradient(133deg, transparent 40%, rgba(234, 88, 12, 0.05) 45.5%, transparent 47.5%),
-        linear-gradient(136deg, transparent 41%, rgba(180, 46, 66, 0.07) 47%, transparent 49%);
+        linear-gradient(118deg, transparent 30%, rgba(138, 43, 226, 0.16) 37%, transparent 44%),
+        linear-gradient(121deg, transparent 32%, rgba(30, 90, 255, 0.14) 39%, transparent 46%),
+        linear-gradient(124deg, transparent 33%, rgba(0, 210, 255, 0.13) 41%, transparent 49%),
+        linear-gradient(127deg, transparent 34%, rgba(0, 255, 65, 0.11) 43%, transparent 52%),
+        linear-gradient(130deg, transparent 35%, rgba(255, 240, 0, 0.12) 45%, transparent 55%),
+        linear-gradient(133deg, transparent 36%, rgba(255, 150, 0, 0.14) 47%, transparent 58%),
+        linear-gradient(137deg, transparent 37%, rgba(255, 20, 0, 0.18) 49%, transparent 62%);
+}
+
+/* Bloom glow — blurred soft luminosity layer.
+   Breathes at a different rate than rays, creating
+   subtle constructive/destructive interference depth. */
+.v4-hero-bloom {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(40px);
+    opacity: 0.6;
+    animation: v4-bloomBreathe 55s ease-in-out infinite;
+    background:
+        linear-gradient(118deg, transparent 28%, rgba(138, 43, 226, 0.20) 37%, transparent 46%),
+        linear-gradient(121deg, transparent 30%, rgba(30, 90, 255, 0.17) 39%, transparent 48%),
+        linear-gradient(124deg, transparent 31%, rgba(0, 210, 255, 0.16) 41%, transparent 51%),
+        linear-gradient(127deg, transparent 32%, rgba(0, 255, 65, 0.13) 43%, transparent 54%),
+        linear-gradient(130deg, transparent 33%, rgba(255, 240, 0, 0.14) 45%, transparent 57%),
+        linear-gradient(133deg, transparent 34%, rgba(255, 150, 0, 0.17) 47%, transparent 60%),
+        linear-gradient(137deg, transparent 35%, rgba(255, 20, 0, 0.22) 49%, transparent 64%);
+}
+
+/* Rays: gentle intensity oscillation — barely perceptible */
+@keyframes v4-rayBreathe {
+    0%, 100% { opacity: 0.9; }
+    50%      { opacity: 1; }
+}
+
+/* Bloom: slower, offset rhythm — creates depth through phase difference */
+@keyframes v4-bloomBreathe {
+    0%, 100% { opacity: 0.6; }
+    50%      { opacity: 0.78; }
 }
 
 /* Ambient glow — warm burgundy-rose pulse */
@@ -67,25 +113,10 @@ $extraHead = <<<'STYLES'
     width: 500px;
     height: 500px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(134, 46, 66, 0.05) 0%, transparent 70%);
+    z-index: 1;
+    background: radial-gradient(circle, rgba(134, 46, 66, 0.10) 0%, transparent 70%);
     pointer-events: none;
-    animation: v4-heroPulseGlow 8s ease-in-out infinite;
-}
-
-@keyframes v4-heroRayDrift {
-    0%   { transform: translateX(-5%) rotate(0deg); }
-    50%  { transform: translateX(5%) rotate(0.5deg); }
-    100% { transform: translateX(-5%) rotate(0deg); }
-}
-
-@keyframes v4-heroPulseGlow {
-    0%, 100% { opacity: 0.4; }
-    50%      { opacity: 0.8; }
-}
-
-@keyframes v4-spectrumShimmer {
-    0%   { background-position: -200% center; }
-    100% { background-position: 200% center; }
+    opacity: 0.8;
 }
 
 /* --- Hero inner content --- */
@@ -173,8 +204,7 @@ $extraHead = <<<'STYLES'
         #0891b2 45%, #059669 55%, #ca8a04 70%,
         #ea580c 85%, #862e42 100%
     );
-    background-size: 200% 100%;
-    animation: v4-spectrumShimmer 11s linear infinite;
+    background-size: 100% 100%;
 }
 
 /* --- SEARCH CARD — floating white, sole bridge between dark hero and light content --- */
@@ -186,23 +216,13 @@ $extraHead = <<<'STYLES'
     border-top: 3px solid var(--accent);
     padding: 2rem 2rem 1.5rem;
     max-width: 600px;
-    margin: 2.5rem auto -3.5rem;
+    margin: 3.5rem auto -3.5rem;
     box-shadow:
         0 2px 8px rgba(0, 0, 0, 0.10),
         0 8px 24px rgba(0, 0, 0, 0.10),
         0 24px 56px rgba(0, 0, 0, 0.08),
         0 0 0 1px rgba(255, 255, 255, 0.06);
     text-align: center;
-    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
-}
-
-.v4-search-card:hover {
-    transform: translateY(-2px);
-    box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.08),
-        0 12px 32px rgba(0, 0, 0, 0.10),
-        0 32px 64px rgba(0, 0, 0, 0.07),
-        0 0 40px rgba(134, 46, 66, 0.04);
 }
 
 .v4-search-heading {
@@ -223,13 +243,12 @@ $extraHead = <<<'STYLES'
     border: 2px solid var(--border);
     border-radius: 10px;
     overflow: hidden;
-    transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease), transform 0.25s var(--ease);
+    transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
 .v4-search-wrap:focus-within {
     border-color: var(--accent);
-    transform: scale(1.005);
-    box-shadow: 0 2px 16px rgba(134,46,66,0.08), 0 0 0 3px rgba(134,46,66,0.06);
+    box-shadow: 0 0 0 3px rgba(134,46,66,0.06);
 }
 
 .v4-search-icon {
@@ -295,6 +314,8 @@ $extraHead = <<<'STYLES'
 
 /* --- STATS — with afterglow from hero --- */
 .v4-stats {
+    position: relative;
+    z-index: 2;
     background-color: var(--white);
     background-image: radial-gradient(ellipse at center top, rgba(134, 46, 66, 0.03) 0%, transparent 50%);
     padding: 4.75rem 0 2.75rem;
@@ -351,6 +372,8 @@ $extraHead = <<<'STYLES'
 
 /* --- CONFERENCES --- */
 .v4-conferences {
+    position: relative;
+    z-index: 2;
     background: var(--paper);
     padding: 3.25rem 0 3.5rem;
     border-bottom: 1px solid var(--border-light);
@@ -393,7 +416,6 @@ $extraHead = <<<'STYLES'
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
 .v4-conf-card::before {
@@ -405,12 +427,7 @@ $extraHead = <<<'STYLES'
     z-index: 1;
 }
 
-.v4-conf-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 28px rgba(0,0,0,0.06);
-}
-
-.v4-conf-img-link {
+.v4-conf-img-wrap {
     display: block;
     overflow: hidden;
     border-bottom: 1px solid var(--border-light);
@@ -421,12 +438,6 @@ $extraHead = <<<'STYLES'
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.45s var(--ease), opacity 0.25s;
-}
-
-.v4-conf-card:hover .v4-conf-img {
-    transform: scale(1.03);
-    opacity: 0.92;
 }
 
 .v4-conf-body { padding: 1.25rem 1.5rem 1.5rem; }
@@ -444,13 +455,12 @@ $extraHead = <<<'STYLES'
     border-radius: 6px;
     padding: 0.5rem 1.1rem;
     text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
+    transition: background 0.2s;
 }
 
 .v4-conf-btn:hover {
     background: var(--accent-light);
     color: var(--white);
-    transform: translateX(2px);
     text-decoration: none;
 }
 
@@ -504,6 +514,8 @@ $extraHead = <<<'STYLES'
 
 /* --- ARCHIVE (section wrapper — homepage only) --- */
 .v4-archive {
+    position: relative;
+    z-index: 2;
     background: var(--white);
     padding: 3.25rem 0 3.5rem;
     border-bottom: 1px solid var(--border-light);
@@ -512,73 +524,10 @@ $extraHead = <<<'STYLES'
 
 /* --- QUICK LINKS + TRUST --- */
 .v4-features {
+    position: relative;
+    z-index: 2;
     background: var(--paper);
     padding: 3.25rem 0 3.75rem;
-}
-
-.v4-ql-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-    margin-bottom: 2.75rem;
-}
-
-.v4-ql-card {
-    display: block;
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.75rem 1.5rem;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s var(--ease);
-}
-
-.v4-ql-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s var(--ease);
-}
-
-.v4-ql-card:hover {
-    border-color: var(--border);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-    transform: translateY(-3px);
-    text-decoration: none;
-}
-
-.v4-ql-card:hover::before { transform: scaleX(1); }
-
-.v4-ql-icon {
-    font-size: 1.4rem;
-    margin-bottom: 0.9rem;
-    display: block;
-    color: var(--accent);
-    transition: transform 0.3s var(--spring);
-}
-
-.v4-ql-card:hover .v4-ql-icon { transform: scale(1.12); }
-
-.v4-ql-title {
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text);
-    margin: 0 0 0.35rem;
-}
-
-.v4-ql-desc {
-    font-family: var(--font-body);
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    line-height: 1.55;
-    margin: 0;
 }
 
 .v4-trust {
@@ -649,7 +598,6 @@ $extraHead = <<<'STYLES'
     .v4-stat-divider { display: none; }
 
     .v4-conf-grid { grid-template-columns: 1fr; gap: 1.25rem; }
-    .v4-ql-grid { grid-template-columns: 1fr; gap: 1rem; }
     .v4-trust { grid-template-columns: 1fr; gap: 1.25rem; }
 }
 
@@ -675,7 +623,6 @@ $extraHead = <<<'STYLES'
     .v4-stat-number { font-size: 1.75rem; }
     .v4-stat-bar { width: 28px; margin-bottom: 0.6rem; }
     .v4-conf-body { padding: 1rem 1.15rem 1.25rem; }
-    .v4-ql-card { padding: 1.5rem 1.25rem; }
 }
 </style>
 STYLES;
@@ -683,14 +630,15 @@ STYLES;
 
 <!-- 1. HERO with integrated search -->
 <section class="v4-hero">
+    <div class="v4-hero-bg" aria-hidden="true"></div>
+    <div class="v4-hero-bloom" aria-hidden="true"></div>
     <div class="v4-hero-glow" aria-hidden="true"></div>
     <div class="v4-hero-inner">
-        <div class="v4-hero-eyebrow v4-anim v4-d1">ISSN <?= SITE_ISSN ?></div>
-        <h1 class="v4-anim v4-d2">DGaO-Proceedings</h1>
-        <p class="v4-hero-tagline v4-anim v4-d3"><?= t('home.tagline') ?></p>
-        <hr class="v4-hero-bar v4-anim v4-d4">
+        <div class="v4-hero-eyebrow">ISSN <?= SITE_ISSN ?></div>
+        <h1>DGaO-Proceedings</h1>
+        <p class="v4-hero-tagline"><?= t('home.tagline') ?></p>
 
-        <div class="v4-search-card v4-anim v4-d5">
+        <div class="v4-search-card">
             <div class="v4-search-heading"><?= t('home.landing.search_papers') ?></div>
             <form action="/suche" method="get" class="v4-search-form">
                 <div class="v4-search-wrap">
@@ -748,34 +696,32 @@ STYLES;
         <div class="v4-conf-grid">
             <div class="v4-reveal v4-rd1">
                 <div class="v4-conf-card">
-                    <a href="https://dgao.de/jahrestagung/" target="_blank" rel="noopener" class="v4-conf-img-link">
+                    <div class="v4-conf-img-wrap">
                         <img src="/assets/images/haw-hamburg-2026.png"
                              alt="127. Jahrestagung der DGaO &ndash; HAW Hamburg, 26.&ndash;30. Mai 2026"
                              class="v4-conf-img">
-                    </a>
+                    </div>
                     <div class="v4-conf-body">
                         <a href="https://dgao.de/jahrestagung/" target="_blank" rel="noopener" class="v4-conf-btn">
                             <?= t('home.conf_127_btn') ?>
                         </a>
                     </div>
                 </div>
-                <div class="v4-conf-alert"><?= t('home.conf_127_alert') ?></div>
             </div>
 
             <div class="v4-reveal v4-rd2">
                 <div class="v4-conf-card">
-                    <a href="/archiv/126" class="v4-conf-img-link">
+                    <div class="v4-conf-img-wrap">
                         <img src="/assets/images/dgao-stuttgart-2025.png"
                              alt="126. Jahrestagung der DGaO &ndash; Uni Stuttgart, 10.&ndash;14. Juni 2025"
                              class="v4-conf-img">
-                    </a>
+                    </div>
                     <div class="v4-conf-body">
                         <a href="/archiv/126" class="v4-conf-btn">
                             <?= t('home.conf_126_btn') ?>
                         </a>
                     </div>
                 </div>
-                <div class="v4-conf-alert"><?= t('home.conf_126_alert') ?></div>
             </div>
         </div>
     </div>
@@ -810,28 +756,10 @@ STYLES;
     </div>
 </section>
 
-<!-- 5. QUICK LINKS + TRUST -->
+<!-- 5. TRUST -->
 <section class="v4-features">
     <div class="v4-section-inner">
-        <div class="v4-ql-grid">
-            <a href="/archiv" class="v4-ql-card v4-reveal v4-rd1">
-                <span class="v4-ql-icon"><i class="bi bi-collection"></i></span>
-                <h3 class="v4-ql-title"><?= t('home.landing.browse_archive') ?></h3>
-                <p class="v4-ql-desc"><?= t('home.landing.browse_archive_desc') ?></p>
-            </a>
-            <a href="/suche" class="v4-ql-card v4-reveal v4-rd2">
-                <span class="v4-ql-icon"><i class="bi bi-search"></i></span>
-                <h3 class="v4-ql-title"><?= t('home.landing.search_papers') ?></h3>
-                <p class="v4-ql-desc"><?= t('home.landing.search_papers_desc') ?></p>
-            </a>
-            <a href="/autoren" class="v4-ql-card v4-reveal v4-rd3">
-                <span class="v4-ql-icon"><i class="bi bi-people"></i></span>
-                <h3 class="v4-ql-title"><?= t('home.landing.explore_authors') ?></h3>
-                <p class="v4-ql-desc"><?= t('home.landing.explore_authors_desc') ?></p>
-            </a>
-        </div>
-
-        <div class="v4-trust">
+        <div class="v4-trust" style="border-top: none; padding-top: 0;">
             <div class="v4-trust-item v4-reveal v4-rd1">
                 <div class="v4-trust-icon"><i class="bi bi-unlock"></i></div>
                 <div>
@@ -857,24 +785,3 @@ STYLES;
     </div>
 </section>
 
-<!-- SCROLL-TRIGGERED REVEAL -->
-<script>
-(function() {
-    'use strict';
-    var els = document.querySelectorAll('.v4-reveal');
-    if (!els.length) return;
-    if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) {
-                if (e.isIntersecting) {
-                    e.target.classList.add('v4-visible');
-                    io.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-        els.forEach(function(el) { io.observe(el); });
-    } else {
-        els.forEach(function(el) { el.classList.add('v4-visible'); });
-    }
-})();
-</script>
