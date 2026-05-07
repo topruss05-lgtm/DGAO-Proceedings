@@ -16,373 +16,324 @@ $oldestYear = !empty($tagungen) ? $tagungen[count($tagungen) - 1]['jahr'] : '190
 $extraHead = <<<'STYLES'
 <style>
 /* =============================================
-   Homepage — "Corporate Spectral" Hero
-   Dark prismatic hero with integrated search.
-   Floating card bridges the dark-to-light edge.
-   Global tokens from custom.css.
+   Homepage — Editorial split hero
+   - Asymmetric: dark burgundy left, spectrum visual right
+   - Search + stats inline, left-aligned (editorial, not centered)
+   - DGaO touch: optical spectrum + diffraction wavefronts
    ============================================= */
 
-/* --- HERO — Dark prismatic with warm undertone --- */
-.v4-hero {
+/* --- HERO container — full-bleed, 1280px inner --- */
+.hero {
     position: relative;
-    background: transparent;
-    padding: 5.5rem 0 9.5rem;
-    overflow: visible;
-    text-align: center;
-    z-index: 1;
+    background: var(--accent-dark);
+    color: #fff;
+    overflow: hidden;
+    isolation: isolate;
 }
 
-/* --- Fixed prisma background — stays in place while content scrolls over --- */
-.v4-hero-bg {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    background: linear-gradient(170deg, #0b0910 0%, #0e0d20 40%, #141230 100%);
-    pointer-events: none;
+.hero__inner {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    align-items: stretch;
 }
 
-/* Dot grid texture — fine white points */
-.v4-hero-bg::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0.055;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px);
-    background-size: 24px 24px;
-    pointer-events: none;
-}
-
-/* Prismatic light rays — realistic dispersion spectrum, overlapping bands.
-   Subtle intensity breathing simulates natural light scintillation —
-   the way dispersed light gently fluctuates through optical media. */
-.v4-hero-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.9;
-    animation: v4-rayBreathe 40s ease-in-out infinite;
-    background:
-        linear-gradient(118deg, transparent 30%, rgba(138, 43, 226, 0.16) 37%, transparent 44%),
-        linear-gradient(121deg, transparent 32%, rgba(30, 90, 255, 0.14) 39%, transparent 46%),
-        linear-gradient(124deg, transparent 33%, rgba(0, 210, 255, 0.13) 41%, transparent 49%),
-        linear-gradient(127deg, transparent 34%, rgba(0, 255, 65, 0.11) 43%, transparent 52%),
-        linear-gradient(130deg, transparent 35%, rgba(255, 240, 0, 0.12) 45%, transparent 55%),
-        linear-gradient(133deg, transparent 36%, rgba(255, 150, 0, 0.14) 47%, transparent 58%),
-        linear-gradient(137deg, transparent 37%, rgba(255, 20, 0, 0.18) 49%, transparent 62%);
-}
-
-/* Bloom glow — blurred soft luminosity layer.
-   Breathes at a different rate than rays, creating
-   subtle constructive/destructive interference depth. */
-.v4-hero-bloom {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    filter: blur(40px);
-    opacity: 0.6;
-    animation: v4-bloomBreathe 55s ease-in-out infinite;
-    background:
-        linear-gradient(118deg, transparent 28%, rgba(138, 43, 226, 0.20) 37%, transparent 46%),
-        linear-gradient(121deg, transparent 30%, rgba(30, 90, 255, 0.17) 39%, transparent 48%),
-        linear-gradient(124deg, transparent 31%, rgba(0, 210, 255, 0.16) 41%, transparent 51%),
-        linear-gradient(127deg, transparent 32%, rgba(0, 255, 65, 0.13) 43%, transparent 54%),
-        linear-gradient(130deg, transparent 33%, rgba(255, 240, 0, 0.14) 45%, transparent 57%),
-        linear-gradient(133deg, transparent 34%, rgba(255, 150, 0, 0.17) 47%, transparent 60%),
-        linear-gradient(137deg, transparent 35%, rgba(255, 20, 0, 0.22) 49%, transparent 64%);
-}
-
-/* Rays: gentle intensity oscillation — barely perceptible */
-@keyframes v4-rayBreathe {
-    0%, 100% { opacity: 0.9; }
-    50%      { opacity: 1; }
-}
-
-/* Bloom: slower, offset rhythm — creates depth through phase difference */
-@keyframes v4-bloomBreathe {
-    0%, 100% { opacity: 0.6; }
-    50%      { opacity: 0.78; }
-}
-
-/* Ambient glow — warm burgundy-rose pulse */
-.v4-hero-glow {
-    position: absolute;
-    bottom: -20%;
-    right: -10%;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    z-index: 1;
-    background: radial-gradient(circle, rgba(134, 46, 66, 0.10) 0%, transparent 70%);
-    pointer-events: none;
-    opacity: 0.8;
-}
-
-/* --- Hero inner content --- */
-.v4-hero-inner {
+/* --- LEFT: editorial content --- */
+.hero__content {
     position: relative;
     z-index: 2;
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 0 2rem;
+    padding: 4rem 3rem 3.25rem 1.5rem;
+    max-width: 640px;
 }
 
-/* Eyebrow — desaturated rose for contrast on dark */
-.v4-hero-eyebrow {
+/* Eyebrow with leading rule */
+.hero__eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    font-family: var(--font-display);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #c4828f;
-    margin-bottom: 1.5rem;
-}
-
-.v4-hero-eyebrow::before,
-.v4-hero-eyebrow::after {
-    content: '';
-    display: inline-block;
-    width: 28px;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.15);
-    flex-shrink: 0;
-    border-radius: 1px;
-}
-
-/* Title — warm white */
-.v4-hero h1 {
-    font-family: var(--font-display);
-    font-size: 3.6rem;
-    font-weight: 800;
-    color: #f5f4f0;
-    letter-spacing: -0.04em;
-    line-height: 1.05;
-    margin: 0 0 1rem;
-}
-
-/* Tagline — readable on dark, weight 400 */
-.v4-hero-tagline {
-    font-family: var(--font-body);
-    font-size: 1.08rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.65);
-    line-height: 1.65;
-    max-width: 480px;
-    margin: 0 auto 2.75rem;
-}
-
-/* Tagline link — editorial underline on dark glass */
-.v4-hero-tagline-link {
-    color: rgba(255, 255, 255, 0.72);
-    text-decoration: underline;
-    text-decoration-color: rgba(255, 255, 255, 0.18);
-    text-underline-offset: 3px;
-    text-decoration-thickness: 1px;
-    transition: color 0.3s var(--ease),
-                text-decoration-color 0.3s var(--ease);
-}
-
-.v4-hero-tagline-link:hover {
-    color: rgba(255, 255, 255, 0.92);
-    text-decoration-color: rgba(255, 255, 255, 0.45);
-}
-
-/* Spectrum bar — burgundy-anchored with slow shimmer */
-.v4-hero-bar {
-    display: block;
-    height: 3px;
-    max-width: 110px;
-    margin: 0 auto;
-    border: none;
-    border-radius: 2px;
-    background: linear-gradient(90deg,
-        #862e42 0%, #7c3aed 15%, #2563eb 30%,
-        #0891b2 45%, #059669 55%, #ca8a04 70%,
-        #ea580c 85%, #862e42 100%
-    );
-    background-size: 100% 100%;
-}
-
-/* --- SEARCH CARD — floating white, sole bridge between dark hero and light content --- */
-.v4-search-card {
-    position: relative;
-    z-index: 3;
-    background: #ffffff;
-    border-radius: 14px;
-    border-top: 3px solid var(--accent);
-    padding: 2rem 2rem 1.5rem;
-    max-width: 600px;
-    margin: 3.5rem auto -3.5rem;
-    box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.10),
-        0 8px 24px rgba(0, 0, 0, 0.10),
-        0 24px 56px rgba(0, 0, 0, 0.08),
-        0 0 0 1px rgba(255, 255, 255, 0.06);
-    text-align: center;
-}
-
-.v4-search-heading {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 1.15rem;
-    letter-spacing: -0.01em;
-}
-
-.v4-search-form { position: relative; }
-
-.v4-search-wrap {
-    display: flex;
-    align-items: center;
-    background: var(--white);
-    border: 2px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
-}
-
-.v4-search-wrap:focus-within {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(134,46,66,0.06);
-}
-
-.v4-search-icon {
-    position: absolute;
-    left: 1.15rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-light);
-    font-size: 1.05rem;
-    pointer-events: none;
-    z-index: 2;
-    transition: color 0.25s;
-}
-
-.v4-search-wrap:focus-within ~ .v4-search-icon,
-.v4-search-wrap:focus-within .v4-search-icon {
-    color: var(--accent);
-}
-
-.v4-search-input {
-    flex: 1;
-    border: none !important;
-    background: transparent;
-    padding: 1rem 1rem 1rem 3.1rem;
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    font-weight: 400;
-    color: var(--text);
-    min-width: 0;
-    outline: none;
-    box-shadow: none !important;
-}
-
-.v4-search-input::placeholder { color: var(--text-light); font-weight: 400; }
-.v4-search-input:focus { box-shadow: none !important; outline: none; }
-
-.v4-search-btn {
-    flex-shrink: 0;
-    background: var(--accent);
-    color: var(--white);
-    border: none;
-    padding: 1rem 1.6rem;
-    font-family: var(--font-display);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    cursor: pointer;
-    transition: background 0.2s;
-    white-space: nowrap;
-}
-
-.v4-search-btn:hover { background: var(--accent-light); }
-
-.v4-search-meta {
-    font-family: var(--font-body);
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    margin-top: 0.9rem;
-    line-height: 1.55;
-}
-
-.v4-search-meta strong { color: var(--text-mid); font-weight: 600; }
-
-/* --- STATS — with afterglow from hero --- */
-.v4-stats {
-    position: relative;
-    z-index: 2;
-    background-color: var(--white);
-    background-image: radial-gradient(ellipse at center top, rgba(134, 46, 66, 0.03) 0%, transparent 50%);
-    padding: 4.75rem 0 2.75rem;
-    border-bottom: 1px solid var(--border-light);
-}
-
-.v4-stats-inner {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    gap: 4rem;
-}
-
-.v4-stat { text-align: center; }
-
-.v4-stat-bar {
-    display: block;
-    height: 3px;
-    width: 36px;
-    margin: 0 auto 0.9rem;
-    border: none;
-    border-radius: 2px;
-    background: var(--accent);
-}
-
-.v4-stat-number {
-    font-family: var(--font-display);
-    font-size: 2.6rem;
-    font-weight: 800;
-    color: var(--text);
-    line-height: 1;
-    letter-spacing: -0.03em;
-    margin-bottom: 0.3rem;
-}
-
-.v4-stat-label {
+    gap: 0.7rem;
     font-family: var(--font-display);
     font-size: 0.7rem;
     font-weight: 600;
-    color: var(--text-light);
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    letter-spacing: 0.11em;
+    color: rgba(255, 255, 255, 0.78);
+    margin-bottom: 1.25rem;
+}
+.hero__eyebrow::before {
+    content: '';
+    width: 36px;
+    height: 2px;
+    background: var(--accent-light);
+    border-radius: 1px;
 }
 
-.v4-stat-divider {
-    width: 1px;
-    align-self: stretch;
-    min-height: 36px;
-    background: var(--border);
+/* H1 — calmer than 3.6rem; serious editorial weight */
+.hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.6vw, 2.75rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.022em;
+    line-height: 1.1;
+    margin: 0 0 0.85rem;
 }
 
-/* --- CONFERENCES --- */
-.v4-conferences {
+.hero__tagline {
+    font-family: var(--font-body);
+    font-size: 1.04rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.55;
+    max-width: 520px;
+    margin: 0 0 2.25rem;
+}
+
+.hero__tagline a {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.32);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-color 0.2s var(--ease);
+}
+.hero__tagline a:hover {
+    text-decoration-color: rgba(255, 255, 255, 0.85);
+    color: #fff;
+}
+
+/* --- SEARCH — Springer-style: label above, big input, side button --- */
+.hero__search-label {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.55rem;
+}
+
+.hero__search-form { margin: 0; }
+
+.hero__search {
+    display: flex;
+    align-items: stretch;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.hero__search-input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid #1a1d2e;
+    border-right: none;
+    background: #fff;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.95rem 1.1rem;
+    border-radius: 6px 0 0 6px;
+    outline: none;
+}
+
+.hero__search-input::placeholder {
+    color: var(--text-light);
+}
+
+.hero__search-input:focus {
+    outline: 3px solid #66a3c7;
+    outline-offset: -1px;
+}
+
+.hero__search-btn {
+    flex-shrink: 0;
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: #fff;
+    padding: 0 1.5rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 1.15rem;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.18s var(--ease);
+}
+
+.hero__search-btn:hover { background: var(--accent-light); border-color: var(--accent-light); }
+.hero__search-btn:focus-visible { outline: 3px solid #66a3c7; outline-offset: 2px; }
+
+.hero__search-advanced {
+    display: inline-block;
+    margin-top: 0.85rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.45);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1.5px;
+    transition: text-decoration-color 0.18s var(--ease);
+}
+.hero__search-advanced:hover {
+    color: #fff;
+    text-decoration-color: #fff;
+}
+
+/* --- STATS inline — Springer-style three-up under search --- */
+.hero__stats {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 3rem;
+    row-gap: 1rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.hero__stat-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.35rem;
+}
+
+.hero__stat-lbl {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.86rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.3;
+}
+
+/* --- RIGHT: optical spectrum visual (CSS-only, DGaO-thematic) --- */
+.hero__visual {
     position: relative;
-    z-index: 2;
-    background: var(--paper);
-    padding: 3.25rem 0 3.5rem;
-    border-bottom: 1px solid var(--border-light);
+    min-height: 380px;
+    overflow: hidden;
 }
 
+/* Layer 1: dispersion bands (spectrum), diagonal */
+.hero__visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(118deg, transparent 22%, rgba(124, 58, 237, 0.16) 30%, transparent 38%),
+        linear-gradient(122deg, transparent 26%, rgba(37, 99, 235, 0.14) 34%, transparent 42%),
+        linear-gradient(126deg, transparent 30%, rgba(8, 145, 178, 0.13) 38%, transparent 46%),
+        linear-gradient(130deg, transparent 34%, rgba(5, 150, 105, 0.11) 42%, transparent 50%),
+        linear-gradient(134deg, transparent 38%, rgba(202, 138, 4, 0.12) 46%, transparent 54%),
+        linear-gradient(138deg, transparent 42%, rgba(234, 88, 12, 0.14) 50%, transparent 58%),
+        linear-gradient(142deg, transparent 46%, rgba(180, 46, 66, 0.20) 54%, transparent 64%);
+    filter: blur(6px);
+    pointer-events: none;
+}
+
+/* Layer 2: concentric wavefronts (diffraction) */
+.hero__visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 78% 38%,
+            transparent 0,
+            transparent 8%,
+            rgba(255, 255, 255, 0.045) 8.4%,
+            rgba(255, 255, 255, 0.045) 9%,
+            transparent 9.4%,
+            transparent 14%,
+            rgba(255, 255, 255, 0.035) 14.4%,
+            rgba(255, 255, 255, 0.035) 15%,
+            transparent 15.4%,
+            transparent 22%,
+            rgba(255, 255, 255, 0.025) 22.4%,
+            rgba(255, 255, 255, 0.025) 23%,
+            transparent 23.4%,
+            transparent 32%,
+            rgba(255, 255, 255, 0.020) 32.4%,
+            rgba(255, 255, 255, 0.020) 33%,
+            transparent 33.4%
+        );
+    pointer-events: none;
+}
+
+/* Layer 3: warm bloom right side, edge-fade left for clean transition */
+.hero__visual-glow {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 78% 42%, rgba(255, 220, 180, 0.10) 0%, transparent 55%),
+        linear-gradient(90deg, var(--accent-dark) 0%, transparent 18%);
+    pointer-events: none;
+}
+
+/* Layer 4: fine grain for photo-like texture */
+.hero__visual-grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.5;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 3px 3px;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+/* Edge-spectrum accent line on the bottom of hero (DGaO signature) */
+.hero__edge {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+        #b42e42 0%, #7c3aed 16%, #2563eb 32%,
+        #0891b2 48%, #059669 60%, #ca8a04 74%,
+        #ea580c 88%, #b42e42 100%);
+    z-index: 3;
+}
+
+/* --- Tablet --- */
+@media (max-width: 991.98px) {
+    .hero__inner {
+        grid-template-columns: 1fr;
+    }
+    .hero__content {
+        padding: 3rem 1.5rem 2.5rem 1.5rem;
+        max-width: none;
+    }
+    .hero__visual {
+        min-height: 180px;
+        order: -1;
+    }
+    .hero__stats { column-gap: 2rem; }
+}
+
+@media (max-width: 575.98px) {
+    .hero__content { padding: 2.25rem 1.25rem 2rem; }
+    .hero__title { font-size: 1.85rem; }
+    .hero__tagline { font-size: 0.98rem; margin-bottom: 1.75rem; }
+    .hero__stats {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1.5rem;
+        margin-top: 1.75rem;
+        padding-top: 1.5rem;
+    }
+    .hero__stat-num { font-size: 1.55rem; }
+    .hero__visual { min-height: 140px; }
+}
+
+/* --- DOWNSTREAM SECTIONS (unchanged but cleaned spacing) --- */
 .v4-section-inner {
-    max-width: 840px;
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
 }
 
 .v4-section-title {
@@ -402,6 +353,13 @@ $extraHead = <<<'STYLES'
     border-radius: 2px;
     background: var(--accent);
     margin: 0 0 1.75rem;
+    opacity: 1;
+}
+
+.v4-conferences {
+    background: var(--paper);
+    padding: 3.25rem 0 3.5rem;
+    border-bottom: 1px solid var(--border-light);
 }
 
 .v4-conf-grid {
@@ -415,23 +373,16 @@ $extraHead = <<<'STYLES'
     border: 1px solid var(--border);
     border-radius: 10px;
     overflow: hidden;
-    position: relative;
+    transition: box-shadow 0.25s var(--ease);
 }
 
-.v4-conf-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--accent);
-    z-index: 1;
+.v4-conf-card:hover {
+    box-shadow: var(--shadow-md);
 }
 
 .v4-conf-img-wrap {
-    display: block;
     overflow: hidden;
     border-bottom: 1px solid var(--border-light);
-    line-height: 0;
 }
 
 .v4-conf-img {
@@ -447,85 +398,29 @@ $extraHead = <<<'STYLES'
     align-items: center;
     gap: 0.3rem;
     font-family: var(--font-display);
-    font-size: 0.8rem;
+    font-size: 0.86rem;
     font-weight: 600;
-    color: var(--white);
+    color: #fff;
     background: var(--accent);
     border: none;
     border-radius: 6px;
-    padding: 0.5rem 1.1rem;
+    padding: 0.55rem 1.1rem;
     text-decoration: none;
-    transition: background 0.2s;
+    transition: background 0.18s var(--ease);
 }
-
 .v4-conf-btn:hover {
     background: var(--accent-light);
-    color: var(--white);
+    color: #fff;
     text-decoration: none;
 }
 
-.v4-conf-alert {
-    font-family: var(--font-body);
-    font-size: 0.88rem;
-    color: var(--text);
-    background: rgba(134, 46, 66, 0.05);
-    border: none;
-    border-left: 4px solid var(--accent);
-    border-radius: 0 8px 8px 0;
-    padding: 1.05rem 1.35rem;
-    margin-top: 0.85rem;
-    line-height: 1.65;
-    position: relative;
-    box-shadow:
-        0 1px 4px rgba(134, 46, 66, 0.045),
-        inset 0 1px 0 rgba(134, 46, 66, 0.06);
-    transition: background 0.25s var(--ease),
-                box-shadow 0.25s var(--ease);
-}
-
-.v4-conf-alert:hover {
-    background: rgba(134, 46, 66, 0.075);
-    box-shadow:
-        0 2px 8px rgba(134, 46, 66, 0.06),
-        inset 0 1px 0 rgba(134, 46, 66, 0.08);
-}
-
-.v4-conf-alert::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -4px;
-    right: 0;
-    height: 2.5px;
-    background: linear-gradient(90deg, var(--accent) 0%, rgba(134, 46, 66, 0.12) 100%);
-    border-radius: 0 8px 0 0;
-}
-
-.v4-conf-alert strong {
-    color: var(--accent);
-    font-weight: 700;
-    font-size: 0.92rem;
-    letter-spacing: -0.005em;
-    background: rgba(134, 46, 66, 0.06);
-    padding: 0.1rem 0.4rem;
-    border-radius: 3px;
-    margin-right: 0.15rem;
-}
-
-/* --- ARCHIVE (section wrapper — homepage only) --- */
 .v4-archive {
-    position: relative;
-    z-index: 2;
     background: var(--white);
     padding: 3.25rem 0 3.5rem;
     border-bottom: 1px solid var(--border-light);
 }
-/* v4-archive-item styles are in custom.css */
 
-/* --- QUICK LINKS + TRUST --- */
 .v4-features {
-    position: relative;
-    z-index: 2;
     background: var(--paper);
     padding: 3.25rem 0 3.75rem;
 }
@@ -534,8 +429,6 @@ $extraHead = <<<'STYLES'
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    padding-top: 2.25rem;
-    border-top: 1px solid var(--border);
 }
 
 .v4-trust-item { display: flex; align-items: flex-start; gap: 0.7rem; }
@@ -555,7 +448,7 @@ $extraHead = <<<'STYLES'
 
 .v4-trust-label {
     font-family: var(--font-display);
-    font-size: 0.82rem;
+    font-size: 0.86rem;
     font-weight: 600;
     color: var(--text);
     margin: 0;
@@ -564,130 +457,84 @@ $extraHead = <<<'STYLES'
 
 .v4-trust-desc {
     font-family: var(--font-body);
-    font-size: 0.74rem;
+    font-size: 0.78rem;
     color: var(--text-muted);
-    margin: 0.1rem 0 0;
-    line-height: 1.45;
+    margin: 0.15rem 0 0;
+    line-height: 1.5;
 }
 
-/* --- RESPONSIVE — TABLET --- */
 @media (max-width: 767.98px) {
-    .v4-hero { padding: 4.5rem 0 8rem; }
-    .v4-hero h1 { font-size: 2.4rem; }
-    .v4-hero-tagline { font-size: 0.98rem; }
-    .v4-hero-bar { max-width: 90px; }
-
-    .v4-search-card {
-        padding: 1.5rem 1.5rem 1.25rem;
-        margin: 2rem auto -2.5rem;
-        max-width: 520px;
-    }
-    .v4-search-heading { font-size: 1rem; }
-    .v4-search-wrap { flex-direction: column; border-radius: 10px; }
-    .v4-search-input { width: 100%; padding: 0.9rem 1rem 0.9rem 3rem; }
-    .v4-search-btn {
-        width: 100%; padding: 0.85rem; text-align: center;
-        display: flex; justify-content: center;
-        border-top: 1px solid var(--border-light);
-    }
-    .v4-search-icon { top: 1.05rem; transform: none; }
-
-    .v4-stats { padding-top: 3.75rem; }
-    .v4-stats-inner { gap: 2.25rem; flex-wrap: wrap; }
-    .v4-stat-number { font-size: 2rem; }
-    .v4-stat-divider { display: none; }
-
     .v4-conf-grid { grid-template-columns: 1fr; gap: 1.25rem; }
     .v4-trust { grid-template-columns: 1fr; gap: 1.25rem; }
 }
 
-/* --- RESPONSIVE — MOBILE --- */
-@media (max-width: 575.98px) {
-    .v4-hero { padding: 3rem 0 7rem; }
-    .v4-hero h1 { font-size: 1.95rem; margin-bottom: 0.75rem; }
-    .v4-hero-eyebrow { font-size: 0.62rem; margin-bottom: 1.15rem; }
-    .v4-hero-tagline { font-size: 0.96rem; margin-bottom: 2rem; }
-    .v4-hero-bar { max-width: 80px; }
-
-    .v4-search-card {
-        padding: 1.25rem 1.15rem 1rem;
-        max-width: calc(100% - 2.5rem);
-        margin: 1.75rem auto -2.5rem;
-        border-radius: 12px;
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
     }
-    .v4-search-heading { font-size: 0.92rem; margin-bottom: 0.9rem; }
-
-    .v4-hero-inner, .v4-section-inner { padding: 0 1.25rem; }
-    .v4-stats { padding-top: 3.5rem; }
-    .v4-stats-inner { padding: 0 1.25rem; gap: 1.75rem; }
-    .v4-stat-number { font-size: 1.75rem; }
-    .v4-stat-bar { width: 28px; margin-bottom: 0.6rem; }
-    .v4-conf-body { padding: 1rem 1.15rem 1.25rem; }
 }
 </style>
 STYLES;
 ?>
 
-<!-- 1. HERO with integrated search -->
-<section class="v4-hero">
-    <div class="v4-hero-bg" aria-hidden="true"></div>
-    <div class="v4-hero-bloom" aria-hidden="true"></div>
-    <div class="v4-hero-glow" aria-hidden="true"></div>
-    <div class="v4-hero-inner">
-        <div class="v4-hero-eyebrow">ISSN <?= SITE_ISSN ?></div>
-        <h1>DGaO-Proceedings</h1>
-        <p class="v4-hero-tagline"><?= t('home.tagline') ?></p>
+<!-- 1. HERO — split layout, search + stats inline -->
+<section class="hero" aria-labelledby="hero-title">
+    <div class="hero__inner">
+        <div class="hero__content">
+            <div class="hero__eyebrow">ISSN <?= SITE_ISSN ?> &middot; <?= currentLang() === 'en' ? 'Open access' : 'Frei zug&auml;nglich' ?></div>
 
-        <div class="v4-search-card">
-            <div class="v4-search-heading"><?= t('home.landing.search_papers') ?></div>
-            <form action="/suche" method="get" class="v4-search-form">
-                <div class="v4-search-wrap">
-                    <i class="bi bi-search v4-search-icon"></i>
-                    <input type="search" name="q" class="v4-search-input form-control"
+            <h1 class="hero__title" id="hero-title">DGaO-Proceedings</h1>
+
+            <p class="hero__tagline"><?= t('home.tagline') ?></p>
+
+            <form action="/suche" method="get" class="hero__search-form" role="search">
+                <label for="hero-search-input" class="hero__search-label">
+                    <?= currentLang() === 'en' ? 'Search articles, authors, conferences' : 'Beitr&auml;ge, Autoren oder Tagungen suchen' ?>
+                </label>
+                <div class="hero__search">
+                    <input id="hero-search-input"
+                           type="search"
+                           name="q"
+                           class="hero__search-input"
                            placeholder="<?= t('home.search_placeholder') ?>"
                            aria-label="<?= t('nav.suche') ?>"
                            autocomplete="off">
-                    <button type="submit" class="v4-search-btn">
-                        <?= t('home.search_btn') ?>
+                    <button type="submit" class="hero__search-btn" aria-label="<?= t('home.search_btn') ?>">
+                        <i class="bi bi-search" aria-hidden="true"></i>
                     </button>
                 </div>
+                <a href="/suche" class="hero__search-advanced">
+                    <?= currentLang() === 'en' ? 'Advanced search' : 'Erweiterte Suche' ?>
+                </a>
             </form>
-            <p class="v4-search-meta">
-                <?= sprintf(
-                    t('home.landing.search_across'),
-                    '<strong>' . $nf($stats['papers']) . '</strong>',
-                    '<strong>' . $nf($stats['autoren']) . '</strong>',
-                    '<strong>' . $stats['tagungen'] . '</strong>'
-                ) ?>
-            </p>
+
+            <div class="hero__stats">
+                <div>
+                    <span class="hero__stat-num"><?= $nf($stats['papers']) ?></span>
+                    <span class="hero__stat-lbl"><?= t('home.stat.papers') ?></span>
+                </div>
+                <div>
+                    <span class="hero__stat-num"><?= $stats['tagungen'] ?></span>
+                    <span class="hero__stat-lbl"><?= t('home.stat.conferences') ?></span>
+                </div>
+                <div>
+                    <span class="hero__stat-num"><?= $nf($stats['autoren']) ?></span>
+                    <span class="hero__stat-lbl"><?= t('home.stat.authors') ?></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+            <div class="hero__visual-glow"></div>
+            <div class="hero__visual-grain"></div>
         </div>
     </div>
+    <div class="hero__edge" aria-hidden="true"></div>
 </section>
 
-<!-- 2. STATS -->
-<section class="v4-stats">
-    <div class="v4-stats-inner v4-reveal">
-        <div class="v4-stat">
-            <hr class="v4-stat-bar">
-            <div class="v4-stat-number"><?= $nf($stats['papers']) ?></div>
-            <div class="v4-stat-label"><?= t('home.stat.papers') ?></div>
-        </div>
-        <div class="v4-stat-divider"></div>
-        <div class="v4-stat">
-            <hr class="v4-stat-bar">
-            <div class="v4-stat-number"><?= $stats['tagungen'] ?></div>
-            <div class="v4-stat-label"><?= t('home.stat.conferences') ?></div>
-        </div>
-        <div class="v4-stat-divider"></div>
-        <div class="v4-stat">
-            <hr class="v4-stat-bar">
-            <div class="v4-stat-number"><?= $nf($stats['autoren']) ?></div>
-            <div class="v4-stat-label"><?= t('home.stat.authors') ?></div>
-        </div>
-    </div>
-</section>
-
-<!-- 3. CURRENT CONFERENCES -->
+<!-- 2. CURRENT CONFERENCES -->
 <section class="v4-conferences">
     <div class="v4-section-inner">
         <h2 class="v4-section-title v4-reveal"><?= t('home.section_current') ?></h2>
@@ -727,7 +574,7 @@ STYLES;
     </div>
 </section>
 
-<!-- 4. ARCHIVE -->
+<!-- 3. ARCHIVE -->
 <section class="v4-archive">
     <div class="v4-section-inner">
         <h2 class="v4-section-title v4-reveal"><?= t('home.section_archive') ?></h2>
@@ -756,10 +603,10 @@ STYLES;
     </div>
 </section>
 
-<!-- 5. TRUST -->
+<!-- 4. TRUST -->
 <section class="v4-features">
     <div class="v4-section-inner">
-        <div class="v4-trust" style="border-top: none; padding-top: 0;">
+        <div class="v4-trust">
             <div class="v4-trust-item v4-reveal v4-rd1">
                 <div class="v4-trust-icon"><i class="bi bi-unlock"></i></div>
                 <div>
@@ -784,4 +631,3 @@ STYLES;
         </div>
     </div>
 </section>
-

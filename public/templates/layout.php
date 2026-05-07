@@ -31,40 +31,47 @@
 </head>
 <body class="d-flex flex-column min-vh-100" data-lang="<?= currentLang() ?>">
 
-    <nav class="navbar navbar-expand-sm site-nav p-0">
-        <div class="container container-narrow">
-            <a href="/" class="navbar-brand site-nav-logo">
-                <img src="/assets/images/logo-dgao-proceedings.gif"
-                     alt="DGaO-Proceedings" class="header-logo-img">
-            </a>
-            <button class="navbar-toggler py-2" type="button" id="navbarToggler"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="<?= t('nav.aria_label') ?>">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link<?= isActivePage('/archiv') ? ' active' : '' ?>" href="/archiv"><?= t('nav.archiv') ?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link<?= isActivePage('/suche') ? ' active' : '' ?>" href="/suche"><?= t('nav.suche') ?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link<?= isActivePage('/autoren') ? ' active' : '' ?>" href="/autoren"><?= t('nav.autoren') ?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link<?= isActivePage('/statistik') ? ' active' : '' ?>" href="/statistik"><?= t('nav.statistik') ?></a>
-                    </li>
-                </ul>
-                <a href="<?= e(langSwitchUrl()) ?>" class="btn btn-sm lang-toggle ms-auto"
-                   title="<?= currentLang() === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln' ?>">
-                    <i class="bi bi-globe2"></i> <?= t('lang.switch') ?>
+    <a class="visually-hidden-focusable skip-link" href="#main-content"><?= t('nav.skip') ?? 'Zum Inhalt springen' ?></a>
+
+    <header class="site-header">
+        <!-- Row 1: brand + utility -->
+        <div class="site-header__top">
+            <div class="site-header__inner">
+                <a href="/" class="site-brand" aria-label="DGaO-Proceedings &ndash; Startseite">
+                    <span class="site-brand__mark">DGaO</span><span class="site-brand__sep">&middot;</span><span class="site-brand__tail">Proceedings</span>
+                    <span class="site-brand__issn">ISSN <?= SITE_ISSN ?></span>
                 </a>
+
+                <div class="site-header__util">
+                    <a href="<?= e(langSwitchUrl()) ?>" class="site-util-link"
+                       title="<?= currentLang() === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln' ?>">
+                        <i class="bi bi-globe2" aria-hidden="true"></i>
+                        <span><?= t('lang.switch') ?></span>
+                    </a>
+                </div>
             </div>
         </div>
-    </nav>
 
-    <main class="flex-grow-1">
+        <!-- Row 2: primary nav -->
+        <nav class="site-nav2" aria-label="<?= t('nav.aria_label') ?>">
+            <div class="site-header__inner site-nav2__inner">
+                <button class="site-nav2__toggle" type="button" id="navbarToggler"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="<?= t('nav.aria_label') ?>">
+                    <span class="site-nav2__toggle-icon"></span>
+                </button>
+                <ul class="site-nav2__list" id="navbarNav">
+                    <li><a class="site-nav2__link<?= isActivePage('/archiv') ? ' is-active' : '' ?>" href="/archiv"><?= t('nav.archiv') ?></a></li>
+                    <li><a class="site-nav2__link<?= isActivePage('/suche') ? ' is-active' : '' ?>" href="/suche">
+                        <i class="bi bi-search" aria-hidden="true"></i> <?= t('nav.suche') ?>
+                    </a></li>
+                    <li><a class="site-nav2__link<?= isActivePage('/autoren') ? ' is-active' : '' ?>" href="/autoren"><?= t('nav.autoren') ?></a></li>
+                    <li><a class="site-nav2__link<?= isActivePage('/statistik') ? ' is-active' : '' ?>" href="/statistik"><?= t('nav.statistik') ?></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow-1" id="main-content">
         <?php if (!empty($fullWidthLayout)): ?>
             <?= $pageContent ?>
         <?php else: ?>

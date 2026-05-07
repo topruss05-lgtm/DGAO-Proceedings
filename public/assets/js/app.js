@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.getElementById('navbarNav');
     if (toggler && navMenu) {
         toggler.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
+            navMenu.classList.toggle('is-open');
             const expanded = toggler.getAttribute('aria-expanded') === 'true';
             toggler.setAttribute('aria-expanded', String(!expanded));
         });
