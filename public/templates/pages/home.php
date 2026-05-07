@@ -320,6 +320,69 @@ $extraHead = <<<'STYLES'
     opacity: 1;
 }
 
+/* --- NEWS — compact editorial grid (Optica/Nature pattern):
+       inline date eyebrow + headline + tight excerpt, two columns on desktop --- */
+.v4-news {
+    background: var(--white);
+    padding: 2.75rem 0 2.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.v4-news-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.v4-news-item {
+    padding: 1.05rem 0 1.1rem;
+    border-bottom: 1px solid var(--border-light);
+    min-width: 0;
+}
+
+.v4-news-date {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+}
+
+.v4-news-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.005em;
+    line-height: 1.35;
+    margin: 0 0 0.3rem;
+}
+
+.v4-news-text {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 767.98px) {
+    .v4-news-list {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+    }
+    .v4-news-item { padding: 0.9rem 0 1rem; }
+    .v4-news-title { font-size: 0.96rem; }
+    .v4-news-text { font-size: 0.85rem; }
+}
+
 .v4-conferences {
     background: var(--paper);
     padding: 3.25rem 0 3.5rem;
@@ -498,7 +561,28 @@ STYLES;
     <div class="hero__edge" aria-hidden="true"></div>
 </section>
 
-<!-- 2. CURRENT CONFERENCES -->
+<!-- 2. NEWS — latest announcements -->
+<section class="v4-news" aria-labelledby="news-heading">
+    <div class="v4-section-inner">
+        <h2 class="v4-section-title v4-reveal" id="news-heading"><?= t('home.section_news') ?></h2>
+        <hr class="v4-section-bar v4-reveal">
+
+        <ol class="v4-news-list">
+            <li class="v4-news-item v4-reveal v4-rd1">
+                <time class="v4-news-date"><?= t('home.news.0_date') ?></time>
+                <h3 class="v4-news-title"><?= t('home.news.0_title') ?></h3>
+                <p class="v4-news-text"><?= t('home.news.0_text') ?></p>
+            </li>
+            <li class="v4-news-item v4-reveal v4-rd2">
+                <time class="v4-news-date"><?= t('home.news.1_date') ?></time>
+                <h3 class="v4-news-title"><?= t('home.news.1_title') ?></h3>
+                <p class="v4-news-text"><?= t('home.news.1_text') ?></p>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<!-- 3. CURRENT CONFERENCES -->
 <section class="v4-conferences">
     <div class="v4-section-inner">
         <h2 class="v4-section-title v4-reveal"><?= t('home.section_current') ?></h2>
@@ -506,7 +590,7 @@ STYLES;
 
         <div class="v4-conf-grid">
             <div class="v4-reveal v4-rd1">
-                <div class="v4-conf-card">
+                <article class="v4-conf-card">
                     <div class="v4-conf-img-wrap">
                         <img src="/assets/images/haw-hamburg-2026.png"
                              alt="127. Jahrestagung der DGaO &ndash; HAW Hamburg, 26.&ndash;30. Mai 2026"
@@ -517,11 +601,11 @@ STYLES;
                             <?= t('home.conf_127_btn') ?>
                         </a>
                     </div>
-                </div>
+                </article>
             </div>
 
             <div class="v4-reveal v4-rd2">
-                <div class="v4-conf-card">
+                <article class="v4-conf-card">
                     <div class="v4-conf-img-wrap">
                         <img src="/assets/images/dgao-stuttgart-2025.png"
                              alt="126. Jahrestagung der DGaO &ndash; Uni Stuttgart, 10.&ndash;14. Juni 2025"
@@ -532,7 +616,7 @@ STYLES;
                             <?= t('home.conf_126_btn') ?>
                         </a>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </div>
