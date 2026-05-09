@@ -162,12 +162,37 @@ $pdfRelUrl = pdfUrl($paper);
     </div>
     <?php endif; ?>
 
+    <?php if (!$pdfRelUrl): ?>
+    <div class="alert alert-light border d-flex align-items-start gap-2 small">
+        <i class="bi bi-info-circle text-muted"></i>
+        <div>
+            <strong>Manuskript noch nicht eingereicht.</strong>
+            Der Vortragende kann unter <a href="/einreichen" class="accent-link">/einreichen</a> mit Code (<code><?= e($paper['code']) ?></code>) und der hinterlegten E-Mail-Adresse einen Upload-Link anfordern.
+        </div>
+    </div>
+    <?php endif; ?>
+
     <div class="d-flex flex-wrap gap-2 mb-4">
         <?php if ($pdfRelUrl): ?>
         <a href="<?= e($pdfRelUrl) ?>" class="btn btn-accent btn-sm" target="_blank" rel="noopener">
             <i class="bi bi-file-earmark-pdf"></i> <?= t('paper.pdf_download') ?>
         </a>
         <?php endif; ?>
+
+        <div class="dropdown">
+            <button class="btn btn-outline-accent btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-download"></i> Manuskript-Vorlage
+            </button>
+            <ul class="dropdown-menu">
+                <li><h6 class="dropdown-header">LaTeX (vorausgefüllt)</h6></li>
+                <li><a class="dropdown-item" href="/paper/<?= e($paper['id']) ?>/template/latex/de"><i class="bi bi-file-earmark-zip"></i> Deutsch (.zip)</a></li>
+                <li><a class="dropdown-item" href="/paper/<?= e($paper['id']) ?>/template/latex/en"><i class="bi bi-file-earmark-zip"></i> Englisch (.zip)</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><h6 class="dropdown-header">Word (vorausgefüllt)</h6></li>
+                <li><a class="dropdown-item" href="/paper/<?= e($paper['id']) ?>/template/word/de"><i class="bi bi-file-earmark-word"></i> Deutsch (.docx)</a></li>
+                <li><a class="dropdown-item" href="/paper/<?= e($paper['id']) ?>/template/word/en"><i class="bi bi-file-earmark-word"></i> Englisch (.docx)</a></li>
+            </ul>
+        </div>
 
         <button type="button" class="btn btn-outline-secondary btn-sm" id="bibtex-toggle-btn">
             <i class="bi bi-quote"></i> <?= t('paper.cite_bibtex') ?>

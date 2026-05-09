@@ -31,6 +31,25 @@ function matchRoute(string $uri): array
         return ['page' => 'paper', 'params' => ['id' => $m[1]]];
     }
 
+    if (preg_match('#^/paper/([\w-]+)/template/(latex|word)(?:/(de|en))?$#', $path, $m)) {
+        return ['page' => 'paper_template', 'params' => [
+            'id'     => $m[1],
+            'format' => $m[2],
+            'lang'   => $m[3] ?? 'de',
+        ]];
+    }
+
+    // --- Author-Submission-Workflow ---
+    if ($path === '/einreichen') {
+        return ['page' => 'einreichen', 'params' => []];
+    }
+    if (preg_match('#^/einreichen/([a-f0-9]{64})$#', $path, $m)) {
+        return ['page' => 'einreichen_token', 'params' => ['token' => $m[1]]];
+    }
+    if (preg_match('#^/einreichen/([a-f0-9]{64})/done$#', $path, $m)) {
+        return ['page' => 'einreichen_done', 'params' => ['token' => $m[1]]];
+    }
+
     if (preg_match('#^/autor/(\d+)$#', $path, $m)) {
         return ['page' => 'autor', 'params' => ['id' => (int)$m[1]]];
     }
@@ -58,15 +77,27 @@ function matchRoute(string $uri): array
 
     // --- Admin-Routen ---
     $adminStaticRoutes = [
-        '/admin'          => 'admin/dashboard',
-        '/admin/login'    => 'admin/login',
-        '/admin/logout'   => 'admin/logout',
-        '/admin/import'   => 'admin/import',
-        '/admin/tagungen' => 'admin/tagungen',
-        '/admin/papers'   => 'admin/papers',
-        '/admin/autoren'  => 'admin/autoren',
-        '/admin/keywords' => 'admin/keywords',
+        '/admin'             => 'admin/dashboard',
+        '/admin/login'       => 'admin/login',
+        '/admin/logout'      => 'admin/logout',
+        '/admin/import'      => 'admin/import',
+        '/admin/tagungen'    => 'admin/tagungen',
+        '/admin/papers'      => 'admin/papers',
+        '/admin/autoren'     => 'admin/autoren',
+        '/admin/keywords'    => 'admin/keywords',
+        '/admin/submissions' => 'admin/submissions',
     ];
+
+    // Submission Detail/Action
+    if (preg_match('#^/admin/submissions/([a-f0-9]{64})$#', $path, $m)) {
+        return ['page' => 'admin/submission_detail', 'params' => ['token' => $m[1]]];
+    }
+    if (preg_match('#^/admin/submissions/([a-f0-9]{64})/(approve|reject)$#', $path, $m)) {
+        return ['page' => 'admin/submission_action', 'params' => ['token' => $m[1], 'action' => $m[2]]];
+    }
+    if (preg_match('#^/admin/submissions/([a-f0-9]{64})/preview$#', $path, $m)) {
+        return ['page' => 'admin/submission_preview', 'params' => ['token' => $m[1]]];
+    }
 
     if (isset($adminStaticRoutes[$path])) {
         return ['page' => $adminStaticRoutes[$path], 'params' => []];

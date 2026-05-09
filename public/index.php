@@ -118,6 +118,11 @@ try {
         exit;
     }
 
+    if ($page === 'paper_template') {
+        require __DIR__ . '/paper_template_download.php';
+        exit;
+    }
+
     $pageTitle    = SITE_NAME;
     $pageSlug     = $page;
     $metaTags     = [];
