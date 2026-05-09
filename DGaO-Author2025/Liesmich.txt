@@ -1,0 +1,65 @@
+
+Herzlich Willkommen zum Autoren-Kit für die DGaO-Proceedings 2025!
+------------------------------------------------------------------
+
+
+In diesem Paket finden Sie alles, was Sie zum Verfassen eines Artikels für die DGaO-Proceedings benötigen. Zur Einreichung eines Proceedings haben Sie folgende Optionen:
+
+
+1) Verwenden von Microsoft Word:
+--------------------------------
+
+Benutzen Sie hierzu bitte die Dokumentenvorlage "DGaO_template2025_deu.dot", die Sie im Unterverzeichnis "MS Word" finden, und speichern Ihr fertiges Dokument im pdf-Format ab. Bitte beachten Sie, dass der fertige Beitrag zwei Seiten nicht überschreiten darf und dass KEINE redaktionelle Bearbeitung Ihres Beitrags stattfindet - Ihr Paper wird exakt in der Form veröffentlicht, in der Sie es einsenden! Lediglich die URN-Nummer und das Eingangsdatum werden von unserer Seite nachträglich mit den richtigen Ziffern ersetzt.
+
+2) Verwenden von LaTeX:
+-----------------------
+
+Alternativ bieten wir auch eine Vorlage für LaTeX an. Sie finden die entsprechenden Dateien im Unterverzeichnis "LaTeX". Das Layout für DGaO-Proceedings wird von der Dokumentenklasse "DGaO-Proc.cls" implementiert. Öffnen Sie die Datei "dgao-demo.tex" mit einem Texteditor, um ein Beispiel für die Verwendung der Dokumentenklasse zu sehen. Erstellen Sie anschließend ein PostScript- oder PDF-Dokument. Sie können dazu wahlweise die Kombination DVIPS/Ghostscript oder auch PDFTeX verwenden.
+
+3) Einreichen eines Posters:
+----------------------------
+
+Wenn Sie auf der Tagung ein Poster präsentieren, bieten wir Ihnen die Möglichkeit, statt eines zweiseitigen Artikels ein Poster einzureichen, das dann in den DGaO-Proceedings veröffentlicht wird. 
+
+Bitte beachten Sie dabei folgende Punkte:
+
+- Die Gestaltung Ihres Posters bleibt Ihnen überlassen. Bitte verwenden Sie eine ausreichende Schriftgröße, so dass das Poster auch bei einem Ausdruck im DIN-A4-Format lesbar ist.
+
+- Fügen Sie die zweizeilige Fußzeile
+  "DGaO-Proceedings 2025 - http://www.dgao-proceedings.de - ISSN: 1614-8436 - urn:nbn:de:0287-2025-XXXX-Y"
+  und darunter "eingegangen: XX.XX.2025   veröffentlicht: XX.XX.2025"   hinzu.
+
+- Es werden nur Poster im PDF-Format akzeptiert. Bitte senden Sie KEINE CorelDraw-, Illustrator- o.ä. Dateiformate.
+
+
+Senden Sie Ihren Beitrag bitte per E-Mail an:
+
+submit@dgao-proceedings.de
+
+Diese Mail sollte folgenden Inhalt haben:
+
+1. Nummer Ihres Vortrags bzw. Posters, wie sie im Programmkatalog erscheint
+   (wenn zur Hand, sonst genügt Hauptautor und Titel),
+
+2. Im Mail-Anhang: Ihr Artikel oder Poster (wenn möglich als ZIP-Datei gepackt).
+
+3. Das von Ihnen handschriftlich unterzeichnete und eingescannte "Copyright-Agreement" (Erklärung zur Gewährung von Nutzungsrechten).
+
+
+WICHTIG :
+Vergessen Sie nicht, die "Erklärung zur Gewährung von Nutzungsrechten" (Copyright-Agreement_deu.pdf) auszufüllen und zu unterzeichnen!! 
+
+
+Mit Ihrer Unterschrift erklären Sie sich einverstanden, dass die DGaO Ihren Beitrag veröffentlichen darf. Solange die Erklärung nicht vorliegt, kann der Artikel nicht veröffentlicht werden!
+
+Wenn Sie noch Fragen haben, wenden Sie sich bitte an
+
+dgao-sekretariat@dgao.de
+
+Vielen Dank für Ihren Beitrag!
+
+Deutsche Gesellschaft für angewandte Optik e.V.
+Technische Universität Ilmenau
+Fachgebiet Technische Optik
+Postfach 100565
+98684 Ilmenau

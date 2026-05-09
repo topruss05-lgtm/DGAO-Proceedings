@@ -1,0 +1,275 @@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Specify "DGaO-Proc" as document class for your paper.
+% Supported options: notcfonts, german (see text below)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{DGaO-Proc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Temporary solution for ifpdf-redefinition error and wrong paper size
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let\ifpdf\relax
+\setlength{\paperwidth}{210mm}
+\setlength{\paperheight}{297mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Add any additional packages here.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Specify a year. This will be printed in the footer on each page.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\year{2025}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Specify your title.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Document Template for DGaO Proceedings}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Specify the author(s). Use asterisks ('*') like in the booklet to
+% denote different affiliations.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Peter Primary*, Susan Secondary{**}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Specify the affiliations of the authors. Use 'newline' (\\) after
+% each entry.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\affiliation{*Institute for This and That, University of Somewhere\\{**}Secondary Ltd., Anytown}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Specify the contact mail address of the main author.
+% (automatically prefixed with "mailto:")
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\contactmail{peter.primary@somewhere.edu}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Specify a short abstract.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\abstract{This is a short abstract which is at most five lines long and not 
+identical to the longer abstract that has been submitted during registration. 
+The following text moves down if the abstract gets longer.}
+
+\bibliographystyle{osajnl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Here your document starts !!
+
+\begin{document}
+
+\section{Introduction}
+
+This document class for \LaTeX\ contains the standard format for the 
+proceedings of the \dgao\ conference. To ensure a common appearance for all articles, 
+we ask you to adopt the formatting as it is defined here.
+
+The entire article may not be longer than two pages. Longer articles get rejected.
+
+\section{Fonts}
+
+The text is typeset in ``Helvetica 10pt'' for optimal readability on the screen. 
+As default, {\tt DGaO-Proc} automatically includes the {\tt tc}-Fonts (Text Companion), 
+which provide additional symbols like \um. If you don't have the
+{\tt tc}-Fonts installed on your system, use the {\tt notcfonts} option. If you decide
+to use the {\tt tc} fonts, please do not use an ugly construct like $\mu$m.
+
+The symbol \permil\ is not taken from the {\tt tc} fonts, as there is no equivalent glyph
+for sans serif fonts. You may use the symbol \na\ for ``numerical aperture''. These symbols
+work both in text and math mode.
+
+\section{Header}
+
+The template provides commands to typeset the header: \verb|\year|, \verb|\title|, \verb|\author|,
+\verb|\affiliation|, \verb|\contactmail|, and \verb|\abstract|. Please see the \TeX\ source of this 
+document on how to use them. 
+
+If the authors belong to different organizations 
+the affiliation is marked with an asterisk (*). Each article should have only one contact mail address.
+The tag {\tt mailto:} is inserted automatically to make it a clickable link in the PDF document.
+
+\section{Figures}
+
+Figures are included using the
+\verb|\columnfigure| comand. It is used like this:
+
+\verb|\columnfigure[width]{file}{caption}|
+
+Figures do not float. They are included in the text at the same place where you put them.
+
+\columnfigure[60mm]{DGAOLOGO}{The \dgao\ logo. Images should not be wider than one column. (The width is an optional parameter.)}
+
+The parameter {\tt width} specifies the horizontal scaling of the image. 
+If possible please scale figures so that they are not wider than one column. 
+This command also automatically sets a label which consists of {\tt fig:} followed by the filename. 
+For each figure there should be a reference in the text. 
+See Fig.~\ref{fig:DGAOLOGO} for an example.
+
+Please use vector graphic formats (like EPS) for diagrams or sketches. Of course you can use
+bitmaps (e.\,g.\ PNG), but this may affect the quality of the image. The images may be in full 24\,bit color. 
+
+\section{Tables}
+
+Tables are typeset using the {\tt columntable} environment. It is used like this:
+
+\verb|\begin{columntable}{spec}{caption}{label}|\\
+\verb|\end{columntable}|
+
+% Of course you may define your own commands inside the TeX source
+\newcommand{\st}{\superscript{\scriptsize st}}
+\newcommand{\nd}{\superscript{\scriptsize nd}}
+\newcommand{\rd}{\superscript{\scriptsize rd}}
+
+\begin{columntable}{|l|l|l|l|}{Comparison of results}{comparison}
+\hline
+Method & 1\st\ Result & 2\nd\ Result & 3\rd\ Result\\
+\hline
+Old & \dots & \dots & \dots\\
+\hline
+New & \dots & \dots & \dots\\
+\hline
+\end{columntable}
+
+Here, {\tt spec} is the column specification (like the {\tt tabular}-environment),
+{\tt caption} is the table caption printed below the table and {\tt label} is
+a user-defined label, which you can use for cross-references.
+See Tab.~\ref{tab:comparison} for an example.
+
+\section{Bibliography}
+
+You may use standard \LaTeX\ bibliographies, by applying the {\tt thebibliography} environment.
+The entries of the bibliography are numbered in brackets and cited like this~\cite{Companion04}.
+
+\subsection{Citing \dgao\ Proceedings}
+
+Citations of articles published with the \dgao\ Proceedings need to include the \emph{year} of
+publication and the \emph{number} of the presentation (e.\,g.\ A13, P45). Do \emph{not} include the 
+page number of the abstract in the conference booklet. The presentation number serves as ``page number''.
+You may include the URL \verb|http://www.dgao-proceedings.de|. Do \emph{not} link the URL of a PDF
+file directly, since the file location may change in the future. Examples (see also ~\cite{Richter05}):
+
+Short version:\\
+{\footnotesize
+[1] C.~Richter and G.~H\"ausler, ``Highly improved measurement speed of white light interferometry,''
+Proc.\ \dgao, p.\ A4 (2005).
+}
+
+Long version:\\
+{\footnotesize
+[1] C.~Richter and G.~H\"ausler, ``Highly improved measurement speed of white light interferometry,''
+106\superscript{th} conference of the \dgao, Wroc{\l}aw (Poland), p.\ A4 (2005). 
+URL \texttt{http://www.dgao-proceedings.de}
+}
+
+The URL is turned into a clickable link in the PDF document.
+
+\subsection{Using Bib\TeX}
+
+You may also use Bib\TeX. The \dgao\ Proceedings use the OSA style (\texttt{osajnl.bst}) for bibliographies.
+
+\section{Web links}
+
+If you want to insert web links into your text, please mark them accordingly, e.\,g.\ with a
+{\tt typewriter} font. Always write the complete web address including the procotol tag,
+e.\,g.\ \verb|http://www.dgao.de|. This is necessary because web links in the text are
+automatically converted to "`clickable"' links later.
+
+\section{Submit your article}
+
+Please submit your article by email to:
+
+\textit{mailto:submit@dgao-proceedings.de}
+
+This email should have the following content:
+
+\begin{enumerate}
+\item\textit{Number of your talk or poster}, as it is displayed in the printed catalogue 
+(alternatively, you can include the title of the article and the name of the main author).
+\item In the email attachment: your article (preferably packed as .zip file).
+\end{enumerate}
+
+You may submit your article as PostScript or PDF document. 
+
+\section{Copyright Agreement}
+
+Please fill out the ``Copyright Agreement'' form, sign it, and send the signed form via e-mail to:\\
+submit@dgao.proceedings.de
+
+Deutsche Gesellschaft f\"ur angewandte Optik e.\,V.\\
+Technische Universit\"at Ilmenau\\
+Fachgebiet Technische Optik\\
+Postfach 100565\\
+98684 Ilmenau\\
+Germany
+
+\textbf{\underline{Important:} By signing this form, you agree that the DGaO may publish 
+your article. Until we do not have this agreement, your article cannot be published!}
+
+\section{Support}
+
+If you have questions, feel free to contact:
+
+\texttt{mailto:dgao-sekretariat@dgao.de}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Your bibliography. You may also use BibTeX instead.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iffalse
+\begin{thebibliography}{99}
+\small
+
+\bibitem{author}A. Author, ``My Great Paper,'' in \textit{Handbook of the Greatest Papers of the 
+World}, H.~Superman ed. (Great Publisher, 1909), pp. 156--187.
+
+\bibitem{somoneelse}S. Someone and E. Else, \textit{Our nicest Results in Color} 
+(Oh'Really, Cambridge 2001).
+
+\bibitem{whowasthis}W. Whowasthis, ``I do not know anything,'' \textit{Jour.\ Nonsense} 
+\textbf{45}(3), 123--13 (2000).
+
+\end{thebibliography}
+\fi
+
+\small
+\bibliography{mybib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

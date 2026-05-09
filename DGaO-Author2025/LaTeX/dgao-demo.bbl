@@ -1,0 +1,18 @@
+\begin{thebibliography}{1}
+\newcommand{\enquote}[1]{``#1''}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{Companion04}
+F.~Mittelbach and M.~Goossens, \emph{The \LaTeX\ Companion}, 2nd ed.
+  (Addison-Wesley, 2004).
+
+\bibitem{Richter05}
+C.~Richter and G.~H\"ausler, \enquote{Highly improved measurement speed of
+  white light interferometry,} 106\superscript{\scriptsize th} conference of
+  the DGaO, Wroc{\l}aw (Poland), p.~A4 (2005).
+  \urlprefix\url{http://www.dgao-proceedings.de}.
+
+\end{thebibliography}
