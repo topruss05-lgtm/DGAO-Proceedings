@@ -24,7 +24,21 @@
             <li><a href="/admin" class="<?= ($page ?? '') === 'admin/dashboard' ? 'active' : '' ?>">
                 <i class="bi bi-speedometer2"></i> Dashboard</a></li>
             <li><a href="/admin/import" class="<?= ($page ?? '') === 'admin/import' ? 'active' : '' ?>">
-                <i class="bi bi-upload"></i> CSV-Import</a></li>
+                <i class="bi bi-upload"></i> Import</a></li>
+            <?php
+            // Pending-Submission-Counter
+            $pendingSubs = 0;
+            try {
+                $db = getDb();
+                $pendingSubs = (int)$db->query("SELECT COUNT(*) FROM submissions WHERE status = 'pending' AND filename_stored IS NOT NULL")->fetchColumn();
+            } catch (Exception $e) { /* Tabelle existiert evtl. noch nicht */ }
+            ?>
+            <li><a href="/admin/submissions" class="<?= str_starts_with($page ?? '', 'admin/submission') ? 'active' : '' ?>">
+                <i class="bi bi-cloud-upload"></i> Einreichungen
+                <?php if ($pendingSubs > 0): ?>
+                    <span class="badge bg-danger ms-1"><?= $pendingSubs ?></span>
+                <?php endif; ?>
+            </a></li>
             <li class="sidebar-divider"></li>
             <li><a href="/admin/tagungen" class="<?= str_starts_with($page ?? '', 'admin/tagung') ? 'active' : '' ?>">
                 <i class="bi bi-calendar-event"></i> Tagungen</a></li>
