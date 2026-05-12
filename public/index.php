@@ -123,6 +123,11 @@ try {
         exit;
     }
 
+    if ($page === 'manuskript_vorlage_download') {
+        require __DIR__ . '/manuskript_vorlage_download.php';
+        exit;
+    }
+
     $pageTitle    = SITE_NAME;
     $pageSlug     = $page;
     $metaTags     = [];

@@ -120,6 +120,23 @@ function getAllTagungen(): array
     ')->fetchAll();
 }
 
+/**
+ * Tagung, für die der Admin die Vorlagen-Download-Phase aktiviert hat.
+ * null = keine aktive Phase (Downloads sind dann gesperrt).
+ */
+function getCurrentVorlagenTagung(): ?array
+{
+    $db = getDb();
+    $row = $db->query('
+        SELECT nummer, jahr, ort, datum_von, datum_bis
+        FROM tagungen
+        WHERE vorlage_phase_aktiv = 1
+        ORDER BY nummer DESC
+        LIMIT 1
+    ')->fetch();
+    return $row ?: null;
+}
+
 function getSiteStats(): array
 {
     $db = getDb();

@@ -85,14 +85,11 @@ $recentTagungen = $db->query('
         <div class="card">
             <div class="card-header"><strong>Schnellaktionen</strong></div>
             <div class="card-body d-grid gap-2">
-                <a href="/admin/import" class="btn btn-primary">
-                    <i class="bi bi-upload"></i> CSV importieren
-                </a>
-                <a href="/admin/tagungen/neu" class="btn btn-outline-secondary">
-                    <i class="bi bi-plus-circle"></i> Neue Tagung
+                <a href="/admin/tagungen/neu" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> Neue Tagung &amp; Tagungsband-PDF
                 </a>
                 <a href="/admin/papers/neu" class="btn btn-outline-secondary">
-                    <i class="bi bi-plus-circle"></i> Neues Paper
+                    <i class="bi bi-plus-circle"></i> Neues Paper (manuell)
                 </a>
             </div>
         </div>

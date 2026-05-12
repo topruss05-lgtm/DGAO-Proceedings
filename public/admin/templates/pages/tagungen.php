@@ -3,7 +3,7 @@ $adminPageTitle = 'Tagungen';
 $db = getDb();
 
 $tagungen = $db->query('
-    SELECT t.nummer, t.jahr, t.ort, t.datum_von, t.datum_bis,
+    SELECT t.nummer, t.jahr, t.ort, t.datum_von, t.datum_bis, t.vorlage_phase_aktiv,
            COUNT(p.id) as paper_count
     FROM tagungen t
     LEFT JOIN papers p ON p.tagung_nummer = t.nummer
@@ -29,6 +29,7 @@ $tagungen = $db->query('
                     <th>Ort</th>
                     <th>Datum</th>
                     <th>Papers</th>
+                    <th>Vorlagen-Phase</th>
                     <th class="text-end">Aktionen</th>
                 </tr>
             </thead>
@@ -46,6 +47,13 @@ $tagungen = $db->query('
                     </td>
                     <td>
                         <a href="/admin/papers?tagung=<?= $t['nummer'] ?>"><?= $t['paper_count'] ?></a>
+                    </td>
+                    <td>
+                        <?php if (!empty($t['vorlage_phase_aktiv'])): ?>
+                            <span class="badge text-bg-success"><i class="bi bi-check-circle"></i> aktiv</span>
+                        <?php else: ?>
+                            <span class="badge text-bg-light text-muted">&mdash;</span>
+                        <?php endif; ?>
                     </td>
                     <td class="text-end">
                         <a href="/admin/tagungen/<?= $t['nummer'] ?>/edit" class="btn btn-sm btn-outline-primary" title="Bearbeiten">

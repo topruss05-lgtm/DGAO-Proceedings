@@ -9,15 +9,20 @@ function matchRoute(string $uri): array
     if ($path === '') $path = '/';
 
     $staticRoutes = [
-        '/'            => 'home',
-        '/archiv'      => 'archiv',
-        '/autoren'     => 'autoren',
-        '/statistik'   => 'statistik',
-        '/suche'       => 'suche',
-        '/impressum'   => 'impressum',
-        '/datenschutz' => 'datenschutz',
-        '/kontakt'     => 'kontakt',
+        '/'                    => 'home',
+        '/archiv'              => 'archiv',
+        '/autoren'             => 'autoren',
+        '/statistik'           => 'statistik',
+        '/suche'               => 'suche',
+        '/impressum'           => 'impressum',
+        '/datenschutz'         => 'datenschutz',
+        '/kontakt'             => 'kontakt',
     ];
+
+    // Alter Link /manuskript-vorlage → /einreichen#vorlage (Beitragseinreichung kombiniert beides)
+    if ($path === '/manuskript-vorlage') {
+        return ['page' => 'legacy_redirect', 'params' => ['url' => '/einreichen#vorlage']];
+    }
 
     if (isset($staticRoutes[$path])) {
         return ['page' => $staticRoutes[$path], 'params' => []];
@@ -36,6 +41,14 @@ function matchRoute(string $uri): array
             'id'     => $m[1],
             'format' => $m[2],
             'lang'   => $m[3] ?? 'de',
+        ]];
+    }
+
+    // Blanke Manuskript-Vorlagen — nur verfügbar bei aktiver Vorlagen-Phase
+    if (preg_match('#^/manuskript-vorlage/(latex|word|copyright)(?:/(de|en))?$#', $path, $m)) {
+        return ['page' => 'manuskript_vorlage_download', 'params' => [
+            'format' => $m[1],
+            'lang'   => $m[2] ?? 'de',
         ]];
     }
 
@@ -80,7 +93,6 @@ function matchRoute(string $uri): array
         '/admin'             => 'admin/dashboard',
         '/admin/login'       => 'admin/login',
         '/admin/logout'      => 'admin/logout',
-        '/admin/import'      => 'admin/import',
         '/admin/tagungen'    => 'admin/tagungen',
         '/admin/papers'      => 'admin/papers',
         '/admin/autoren'     => 'admin/autoren',

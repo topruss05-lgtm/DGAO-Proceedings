@@ -9,13 +9,21 @@ $format = $params['format']; // 'latex' or 'word'
 $lang   = $params['lang'];   // 'de' or 'en'
 
 $db = getDb();
-$stmt = $db->prepare('SELECT p.*, t.jahr, t.ort FROM papers p JOIN tagungen t ON t.nummer = p.tagung_nummer WHERE p.id = ?');
+$stmt = $db->prepare('SELECT p.*, t.jahr, t.ort, t.vorlage_phase_aktiv FROM papers p JOIN tagungen t ON t.nummer = p.tagung_nummer WHERE p.id = ?');
 $stmt->execute([$id]);
 $paper = $stmt->fetch();
 
 if (!$paper) {
     http_response_code(404);
     echo 'Beitrag nicht gefunden';
+    return;
+}
+
+// Vorlagen-Downloads sind an die aktive Vorlagen-Phase gekoppelt — exakt
+// dieselbe Regel wie für /manuskript-vorlage/.
+if (empty($paper['vorlage_phase_aktiv'])) {
+    http_response_code(403);
+    echo 'Manuskript-Vorlagen sind aktuell nicht öffentlich verfügbar.';
     return;
 }
 

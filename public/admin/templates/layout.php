@@ -23,8 +23,6 @@
         <ul class="sidebar-nav">
             <li><a href="/admin" class="<?= ($page ?? '') === 'admin/dashboard' ? 'active' : '' ?>">
                 <i class="bi bi-speedometer2"></i> Dashboard</a></li>
-            <li><a href="/admin/import" class="<?= ($page ?? '') === 'admin/import' ? 'active' : '' ?>">
-                <i class="bi bi-upload"></i> Import</a></li>
             <?php
             // Pending-Submission-Counter
             $pendingSubs = 0;

@@ -330,11 +330,11 @@ function parsePaperBlock(array $bodyLines): array
         return ['titel' => '', 'autoren' => '', 'affiliationen' => '', 'kontakt_email' => '', 'abstract' => ''];
     }
 
-    // Statemachine: 0 = TITLE, 1 = AFFIL/EMAIL, 2 = ABSTRACT
+    // Statemachine: 0 = TITLE, 1 = AUTHORS, 2 = AFFIL/EMAIL, 3 = ABSTRACT
     $state = 0;
 
     $titleLines  = [];
-    $autoren     = '';
+    $autorenLines = [];
     $affilLines  = [];
     $email       = '';
     $abstractLines = [];
@@ -344,44 +344,45 @@ function parsePaperBlock(array $bodyLines): array
         $trimmed = trim($line);
 
         if ($state === 0) { // TITLE — sammle bis Author erkannt
-            if ($trimmed === '') {
-                // Leerzeile innerhalb Title — nur ignorieren wenn schon Title vorhanden
-                continue;
-            }
+            if ($trimmed === '') continue;
             if (!empty($titleLines) && looksLikeAuthorLine($trimmed)) {
-                $autoren = $trimmed;
-                $state = 1; // AFFIL
+                $autorenLines[] = $trimmed;
+                $state = 1; // AUTHORS
             } else {
                 $titleLines[] = $trimmed;
             }
             continue;
         }
 
-        if ($state === 1) { // AFFIL — sammle Affiliations bis Email
-            if ($trimmed === '') {
-                // Leerzeile innerhalb Affil → tolerieren, weiter
+        if ($state === 1) { // AUTHORS — weitere Autorenzeilen anhängen, sonst Affil-State
+            if ($trimmed === '') continue;
+            if (looksLikeAuthorLine($trimmed)) {
+                $autorenLines[] = $trimmed;
                 continue;
             }
+            // Nicht mehr Author → Affil-Phase
+            $state = 2;
+            // Fall-through: dieselbe Zeile als Affil/Email behandeln
+        }
+
+        if ($state === 2) { // AFFIL — sammle Affiliations bis Email
+            if ($trimmed === '') continue;
             if (lineHasEmail($trimmed)) {
-                // Lines vor Email in derselben Zeile zählen ggf. als Affil
                 $email = extractEmail($trimmed);
-                // Wenn Zeile mehr ist als nur Email (z.B. "email@x.de — Tel: 123"), Rest verwerfen
-                $state = 2; // ABSTRACT
+                $state = 3; // ABSTRACT
                 continue;
             }
             $affilLines[] = $trimmed;
             continue;
         }
 
-        // state === 2: ABSTRACT
+        // state === 3: ABSTRACT
         if ($trimmed === '') {
-            // Leerzeile als Absatztrenner: Marker setzen
             if (!empty($abstractLines) && end($abstractLines) !== '') {
-                $abstractLines[] = ''; // Paragraph-Break
+                $abstractLines[] = '';
             }
             continue;
         }
-        // Refs-Block ([1], [2], ...) → Abstract beendet
         if (preg_match('/^\s*\[\d+\]/', $trimmed)) {
             break;
         }
@@ -391,10 +392,16 @@ function parsePaperBlock(array $bodyLines): array
     // Title aus Title-Zeilen mergen (Silbentrennung auflösen)
     $titel = mergeParagraph($titleLines);
 
+    // Mehrzeilige Autorenliste zusammenführen — Trailing-Komma + Leerzeichen
+    $autoren = '';
+    foreach ($autorenLines as $i => $al) {
+        $al = rtrim($al, ', ');
+        $autoren = $autoren === '' ? $al : ($autoren . ', ' . $al);
+    }
+
     // Affiliations zeilenweise (mit Newline-Joins)
     $affiliationen = implode("\n", array_filter($affilLines, fn($l) => $l !== ''));
 
-    // Abstract: Paragraphen via Empty-Marker zurück-bauen
     $paragraphs = [];
     $current = [];
     foreach ($abstractLines as $l) {
@@ -416,17 +423,190 @@ function parsePaperBlock(array $bodyLines): array
     ];
 }
 
+/**
+ * Erkennt Autorenzeilen wie "A. Müller", "K.-H. Brenner", "Ç. Ataman",
+ * "G. von Bally" oder "A. Müller*, B. Schmidt**".
+ *
+ * Strenge Regel: JEDES Komma-Token muss wie ein Autorenname aussehen
+ * (Initial.+Nachname oder „Vorname Nachname"). Sonst werden Affiliation-
+ * Zeilen wie „Department of X, University of Y" fälschlich als Autoren
+ * erkannt (siehe A22 in DGaO_2025.pdf).
+ *
+ * Unicode: \p{Lu} und \p{Ll} statt [A-ZÄÖÜ]/[a-zäöüß], damit Ç, Ş, É, …
+ * korrekt erkannt werden.
+ */
 function looksLikeAuthorLine(string $line): bool
 {
     $t = trim($line);
-    if ($t === '' || mb_strlen($t) > 200) return false;
-    // Pattern: führende Initialen "A. Müller", "K.-H. Brenner", "X. Y, A. B"
-    if (preg_match('/^([A-ZÄÖÜ]\.\s*-?\s*)+[A-ZÄÖÜ][a-zäöüß]/u', $t)) return true;
-    // Komma-Liste ohne Satzzeichen am Ende
-    if (substr_count($t, ',') >= 1 && mb_strlen($t) < 150 && !preg_match('/[.!?]$/', $t)) {
-        if (preg_match('/[A-ZÄÖÜ][a-zäöüß]+/u', $t)) return true;
+    if ($t === '' || mb_strlen($t) > 250) return false;
+    // Satzende? — Punkt nach Kleinbuchstaben („…modulator.") oder „!"/„?"
+    // verbietet Autorenzeile. Punkt nach Großbuchstaben („…, M.") ist eine
+    // Initiale und erlaubt.
+    if (preg_match('/[!?]$/u', $t)) return false;
+    if (preg_match('/\p{Ll}\.$/u', $t)) return false;
+
+    // Institutional-Keyword-Filter: enthält die Zeile ein klar institutionelles
+    // Wort, ist es eine Affil-Zeile (auch wenn die Tokens namenähnlich aussehen).
+    if (containsInstitutionKeyword($t)) return false;
+
+    // Trailing Komma (mehrzeilige Autorenliste, „A,\nB,\nC") tolerieren.
+    $t = rtrim($t, ',');
+    $tokens = preg_split('/\s*,\s*/u', $t);
+    $hasMultipleTokens = count(array_filter($tokens, fn($x) => trim($x) !== '')) > 1;
+
+    // Single-Token-Zeilen MÜSSEN Pattern A (Initial+Nachname) erfüllen, weil
+    // Pattern B (Vorname-Nachname) sonst Affil-Zeilen wie „Physikalisch-Technische
+    // Bundesanstalt" als Autor erkennt — siehe A9 in DGaO_2024.pdf.
+    $checked = 0;
+    foreach ($tokens as $tok) {
+        if (trim($tok) === '') continue;
+        $clean = preg_replace('/[\*†‡§¹²³⁴\d\s]+$/u', '', $tok);
+        if ($clean === '') continue;
+        if (!looksLikeAuthorToken($clean, $hasMultipleTokens)) return false;
+        $checked++;
     }
-    return false;
+    return $checked > 0;
+}
+
+/**
+ * Ein Autoren-Token sieht aus wie:
+ *   "A. Müller", "K.-H. Brenner", "Ç. Ataman", "G. von Bally",
+ *   "Hans Peter Müller", "M. R. Schmidt-Werner", "M.R. Schmidt"
+ * NICHT wie: "Department of X", "University of Freiburg",
+ *            "Institut für Technische Optik".
+ */
+/**
+ * Extrahiert Tagungs-Metadaten (Nummer, Jahr, Ort, Datum von/bis) aus dem
+ * Booklet-Cover bzw. Einladungstext. Sucht das stabile Pattern:
+ *
+ *   „zur N. Jahrestagung der DGaO
+ *    vom DD. Monat bis DD. Monat YYYY
+ *    ...
+ *    in Stadt"
+ *
+ * Dieser Block ist seit mind. 2024 identisch — Cover/Header sind unzuverlässig
+ * (oft Reste alter Vorlagen, siehe DGaO_2026.pdf), die Einladung dagegen klar.
+ *
+ * @return array{nummer:int,jahr:int,ort:string,datum_von:string,datum_bis:string,errors:array}
+ */
+function extractTagungMetadata(string $text): array
+{
+    $monate = [
+        'januar'=>1,'februar'=>2,'märz'=>3,'maerz'=>3,'april'=>4,'mai'=>5,
+        'juni'=>6,'juli'=>7,'august'=>8,'september'=>9,'oktober'=>10,
+        'november'=>11,'dezember'=>12,
+    ];
+    $errors = [];
+    $nummer = 0; $jahr = 0; $ort = ''; $von = ''; $bis = '';
+
+    if (preg_match('/zur\s+(\d{1,4})\.\s*Jahrestagung\s+der\s+DGaO/iu', $text, $m)) {
+        $nummer = (int)$m[1];
+    } else $errors[] = 'Tagungsnummer nicht gefunden („zur N. Jahrestagung der DGaO").';
+
+    if (preg_match(
+        '/vom\s+(\d{1,2})\.\s*([A-Za-zäÄ]+)\s+bis\s+(\d{1,2})\.\s*([A-Za-zäÄ]+)\s+(\d{4})/iu',
+        $text, $m
+    )) {
+        $tag1 = (int)$m[1];
+        $mon1 = $monate[mb_strtolower($m[2])] ?? 0;
+        $tag2 = (int)$m[3];
+        $mon2 = $monate[mb_strtolower($m[4])] ?? 0;
+        $jahr = (int)$m[5];
+        if ($mon1 && $mon2) {
+            $von = sprintf('%04d-%02d-%02d', $jahr, $mon1, $tag1);
+            $bis = sprintf('%04d-%02d-%02d', $jahr, $mon2, $tag2);
+        } else $errors[] = 'Monatsname konnte nicht aufgelöst werden.';
+    } else $errors[] = 'Datum nicht gefunden („vom DD. Monat bis DD. Monat YYYY").';
+
+    // Ort: nach „Mitgliederversammlung … in Stadt" — Stadt bis zum Zeilenende.
+    if (preg_match('/Mitgliederversammlung\s+der\s+DGaO[\s\S]{0,300}?\bin\s+([A-ZÄÖÜ][\p{L}\-]+(?:[ \t]+[A-ZÄÖÜ][\p{L}\-]+)?)\s*(?:\r?\n|$)/u', $text, $m)) {
+        $ort = trim($m[1]);
+    } elseif (preg_match('/\bin\s+([A-ZÄÖÜ][\p{L}\-]+(?:[ \t]+[A-ZÄÖÜ][\p{L}\-]+)?)\s*(?:\r?\n)/u', $text, $m)) {
+        $ort = trim($m[1]);
+    }
+
+    return [
+        'nummer'    => $nummer,
+        'jahr'      => $jahr,
+        'ort'       => $ort,
+        'datum_von' => $von,
+        'datum_bis' => $bis,
+        'errors'    => $errors,
+    ];
+}
+
+/**
+ * Heuristik: Enthält der Text ein eindeutig institutionelles Schlagwort?
+ * Wenn ja, ist die Zeile eine Affiliation, kein Autor.
+ *
+ * Bewusst restriktive Liste — nur Begriffe, die kein Personenname je sind.
+ */
+function containsInstitutionKeyword(string $line): bool
+{
+    static $keywords = [
+        'universität','university','université','università','universitat',
+        'hochschule','fachhochschule',
+        'fakultät','faculty',
+        'institut','institute','instituto',
+        'lehrstuhl','chair',
+        'department','dept\\.?','abteilung','abt\\.?',
+        'fachgebiet','fachbereich',
+        'school','college','escola',
+        'laboratory','laboratoire',
+        'center','centre','zentrum',
+        'fraunhofer','max-planck','leibniz','helmholtz',
+        'gmbh','ag','kg','llc','inc\\.?','corp\\.?','co\\.?','ltd\\.?','e\\.v\\.',
+        'rwth','tu','ptb','desy','cern','mit','eth',
+    ];
+    $pattern = '/(?<![\p{L}])(' . implode('|', $keywords) . ')(?![\p{L}])/iu';
+    return (bool)preg_match($pattern, $line);
+}
+
+/**
+ * Erkennt zurückgezogene Beiträge im Booklet (Platzhalter wie „- ZURÜCKGEZOGEN -",
+ * „withdrawn", „cancelled" — Titel-only, keine Autoren/Abstract).
+ */
+function isWithdrawnPaper(string $titel, string $autoren, string $abstract): bool
+{
+    if ($autoren !== '' || $abstract !== '') return false;
+    $t = mb_strtolower(trim($titel));
+    return (bool)preg_match('/(zur[üu]ckgezogen|withdrawn|cancell?ed|canceled)/u', $t);
+}
+
+function looksLikeAuthorToken(string $tok, bool $allowSpacedNames = true): bool
+{
+    $tok = trim($tok);
+    if ($tok === '' || mb_strlen($tok) > 60) return false;
+
+    // Pattern A: ein oder mehrere Initial-Gruppen + Nachname.
+    //   "A. Müller", "K.-H. Brenner", "M. R. Schmidt-Werner", "Ç. Ataman"
+    if (preg_match('/^(\p{Lu}\.\s*-?\s*)+(\p{Lu}[\p{L}\'\-]*\s+)*\p{Lu}[\p{L}\'\-]+$/u', $tok)) {
+        return true;
+    }
+
+    // Pattern A': nur Initialen — "M.", "K.-H.", "M.R." (z.B. „Abdou Ahmed, M.")
+    if (preg_match('/^(\p{Lu}\.\s*-?\s*)+$/u', $tok)) {
+        return true;
+    }
+
+    // Pattern B (Vorname Nachname ohne Punkt) ist riskant — schluckt sonst
+    // Institutsnamen. Daher nur erlauben, wenn die Zeile mehrere Komma-Tokens
+    // hat (Autorenliste-Kontext) ODER der Token einen Initial-Punkt enthält.
+    if (!$allowSpacedNames) return false;
+
+    $particles = ['von','van','de','der','den','del','di','da','le','la','du','zu','zur','dos','das'];
+    $words = preg_split('/\s+/u', $tok);
+    if (count($words) < 2) return false;
+    $firstSeen = false;
+    foreach ($words as $w) {
+        if ($w === '') return false;
+        if (mb_strlen($w) > 18) return false; // Lange Wörter → Komposita = Institut
+        if (preg_match('/^\p{Lu}+\.$/u', $w)) { $firstSeen = true; continue; }
+        if ($firstSeen && in_array(mb_strtolower($w), $particles, true)) continue;
+        if (preg_match('/^\p{Lu}[\p{L}\'\-]*$/u', $w)) { $firstSeen = true; continue; }
+        return false;
+    }
+    return true;
 }
 
 function mergeParagraph(array $lines): string
@@ -435,9 +615,17 @@ function mergeParagraph(array $lines): string
     foreach ($lines as $i => $line) {
         $line = trim($line);
         if ($i === 0) { $out = $line; continue; }
-        // Silbentrennung am Vorgängerende auflösen
-        if (preg_match('/[a-zäöüß]-$/u', $out)) {
+
+        $endsHyphen     = preg_match('/-$/u', $out);
+        $nextStartsLower = preg_match('/^\p{Ll}/u', $line);
+        $endsLowerHyphen = preg_match('/\p{Ll}-$/u', $out);
+
+        if ($endsLowerHyphen && $nextStartsLower) {
+            // Echte Silbentrennung („Anord-\nnung") — Bindestrich entfernen
             $out = mb_substr($out, 0, -1) . $line;
+        } elseif ($endsHyphen && !$nextStartsLower) {
+            // Bindestrich-Komposita („Quantum-\nComputing") — ohne Space joinen
+            $out .= $line;
         } else {
             $out .= ' ' . $line;
         }
@@ -457,10 +645,12 @@ function parsePdfText(string $text, int $defaultJahr, string $datumVon = '', str
     $pages = explode("\f", $text);
 
     // Poster-Datum-Mapping aus Programmübersicht:
-    //   1 Postersession → alle Poster auf dieses Datum (eindeutig)
-    //   ≥2 Sessions     → Datum leer (Admin entscheidet im Preview, Konvention wie 2025)
+    //   1 Postersession  → alle Poster auf dieses Datum (eindeutig)
+    //   ≥2 Sessions      → erste Postersession als Default verwenden, damit Poster
+    //                      ein Datum bekommen. Die Booklet-Vorlage sollte für
+    //                      Multi-Session-Tagungen die Sessions pro Poster ausweisen.
     $posterSessions = extractPosterSessionDates($text, $datumVon, $datumBis);
-    $posterDate = count($posterSessions) === 1 ? $posterSessions[0] : '';
+    $posterDate = !empty($posterSessions) ? $posterSessions[0] : '';
 
     $currentWeekday = '';
     $currentDate = '';
@@ -555,6 +745,14 @@ function parsePdfText(string $text, int $defaultJahr, string $datumVon = '', str
     $rowIdx = 0;
     foreach ($blocks as $blk) {
         $parsed = parsePaperBlock($blk['body']);
+
+        // Zurückgezogene Beiträge überspringen: Titel ist „- ZURÜCKGEZOGEN -"
+        // o.ä. und alle Felder sind leer. Diese tauchen im PDF nur als Platzhalter
+        // auf — sie gehören nicht in die Proceedings.
+        if (isWithdrawnPaper($parsed['titel'], $parsed['autoren'], $parsed['abstract'])) {
+            continue;
+        }
+
         // Range-Codes (B24-B27, A13/14) zu mehreren Records expandieren — dieselben
         // Inhalte (Podiumsdiskussion etc.), nur jeweils unterschiedlicher Code.
         $codeList = expandCodeToken($blk['code']);

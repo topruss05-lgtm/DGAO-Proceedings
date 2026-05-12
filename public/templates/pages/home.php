@@ -13,287 +13,453 @@ $nf = currentLang() === 'en'
 
 $oldestYear = !empty($tagungen) ? $tagungen[count($tagungen) - 1]['jahr'] : '1900';
 
+/* ============================================================
+   Hero optics — Snell's-law refraction + dispersion through a
+   parallel-faced glass slab (the search bar). Real BK7 has
+   Δn ≈ 0.02 across the visible range, far too small to see in a
+   90-px-thick slab; we use Δn ≈ 0.26 so the spectrum reads
+   visually. Snell's law itself is computed exactly per colour.
+
+   On desktop the parallel rainbow stripes pass through a thin
+   biconvex lens with chromatic aberration (per-colour focal
+   length), producing the classic crossing fan beyond focus.
+   ============================================================ */
+
+function dgao_compute_optics(array $cfg): array {
+    $vbW      = $cfg['vb_w'];
+    $vbH      = $cfg['vb_h'];
+    $glass    = $cfg['glass'];                  // x, y, w, h, r
+    $thetaAir = deg2rad($cfg['theta_deg']);
+    $entryX   = $cfg['entry_x'];
+
+    $entryY  = $glass['y'] + $glass['h'];
+    $sourceY = $vbH + 120;
+    $sourceX = $entryX - ($sourceY - $entryY) * tan($thetaAir);
+
+    // Visible spectrum. Real BK7 has Δn ≈ 0.02; we use Δn ≈ 0.6 so
+    // the dispersion spread is wide enough that individual colours
+    // stay distinguishable rather than blurring back into white.
+    $spectrum = [
+        ['n' => 1.35, 'rgb' => '#ff2a2a'],
+        ['n' => 1.45, 'rgb' => '#ff7a18'],
+        ['n' => 1.55, 'rgb' => '#ffd400'],
+        ['n' => 1.65, 'rgb' => '#3eea75'],
+        ['n' => 1.75, 'rgb' => '#1ec8ff'],
+        ['n' => 1.85, 'rgb' => '#3a6dff'],
+        ['n' => 1.95, 'rgb' => '#a040ff'],
+    ];
+
+    $rays = [];
+    foreach ($spectrum as $s) {
+        // Snell at entry (air→glass)
+        $thetaGlass = asin(sin($thetaAir) / $s['n']);
+        // Travel through the slab to the parallel top face
+        $exitX = $entryX + $glass['h'] * tan($thetaGlass);
+        $exitY = $glass['y'];
+        // After exit (glass→air): same θ as incoming, so direction = original.
+        $endY  = -120;
+        $endX  = $exitX + ($exitY - $endY) * tan($thetaAir);
+
+        $rays[] = [
+            'color' => $s['rgb'],
+            'n'     => $s['n'],
+            'midX'  => round($exitX, 2),
+            'midY'  => round($exitY, 2),
+            'endX'  => round($endX, 2),
+            'endY'  => $endY,
+        ];
+    }
+
+    return [
+        'vbW'      => $vbW,
+        'vbH'      => $vbH,
+        'glass'    => $glass,
+        'source'   => ['x' => round($sourceX, 2), 'y' => $sourceY],
+        'entry'    => ['x' => $entryX, 'y' => $entryY],
+        'rays'     => $rays,
+        'thetaDeg' => $cfg['theta_deg'],
+        'thetaRad' => $thetaAir,
+    ];
+}
+
+/** Bend each parallel ray through a thin biconvex lens with chromatic
+ *  aberration. Returns hit point on the lens plane plus a far end past
+ *  the per-colour focal point (so the crossing fan is visible). */
+function dgao_lens_rays(array $rays, array $lens, float $thetaRad): array {
+    $axisDx =  sin($thetaRad);
+    $axisDy = -cos($thetaRad);
+    $cx     = $lens['cx'];
+    $cy     = $lens['cy'];
+    $fBase  = $lens['f'];
+
+    $out = [];
+    $n   = count($rays);
+    foreach ($rays as $i => $r) {
+        // Red focuses farthest, violet nearest. 32% spread.
+        $f  = $fBase * (1.0 - 0.32 * ($i / max($n - 1, 1)));
+        $fx = $cx + $f * $axisDx;
+        $fy = $cy + $f * $axisDy;
+
+        // Distance along axis from ray start to lens plane
+        $d    = ($cx - $r['midX']) * $axisDx + ($cy - $r['midY']) * $axisDy;
+        $hitX = $r['midX'] + $d * $axisDx;
+        $hitY = $r['midY'] + $d * $axisDy;
+
+        // Refracted direction: through focal point, traced past focus
+        $rdx  = $fx - $hitX;  $rdy  = $fy - $hitY;
+        $rLen = sqrt($rdx * $rdx + $rdy * $rdy) ?: 1;
+        $rdx /= $rLen;        $rdy /= $rLen;
+        $trace = $f * 1.85;
+        $endX  = $hitX + $trace * $rdx;
+        $endY  = $hitY + $trace * $rdy;
+
+        $out[] = [
+            'color' => $r['color'],
+            'midX'  => $r['midX'],
+            'midY'  => $r['midY'],
+            'hitX'  => round($hitX, 2),
+            'hitY'  => round($hitY, 2),
+            'endX'  => round($endX, 2),
+            'endY'  => round($endY, 2),
+            'fx'    => round($fx, 2),
+            'fy'    => round($fy, 2),
+        ];
+    }
+    return $out;
+}
+
+// Desktop layout: search bar in the LEFT column (Springer-style), so
+// the rainbow band sweeps diagonally across the whole hero from the
+// lower-left search bar to the upper-right where the lens lives. A
+// steeper θ keeps the trajectory shallow enough to hit the lens far
+// to the right, and as a side-effect the incoming beam stays above the
+// stats row instead of clipping through it.
+$dScene = dgao_compute_optics([
+    'vb_w'      => 1280,
+    'vb_h'      => 560,
+    'glass'     => ['x' => 80, 'y' => 230, 'w' => 520, 'h' => 100, 'r' => 14],
+    'theta_deg' => 70,
+    'entry_x'   => 140,
+]);
+$dLens     = ['cx' => 660, 'cy' => 72, 'f' => 140];
+$dLensRays = dgao_lens_rays($dScene['rays'], $dLens, $dScene['thetaRad']);
+
+// Mobile keeps the symmetric portrait composition.
+$mScene = dgao_compute_optics([
+    'vb_w'      => 600,
+    'vb_h'      => 760,
+    'glass'     => ['x' => 60, 'y' => 410, 'w' => 480, 'h' => 100, 'r' => 14],
+    'theta_deg' => 52,
+    'entry_x'   => 135,
+]);
+
 $extraHead = <<<'STYLES'
 <style>
 /* =============================================
-   Homepage — Editorial split hero
-   - Asymmetric: dark burgundy left, spectrum visual right
-   - Search + stats inline, left-aligned (editorial, not centered)
-   - DGaO touch: optical spectrum + diffraction wavefronts
+   Homepage — Optics Refraction Hero
+   Dark stage; white beam refracts and disperses through an Apple-
+   style liquid-glass search bar. Mobile shows just the prism;
+   desktop adds a biconvex lens with chromatic aberration.
+   Geometry is computed in PHP (Snell's law) and rendered as SVG.
+   The interactive form is positioned in % so it stays in lock-
+   step with the SVG glass shape (stage uses aspect-ratio).
    ============================================= */
 
-/* --- HERO container — full-bleed, 1280px inner.
-   Background carries a soft dispersive atmosphere (DGaO-Optik anchor)
-   that survives even when the right-side visual block is hidden on mobile. --- */
 .hero {
     position: relative;
-    background:
-        linear-gradient(132deg, transparent 55%, rgba(124, 58, 237, 0.07) 70%, transparent 88%),
-        linear-gradient(138deg, transparent 60%, rgba(8, 145, 178, 0.06) 75%, transparent 92%),
-        linear-gradient(144deg, transparent 65%, rgba(202, 138, 4, 0.06) 80%, transparent 96%),
-        linear-gradient(150deg, transparent 70%, rgba(234, 88, 12, 0.07) 85%, transparent 100%),
-        linear-gradient(156deg, transparent 75%, rgba(180, 46, 66, 0.12) 90%, transparent 100%),
-        var(--accent-dark);
+    background: #050811;
     color: #fff;
     overflow: hidden;
     isolation: isolate;
+    padding: clamp(2rem, 4vw, 3.25rem) 0 clamp(2rem, 4vw, 3.25rem);
 }
 
-.hero__inner {
-    position: relative;
-    max-width: 1280px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    align-items: stretch;
-}
-
-.hero__inner > * { min-width: 0; }
-
-/* --- LEFT: editorial content --- */
-.hero__content {
-    position: relative;
-    z-index: 2;
-    padding: 4rem 3rem 3.25rem 1.5rem;
-    max-width: 640px;
-    min-width: 0;
-}
-
-/* Eyebrow with leading rule */
-.hero__eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.7rem;
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.78);
-    margin-bottom: 1.25rem;
-}
-.hero__eyebrow::before {
-    content: '';
-    width: 36px;
-    height: 2px;
-    background: var(--accent-light);
-    border-radius: 1px;
-}
-
-/* H1 — calmer than 3.6rem; serious editorial weight */
-.hero__title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 3.6vw, 2.75rem);
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: -0.022em;
-    line-height: 1.1;
-    margin: 0 0 0.85rem;
-}
-
-.hero__tagline {
-    font-family: var(--font-body);
-    font-size: 1.04rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.78);
-    line-height: 1.55;
-    max-width: 520px;
-    margin: 0 0 2.25rem;
-}
-
-.hero__tagline a {
-    color: #fff;
-    text-decoration: underline;
-    text-decoration-color: rgba(255, 255, 255, 0.32);
-    text-underline-offset: 3px;
-    text-decoration-thickness: 1px;
-    transition: text-decoration-color 0.2s var(--ease);
-}
-.hero__tagline a:hover {
-    text-decoration-color: rgba(255, 255, 255, 0.85);
-    color: #fff;
-}
-
-/* --- SEARCH — Springer-style: label above, big input, side button --- */
-.hero__search-label {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 0.55rem;
-}
-
-.hero__search-form { margin: 0; width: 100%; max-width: 520px; }
-
-.hero__search {
-    display: flex;
-    align-items: stretch;
-    width: 100%;
-    background: #fff;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
-}
-
-.hero__search-input {
-    flex: 1 1 0;
-    min-width: 0;
-    border: 1px solid #1a1d2e;
-    border-right: none;
-    background: #fff;
-    color: var(--text);
-    font-family: var(--font-body);
-    font-size: 1rem;
-    padding: 0.95rem 1.1rem;
-    border-radius: 6px 0 0 6px;
-    outline: none;
-}
-
-.hero__search-input::placeholder {
-    color: var(--text-light);
-}
-
-.hero__search-input:focus {
-    outline: 3px solid #66a3c7;
-    outline-offset: -1px;
-}
-
-.hero__search-btn {
-    flex-shrink: 0;
-    border: 1px solid var(--accent);
-    background: var(--accent);
-    color: #fff;
-    padding: 0 1.5rem;
-    border-radius: 0 6px 6px 0;
-    font-size: 1.15rem;
-    line-height: 1;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.18s var(--ease);
-}
-
-.hero__search-btn:hover { background: var(--accent-light); border-color: var(--accent-light); }
-.hero__search-btn:focus-visible { outline: 3px solid #66a3c7; outline-offset: 2px; }
-
-/* --- STATS inline — Springer-style three-up under search --- */
-.hero__stats {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, auto));
-    column-gap: 3rem;
-    row-gap: 1rem;
-    margin-top: 2.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-.hero__stat-num {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 1.85rem;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1;
-    letter-spacing: -0.025em;
-    margin-bottom: 0.35rem;
-}
-
-.hero__stat-lbl {
-    display: block;
-    font-family: var(--font-body);
-    font-size: 0.86rem;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.3;
-}
-
-/* --- RIGHT: optical spectrum visual (CSS-only, DGaO-thematic) --- */
-.hero__visual {
-    position: relative;
-    min-height: 380px;
-    overflow: hidden;
-}
-
-/* Layer 1: dispersion bands (spectrum), diagonal */
-.hero__visual::before {
-    content: '';
-    position: absolute;
-    inset: 0;
+/* ---------- atmospheric background ---------- */
+.hero__bg {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
     background:
-        linear-gradient(118deg, transparent 22%, rgba(124, 58, 237, 0.16) 30%, transparent 38%),
-        linear-gradient(122deg, transparent 26%, rgba(37, 99, 235, 0.14) 34%, transparent 42%),
-        linear-gradient(126deg, transparent 30%, rgba(8, 145, 178, 0.13) 38%, transparent 46%),
-        linear-gradient(130deg, transparent 34%, rgba(5, 150, 105, 0.11) 42%, transparent 50%),
-        linear-gradient(134deg, transparent 38%, rgba(202, 138, 4, 0.12) 46%, transparent 54%),
-        linear-gradient(138deg, transparent 42%, rgba(234, 88, 12, 0.14) 50%, transparent 58%),
-        linear-gradient(142deg, transparent 46%, rgba(180, 46, 66, 0.20) 54%, transparent 64%);
-    filter: blur(6px);
-    pointer-events: none;
+        radial-gradient(ellipse 65% 45% at 10% 100%,
+            rgba(255, 215, 175, 0.16) 0%, rgba(255, 200, 150, 0) 60%),
+        radial-gradient(ellipse 55% 40% at 90% 6%,
+            rgba(120, 180, 255, 0.12) 0%, rgba(80, 130, 220, 0) 60%),
+        radial-gradient(ellipse at center, #0a1024 0%, #050811 70%);
 }
-
-/* Layer 2: warm bloom right side, edge-fade left for clean transition */
-.hero__visual-glow {
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(ellipse at 78% 42%, rgba(255, 220, 180, 0.10) 0%, transparent 55%),
-        linear-gradient(90deg, var(--accent-dark) 0%, transparent 18%);
-    pointer-events: none;
+.hero__bg::before, .hero__bg::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
 }
-
-/* Layer 4: fine grain for photo-like texture */
-.hero__visual-grain {
-    position: absolute;
-    inset: 0;
-    opacity: 0.5;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-    background-size: 3px 3px;
-    pointer-events: none;
+.hero__bg::before {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.55;
     mix-blend-mode: overlay;
 }
+.hero__bg::after {
+    background: radial-gradient(ellipse 95% 90% at 50% 50%,
+        transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+}
 
-/* Edge-spectrum accent line on the bottom of hero (DGaO signature) */
-.hero__edge {
+/* ---------- locked-aspect stage ---------- */
+.hero__stage {
+    position: relative;
+    z-index: 1;
+    width: min(100% - 2rem, 1280px);
+    margin: 0 auto;
+    aspect-ratio: 1280 / 560;
+}
+@media (max-width: 767.98px) {
+    .hero__stage {
+        width: min(100% - 1rem, 600px);
+        aspect-ratio: 600 / 760;
+    }
+}
+
+/* ---------- SVG optics ---------- */
+.hero__optics {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: visible;
+}
+.hero__optics--mobile  { display: none; }
+@media (max-width: 767.98px) {
+    .hero__optics--desktop { display: none; }
+    .hero__optics--mobile  { display: block; }
+}
+.dgao-grid line { stroke: rgba(255,255,255,0.025); stroke-width: 1; }
+.dgao-axis      { stroke: rgba(255,255,255,0.10); stroke-width: 1; stroke-dasharray: 2 4; }
+.dgao-anno      {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    fill: rgba(255,255,255,0.42);
+}
+.dgao-anno--n   { font-size: 10.5px; letter-spacing: 0.05em; text-transform: none; }
+.dgao-focus-dot { fill: rgba(255,255,255,0.85); }
+
+/* ---------- text overlay ---------- */
+.hero__overlay { position: absolute; inset: 0; }
+
+.hero__text {
     position: absolute;
-    left: 0; right: 0; bottom: 0;
-    height: 3px;
-    background: linear-gradient(90deg,
-        #b42e42 0%, #7c3aed 16%, #2563eb 32%,
-        #0891b2 48%, #059669 60%, #ca8a04 74%,
-        #ea580c 88%, #b42e42 100%);
+    top: 6%;
+    left: 5.5%;
+    width: clamp(280px, 46%, 540px);
     z-index: 3;
 }
 
-/* --- Tablet & below: visual is decorative-only — hide it,
-       Burgundy hero stays clean, edge spectrum line is the only DGaO accent --- */
-@media (max-width: 991.98px) {
-    .hero__inner {
-        grid-template-columns: 1fr;
-    }
-    .hero__content {
-        padding: 3rem 1.5rem 2.5rem;
-        max-width: none;
-    }
-    .hero__visual { display: none; }
-    .hero__stats { column-gap: 2rem; }
+.hero__eyebrow {
+    margin: 0 0 1.4rem;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+.hero__eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.32);
 }
 
-@media (max-width: 575.98px) {
-    .hero__content { padding: 2.25rem 1.25rem 2rem; }
-    .hero__title { font-size: 1.85rem; }
-    .hero__tagline { font-size: 0.98rem; margin-bottom: 1.75rem; }
+.hero__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.85rem, 3.1vw, 2.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+}
+.hero__title span { display: block; }
+.hero__title span:nth-child(1) { color: #ffffff; }
+.hero__title span:nth-child(2) { color: rgba(255, 255, 255, 0.78); }
+.hero__title span:nth-child(3) { color: rgba(255, 255, 255, 0.55); }
+
+/* ---------- liquid-glass search form ----------
+   Positioned in % to align with the SVG glass coordinates.
+   Desktop glass at viewBox (360, 235, 560, 90) on 1280×560.
+   Mobile glass at viewBox (60, 415, 480, 90) on 600×760. */
+.hero__search-form {
+    position: absolute;
+    top:    41.07%;     /* desktop glass.y / vb.h = 230/560 */
+    left:   6.25%;      /* glass.x / vb.w  =  80/1280 */
+    width:  40.625%;    /* glass.w / vb.w  = 520/1280 */
+    height: 17.86%;     /* glass.h / vb.h  = 100/560  */
+    z-index: 4;
+    margin: 0;
+}
+@media (max-width: 767.98px) {
+    .hero__search-form {
+        top:    53.95%; /* mobile glass.y / vb.h = 410/760 */
+        left:   10%;    /* glass.x / vb.w  = 60/600  */
+        width:  80%;    /* glass.w / vb.w  = 480/600 */
+        height: 13.16%; /* glass.h / vb.h  = 100/760 */
+    }
+}
+
+/* Visually hidden but still announced to assistive tech: the search
+   icon + placeholder make the form's purpose obvious to sighted users
+   and a printed label was crowding the spectrum exit area. */
+.hero__search-label {
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Wissenschaftlich-präzises Glas statt iOS-Pille:
+   leicht abgerundetes Rechteck (wie ein optisches Element / Glasplatte),
+   kräftigerer Backdrop-Blur (Inhalte HINTER der Form werden geblurrt —
+   die Suche-Eingabe selbst liegt darüber und bleibt knackscharf), eine
+   einzelne dünne Hairline-Border statt buntem Verlaufsrahmen. */
+.hero__search {
+    position: relative;
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 7px 7px 7px clamp(16px, 1.6vw, 24px);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    -webkit-backdrop-filter: blur(8px) saturate(1.4);
+            backdrop-filter: blur(8px) saturate(1.4);
+    box-shadow:
+        inset 0 1px 0    rgba(255, 255, 255, 0.18),
+        0 12px 36px -14px rgba(0, 0, 0, 0.55);
+    transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.hero__search:focus-within {
+    border-color: rgba(255, 255, 255, 0.32);
+    box-shadow:
+        inset 0 1px 0     rgba(255, 255, 255, 0.22),
+        0 14px 44px -12px rgba(0, 0, 0, 0.6),
+        0 0 0 3px         rgba(120, 180, 255, 0.16);
+}
+
+.hero__search-icon {
+    flex-shrink: 0;
+    margin-right: 14px;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 1.05rem;
+    line-height: 1;
+    z-index: 1;
+}
+
+.hero__search-input {
+    flex: 1; min-width: 0;
+    height: 100%;
+    background: transparent;
+    border: 0; outline: 0;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 1vw, 1rem);
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    padding: 0;
+    z-index: 1;
+}
+.hero__search-input::placeholder { color: rgba(255, 255, 255, 0.55); }
+.hero__search-input::-webkit-search-cancel-button { display: none; }
+
+.hero__search-btn {
+    flex-shrink: 0;
+    height: 100%;
+    aspect-ratio: 1;
+    margin-left: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.10);
+    color: #fff;
+    font-size: 1rem; line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    z-index: 1;
+    transition: background 0.18s var(--ease), border-color 0.18s var(--ease);
+}
+.hero__search-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.30);
+}
+.hero__search-btn:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.7);
+    outline-offset: 2px;
+}
+
+/* ---------- stats ---------- */
+.hero__stats {
+    position: absolute;
+    left: 5.5%;
+    right: 5.5%;
+    bottom: 6%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, auto));
+    column-gap: clamp(1.75rem, 4vw, 4rem);
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    z-index: 3;
+}
+.hero__stat-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 1.8vw, 1.65rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 0.35rem;
+    font-feature-settings: 'tnum' 1, 'lnum' 1;
+}
+.hero__stat-lbl {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width: 767.98px) {
+    .hero__text { top: 4%; width: 90%; }
+    .hero__eyebrow { font-size: 0.62rem; margin-bottom: 1rem; }
+    .hero__title { font-size: clamp(1.7rem, 7vw, 2.2rem); }
+    .hero__lead  { font-size: 0.92rem; }
     .hero__stats {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        column-gap: 1rem;
-        margin-top: 1.75rem;
-        padding-top: 1.5rem;
+        bottom: 4%;
+        column-gap: 1.4rem;
+        padding-top: 1rem;
     }
-    .hero__stat-num { font-size: 1.4rem; }
-    .hero__stat-lbl { font-size: 0.78rem; }
+    .hero__stat-num { font-size: 1.15rem; }
+    .hero__stat-lbl { font-size: 0.6rem; letter-spacing: 0.1em; }
 }
 
-/* --- DOWNSTREAM SECTIONS (unchanged but cleaned spacing) --- */
+/* ---------- bottom hairline ---------- */
+.hero__edge {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    z-index: 2;
+}
+
+/* ---------- subtle photon shimmer on the white beam ---------- */
+@keyframes dgao-shimmer {
+    0%, 100% { opacity: 0.92; }
+    50%      { opacity: 1; }
+}
+.dgao-ray-white { animation: dgao-shimmer 4.5s ease-in-out infinite; }
+
+/* --- DOWNSTREAM SECTIONS --- */
 .v4-section-inner {
     max-width: 1080px;
     margin: 0 auto;
@@ -320,8 +486,7 @@ $extraHead = <<<'STYLES'
     opacity: 1;
 }
 
-/* --- NEWS — compact editorial grid (Optica/Nature pattern):
-       inline date eyebrow + headline + tight excerpt, two columns on desktop --- */
+/* --- NEWS — compact editorial grid --- */
 .v4-news {
     background: var(--white);
     padding: 2.75rem 0 2.5rem;
@@ -507,23 +672,174 @@ $extraHead = <<<'STYLES'
 }
 </style>
 STYLES;
+
+/** Render one optics scene (defs + grid + beam + glass spectrum + exit
+ *  rays + optional lens) as SVG markup. */
+function dgao_render_scene(string $variant, array $scene, ?array $lens = null, ?array $lensRays = null): string {
+    $g = $scene['glass'];
+    $src = $scene['source']; $entry = $scene['entry'];
+    $vbW = $scene['vbW']; $vbH = $scene['vbH'];
+    $rays = $scene['rays'];
+
+    $defsId      = "dgao-defs-{$variant}";
+    $clipId      = "dgao-glass-clip-{$variant}";
+    $glowId      = "dgao-glow-{$variant}";
+    $glowSoftId  = "dgao-glow-soft-{$variant}";
+
+    $svg  = '<svg class="hero__optics hero__optics--' . $variant . '" viewBox="0 0 ' . $vbW . ' ' . $vbH;
+    $svg .= '" preserveAspectRatio="xMidYMid meet" aria-hidden="true">';
+
+    // ---- defs ----
+    // Tight glow for the white beam only (gives it a candle-like halo).
+    // The colour rays are drawn as crisp solid strokes so they read as
+    // distinct hues instead of merging back into white.
+    $svg .= '<defs>';
+    $svg .= '<filter id="' . $glowId . '" x="-50%" y="-50%" width="200%" height="200%">';
+    $svg .= '<feGaussianBlur stdDeviation="1.4" result="b"/>';
+    $svg .= '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>';
+    $svg .= '</filter>';
+    $svg .= '<filter id="' . $glowSoftId . '" x="-50%" y="-50%" width="200%" height="200%">';
+    $svg .= '<feGaussianBlur stdDeviation="3.5" result="b"/>';
+    $svg .= '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>';
+    $svg .= '</filter>';
+    $svg .= '<clipPath id="' . $clipId . '">';
+    $svg .= sprintf(
+        '<rect x="%d" y="%d" width="%d" height="%d" rx="%d" ry="%d"/>',
+        $g['x'], $g['y'], $g['w'], $g['h'], $g['r'], $g['r']
+    );
+    $svg .= '</clipPath>';
+    $svg .= '</defs>';
+
+    // ---- subtle optical-bench grid ----
+    $svg .= '<g class="dgao-grid">';
+    for ($x = 80; $x < $vbW; $x += 80) {
+        $svg .= '<line x1="' . $x . '" y1="0" x2="' . $x . '" y2="' . $vbH . '"/>';
+    }
+    for ($y = 80; $y < $vbH; $y += 80) {
+        $svg .= '<line x1="0" y1="' . $y . '" x2="' . $vbW . '" y2="' . $y . '"/>';
+    }
+    $svg .= '</g>';
+
+    // ---- glass-bottom normal (small dashed marker for the science feel) ----
+    $svg .= sprintf(
+        '<line class="dgao-axis" x1="%d" y1="%d" x2="%d" y2="%d"/>',
+        $entry['x'], $entry['y'] - 14, $entry['x'], $entry['y'] + 24
+    );
+
+    // ---- 1. White incoming beam ----
+    // Halo gives the candle-like glow; core is the actual beam line.
+    $svg .= sprintf(
+        '<line x1="%.2f" y1="%.2f" x2="%d" y2="%d" stroke="rgba(255,255,255,0.14)" stroke-width="6" stroke-linecap="round" filter="url(#%s)"/>',
+        $src['x'], $src['y'], $entry['x'], $entry['y'], $glowSoftId
+    );
+    $svg .= sprintf(
+        '<line class="dgao-ray-white" x1="%.2f" y1="%.2f" x2="%d" y2="%d" stroke="rgba(255,255,255,0.96)" stroke-width="2" stroke-linecap="round" filter="url(#%s)"/>',
+        $src['x'], $src['y'], $entry['x'], $entry['y'], $glowId
+    );
+    // Entry hot spot — gives a clear refraction point for the eye
+    $svg .= sprintf(
+        '<circle cx="%d" cy="%d" r="2.5" fill="#ffffff" filter="url(#%s)"/>',
+        $entry['x'], $entry['y'], $glowId
+    );
+
+    // ---- 2. Inside-glass spectrum fan (clipped to glass shape) ----
+    // Crisp solid strokes — no glow — so the seven colours stay visually
+    // distinct even when bunched together.
+    $svg .= '<g clip-path="url(#' . $clipId . ')">';
+    foreach ($rays as $r) {
+        $svg .= sprintf(
+            '<line x1="%d" y1="%d" x2="%.2f" y2="%.2f" stroke="%s" stroke-width="2.2" stroke-linecap="round" opacity="0.95"/>',
+            $entry['x'], $entry['y'], $r['midX'], $r['midY'], $r['color']
+        );
+    }
+    $svg .= '</g>';
+
+    // ---- 3. Exit rays (parallel rainbow stripes after Snell at top face) ----
+    if ($lensRays === null) {
+        foreach ($rays as $r) {
+            $svg .= sprintf(
+                '<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%d" stroke="%s" stroke-width="2.4" stroke-linecap="round" opacity="0.95"/>',
+                $r['midX'], $r['midY'], $r['endX'], $r['endY'], $r['color']
+            );
+        }
+    } else {
+        // Desktop: parallel stripes up to the lens plane, then a refracted
+        // segment past it. Per-colour focal points (chromatic aberration)
+        // produce the classic crossing fan.
+        foreach ($lensRays as $lr) {
+            $svg .= sprintf(
+                '<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="%s" stroke-width="2.4" stroke-linecap="round" opacity="0.95"/>',
+                $lr['midX'], $lr['midY'], $lr['hitX'], $lr['hitY'], $lr['color']
+            );
+            $svg .= sprintf(
+                '<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="%s" stroke-width="2" stroke-linecap="round" opacity="0.88"/>',
+                $lr['hitX'], $lr['hitY'], $lr['endX'], $lr['endY'], $lr['color']
+            );
+        }
+    }
+
+    // ---- 4. Lens (desktop only) ----
+    if ($lens !== null && $lensRays !== null) {
+        $axisDeg = $scene['thetaDeg']; // major axis perpendicular to optical axis ⇒ rotated by θ
+        $diam = 130;  $thick = 36;
+        // Outer body
+        $svg .= sprintf(
+            '<ellipse cx="%d" cy="%d" rx="%.1f" ry="%.1f" transform="rotate(%d %d %d)" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.55)" stroke-width="1.2"/>',
+            $lens['cx'], $lens['cy'], $diam / 2, $thick / 2,
+            $axisDeg, $lens['cx'], $lens['cy']
+        );
+        // Inner specular highlight (gives that glass body feel)
+        $svg .= sprintf(
+            '<ellipse cx="%d" cy="%d" rx="%.1f" ry="%.1f" transform="rotate(%d %d %d)" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="0.7" opacity="0.7"/>',
+            $lens['cx'], $lens['cy'], ($diam / 2) - 4, ($thick / 2) - 2.2,
+            $axisDeg, $lens['cx'], $lens['cy']
+        );
+        // Tiny optical-axis tick marks at the lens centre
+        $svg .= sprintf(
+            '<circle cx="%d" cy="%d" r="1.4" fill="rgba(255,255,255,0.7)"/>',
+            $lens['cx'], $lens['cy']
+        );
+
+        // Per-colour focal points (chromatic aberration), with a soft halo
+        foreach ($lensRays as $lr) {
+            $svg .= sprintf(
+                '<circle cx="%.2f" cy="%.2f" r="2.6" fill="%s" opacity="0.95" filter="url(#%s)"/>',
+                $lr['fx'], $lr['fy'], $lr['color'], $glowId
+            );
+        }
+
+    }
+
+    $svg .= '</svg>';
+    return $svg;
+}
 ?>
 
-<!-- 1. HERO — split layout, search + stats inline -->
+<!-- 1. HERO — refraction + dispersion through liquid-glass search bar -->
 <section class="hero" aria-labelledby="hero-title">
-    <div class="hero__inner">
-        <div class="hero__content">
-            <div class="hero__eyebrow">ISSN <?= SITE_ISSN ?> &middot; <?= currentLang() === 'en' ? 'Open access' : 'Frei zug&auml;nglich' ?></div>
+    <div class="hero__bg" aria-hidden="true"></div>
 
-            <h1 class="hero__title" id="hero-title">DGaO-Proceedings</h1>
+    <div class="hero__stage">
+        <?= dgao_render_scene('desktop', $dScene, $dLens, $dLensRays) ?>
+        <?= dgao_render_scene('mobile',  $mScene) ?>
 
-            <p class="hero__tagline"><?= t('home.tagline') ?></p>
+        <div class="hero__overlay">
+            <div class="hero__text">
+                <p class="hero__eyebrow"><?= sprintf(t('home.hero.eyebrow'), e(SITE_ISSN)) ?></p>
+
+                <h1 class="hero__title" id="hero-title">
+                    <span><?= t('home.hero.h1_l1') ?></span>
+                    <span><?= t('home.hero.h1_l2') ?></span>
+                    <span><?= t('home.hero.h1_l3') ?></span>
+                </h1>
+            </div>
 
             <form action="/suche" method="get" class="hero__search-form" role="search">
                 <label for="hero-search-input" class="hero__search-label">
                     <?= currentLang() === 'en' ? 'Search articles, authors, conferences' : 'Beitr&auml;ge, Autoren oder Tagungen suchen' ?>
                 </label>
                 <div class="hero__search">
+                    <i class="bi bi-search hero__search-icon" aria-hidden="true"></i>
                     <input id="hero-search-input"
                            type="search"
                            name="q"
@@ -532,7 +848,7 @@ STYLES;
                            aria-label="<?= t('nav.suche') ?>"
                            autocomplete="off">
                     <button type="submit" class="hero__search-btn" aria-label="<?= t('home.search_btn') ?>">
-                        <i class="bi bi-search" aria-hidden="true"></i>
+                        <i class="bi bi-arrow-right" aria-hidden="true"></i>
                     </button>
                 </div>
             </form>
@@ -551,11 +867,6 @@ STYLES;
                     <span class="hero__stat-lbl"><?= t('home.stat.authors') ?></span>
                 </div>
             </div>
-        </div>
-
-        <div class="hero__visual" aria-hidden="true">
-            <div class="hero__visual-glow"></div>
-            <div class="hero__visual-grain"></div>
         </div>
     </div>
     <div class="hero__edge" aria-hidden="true"></div>

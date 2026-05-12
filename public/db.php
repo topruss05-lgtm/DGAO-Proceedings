@@ -14,6 +14,7 @@ function getDb(): PDO
             PDO::ATTR_EMULATE_PREPARES => false,
         ]);
         $pdo->exec('PRAGMA journal_mode = WAL');
+        runMigrations($pdo);
         $pdo->exec('PRAGMA query_only = ON');
     }
     return $pdo;
@@ -40,6 +41,11 @@ function runMigrations(PDO $db): void
     $columns = $db->query("PRAGMA table_info(autoren)")->fetchAll(PDO::FETCH_COLUMN, 1);
     if (!in_array('affiliation', $columns, true)) {
         $db->exec("ALTER TABLE autoren ADD COLUMN affiliation TEXT NOT NULL DEFAULT ''");
+    }
+
+    $tagungenColumns = $db->query("PRAGMA table_info(tagungen)")->fetchAll(PDO::FETCH_COLUMN, 1);
+    if (!in_array('vorlage_phase_aktiv', $tagungenColumns, true)) {
+        $db->exec("ALTER TABLE tagungen ADD COLUMN vorlage_phase_aktiv INTEGER NOT NULL DEFAULT 0");
     }
 }
 

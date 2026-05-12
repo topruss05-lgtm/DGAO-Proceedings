@@ -2,133 +2,6 @@
 
 declare(strict_types=1);
 
-// --- CSV Spalten-Mapping ---
-
-function getColumnMap(): array
-{
-    return [
-        'code'          => ['code', 'beitragscode', 'paper_code', 'id', 'nr'],
-        'typ'           => ['typ', 'type', 'beitragstyp', 'kategorie', 'category'],
-        'titel'         => ['titel', 'title', 'beitragstitel', 'paper_title'],
-        'autoren'       => ['autoren', 'authors', 'autor', 'author', 'verfasser'],
-        'hauptautor'    => ['hauptautor', 'main_author', 'erstautor', 'kontaktautor', 'presenting_author'],
-        'abstract'      => ['abstract', 'abstract_text', 'zusammenfassung', 'kurzfassung'],
-        'keywords'      => ['keywords', 'stichworte', 'schlagworte', 'schlagwörter', 'tags'],
-        'affiliationen' => ['affiliationen', 'affiliation', 'affiliations', 'institution', 'einrichtung'],
-        'kontakt_email' => ['kontakt_email', 'email', 'e-mail', 'contact_email', 'mail'],
-        'datum'         => ['datum', 'date', 'vortragsdatum', 'presentation_date'],
-        'zeit'          => ['zeit', 'time', 'uhrzeit', 'vortragszeit'],
-        'raum'          => ['raum', 'room', 'saal', 'hall'],
-    ];
-}
-
-/**
- * Mappt CSV-Header auf interne Feldnamen (case-insensitiv).
- */
-function mapCsvHeaders(array $headers): array
-{
-    $columnMap = getColumnMap();
-    $mapping = [];
-
-    foreach ($headers as $idx => $header) {
-        $normalized = strtolower(trim($header));
-        // BOM entfernen
-        $normalized = preg_replace('/^\x{FEFF}/u', '', $normalized);
-        $normalized = str_replace(['-', '_', ' '], '_', $normalized);
-        $normalized = preg_replace('/[^a-z0-9_äöüß]/', '', $normalized);
-
-        foreach ($columnMap as $field => $aliases) {
-            foreach ($aliases as $alias) {
-                $aliasNorm = str_replace(['-', ' '], '_', strtolower($alias));
-                if ($normalized === $aliasNorm) {
-                    $mapping[$idx] = $field;
-                    break 2;
-                }
-            }
-        }
-    }
-
-    return $mapping;
-}
-
-/**
- * Parst eine CSV-Datei und gibt die Zeilen als assoziative Arrays zurück.
- */
-function parseCsvFile(string $filePath, string $delimiter = ';'): array
-{
-    $content = file_get_contents($filePath);
-    if ($content === false) {
-        return ['error' => 'Datei konnte nicht gelesen werden.', 'rows' => []];
-    }
-
-    // BOM entfernen
-    $content = preg_replace('/^\x{FEFF}/u', '', $content);
-
-    // Encoding erkennen und zu UTF-8 konvertieren
-    if (!mb_check_encoding($content, 'UTF-8')) {
-        $content = mb_convert_encoding($content, 'UTF-8', 'ISO-8859-1');
-    }
-
-    // Temporäre Datei mit bereinigtem Inhalt
-    $tmpFile = tempnam(sys_get_temp_dir(), 'csv_');
-    file_put_contents($tmpFile, $content);
-
-    $handle = fopen($tmpFile, 'r');
-    if ($handle === false) {
-        unlink($tmpFile);
-        return ['error' => 'Datei konnte nicht geöffnet werden.', 'rows' => []];
-    }
-
-    // Header lesen
-    $headerRow = fgetcsv($handle, 0, $delimiter, '"', '\\');
-    if ($headerRow === false || count($headerRow) < 2) {
-        fclose($handle);
-        unlink($tmpFile);
-        return ['error' => 'CSV-Header ungültig oder falsches Trennzeichen.', 'rows' => []];
-    }
-
-    $mapping = mapCsvHeaders($headerRow);
-
-    // Pflichtfelder prüfen
-    $mappedFields = array_values($mapping);
-    $missing = [];
-    foreach (['code', 'titel', 'autoren'] as $required) {
-        if (!in_array($required, $mappedFields)) {
-            $missing[] = $required;
-        }
-    }
-    if (!empty($missing)) {
-        fclose($handle);
-        unlink($tmpFile);
-        return [
-            'error' => 'Pflicht-Spalten nicht gefunden: ' . implode(', ', $missing) .
-                       '. Gefundene Spalten: ' . implode(', ', $headerRow),
-            'rows' => [],
-        ];
-    }
-
-    // Zeilen lesen
-    $rows = [];
-    $lineNum = 1;
-    while (($row = fgetcsv($handle, 0, $delimiter, '"', '\\')) !== false) {
-        $lineNum++;
-        if (count($row) === 1 && empty(trim($row[0] ?? ''))) {
-            continue; // Leere Zeile
-        }
-
-        $mapped = ['_line' => $lineNum];
-        foreach ($mapping as $idx => $field) {
-            $mapped[$field] = trim($row[$idx] ?? '');
-        }
-        $rows[] = $mapped;
-    }
-
-    fclose($handle);
-    unlink($tmpFile);
-
-    return ['error' => null, 'rows' => $rows, 'headers' => $headerRow, 'mapping' => $mapping];
-}
-
 // --- Validierung ---
 
 function getTypMap(): array
@@ -281,25 +154,23 @@ function parseAuthorDisplayName(string $displayName): array
  * Führt den CSV-Import in die Datenbank aus.
  * @return array ['success' => bool, 'message' => string, 'stats' => array]
  */
-function executeImport(array $tagung, array $rows, bool $overwrite): array
+/**
+ * Importiert geparste Beitrags-Zeilen für eine bereits angelegte Tagung.
+ *
+ * Caller-Verantwortung: $tagungNummer muss vor dem Aufruf in der tagungen-
+ * Tabelle existieren (sonst FK-Fehler). Diese Funktion fasst die tagung-Row
+ * NICHT mehr an, damit Felder wie vorlage_phase_aktiv erhalten bleiben.
+ */
+function executeImport(int $tagungNummer, array $rows, bool $overwrite): array
 {
     $db = getDbAdmin();
     $db->beginTransaction();
 
     try {
-        $tagungNummer = (int)$tagung['nummer'];
-
-        // 1. Tagung anlegen/aktualisieren
-        $stmt = $db->prepare('INSERT OR REPLACE INTO tagungen (nummer, jahr, ort, datum_von, datum_bis) VALUES (?, ?, ?, ?, ?)');
-        $stmt->execute([
-            $tagungNummer,
-            (int)$tagung['jahr'],
-            $tagung['ort'] ?? '',
-            $tagung['datum_von'] ?? '',
-            $tagung['datum_bis'] ?? '',
-        ]);
-
-        // 2. Bei Überschreiben: alte Daten löschen
+        // 2. Bei Überschreiben: alte Daten löschen.
+        //    Wir leeren Junction-Tabellen und Submissions zuerst, weil submissions.paper_id
+        //    eine FK ohne CASCADE auf papers(id) ist. „Ersetzen" ist eine bewusst
+        //    destruktive Aktion — der Admin hat sie aktiv angefordert.
         if ($overwrite) {
             $paperIds = $db->prepare('SELECT id FROM papers WHERE tagung_nummer = ?');
             $paperIds->execute([$tagungNummer]);
@@ -309,6 +180,7 @@ function executeImport(array $tagung, array $rows, bool $overwrite): array
                 $placeholders = implode(',', array_fill(0, count($ids), '?'));
                 $db->prepare("DELETE FROM paper_keywords WHERE paper_id IN ($placeholders)")->execute($ids);
                 $db->prepare("DELETE FROM paper_autoren WHERE paper_id IN ($placeholders)")->execute($ids);
+                $db->prepare("DELETE FROM submissions WHERE paper_id IN ($placeholders)")->execute($ids);
                 $db->prepare("DELETE FROM papers WHERE tagung_nummer = ?")->execute([$tagungNummer]);
             }
         }
