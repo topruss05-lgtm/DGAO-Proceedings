@@ -62,10 +62,44 @@ function csrfField(): string
 
 function verifyCsrf(): void
 {
+    // Wenn der Request größer war als post_max_size, hat PHP $_POST geleert
+    // und das Formular kommt nie an. Das CSRF-Token ist dann auch weg —
+    // wir würden „Ungültiges CSRF-Token" zeigen statt der eigentlichen Ursache.
+    $contentLen = (int)($_SERVER['CONTENT_LENGTH'] ?? 0);
+    $postMax    = parsePhpSize((string)ini_get('post_max_size'));
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($_POST) && $contentLen > 0 && $postMax > 0 && $contentLen > $postMax) {
+        http_response_code(413);
+        die(sprintf(
+            'Upload zu groß: %s übermittelt, Server-Limit ist %s. Bitte auf dem Server post_max_size und upload_max_filesize hochsetzen (siehe public/.htaccess bzw. public/.user.ini).',
+            formatBytes($contentLen),
+            ini_get('post_max_size')
+        ));
+    }
     if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['_token'] ?? '')) {
         http_response_code(403);
         die('Ungültiges CSRF-Token');
     }
+}
+
+function parsePhpSize(string $val): int
+{
+    $val = trim($val);
+    if ($val === '') return 0;
+    $unit = strtolower($val[strlen($val) - 1]);
+    $num  = (int)$val;
+    return match ($unit) {
+        'g'     => $num * 1024 * 1024 * 1024,
+        'm'     => $num * 1024 * 1024,
+        'k'     => $num * 1024,
+        default => $num,
+    };
+}
+
+function formatBytes(int $bytes): string
+{
+    if ($bytes >= 1048576) return round($bytes / 1048576, 1) . ' MB';
+    if ($bytes >= 1024)    return round($bytes / 1024, 1) . ' KB';
+    return $bytes . ' B';
 }
 
 // Flash-Messages

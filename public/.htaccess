@@ -1,5 +1,20 @@
 RewriteEngine On
 
+# --- Upload-Limits für Tagungsband-PDFs (bis ~30 MB) ---
+# Wirkt nur bei mod_php — bei PHP-FPM siehe .user.ini
+<IfModule mod_php.c>
+    php_value upload_max_filesize 32M
+    php_value post_max_size       32M
+</IfModule>
+<IfModule mod_php7.c>
+    php_value upload_max_filesize 32M
+    php_value post_max_size       32M
+</IfModule>
+<IfModule mod_php8.c>
+    php_value upload_max_filesize 32M
+    php_value post_max_size       32M
+</IfModule>
+
 # --- Security: block sensitive files ---
 <FilesMatch "\.(db|db-shm|db-wal|sqlite)$">
     Require all denied
