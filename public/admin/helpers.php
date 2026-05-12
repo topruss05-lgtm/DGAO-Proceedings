@@ -222,8 +222,12 @@ function executeImport(int $tagungNummer, array $rows, bool $overwrite): array
                 $hauptautor = $autoren[0] ?? '';
             }
 
-            // PDF: Standardname generieren falls nicht vorhanden
+            // PDF: Standardname generieren. hat_pdf = 1, falls die Datei
+            // schon im download-Ordner liegt (typisch bei Re-Import nach
+            // bereits freigegebenen Submissions).
             $pdfDateiname = $tagungNummer . '_' . strtolower($code) . '.pdf';
+            $pdfPath = __DIR__ . '/../download/' . $tagungNummer . '/' . $pdfDateiname;
+            $hatPdf = is_file($pdfPath) ? 1 : 0;
 
             $stmtPaper->execute([
                 $paperId,
@@ -240,7 +244,7 @@ function executeImport(int $tagungNummer, array $rows, bool $overwrite): array
                 $row['affiliationen'] ?? '',
                 $row['kontakt_email'] ?? '',
                 $pdfDateiname,
-                0, // hat_pdf = 0 (muss manuell gesetzt werden)
+                $hatPdf,
             ]);
             $paperCount++;
 
