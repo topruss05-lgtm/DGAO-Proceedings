@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 function matchRoute(string $uri): array
 {
-    $path = parse_url($uri, PHP_URL_PATH);
+    $path = parse_url($uri, PHP_URL_PATH) ?? '';
     $path = rtrim($path, '/');
     if ($path === '') $path = '/';
 
