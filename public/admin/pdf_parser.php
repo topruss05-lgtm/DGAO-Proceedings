@@ -402,6 +402,34 @@ function parsePaperBlock(array $bodyLines): array
     // Affiliations zeilenweise (mit Newline-Joins)
     $affiliationen = implode("\n", array_filter($affilLines, fn($l) => $l !== ''));
 
+    // Session-Trennseiten zwischen Beiträgen filtern: nach dem Ende des
+    // eigentlichen Abstracts kommen typischerweise Programm-Zeitschienen
+    // (z. B. „12:30-13:15 Mittagspause"), Page-Nummer + vertikale
+    // Wochentag-Buchstaben + Section-Titel + Chair-Name auf einer eigenen
+    // Seite. Diese landen sonst im Body des LETZTEN Papers der Session.
+    //
+    // Wir suchen den frühesten Marker, der das Ende des Abstracts signalisiert:
+    //   a) Zeile = nur 1-3-stellige Zahl (= Page-Number-Marker)
+    //   b) Zeile enthält Zeitschema-Tokens (Mittagspause, Kaffeepause,
+    //      Postersession, Networking, Mitgliederversammlung, Transfer zu, …)
+    //      oder beginnt mit HH:MM-HH:MM
+    $cutoffIdx = null;
+    foreach ($abstractLines as $i => $l) {
+        if (preg_match('/^\s*\d{1,3}\s*$/', $l)) { $cutoffIdx = $i; break; }
+        if (preg_match('/(Mittagspause|Kaffeepause|Postersession|Poster-?Session|Networking|Mitgliederversammlung|Frauenhofer-?Vorlesung|Fraunhofer-?Vorlesung|Gala\s*Dinner|Transfer\s+zu|Begr[üu][ßs]ungsabend)/u', $l)) {
+            $cutoffIdx = $i;
+            break;
+        }
+        if (preg_match('/^\s*\d{1,2}:\d{2}\s*[-–]\s*\d{1,2}:\d{2}\b/', $l)) {
+            $cutoffIdx = $i;
+            break;
+        }
+    }
+    if ($cutoffIdx !== null) {
+        $abstractLines = array_slice($abstractLines, 0, $cutoffIdx);
+        while (!empty($abstractLines) && trim(end($abstractLines)) === '') array_pop($abstractLines);
+    }
+
     $paragraphs = [];
     $current = [];
     foreach ($abstractLines as $l) {
