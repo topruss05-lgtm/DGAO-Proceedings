@@ -27,9 +27,9 @@ return [
     // -- Home page --
     'home.tagline'             => 'The Online Journal of the <a href="https://www.dgao.de/" target="_blank" rel="noopener" class="v4-hero-tagline-link">German Society for Applied Optics</a>',
     'home.hero.eyebrow'        => 'ISSN %s &middot; Open Access',
-    'home.hero.h1_l1'          => 'Applied Optics.',
-    'home.hero.h1_l2'          => 'Open Access.',
-    'home.hero.h1_l3'          => 'Since 2004.',
+    'home.hero.h1_l1'          => 'German Society',
+    'home.hero.h1_l2'          => 'for Applied Optics',
+    'home.hero.h1_l3'          => 'Proceedings',
     'home.hero.lead'           => 'Conference papers of the <a href="https://www.dgao.de/" target="_blank" rel="noopener">German Society for Applied Optics</a>.',
     'home.hero.fig_caption'    => 'Two-source interference',
     'home.stat.papers'         => 'Papers',

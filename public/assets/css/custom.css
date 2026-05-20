@@ -172,10 +172,13 @@ h1, h2, h3, h4, h5, h6,
     white-space: nowrap;
 }
 
+/* Dark editorial header — matched to hero (#050811).
+   Bookend-Komposition: dunkler Kopf, helles Reading-Fenster, dunkler Fuß. */
 .site-header {
     position: relative;
     z-index: 5;
-    background: var(--white);
+    background: #050811;
+    color: #fff;
 }
 
 .site-header__inner {
@@ -190,14 +193,14 @@ h1, h2, h3, h4, h5, h6,
 
 /* Row 1 — top */
 .site-header__top {
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .site-header__top .site-header__inner {
     min-height: 64px;
 }
 
-/* Brand wordmark */
+/* Brand wordmark — white on dark */
 .site-brand {
     display: inline-flex;
     align-items: baseline;
@@ -213,20 +216,20 @@ h1, h2, h3, h4, h5, h6,
 .site-brand__mark {
     font-size: 1.55rem;
     font-weight: 800;
-    color: var(--accent);
+    color: #fff;
     letter-spacing: -0.025em;
 }
 
 .site-brand__sep {
-    color: var(--accent-muted);
+    color: rgba(255,255,255,0.4);
     font-size: 1.1rem;
     font-weight: 400;
 }
 
 .site-brand__tail {
     font-size: 1.55rem;
-    font-weight: 400;
-    color: var(--text);
+    font-weight: 300;
+    color: rgba(255,255,255,0.88);
     letter-spacing: -0.015em;
 }
 
@@ -234,13 +237,13 @@ h1, h2, h3, h4, h5, h6,
     display: inline-block;
     margin-left: 0.7rem;
     padding-left: 0.7rem;
-    border-left: 1px solid var(--border);
+    border-left: 1px solid rgba(255,255,255,0.18);
     font-family: var(--font-body);
     font-size: 0.66rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text-light);
+    color: rgba(255,255,255,0.55);
     align-self: center;
     line-height: 1.2;
 }
@@ -261,7 +264,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .site-util-link {
-    color: var(--text-mid);
+    color: rgba(255,255,255,0.7);
     text-decoration: none;
     font-weight: 500;
     display: inline-flex;
@@ -274,14 +277,15 @@ h1, h2, h3, h4, h5, h6,
 .site-util-link .bi { font-size: 0.95em; opacity: 0.8; }
 
 .site-util-link:hover {
-    color: var(--accent);
+    color: #fff;
     text-decoration: none;
 }
 
-/* Row 2 — primary nav */
+/* Row 2 — primary nav (auch dark, gleicher Background als Row 1 → wirkt wie
+   ein zusammenhängender dunkler Block über dem Hero). */
 .site-nav2 {
-    border-bottom: 1px solid var(--border-light);
-    background: var(--white);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: #050811;
 }
 
 .site-nav2__inner {
@@ -308,7 +312,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: var(--font-display);
     font-size: 0.98rem;
     font-weight: 500;
-    color: var(--text);
+    color: rgba(255,255,255,0.78);
     text-decoration: none;
     padding: 1.05rem 1.4rem;
     border-bottom: 3px solid transparent;
@@ -325,28 +329,28 @@ h1, h2, h3, h4, h5, h6,
 
 .site-nav2__link .bi {
     font-size: 0.95em;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 .site-nav2__link:hover {
-    color: var(--accent);
+    color: #fff;
     text-decoration: none;
-    border-bottom-color: var(--accent-muted);
+    border-bottom-color: rgba(255,255,255,0.35);
 }
 
 .site-nav2__link:hover .bi { opacity: 1; }
 
 .site-nav2__link.is-active {
-    color: var(--accent);
+    color: #fff;
     font-weight: 600;
-    border-bottom-color: var(--accent);
+    border-bottom-color: var(--accent-light);
 }
 
-/* Mobile toggle */
+/* Mobile toggle — weiß auf dunkel passend zum Header */
 .site-nav2__toggle {
     display: none;
     background: none;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255,255,255,0.18);
     border-radius: 4px;
     padding: 0.5rem 0.6rem;
     cursor: pointer;
@@ -356,7 +360,7 @@ h1, h2, h3, h4, h5, h6,
     display: block;
     width: 22px;
     height: 2px;
-    background: var(--text);
+    background: #fff;
     position: relative;
 }
 .site-nav2__toggle-icon::before,
@@ -366,7 +370,7 @@ h1, h2, h3, h4, h5, h6,
     left: 0;
     width: 22px;
     height: 2px;
-    background: var(--text);
+    background: #fff;
 }
 .site-nav2__toggle-icon::before { top: -7px; }
 .site-nav2__toggle-icon::after  { top: 7px; }
@@ -395,11 +399,12 @@ h1, h2, h3, h4, h5, h6,
    FOOTER — Dark burgundy with converging stripes
    ============================ */
 
+/* Dark footer — gleiche Palette wie Hero/Header für Bookend-Effekt.
+   Statt der vorherigen Diagonal-Stripes ein dünnes Spektral-Band oben,
+   das die Optik-Identität nochmal aufgreift. */
 .site-footer {
-    background: var(--accent-dark);
-    border-top: 3px solid var(--accent);
-    border-image: none;
-    color: rgba(255, 255, 255, 0.5);
+    background: #050811;
+    color: rgba(255,255,255,0.5);
     font-family: var(--font-display);
     font-size: var(--text-xs);
     position: relative;
@@ -407,25 +412,36 @@ h1, h2, h3, h4, h5, h6,
     overflow: hidden;
 }
 
-/* Converging white stripe fan — corporate slide pattern */
 .site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    pointer-events: none;
+    background: linear-gradient(90deg,
+        #ff2a2a 0%, #ff7a18 16%, #ffd400 33%,
+        #3eea75 50%, #1ec8ff 66%, #3a6dff 83%, #a040ff 100%);
+    opacity: 0.55;
+}
+
+.site-footer::after {
     content: '';
     position: absolute;
     inset: 0;
     pointer-events: none;
     background:
-        linear-gradient(52deg, transparent 0%, transparent 49.6%, rgba(255,255,255,0.07) 49.6%, rgba(255,255,255,0.07) 50%, transparent 50%, transparent 100%),
-        linear-gradient(58deg, transparent 0%, transparent 49.6%, rgba(255,255,255,0.06) 49.6%, rgba(255,255,255,0.06) 50.1%, transparent 50.1%, transparent 100%),
-        linear-gradient(45deg, transparent 0%, transparent 49.7%, rgba(255,255,255,0.08) 49.7%, rgba(255,255,255,0.08) 50%, transparent 50%, transparent 100%),
-        linear-gradient(64deg, transparent 0%, transparent 49.5%, rgba(255,255,255,0.055) 49.5%, rgba(255,255,255,0.055) 50.1%, transparent 50.1%, transparent 100%),
-        linear-gradient(38deg, transparent 0%, transparent 49.6%, rgba(255,255,255,0.09) 49.6%, rgba(255,255,255,0.09) 49.9%, transparent 49.9%, transparent 100%),
-        linear-gradient(70deg, transparent 0%, transparent 49.6%, rgba(255,255,255,0.045) 49.6%, rgba(255,255,255,0.045) 50.2%, transparent 50.2%, transparent 100%),
-        linear-gradient(33deg, transparent 0%, transparent 49.7%, rgba(255,255,255,0.07) 49.7%, rgba(255,255,255,0.07) 50%, transparent 50%, transparent 100%);
-    transform-origin: bottom left;
+        radial-gradient(ellipse 60% 80% at 90% 100%, rgba(80,120,200,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 70% at 10% 0%, rgba(255,180,140,0.06) 0%, transparent 60%);
+}
+
+.site-footer .container,
+.site-footer .container-narrow {
+    position: relative;
+    z-index: 1;
 }
 
 .site-footer a {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255,255,255,0.6);
     text-decoration: none;
     transition: color 0.2s;
     position: relative;
@@ -433,7 +449,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .site-footer a:hover {
-    color: #ffffff;
+    color: #fff;
 }
 
 .site-footer .container,
@@ -1050,13 +1066,17 @@ h1, h2, h3, h4, h5, h6,
    BUTTONS
    ============================ */
 
+/* Solid dark accent — Wein-Rot bleibt das Brand-Element, aber jetzt mit
+   confidence: vollflächig, leicht erhöhter Kontrast, sanfter Spektral-Hover. */
 .btn-accent {
     background: var(--accent);
     border-color: var(--accent);
     color: #fff;
     font-family: var(--font-display);
     font-weight: 600;
+    box-shadow: 0 1px 2px rgba(26,29,46,0.08);
     transition: background 0.2s var(--ease),
+                box-shadow 0.2s var(--ease),
                 transform 0.15s var(--ease);
 }
 
@@ -1064,6 +1084,33 @@ h1, h2, h3, h4, h5, h6,
     background: var(--accent-light);
     border-color: var(--accent-light);
     color: #fff;
+    box-shadow: 0 2px 8px rgba(134,46,66,0.25),
+                0 0 0 1px rgba(134,46,66,0.15);
+    transform: translateY(-1px);
+}
+
+.btn-accent:focus-visible {
+    outline: 2px solid var(--accent-light);
+    outline-offset: 2px;
+}
+
+/* Primary-Button im Hero-Style: tiefer dunkler Ton, weiß-Text — für Top-CTAs
+   wie „Beitrag einreichen". */
+.btn-primary {
+    --bs-btn-bg: #050811;
+    --bs-btn-border-color: #050811;
+    --bs-btn-hover-bg: #0a1024;
+    --bs-btn-hover-border-color: #0a1024;
+    --bs-btn-active-bg: #0a1024;
+    --bs-btn-active-border-color: #0a1024;
+    --bs-btn-focus-shadow-rgb: 5, 8, 17;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 2px 12px rgba(5,8,17,0.3);
     transform: translateY(-1px);
 }
 
@@ -1400,6 +1447,69 @@ a.accent-link:hover {
         padding: 0.85rem 0.75rem;
         font-size: var(--text-sm);
     }
+}
+
+
+/* ============================
+   SECTION STRIPS — schmale dunkle Akzent-Bänder à la Hero,
+   für Section-Headings im hellen Body (zur visuellen Wiederbelebung
+   der Hero-Identität beim Scrollen).
+   ============================ */
+
+.section-strip {
+    background: #050811;
+    color: #fff;
+    padding: 1.5rem 1.5rem;
+    margin: 2rem 0;
+    border-radius: var(--radius);
+    position: relative;
+    overflow: hidden;
+}
+.section-strip::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+        #ff2a2a 0%, #ff7a18 16%, #ffd400 33%,
+        #3eea75 50%, #1ec8ff 66%, #3a6dff 83%, #a040ff 100%);
+    opacity: 0.5;
+}
+.section-strip__eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin: 0 0 0.4rem;
+}
+.section-strip__title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+    letter-spacing: -0.01em;
+}
+
+
+/* ============================
+   TYPOGRAPHY — schärfere Display-Hierarchie passend zur Hero
+   ============================ */
+
+h1, .h1, h2, .h2, h3, .h3 {
+    font-family: var(--font-display);
+    color: var(--text);
+    letter-spacing: -0.015em;
+}
+
+h2, .h2 {
+    font-weight: 700;
+}
+
+h3, .h3 {
+    font-weight: 600;
 }
 
 

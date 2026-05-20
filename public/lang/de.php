@@ -27,9 +27,9 @@ return [
     // -- Home page --
     'home.tagline'             => 'Die Online-Zeitschrift der <a href="https://www.dgao.de/" target="_blank" rel="noopener" class="v4-hero-tagline-link">Deutschen Gesellschaft f&uuml;r angewandte Optik e.V.</a>',
     'home.hero.eyebrow'        => 'ISSN %s &middot; Open Access',
-    'home.hero.h1_l1'          => 'Angewandte Optik.',
-    'home.hero.h1_l2'          => 'Open Access.',
-    'home.hero.h1_l3'          => 'Seit 2004.',
+    'home.hero.h1_l1'          => 'Deutsche Gesellschaft',
+    'home.hero.h1_l2'          => 'f&uuml;r angewandte Optik',
+    'home.hero.h1_l3'          => 'Proceedings',
     'home.hero.lead'           => 'Tagungsbeitr&auml;ge der <a href="https://www.dgao.de/" target="_blank" rel="noopener">Deutschen Gesellschaft f&uuml;r angewandte Optik</a>.',
     'home.hero.fig_caption'    => 'Zwei-Quellen-Interferenz',
     'home.stat.papers'         => 'Beitr&auml;ge',

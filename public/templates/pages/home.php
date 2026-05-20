@@ -92,22 +92,32 @@ function dgao_lens_rays(array $rays, array $lens, float $thetaRad): array {
     $cy     = $lens['cy'];
     $fBase  = $lens['f'];
 
+    // Optisch korrekte Konvergenz: jeder Strahl geht durch SEINEN
+    // Brennpunkt (chromatische Aberration: rot fokussiert weiter weg,
+    // violett näher). Die Strahlen kreuzen sich, kombinieren visuell zu
+    // einem weißen Hotspot (alle Farben überlagern sich beim mittleren
+    // Brennpunkt) und divergieren danach wieder aufgefächert.
     $out = [];
     $n   = count($rays);
     foreach ($rays as $i => $r) {
-        // Red focuses farthest, violet nearest. 32% spread.
         $f  = $fBase * (1.0 - 0.32 * ($i / max($n - 1, 1)));
         $fx = $cx + $f * $axisDx;
         $fy = $cy + $f * $axisDy;
 
-        // Distance along axis from ray start to lens plane
+        // Auftreff-Punkt auf der Linsen-Ebene
         $d    = ($cx - $r['midX']) * $axisDx + ($cy - $r['midY']) * $axisDy;
         $hitX = $r['midX'] + $d * $axisDx;
         $hitY = $r['midY'] + $d * $axisDy;
 
-        // Refracted ray endet beim Brennpunkt — keine Verlängerung darüber hinaus.
-        $endX = $fx;
-        $endY = $fy;
+        // Refraktierter Strahl: durch fx/fy, hinter dem Brennpunkt weiter
+        // (divergiert) — Trace so dass die Fan-Geometrie sichtbar wird,
+        // aber Strahlen am Rand des Viewports bleiben.
+        $rdx  = $fx - $hitX;  $rdy  = $fy - $hitY;
+        $rLen = sqrt($rdx * $rdx + $rdy * $rdy) ?: 1;
+        $rdx /= $rLen;        $rdy /= $rLen;
+        $trace = $f * 1.55;
+        $endX  = $hitX + $trace * $rdx;
+        $endY  = $hitY + $trace * $rdy;
 
         $out[] = [
             'color' => $r['color'],
@@ -759,17 +769,51 @@ function dgao_render_scene(string $variant, array $scene, ?array $lens = null, ?
             );
         }
     } else {
-        // Desktop: parallel stripes up to the lens plane, then a refracted
-        // segment past it. Per-colour focal points (chromatic aberration)
-        // produce the classic crossing fan.
+        // Desktop: parallel rainbow stripes bis zur Linsen-Ebene → Konvergenz
+        // durch per-Farbe-Brennpunkt → divergierender Fan dahinter.
+        // Vor dem Linse: vollfarbige parallele Strahlen (Sättigung hoch).
+        // Hinter dem Brennpunkt: schwächere Sättigung — die Farben sind
+        // jetzt "durchs Weiß" gegangen und divergieren wieder.
         foreach ($lensRays as $lr) {
+            // Pre-lens
             $svg .= sprintf(
                 '<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="%s" stroke-width="2.4" stroke-linecap="round" opacity="0.95"/>',
                 $lr['midX'], $lr['midY'], $lr['hitX'], $lr['hitY'], $lr['color']
             );
+            // Post-lens: weißlich am Anfang, dann farbig divergierend (Gradient)
+            $gradId = $variant . '-rg-' . substr(md5($lr['color']), 0, 6);
             $svg .= sprintf(
-                '<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="%s" stroke-width="2" stroke-linecap="round" opacity="0.88"/>',
-                $lr['hitX'], $lr['hitY'], $lr['endX'], $lr['endY'], $lr['color']
+                '<defs><linearGradient id="%s" x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" gradientUnits="userSpaceOnUse">'
+                . '<stop offset="0%%" stop-color="#ffffff" stop-opacity="0.95"/>'
+                . '<stop offset="30%%" stop-color="%s" stop-opacity="0.45"/>'
+                . '<stop offset="100%%" stop-color="%s" stop-opacity="0.75"/>'
+                . '</linearGradient></defs>',
+                $gradId, $lr['hitX'], $lr['hitY'], $lr['endX'], $lr['endY'],
+                $lr['color'], $lr['color']
+            );
+            $svg .= sprintf(
+                '<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="url(#%s)" stroke-width="2" stroke-linecap="round"/>',
+                $lr['hitX'], $lr['hitY'], $lr['endX'], $lr['endY'], $gradId
+            );
+        }
+
+        // White hotspot am durchschnittlichen Brennpunkt-Cluster:
+        // dort überlagern sich alle Wellenlängen visuell zu Weiß.
+        $cnt = count($lensRays);
+        if ($cnt > 0) {
+            $fxAvg = $fyAvg = 0.0;
+            foreach ($lensRays as $lr) { $fxAvg += $lr['fx']; $fyAvg += $lr['fy']; }
+            $fxAvg /= $cnt; $fyAvg /= $cnt;
+            $hsId = $variant . '-hotspot';
+            $svg .= sprintf(
+                '<defs><radialGradient id="%s">'
+                . '<stop offset="0%%" stop-color="#ffffff" stop-opacity="1"/>'
+                . '<stop offset="35%%" stop-color="#ffffff" stop-opacity="0.55"/>'
+                . '<stop offset="100%%" stop-color="#ffffff" stop-opacity="0"/>'
+                . '</radialGradient></defs>'
+                . '<circle cx="%.2f" cy="%.2f" r="18" fill="url(#%s)"/>'
+                . '<circle cx="%.2f" cy="%.2f" r="2.4" fill="#ffffff" opacity="0.95"/>',
+                $hsId, $fxAvg, $fyAvg, $hsId, $fxAvg, $fyAvg
             );
         }
     }
