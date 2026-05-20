@@ -136,7 +136,7 @@ return [
     'einreichen.open_text'  => 'Manuscript templates are available. Send your finished contribution by email to the conference office.',
     'einreichen.deadline_label'     => 'Submission deadline',
     'einreichen.step_template'      => 'Download template',
-    'einreichen.step_template_desc' => 'Select your talk or poster &mdash; title, authors, affiliations, contact email and abstract are inserted into the template automatically.',
+    'einreichen.step_template_desc' => 'Select your talk or poster &mdash; title, authors, affiliations and contact email are inserted into the template automatically. You only have to write the content.',
     'einreichen.step_submit'        => 'Submit by email',
     'einreichen.step_submit_desc'   => 'Send your final two-page manuscript PDF together with the signed copyright agreement to the DGaO conference office.',
     'einreichen.dl_kit'             => 'Complete Author Kit (ZIP)',

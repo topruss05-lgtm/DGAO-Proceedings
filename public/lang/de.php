@@ -136,7 +136,7 @@ return [
     'einreichen.open_text'  => 'Die Manuskript-Vorlagen stehen bereit. Senden Sie Ihren fertigen Beitrag anschlie&szlig;end per E-Mail an die Tagungsgesch&auml;ftsf&uuml;hrung.',
     'einreichen.deadline_label'     => 'Einreichungsfrist',
     'einreichen.step_template'      => 'Vorlage herunterladen',
-    'einreichen.step_template_desc' => 'W&auml;hlen Sie Ihren Vortrag oder Ihr Poster aus &mdash; Titel, Autor:innen, Affiliations, Kontakt-E-Mail und Abstract werden automatisch in die Vorlage eingetragen.',
+    'einreichen.step_template_desc' => 'W&auml;hlen Sie Ihren Vortrag oder Ihr Poster aus &mdash; Titel, Autor:innen, Affiliations und Kontakt-E-Mail werden automatisch in die Vorlage eingetragen. Sie m&uuml;ssen dann nur noch den Inhalt verfassen.',
     'einreichen.step_submit'        => 'Beitrag per E-Mail einreichen',
     'einreichen.step_submit_desc'   => 'Senden Sie Ihr fertiges, zweiseitiges Manuskript-PDF zusammen mit dem unterzeichneten Copyright-Agreement an das DGaO-Sekretariat.',
     'einreichen.dl_kit'             => 'Komplettes Author-Kit (ZIP)',

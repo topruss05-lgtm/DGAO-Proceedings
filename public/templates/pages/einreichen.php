@@ -83,10 +83,9 @@ $deadline = $activeTagung['einreichungsfrist'] ?? '';
 
         <div class="card mb-3 border-0" style="background: rgba(8,145,178,.04); border-left: 3px solid var(--accent, #b42e42) !important;">
             <div class="card-body">
-                <label for="vorlage-paper-select" class="form-label fw-semibold mb-1">
+                <label for="vorlage-paper-select" class="form-label fw-semibold mb-2">
                     <i class="bi bi-magic"></i> <?= t('vorlage.picker_label') ?>
                 </label>
-                <div class="form-text mb-2"><?= t('vorlage.picker_help') ?></div>
 
                 <select id="vorlage-paper-select" class="form-select form-select-sm" autocomplete="off">
                     <option value="" data-mode="blank" selected><?= t('vorlage.picker_blank') ?></option>
