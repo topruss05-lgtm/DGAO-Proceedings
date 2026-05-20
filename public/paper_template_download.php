@@ -42,6 +42,12 @@ try {
             $stem . '_Word.docx',
             'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
         );
+    } elseif ($format === 'kit') {
+        $zipPath = generatePaperKitZip($paper);
+        $year    = $paper['jahr'] ?: (int)date('Y');
+        $stem    = sanitizeFilename(($paper['code'] ?? 'paper') . '_' . ($paper['hauptautor'] ?: 'autor'));
+        $name    = sprintf('DGaO-Proceedings-Author-Kit-%d_%s.zip', $year, $stem);
+        streamDownload($zipPath, $name, 'application/zip');
     } else {
         http_response_code(400);
         echo 'Ungültiges Format';

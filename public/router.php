@@ -36,7 +36,7 @@ function matchRoute(string $uri): array
         return ['page' => 'paper', 'params' => ['id' => $m[1]]];
     }
 
-    if (preg_match('#^/paper/([\w-]+)/template/(latex|word)(?:/(de|en))?$#', $path, $m)) {
+    if (preg_match('#^/paper/([\w-]+)/template/(latex|word|kit)(?:/(de|en))?$#', $path, $m)) {
         return ['page' => 'paper_template', 'params' => [
             'id'     => $m[1],
             'format' => $m[2],

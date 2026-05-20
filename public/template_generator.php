@@ -227,6 +227,80 @@ function generateWordDocx(array $paper, string $lang = 'deu'): string
 }
 
 /**
+ * Komplettes per-Paper Author-Kit: Word DE+EN + LaTeX (alle vorausgefüllt)
+ * + beide Copyright-PDFs + Liesmich/Readme (year-substituted). Spiegelt
+ * /manuskript-vorlage/kit, aber mit den Daten DIESES Beitrags.
+ *
+ * @return string Pfad zur erzeugten temporären ZIP
+ */
+function generatePaperKitZip(array $paper): string
+{
+    $sourceRoot = TEMPLATE_SOURCE_DIR;
+    $year = '';
+    if (!empty($paper['datum'])) $year = (int)substr($paper['datum'], 0, 4);
+    elseif (!empty($paper['jahr'])) $year = (int)$paper['jahr'];
+    if ($year === '' || $year === 0) $year = (int)date('Y');
+
+    $zipPath = tempnam(sys_get_temp_dir(), 'dgao_paperkit_');
+    $zip = new ZipArchive();
+    if ($zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE) !== true) {
+        throw new RuntimeException('ZIP konnte nicht erstellt werden.');
+    }
+
+    $stem = sanitizeFilename(($paper['code'] ?? 'paper') . '_' . ($paper['hauptautor'] ?? 'autor'));
+    $folder = sprintf('DGaO-Proceedings-%d_%s/', $year, $stem);
+
+    // Readme + Liesmich, year-substituted
+    foreach (['Liesmich.txt', 'Readme.txt'] as $txt) {
+        $p = $sourceRoot . '/' . $txt;
+        if (is_file($p)) {
+            $c = file_get_contents($p);
+            if ($c !== false) {
+                $zip->addFromString($folder . $txt, str_replace('{{YEAR}}', (string)$year, $c));
+            }
+        }
+    }
+
+    // Copyright-PDFs (beide Sprachen)
+    foreach (['Copyright-Agreement_deu.pdf', 'Copyright-Agreement_eng.pdf'] as $cp) {
+        $p = $sourceRoot . '/' . $cp;
+        if (is_file($p)) $zip->addFile($p, $folder . $cp);
+    }
+
+    // Word DE + EN, beide vorausgefüllt mit Beitrags-Daten
+    foreach (['deu', 'eng'] as $wordLang) {
+        $docxPath = generateWordDocx($paper, $wordLang);
+        $outName  = sprintf('DGaO_template_%d_%s.docx', $year, $wordLang);
+        $zip->addFile($docxPath, $folder . 'MS Word/' . $outName);
+        // Wir können erst NACH $zip->close() unlinken (sonst weg vorm Lesen)
+        register_shutdown_function('unlink', $docxPath);
+    }
+
+    // LaTeX-Verzeichnis (per-paper prefilled .tex + Companion-Files)
+    // generateLatexZip baut das schon — wir packen es einfach in unser Kit ein.
+    $latexZipPath = generateLatexZip($paper, 'german');
+    $latexZip = new ZipArchive();
+    if ($latexZip->open($latexZipPath) === true) {
+        $stemLatex = sanitizeFilename(($paper['code'] ?? 'paper') . '_' . ($paper['hauptautor'] ?? 'autor'));
+        for ($i = 0; $i < $latexZip->numFiles; $i++) {
+            $stat = $latexZip->statIndex($i);
+            if ($stat === false) continue;
+            $name = $stat['name'];
+            // Strip eingebauten Stem-Folder, übernehme als LaTeX/<file>
+            $rel = preg_replace('#^' . preg_quote($stemLatex, '#') . '/#', '', $name);
+            if (substr($rel, -1) === '/') continue; // skip dirs
+            $bytes = $latexZip->getFromIndex($i);
+            if ($bytes !== false) $zip->addFromString($folder . 'LaTeX/' . $rel, $bytes);
+        }
+        $latexZip->close();
+    }
+    register_shutdown_function('unlink', $latexZipPath);
+
+    $zip->close();
+    return $zipPath;
+}
+
+/**
  * Ersetzt den Inhalt aller <w:p>-Paragraphen mit gegebenem pStyle durch
  * einen einzelnen Text-Run.
  *
