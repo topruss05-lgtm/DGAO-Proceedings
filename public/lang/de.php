@@ -141,14 +141,7 @@ return [
     'einreichen.step_submit_desc'   => 'Senden Sie Ihr fertiges, zweiseitiges Manuskript-PDF zusammen mit dem unterzeichneten Copyright-Agreement an das DGaO-Sekretariat.',
     'einreichen.dl_kit'             => 'Komplettes Author-Kit (ZIP)',
     'einreichen.dl_kit_desc'        => 'Word + LaTeX + Copyright + Hinweise, deutsch &amp; englisch in einer Datei.',
-    'einreichen.dl_separate'        => 'Einzelne Dateien herunterladen',
-    'einreichen.send_to'            => 'Senden an',
-    'einreichen.mail_contents'      => 'Inhalt der E-Mail',
     'einreichen.mail_item_code'     => 'Vortragscode (z.&nbsp;B. A12, H1, P5) und Titel des Beitrags',
-    'einreichen.mail_item_pdf'      => 'Im Anhang: das zweiseitige Manuskript als PDF',
-    'einreichen.mail_item_copyright'=> 'Im Anhang: das unterzeichnete Copyright-Agreement (gescannt)',
-    'einreichen.compose_mail'       => 'E-Mail jetzt verfassen',
-    'einreichen.hint_title'         => 'Hinweis:',
     'einreichen.hint_text'          => 'Ihr Beitrag wird genau so ver&ouml;ffentlicht, wie Sie ihn einreichen &mdash; eine redaktionelle Bearbeitung findet nicht statt. Lediglich die URN-Nummer und das Eingangsdatum werden anschlie&szlig;end von der Tagungsgesch&auml;ftsf&uuml;hrung erg&auml;nzt.',
 
     // -- Paper detail --
@@ -161,11 +154,6 @@ return [
     'paper.copied'             => 'Kopiert!',
     'paper.jahrestagung_der_dgao' => 'Jahrestagung der DGaO',
     'paper.booktitle_prefix'   => 'DGaO-Proceedings',
-    'paper.tpl_button'         => 'Manuskript-Vorlage',
-    'paper.tpl_latex_header'   => 'LaTeX (vorausgef&uuml;llt)',
-    'paper.tpl_word_header'    => 'Word (vorausgef&uuml;llt)',
-    'paper.tpl_more'           => 'Alle Vorlagen &amp; Hinweise &rarr;',
-
     // -- Search page --
     'suche.title'            => 'Suche',
     'suche.placeholder'      => 'Titel, Autor oder Stichwort suchen&hellip;',

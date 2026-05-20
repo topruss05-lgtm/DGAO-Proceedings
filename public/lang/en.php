@@ -141,16 +141,7 @@ return [
     'einreichen.step_submit_desc'   => 'Send your final two-page manuscript PDF together with the signed copyright agreement to the DGaO conference office.',
     'einreichen.dl_kit'             => 'Complete Author Kit (ZIP)',
     'einreichen.dl_kit_desc'        => 'Word + LaTeX + Copyright + Notes, German &amp; English in one file.',
-    'einreichen.dl_separate'        => 'Download individual files',
-    'einreichen.send_to'            => 'Send to',
-    'einreichen.mail_contents'      => 'Contents of the email',
     'einreichen.mail_item_code'     => 'Talk code (e.g. A12, H1, P5) and contribution title',
-    'einreichen.mail_item_pdf'      => 'Attached: your two-page manuscript as PDF',
-    'einreichen.mail_item_copyright'=> 'Attached: the signed copyright agreement (scanned)',
-    'einreichen.compose_mail'       => 'Compose email now',
-    'einreichen.hint_title'         => 'Note:',
-    'einreichen.hint_text'          => 'Your contribution will be published exactly as you submitted it &mdash; no editorial revision takes place. Only the URN identifier and the submission date are added afterwards by the conference office.',
-
     // -- Paper detail --
     'paper.breadcrumb_archiv'  => 'Archive',
     'paper.jahrestagung'       => 'Annual Conference',
@@ -161,11 +152,6 @@ return [
     'paper.copied'             => 'Copied!',
     'paper.jahrestagung_der_dgao' => 'Annual Conference of the DGaO',
     'paper.booktitle_prefix'   => 'DGaO-Proceedings',
-    'paper.tpl_button'         => 'Manuscript template',
-    'paper.tpl_latex_header'   => 'LaTeX (pre-filled)',
-    'paper.tpl_word_header'    => 'Word (pre-filled)',
-    'paper.tpl_more'           => 'All templates &amp; notes &rarr;',
-
     // -- Search page --
     'suche.title'            => 'Search',
     'suche.placeholder'      => 'Search title, author or keyword&hellip;',
