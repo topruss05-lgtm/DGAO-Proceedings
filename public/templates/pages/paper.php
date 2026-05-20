@@ -163,11 +163,13 @@ $pdfRelUrl = pdfUrl($paper);
     <?php endif; ?>
 
     <?php if (!$pdfRelUrl): ?>
-    <div class="alert alert-light border d-flex align-items-start gap-2 small">
+    <div class="alert alert-light border d-flex align-items-center gap-2 small">
         <i class="bi bi-info-circle text-muted"></i>
         <div>
             <strong>Manuskript noch nicht eingereicht.</strong>
-            Der Vortragende kann unter <a href="/einreichen" class="accent-link">/einreichen</a> mit Code (<code><?= e($paper['code']) ?></code>) und der hinterlegten E-Mail-Adresse einen Upload-Link anfordern.
+            <?php if (empty($paper['vorlage_phase_aktiv'])): ?>
+                Die Einreichungsphase ist aktuell geschlossen.
+            <?php endif; ?>
         </div>
     </div>
     <?php endif; ?>
