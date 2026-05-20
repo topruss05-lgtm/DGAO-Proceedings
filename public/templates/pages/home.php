@@ -105,13 +105,9 @@ function dgao_lens_rays(array $rays, array $lens, float $thetaRad): array {
         $hitX = $r['midX'] + $d * $axisDx;
         $hitY = $r['midY'] + $d * $axisDy;
 
-        // Refracted direction: through focal point, traced past focus
-        $rdx  = $fx - $hitX;  $rdy  = $fy - $hitY;
-        $rLen = sqrt($rdx * $rdx + $rdy * $rdy) ?: 1;
-        $rdx /= $rLen;        $rdy /= $rLen;
-        $trace = $f * 1.85;
-        $endX  = $hitX + $trace * $rdx;
-        $endY  = $hitY + $trace * $rdy;
+        // Refracted ray endet beim Brennpunkt — keine Verlängerung darüber hinaus.
+        $endX = $fx;
+        $endY = $fy;
 
         $out[] = [
             'color' => $r['color'],
@@ -800,13 +796,8 @@ function dgao_render_scene(string $variant, array $scene, ?array $lens = null, ?
             $lens['cx'], $lens['cy']
         );
 
-        // Per-colour focal points (chromatic aberration), with a soft halo
-        foreach ($lensRays as $lr) {
-            $svg .= sprintf(
-                '<circle cx="%.2f" cy="%.2f" r="2.6" fill="%s" opacity="0.95" filter="url(#%s)"/>',
-                $lr['fx'], $lr['fy'], $lr['color'], $glowId
-            );
-        }
+        // Brennpunkt-Markierungen entfernt — die Strahlen enden sauber an
+        // ihrem jeweiligen Fokus, ohne zusätzliche farbige Punkte.
 
     }
 
