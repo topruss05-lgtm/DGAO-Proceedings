@@ -172,13 +172,14 @@ h1, h2, h3, h4, h5, h6,
     white-space: nowrap;
 }
 
-/* Dark editorial header — matched to hero (#050811).
-   Bookend-Komposition: dunkler Kopf, helles Reading-Fenster, dunkler Fuß. */
+/* Default header = weiß/editorial mit weinrotem Akzent (Uni-Stuttgart-/
+   DGaO-Style). Nur auf der Home-Seite wird der Header dunkel und fließt
+   nahtlos in den Hero über (siehe body[data-page="home"]-Overrides unten). */
 .site-header {
     position: relative;
     z-index: 5;
-    background: #050811;
-    color: #fff;
+    background: var(--white);
+    transition: background-color 0.3s var(--ease);
 }
 
 .site-header__inner {
@@ -191,16 +192,15 @@ h1, h2, h3, h4, h5, h6,
     gap: 1.5rem;
 }
 
-/* Row 1 — top */
 .site-header__top {
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid var(--border-light);
 }
 
 .site-header__top .site-header__inner {
     min-height: 64px;
 }
 
-/* Brand wordmark — white on dark */
+/* Brand wordmark — weinrot/editorial default */
 .site-brand {
     display: inline-flex;
     align-items: baseline;
@@ -216,20 +216,20 @@ h1, h2, h3, h4, h5, h6,
 .site-brand__mark {
     font-size: 1.55rem;
     font-weight: 800;
-    color: #fff;
+    color: var(--accent);
     letter-spacing: -0.025em;
 }
 
 .site-brand__sep {
-    color: rgba(255,255,255,0.4);
+    color: var(--accent-muted);
     font-size: 1.1rem;
     font-weight: 400;
 }
 
 .site-brand__tail {
     font-size: 1.55rem;
-    font-weight: 300;
-    color: rgba(255,255,255,0.88);
+    font-weight: 400;
+    color: var(--text);
     letter-spacing: -0.015em;
 }
 
@@ -237,13 +237,13 @@ h1, h2, h3, h4, h5, h6,
     display: inline-block;
     margin-left: 0.7rem;
     padding-left: 0.7rem;
-    border-left: 1px solid rgba(255,255,255,0.18);
+    border-left: 1px solid var(--border);
     font-family: var(--font-body);
     font-size: 0.66rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
+    color: var(--text-light);
     align-self: center;
     line-height: 1.2;
 }
@@ -264,7 +264,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .site-util-link {
-    color: rgba(255,255,255,0.7);
+    color: var(--text-mid);
     text-decoration: none;
     font-weight: 500;
     display: inline-flex;
@@ -277,15 +277,13 @@ h1, h2, h3, h4, h5, h6,
 .site-util-link .bi { font-size: 0.95em; opacity: 0.8; }
 
 .site-util-link:hover {
-    color: #fff;
+    color: var(--accent);
     text-decoration: none;
 }
 
-/* Row 2 — primary nav (auch dark, gleicher Background als Row 1 → wirkt wie
-   ein zusammenhängender dunkler Block über dem Hero). */
 .site-nav2 {
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    background: #050811;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--white);
 }
 
 .site-nav2__inner {
@@ -312,7 +310,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: var(--font-display);
     font-size: 0.98rem;
     font-weight: 500;
-    color: rgba(255,255,255,0.78);
+    color: var(--text);
     text-decoration: none;
     padding: 1.05rem 1.4rem;
     border-bottom: 3px solid transparent;
@@ -329,38 +327,51 @@ h1, h2, h3, h4, h5, h6,
 
 .site-nav2__link .bi {
     font-size: 0.95em;
-    opacity: 0.6;
+    opacity: 0.7;
 }
 
 .site-nav2__link:hover {
-    color: #fff;
+    color: var(--accent);
     text-decoration: none;
-    border-bottom-color: rgba(255,255,255,0.35);
+    border-bottom-color: var(--accent-muted);
 }
 
 .site-nav2__link:hover .bi { opacity: 1; }
 
 .site-nav2__link.is-active {
-    color: #fff;
+    color: var(--accent);
     font-weight: 600;
-    border-bottom-color: var(--accent-light);
+    border-bottom-color: var(--accent);
 }
 
-/* Mobile toggle — weiß auf dunkel passend zum Header */
+/* Mobile toggle — borderless, größerer Touch-Target, mittig sitzendes Icon.
+   Strich-Farbe wird je nach Header-Variante übersteuert (siehe unten). */
 .site-nav2__toggle {
     display: none;
     background: none;
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 4px;
-    padding: 0.5rem 0.6rem;
+    border: 0;
+    border-radius: 6px;
+    padding: 0.65rem 0.55rem;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    color: var(--text);
+    transition: background-color 0.18s var(--ease);
+}
+.site-nav2__toggle:hover { background: rgba(0,0,0,0.05); }
+.site-nav2__toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
 }
 
 .site-nav2__toggle-icon {
     display: block;
     width: 22px;
     height: 2px;
-    background: #fff;
+    background: currentColor;
+    border-radius: 1px;
     position: relative;
 }
 .site-nav2__toggle-icon::before,
@@ -370,7 +381,8 @@ h1, h2, h3, h4, h5, h6,
     left: 0;
     width: 22px;
     height: 2px;
-    background: #fff;
+    background: currentColor;
+    border-radius: 1px;
 }
 .site-nav2__toggle-icon::before { top: -7px; }
 .site-nav2__toggle-icon::after  { top: 7px; }
@@ -396,66 +408,109 @@ h1, h2, h3, h4, h5, h6,
 
 
 /* ============================
+   HOME OVERRIDES — dunkler Header fließt nahtlos in den Hero über.
+   Kein Bauteil bekommt Bootstrap-Blau, alle Töne sind warm-neutral
+   (#050811 = exakt der Hero-Hintergrund). Auf Unterseiten greift dieser
+   Block nicht und der weiße Default bleibt aktiv.
+   ============================ */
+
+body[data-page="home"] .site-header {
+    background: #050811;
+}
+body[data-page="home"] .site-header__top {
+    border-bottom-color: rgba(255,255,255,0.08);
+}
+body[data-page="home"] .site-brand__mark {
+    color: #ffffff;
+}
+body[data-page="home"] .site-brand__sep {
+    color: rgba(255,255,255,0.45);
+}
+body[data-page="home"] .site-brand__tail {
+    color: rgba(255,255,255,0.85);
+}
+body[data-page="home"] .site-brand__issn {
+    color: rgba(255,255,255,0.45);
+    border-left-color: rgba(255,255,255,0.18);
+}
+body[data-page="home"] .site-util-link {
+    color: rgba(255,255,255,0.72);
+}
+body[data-page="home"] .site-util-link:hover {
+    color: #ffffff;
+}
+body[data-page="home"] .site-nav2 {
+    background: #050811;
+    border-bottom: 0;          /* keine harte Linie zwischen Header und Hero */
+}
+body[data-page="home"] .site-nav2__link {
+    color: rgba(255,255,255,0.78);
+}
+body[data-page="home"] .site-nav2__link:hover {
+    color: #ffffff;
+    border-bottom-color: rgba(255,255,255,0.4);
+}
+body[data-page="home"] .site-nav2__link.is-active {
+    color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+body[data-page="home"] .site-nav2__toggle {
+    color: #ffffff;
+}
+body[data-page="home"] .site-nav2__toggle:hover {
+    background: rgba(255,255,255,0.08);
+}
+body[data-page="home"] .site-nav2__toggle:focus-visible {
+    outline-color: rgba(255,255,255,0.7);
+}
+
+@media (max-width: 767.98px) {
+    body[data-page="home"] .site-nav2__link {
+        border-bottom-color: rgba(255,255,255,0.08);
+    }
+    body[data-page="home"] .site-nav2__link.is-active {
+        border-bottom-color: #ffffff;
+    }
+}
+
+
+/* ============================
    FOOTER — Dark burgundy with converging stripes
    ============================ */
 
-/* Dark footer — gleiche Palette wie Hero/Header für Bookend-Effekt.
-   Statt der vorherigen Diagonal-Stripes ein dünnes Spektral-Band oben,
-   das die Optik-Identität nochmal aufgreift. */
+/* Footer = ruhig & lesbar (weiß auf hellem Grund), oben eine dünne
+   Spektral-Hairline als visuelle Klammer zum Hero. Bookend-Effekt ohne
+   den harten dunklen Block, der vorher mit dem Body brach. */
 .site-footer {
-    background: #050811;
-    color: rgba(255,255,255,0.5);
+    background: var(--white);
+    color: var(--text-muted);
     font-family: var(--font-display);
     font-size: var(--text-xs);
     position: relative;
     z-index: 2;
-    overflow: hidden;
+    border-top: 1px solid var(--border-light);
 }
 
 .site-footer::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: -1px; left: 0; right: 0;
     height: 2px;
     pointer-events: none;
     background: linear-gradient(90deg,
         #ff2a2a 0%, #ff7a18 16%, #ffd400 33%,
         #3eea75 50%, #1ec8ff 66%, #3a6dff 83%, #a040ff 100%);
-    opacity: 0.55;
-}
-
-.site-footer::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background:
-        radial-gradient(ellipse 60% 80% at 90% 100%, rgba(80,120,200,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 70% at 10% 0%, rgba(255,180,140,0.06) 0%, transparent 60%);
-}
-
-.site-footer .container,
-.site-footer .container-narrow {
-    position: relative;
-    z-index: 1;
+    opacity: 0.7;
 }
 
 .site-footer a {
-    color: rgba(255,255,255,0.6);
+    color: var(--text-mid);
     text-decoration: none;
     transition: color 0.2s;
-    position: relative;
-    z-index: 1;
 }
 
 .site-footer a:hover {
-    color: #fff;
-}
-
-.site-footer .container,
-.site-footer .container-narrow {
-    position: relative;
-    z-index: 1;
+    color: var(--accent);
 }
 
 
@@ -1094,23 +1149,23 @@ h1, h2, h3, h4, h5, h6,
     outline-offset: 2px;
 }
 
-/* Primary-Button im Hero-Style: tiefer dunkler Ton, weiß-Text — für Top-CTAs
-   wie „Beitrag einreichen". */
+/* Primary = Brand-Akzent (DGaO-Weinrot) — funktioniert auf weißen Unterseiten
+   sauber als dezente CTA, ohne mit dem Hero-Schwarz zu konkurrieren. */
 .btn-primary {
-    --bs-btn-bg: #050811;
-    --bs-btn-border-color: #050811;
-    --bs-btn-hover-bg: #0a1024;
-    --bs-btn-hover-border-color: #0a1024;
-    --bs-btn-active-bg: #0a1024;
-    --bs-btn-active-border-color: #0a1024;
-    --bs-btn-focus-shadow-rgb: 5, 8, 17;
+    --bs-btn-bg: var(--accent);
+    --bs-btn-border-color: var(--accent);
+    --bs-btn-hover-bg: var(--accent-light);
+    --bs-btn-hover-border-color: var(--accent-light);
+    --bs-btn-active-bg: var(--accent-light);
+    --bs-btn-active-border-color: var(--accent-light);
+    --bs-btn-focus-shadow-rgb: 134, 46, 66;
     font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: 0.01em;
 }
 
 .btn-primary:hover {
-    box-shadow: 0 2px 12px rgba(5,8,17,0.3);
+    box-shadow: 0 2px 12px rgba(134,46,66,0.25);
     transform: translateY(-1px);
 }
 
@@ -1447,50 +1502,6 @@ a.accent-link:hover {
         padding: 0.85rem 0.75rem;
         font-size: var(--text-sm);
     }
-}
-
-
-/* ============================
-   SECTION STRIPS — schmale dunkle Akzent-Bänder à la Hero,
-   für Section-Headings im hellen Body (zur visuellen Wiederbelebung
-   der Hero-Identität beim Scrollen).
-   ============================ */
-
-.section-strip {
-    background: #050811;
-    color: #fff;
-    padding: 1.5rem 1.5rem;
-    margin: 2rem 0;
-    border-radius: var(--radius);
-    position: relative;
-    overflow: hidden;
-}
-.section-strip::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg,
-        #ff2a2a 0%, #ff7a18 16%, #ffd400 33%,
-        #3eea75 50%, #1ec8ff 66%, #3a6dff 83%, #a040ff 100%);
-    opacity: 0.5;
-}
-.section-strip__eyebrow {
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
-    margin: 0 0 0.4rem;
-}
-.section-strip__title {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin: 0;
-    color: #fff;
-    letter-spacing: -0.01em;
 }
 
 

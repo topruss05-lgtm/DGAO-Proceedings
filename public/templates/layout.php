@@ -29,7 +29,7 @@
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body class="d-flex flex-column min-vh-100" data-lang="<?= currentLang() ?>">
+<body class="d-flex flex-column min-vh-100" data-lang="<?= currentLang() ?>" data-page="<?= e($pageSlug ?? $page ?? '') ?>">
 
     <a class="visually-hidden-focusable skip-link" href="#main-content"><?= t('nav.skip') ?? 'Zum Inhalt springen' ?></a>
 

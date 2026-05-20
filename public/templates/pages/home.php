@@ -134,28 +134,30 @@ function dgao_lens_rays(array $rays, array $lens, float $thetaRad): array {
     return $out;
 }
 
-// Desktop layout: search bar in the LEFT column (Springer-style), so
-// the rainbow band sweeps diagonally across the whole hero from the
-// lower-left search bar to the upper-right where the lens lives. A
-// steeper θ keeps the trajectory shallow enough to hit the lens far
-// to the right, and as a side-effect the incoming beam stays above the
-// stats row instead of clipping through it.
+// Desktop layout: search bar in the LEFT column (Springer-style). Entry
+// point shifted ~260px right of the search bar's left edge so the
+// diverging spectrum exits the glass past the title text instead of
+// crossing through it. The lens follows so the parallel band hits its
+// centre on the optical axis. θ stays at 70° (oblique) so chromatic
+// dispersion remains visually distinct.
 $dScene = dgao_compute_optics([
     'vb_w'      => 1280,
     'vb_h'      => 560,
     'glass'     => ['x' => 80, 'y' => 230, 'w' => 520, 'h' => 100, 'r' => 14],
     'theta_deg' => 70,
-    'entry_x'   => 140,
+    'entry_x'   => 400,
 ]);
-$dLens     = ['cx' => 660, 'cy' => 72, 'f' => 140];
+$dLens     = ['cx' => 910, 'cy' => 76, 'f' => 130];
 $dLensRays = dgao_lens_rays($dScene['rays'], $dLens, $dScene['thetaRad']);
 
-// Mobile keeps the symmetric portrait composition.
+// Mobile portrait. θ raised to 65° (was 52°) so the dispersion fan
+// sweeps further to the right and clears the full-width title overlay
+// at the top of the stage instead of crossing through it.
 $mScene = dgao_compute_optics([
     'vb_w'      => 600,
     'vb_h'      => 760,
     'glass'     => ['x' => 60, 'y' => 410, 'w' => 480, 'h' => 100, 'r' => 14],
-    'theta_deg' => 52,
+    'theta_deg' => 65,
     'entry_x'   => 135,
 ]);
 
@@ -769,51 +771,32 @@ function dgao_render_scene(string $variant, array $scene, ?array $lens = null, ?
             );
         }
     } else {
-        // Desktop: parallel rainbow stripes bis zur Linsen-Ebene → Konvergenz
-        // durch per-Farbe-Brennpunkt → divergierender Fan dahinter.
-        // Vor dem Linse: vollfarbige parallele Strahlen (Sättigung hoch).
-        // Hinter dem Brennpunkt: schwächere Sättigung — die Farben sind
-        // jetzt "durchs Weiß" gegangen und divergieren wieder.
+        // Desktop: parallele Rainbow-Stripes bis zur Linsen-Ebene → jeder
+        // Strahl bricht durch SEINEN per-Wellenlänge-Brennpunkt und divergiert
+        // dahinter (chromatische Aberration). Standardkonvention im Lehrbuch:
+        // jeder Strahl bleibt farbig und fadet sauber kurz hinter seinem
+        // Fokus aus — KEIN falscher "weißer Brennpunkt" (der wäre nur in
+        // Newton-Rekombinationsgeometrie korrekt, nicht hier).
         foreach ($lensRays as $lr) {
-            // Pre-lens
+            // Pre-lens (parallel)
             $svg .= sprintf(
                 '<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="%s" stroke-width="2.4" stroke-linecap="round" opacity="0.95"/>',
                 $lr['midX'], $lr['midY'], $lr['hitX'], $lr['hitY'], $lr['color']
             );
-            // Post-lens: weißlich am Anfang, dann farbig divergierend (Gradient)
+            // Post-lens: durch Brennpunkt, am Ende sauberer Fade-out.
             $gradId = $variant . '-rg-' . substr(md5($lr['color']), 0, 6);
             $svg .= sprintf(
                 '<defs><linearGradient id="%s" x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" gradientUnits="userSpaceOnUse">'
-                . '<stop offset="0%%" stop-color="#ffffff" stop-opacity="0.95"/>'
-                . '<stop offset="30%%" stop-color="%s" stop-opacity="0.45"/>'
-                . '<stop offset="100%%" stop-color="%s" stop-opacity="0.75"/>'
+                . '<stop offset="0%%"   stop-color="%s" stop-opacity="0.95"/>'
+                . '<stop offset="65%%"  stop-color="%s" stop-opacity="0.75"/>'
+                . '<stop offset="100%%" stop-color="%s" stop-opacity="0"/>'
                 . '</linearGradient></defs>',
                 $gradId, $lr['hitX'], $lr['hitY'], $lr['endX'], $lr['endY'],
-                $lr['color'], $lr['color']
+                $lr['color'], $lr['color'], $lr['color']
             );
             $svg .= sprintf(
-                '<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="url(#%s)" stroke-width="2" stroke-linecap="round"/>',
+                '<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="url(#%s)" stroke-width="2.2" stroke-linecap="round"/>',
                 $lr['hitX'], $lr['hitY'], $lr['endX'], $lr['endY'], $gradId
-            );
-        }
-
-        // White hotspot am durchschnittlichen Brennpunkt-Cluster:
-        // dort überlagern sich alle Wellenlängen visuell zu Weiß.
-        $cnt = count($lensRays);
-        if ($cnt > 0) {
-            $fxAvg = $fyAvg = 0.0;
-            foreach ($lensRays as $lr) { $fxAvg += $lr['fx']; $fyAvg += $lr['fy']; }
-            $fxAvg /= $cnt; $fyAvg /= $cnt;
-            $hsId = $variant . '-hotspot';
-            $svg .= sprintf(
-                '<defs><radialGradient id="%s">'
-                . '<stop offset="0%%" stop-color="#ffffff" stop-opacity="1"/>'
-                . '<stop offset="35%%" stop-color="#ffffff" stop-opacity="0.55"/>'
-                . '<stop offset="100%%" stop-color="#ffffff" stop-opacity="0"/>'
-                . '</radialGradient></defs>'
-                . '<circle cx="%.2f" cy="%.2f" r="18" fill="url(#%s)"/>'
-                . '<circle cx="%.2f" cy="%.2f" r="2.4" fill="#ffffff" opacity="0.95"/>',
-                $hsId, $fxAvg, $fyAvg, $hsId, $fxAvg, $fyAvg
             );
         }
     }
