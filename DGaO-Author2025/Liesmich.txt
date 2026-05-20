@@ -1,35 +1,35 @@
 
-Herzlich Willkommen zum Autoren-Kit für die DGaO-Proceedings 2025!
+Herzlich Willkommen zum Autoren-Kit fÃ¼r die DGaO-Proceedings {{YEAR}}!
 ------------------------------------------------------------------
 
 
-In diesem Paket finden Sie alles, was Sie zum Verfassen eines Artikels für die DGaO-Proceedings benötigen. Zur Einreichung eines Proceedings haben Sie folgende Optionen:
+In diesem Paket finden Sie alles, was Sie zum Verfassen eines Artikels fÃ¼r die DGaO-Proceedings benÃ¶tigen. Zur Einreichung eines Proceedings haben Sie folgende Optionen:
 
 
 1) Verwenden von Microsoft Word:
 --------------------------------
 
-Benutzen Sie hierzu bitte die Dokumentenvorlage "DGaO_template2025_deu.dot", die Sie im Unterverzeichnis "MS Word" finden, und speichern Ihr fertiges Dokument im pdf-Format ab. Bitte beachten Sie, dass der fertige Beitrag zwei Seiten nicht überschreiten darf und dass KEINE redaktionelle Bearbeitung Ihres Beitrags stattfindet - Ihr Paper wird exakt in der Form veröffentlicht, in der Sie es einsenden! Lediglich die URN-Nummer und das Eingangsdatum werden von unserer Seite nachträglich mit den richtigen Ziffern ersetzt.
+Benutzen Sie hierzu bitte die Dokumentenvorlage "DGaO_template_2025_deu.dotx", die Sie im Unterverzeichnis "MS Word" finden, und speichern Ihr fertiges Dokument im pdf-Format ab. Bitte beachten Sie, dass der fertige Beitrag zwei Seiten nicht Ã¼berschreiten darf und dass KEINE redaktionelle Bearbeitung Ihres Beitrags stattfindet - Ihr Paper wird exakt in der Form verÃ¶ffentlicht, in der Sie es einsenden! Lediglich die URN-Nummer und das Eingangsdatum werden von unserer Seite nachtrÃ¤glich mit den richtigen Ziffern ersetzt.
 
 2) Verwenden von LaTeX:
 -----------------------
 
-Alternativ bieten wir auch eine Vorlage für LaTeX an. Sie finden die entsprechenden Dateien im Unterverzeichnis "LaTeX". Das Layout für DGaO-Proceedings wird von der Dokumentenklasse "DGaO-Proc.cls" implementiert. Öffnen Sie die Datei "dgao-demo.tex" mit einem Texteditor, um ein Beispiel für die Verwendung der Dokumentenklasse zu sehen. Erstellen Sie anschließend ein PostScript- oder PDF-Dokument. Sie können dazu wahlweise die Kombination DVIPS/Ghostscript oder auch PDFTeX verwenden.
+Alternativ bieten wir auch eine Vorlage fÃ¼r LaTeX an. Sie finden die entsprechenden Dateien im Unterverzeichnis "LaTeX". Das Layout fÃ¼r DGaO-Proceedings wird von der Dokumentenklasse "DGaO-Proc.cls" implementiert. Ã–ffnen Sie die Datei "dgao-demo.tex" mit einem Texteditor, um ein Beispiel fÃ¼r die Verwendung der Dokumentenklasse zu sehen. Erstellen Sie anschlieÃŸend ein PostScript- oder PDF-Dokument. Sie kÃ¶nnen dazu wahlweise die Kombination DVIPS/Ghostscript oder auch PDFTeX verwenden.
 
 3) Einreichen eines Posters:
 ----------------------------
 
-Wenn Sie auf der Tagung ein Poster präsentieren, bieten wir Ihnen die Möglichkeit, statt eines zweiseitigen Artikels ein Poster einzureichen, das dann in den DGaO-Proceedings veröffentlicht wird. 
+Wenn Sie auf der Tagung ein Poster prÃ¤sentieren, bieten wir Ihnen die MÃ¶glichkeit, statt eines zweiseitigen Artikels ein Poster einzureichen, das dann in den DGaO-Proceedings verÃ¶ffentlicht wird. 
 
 Bitte beachten Sie dabei folgende Punkte:
 
-- Die Gestaltung Ihres Posters bleibt Ihnen überlassen. Bitte verwenden Sie eine ausreichende Schriftgröße, so dass das Poster auch bei einem Ausdruck im DIN-A4-Format lesbar ist.
+- Die Gestaltung Ihres Posters bleibt Ihnen Ã¼berlassen. Bitte verwenden Sie eine ausreichende SchriftgrÃ¶ÃŸe, so dass das Poster auch bei einem Ausdruck im DIN-A4-Format lesbar ist.
 
-- Fügen Sie die zweizeilige Fußzeile
-  "DGaO-Proceedings 2025 - http://www.dgao-proceedings.de - ISSN: 1614-8436 - urn:nbn:de:0287-2025-XXXX-Y"
-  und darunter "eingegangen: XX.XX.2025   veröffentlicht: XX.XX.2025"   hinzu.
+- FÃ¼gen Sie die zweizeilige FuÃŸzeile
+  "DGaO-Proceedings {{YEAR}} - http://www.dgao-proceedings.de - ISSN: 1614-8436 - urn:nbn:de:0287-{{YEAR}}-XXXX-Y"
+  und darunter "eingegangen: XX.XX.{{YEAR}}   verÃ¶ffentlicht: XX.XX.{{YEAR}}"   hinzu.
 
-- Es werden nur Poster im PDF-Format akzeptiert. Bitte senden Sie KEINE CorelDraw-, Illustrator- o.ä. Dateiformate.
+- Es werden nur Poster im PDF-Format akzeptiert. Bitte senden Sie KEINE CorelDraw-, Illustrator- o.Ã¤. Dateiformate.
 
 
 Senden Sie Ihren Beitrag bitte per E-Mail an:
@@ -39,27 +39,26 @@ submit@dgao-proceedings.de
 Diese Mail sollte folgenden Inhalt haben:
 
 1. Nummer Ihres Vortrags bzw. Posters, wie sie im Programmkatalog erscheint
-   (wenn zur Hand, sonst genügt Hauptautor und Titel),
+   (wenn zur Hand, sonst genÃ¼gt Hauptautor und Titel),
 
-2. Im Mail-Anhang: Ihr Artikel oder Poster (wenn möglich als ZIP-Datei gepackt).
+2. Im Mail-Anhang: Ihr Artikel oder Poster (wenn mÃ¶glich als ZIP-Datei gepackt).
 
-3. Das von Ihnen handschriftlich unterzeichnete und eingescannte "Copyright-Agreement" (Erklärung zur Gewährung von Nutzungsrechten).
+3. Das von Ihnen handschriftlich unterzeichnete und eingescannte "Copyright-Agreement" (ErklÃ¤rung zur GewÃ¤hrung von Nutzungsrechten).
 
 
 WICHTIG :
-Vergessen Sie nicht, die "Erklärung zur Gewährung von Nutzungsrechten" (Copyright-Agreement_deu.pdf) auszufüllen und zu unterzeichnen!! 
+Vergessen Sie nicht, die "ErklÃ¤rung zur GewÃ¤hrung von Nutzungsrechten" (Copyright-Agreement_deu.pdf) auszufÃ¼llen und zu unterzeichnen!! 
 
 
-Mit Ihrer Unterschrift erklären Sie sich einverstanden, dass die DGaO Ihren Beitrag veröffentlichen darf. Solange die Erklärung nicht vorliegt, kann der Artikel nicht veröffentlicht werden!
+Mit Ihrer Unterschrift erklÃ¤ren Sie sich einverstanden, dass die DGaO Ihren Beitrag verÃ¶ffentlichen darf. Solange die ErklÃ¤rung nicht vorliegt, kann der Artikel nicht verÃ¶ffentlicht werden!
 
 Wenn Sie noch Fragen haben, wenden Sie sich bitte an
 
-dgao-sekretariat@dgao.de
+sekretariat@dgao.de
 
-Vielen Dank für Ihren Beitrag!
+Vielen Dank fÃ¼r Ihren Beitrag!
 
-Deutsche Gesellschaft für angewandte Optik e.V.
-Technische Universität Ilmenau
-Fachgebiet Technische Optik
-Postfach 100565
-98684 Ilmenau
+Deutsche Gesellschaft fÃ¼r angewandte Optik e.V.
+c/o Hochschule Pforzheim
+Tiefenbronner Str. 65
+75175 Pforzheim

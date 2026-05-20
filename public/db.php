@@ -81,6 +81,9 @@ function runMigrations(PDO $db): void
     if (!in_array('vorlage_phase_aktiv', $tagungenColumns, true)) {
         $db->exec("ALTER TABLE tagungen ADD COLUMN vorlage_phase_aktiv INTEGER NOT NULL DEFAULT 0");
     }
+    if (!in_array('einreichungsfrist', $tagungenColumns, true)) {
+        $db->exec("ALTER TABLE tagungen ADD COLUMN einreichungsfrist TEXT");
+    }
 }
 
 function rebuildFtsIndex(PDO $db): void

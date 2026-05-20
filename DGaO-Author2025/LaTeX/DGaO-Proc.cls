@@ -23,7 +23,7 @@
 
 \newcommand\s@URL{http://www.dgao-proceedings.de}
 \newcommand\s@ISSN{1614-8436}
-\newcommand\s@URN{urn:nbn:de:0287-2025-XXXX-Y}
+\newcommand\s@URN{urn:nbn:de:0287-{{YEAR}}-XXXX-Y}
 
 \RequirePackage{ifthen}
 
@@ -153,7 +153,7 @@
 \frenchspacing
 
 % footer
-\fancyfoot[C]{\footnotesize{DGaO Proceedings~\s@year~--~\textit{\color[rgb]{0,0,0.6}\s@URL}~--~ISSN:~\s@ISSN}~--~\s@URN\\ submitted: XX.XXX.2025~--~published: XX.XXX.2025}
+\fancyfoot[C]{\footnotesize{DGaO Proceedings~\s@year~--~\textit{\color[rgb]{0,0,0.6}\s@URL}~--~ISSN:~\s@ISSN}~--~\s@URN\\ submitted: XX.XXX.{{YEAR}}~--~published: XX.XXX.{{YEAR}}}
 \fancyhead[]{} % no header
 \renewcommand{\headrulewidth}{\z@}
 \renewcommand{\footrulewidth}{\z@}

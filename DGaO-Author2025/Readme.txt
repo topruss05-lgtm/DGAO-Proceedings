@@ -1,5 +1,5 @@
 
-Welcome to the Author's Kit for the DGaO Proceedings 2025!
+Welcome to the Author's Kit for the DGaO Proceedings {{YEAR}}!
 ----------------------------------------------------------
 
 
@@ -9,7 +9,7 @@ In this package you will find everything you need to publish an article with the
 1) Using Microsoft Word:
 ------------------------
 
-Please use the document template "DGaO_template2025_eng.dot" which you find in the "MS Word" subdirectory, and save your final proceeding as pdf. Please bear in mind that your contribution must not exceed two pages and will NOT be edited, which means that it will be published exactly as it has been submitted! Solely the URN identifier and the dates will be adapted by us.
+Please use the document template "DGaO_template_2025_eng.dotx" which you find in the "MS Word" subdirectory, and save your final proceeding as pdf. Please bear in mind that your contribution must not exceed two pages and will NOT be edited, which means that it will be published exactly as it has been submitted! Solely the URN identifier and the dates will be adapted by us.
 
 
 2) Using LaTeX:
@@ -26,8 +26,8 @@ If you presented a poster at the conference, you have the possibility to submit 
 - You may freely design your poster. Please use a sufficiently large font size such that the poster is readable wenn printed on A4 paper.
 
 - Add the following two-line footer:
-  "DGaO-Proceedings 2025 - http://www.dgao-proceedings.de - ISSN: 1614-8436 - urn:nbn:de:0287-2025-XXXX-Y"
-  and below "submitted: XX.XXX.2025       published: XX.XXX.2025"
+  "DGaO-Proceedings {{YEAR}} - http://www.dgao-proceedings.de - ISSN: 1614-8436 - urn:nbn:de:0287-{{YEAR}}-XXXX-Y"
+  and below "submitted: XX.XXX.{{YEAR}}       published: XX.XXX.{{YEAR}}"
  
 - We accept only posters in PDF format. Please DO NOT send a CorelDraw, Illustrator or similar file format.
 
@@ -52,12 +52,11 @@ By signing this form, you agree that the DGaO may publish your article. Until we
 
 If you have questions, please contact: 
 
-dgao-sekretariat@dgao.de
+sekretariat@dgao.de
 
 Thank you for your submission!
 
 Deutsche Gesellschaft für angewandte Optik e.V.
-Technische Universität Ilmenau
-Fachgebiet Technische Optik
-Postfach 100565
-98684 Ilmenau
+c/o Hochschule Pforzheim
+Tiefenbronner Str. 65
+75175 Pforzheim

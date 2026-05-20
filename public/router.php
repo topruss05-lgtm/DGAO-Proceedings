@@ -45,6 +45,14 @@ function matchRoute(string $uri): array
     }
 
     // Blanke Manuskript-Vorlagen — nur verfügbar bei aktiver Vorlagen-Phase
+    // /manuskript-vorlage/kit             → komplettes Author-Kit (DE+EN+alle Files) als ZIP
+    // /manuskript-vorlage/{latex|word|copyright}/{de|en} → einzelne Files
+    if ($path === '/manuskript-vorlage/kit') {
+        return ['page' => 'manuskript_vorlage_download', 'params' => [
+            'format' => 'kit',
+            'lang'   => 'de',
+        ]];
+    }
     if (preg_match('#^/manuskript-vorlage/(latex|word|copyright)(?:/(de|en))?$#', $path, $m)) {
         return ['page' => 'manuskript_vorlage_download', 'params' => [
             'format' => $m[1],
