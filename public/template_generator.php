@@ -204,7 +204,7 @@ function generateWordDocx(array $paper, string $lang = 'deu'): string
     $documentXml = replaceWordStyledParagraph($documentXml, 'Organisation',  $data['affiliation'], true);
     $documentXml = replaceWordStyledParagraph($documentXml, 'Kontaktemail',  $data['email']);
 
-    // Alte Sekretariat-Email + {{YEAR}}-Platzhalter
+    // Alte Sekretariat-Email + {{YEAR}}-Platzhalter im document.xml
     $documentXml = str_replace('dgao-sekretariat@dgao.de', 'sekretariat@dgao.de', $documentXml);
     $documentXml = str_replace('{{YEAR}}', (string)(int)($data['year'] ?: date('Y')), $documentXml);
 
@@ -221,6 +221,27 @@ function generateWordDocx(array $paper, string $lang = 'deu'): string
     }
 
     $zip->addFromString('word/document.xml', $documentXml);
+
+    // {{YEAR}} + alte Sekretariats-Email in allen weiteren XML-Parts
+    // (footer*.xml, header*.xml, docProps/*.xml). Sonst bleibt z. B. der
+    // Footer auf der alten Jahreszahl.
+    $yearStr = (string)(int)($data['year'] ?: date('Y'));
+    for ($i = 0; $i < $zip->numFiles; $i++) {
+        $stat = $zip->statIndex($i);
+        if ($stat === false) continue;
+        $name = $stat['name'];
+        if ($name === 'word/document.xml') continue;
+        if (!str_ends_with(strtolower($name), '.xml')) continue;
+        $content = $zip->getFromName($name);
+        if ($content === false) continue;
+        $orig = $content;
+        $content = str_replace('{{YEAR}}', $yearStr, $content);
+        $content = str_replace('dgao-sekretariat@dgao.de', 'sekretariat@dgao.de', $content);
+        if ($content !== $orig) {
+            $zip->addFromString($name, $content);
+        }
+    }
+
     $zip->close();
 
     return $outPath;

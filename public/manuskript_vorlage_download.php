@@ -212,6 +212,7 @@ function buildWordDocxBytes(string $tplPath, int $year): string
     if ($zip->open($tmp) !== true) {
         throw new RuntimeException('docx-Container konnte nicht geöffnet werden.');
     }
+
     // Content-Type: template → document
     $ct = $zip->getFromName('[Content_Types].xml');
     if ($ct !== false) {
@@ -222,15 +223,26 @@ function buildWordDocxBytes(string $tplPath, int $year): string
         );
         $zip->addFromString('[Content_Types].xml', $ct);
     }
-    // document.xml: {{YEAR}} ersetzen, alte Email rauswerfen
-    $doc = $zip->getFromName('word/document.xml');
-    if ($doc !== false) {
-        $doc = substituteYearPlaceholders($doc, $year);
-        $doc = str_replace('dgao-sekretariat@dgao.de', 'sekretariat@dgao.de', $doc);
-        $zip->addFromString('word/document.xml', $doc);
-    }
-    $zip->close();
 
+    // {{YEAR}} + alte Sekretariats-Email in ALLEN XML-Parts ersetzen
+    // (document.xml, footer*.xml, header*.xml, docProps/*.xml etc.).
+    // Sonst bleibt z. B. der Footer auf der alten Jahreszahl.
+    for ($i = 0; $i < $zip->numFiles; $i++) {
+        $stat = $zip->statIndex($i);
+        if ($stat === false) continue;
+        $name = $stat['name'];
+        if (!str_ends_with(strtolower($name), '.xml')) continue;
+        $content = $zip->getFromName($name);
+        if ($content === false) continue;
+        $orig = $content;
+        $content = substituteYearPlaceholders($content, $year);
+        $content = str_replace('dgao-sekretariat@dgao.de', 'sekretariat@dgao.de', $content);
+        if ($content !== $orig) {
+            $zip->addFromString($name, $content);
+        }
+    }
+
+    $zip->close();
     $bytes = file_get_contents($tmp);
     @unlink($tmp);
     if ($bytes === false) throw new RuntimeException('docx konnte nicht zurückgelesen werden.');
