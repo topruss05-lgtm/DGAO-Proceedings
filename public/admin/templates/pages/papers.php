@@ -27,7 +27,7 @@ $stmt = $db->prepare('
     SELECT id, code, typ, titel, autoren_text, hat_pdf, datum, zeit
     FROM papers
     WHERE tagung_nummer = ?
-    ORDER BY code
+    ORDER BY substr(code,1,1), CAST(substr(code,2) AS INTEGER)
     LIMIT ? OFFSET ?
 ');
 $stmt->execute([$tagungFilter, $pag['per_page'], $pag['offset']]);

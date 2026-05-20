@@ -72,7 +72,8 @@ if ($activeTagung) {
                 WHEN \'vortrag\'       THEN 3
                 WHEN \'poster\'        THEN 4
                 ELSE 9
-            END, code'
+            END,
+            substr(code,1,1), CAST(substr(code,2) AS INTEGER)'
     );
     $st->execute([$activeTagung['nummer']]);
     $papersForUpload = $st->fetchAll();

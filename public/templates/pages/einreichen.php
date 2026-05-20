@@ -16,7 +16,7 @@ if ($isOpen) {
                 WHEN \'poster\'        THEN 4
                 ELSE 9
             END,
-            code'
+            substr(code,1,1), CAST(substr(code,2) AS INTEGER)'
     );
     $stmt->execute([$activeTagung['nummer']]);
     $papers = $stmt->fetchAll();

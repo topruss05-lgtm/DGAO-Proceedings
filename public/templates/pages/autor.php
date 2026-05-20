@@ -20,7 +20,7 @@ $stmt = $db->prepare('
     JOIN paper_autoren pa ON pa.paper_id = p.id
     JOIN tagungen t ON t.nummer = p.tagung_nummer
     WHERE pa.autor_id = ?
-    ORDER BY t.jahr DESC, p.code
+    ORDER BY t.jahr DESC, substr(p.code,1,1), CAST(substr(p.code,2) AS INTEGER)
 ');
 $stmt->execute([$autorId]);
 $papers = $stmt->fetchAll();

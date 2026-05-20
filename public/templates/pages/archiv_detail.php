@@ -24,7 +24,7 @@ $stmt = $db->prepare('
             WHEN \'vortrag\' THEN 3
             WHEN \'poster\' THEN 4
         END,
-        code
+            substr(code,1,1), CAST(substr(code,2) AS INTEGER)
 ');
 $stmt->execute([$nummer]);
 $papers = $stmt->fetchAll();
