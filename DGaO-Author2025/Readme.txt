@@ -9,7 +9,7 @@ In this package you will find everything you need to publish an article with the
 1) Using Microsoft Word:
 ------------------------
 
-Please use the document template "DGaO_template_2025_eng.dotx" which you find in the "MS Word" subdirectory, and save your final proceeding as pdf. Please bear in mind that your contribution must not exceed two pages and will NOT be edited, which means that it will be published exactly as it has been submitted! Solely the URN identifier and the dates will be adapted by us.
+Please use the document template "DGaO_template_{{YEAR}}_eng.docx" which you find in the "MS Word" subdirectory, and save your final proceeding as pdf. Please bear in mind that your contribution must not exceed two pages and will NOT be edited, which means that it will be published exactly as it has been submitted! Solely the URN identifier and the dates will be adapted by us.
 
 
 2) Using LaTeX:

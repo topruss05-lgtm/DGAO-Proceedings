@@ -9,7 +9,7 @@ In diesem Paket finden Sie alles, was Sie zum Verfassen eines Artikels für die 
 1) Verwenden von Microsoft Word:
 --------------------------------
 
-Benutzen Sie hierzu bitte die Dokumentenvorlage "DGaO_template_2025_deu.dotx", die Sie im Unterverzeichnis "MS Word" finden, und speichern Ihr fertiges Dokument im pdf-Format ab. Bitte beachten Sie, dass der fertige Beitrag zwei Seiten nicht überschreiten darf und dass KEINE redaktionelle Bearbeitung Ihres Beitrags stattfindet - Ihr Paper wird exakt in der Form veröffentlicht, in der Sie es einsenden! Lediglich die URN-Nummer und das Eingangsdatum werden von unserer Seite nachträglich mit den richtigen Ziffern ersetzt.
+Benutzen Sie hierzu bitte die Dokumentenvorlage "DGaO_template_{{YEAR}}_deu.docx", die Sie im Unterverzeichnis "MS Word" finden, und speichern Ihr fertiges Dokument im pdf-Format ab. Bitte beachten Sie, dass der fertige Beitrag zwei Seiten nicht überschreiten darf und dass KEINE redaktionelle Bearbeitung Ihres Beitrags stattfindet - Ihr Paper wird exakt in der Form veröffentlicht, in der Sie es einsenden! Lediglich die URN-Nummer und das Eingangsdatum werden von unserer Seite nachträglich mit den richtigen Ziffern ersetzt.
 
 2) Verwenden von LaTeX:
 -----------------------
