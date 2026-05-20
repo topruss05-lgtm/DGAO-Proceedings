@@ -92,10 +92,9 @@ return [
     'archiv_detail.sort_author'  => 'Author',
     'archiv_detail.meta_suffix'  => 'papers',
     'archiv_detail.jahrestagung_der_dgao' => 'Annual Conference of the DGaO',
-    'archiv_detail.vorlage_eyebrow' => 'Manuscript phase open',
-    'archiv_detail.vorlage_title'   => 'Manuscript templates for this conference',
-    'archiv_detail.vorlage_desc'    => 'Authors can now download the Word or LaTeX template and prepare their submission.',
-    'archiv_detail.vorlage_more'    => 'Details &amp; notes',
+    'archiv_detail.einreichen_eyebrow' => 'Submissions open',
+    'archiv_detail.einreichen_title'   => 'Submit a paper to this conference',
+    'archiv_detail.einreichen_desc'    => 'Download the manuscript template and submit your finished contribution.',
 
     // -- Manuscript template page --
     'vorlage.page_title'   => 'Manuscript Template',

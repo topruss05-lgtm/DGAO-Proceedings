@@ -64,28 +64,14 @@ $metaTags = [
         <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
             <div>
                 <div class="text-uppercase small fw-semibold text-muted" style="letter-spacing:.1em;">
-                    <i class="bi bi-pencil-square"></i> <?= t('archiv_detail.vorlage_eyebrow') ?>
+                    <i class="bi bi-envelope-arrow-up"></i> <?= t('archiv_detail.einreichen_eyebrow') ?>
                 </div>
-                <div class="h6 mb-1 mt-1"><?= t('archiv_detail.vorlage_title') ?></div>
-                <div class="small text-muted"><?= t('archiv_detail.vorlage_desc') ?></div>
+                <div class="h6 mb-1 mt-1"><?= t('archiv_detail.einreichen_title') ?></div>
+                <div class="small text-muted"><?= t('archiv_detail.einreichen_desc') ?></div>
             </div>
-            <div class="d-flex flex-wrap gap-2">
-                <a href="/manuskript-vorlage/word/de" class="btn btn-sm btn-outline-primary">
-                    <i class="bi bi-file-earmark-word"></i> Word DE
-                </a>
-                <a href="/manuskript-vorlage/word/en" class="btn btn-sm btn-outline-primary">
-                    <i class="bi bi-file-earmark-word"></i> Word EN
-                </a>
-                <a href="/manuskript-vorlage/latex/de" class="btn btn-sm btn-outline-primary">
-                    <i class="bi bi-file-earmark-zip"></i> LaTeX DE
-                </a>
-                <a href="/manuskript-vorlage/latex/en" class="btn btn-sm btn-outline-primary">
-                    <i class="bi bi-file-earmark-zip"></i> LaTeX EN
-                </a>
-                <a href="/einreichen" class="btn btn-sm btn-link">
-                    <?= t('archiv_detail.vorlage_more') ?> &rarr;
-                </a>
-            </div>
+            <a href="/einreichen" class="btn btn-primary">
+                <i class="bi bi-envelope-arrow-up"></i> <?= t('nav.einreichen') ?>
+            </a>
         </div>
     </div>
 </aside>

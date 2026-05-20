@@ -92,10 +92,9 @@ return [
     'archiv_detail.sort_author'  => 'Autor',
     'archiv_detail.meta_suffix'  => 'Beitr&auml;ge',
     'archiv_detail.jahrestagung_der_dgao' => 'Jahrestagung der DGaO',
-    'archiv_detail.vorlage_eyebrow' => 'Manuskript-Phase aktiv',
-    'archiv_detail.vorlage_title'   => 'Manuskript-Vorlagen f&uuml;r diese Tagung',
-    'archiv_detail.vorlage_desc'    => 'Autor:innen k&ouml;nnen jetzt Word- oder LaTeX-Vorlage herunterladen und ihren Beitrag verfassen.',
-    'archiv_detail.vorlage_more'    => 'Details &amp; Hinweise',
+    'archiv_detail.einreichen_eyebrow' => 'Beitragseinreichung offen',
+    'archiv_detail.einreichen_title'   => 'Beitrag zu dieser Tagung einreichen',
+    'archiv_detail.einreichen_desc'    => 'Manuskript-Vorlage herunterladen und Ihren fertigen Beitrag einreichen.',
 
     // -- Manuskript-Vorlage page --
     'vorlage.page_title'   => 'Manuskript-Vorlage',

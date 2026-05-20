@@ -180,22 +180,9 @@ $pdfRelUrl = pdfUrl($paper);
         <?php endif; ?>
 
         <?php if (!empty($paper['vorlage_phase_aktiv'])): ?>
-        <div class="dropdown">
-            <button class="btn btn-outline-accent btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-download"></i> <?= t('paper.tpl_button') ?>
-            </button>
-            <ul class="dropdown-menu">
-                <li><h6 class="dropdown-header"><?= t('paper.tpl_latex_header') ?></h6></li>
-                <li><a class="dropdown-item" href="/paper/<?= e($paper['id']) ?>/template/latex/de"><i class="bi bi-file-earmark-zip"></i> <?= t('vorlage.dl_de_zip') ?></a></li>
-                <li><a class="dropdown-item" href="/paper/<?= e($paper['id']) ?>/template/latex/en"><i class="bi bi-file-earmark-zip"></i> <?= t('vorlage.dl_en_zip') ?></a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><h6 class="dropdown-header"><?= t('paper.tpl_word_header') ?></h6></li>
-                <li><a class="dropdown-item" href="/paper/<?= e($paper['id']) ?>/template/word/de"><i class="bi bi-file-earmark-word"></i> <?= t('vorlage.dl_de_docx') ?></a></li>
-                <li><a class="dropdown-item" href="/paper/<?= e($paper['id']) ?>/template/word/en"><i class="bi bi-file-earmark-word"></i> <?= t('vorlage.dl_en_docx') ?></a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item small text-muted" href="/einreichen?paper=<?= e($paper['id']) ?>"><?= t('paper.tpl_more') ?></a></li>
-            </ul>
-        </div>
+        <a href="/einreichen?paper=<?= e($paper['id']) ?>" class="btn btn-accent btn-sm">
+            <i class="bi bi-envelope-arrow-up"></i> <?= t('nav.einreichen') ?>
+        </a>
         <?php endif; ?>
 
         <button type="button" class="btn btn-outline-secondary btn-sm" id="bibtex-toggle-btn">
