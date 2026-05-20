@@ -215,27 +215,72 @@ function rejectSubmission(string $token, string $reviewer, string $note): array
         @unlink(SUBMISSION_UPLOAD_DIR . '/' . $sub['filename_stored']);
     }
 
-    // Author informieren
-    $base = defined('BASE_URL') ? BASE_URL : '';
-    $link = $base . '/einreichen/' . $sub['token'];
-    $body = <<<EOT
-Hallo,
+    if (!empty($sub['uploader_email'])) {
+        $body = <<<EOT
+Sehr geehrte Damen und Herren,
 
-deine Einreichung zum DGaO-Proceedings wurde leider abgelehnt.
+Ihre Einreichung zum DGaO-Proceedings konnten wir leider nicht annehmen.
 
   Beitrag: {$sub['code']} — {$sub['titel']}
 
-Begründung:
+Begründung der Tagungsgeschäftsführung:
 {$note}
 
-Du kannst eine korrigierte Version unter folgendem Link erneut hochladen:
+Sie können eine korrigierte Version gerne erneut per E-Mail an
+sekretariat@dgao.de senden.
 
-  {$link}
-
-—
+Mit freundlichen Grüßen
 Tagungsgeschäftsführung der DGaO
 EOT;
-    sendMail($sub['uploader_email'], '[DGaO] Einreichung ' . $sub['code'] . ' abgelehnt', $body);
+        sendMail($sub['uploader_email'], '[DGaO] Einreichung ' . $sub['code'] . ' — Rückmeldung', $body);
+    }
 
     return ['ok' => true];
+}
+
+/**
+ * Admin-Upload: Manuskript-PDF zuordnen, das per Mail eingegangen ist.
+ * Erstellt eine Submission-Zeile im Status 'pending' mit der Datei im
+ * Pending-Folder. Admin bestätigt anschließend wie gewohnt mit
+ * approveSubmission(); dabei wandert die Datei in den finalen Pfad.
+ *
+ * @param string $paperId       z. B. "127-a1"
+ * @param string $uploaderEmail E-Mail aus dem Absender (für ggf. Rückmeldung)
+ * @param array  $fileInfo      $_FILES['…']-Eintrag mit tmp_name, name, size, error
+ * @return array{ok:bool, token?:string, error?:string}
+ */
+function adminCreateSubmissionFromMail(string $paperId, string $uploaderEmail, array $fileInfo): array
+{
+    $db = getDbAdmin();
+    // Paper muss existieren
+    $stmt = $db->prepare('SELECT id, code, kontakt_email FROM papers WHERE id = ?');
+    $stmt->execute([$paperId]);
+    $paper = $stmt->fetch();
+    if (!$paper) return ['ok' => false, 'error' => 'Beitrag nicht gefunden: ' . $paperId];
+
+    // Email-Default: papers.kontakt_email, falls Admin nichts eingegeben hat
+    $email = strtolower(trim($uploaderEmail));
+    if ($email === '' && !empty($paper['kontakt_email'])) {
+        $email = strtolower(trim($paper['kontakt_email']));
+    }
+    if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $email = 'sekretariat@dgao.de'; // Fallback — Admin hat per Hand eingespielt
+    }
+
+    $token = bin2hex(random_bytes(32));
+    $expiresAt = (new DateTimeImmutable('+' . SUBMISSION_TOKEN_TTL_DAYS . ' days'))->format('Y-m-d H:i:s');
+
+    $db->prepare(
+        'INSERT INTO submissions (token, paper_id, status, uploader_email, expires_at)
+         VALUES (?, ?, ?, ?, ?)'
+    )->execute([$token, $paperId, 'pending', $email, $expiresAt]);
+
+    $sub = loadSubmission($token);
+    $res = storeSubmissionUpload($sub, $fileInfo);
+    if (!$res['ok']) {
+        // Rollback: Submission-Zeile löschen
+        $db->prepare('DELETE FROM submissions WHERE token = ?')->execute([$token]);
+        return ['ok' => false, 'error' => $res['error']];
+    }
+    return ['ok' => true, 'token' => $token];
 }

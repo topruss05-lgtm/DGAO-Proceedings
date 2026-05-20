@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         $data = ['nummer'=>0,'jahr'=>0,'ort'=>'','datum_von'=>'','datum_bis'=>'',
-                 'vorlage_phase_aktiv'=>0];
+                 'einreichungsfrist'=>'', 'vorlage_phase_aktiv'=>0];
         $parsedRows = null;
 
         if (empty($errors)) {
@@ -60,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $data['ort']       = $meta['ort'];
                 $data['datum_von'] = $meta['datum_von'];
                 $data['datum_bis'] = $meta['datum_bis'];
+                $data['einreichungsfrist'] = $meta['einreichungsfrist'] ?? '';
 
                 // Konflikt: Tagung bereits vorhanden?
                 if (empty($errors)) {
@@ -94,6 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'ort'       => trim($_POST['ort'] ?? ''),
             'datum_von' => trim($_POST['datum_von'] ?? ''),
             'datum_bis' => trim($_POST['datum_bis'] ?? ''),
+            'einreichungsfrist' => trim($_POST['einreichungsfrist'] ?? ''),
             'vorlage_phase_aktiv' => isset($_POST['vorlage_phase_aktiv']) ? 1 : 0,
         ];
         if ($data['jahr'] < 1900 || $data['jahr'] > 2100) $errors[] = 'Jahr ungültig.';
@@ -123,18 +125,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                    ->execute([$data['nummer']]);
             }
             $stmt = $db->prepare(
-                'INSERT INTO tagungen (nummer, jahr, ort, datum_von, datum_bis, vorlage_phase_aktiv)
-                 VALUES (?, ?, ?, ?, ?, ?)
+                'INSERT INTO tagungen (nummer, jahr, ort, datum_von, datum_bis, einreichungsfrist, vorlage_phase_aktiv)
+                 VALUES (?, ?, ?, ?, ?, ?, ?)
                  ON CONFLICT(nummer) DO UPDATE SET
                     jahr = excluded.jahr,
                     ort = excluded.ort,
                     datum_von = excluded.datum_von,
                     datum_bis = excluded.datum_bis,
+                    einreichungsfrist = excluded.einreichungsfrist,
                     vorlage_phase_aktiv = excluded.vorlage_phase_aktiv'
             );
             $stmt->execute([
                 $data['nummer'], $data['jahr'], $data['ort'],
-                $data['datum_von'], $data['datum_bis'], $data['vorlage_phase_aktiv'],
+                $data['datum_von'], $data['datum_bis'],
+                $data['einreichungsfrist'] !== '' ? $data['einreichungsfrist'] : null,
+                $data['vorlage_phase_aktiv'],
             ]);
             $db->commit();
         } catch (Throwable $e) {
@@ -267,6 +272,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label for="datum_bis" class="form-label">Datum bis</label>
                     <input type="date" class="form-control" id="datum_bis" name="datum_bis"
                            value="<?= e($data['datum_bis'] ?? $tagung['datum_bis'] ?? '') ?>">
+                </div>
+                <div class="col-md-6">
+                    <label for="einreichungsfrist" class="form-label">
+                        Einreichungsfrist Manuskript
+                    </label>
+                    <input type="date" class="form-control" id="einreichungsfrist" name="einreichungsfrist"
+                           value="<?= e($data['einreichungsfrist'] ?? $tagung['einreichungsfrist'] ?? '') ?>">
+                    <div class="form-text">
+                        Wird auf <code>/einreichen</code> öffentlich angezeigt.
+                        Beim PDF-Import aus dem Tagungsband wird die Frist
+                        („31.07.YYYY") falls erkennbar automatisch ausgefüllt.
+                    </div>
                 </div>
             </div>
 

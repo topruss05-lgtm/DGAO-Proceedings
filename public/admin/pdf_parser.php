@@ -525,7 +525,15 @@ function extractTagungMetadata(string $text): array
         $ort = trim($m[1]);
     }
 
+    // Einreichungsfrist Manuskript: Liesmich-Text im Booklet enthält
+    // typisch „Die Frist für die Einreichung der Beiträge … endet am DD.MM.YYYY"
+    $einreichungsfrist = '';
+    if (preg_match('/Frist[\s\S]{0,200}?endet\s+am\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/iu', $text, $m)) {
+        $einreichungsfrist = sprintf('%04d-%02d-%02d', (int)$m[3], (int)$m[2], (int)$m[1]);
+    }
+
     return [
+        'einreichungsfrist' => $einreichungsfrist,
         'nummer'    => $nummer,
         'jahr'      => $jahr,
         'ort'       => $ort,

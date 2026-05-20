@@ -1,7 +1,4 @@
 <?php
-require_once __DIR__ . '/../../submissions.php';
-require_once __DIR__ . '/../../mailer.php';
-
 $activeTagung = getCurrentVorlagenTagung();
 $isOpen       = $activeTagung !== null;
 
@@ -29,42 +26,8 @@ $pageTitle    = t('einreichen.page_title') . ' — ' . SITE_NAME;
 $canonicalUrl = canonicalUrl('/einreichen');
 $metaTags = [['name' => 'description', 'content' => t('einreichen.meta_desc')]];
 
-// Submit-Form: Upload-Link anfordern
-$flash = null;
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && $isOpen) {
-    $code  = trim($_POST['code']  ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $result = createSubmissionRequest($code, $email);
-    if ($result !== null) {
-        $link = BASE_URL . '/einreichen/' . $result['token'];
-        $paper = $result['paper'];
-        $expires = $result['expires_at'];
-        $body = <<<EOT
-Hallo,
-
-du hast einen Upload-Link für dein DGaO-Proceedings-Manuskript angefordert.
-
-  Beitrag: {$paper['code']} — {$paper['titel']}
-  Tagung:  {$paper['tagung_nummer']}. Jahrestagung der DGaO
-
-Klicke auf den folgenden Link, um deine PDF-Datei hochzuladen:
-
-  {$link}
-
-Der Link ist gültig bis: {$expires}
-
-Solltest du diese Mail nicht angefordert haben, kannst du sie ignorieren —
-ohne Klick auf den Link passiert nichts.
-
-Bei Fragen: dgao-sekretariat@dgao.de
-
-—
-Tagungsgeschäftsführung der DGaO
-EOT;
-        sendMail($email, '[DGaO] Upload-Link für Beitrag ' . $paper['code'], $body);
-    }
-    $flash = ['type' => 'info', 'message' => t('einreichen.flash_generic')];
-}
+$submissionMail = 'sekretariat@dgao.de';
+$deadline       = $activeTagung['einreichungsfrist'] ?? '';
 ?>
 
 <nav aria-label="breadcrumb" class="mb-3">
@@ -103,8 +66,18 @@ EOT;
         </div>
     </div>
 
+    <?php if ($deadline !== ''): ?>
+    <div class="alert alert-info d-flex align-items-center gap-2 mt-3">
+        <i class="bi bi-calendar-event flex-shrink-0"></i>
+        <div>
+            <strong><?= t('einreichen.deadline_label') ?>:</strong>
+            <?= e(formatDateLong($deadline)) ?>
+        </div>
+    </div>
+    <?php endif; ?>
+
     <!-- ============================================================
-         Schritt 1: Manuskript-Vorlage herunterladen
+         Schritt 1: Vorlage herunterladen
          ============================================================ -->
     <section id="vorlage" class="mt-4">
         <h2 class="h5 mb-2">
@@ -141,111 +114,80 @@ EOT;
             </div>
         </div>
 
-        <div class="row g-3">
-            <div class="col-md-6">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h6 card-title">
-                            <i class="bi bi-file-earmark-word text-primary"></i>
-                            <?= t('vorlage.word_title') ?>
-                        </h3>
-                        <p class="text-muted small"><?= t('vorlage.word_desc') ?></p>
-                        <div class="d-flex flex-wrap gap-2">
-                            <a class="btn btn-outline-primary btn-sm vorlage-dl"
-                               data-format="word" data-lang="de" href="/manuskript-vorlage/word/de">
-                                <i class="bi bi-download"></i> <?= t('vorlage.dl_de_docx') ?>
-                            </a>
-                            <a class="btn btn-outline-primary btn-sm vorlage-dl"
-                               data-format="word" data-lang="en" href="/manuskript-vorlage/word/en">
-                                <i class="bi bi-download"></i> <?= t('vorlage.dl_en_docx') ?>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h6 card-title">
-                            <i class="bi bi-file-earmark-code text-primary"></i>
-                            <?= t('vorlage.latex_title') ?>
-                        </h3>
-                        <p class="text-muted small"><?= t('vorlage.latex_desc') ?></p>
-                        <div class="d-flex flex-wrap gap-2">
-                            <a class="btn btn-outline-primary btn-sm vorlage-dl"
-                               data-format="latex" data-lang="de" href="/manuskript-vorlage/latex/de">
-                                <i class="bi bi-file-earmark-zip"></i> <?= t('vorlage.dl_de_zip') ?>
-                            </a>
-                            <a class="btn btn-outline-primary btn-sm vorlage-dl"
-                               data-format="latex" data-lang="en" href="/manuskript-vorlage/latex/en">
-                                <i class="bi bi-file-earmark-zip"></i> <?= t('vorlage.dl_en_zip') ?>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12">
-                <div class="card h-100">
-                    <div class="card-body py-2">
-                        <span class="text-muted small text-uppercase me-2" style="letter-spacing:.08em;">
-                            <i class="bi bi-shield-check"></i> <?= t('vorlage.copyright_title') ?>:
-                        </span>
-                        <a href="/manuskript-vorlage/copyright/de" class="btn btn-link btn-sm p-0">
-                            <i class="bi bi-file-earmark-pdf"></i> <?= t('vorlage.dl_de_copyright') ?>
-                        </a>
-                        <span class="text-muted">·</span>
-                        <a href="/manuskript-vorlage/copyright/en" class="btn btn-link btn-sm p-0">
-                            <i class="bi bi-file-earmark-pdf"></i> <?= t('vorlage.dl_en_copyright') ?>
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div class="d-flex flex-wrap gap-2 align-items-center">
+            <a class="btn btn-primary vorlage-dl-kit"
+               href="/manuskript-vorlage/kit">
+                <i class="bi bi-archive"></i> <?= t('einreichen.dl_kit') ?>
+            </a>
+            <span class="text-muted small">— <?= t('einreichen.dl_kit_desc') ?></span>
         </div>
+
+        <details class="mt-3 small">
+            <summary class="text-muted"><?= t('einreichen.dl_separate') ?></summary>
+            <div class="mt-2 d-flex flex-wrap gap-2">
+                <a class="btn btn-outline-primary btn-sm vorlage-dl" data-format="word" data-lang="de" href="/manuskript-vorlage/word/de">
+                    <i class="bi bi-file-earmark-word"></i> <?= t('vorlage.dl_de_docx') ?>
+                </a>
+                <a class="btn btn-outline-primary btn-sm vorlage-dl" data-format="word" data-lang="en" href="/manuskript-vorlage/word/en">
+                    <i class="bi bi-file-earmark-word"></i> <?= t('vorlage.dl_en_docx') ?>
+                </a>
+                <a class="btn btn-outline-primary btn-sm vorlage-dl" data-format="latex" data-lang="de" href="/manuskript-vorlage/latex/de">
+                    <i class="bi bi-file-earmark-zip"></i> LaTeX DE
+                </a>
+                <a class="btn btn-outline-primary btn-sm vorlage-dl" data-format="latex" data-lang="en" href="/manuskript-vorlage/latex/en">
+                    <i class="bi bi-file-earmark-zip"></i> LaTeX EN
+                </a>
+                <a href="/manuskript-vorlage/copyright/de" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-file-earmark-pdf"></i> <?= t('vorlage.copyright_title') ?> DE
+                </a>
+                <a href="/manuskript-vorlage/copyright/en" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-file-earmark-pdf"></i> <?= t('vorlage.copyright_title') ?> EN
+                </a>
+            </div>
+        </details>
     </section>
 
     <!-- ============================================================
-         Schritt 2: Fertiges Manuskript einreichen
+         Schritt 2: Beitrag per E-Mail einreichen
          ============================================================ -->
-    <section id="upload" class="mt-5">
+    <section id="einreichen-info" class="mt-5">
         <h2 class="h5 mb-2">
             <span class="badge text-bg-primary me-1">2</span>
-            <?= t('einreichen.step_upload') ?>
+            <?= t('einreichen.step_submit') ?>
         </h2>
-        <p class="text-muted small mb-3"><?= t('einreichen.step_upload_desc') ?></p>
+        <p class="text-muted small mb-3"><?= t('einreichen.step_submit_desc') ?></p>
 
-        <?php if ($flash): ?>
-        <div class="alert alert-<?= e($flash['type']) ?>"><?= e($flash['message']) ?></div>
-        <?php endif; ?>
-
-        <div class="card" style="max-width: 540px;">
+        <div class="card" style="max-width: 640px;">
             <div class="card-body">
-                <form method="post" action="/einreichen">
-                    <div class="mb-3">
-                        <label for="code" class="form-label"><?= t('einreichen.field_code') ?></label>
-                        <input type="text" class="form-control" id="code" name="code"
-                               placeholder="z. B. A12, H1, P5" required maxlength="6"
-                               value="<?= e($_POST['code'] ?? '') ?>">
-                        <div class="form-text"><?= t('einreichen.field_code_help') ?></div>
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <i class="bi bi-envelope-fill display-6 text-primary"></i>
+                    <div>
+                        <div class="text-uppercase small text-muted" style="letter-spacing:.08em;">
+                            <?= t('einreichen.send_to') ?>
+                        </div>
+                        <a href="mailto:<?= e($submissionMail) ?>" class="h5 mb-0 d-block">
+                            <?= e($submissionMail) ?>
+                        </a>
                     </div>
+                </div>
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label"><?= t('einreichen.field_email') ?></label>
-                        <input type="email" class="form-control" id="email" name="email"
-                               placeholder="vorname.nachname@example.com" required
-                               value="<?= e($_POST['email'] ?? '') ?>">
-                        <div class="form-text"><?= t('einreichen.field_email_help') ?></div>
-                    </div>
+                <hr class="my-3">
 
-                    <button type="submit" class="btn btn-accent">
-                        <i class="bi bi-envelope-arrow-up"></i> <?= t('einreichen.btn') ?>
-                    </button>
-                </form>
+                <p class="small mb-2 fw-semibold"><?= t('einreichen.mail_contents') ?>:</p>
+                <ul class="small mb-3">
+                    <li><?= t('einreichen.mail_item_code') ?></li>
+                    <li><?= t('einreichen.mail_item_pdf') ?></li>
+                    <li><?= t('einreichen.mail_item_copyright') ?></li>
+                </ul>
+
+                <a href="mailto:<?= e($submissionMail) ?>?subject=<?= rawurlencode('[DGaO-Proceedings] Manuskript-Einreichung — Vortragscode XYZ') ?>"
+                   class="btn btn-accent">
+                    <i class="bi bi-envelope-arrow-up"></i> <?= t('einreichen.compose_mail') ?>
+                </a>
             </div>
         </div>
 
-        <div class="mt-3 text-muted small" style="max-width: 540px;">
+        <div class="mt-3 text-muted small" style="max-width: 640px;">
             <strong><?= t('einreichen.hint_title') ?></strong> <?= t('einreichen.hint_text') ?>
         </div>
     </section>
@@ -262,6 +204,7 @@ EOT;
             var opt  = sel.options[sel.selectedIndex];
             var id   = opt.value;
             var mode = opt.getAttribute('data-mode');
+            // Per-Paper-Links umschalten
             document.querySelectorAll('a.vorlage-dl').forEach(function(a) {
                 var fmt  = a.getAttribute('data-format');
                 var lang = a.getAttribute('data-lang');
@@ -271,6 +214,7 @@ EOT;
                     a.href = '/manuskript-vorlage/' + fmt + '/' + lang;
                 }
             });
+            // Kit-Link bleibt immer ein Komplett-ZIP (paper-agnostisch)
             if (mode === 'paper') {
                 hintTxt.textContent = msgPaper.replace('%s', opt.textContent.trim());
                 hint.classList.remove('d-none');

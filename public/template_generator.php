@@ -19,13 +19,17 @@ function templateDataForPaper(array $paper): array
     if (!empty($paper['datum'])) $year = substr($paper['datum'], 0, 4);
     elseif (!empty($paper['jahr'])) $year = (string)$paper['jahr'];
 
+    // Abstract wird BEWUSST nicht mit auto-prefilled — Autor:innen sollen das
+    // Manuskript aus dem Original-Template heraus schreiben (Beispieltext bleibt
+    // erhalten), nicht eine abgeschnittene Booklet-Variante des Abstracts
+    // weiterbearbeiten müssen.
     return [
         'year'        => $year,
         'title'       => trim($paper['titel'] ?? ''),
         'author'      => trim($paper['autoren_text'] ?? ''),
         'affiliation' => trim($paper['affiliationen'] ?? ''),
         'email'       => trim($paper['kontakt_email'] ?? ''),
-        'abstract'    => trim($paper['abstract_text'] ?? ''),
+        'abstract'    => '',
     ];
 }
 
@@ -64,62 +68,44 @@ function affiliationForLatex(string $affil): string
 }
 
 /**
- * Generiert das LaTeX-Header-Block (alles bis vor \bibliographystyle).
- * Der Body bleibt aus dem Original-Template (Beispiel-Inhalt, den der Author löscht).
+ * Ersetzt das Argument eines bestimmten LaTeX-Makros in-place.
+ * Beispiel: replaceLatexMacro($tex, 'title', 'Neuer Titel')
+ *   findet \title{...} und ersetzt den Inhalt zwischen den Klammern.
+ *
+ * Nutzt einen Brace-Counter, damit verschachtelte Klammern ({}) sauber
+ * gematcht werden.
  */
-function generateLatexHeader(array $data, string $langOption): string
+function replaceLatexMacro(string $tex, string $macro, string $newContent): string
 {
-    $year   = $data['year'] !== '' ? (int)$data['year'] : (int)date('Y');
-    $title  = latexEscape($data['title']);
-    $author = latexEscape($data['author']);
-    $affil  = affiliationForLatex($data['affiliation']);
-    $email  = $data['email'];      // Email roh — keine Escapes nötig
-    $abstr  = latexEscape($data['abstract']);
-
-    $classOptions = $langOption !== '' ? "[{$langOption}]" : '';
-
-    // Nowdoc + benannte Platzhalter via strtr — kein Escape-Konflikt mit Backslashes oder %-Zeichen.
-    $tpl = <<<'TEX'
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DGaO-Proceedings — Manuskript-Vorlage, vorausgefüllt durch das System
-% Bitte ergänzen Sie nur den Document-Body unten.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\documentclass{{CLASS_OPTIONS}}{DGaO-Proc}
-
-\let\ifpdf\relax
-\setlength{\paperwidth}{210mm}
-\setlength{\paperheight}{297mm}
-
-\year{{{YEAR}}}
-
-\title{{{TITLE}}}
-
-\author{{{AUTHOR}}}
-
-\affiliation{{{AFFILIATION}}}
-
-\contactmail{{{EMAIL}}}
-
-\abstract{{{ABSTRACT}}}
-
-\bibliographystyle{osajnl}
-TEX;
-
-    return strtr($tpl, [
-        '{{CLASS_OPTIONS}}' => $classOptions,
-        '{{YEAR}}'          => (string)$year,
-        '{{TITLE}}'         => $title,
-        '{{AUTHOR}}'        => $author,
-        '{{AFFILIATION}}'   => $affil,
-        '{{EMAIL}}'         => $email,
-        '{{ABSTRACT}}'      => $abstr,
-    ]);
+    $pattern = '\\' . $macro . '{';
+    $pos = strpos($tex, $pattern);
+    if ($pos === false) return $tex; // Makro nicht vorhanden — Original lassen
+    $start = $pos + strlen($pattern);
+    $depth = 1;
+    $i = $start;
+    $len = strlen($tex);
+    while ($i < $len && $depth > 0) {
+        $ch = $tex[$i];
+        if ($ch === '\\' && $i + 1 < $len) { $i += 2; continue; } // \{ und \} skippen
+        if ($ch === '{') $depth++;
+        elseif ($ch === '}') {
+            $depth--;
+            if ($depth === 0) break;
+        }
+        $i++;
+    }
+    if ($depth !== 0) return $tex; // Unbalanced — Sicherheits-Abbruch
+    return substr($tex, 0, $start) . $newContent . substr($tex, $i);
 }
 
 /**
- * Erstellt eine ZIP-Datei mit dem vorausgefüllten LaTeX-Manuskript +
- * notwendigen Begleitdateien (Class, Bib-Style, Logo, BibTeX).
+ * Erstellt eine ZIP-Datei mit dem vorausgefüllten LaTeX-Manuskript.
+ *
+ * Strategie: Original-Template aus DGaO-Author2025/LaTeX/dgao-demo.tex laden
+ * und NUR die Makro-Inhalte (\year, \title, \author, \affiliation,
+ * \contactmail) durch die Beitragsdaten ersetzen. Abstract-Block und
+ * Beispiel-Body bleiben unverändert, damit Autor:innen den Original-
+ * Beispieltext als Ausgangspunkt haben.
  *
  * @return string Pfad zur erzeugten temporären ZIP
  */
@@ -136,16 +122,18 @@ function generateLatexZip(array $paper, string $lang = 'german'): string
         throw new RuntimeException('dgao-demo.tex nicht lesbar');
     }
 
-    // Marker: alles vor \bibliographystyle wird durch unseren Header ersetzt
-    $marker = "\\bibliographystyle{osajnl}";
-    $pos = strpos($origTex, $marker);
-    if ($pos === false) {
-        throw new RuntimeException('LaTeX-Template hat unerwartete Struktur (Marker fehlt)');
-    }
-    $body = substr($origTex, $pos + strlen($marker));
+    // Macros in-place ersetzen
+    $year = $data['year'] !== '' ? (string)(int)$data['year'] : (string)date('Y');
+    $tex = $origTex;
+    $tex = replaceLatexMacro($tex, 'year',         $year);
+    if ($data['title'] !== '')       $tex = replaceLatexMacro($tex, 'title',       latexEscape($data['title']));
+    if ($data['author'] !== '')      $tex = replaceLatexMacro($tex, 'author',      latexEscape($data['author']));
+    if ($data['affiliation'] !== '') $tex = replaceLatexMacro($tex, 'affiliation', affiliationForLatex($data['affiliation']));
+    if ($data['email'] !== '')       $tex = replaceLatexMacro($tex, 'contactmail', $data['email']);
+    // Abstract: bewusst NICHT ersetzt — Original-Beispieltext bleibt erhalten.
 
-    $langOption = $lang === 'german' ? 'german' : '';
-    $tex = generateLatexHeader($data, $langOption) . $body;
+    // {{YEAR}}-Platzhalter (cls, etc.) substituieren — siehe manuskript_vorlage_download.php
+    $tex = str_replace('{{YEAR}}', $year, $tex);
 
     // Filename-stem für Datei
     $stem = sanitizeFilename(($paper['code'] ?? 'paper') . '_' . ($paper['hauptautor'] ?? 'autor'));
@@ -209,12 +197,16 @@ function generateWordDocx(array $paper, string $lang = 'deu'): string
         throw new RuntimeException('document.xml fehlt im Template');
     }
 
-    // Paragraphen ersetzen
+    // Paragraphen ersetzen — Abstract wird BEWUSST nicht ersetzt
+    // (Original-Beispieltext bleibt erhalten, $data['abstract'] = '').
     $documentXml = replaceWordStyledParagraph($documentXml, 'Titel',         $data['title']);
     $documentXml = replaceWordStyledParagraph($documentXml, 'Autoren',       $data['author']);
     $documentXml = replaceWordStyledParagraph($documentXml, 'Organisation',  $data['affiliation'], true);
     $documentXml = replaceWordStyledParagraph($documentXml, 'Kontaktemail',  $data['email']);
-    $documentXml = replaceWordStyledParagraph($documentXml, 'Abstract',      $data['abstract'], true);
+
+    // Alte Sekretariat-Email + {{YEAR}}-Platzhalter
+    $documentXml = str_replace('dgao-sekretariat@dgao.de', 'sekretariat@dgao.de', $documentXml);
+    $documentXml = str_replace('{{YEAR}}', (string)(int)($data['year'] ?: date('Y')), $documentXml);
 
     // Auch [Content_Types] für .docx (statt .dotx) anpassen
     $ct = $zip->getFromName('[Content_Types].xml');

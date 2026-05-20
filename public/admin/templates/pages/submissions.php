@@ -1,9 +1,38 @@
 <?php
 require_once __DIR__ . '/../../../submissions.php';
 
-$adminPageTitle = 'Einreichungen';
+$adminPageTitle = 'Manuskript-Eingang';
 
 $db = getDb();
+
+// ---------- POST: PDF von Mail-Eingang zuordnen ----------
+$uploadResult = null;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    verifyCsrf();
+
+    $paperId = trim($_POST['paper_id'] ?? '');
+    $email   = trim($_POST['uploader_email'] ?? '');
+    $file    = $_FILES['pdf_file'] ?? null;
+
+    $errors = [];
+    if ($paperId === '') $errors[] = 'Beitrag nicht ausgewählt.';
+    if (!$file || ($file['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {
+        $errors[] = 'Keine PDF-Datei hochgeladen.';
+    }
+
+    if (empty($errors)) {
+        $res = adminCreateSubmissionFromMail($paperId, $email, $file);
+        if ($res['ok']) {
+            setFlash('success', 'Manuskript eingespielt — bereit zur Freigabe.');
+            header('Location: /admin/submissions/' . $res['token']);
+            exit;
+        }
+        $errors[] = $res['error'];
+    }
+    $uploadResult = ['errors' => $errors];
+}
+
+// ---------- Filter + Liste ----------
 $filter = $_GET['filter'] ?? 'pending';
 if (!in_array($filter, ['pending', 'approved', 'rejected', 'expired', 'all'], true)) {
     $filter = 'pending';
@@ -23,15 +52,116 @@ $stmt = $db->prepare($sql);
 $stmt->execute($sqlParams);
 $rows = $stmt->fetchAll();
 
-// Counts pro Status
 $counts = $db->query(
     "SELECT status, COUNT(*) as n FROM submissions GROUP BY status"
 )->fetchAll(PDO::FETCH_KEY_PAIR);
 $counts = array_merge(['pending' => 0, 'approved' => 0, 'rejected' => 0, 'expired' => 0], $counts);
+
+// Für das Dropdown: Beiträge der aktiven Vorlagen-Tagung anzeigen
+$activeTagung = getCurrentVorlagenTagung();
+$activeCode = null;
+$papersForUpload = [];
+if ($activeTagung) {
+    $st = $db->prepare(
+        'SELECT id, code, titel, hauptautor, hat_pdf
+         FROM papers WHERE tagung_nummer = ?
+         ORDER BY
+            CASE typ
+                WHEN \'hauptvortrag\'  THEN 1
+                WHEN \'sondervortrag\' THEN 2
+                WHEN \'vortrag\'       THEN 3
+                WHEN \'poster\'        THEN 4
+                ELSE 9
+            END, code'
+    );
+    $st->execute([$activeTagung['nummer']]);
+    $papersForUpload = $st->fetchAll();
+}
 ?>
 
-<h1 class="mb-4"><i class="bi bi-cloud-upload"></i> Manuskript-Einreichungen</h1>
+<h1 class="mb-4"><i class="bi bi-envelope-paper"></i> Manuskript-Eingang</h1>
 
+<p class="text-muted small mb-4">
+    Autor:innen senden ihre fertigen Manuskripte per E-Mail an
+    <code>sekretariat@dgao.de</code>. Hier können Sie die eingegangenen PDFs
+    einem Beitrag zuordnen und für die Veröffentlichung freigeben.
+</p>
+
+<!-- ============================================================
+     Upload-Formular: PDF eingegangen → einsortieren
+     ============================================================ -->
+<div class="card mb-4" style="border-left: 3px solid var(--bs-primary);">
+    <div class="card-header bg-light">
+        <strong><i class="bi bi-cloud-upload"></i> Eingegangenes Manuskript einsortieren</strong>
+    </div>
+    <div class="card-body">
+        <?php if (!empty($uploadResult['errors'])): ?>
+        <div class="alert alert-danger">
+            <ul class="mb-0"><?php foreach ($uploadResult['errors'] as $e): ?>
+                <li><?= e($e) ?></li>
+            <?php endforeach; ?></ul>
+        </div>
+        <?php endif; ?>
+
+        <?php if (!$activeTagung): ?>
+            <div class="alert alert-warning mb-0">
+                Aktuell ist keine Tagung als <em>Vorlagen-Phase aktiv</em> markiert.
+                Setzen Sie unter <a href="/admin/tagungen">Tagungen</a> den Schalter,
+                damit hier die zugehörigen Beiträge zur Auswahl erscheinen.
+            </div>
+        <?php else: ?>
+        <form method="post" enctype="multipart/form-data" action="/admin/submissions">
+            <?= csrfField() ?>
+
+            <div class="row g-3">
+                <div class="col-md-5">
+                    <label for="paper_id" class="form-label">
+                        Beitrag (<?= (int)$activeTagung['nummer'] ?>. Jahrestagung,
+                        <?= (int)$activeTagung['jahr'] ?>) *
+                    </label>
+                    <select class="form-select" id="paper_id" name="paper_id" required>
+                        <option value="">— Beitrag wählen —</option>
+                        <?php foreach ($papersForUpload as $p):
+                            $label = $p['code'] . ' — ' . mb_strimwidth($p['titel'], 0, 60, '…');
+                            if (!empty($p['hauptautor'])) $label .= ' (' . $p['hauptautor'] . ')';
+                            $hint = $p['hat_pdf'] ? ' ✓ hat schon PDF' : '';
+                        ?>
+                            <option value="<?= e($p['id']) ?>"><?= e($label . $hint) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="uploader_email" class="form-label">
+                        Absender-Email (optional)
+                    </label>
+                    <input type="email" class="form-control" id="uploader_email" name="uploader_email"
+                           placeholder="aus E-Mail-Header übernehmen">
+                    <div class="form-text">
+                        Leer lassen → Kontakt-E-Mail des Beitrags wird genutzt.
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="pdf_file" class="form-label">Manuskript-PDF *</label>
+                    <input type="file" class="form-control" id="pdf_file" name="pdf_file"
+                           accept=".pdf,application/pdf" required>
+                </div>
+            </div>
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-cloud-upload"></i> Einsortieren &amp; Vorschau
+                </button>
+                <span class="text-muted small ms-2">
+                    Wird im Status <em>„Ausstehend"</em> abgelegt — Sie geben anschließend frei.
+                </span>
+            </div>
+        </form>
+        <?php endif; ?>
+    </div>
+</div>
+
+<!-- ============================================================
+     Eingegangene Manuskripte — Liste
+     ============================================================ -->
 <ul class="nav nav-tabs mb-3">
     <?php foreach (['pending' => 'Ausstehend', 'approved' => 'Freigegeben', 'rejected' => 'Abgelehnt', 'expired' => 'Abgelaufen', 'all' => 'Alle'] as $key => $label): ?>
     <li class="nav-item">
@@ -48,7 +178,7 @@ $counts = array_merge(['pending' => 0, 'approved' => 0, 'rejected' => 0, 'expire
 <?php if (empty($rows)): ?>
 <div class="alert alert-light text-center py-4">
     <i class="bi bi-inbox display-6 text-muted"></i>
-    <p class="text-muted mb-0 mt-2">Keine Einreichungen mit Status <strong><?= e($filter) ?></strong>.</p>
+    <p class="text-muted mb-0 mt-2">Keine Manuskripte mit Status <strong><?= e($filter) ?></strong>.</p>
 </div>
 <?php else: ?>
 <div class="card">
@@ -58,9 +188,9 @@ $counts = array_merge(['pending' => 0, 'approved' => 0, 'rejected' => 0, 'expire
                 <tr>
                     <th>Code</th>
                     <th>Titel</th>
-                    <th>E-Mail</th>
+                    <th>Absender</th>
                     <th>Datei</th>
-                    <th>Eingereicht</th>
+                    <th>Eingespielt</th>
                     <th>Status</th>
                     <th></th>
                 </tr>
@@ -78,7 +208,7 @@ $counts = array_merge(['pending' => 0, 'approved' => 0, 'rejected' => 0, 'expire
                             <small><?= e($r['filename_original']) ?></small><br>
                             <small class="text-muted"><?= number_format(($r['file_size'] ?? 0) / 1024, 1, ',', '.') ?> KB</small>
                         <?php else: ?>
-                            <small class="text-muted">— noch nicht hochgeladen —</small>
+                            <small class="text-muted">— ohne Datei —</small>
                         <?php endif; ?>
                     </td>
                     <td>

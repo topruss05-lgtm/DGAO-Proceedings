@@ -32,7 +32,7 @@
             } catch (Exception $e) { /* Tabelle existiert evtl. noch nicht */ }
             ?>
             <li><a href="/admin/submissions" class="<?= str_starts_with($page ?? '', 'admin/submission') ? 'active' : '' ?>">
-                <i class="bi bi-cloud-upload"></i> Einreichungen
+                <i class="bi bi-envelope-paper"></i> Manuskript-Eingang
                 <?php if ($pendingSubs > 0): ?>
                     <span class="badge bg-danger ms-1"><?= $pendingSubs ?></span>
                 <?php endif; ?>

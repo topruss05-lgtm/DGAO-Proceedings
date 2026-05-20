@@ -61,14 +61,15 @@ function matchRoute(string $uri): array
     }
 
     // --- Author-Submission-Workflow ---
+    // Beiträge gehen per Mail an sekretariat@dgao.de; Admin sortiert sie über
+    // /admin/submissions ein. Kein öffentlicher Web-Upload mehr.
     if ($path === '/einreichen') {
         return ['page' => 'einreichen', 'params' => []];
     }
-    if (preg_match('#^/einreichen/([a-f0-9]{64})$#', $path, $m)) {
-        return ['page' => 'einreichen_token', 'params' => ['token' => $m[1]]];
-    }
-    if (preg_match('#^/einreichen/([a-f0-9]{64})/done$#', $path, $m)) {
-        return ['page' => 'einreichen_done', 'params' => ['token' => $m[1]]];
+    // Legacy Magic-Link-URLs → leite auf die Info-Seite weiter, falls noch jemand
+    // einen alten Mail-Link anklickt.
+    if (preg_match('#^/einreichen/[a-f0-9]{64}(?:/done)?$#', $path)) {
+        return ['page' => 'legacy_redirect', 'params' => ['url' => '/einreichen']];
     }
 
     if (preg_match('#^/autor/(\d+)$#', $path, $m)) {
