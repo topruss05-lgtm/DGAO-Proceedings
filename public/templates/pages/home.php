@@ -457,8 +457,9 @@ $extraHead = <<<'STYLES'
 @media (max-width: 767.98px) {
     /* Titel direkt unter den Hamburger setzen + linksbündig auf Höhe
        der Suchbox (left=10%), damit Titel und Suche eine sauberer
-       vertikale Linie bilden. */
-    .hero__text { top: 3%; left: 10%; width: 80%; }
+       vertikale Linie bilden. Ein Hauch Luft (top=6%) verhindert,
+       dass der Titel direkt am Hamburger-Strich klebt. */
+    .hero__text { top: 6%; left: 10%; width: 80%; }
     .hero__eyebrow { font-size: 0.62rem; margin-bottom: 0.55rem; }
     .hero__title { font-size: clamp(1.7rem, 7vw, 2.2rem); }
     .hero__lead  { font-size: 0.92rem; }
