@@ -1159,22 +1159,40 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
    SORT BUTTONS
    ============================ */
 
+/* Sortier-Buttons (.btn-outline-secondary von Bootstrap als Grundlage).
+   Inaktiv: ruhiges Grau mit warmem Hover-Hintergrund. Aktiv: gefuellter
+   DGaO-Roter Button mit weisser Schrift — klares "ausgewaehlt"-Signal
+   statt rot-auf-grau, das wie eine Validierungsfehlermeldung aussieht.
+   Bootstrap-Variablen ueberschreiben, weil .btn-outline-secondary die
+   --bs-btn-*-Properties bereits setzt und sonst gewinnt. */
 .sort-btn {
     font-family: var(--font-display);
     font-size: var(--text-sm);
     font-weight: 500;
-    transition: color 0.2s, border-color 0.2s;
+    --bs-btn-color: var(--text-mid);
+    --bs-btn-border-color: var(--border);
+    --bs-btn-hover-color: var(--text);
+    --bs-btn-hover-bg: var(--warm);
+    --bs-btn-hover-border-color: var(--text-light);
+    transition: color 0.18s var(--ease),
+                background-color 0.18s var(--ease),
+                border-color 0.18s var(--ease);
 }
 
 .sort-btn.active {
     font-weight: 600;
-    color: var(--accent);
+    --bs-btn-bg: var(--accent);
+    --bs-btn-color: #fff;
+    --bs-btn-border-color: var(--accent);
+    --bs-btn-active-bg: var(--accent);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-border-color: var(--accent);
+    --bs-btn-hover-bg: var(--accent-dark);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-border-color: var(--accent-dark);
+    background-color: var(--accent);
+    color: #fff;
     border-color: var(--accent);
-}
-
-.sort-btn:hover:not(.active) {
-    color: var(--text-mid);
-    border-color: var(--text-light);
 }
 
 
