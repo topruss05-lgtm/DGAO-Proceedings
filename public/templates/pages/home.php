@@ -1055,31 +1055,3 @@ function dgao_render_scene(string $variant, array $scene, ?array $lens = null, ?
     </div>
 </section>
 
-<!-- 4. TRUST -->
-<section class="v4-features">
-    <div class="v4-section-inner">
-        <div class="v4-trust">
-            <div class="v4-trust-item v4-reveal v4-rd1">
-                <div class="v4-trust-icon"><i class="bi bi-unlock"></i></div>
-                <div>
-                    <div class="v4-trust-label"><?= t('home.landing.open_access') ?></div>
-                    <div class="v4-trust-desc"><?= t('home.landing.open_access_desc') ?></div>
-                </div>
-            </div>
-            <div class="v4-trust-item v4-reveal v4-rd2">
-                <div class="v4-trust-icon"><i class="bi bi-mortarboard"></i></div>
-                <div>
-                    <div class="v4-trust-label"><?= t('home.landing.peer_community') ?></div>
-                    <div class="v4-trust-desc"><?= t('home.landing.peer_community_desc') ?></div>
-                </div>
-            </div>
-            <div class="v4-trust-item v4-reveal v4-rd3">
-                <div class="v4-trust-icon"><i class="bi bi-clock-history"></i></div>
-                <div>
-                    <div class="v4-trust-label"><?= t('home.landing.since_year') ?> <?= $oldestYear ?></div>
-                    <div class="v4-trust-desc"><?= t('home.participation_note') ?></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>

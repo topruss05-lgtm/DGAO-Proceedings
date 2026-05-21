@@ -870,7 +870,7 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
 }
 
 .v4-archive-item:hover {
-    background: var(--warm);
+    background: var(--accent-pale);
     border-left-color: var(--accent);
     text-decoration: none;
     color: var(--text);
@@ -906,30 +906,22 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
     margin-left: 0.5rem;
 }
 
-/* Badge zeigt nur die Beitrags-Anzahl — neutrale Default-Optik,
-   Brand-Rot erscheint erst beim Hover. Beendet das "rot-auf-grau"-
-   Geknalle der vorherigen Pink-auf-Beige-Variante. */
 .v4-archive-badge {
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
     font-weight: 600;
-    color: var(--text-muted);
-    background: transparent;
-    border: 1px solid var(--border);
+    color: var(--accent);
+    background: var(--accent-pale);
     border-radius: 20px;
-    padding: 0.1rem 0.65rem;
+    padding: 0.15rem 0.6rem;
     flex-shrink: 0;
     margin-left: 1rem;
-    letter-spacing: 0.02em;
-    transition: background-color 0.18s var(--ease),
-                color 0.18s var(--ease),
-                border-color 0.18s var(--ease);
+    transition: background 0.2s, color 0.2s;
 }
 
 .v4-archive-item:hover .v4-archive-badge {
     background: var(--accent);
     color: var(--white);
-    border-color: var(--accent);
 }
 
 .v4-archive-more {
@@ -1193,6 +1185,166 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
     background-color: var(--accent);
     color: #fff;
     border-color: var(--accent);
+}
+
+
+/* ============================
+   TAGUNG-DETAIL (/archiv/{nr})
+   Editorialer Page-Header mit Eyebrow + grosser Titel + Meta-DL.
+   Submission-Notice und Sort-Bar im selben System.
+   ============================ */
+
+.tagung-header {
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.tagung-header__eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 0.5rem;
+}
+
+.tagung-header__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 3.2vw, 2.35rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.75rem;
+}
+
+.tagung-header__location {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.78em;
+    color: var(--text-mid);
+    margin-left: 0.4em;
+}
+
+.tagung-header__meta {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 2rem;
+    font-family: var(--font-display);
+    font-size: 0.86rem;
+}
+
+.tagung-header__meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.tagung-header__meta-label {
+    font-size: 0.66rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.tagung-header__meta-value {
+    color: var(--text);
+    font-weight: 500;
+    margin: 0;
+}
+
+
+/* Submission-Notice — editoriale Karte, kein Bunti-Gradient mehr.
+   Linke Akzentlinie in DGaO-Rot signalisiert "wichtiger Hinweis",
+   sonst ruhiger Off-White-Background. */
+.tagung-submit {
+    background: var(--paper);
+    border: 1px solid var(--border-light);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.tagung-submit__body {
+    flex: 1;
+    min-width: 0;
+}
+
+.tagung-submit__eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.66rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.3rem;
+}
+
+.tagung-submit__title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+    margin: 0 0 0.25rem;
+}
+
+.tagung-submit__desc {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.tagung-submit__cta {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+
+/* Sortier-Bar mit Label links, Buttons rechts. */
+.tagung-sort {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.tagung-sort__label {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+}
+
+.tagung-sort__buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 575.98px) {
+    .tagung-submit { padding: 1rem 1.15rem; }
+    .tagung-submit__cta { width: 100%; justify-content: center; }
 }
 
 
