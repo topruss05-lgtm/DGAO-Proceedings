@@ -135,20 +135,20 @@ function dgao_lens_rays(array $rays, array $lens, float $thetaRad): array {
 }
 
 // Desktop layout: search bar in the LEFT column (Springer-style). Entry
-// point shifted ~390px right of the search bar's left edge so der
-// divergierende Spektral-Fan exits past the title text instead of
-// crossing through it. θ auf 75° angehoben → der weiße Eingangsstrahl
-// trifft das Glas flacher, fast streifend, was den Refraktions-Knick
-// optisch deutlicher macht. Lens-Centre folgt der natürlichen Cluster-
-// Position der parallelen Ausgangsstrahlen.
+// nun weiter links im Glas (350 statt 470) und θ=75° bleibt — dadurch
+// ist der sichtbare Eingangs-Strahl kompakter (~94 px Höhe statt 126 px)
+// und sitzt insgesamt höher, der Prismen-Durchlauf liegt deutlich
+// linker. Spektral-Fan exit verläuft trotzdem rechts vom Titel (x=702
+// bis 747 auf Höhe Titel-Unterkante y=151 vs. Text-Rechtsrand ~658).
+// Linse folgt der natürlichen Cluster-Position der Strahlen.
 $dScene = dgao_compute_optics([
     'vb_w'      => 1280,
     'vb_h'      => 560,
     'glass'     => ['x' => 80, 'y' => 230, 'w' => 520, 'h' => 100, 'r' => 14],
     'theta_deg' => 75,
-    'entry_x'   => 470,
+    'entry_x'   => 350,
 ]);
-$dLens     = ['cx' => 905, 'cy' => 130, 'f' => 130];
+$dLens     = ['cx' => 820, 'cy' => 124, 'f' => 130];
 $dLensRays = dgao_lens_rays($dScene['rays'], $dLens, $dScene['thetaRad']);
 
 // Mobile portrait. θ raised to 65° (was 52°) so the dispersion fan

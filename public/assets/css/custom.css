@@ -488,10 +488,10 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
    FOOTER — Dark burgundy with converging stripes
    ============================ */
 
-/* Footer = DGaO-Brand-Klammer in Weinrot. Macht aus dem Seitenfuß
-   ein klares Identitätssignal (Sektion fertig, Identität bleibt) statt
-   eines weißen, anonymen Streifens. Oben eine dünne Spektral-Hairline
-   als Echo der Hero-Optik. */
+/* Footer = vollflächiges DGaO-Weinrot, KEIN Spektralband (das Rot ist
+   selbst schon das Brand-Signal — eine bunte Hairline davor würde die
+   Klarheit brechen). Links weiß ohne Unterstreichung, einzige Trennung
+   ist der minimale Hover-Helligkeitswechsel. */
 .site-footer {
     background: var(--accent);
     color: rgba(255, 255, 255, 0.85);
@@ -501,30 +501,17 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
     z-index: 2;
 }
 
-.site-footer::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    pointer-events: none;
-    background: linear-gradient(90deg,
-        #ff2a2a 0%, #ff7a18 16%, #ffd400 33%,
-        #3eea75 50%, #1ec8ff 66%, #3a6dff 83%, #a040ff 100%);
-    opacity: 0.55;
-}
-
 .site-footer a {
-    color: rgba(255, 255, 255, 0.92);
+    color: #ffffff;
     text-decoration: none;
-    transition: color 0.2s, text-decoration-color 0.2s;
-    text-decoration: underline;
-    text-decoration-color: rgba(255, 255, 255, 0.25);
-    text-underline-offset: 0.18em;
+    transition: opacity 0.2s var(--ease);
+    opacity: 0.85;
 }
 
 .site-footer a:hover {
     color: #ffffff;
-    text-decoration-color: rgba(255, 255, 255, 0.6);
+    opacity: 1;
+    text-decoration: none;
 }
 
 
