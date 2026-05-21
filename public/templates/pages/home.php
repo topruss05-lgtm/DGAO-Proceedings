@@ -182,6 +182,11 @@ $extraHead = <<<'STYLES'
     isolation: isolate;
     padding: clamp(2rem, 4vw, 3.25rem) 0 clamp(2rem, 4vw, 3.25rem);
 }
+/* Mobile: Hero darf direkt am Header andocken, sonst klafft über dem
+   Titelblock eine tote schwarze Zone unter dem Hamburger. */
+@media (max-width: 767.98px) {
+    .hero { padding: 0.25rem 0 0.5rem; }
+}
 
 /* ---------- atmospheric background ----------
    WICHTIG: Der Hero muss am OBEREN Rand denselben Ton wie die dunkle
@@ -450,8 +455,11 @@ $extraHead = <<<'STYLES'
 }
 
 @media (max-width: 767.98px) {
-    .hero__text { top: 14%; width: 90%; }
-    .hero__eyebrow { font-size: 0.62rem; margin-bottom: 0.7rem; }
+    /* Titel direkt unter den Hamburger setzen + linksbündig auf Höhe
+       der Suchbox (left=10%), damit Titel und Suche eine sauberer
+       vertikale Linie bilden. */
+    .hero__text { top: 3%; left: 10%; width: 80%; }
+    .hero__eyebrow { font-size: 0.62rem; margin-bottom: 0.55rem; }
     .hero__title { font-size: clamp(1.7rem, 7vw, 2.2rem); }
     .hero__lead  { font-size: 0.92rem; }
     .hero__stats {

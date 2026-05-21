@@ -521,29 +521,28 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
    FOOTER — Dark burgundy with converging stripes
    ============================ */
 
-/* Footer = vollflächiges DGaO-Weinrot, KEIN Spektralband (das Rot ist
-   selbst schon das Brand-Signal — eine bunte Hairline davor würde die
-   Klarheit brechen). Links weiß ohne Unterstreichung, einzige Trennung
-   ist der minimale Hover-Helligkeitswechsel. */
+/* Footer = ruhiger dunkler Block (Text-Token, also dieselbe Farbe wie
+   die Body-Typografie), das DGaO-Rot kommt als markante Hairline ganz
+   oben — Brand-Signal ohne den "rote Fehlermeldung"-Effekt eines
+   full-bleed Rotfeldes. Links weiß mit rotem Hover. */
 .site-footer {
-    background: var(--accent);
-    color: rgba(255, 255, 255, 0.85);
+    background: var(--text);
+    color: rgba(255, 255, 255, 0.6);
     font-family: var(--font-display);
     font-size: var(--text-xs);
     position: relative;
     z-index: 2;
+    border-top: 3px solid var(--accent);
 }
 
 .site-footer a {
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.78);
     text-decoration: none;
-    transition: opacity 0.2s var(--ease);
-    opacity: 0.85;
+    transition: color 0.2s var(--ease);
 }
 
 .site-footer a:hover {
-    color: #ffffff;
-    opacity: 1;
+    color: var(--accent);
     text-decoration: none;
 }
 
