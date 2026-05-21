@@ -371,6 +371,10 @@ h1, h2, h3, h4, h5, h6,
     outline-offset: 2px;
 }
 
+/* Statisches Drei-Strich-Icon, KEIN Morph zum X. Akademische Sites
+   verzichten typischerweise auf Mikro-Animationen — das Icon
+   funktioniert auch ohne Verwandlung, der is-open-Zustand wird über
+   das sichtbare Menü selbst kommuniziert. */
 .site-nav2__toggle-icon {
     display: block;
     width: 22px;
@@ -378,7 +382,6 @@ h1, h2, h3, h4, h5, h6,
     background-color: currentColor;
     border-radius: 1px;
     position: relative;
-    transition: background-color 0.18s var(--smooth);
 }
 .site-nav2__toggle-icon::before,
 .site-nav2__toggle-icon::after {
@@ -389,27 +392,9 @@ h1, h2, h3, h4, h5, h6,
     height: 2px;
     background: currentColor;
     border-radius: 1px;
-    transform-origin: center;
-    transition: top 0.22s var(--smooth),
-                transform 0.22s var(--smooth);
 }
 .site-nav2__toggle-icon::before { top: -7px; }
 .site-nav2__toggle-icon::after  { top: 7px; }
-
-/* Hamburger ↔ X-Morph wird per aria-expanded getrieben (single source of
-   truth, kein zweites Class-Toggle nötig). Mittlere Linie blendet aus,
-   ober- + untere Linie rotieren in die Mitte und kreuzen sich. */
-.site-nav2__toggle[aria-expanded="true"] .site-nav2__toggle-icon {
-    background-color: transparent;
-}
-.site-nav2__toggle[aria-expanded="true"] .site-nav2__toggle-icon::before {
-    top: 0;
-    transform: rotate(45deg);
-}
-.site-nav2__toggle[aria-expanded="true"] .site-nav2__toggle-icon::after {
-    top: 0;
-    transform: rotate(-45deg);
-}
 
 @media (max-width: 767.98px) {
     /* Header oben so kompakt wie noch tap-tauglich: 44 px ist Apples
@@ -425,21 +410,21 @@ h1, h2, h3, h4, h5, h6,
         min-width: 38px;
         padding: 0.4rem 0.4rem;
     }
-    /* Menü-Animation:
-       - cubic-bezier(0.4, 0, 0.2, 1) = Material-Standard, fühlt sich
-         auf Touch sehr clean an (kein Bouncing wie beim alten --ease).
-       - max-height auf realistischen Wert (260px reicht für 5 Items
-         à ~52px); zu großer Puffer macht die Open-Animation träge.
-       - Wir lassen max-height transitionen, aber Item-Padding + Border
-         fadet mit, damit Items nicht abrupt erscheinen. */
+    /* Menue oeffnet quasi instant: kurzer 120ms-Fade reicht, damit es
+       nicht abrupt "popt", aber keine sichtbare Animations-Kurve.
+       Akademische Sites bevorzugen funktional vor verspielt. */
     .site-nav2__list {
         flex-direction: column;
         flex-basis: 100%;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 0;
+        transition: max-height 0.12s linear, opacity 0.12s linear;
     }
-    .site-nav2__list.is-open { max-height: 320px; }
+    .site-nav2__list.is-open {
+        max-height: 320px;
+        opacity: 1;
+    }
     .site-nav2__link {
         padding: 0.85rem 0;
         border-bottom: 1px solid var(--border-light);
@@ -518,32 +503,195 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
 
 
 /* ============================
-   FOOTER — Dark burgundy with converging stripes
+   FOOTER — Editorial Colophon
+   Wie das Impressum am Ende einer wissenschaftlichen Druckausgabe:
+   cremiger Papier-Hintergrund, Brand-Wordmark + ISSN als kanonische
+   Identifikatoren, Herausgeber-Zeile im Kolophon-Stil. DGaO-Rot
+   erscheint nur drei Mal (Wordmark-Mark, ISSN-Nummer, Link-Hover-
+   Underline) — Brand-Signal als Praezision, nicht als Wand.
    ============================ */
-
-/* Footer = ruhiger dunkler Block (Text-Token, also dieselbe Farbe wie
-   die Body-Typografie), das DGaO-Rot kommt als markante Hairline ganz
-   oben — Brand-Signal ohne den "rote Fehlermeldung"-Effekt eines
-   full-bleed Rotfeldes. Links weiß mit rotem Hover. */
 .site-footer {
-    background: var(--text);
-    color: rgba(255, 255, 255, 0.6);
-    font-family: var(--font-display);
-    font-size: var(--text-xs);
+    background: var(--paper);
+    color: var(--text-mid);
+    font-family: var(--font-body);
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 0 1.5rem;
     position: relative;
     z-index: 2;
-    border-top: 3px solid var(--accent);
 }
 
-.site-footer a {
-    color: rgba(255, 255, 255, 0.78);
+.site-footer__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 1.75rem 3rem;
+}
+
+/* --- Brand-Block (links) --- */
+.site-footer__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    min-width: 0;
+}
+
+.site-footer__wordmark {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    line-height: 1;
+    color: var(--text);
     text-decoration: none;
-    transition: color 0.2s var(--ease);
 }
-
-.site-footer a:hover {
+.site-footer__wordmark:hover { text-decoration: none; }
+.site-footer__wordmark .mark {
     color: var(--accent);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+.site-footer__wordmark .sep {
+    color: var(--text-light);
+    font-weight: 400;
+    font-size: 0.85em;
+}
+.site-footer__wordmark .tail {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--text-mid);
+    font-size: 1.02em;
+}
+
+.site-footer__issn {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+}
+.site-footer__issn-num {
+    color: var(--accent);
+    font-weight: 600;
+}
+.site-footer__issn .dot {
+    color: var(--text-light);
+    font-size: 0.85em;
+}
+.site-footer__oa {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.66rem;
+    font-weight: 600;
+    color: var(--text-mid);
+    font-family: var(--font-display);
+}
+
+.site-footer__publisher {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    color: var(--text-light);
+    letter-spacing: 0.02em;
+    line-height: 1.55;
+    max-width: 38ch;
+    margin: 0;
+}
+.site-footer__publisher-label {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.62rem;
+    display: block;
+    margin-bottom: 0.15rem;
+}
+
+/* --- Navigation (rechts) --- */
+.site-footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.75rem;
+    align-items: center;
+    font-family: var(--font-display);
+    font-size: 0.86rem;
+    font-weight: 500;
+}
+.site-footer__links a {
+    color: var(--text-mid);
     text-decoration: none;
+    position: relative;
+    padding: 0.15rem 0;
+    transition: color 0.18s var(--ease);
+}
+.site-footer__links a::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 100%;
+    bottom: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: right 0.22s var(--ease);
+}
+.site-footer__links a:hover {
+    color: var(--text);
+    text-decoration: none;
+}
+.site-footer__links a:hover::after { right: 0; }
+
+/* External-Link-Bullet: kleiner roter Punkt vor dem Link signalisiert
+   "verlaesst die Seite" - leiser als ein Pfeil-Icon, brand-konsistent. */
+.site-footer__links a.external::before {
+    content: '';
+    display: inline-block;
+    width: 0.45em;
+    height: 0.45em;
+    margin-right: 0.5em;
+    border-radius: 50%;
+    background: var(--accent);
+    vertical-align: 0.18em;
+    transition: transform 0.22s var(--ease);
+}
+.site-footer__links a.external:hover::before { transform: scale(1.4); }
+
+/* --- Bottom-Zeile (Copyright + Editorial-Flourish) --- */
+.site-footer__bottom {
+    grid-column: 1 / -1;
+    margin-top: 0.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    color: var(--text-light);
+    letter-spacing: 0.02em;
+}
+.site-footer__bottom .since {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 575.98px) {
+    .site-footer { padding: 2rem 0 1.25rem; }
+    .site-footer__inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .site-footer__links { gap: 0.1rem 1.25rem; }
+    .site-footer__bottom { justify-content: flex-start; gap: 0.35rem; }
+    .site-footer__bottom > * { flex: 0 0 100%; }
 }
 
 

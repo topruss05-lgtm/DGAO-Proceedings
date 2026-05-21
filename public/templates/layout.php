@@ -83,15 +83,34 @@
     </main>
 
     <footer class="site-footer mt-auto">
-        <div class="container container-narrow py-3">
-            <div class="d-flex flex-column flex-sm-row align-items-center justify-content-between small">
-                <span>DGaO-Proceedings &middot; ISSN <?= SITE_ISSN ?></span>
-                <div class="d-flex gap-3 mt-2 mt-sm-0">
-                    <a href="/kontakt"><?= t('footer.kontakt') ?></a>
-                    <a href="/impressum"><?= t('footer.impressum') ?></a>
-                    <a href="/datenschutz"><?= t('footer.datenschutz') ?></a>
-                    <a href="https://www.dgao.de/" target="_blank" rel="noopener">DGaO</a>
+        <div class="site-footer__inner">
+            <div class="site-footer__brand">
+                <a href="/" class="site-footer__wordmark"
+                   aria-label="DGaO-Proceedings &ndash; Startseite">
+                    <span class="mark">DGaO</span><span class="sep">&middot;</span><span class="tail">Proceedings</span>
+                </a>
+                <div class="site-footer__issn">
+                    ISSN <span class="site-footer__issn-num">1614&#8202;&ndash;&#8202;8436</span>
+                    <span class="dot">&middot;</span>
+                    <span class="site-footer__oa"><?= t('footer.open_access') ?? 'Open Access' ?></span>
                 </div>
+                <p class="site-footer__publisher">
+                    <span class="site-footer__publisher-label"><?= t('footer.publisher_label') ?? 'Herausgeber' ?></span>
+                    Deutsche Gesellschaft f&uuml;r angewandte Optik e.V.<br>
+                    c/o Hochschule Pforzheim
+                </p>
+            </div>
+
+            <nav class="site-footer__links" aria-label="<?= t('footer.aria_label') ?? 'Rechtliches und externe Links' ?>">
+                <a href="/kontakt"><?= t('footer.kontakt') ?></a>
+                <a href="/impressum"><?= t('footer.impressum') ?></a>
+                <a href="/datenschutz"><?= t('footer.datenschutz') ?></a>
+                <a href="https://www.dgao.de/" target="_blank" rel="noopener" class="external">dgao.de</a>
+            </nav>
+
+            <div class="site-footer__bottom">
+                <span>&copy; <?= date('Y') ?> Deutsche Gesellschaft f&uuml;r angewandte Optik e.V.</span>
+                <span class="since"><?= t('footer.since') ?? 'Proceedings seit 2004' ?></span>
             </div>
         </div>
     </footer>
