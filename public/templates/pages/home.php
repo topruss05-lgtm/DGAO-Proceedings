@@ -135,19 +135,20 @@ function dgao_lens_rays(array $rays, array $lens, float $thetaRad): array {
 }
 
 // Desktop layout: search bar in the LEFT column (Springer-style). Entry
-// point shifted ~260px right of the search bar's left edge so the
-// diverging spectrum exits the glass past the title text instead of
-// crossing through it. The lens follows so the parallel band hits its
-// centre on the optical axis. θ stays at 70° (oblique) so chromatic
-// dispersion remains visually distinct.
+// point shifted ~390px right of the search bar's left edge so der
+// divergierende Spektral-Fan exits past the title text instead of
+// crossing through it. θ auf 75° angehoben → der weiße Eingangsstrahl
+// trifft das Glas flacher, fast streifend, was den Refraktions-Knick
+// optisch deutlicher macht. Lens-Centre folgt der natürlichen Cluster-
+// Position der parallelen Ausgangsstrahlen.
 $dScene = dgao_compute_optics([
     'vb_w'      => 1280,
     'vb_h'      => 560,
     'glass'     => ['x' => 80, 'y' => 230, 'w' => 520, 'h' => 100, 'r' => 14],
-    'theta_deg' => 70,
-    'entry_x'   => 400,
+    'theta_deg' => 75,
+    'entry_x'   => 470,
 ]);
-$dLens     = ['cx' => 910, 'cy' => 76, 'f' => 130];
+$dLens     = ['cx' => 905, 'cy' => 130, 'f' => 130];
 $dLensRays = dgao_lens_rays($dScene['rays'], $dLens, $dScene['thetaRad']);
 
 // Mobile portrait. θ raised to 65° (was 52°) so the dispersion fan
@@ -182,27 +183,38 @@ $extraHead = <<<'STYLES'
     padding: clamp(2rem, 4vw, 3.25rem) 0 clamp(2rem, 4vw, 3.25rem);
 }
 
-/* ---------- atmospheric background ---------- */
+/* ---------- atmospheric background ----------
+   WICHTIG: Der Hero muss am OBEREN Rand denselben Ton wie die dunkle
+   Home-Navbar treffen (#050811), sonst entsteht eine sichtbare Stoßkante.
+   Deshalb sind alle Glow-/Vignette-Quellen so positioniert, dass sie die
+   oberen 25 % der Hero nicht einfärben oder abdunkeln. Der zentrale
+   Radial-Gradient läuft VON OBEN nach unten (statt aus der Mitte), damit
+   die Top-Linie überall exakt #050811 ist. */
 .hero__bg {
     position: absolute; inset: 0; z-index: 0; pointer-events: none;
     background:
         radial-gradient(ellipse 65% 45% at 10% 100%,
             rgba(255, 215, 175, 0.16) 0%, rgba(255, 200, 150, 0) 60%),
-        radial-gradient(ellipse 55% 40% at 90% 6%,
-            rgba(120, 180, 255, 0.12) 0%, rgba(80, 130, 220, 0) 60%),
-        radial-gradient(ellipse at center, #0a1024 0%, #050811 70%);
+        radial-gradient(ellipse 55% 45% at 92% 55%,
+            rgba(120, 180, 255, 0.12) 0%, rgba(80, 130, 220, 0) 65%),
+        linear-gradient(180deg, #050811 0%, #050811 18%, #0a1024 60%, #050811 100%);
 }
 .hero__bg::before, .hero__bg::after {
     content: ''; position: absolute; inset: 0; pointer-events: none;
 }
 .hero__bg::before {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    opacity: 0.55;
+    opacity: 0.45;
     mix-blend-mode: overlay;
+    /* Noise startet erst unterhalb der Navbar-Übergangszone, damit am
+       Top-Edge nichts flackert und der Übergang nahtlos bleibt. */
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, transparent 12%, #000 28%, #000 100%);
+            mask-image: linear-gradient(180deg, transparent 0%, transparent 12%, #000 28%, #000 100%);
 }
+/* Vignette nur unten/in der Mitte unten — KEIN Darken am Top-Rand. */
 .hero__bg::after {
-    background: radial-gradient(ellipse 95% 90% at 50% 50%,
-        transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+    background: radial-gradient(ellipse 95% 90% at 50% 85%,
+        transparent 50%, rgba(0, 0, 0, 0.45) 100%);
 }
 
 /* ---------- locked-aspect stage ---------- */
@@ -438,8 +450,8 @@ $extraHead = <<<'STYLES'
 }
 
 @media (max-width: 767.98px) {
-    .hero__text { top: 4%; width: 90%; }
-    .hero__eyebrow { font-size: 0.62rem; margin-bottom: 1rem; }
+    .hero__text { top: 14%; width: 90%; }
+    .hero__eyebrow { font-size: 0.62rem; margin-bottom: 0.7rem; }
     .hero__title { font-size: clamp(1.7rem, 7vw, 2.2rem); }
     .hero__lead  { font-size: 0.92rem; }
     .hero__stats {
