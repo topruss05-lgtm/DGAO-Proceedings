@@ -1,7 +1,7 @@
 /* =============================================
    DGaO-Proceedings — "Corporate Spectral"
    Sitewide v4 Design System
-   Burgundy-Red (#862e42) · Outfit + Source Sans 3
+   DGaO-Rot (#DB092C, vom Jahrestagungsflyer) · Outfit + Source Sans 3
    ============================================= */
 
 /* ============================
@@ -22,14 +22,19 @@
     --text-muted:     #6b7280;
     --text-light:     #9ca3af;
 
-    /* Accent — DGaO Burgundy */
-    --accent:         #862e42;
-    --accent-light:   #a33d55;
-    --accent-pale:    #f5f0ee;
-    --accent-dark:    #3a1520;
-    --accent-glow:    rgba(134, 46, 66, 0.12);
-    --accent-muted:   #b8878f;
-    --accent-subtle:  #f5f0ee;
+    /* Accent — DGaO-Rot (offizieller Ton vom Jahrestagungsflyer).
+       --accent-rgb hält die Komponenten separat, damit Schatten/Glows
+       überall via rgba(var(--accent-rgb), X) referenzieren können —
+       so muss bei einem zukünftigen Brand-Rebrand NUR --accent +
+       --accent-rgb getauscht werden, keine inline-rgba-Stellen mehr. */
+    --accent:         #DB092C;
+    --accent-rgb:     219, 9, 44;
+    --accent-light:   #F02D4B;
+    --accent-pale:    #FCE9EC;
+    --accent-dark:    #A30620;
+    --accent-glow:    rgba(var(--accent-rgb), 0.12);
+    --accent-muted:   #E89AA5;
+    --accent-subtle:  #FCE9EC;
 
     /* Typography */
     --font-display:   'Outfit', 'Source Sans 3', system-ui, sans-serif;
@@ -97,7 +102,7 @@
     --bs-body-color:            var(--text);
     --bs-body-font-family:      var(--font-body);
     --bs-primary:               var(--accent);
-    --bs-primary-rgb:           134, 46, 66;
+    --bs-primary-rgb:           var(--accent-rgb);
     --bs-secondary:             var(--text-muted);
     --bs-secondary-rgb:         107, 114, 128;
     --bs-border-color:          var(--border);
@@ -105,11 +110,11 @@
     --bs-border-radius-sm:      4px;
     --bs-border-radius-lg:      10px;
     --bs-border-radius-pill:    50rem;
-    --bs-focus-ring-color:      rgba(134, 46, 66, 0.18);
+    --bs-focus-ring-color:      rgba(var(--accent-rgb), 0.18);
     --bs-link-color:            var(--accent);
-    --bs-link-color-rgb:        134, 46, 66;
+    --bs-link-color-rgb:        var(--accent-rgb);
     --bs-link-hover-color:      var(--accent-light);
-    --bs-link-hover-color-rgb:  163, 61, 85;
+    --bs-link-hover-color-rgb:  240, 45, 75;
     --bs-card-bg:               var(--white);
     --bs-card-border-color:     var(--border-light);
 }
@@ -370,9 +375,10 @@ h1, h2, h3, h4, h5, h6,
     display: block;
     width: 22px;
     height: 2px;
-    background: currentColor;
+    background-color: currentColor;
     border-radius: 1px;
     position: relative;
+    transition: background-color 0.18s var(--smooth);
 }
 .site-nav2__toggle-icon::before,
 .site-nav2__toggle-icon::after {
@@ -383,28 +389,55 @@ h1, h2, h3, h4, h5, h6,
     height: 2px;
     background: currentColor;
     border-radius: 1px;
+    transform-origin: center;
+    transition: top 0.22s var(--smooth),
+                transform 0.22s var(--smooth);
 }
 .site-nav2__toggle-icon::before { top: -7px; }
 .site-nav2__toggle-icon::after  { top: 7px; }
 
+/* Hamburger ↔ X-Morph wird per aria-expanded getrieben (single source of
+   truth, kein zweites Class-Toggle nötig). Mittlere Linie blendet aus,
+   ober- + untere Linie rotieren in die Mitte und kreuzen sich. */
+.site-nav2__toggle[aria-expanded="true"] .site-nav2__toggle-icon {
+    background-color: transparent;
+}
+.site-nav2__toggle[aria-expanded="true"] .site-nav2__toggle-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+.site-nav2__toggle[aria-expanded="true"] .site-nav2__toggle-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
 @media (max-width: 767.98px) {
-    /* Header oben kompakter — sonst klafft zwischen ISSN-Zeile und
-       Hamburger zu viel toter Raum. */
-    .site-header__top .site-header__inner { min-height: 52px; }
-    .site-nav2__inner { min-height: 48px; }
+    /* Header oben so kompakt wie noch tap-tauglich: 44 px ist Apples
+       HIG-Minimum für Touch-Targets, alles drunter wird ungenau zu
+       treffen. ISSN-Row leicht über Touch-Min damit das Logo Luft hat,
+       Nav-Row exakt 44 px = Hamburger sitzt bündig drin. */
+    .site-header__top .site-header__inner { min-height: 46px; }
+    .site-nav2__inner { min-height: 44px; }
     .site-nav2__toggle {
         display: inline-flex;
-        margin: 0.2rem 0;
-        min-height: 40px;
-        min-width: 40px;
-        padding: 0.5rem 0.45rem;
+        margin: 0;
+        min-height: 38px;
+        min-width: 38px;
+        padding: 0.4rem 0.4rem;
     }
+    /* Menü-Animation:
+       - cubic-bezier(0.4, 0, 0.2, 1) = Material-Standard, fühlt sich
+         auf Touch sehr clean an (kein Bouncing wie beim alten --ease).
+       - max-height auf realistischen Wert (260px reicht für 5 Items
+         à ~52px); zu großer Puffer macht die Open-Animation träge.
+       - Wir lassen max-height transitionen, aber Item-Padding + Border
+         fadet mit, damit Items nicht abrupt erscheinen. */
     .site-nav2__list {
         flex-direction: column;
         flex-basis: 100%;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s var(--ease);
+        transition: max-height 0.26s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .site-nav2__list.is-open { max-height: 320px; }
     .site-nav2__link {
@@ -957,8 +990,8 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
 .search-input-group:focus-within {
     border-color: var(--accent);
     transform: scale(1.005);
-    box-shadow: 0 2px 16px rgba(134, 46, 66, 0.08),
-                0 0 0 3px rgba(134, 46, 66, 0.06);
+    box-shadow: 0 2px 16px rgba(var(--accent-rgb), 0.08),
+                0 0 0 3px rgba(var(--accent-rgb), 0.06);
 }
 
 .search-input-icon {
@@ -1140,8 +1173,8 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
     background: var(--accent-light);
     border-color: var(--accent-light);
     color: #fff;
-    box-shadow: 0 2px 8px rgba(134,46,66,0.25),
-                0 0 0 1px rgba(134,46,66,0.15);
+    box-shadow: 0 2px 8px rgba(var(--accent-rgb), 0.25),
+                0 0 0 1px rgba(var(--accent-rgb), 0.15);
     transform: translateY(-1px);
 }
 
@@ -1150,7 +1183,7 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
     outline-offset: 2px;
 }
 
-/* Primary = Brand-Akzent (DGaO-Weinrot) — funktioniert auf weißen Unterseiten
+/* Primary = Brand-Akzent (DGaO-Rot) — funktioniert auf weißen Unterseiten
    sauber als dezente CTA, ohne mit dem Hero-Schwarz zu konkurrieren. */
 .btn-primary {
     --bs-btn-bg: var(--accent);
@@ -1159,14 +1192,14 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
     --bs-btn-hover-border-color: var(--accent-light);
     --bs-btn-active-bg: var(--accent-light);
     --bs-btn-active-border-color: var(--accent-light);
-    --bs-btn-focus-shadow-rgb: 134, 46, 66;
+    --bs-btn-focus-shadow-rgb: var(--accent-rgb);
     font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: 0.01em;
 }
 
 .btn-primary:hover {
-    box-shadow: 0 2px 12px rgba(134,46,66,0.25);
+    box-shadow: 0 2px 12px rgba(var(--accent-rgb), 0.25);
     transform: translateY(-1px);
 }
 

@@ -39,12 +39,12 @@ $extraHead = <<<'STYLES'
     --v4-text-muted:   #6b7280;
     --v4-text-light:   #9ca3af;
 
-    --v4-accent:       #862e42;
-    --v4-accent-light: #a33d55;
-    --v4-accent-pale:  #f5f0ee;
-    --v4-accent-dark:  #3a1520;
-    --v4-accent-glow:  rgba(134, 46, 66, 0.12);
-    --v4-accent-muted: #b8878f;
+    --v4-accent:       #DB092C;
+    --v4-accent-light: #F02D4B;
+    --v4-accent-pale:  #FCE9EC;
+    --v4-accent-dark:  #A30620;
+    --v4-accent-glow:  rgba(219, 9, 44, 0.12);
+    --v4-accent-muted: #E89AA5;
 
     --v4-font:  'Outfit', 'Source Sans 3', system-ui, sans-serif;
     --v4-body:  'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
@@ -272,8 +272,8 @@ $extraHead = <<<'STYLES'
     height: 550px;
     border-radius: 50%;
     background: radial-gradient(circle,
-        rgba(134, 46, 66, 0.025) 0%,
-        rgba(134, 46, 66, 0.012) 35%,
+        rgba(219, 9, 44, 0.025) 0%,
+        rgba(219, 9, 44, 0.012) 35%,
         transparent 65%);
     pointer-events: none;
 }
@@ -398,8 +398,8 @@ $extraHead = <<<'STYLES'
 .v4-search-wrap:focus-within {
     border-color: var(--v4-accent);
     transform: scale(1.005);
-    box-shadow: 0 2px 16px rgba(134, 46, 66, 0.08),
-                0 0 0 3px rgba(134, 46, 66, 0.06);
+    box-shadow: 0 2px 16px rgba(219, 9, 44, 0.08),
+                0 0 0 3px rgba(219, 9, 44, 0.06);
 }
 
 .v4-search-icon {
@@ -671,7 +671,7 @@ $extraHead = <<<'STYLES'
     font-size: 0.78rem;
     color: var(--v4-text-mid);
     background: var(--v4-accent-pale);
-    border: 1px solid rgba(134, 46, 66, 0.1);
+    border: 1px solid rgba(219, 9, 44, 0.1);
     border-radius: 6px;
     padding: 0.6rem 1rem;
     margin-top: 0.75rem;

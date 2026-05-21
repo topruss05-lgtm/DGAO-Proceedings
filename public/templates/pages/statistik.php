@@ -194,7 +194,7 @@ $showLimit = 50;
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var colors = [
-        '#862e42', '#2b5797', '#3a7d44', '#c4652e', '#6b3fa0',
+        '#DB092C', '#2b5797', '#3a7d44', '#c4652e', '#6b3fa0',
         '#c2185b', '#00838f', '#8d6e63', '#546e7a', '#7b1fa2',
         '#d84315', '#1565c0', '#2e7d32', '#f9a825', '#4527a0'
     ];
