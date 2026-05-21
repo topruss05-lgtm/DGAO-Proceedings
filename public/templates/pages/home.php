@@ -300,10 +300,26 @@ $extraHead = <<<'STYLES'
     line-height: 1.08;
     letter-spacing: -0.025em;
 }
-.hero__title span { display: block; }
-.hero__title span:nth-child(1) { color: #ffffff; }
-.hero__title span:nth-child(2) { color: rgba(255, 255, 255, 0.78); }
-.hero__title span:nth-child(3) { color: rgba(255, 255, 255, 0.55); }
+.hero__title-line { display: block; }
+.hero__title-line--1 { color: #ffffff; }
+.hero__title-line--2 { color: rgba(255, 255, 255, 0.78); }
+.hero__title-line--3 { color: rgba(255, 255, 255, 0.55); }
+
+/* Die ersten zwei Zeilen sind ein Link zur dgao.de — visuell
+   identisch zum nicht-verlinkten Verhalten, nur per Cursor + sanftem
+   Opazitäts-Dip beim Hover als Affordance erkennbar. */
+.hero__title-link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    transition: opacity 0.22s var(--ease);
+}
+.hero__title-link:hover { opacity: 0.78; text-decoration: none; }
+.hero__title-link:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
 
 /* ---------- liquid-glass search form ----------
    Positioned in % to align with the SVG glass coordinates.
@@ -597,23 +613,38 @@ $extraHead = <<<'STYLES'
     border-radius: 10px;
     overflow: hidden;
     min-width: 0;
-    transition: box-shadow 0.25s var(--ease);
+    transition: box-shadow 0.25s var(--ease),
+                transform 0.25s var(--ease);
 }
 
 .v4-conf-card:hover {
     box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
 }
 
-.v4-conf-img-wrap {
+/* Bild ist auf jeder Viewport-Größe der Haupt-Klick-Target. Auf Mobile
+   verschwindet zusätzlich der Button-Block, das Bild bleibt das einzige
+   Tap-Element. */
+.v4-conf-img-link {
+    display: block;
+    line-height: 0;
     overflow: hidden;
     border-bottom: 1px solid var(--border-light);
+    transition: opacity 0.22s var(--ease);
+}
+.v4-conf-img-link:hover { opacity: 0.92; }
+.v4-conf-img-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
 }
 
 .v4-conf-img {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.4s var(--ease);
 }
+.v4-conf-card:hover .v4-conf-img { transform: scale(1.01); }
 
 .v4-conf-body { padding: 1.25rem 1.5rem 1.5rem; }
 
@@ -630,12 +661,23 @@ $extraHead = <<<'STYLES'
     border-radius: 6px;
     padding: 0.55rem 1.1rem;
     text-decoration: none;
-    transition: background 0.18s var(--ease);
+    transition: background 0.18s var(--ease),
+                transform 0.18s var(--ease);
 }
 .v4-conf-btn:hover {
     background: var(--accent-light);
     color: #fff;
     text-decoration: none;
+    transform: translateY(-1px);
+}
+
+/* HAW Hamburg verwendet ihre Hochschulfarbe (#004C98). Konsistent zur
+   Mutterseite, signalisiert "externer Partner" optisch ohne Erklärung. */
+.v4-conf-btn--haw {
+    background: #004C98;
+}
+.v4-conf-btn--haw:hover {
+    background: #003B79;
 }
 
 .v4-archive {
@@ -690,6 +732,10 @@ $extraHead = <<<'STYLES'
 @media (max-width: 767.98px) {
     .v4-conf-grid { grid-template-columns: 1fr; gap: 1.25rem; }
     .v4-trust { grid-template-columns: 1fr; gap: 1.25rem; }
+    /* Auf Mobile sind die Bilder allein das Klick-Target — Button-Block
+       weg, Bild übernimmt komplett (Stacked-Look bleibt sauber). */
+    .v4-conf-body { display: none; }
+    .v4-conf-img-link { border-bottom: 0; }
 }
 
 /* --- Reduced motion --- */
@@ -867,9 +913,13 @@ function dgao_render_scene(string $variant, array $scene, ?array $lens = null, ?
                 <p class="hero__eyebrow"><?= sprintf(t('home.hero.eyebrow'), e(SITE_ISSN)) ?></p>
 
                 <h1 class="hero__title" id="hero-title">
-                    <span><?= t('home.hero.h1_l1') ?></span>
-                    <span><?= t('home.hero.h1_l2') ?></span>
-                    <span><?= t('home.hero.h1_l3') ?></span>
+                    <a href="https://www.dgao.de/" target="_blank" rel="noopener"
+                       class="hero__title-link"
+                       aria-label="Zur Webseite der Deutschen Gesellschaft f&uuml;r angewandte Optik">
+                        <span class="hero__title-line hero__title-line--1"><?= t('home.hero.h1_l1') ?></span>
+                        <span class="hero__title-line hero__title-line--2"><?= t('home.hero.h1_l2') ?></span>
+                    </a>
+                    <span class="hero__title-line hero__title-line--3"><?= t('home.hero.h1_l3') ?></span>
                 </h1>
             </div>
 
@@ -941,13 +991,16 @@ function dgao_render_scene(string $variant, array $scene, ?array $lens = null, ?
         <div class="v4-conf-grid">
             <div class="v4-reveal v4-rd1">
                 <article class="v4-conf-card">
-                    <div class="v4-conf-img-wrap">
+                    <a href="https://dgao.de/jahrestagung/" target="_blank" rel="noopener"
+                       class="v4-conf-img-link"
+                       aria-label="127. Jahrestagung der DGaO an der HAW Hamburg">
                         <img src="/assets/images/haw-hamburg-2026.png"
                              alt="127. Jahrestagung der DGaO &ndash; HAW Hamburg, 26.&ndash;30. Mai 2026"
                              class="v4-conf-img">
-                    </div>
+                    </a>
                     <div class="v4-conf-body">
-                        <a href="https://dgao.de/jahrestagung/" target="_blank" rel="noopener" class="v4-conf-btn">
+                        <a href="https://dgao.de/jahrestagung/" target="_blank" rel="noopener"
+                           class="v4-conf-btn v4-conf-btn--haw">
                             <?= t('home.conf_127_btn') ?>
                         </a>
                     </div>
@@ -956,11 +1009,12 @@ function dgao_render_scene(string $variant, array $scene, ?array $lens = null, ?
 
             <div class="v4-reveal v4-rd2">
                 <article class="v4-conf-card">
-                    <div class="v4-conf-img-wrap">
+                    <a href="/archiv/126" class="v4-conf-img-link"
+                       aria-label="126. Jahrestagung der DGaO, Uni Stuttgart 2025 &mdash; Archiv">
                         <img src="/assets/images/dgao-stuttgart-2025.png"
                              alt="126. Jahrestagung der DGaO &ndash; Uni Stuttgart, 10.&ndash;14. Juni 2025"
                              class="v4-conf-img">
-                    </div>
+                    </a>
                     <div class="v4-conf-body">
                         <a href="/archiv/126" class="v4-conf-btn">
                             <?= t('home.conf_126_btn') ?>

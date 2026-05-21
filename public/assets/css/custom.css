@@ -503,19 +503,18 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
 
 
 /* ============================
-   FOOTER — Editorial Colophon
-   Wie das Impressum am Ende einer wissenschaftlichen Druckausgabe:
-   cremiger Papier-Hintergrund, Brand-Wordmark + ISSN als kanonische
-   Identifikatoren, Herausgeber-Zeile im Kolophon-Stil. DGaO-Rot
-   erscheint nur drei Mal (Wordmark-Mark, ISSN-Nummer, Link-Hover-
-   Underline) — Brand-Signal als Praezision, nicht als Wand.
+   FOOTER — schmal, kompakt, unauffaellig
+   Einzeiler mit Copyright links und Rechtslinks + dgao.de rechts.
+   Duenne Top-Border als visueller Abschluss, sonst keine Akzente.
+   Brand-Rot kommt nur beim Link-Hover hervor.
    ============================ */
 .site-footer {
-    background: var(--paper);
-    color: var(--text-mid);
-    font-family: var(--font-body);
-    border-top: 1px solid var(--border);
-    padding: 2.5rem 0 1.5rem;
+    background: var(--white);
+    color: var(--text-muted);
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    border-top: 1px solid var(--border-light);
+    padding: 0.9rem 0;
     position: relative;
     z-index: 2;
 }
@@ -524,174 +523,42 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 1.5rem;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: start;
-    gap: 1.75rem 3rem;
-}
-
-/* --- Brand-Block (links) --- */
-.site-footer__brand {
     display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-    min-width: 0;
-}
-
-.site-footer__wordmark {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.4rem;
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    line-height: 1;
-    color: var(--text);
-    text-decoration: none;
-}
-.site-footer__wordmark:hover { text-decoration: none; }
-.site-footer__wordmark .mark {
-    color: var(--accent);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-}
-.site-footer__wordmark .sep {
-    color: var(--text-light);
-    font-weight: 400;
-    font-size: 0.85em;
-}
-.site-footer__wordmark .tail {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-weight: 400;
-    color: var(--text-mid);
-    font-size: 1.02em;
-}
-
-.site-footer__issn {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.04em;
-    color: var(--text-muted);
-    display: inline-flex;
     align-items: center;
-    gap: 0.55rem;
+    justify-content: space-between;
     flex-wrap: wrap;
-}
-.site-footer__issn-num {
-    color: var(--accent);
-    font-weight: 600;
-}
-.site-footer__issn .dot {
-    color: var(--text-light);
-    font-size: 0.85em;
-}
-.site-footer__oa {
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.66rem;
-    font-weight: 600;
-    color: var(--text-mid);
-    font-family: var(--font-display);
+    gap: 0.4rem 1.5rem;
 }
 
-.site-footer__publisher {
-    font-family: var(--font-display);
-    font-size: 0.72rem;
-    color: var(--text-light);
-    letter-spacing: 0.02em;
-    line-height: 1.55;
-    max-width: 38ch;
+.site-footer__copy {
     margin: 0;
-}
-.site-footer__publisher-label {
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-weight: 600;
-    color: var(--text-muted);
-    font-size: 0.62rem;
-    display: block;
-    margin-bottom: 0.15rem;
+    color: var(--text-light);
 }
 
-/* --- Navigation (rechts) --- */
 .site-footer__links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.25rem 1.75rem;
     align-items: center;
-    font-family: var(--font-display);
-    font-size: 0.86rem;
-    font-weight: 500;
+    gap: 0.25rem 1.4rem;
 }
+
 .site-footer__links a {
     color: var(--text-mid);
     text-decoration: none;
-    position: relative;
-    padding: 0.15rem 0;
     transition: color 0.18s var(--ease);
 }
-.site-footer__links a::after {
-    content: '';
-    position: absolute;
-    left: 0; right: 100%;
-    bottom: 0;
-    height: 1px;
-    background: var(--accent);
-    transition: right 0.22s var(--ease);
-}
+
 .site-footer__links a:hover {
-    color: var(--text);
-    text-decoration: none;
-}
-.site-footer__links a:hover::after { right: 0; }
-
-/* External-Link-Bullet: kleiner roter Punkt vor dem Link signalisiert
-   "verlaesst die Seite" - leiser als ein Pfeil-Icon, brand-konsistent. */
-.site-footer__links a.external::before {
-    content: '';
-    display: inline-block;
-    width: 0.45em;
-    height: 0.45em;
-    margin-right: 0.5em;
-    border-radius: 50%;
-    background: var(--accent);
-    vertical-align: 0.18em;
-    transition: transform 0.22s var(--ease);
-}
-.site-footer__links a.external:hover::before { transform: scale(1.4); }
-
-/* --- Bottom-Zeile (Copyright + Editorial-Flourish) --- */
-.site-footer__bottom {
-    grid-column: 1 / -1;
-    margin-top: 0.5rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--border-light);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem 1rem;
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    color: var(--text-light);
-    letter-spacing: 0.02em;
-}
-.site-footer__bottom .since {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: 0.78rem;
-    color: var(--text-muted);
+    color: var(--accent);
 }
 
 @media (max-width: 575.98px) {
-    .site-footer { padding: 2rem 0 1.25rem; }
+    .site-footer { padding: 0.8rem 0; }
     .site-footer__inner {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
     }
-    .site-footer__links { gap: 0.1rem 1.25rem; }
-    .site-footer__bottom { justify-content: flex-start; gap: 0.35rem; }
-    .site-footer__bottom > * { flex: 0 0 100%; }
 }
 
 
@@ -941,10 +808,15 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
    TYPE BADGES
    ============================ */
 
-.badge-hauptvortrag  { background: #fdf6e3; color: #7c5e10; font-weight: 600; }
-.badge-sondervortrag { background: #f0e6f6; color: #5b2d7a; font-weight: 600; }
-.badge-poster        { background: #e6f4ea; color: #1a6b34; font-weight: 600; }
-.badge-vortrag       { background: #e8f0fe; color: #1a4ea0; font-weight: 600; }
+/* Type-Badges in einer einheitlich gedaempften "academic paper label"-
+   Palette: alle haben aehnliche Helligkeit (~92% L) und niedrige
+   Saettigung (~10-15%), damit keine Farbe gegen das DGaO-Rot
+   konkurriert. Statt knallgelb / knallviolett: aged paper, dusty plum,
+   sage, slate — fuehlt sich nach Verlagspalette an. */
+.badge-hauptvortrag  { background: #FBF4E5; color: #8B6B1A; font-weight: 600; }
+.badge-sondervortrag { background: #F3EBF3; color: #6D3F73; font-weight: 600; }
+.badge-poster        { background: #EEF2E9; color: #4D6B3F; font-weight: 600; }
+.badge-vortrag       { background: #ECEFF4; color: #3E5670; font-weight: 600; }
 
 .badge-pdf {
     background: var(--accent-pale);
@@ -998,7 +870,7 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
 }
 
 .v4-archive-item:hover {
-    background: var(--accent-pale);
+    background: var(--warm);
     border-left-color: var(--accent);
     text-decoration: none;
     color: var(--text);
@@ -1034,22 +906,30 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
     margin-left: 0.5rem;
 }
 
+/* Badge zeigt nur die Beitrags-Anzahl — neutrale Default-Optik,
+   Brand-Rot erscheint erst beim Hover. Beendet das "rot-auf-grau"-
+   Geknalle der vorherigen Pink-auf-Beige-Variante. */
 .v4-archive-badge {
-    font-family: var(--font-display);
-    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
     font-weight: 600;
-    color: var(--accent);
-    background: var(--accent-pale);
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 0.15rem 0.6rem;
+    padding: 0.1rem 0.65rem;
     flex-shrink: 0;
     margin-left: 1rem;
-    transition: background 0.2s, color 0.2s;
+    letter-spacing: 0.02em;
+    transition: background-color 0.18s var(--ease),
+                color 0.18s var(--ease),
+                border-color 0.18s var(--ease);
 }
 
 .v4-archive-item:hover .v4-archive-badge {
     background: var(--accent);
     color: var(--white);
+    border-color: var(--accent);
 }
 
 .v4-archive-more {
@@ -1518,7 +1398,7 @@ a.accent-link:hover {
 }
 
 .stat-card .table-hover tbody tr:hover {
-    background: var(--accent-pale);
+    background: var(--warm);
 }
 
 
