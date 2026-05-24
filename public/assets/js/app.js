@@ -13,35 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Archive detail: universal filter (matches data-search attribute) ---
-    const filterInput  = document.getElementById('archiv-filter-input');
-    const paperList    = document.getElementById('paper-list');
-    const emptyMessage = document.getElementById('archiv-empty');
-
-    if (filterInput && paperList) {
-        const tokenize = (q) =>
-            q.toLowerCase().replace(/\*+/g, '').split(/[\s,]+/).filter(t => t.length > 0);
-
-        const applyFilter = () => {
-            const tokens = tokenize(filterInput.value);
-            const items = paperList.querySelectorAll('.archiv-item');
-            let visible = 0;
-            items.forEach(it => {
-                const hay = it.dataset.search || '';
-                const match = tokens.length === 0 || tokens.every(t => hay.includes(t));
-                it.classList.toggle('d-none', !match);
-                if (match) visible++;
-            });
-            paperList.querySelectorAll('details.archiv-session').forEach(det => {
-                const anyVisible = det.querySelectorAll('.archiv-item:not(.d-none)').length > 0;
-                det.classList.toggle('d-none', !anyVisible);
-                if (anyVisible && tokens.length > 0) det.open = true;
-            });
-            if (emptyMessage) emptyMessage.classList.toggle('d-none', visible > 0);
-        };
-
-        filterInput.addEventListener('input', applyFilter);
-    }
+    // --- Archive detail: WAI-ARIA Combobox + Live-Filter ---
+    // Recherche: W3C ARIA-APG (Combobox-Pattern), Adrian Roselli (kein type=search),
+    // Custom Listbox statt <datalist> (Mobile/Safari-Bugs).
+    initArchivFilter();
 
     // --- BibTeX toggle and copy ---
     const bibtexToggle = document.getElementById('bibtex-toggle-btn');
@@ -81,3 +56,191 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+
+// ============================================================
+// Archive detail filter — WAI-ARIA 1.2 Combobox with Listbox.
+// Pattern: https://www.w3.org/WAI/ARIA/apg/patterns/combobox/
+// Diacritic-aware via NFD-normalize. Listbox uses DOM API (no innerHTML).
+// ============================================================
+function initArchivFilter() {
+    const input    = document.getElementById('archiv-filter-input');
+    const listbox  = document.getElementById('archiv-filter-listbox');
+    const clearBtn = document.getElementById('archiv-filter-clear');
+    const status   = document.getElementById('archiv-filter-status');
+    const paperList = document.getElementById('paper-list');
+    const emptyMsg  = document.getElementById('archiv-empty');
+    const dataNode  = document.getElementById('archiv-filter-data');
+    if (!input || !listbox || !paperList || !dataNode) return;
+
+    const lang = document.body.dataset.lang || 'de';
+
+    let suggestions = [];
+    try { suggestions = JSON.parse(dataNode.textContent || '[]'); } catch (_) { suggestions = []; }
+
+    const items = Array.from(paperList.querySelectorAll('.archiv-item'));
+    const totalCount = items.length;
+    const sessions = Array.from(paperList.querySelectorAll('details.archiv-session'));
+
+    // NFD-normalize: 'Müller' -> 'muller', 'résumé' -> 'resume'.
+    const normalize = (s) =>
+        (s || '').toString().normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase().replace(/\*+/g, '');
+
+    items.forEach(el => { el.dataset.searchNorm = normalize(el.dataset.search || ''); });
+    const normalizedSuggestions = suggestions.map(s => ({ label: s, norm: normalize(s) }));
+
+    const tokenize = (q) => normalize(q).split(/[\s,]+/).filter(t => t.length > 0);
+
+    let currentOptions = [];
+    let activeIdx = -1;
+
+    function updateStatus(visible) {
+        if (!status) return;
+        const hasInput = input.value.trim() !== '';
+        status.textContent = (lang === 'en')
+            ? (hasInput ? `${visible} of ${totalCount} papers` : `${totalCount} papers`)
+            : (hasInput ? `${visible} von ${totalCount} Beiträgen` : `${totalCount} Beiträge`);
+    }
+
+    function applyFilter() {
+        const tokens = tokenize(input.value);
+        let visible = 0;
+        items.forEach(it => {
+            const hay = it.dataset.searchNorm || '';
+            const match = tokens.length === 0 || tokens.every(t => hay.includes(t));
+            it.hidden = !match;
+            if (match) visible++;
+        });
+        sessions.forEach(det => {
+            const anyVisible = det.querySelectorAll('.archiv-item:not([hidden])').length > 0;
+            det.hidden = !anyVisible;
+            if (anyVisible && tokens.length > 0) det.open = true;
+            if (tokens.length === 0) det.open = false;
+        });
+        if (emptyMsg) emptyMsg.classList.toggle('d-none', visible > 0);
+        updateStatus(visible);
+        if (clearBtn) clearBtn.hidden = input.value === '';
+    }
+
+    function renderSuggestions() {
+        const q = normalize(input.value);
+        currentOptions = q.length < 1 ? [] :
+            normalizedSuggestions.filter(s => s.norm.includes(q)).slice(0, 8);
+
+        // Empty the listbox via DOM API (no innerHTML).
+        while (listbox.firstChild) listbox.removeChild(listbox.firstChild);
+
+        if (currentOptions.length === 0) {
+            listbox.hidden = true;
+            input.setAttribute('aria-expanded', 'false');
+            input.setAttribute('aria-activedescendant', '');
+            activeIdx = -1;
+            return;
+        }
+        currentOptions.forEach((o, i) => {
+            const li = document.createElement('li');
+            li.setAttribute('role', 'option');
+            li.id = 'archiv-filter-opt-' + i;
+            li.className = 'archiv-filter__option';
+            li.textContent = o.label;
+            listbox.appendChild(li);
+        });
+        listbox.hidden = false;
+        input.setAttribute('aria-expanded', 'true');
+        activeIdx = -1;
+        input.setAttribute('aria-activedescendant', '');
+    }
+
+    function setActive(i) {
+        const opts = listbox.querySelectorAll('[role="option"]');
+        opts.forEach(o => o.removeAttribute('aria-selected'));
+        if (i >= 0 && i < opts.length) {
+            opts[i].setAttribute('aria-selected', 'true');
+            opts[i].scrollIntoView({ block: 'nearest' });
+            input.setAttribute('aria-activedescendant', opts[i].id);
+            activeIdx = i;
+        } else {
+            activeIdx = -1;
+            input.setAttribute('aria-activedescendant', '');
+        }
+    }
+
+    function commitSuggestion(label) {
+        input.value = label;
+        closeListbox();
+        applyFilter();
+    }
+
+    function closeListbox() {
+        listbox.hidden = true;
+        input.setAttribute('aria-expanded', 'false');
+        input.setAttribute('aria-activedescendant', '');
+        activeIdx = -1;
+    }
+
+    function scrollToFirstVisible() {
+        const first = paperList.querySelector('.archiv-item:not([hidden])');
+        if (first) {
+            const det = first.closest('details.archiv-session');
+            if (det) det.open = true;
+            first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    input.addEventListener('input', () => { renderSuggestions(); applyFilter(); });
+
+    input.addEventListener('keydown', (e) => {
+        const max = currentOptions.length - 1;
+        switch (e.key) {
+            case 'ArrowDown':
+                e.preventDefault();
+                if (listbox.hidden) renderSuggestions();
+                if (currentOptions.length > 0) setActive(Math.min(activeIdx + 1, max));
+                break;
+            case 'ArrowUp':
+                e.preventDefault();
+                if (currentOptions.length > 0) setActive(activeIdx <= 0 ? max : activeIdx - 1);
+                break;
+            case 'Enter':
+                e.preventDefault();
+                if (activeIdx >= 0 && currentOptions[activeIdx]) {
+                    commitSuggestion(currentOptions[activeIdx].label);
+                } else {
+                    closeListbox();
+                    scrollToFirstVisible();
+                }
+                break;
+            case 'Escape':
+                if (!listbox.hidden) closeListbox();
+                else if (input.value !== '') { input.value = ''; applyFilter(); }
+                break;
+            case 'Tab':
+                closeListbox();
+                break;
+        }
+    });
+
+    listbox.addEventListener('mousedown', (e) => {
+        const li = e.target.closest('[role="option"]');
+        if (!li) return;
+        e.preventDefault();
+        const idx = parseInt(li.id.replace('archiv-filter-opt-', ''), 10);
+        if (currentOptions[idx]) commitSuggestion(currentOptions[idx].label);
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.archiv-filter')) closeListbox();
+    });
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            input.value = '';
+            input.focus();
+            closeListbox();
+            applyFilter();
+        });
+    }
+
+    updateStatus(totalCount);
+    if (clearBtn) clearBtn.hidden = true;
+}

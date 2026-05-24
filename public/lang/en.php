@@ -61,6 +61,8 @@ return [
     'archiv_detail.beitraege'    => 'papers',
     'archiv_detail.filter_label' => 'Search within this conference',
     'archiv_detail.filter_placeholder' => 'Author, title, institute, code …',
+    'archiv_detail.filter_clear_label' => 'Clear search',
+    'archiv_detail.filter_status_visible' => '%d of %d papers',
     'archiv_detail.no_matches'   => 'No papers match this filter.',
     'archiv_detail.meta_suffix'  => 'papers',
     'archiv_detail.jahrestagung_der_dgao' => 'Annual Conference of the DGaO',

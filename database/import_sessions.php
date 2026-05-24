@@ -10,16 +10,16 @@ declare(strict_types=1);
  * Idempotent: bei mehrfacher Ausfuehrung werden bestehende Sessions je Tagung
  * zuerst geloescht und papers.session_id auf NULL zurueckgesetzt.
  *
- * Usage:
+ * Usage (CLI):
  *   php database/import_sessions.php           # alle Booklets
  *   php database/import_sessions.php 2026 2025 # nur bestimmte Jahre
+ *
+ * Usage (programmatisch, z.B. Admin-Endpoint):
+ *   require_once 'database/import_sessions.php';
+ *   $report = runSessionImport($pdo, $bookletsDir, [2026]);
  */
 
-const ROOT_DIR     = __DIR__ . '/..';
-const BOOKLETS_DIR = ROOT_DIR . '/booklets';
-const DB_PATH      = ROOT_DIR . '/public/data/proceedings.db';
-
-require_once ROOT_DIR . '/public/admin/session_parser.php';
+require_once __DIR__ . '/../public/admin/session_parser.php';
 
 function listBooklets(string $dir, array $filterYears = []): array
 {

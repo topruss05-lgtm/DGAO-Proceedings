@@ -1265,6 +1265,83 @@ h3, .h3 {
     font-style: italic;
 }
 
+/* --- Archiv-Filter: Combobox (W3C ARIA-APG-Pattern) --- */
+
+.archiv-filter__wrap {
+    position: relative;
+}
+
+.archiv-filter__input {
+    padding-right: 2.5rem;
+}
+
+.archiv-filter__clear {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 0;
+    padding: 0.25rem;
+    cursor: pointer;
+    color: var(--bs-secondary, #6c757d);
+    line-height: 1;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.archiv-filter__clear:hover {
+    color: var(--bs-danger, #dc3545);
+}
+
+.archiv-filter__clear:focus-visible {
+    outline: 2px solid var(--accent, #b42e42);
+    outline-offset: 2px;
+    border-radius: 999px;
+}
+
+.archiv-filter__clear[hidden] {
+    display: none;
+}
+
+.archiv-filter__listbox {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    margin: 0;
+    padding: 0.25rem 0;
+    list-style: none;
+    background: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+    max-height: 18rem;
+    overflow-y: auto;
+}
+
+.archiv-filter__listbox[hidden] {
+    display: none;
+}
+
+.archiv-filter__option {
+    padding: 0.4rem 0.75rem;
+    cursor: pointer;
+    font-size: 0.92rem;
+}
+
+.archiv-filter__option:hover,
+.archiv-filter__option[aria-selected="true"] {
+    background: rgba(180, 46, 66, 0.08);
+    color: var(--accent, #b42e42);
+}
+
+.archiv-filter__status {
+    font-variant-numeric: tabular-nums;
+}
+
 
 /* ============================
    SUCHE — Erweiterte Suche + Autor-Cards

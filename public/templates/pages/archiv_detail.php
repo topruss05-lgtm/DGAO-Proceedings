@@ -103,28 +103,54 @@ foreach ($affilByPaperId as $a) {
 }
 ksort($affilSet);
 ?>
-<div class="archiv-filter mb-3">
+<?php
+// Suggestions als JSON ans JS uebergeben — kein datalist (Mobile/Safari-Bugs).
+$suggestions = [];
+foreach ($authors as $a) {
+    $suggestions[] = $a['label'];
+}
+foreach (array_keys($affilSet) as $aff) {
+    $suggestions[] = $aff;
+}
+?>
+<form role="search" class="archiv-filter mb-3" onsubmit="return false;">
     <label for="archiv-filter-input" class="form-label small text-muted mb-1">
         <i class="bi bi-search"></i> <?= e(t('archiv_detail.filter_label')) ?>
     </label>
-    <input type="search" id="archiv-filter-input"
-           class="form-control"
-           list="archiv-filter-suggestions"
-           placeholder="<?= e(t('archiv_detail.filter_placeholder')) ?>"
-           autocomplete="off">
-    <datalist id="archiv-filter-suggestions">
-        <?php foreach ($authors as $a): ?>
-            <option value="<?= e($a['label']) ?>"></option>
-        <?php endforeach; ?>
-        <?php foreach (array_keys($affilSet) as $aff): ?>
-            <option value="<?= e($aff) ?>"></option>
-        <?php endforeach; ?>
-    </datalist>
-</div>
+    <div class="archiv-filter__wrap position-relative">
+        <input type="text"
+               id="archiv-filter-input"
+               class="form-control archiv-filter__input pe-5"
+               role="combobox"
+               aria-expanded="false"
+               aria-autocomplete="list"
+               aria-controls="archiv-filter-listbox"
+               aria-activedescendant=""
+               placeholder="<?= e(t('archiv_detail.filter_placeholder')) ?>"
+               autocomplete="off"
+               spellcheck="false">
+        <button type="button"
+                id="archiv-filter-clear"
+                class="archiv-filter__clear"
+                aria-label="<?= e(t('archiv_detail.filter_clear_label')) ?>"
+                hidden>
+            <i class="bi bi-x-circle-fill"></i>
+        </button>
+        <ul id="archiv-filter-listbox"
+            class="archiv-filter__listbox"
+            role="listbox"
+            aria-label="<?= e(t('archiv_detail.filter_label')) ?>"
+            hidden></ul>
+    </div>
+    <p id="archiv-filter-status" class="archiv-filter__status small text-muted mt-2 mb-0" aria-live="polite">
+        <?= count($papers) ?> <?= t('archiv_detail.beitraege') ?>
+    </p>
+    <script type="application/json" id="archiv-filter-data"><?= jsonForScript($suggestions) ?></script>
+</form>
 
 <div id="paper-list">
     <?php foreach ($groups as $g): ?>
-        <details open class="archiv-session" data-group-key="<?= e($g['key']) ?>">
+        <details class="archiv-session" data-group-key="<?= e($g['key']) ?>">
             <summary class="archiv-session__summary">
                 <span class="archiv-session__title">
                     <?= e($g['titel']) ?>

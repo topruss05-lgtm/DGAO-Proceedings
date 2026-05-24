@@ -61,6 +61,8 @@ return [
     'archiv_detail.beitraege'    => 'Beitr&auml;ge',
     'archiv_detail.filter_label' => 'In dieser Tagung suchen',
     'archiv_detail.filter_placeholder' => 'Autor, Titel, Institut, Code …',
+    'archiv_detail.filter_clear_label' => 'Suche leeren',
+    'archiv_detail.filter_status_visible' => '%d von %d Beiträgen',
     'archiv_detail.no_matches'   => 'Keine Beiträge passen zu diesem Filter.',
     'archiv_detail.meta_suffix'  => 'Beitr&auml;ge',
     'archiv_detail.jahrestagung_der_dgao' => 'Jahrestagung der DGaO',
