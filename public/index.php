@@ -89,11 +89,12 @@ if ($isAdmin) {
 
         $pageContent = ob_get_clean();
         require __DIR__ . '/admin/templates/layout.php';
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
+        error_log('Admin error: ' . $e);
         if (ob_get_level() > 0) ob_end_clean();
         http_response_code(500);
         ob_start();
-        echo '<div class="alert alert-danger">Fehler: ' . e($e->getMessage()) . '</div>';
+        echo '<div class="alert alert-danger">Ein interner Fehler ist aufgetreten. Details siehe Server-Log.</div>';
         $pageContent = ob_get_clean();
         $adminPageTitle = 'Fehler - Admin';
         require __DIR__ . '/admin/templates/layout.php';
@@ -152,7 +153,8 @@ try {
     $pageContent = ob_get_clean();
     require __DIR__ . '/templates/layout.php';
 
-} catch (Exception $e) {
+} catch (Throwable $e) {
+    error_log('Frontend error: ' . $e);
     if (ob_get_level() > 0) ob_end_clean();
 
     http_response_code(500);

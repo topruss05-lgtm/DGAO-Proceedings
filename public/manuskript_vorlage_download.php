@@ -72,8 +72,9 @@ try {
         echo 'Ungültiges Format.';
     }
 } catch (Throwable $e) {
+    error_log('manuskript_vorlage_download error: ' . $e);
     http_response_code(500);
-    echo 'Vorlagen-Download fehlgeschlagen: ' . htmlspecialchars($e->getMessage());
+    echo 'Vorlagen-Download fehlgeschlagen. Bitte versuchen Sie es erneut oder kontaktieren Sie das Sekretariat.';
 }
 
 /**

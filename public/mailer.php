@@ -13,12 +13,28 @@ function sendMail(string $to, string $subject, string $body, ?string $from = nul
 {
     $from = $from ?? (defined('MAIL_FROM') ? MAIL_FROM : 'no-reply@dgao-proceedings.de');
 
+    // CRLF-Injection-Schutz: Header-Felder duerfen kein \r\n enthalten,
+    // sonst kann ein Aufrufer (z.B. via DB-Daten) zusaetzliche Header
+    // einschleusen. mail() filtert das selbst nicht zuverlaessig.
+    foreach (['to' => $to, 'subject' => $subject, 'from' => $from] as $name => $field) {
+        if (preg_match('/[\r\n]/', $field)) {
+            error_log("sendMail: CRLF in {$name} blockiert");
+            return false;
+        }
+    }
+
+    if (!filter_var($from, FILTER_VALIDATE_EMAIL) || !filter_var($to, FILTER_VALIDATE_EMAIL)) {
+        error_log('sendMail: ungueltige E-Mail-Adresse');
+        return false;
+    }
+
     $headers = [
         'From: DGaO-Proceedings <' . $from . '>',
         'Reply-To: ' . $from,
         'Content-Type: text/plain; charset=UTF-8',
         'Content-Transfer-Encoding: 8bit',
         'MIME-Version: 1.0',
+        'X-Mailer: DGaO-Proceedings',
     ];
 
     // mail() liefert false wenn lokal kein MTA da ist — Fehler nicht propagieren.
@@ -39,7 +55,9 @@ function sendMail(string $to, string $subject, string $body, ?string $from = nul
         $body,
         str_repeat('-', 70)
     );
-    @file_put_contents($logFile, $logEntry, FILE_APPEND);
+    if (@file_put_contents($logFile, $logEntry, FILE_APPEND | LOCK_EX) === false) {
+        error_log('sendMail: konnte mail_outbox.log nicht schreiben');
+    }
 
     return $sent;
 }

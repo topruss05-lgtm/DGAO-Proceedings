@@ -53,6 +53,7 @@ try {
         echo 'Ungültiges Format';
     }
 } catch (Throwable $e) {
+    error_log('paper_template_download error: ' . $e);
     http_response_code(500);
-    echo 'Template-Erzeugung fehlgeschlagen: ' . htmlspecialchars($e->getMessage());
+    echo 'Template-Erzeugung fehlgeschlagen. Bitte versuchen Sie es erneut oder kontaktieren Sie das Sekretariat.';
 }
