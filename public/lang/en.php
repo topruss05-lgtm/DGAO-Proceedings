@@ -9,6 +9,8 @@ return [
     'nav.einreichen'   => 'Submit Paper',
     'nav.home'         => 'Home',
     'nav.aria_label'   => 'Navigation',
+    'nav.skip'         => 'Skip to content',
+    'footer.aria_label' => 'Legal and external links',
     'footer.kontakt'   => 'Contact',
     'footer.impressum' => 'Legal Notice',
     'footer.datenschutz' => 'Privacy Policy',

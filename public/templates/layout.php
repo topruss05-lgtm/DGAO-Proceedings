@@ -27,11 +27,11 @@
     <link rel="alternate" hreflang="en" href="<?= e(BASE_URL . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) . '?lang=en') ?>">
     <link rel="alternate" hreflang="x-default" href="<?= e(BASE_URL . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) ?>">
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='1.5' y='13' font-family='Georgia,serif' font-size='13' font-weight='700' fill='%23a51e1e'>D</text></svg>">
 </head>
 <body class="d-flex flex-column min-vh-100" data-lang="<?= currentLang() ?>" data-page="<?= e($pageSlug ?? $page ?? '') ?>">
 
-    <a class="visually-hidden-focusable skip-link" href="#main-content"><?= t('nav.skip') ?? 'Zum Inhalt springen' ?></a>
+    <a class="visually-hidden-focusable skip-link" href="#main-content"><?= e(t('nav.skip')) ?></a>
 
     <header class="site-header">
         <!-- Row 1: brand + utility -->
@@ -85,9 +85,9 @@
     <footer class="site-footer mt-auto">
         <div class="site-footer__inner">
             <p class="site-footer__copy">
-                &copy; <?= date('Y') ?> Deutsche Gesellschaft f&uuml;r angewandte Optik e.V.
+                &copy; <?= date('Y') ?> Deutsche Gesellschaft für angewandte Optik e.V.
             </p>
-            <nav class="site-footer__links" aria-label="<?= t('footer.aria_label') ?? 'Rechtliches und externe Links' ?>">
+            <nav class="site-footer__links" aria-label="<?= e(t('footer.aria_label')) ?>">
                 <a href="/kontakt"><?= t('footer.kontakt') ?></a>
                 <a href="/impressum"><?= t('footer.impressum') ?></a>
                 <a href="/datenschutz"><?= t('footer.datenschutz') ?></a>

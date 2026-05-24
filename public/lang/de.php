@@ -9,6 +9,8 @@ return [
     'nav.einreichen'   => 'Beitrag einreichen',
     'nav.home'         => 'Start',
     'nav.aria_label'   => 'Navigation',
+    'nav.skip'         => 'Zum Inhalt springen',
+    'footer.aria_label' => 'Rechtliches und externe Links',
     'footer.kontakt'   => 'Kontakt',
     'footer.impressum' => 'Impressum',
     'footer.datenschutz' => 'Datenschutz',

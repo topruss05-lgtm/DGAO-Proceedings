@@ -128,7 +128,7 @@ function getCurrentVorlagenTagung(): ?array
 {
     $db = getDb();
     $row = $db->query('
-        SELECT nummer, jahr, ort, datum_von, datum_bis
+        SELECT nummer, jahr, ort, datum_von, datum_bis, einreichungsfrist
         FROM tagungen
         WHERE vorlage_phase_aktiv = 1
         ORDER BY nummer DESC

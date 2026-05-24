@@ -31,7 +31,11 @@ $GLOBALS['_translations'] = require __DIR__ . '/lang/' . $lang . '.php';
 
 function t(string $key): string
 {
-    return $GLOBALS['_translations'][$key] ?? $key;
+    $val = $GLOBALS['_translations'][$key] ?? $key;
+    // Lang-Strings dürfen HTML-Entities enthalten (Legacy). Wir liefern nach
+    // UTF-8 decodiert aus, damit nachgeschaltete e()-Calls nicht doppelt
+    // encoden (z. B. e(t('site.description')) → vorher 'f&amp;uuml;r').
+    return html_entity_decode($val, ENT_QUOTES | ENT_HTML5, 'UTF-8');
 }
 
 function currentLang(): string
