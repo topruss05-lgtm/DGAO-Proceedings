@@ -58,7 +58,7 @@ Options -Indexes
     Require all denied
 </FilesMatch>
 
-<FilesMatch "^(config|db|router|helpers|sitemap|redirect|mailer|submissions|lang|template_generator|manuskript_vorlage_download|paper_template_download)\.php$">
+<FilesMatch "^(config|db|router|helpers|sitemap|redirect|mailer|submissions|lang|template_generator|manuskript_vorlage_download|paper_template_download|suggest)\.php$">
     Require all denied
 </FilesMatch>
 

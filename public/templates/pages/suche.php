@@ -214,18 +214,36 @@ $isOtherChecked = $typIn !== null && $typFilter !== null
 
 <h1 class="h3 mb-4"><?= e(t('suche.title')) ?></h1>
 
-<form action="/suche" method="get" class="suche-form mb-4">
+<form action="/suche" method="get" class="suche-form mb-4" role="search">
     <div class="row g-2 align-items-stretch">
         <div class="col">
             <label for="suche-q" class="form-label small text-muted mb-1">
                 <?= e(t('suche.field_q')) ?>
             </label>
-            <input type="search" name="q" id="suche-q"
-                   class="form-control search-input"
-                   value="<?= e($q) ?>"
-                   list="suche-q-suggestions"
-                   placeholder="<?= e(t('suche.placeholder')) ?>"
-                   autocomplete="off" autofocus>
+            <div class="suche-combobox position-relative">
+                <input type="text" name="q" id="suche-q"
+                       class="form-control search-input pe-5"
+                       value="<?= e($q) ?>"
+                       role="combobox"
+                       aria-expanded="false"
+                       aria-autocomplete="list"
+                       aria-controls="suche-q-listbox"
+                       aria-activedescendant=""
+                       placeholder="<?= e(t('suche.placeholder')) ?>"
+                       autocomplete="off" spellcheck="false" autofocus>
+                <button type="button"
+                        id="suche-q-clear"
+                        class="suche-combobox__clear"
+                        aria-label="<?= e(t('archiv_detail.filter_clear_label')) ?>"
+                        hidden>
+                    <i class="bi bi-x-circle-fill"></i>
+                </button>
+                <div id="suche-q-listbox"
+                     class="suche-combobox__listbox"
+                     role="listbox"
+                     aria-label="<?= e(t('suche.title')) ?>"
+                     hidden></div>
+            </div>
         </div>
         <div class="col-auto d-flex align-items-end">
             <button type="submit" class="btn btn-accent">
@@ -233,15 +251,6 @@ $isOtherChecked = $typIn !== null && $typFilter !== null
             </button>
         </div>
     </div>
-
-    <datalist id="suche-q-suggestions">
-        <?php foreach (array_slice($authorSuggest, 0, 50) as $a): ?>
-            <option value="<?= e($a['label']) ?>"></option>
-        <?php endforeach; ?>
-        <?php foreach (array_slice($affilSuggest, 0, 30) as $aff): ?>
-            <option value="<?= e($aff) ?>"></option>
-        <?php endforeach; ?>
-    </datalist>
 
     <details class="suche-advanced mt-3"<?= $advancedOpen ? ' open' : '' ?>>
         <summary class="small text-muted suche-advanced__summary">

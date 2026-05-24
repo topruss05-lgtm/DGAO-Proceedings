@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Recherche: W3C ARIA-APG (Combobox-Pattern), Adrian Roselli (kein type=search),
     // Custom Listbox statt <datalist> (Mobile/Safari-Bugs).
     initArchivFilter();
+    initSucheCombobox();
 
     // --- BibTeX toggle and copy ---
     const bibtexToggle = document.getElementById('bibtex-toggle-btn');
@@ -243,4 +244,188 @@ function initArchivFilter() {
 
     updateStatus(totalCount);
     if (clearBtn) clearBtn.hidden = true;
+}
+
+
+// ============================================================
+// /suche — Live-Combobox mit AJAX-Suggestions (Google-Style).
+// Pattern: W3C ARIA-APG Combobox + debounced fetch zu /api/suggest.
+// ============================================================
+function initSucheCombobox() {
+    const input    = document.getElementById('suche-q');
+    const listbox  = document.getElementById('suche-q-listbox');
+    const clearBtn = document.getElementById('suche-q-clear');
+    if (!input || !listbox) return;
+
+    const lang = document.body.dataset.lang || 'de';
+    const LABELS = (lang === 'en')
+        ? { authors: 'Authors', papers: 'Papers', tagungen: 'Conferences', papers_count: 'papers' }
+        : { authors: 'Autor:innen', papers: 'Beiträge', tagungen: 'Tagungen', papers_count: 'Beiträge' };
+
+    let currentOptions = [];
+    let activeIdx = -1;
+    let debounceHandle = null;
+    let currentFetchController = null;
+
+    function closeListbox() {
+        listbox.hidden = true;
+        while (listbox.firstChild) listbox.removeChild(listbox.firstChild);
+        input.setAttribute('aria-expanded', 'false');
+        input.setAttribute('aria-activedescendant', '');
+        activeIdx = -1;
+        currentOptions = [];
+    }
+
+    function setActive(i) {
+        const opts = listbox.querySelectorAll('[role="option"]');
+        opts.forEach(o => o.removeAttribute('aria-selected'));
+        if (i >= 0 && i < opts.length) {
+            opts[i].setAttribute('aria-selected', 'true');
+            opts[i].scrollIntoView({ block: 'nearest' });
+            input.setAttribute('aria-activedescendant', opts[i].id);
+            activeIdx = i;
+        } else {
+            activeIdx = -1;
+            input.setAttribute('aria-activedescendant', '');
+        }
+    }
+
+    function appendGroup(headerLabel, items, type) {
+        if (!items || items.length === 0) return;
+        const header = document.createElement('div');
+        header.className = 'suche-combobox__group-header';
+        header.textContent = headerLabel;
+        header.setAttribute('role', 'presentation');
+        listbox.appendChild(header);
+
+        items.forEach(item => {
+            const optIdx = currentOptions.length;
+            const li = document.createElement('div');
+            li.setAttribute('role', 'option');
+            li.id = 'suche-q-opt-' + optIdx;
+            li.className = 'suche-combobox__option suche-combobox__option--' + type;
+
+            const main = document.createElement('span');
+            main.className = 'suche-combobox__option-main';
+            const sub  = document.createElement('span');
+            sub.className = 'suche-combobox__option-sub';
+
+            let label, subText, url;
+            if (type === 'author') {
+                label   = item.name;
+                subText = item.papers + ' ' + LABELS.papers_count + (item.affiliation ? ' · ' + item.affiliation : '');
+                url     = item.url;
+            } else if (type === 'paper') {
+                label   = item.code + ' — ' + item.titel;
+                subText = (item.hauptautor ? item.hauptautor + ' · ' : '') + item.tagung_nummer + '. Tagung';
+                url     = item.url;
+            } else {
+                label   = item.nummer + '. Jahrestagung';
+                subText = item.jahr + (item.ort ? ' · ' + item.ort : '');
+                url     = item.url;
+            }
+
+            main.textContent = label;
+            sub.textContent  = subText;
+            li.appendChild(main);
+            li.appendChild(sub);
+            li.dataset.url = url;
+            listbox.appendChild(li);
+            currentOptions.push({ url: url, label: label });
+        });
+    }
+
+    async function fetchSuggestions(q) {
+        if (currentFetchController) currentFetchController.abort();
+        currentFetchController = new AbortController();
+        try {
+            const resp = await fetch('/api/suggest?q=' + encodeURIComponent(q),
+                { signal: currentFetchController.signal, headers: { 'Accept': 'application/json' } });
+            if (!resp.ok) return null;
+            return await resp.json();
+        } catch (e) {
+            if (e.name !== 'AbortError') console.warn('Suggest fetch failed', e);
+            return null;
+        }
+    }
+
+    function renderSuggestions(data) {
+        while (listbox.firstChild) listbox.removeChild(listbox.firstChild);
+        currentOptions = [];
+
+        if (!data) { closeListbox(); return; }
+        appendGroup(LABELS.authors,  data.authors,  'author');
+        appendGroup(LABELS.papers,   data.papers,   'paper');
+        appendGroup(LABELS.tagungen, data.tagungen, 'tagung');
+
+        if (currentOptions.length === 0) { closeListbox(); return; }
+        listbox.hidden = false;
+        input.setAttribute('aria-expanded', 'true');
+        activeIdx = -1;
+        input.setAttribute('aria-activedescendant', '');
+    }
+
+    function triggerSuggest() {
+        const q = input.value.trim();
+        if (clearBtn) clearBtn.hidden = q === '';
+        if (q.length < 2) { closeListbox(); return; }
+        clearTimeout(debounceHandle);
+        debounceHandle = setTimeout(async () => {
+            const data = await fetchSuggestions(q);
+            renderSuggestions(data);
+        }, 180);
+    }
+
+    function navigateTo(url) { if (url) window.location.href = url; }
+
+    input.addEventListener('input', triggerSuggest);
+
+    input.addEventListener('keydown', (e) => {
+        const max = currentOptions.length - 1;
+        switch (e.key) {
+            case 'ArrowDown':
+                e.preventDefault();
+                if (listbox.hidden) triggerSuggest();
+                if (currentOptions.length > 0) setActive(Math.min(activeIdx + 1, max));
+                break;
+            case 'ArrowUp':
+                e.preventDefault();
+                if (currentOptions.length > 0) setActive(activeIdx <= 0 ? max : activeIdx - 1);
+                break;
+            case 'Enter':
+                if (activeIdx >= 0 && currentOptions[activeIdx]) {
+                    e.preventDefault();
+                    navigateTo(currentOptions[activeIdx].url);
+                }
+                // Sonst: Default-Submit des Form (zur Suchergebnisseite).
+                break;
+            case 'Escape':
+                if (!listbox.hidden) { e.preventDefault(); closeListbox(); }
+                break;
+            case 'Tab':
+                closeListbox();
+                break;
+        }
+    });
+
+    listbox.addEventListener('mousedown', (e) => {
+        const li = e.target.closest('[role="option"]');
+        if (!li) return;
+        e.preventDefault();
+        navigateTo(li.dataset.url);
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.suche-combobox')) closeListbox();
+    });
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            input.value = '';
+            input.focus();
+            closeListbox();
+            clearBtn.hidden = true;
+        });
+        clearBtn.hidden = input.value === '';
+    }
 }

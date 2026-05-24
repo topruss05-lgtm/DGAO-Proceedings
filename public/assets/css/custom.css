@@ -1342,6 +1342,136 @@ h3, .h3 {
     font-variant-numeric: tabular-nums;
 }
 
+/* --- /suche Live-Combobox (AJAX-Suggestions) --- */
+
+.suche-combobox {
+    /* position:relative ist im inline-Stil schon; backup */
+    position: relative;
+}
+
+.suche-combobox__clear {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 0;
+    padding: 0.25rem;
+    cursor: pointer;
+    color: var(--bs-secondary, #6c757d);
+    line-height: 1;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.suche-combobox__clear:hover {
+    color: var(--bs-danger, #dc3545);
+}
+
+.suche-combobox__clear:focus-visible {
+    outline: 2px solid var(--accent, #b42e42);
+    outline-offset: 2px;
+    border-radius: 999px;
+}
+
+.suche-combobox__clear[hidden] {
+    display: none;
+}
+
+.suche-combobox__listbox {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    margin: 0;
+    padding: 0.25rem 0;
+    background: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+    max-height: 24rem;
+    overflow-y: auto;
+}
+
+.suche-combobox__listbox[hidden] {
+    display: none;
+}
+
+.suche-combobox__group-header {
+    padding: 0.4rem 0.85rem 0.2rem;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--bs-secondary, #6c757d);
+    font-weight: 600;
+    background: rgba(15, 23, 42, 0.02);
+}
+
+.suche-combobox__group-header:not(:first-child) {
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+    margin-top: 0.25rem;
+}
+
+.suche-combobox__option {
+    display: block;
+    padding: 0.5rem 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+.suche-combobox__option:hover,
+.suche-combobox__option[aria-selected="true"] {
+    background: rgba(180, 46, 66, 0.08);
+}
+
+.suche-combobox__option-main {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text, #212529);
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.suche-combobox__option-sub {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--bs-secondary, #6c757d);
+    margin-top: 0.1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Icon-Prefix per CSS pseudo-element je nach Typ */
+.suche-combobox__option--author .suche-combobox__option-main::before {
+    content: '\f4cf'; /* bi-person */
+    font-family: 'bootstrap-icons';
+    color: var(--accent, #b42e42);
+    margin-right: 0.5rem;
+    font-size: 0.85em;
+}
+
+.suche-combobox__option--paper .suche-combobox__option-main::before {
+    content: '\f38b'; /* bi-file-earmark-text */
+    font-family: 'bootstrap-icons';
+    color: var(--accent, #b42e42);
+    margin-right: 0.5rem;
+    font-size: 0.85em;
+}
+
+.suche-combobox__option--tagung .suche-combobox__option-main::before {
+    content: '\f1ec'; /* bi-calendar-event */
+    font-family: 'bootstrap-icons';
+    color: var(--accent, #b42e42);
+    margin-right: 0.5rem;
+    font-size: 0.85em;
+}
+
 
 /* ============================
    SUCHE — Erweiterte Suche + Autor-Cards

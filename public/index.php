@@ -109,6 +109,11 @@ try {
         exit;
     }
 
+    if ($page === 'api_suggest') {
+        require __DIR__ . '/suggest.php';
+        exit;
+    }
+
     if ($page === 'redirect_abstract') {
         require __DIR__ . '/redirect.php';
         exit;

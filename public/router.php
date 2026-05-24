@@ -80,6 +80,10 @@ function matchRoute(string $uri): array
         return ['page' => 'sitemap', 'params' => []];
     }
 
+    if ($path === '/api/suggest') {
+        return ['page' => 'api_suggest', 'params' => []];
+    }
+
     if ($path === '/redirect/abstract') {
         return ['page' => 'redirect_abstract', 'params' => []];
     }

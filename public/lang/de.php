@@ -137,6 +137,9 @@ return [
     'suche.authors_paper_count' => '%d Beiträge',
     'suche.papers_heading'   => 'Beiträge',
     'suche.reset'            => 'Zurücksetzen',
+    'suche.suggest_authors'  => 'Autor:innen',
+    'suche.suggest_papers'   => 'Beiträge',
+    'suche.suggest_tagungen' => 'Tagungen',
 
     // -- Authors page --
     'autoren.title'       => 'Autoren',
