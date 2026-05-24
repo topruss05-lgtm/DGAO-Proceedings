@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
         '#d84315', '#1565c0', '#2e7d32', '#f9a825', '#4527a0'
     ];
 
-    var years = <?= json_encode(array_map('intval', $allYears)) ?>;
+    var years = <?= jsonForScript(array_map('intval', $allYears)) ?>;
 
     // Chart 1: Author per Year
     var autorDatasets = [];
@@ -211,8 +211,8 @@ document.addEventListener('DOMContentLoaded', function() {
         $legendLabel = $series['label'] . ($series['affiliation'] ? ' (' . $series['affiliation'] . ')' : '');
     ?>
     autorDatasets.push({
-        label: <?= json_encode($legendLabel) ?>,
-        data: <?= json_encode($dataPoints) ?>,
+        label: <?= jsonForScript($legendLabel) ?>,
+        data: <?= jsonForScript($dataPoints) ?>,
         borderColor: colors[<?= $idx % 15 ?>],
         backgroundColor: colors[<?= $idx % 15 ?>] + '33',
         tension: 0.3,
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             scales: {
                 y: { beginAtZero: true, ticks: { stepSize: 1 } },
-                x: { title: { display: true, text: <?= json_encode(t('statistik.jahr')) ?> } }
+                x: { title: { display: true, text: <?= jsonForScript(t('statistik.jahr')) ?> } }
             }
         }
     });
@@ -250,8 +250,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ?>
     affilDatasets.push({
-        label: <?= json_encode($series['label']) ?>,
-        data: <?= json_encode($dataPoints) ?>,
+        label: <?= jsonForScript($series['label']) ?>,
+        data: <?= jsonForScript($dataPoints) ?>,
         borderColor: colors[<?= $idx % 15 ?>],
         backgroundColor: colors[<?= $idx % 15 ?>] + '33',
         tension: 0.3,
@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             scales: {
                 y: { beginAtZero: true, ticks: { stepSize: 1 } },
-                x: { title: { display: true, text: <?= json_encode(t('statistik.jahr')) ?> } }
+                x: { title: { display: true, text: <?= jsonForScript(t('statistik.jahr')) ?> } }
             }
         }
     });

@@ -13,7 +13,7 @@ $deadline = $activeTagung['einreichungsfrist'] ?? '';
 
 <nav aria-label="breadcrumb" class="mb-3">
     <ol class="breadcrumb small">
-        <li class="breadcrumb-item"><a href="/"><?= t('nav.home') ?? 'Start' ?></a></li>
+        <li class="breadcrumb-item"><a href="/"><?= e(t('nav.home')) ?></a></li>
         <li class="breadcrumb-item active"><?= t('einreichen.breadcrumb') ?></li>
     </ol>
 </nav>
@@ -106,7 +106,7 @@ $deadline = $activeTagung['einreichungsfrist'] ?? '';
         var kit  = document.querySelector('a.vorlage-dl-kit');
         if (!sel || !kit) return;
         var hintTxt = hint.querySelector('[data-role="hint-text"]');
-        var msgPaper = <?= json_encode(html_entity_decode(t('vorlage.picker_hint_paper'), ENT_QUOTES | ENT_HTML5, 'UTF-8')) ?>;
+        var msgPaper = <?= jsonForScript(html_entity_decode(t('vorlage.picker_hint_paper'), ENT_QUOTES | ENT_HTML5, 'UTF-8')) ?>;
 
         function update() {
             var opt  = sel.options[sel.selectedIndex];

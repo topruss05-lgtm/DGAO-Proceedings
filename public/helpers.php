@@ -7,17 +7,30 @@ function e(?string $value): string
     return htmlspecialchars($value ?? '', ENT_QUOTES | ENT_HTML5, 'UTF-8');
 }
 
+/**
+ * JSON-Encoded fuer sichere Einbettung in <script>-Tag. JSON_HEX_*-Flags
+ * verhindern, dass User-Daten </script>-Sequenzen einschleusen koennen.
+ * JSON_THROW_ON_ERROR macht Encoding-Fehler sichtbar statt stumm.
+ */
+function jsonForScript(mixed $value): string
+{
+    return json_encode(
+        $value,
+        JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+        | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT
+    );
+}
+
 function formatDate(?string $iso): string
 {
     if (!$iso) return '';
-    $dt = new DateTime($iso);
-    return $dt->format('d.m.Y');
+    return (new DateTimeImmutable($iso))->format('d.m.Y');
 }
 
 function formatDateLong(?string $iso): string
 {
     if (!$iso) return '';
-    $dt = new DateTime($iso);
+    $dt = new DateTimeImmutable($iso);
     $locale = currentLang() === 'en' ? 'en_US' : 'de_DE';
     $formatter = new IntlDateFormatter($locale, IntlDateFormatter::LONG, IntlDateFormatter::NONE);
     return $formatter->format($dt);
