@@ -14,7 +14,34 @@ if (!$tagung) {
 
 $papers  = getPapersByTagung((int) $nummer);
 $groups  = groupPapersForArchiveDetail($papers);
-$authors = getAuthorsByTagung((int) $nummer);
+
+// Affiliations pro Paper aus paper_autoren JOIN autoren ziehen (für Filter).
+$affilByPaperId = [];
+$affilStmt = $db->prepare('
+    SELECT pa.paper_id, GROUP_CONCAT(a.affiliation, " | ") AS affils
+    FROM paper_autoren pa
+    JOIN autoren a ON a.id = pa.autor_id
+    WHERE pa.paper_id IN (SELECT id FROM papers WHERE tagung_nummer = ?)
+    GROUP BY pa.paper_id
+');
+$affilStmt->execute([$nummer]);
+foreach ($affilStmt as $row) {
+    $affilByPaperId[$row['paper_id']] = (string)($row['affils'] ?? '');
+}
+
+// Helper: erzeugt einen lowercase-Suchstring fuer einen Paper-Eintrag.
+$buildSearchHay = function (array $p) use ($affilByPaperId): string {
+    $parts = [
+        $p['code'] ?? '',
+        $p['titel'] ?? '',
+        $p['autoren_text'] ?? '',
+        $p['hauptautor'] ?? '',
+        $affilByPaperId[$p['id']] ?? '',
+        $p['affiliationen'] ?? '',
+    ];
+    $hay = mb_strtolower(implode(' ', array_filter($parts, fn($s) => $s !== '')));
+    return preg_replace('/\*+/', '', $hay);
+};
 
 $pageTitle    = $tagung['nummer'] . '. ' . t('archiv_detail.jahrestagung') . ' (' . $tagung['jahr'] . ') - ' . SITE_NAME;
 $canonicalUrl = canonicalUrl('/archiv/' . $tagung['nummer']);
@@ -64,28 +91,38 @@ $metaTags = [
 </aside>
 <?php endif; ?>
 
-<div class="d-flex flex-wrap gap-2 align-items-center mb-3" id="archiv-controls">
-    <div class="d-flex gap-2" id="archiv-sort-buttons">
-        <button type="button" class="btn btn-sm btn-outline-secondary sort-btn active"
-                data-sort="programm"><?= e(t('archiv_detail.sort_chrono')) ?></button>
-        <button type="button" class="btn btn-sm btn-outline-secondary sort-btn"
-                data-sort="autor"><?= e(t('archiv_detail.sort_author')) ?></button>
-    </div>
-    <div class="flex-grow-1"></div>
-    <div class="position-relative" id="archiv-author-filter" style="min-width: 240px;">
-        <input type="search" list="archiv-author-list" id="archiv-author-input"
-               class="form-control form-control-sm"
-               placeholder="<?= e(t('archiv_detail.filter_author_placeholder')) ?>"
-               autocomplete="off">
-        <datalist id="archiv-author-list">
-            <?php foreach ($authors as $a): ?>
-                <option value="<?= e($a['label']) ?>"></option>
-            <?php endforeach; ?>
-        </datalist>
-    </div>
+<?php
+// Suggestion-Datalist: Autoren (Nachname, Vorname) + alle Affiliations.
+$authors = getAuthorsByTagung((int) $nummer);
+$affilSet = [];
+foreach ($affilByPaperId as $a) {
+    foreach (explode(' | ', $a) as $aff) {
+        $aff = trim($aff);
+        if ($aff !== '') $affilSet[$aff] = true;
+    }
+}
+ksort($affilSet);
+?>
+<div class="archiv-filter mb-3">
+    <label for="archiv-filter-input" class="form-label small text-muted mb-1">
+        <i class="bi bi-search"></i> <?= e(t('archiv_detail.filter_label')) ?>
+    </label>
+    <input type="search" id="archiv-filter-input"
+           class="form-control"
+           list="archiv-filter-suggestions"
+           placeholder="<?= e(t('archiv_detail.filter_placeholder')) ?>"
+           autocomplete="off">
+    <datalist id="archiv-filter-suggestions">
+        <?php foreach ($authors as $a): ?>
+            <option value="<?= e($a['label']) ?>"></option>
+        <?php endforeach; ?>
+        <?php foreach (array_keys($affilSet) as $aff): ?>
+            <option value="<?= e($aff) ?>"></option>
+        <?php endforeach; ?>
+    </datalist>
 </div>
 
-<div id="paper-list-programm">
+<div id="paper-list">
     <?php foreach ($groups as $g): ?>
         <details open class="archiv-session" data-group-key="<?= e($g['key']) ?>">
             <summary class="archiv-session__summary">
@@ -112,32 +149,12 @@ $metaTags = [
                 <?php foreach ($g['papers'] as $p):
                     $showTagung = false;
                 ?>
-                <div class="archiv-item"
-                     data-author="<?= e(mb_strtolower(preg_replace('/\*+/', '', (string)$p['autoren_text']))) ?>">
+                <div class="archiv-item" data-search="<?= e($buildSearchHay($p)) ?>">
                     <?php require __DIR__ . '/../partials/paper_card.php'; ?>
                 </div>
                 <?php endforeach; ?>
             </div>
         </details>
-    <?php endforeach; ?>
-</div>
-
-<div id="paper-list-autor" class="d-none">
-    <?php
-    // Flache, alphabetisch nach erstem Autor sortierte Liste
-    $flat = $papers;
-    usort($flat, function ($a, $b) {
-        $aKey = mb_strtolower(preg_replace('/\*+/', '', (string)($a['hauptautor'] ?: $a['autoren_text'])));
-        $bKey = mb_strtolower(preg_replace('/\*+/', '', (string)($b['hauptautor'] ?: $b['autoren_text'])));
-        return $aKey <=> $bKey;
-    });
-    foreach ($flat as $p):
-        $showTagung = false;
-    ?>
-    <div class="archiv-item"
-         data-author="<?= e(mb_strtolower(preg_replace('/\*+/', '', (string)$p['autoren_text']))) ?>">
-        <?php require __DIR__ . '/../partials/paper_card.php'; ?>
-    </div>
     <?php endforeach; ?>
 </div>
 

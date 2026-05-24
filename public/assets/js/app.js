@@ -13,65 +13,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Archive detail: sort buttons (programm/autor) + author filter ---
-    const sortButtons   = document.querySelectorAll('#archiv-sort-buttons .sort-btn');
-    const viewProgramm  = document.getElementById('paper-list-programm');
-    const viewAutor     = document.getElementById('paper-list-autor');
-    const authorInput   = document.getElementById('archiv-author-input');
-    const emptyMessage  = document.getElementById('archiv-empty');
+    // --- Archive detail: universal filter (matches data-search attribute) ---
+    const filterInput  = document.getElementById('archiv-filter-input');
+    const paperList    = document.getElementById('paper-list');
+    const emptyMessage = document.getElementById('archiv-empty');
 
-    if (sortButtons.length && viewProgramm && viewAutor) {
-        const switchView = (mode) => {
-            sortButtons.forEach(b => b.classList.toggle('active', b.dataset.sort === mode));
-            if (mode === 'autor') {
-                viewProgramm.classList.add('d-none');
-                viewAutor.classList.remove('d-none');
-            } else {
-                viewAutor.classList.add('d-none');
-                viewProgramm.classList.remove('d-none');
-            }
-            applyAuthorFilter();
-        };
+    if (filterInput && paperList) {
+        const tokenize = (q) =>
+            q.toLowerCase().replace(/\*+/g, '').split(/[\s,]+/).filter(t => t.length > 0);
 
-        sortButtons.forEach(btn => {
-            btn.addEventListener('click', () => switchView(btn.dataset.sort));
-        });
-
-        // Author filter: matches against data-author attribute (lowercased,
-        // contains all co-authors). Empty input shows everything.
-        // Query is tokenized by whitespace+commas so that "Schmidt, I."
-        // (Datalist format) matches data-author "i. schmidt, a. mueller"
-        // (autoren_text format). Each token must appear in data-author.
-        const normalizeAndTokenize = (q) =>
-            q.toLowerCase()
-             .replace(/\*+/g, '')
-             .split(/[\s,]+/)
-             .filter(t => t.length > 0);
-
-        const applyAuthorFilter = () => {
-            if (!authorInput) return;
-            const tokens = normalizeAndTokenize(authorInput.value);
-            const activeView = viewProgramm.classList.contains('d-none') ? viewAutor : viewProgramm;
-            const items = activeView.querySelectorAll('.archiv-item');
+        const applyFilter = () => {
+            const tokens = tokenize(filterInput.value);
+            const items = paperList.querySelectorAll('.archiv-item');
             let visible = 0;
             items.forEach(it => {
-                const hay = it.dataset.author || '';
+                const hay = it.dataset.search || '';
                 const match = tokens.length === 0 || tokens.every(t => hay.includes(t));
                 it.classList.toggle('d-none', !match);
                 if (match) visible++;
             });
-            // Sessions/Kategorien ohne sichtbare Papers ausblenden.
-            activeView.querySelectorAll('details.archiv-session').forEach(det => {
+            paperList.querySelectorAll('details.archiv-session').forEach(det => {
                 const anyVisible = det.querySelectorAll('.archiv-item:not(.d-none)').length > 0;
                 det.classList.toggle('d-none', !anyVisible);
-                if (anyVisible && q !== '') det.open = true;
+                if (anyVisible && tokens.length > 0) det.open = true;
             });
             if (emptyMessage) emptyMessage.classList.toggle('d-none', visible > 0);
         };
 
-        if (authorInput) {
-            authorInput.addEventListener('input', applyAuthorFilter);
-        }
+        filterInput.addEventListener('input', applyFilter);
     }
 
     // --- BibTeX toggle and copy ---

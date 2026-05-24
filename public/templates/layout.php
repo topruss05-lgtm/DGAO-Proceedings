@@ -27,7 +27,8 @@
     <link rel="alternate" hreflang="en" href="<?= e(BASE_URL . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) . '?lang=en') ?>">
     <link rel="alternate" hreflang="x-default" href="<?= e(BASE_URL . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) ?>">
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='1.5' y='13' font-family='Georgia,serif' font-size='13' font-weight='700' fill='%23a51e1e'>D</text></svg>">
+    <link rel="icon" type="image/jpeg" href="/assets/images/favicon-64.jpg?v=<?= @filemtime(__DIR__ . '/../assets/images/favicon-64.jpg') ?>">
+    <link rel="apple-touch-icon" href="/assets/images/dgao-logo.jpg?v=<?= @filemtime(__DIR__ . '/../assets/images/dgao-logo.jpg') ?>">
 </head>
 <body class="d-flex flex-column min-vh-100" data-lang="<?= currentLang() ?>" data-page="<?= e($pageSlug ?? $page ?? '') ?>">
 

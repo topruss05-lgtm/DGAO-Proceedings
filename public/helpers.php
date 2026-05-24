@@ -254,6 +254,77 @@ function groupPapersForArchiveDetail(array $papers): array
 }
 
 /**
+ * Globale Autoren-Liste mit Treffer-Anzahl. Fuer Suggestions auf /suche.
+ * Limitiert auf die N Autoren mit meisten Beitraegen.
+ * @return list<array{label:string, papers:int}>
+ */
+function getTopAuthorSuggestions(int $limit = 200): array
+{
+    $stmt = getDb()->prepare("
+        SELECT a.vorname, a.nachname, COUNT(DISTINCT pa.paper_id) AS papers
+        FROM autoren a
+        JOIN paper_autoren pa ON pa.autor_id = a.id
+        GROUP BY a.id
+        HAVING papers > 0
+        ORDER BY papers DESC, a.nachname COLLATE NOCASE
+        LIMIT ?
+    ");
+    $stmt->execute([$limit]);
+    $seen = [];
+    $out  = [];
+    foreach ($stmt as $row) {
+        $nach = trim(preg_replace('/\*+/', '', (string)$row['nachname']));
+        $vor  = trim(preg_replace('/\*+/', '', (string)$row['vorname']));
+        $label = $nach . ($vor === '' ? '' : ', ' . $vor);
+        if ($label === '' || isset($seen[$label])) continue;
+        $seen[$label] = true;
+        $out[] = ['label' => $label, 'papers' => (int)$row['papers']];
+    }
+    return $out;
+}
+
+/**
+ * Top-N Affiliations aus autoren.affiliation (nach Häufigkeit).
+ * @return list<string>
+ */
+function getTopAffiliationSuggestions(int $limit = 100): array
+{
+    $stmt = getDb()->prepare("
+        SELECT affiliation, COUNT(*) AS n
+        FROM autoren
+        WHERE affiliation <> ''
+        GROUP BY affiliation
+        ORDER BY n DESC, affiliation COLLATE NOCASE
+        LIMIT ?
+    ");
+    $stmt->execute([$limit]);
+    $out = [];
+    foreach ($stmt as $row) {
+        $aff = trim((string)$row['affiliation']);
+        if ($aff !== '') $out[] = $aff;
+    }
+    return $out;
+}
+
+/**
+ * Alle Tagungen für ein Dropdown-Filter (id + Label).
+ * @return list<array{nummer:int, jahr:int, ort:?string}>
+ */
+function getAllTagungenForFilter(): array
+{
+    $rows = getDb()->query('SELECT nummer, jahr, ort FROM tagungen ORDER BY nummer DESC')->fetchAll();
+    $out = [];
+    foreach ($rows as $r) {
+        $out[] = [
+            'nummer' => (int)$r['nummer'],
+            'jahr'   => (int)$r['jahr'],
+            'ort'    => $r['ort'] ?: null,
+        ];
+    }
+    return $out;
+}
+
+/**
  * Liefert alle Autoren einer Tagung (Erst- und Coautoren) als Liste fuer
  * Autocomplete/Filter im Archiv-Detail.
  *
