@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/config.php';
 
-const DB_SCHEMA_VERSION = 3;
+const DB_SCHEMA_VERSION = 4;
 
 function getDb(): PDO
 {
@@ -117,6 +117,17 @@ function runMigrations(PDO $db): void
     if (!in_array('einreichungsfrist', $tagungenColumns, true)) {
         $db->exec('ALTER TABLE tagungen ADD COLUMN einreichungsfrist TEXT');
     }
+
+    // v4: admin_login_attempts (Brute-Force-Schutz). Drop+Recreate ist
+    // sicher — die Tabelle haelt nur fluechtige Login-Counter, keine
+    // dauerhaften Daten.
+    $db->exec('DROP TABLE IF EXISTS admin_login_attempts');
+    $db->exec('CREATE TABLE admin_login_attempts (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ip TEXT NOT NULL,
+        ts INTEGER NOT NULL
+    )');
+    $db->exec('CREATE INDEX IF NOT EXISTS idx_admin_login_attempts_ip_ts ON admin_login_attempts(ip, ts)');
 
     $db->exec('PRAGMA user_version = ' . DB_SCHEMA_VERSION);
 }

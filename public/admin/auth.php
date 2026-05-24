@@ -44,15 +44,60 @@ function requireAdmin(): void
     }
 }
 
+// Brute-Force: pro IP max. ATTEMPT_LIMIT Fehlversuche im ATTEMPT_WINDOW.
+const ADMIN_LOGIN_ATTEMPT_LIMIT  = 5;
+const ADMIN_LOGIN_ATTEMPT_WINDOW = 900; // 15 Minuten
+
 function adminLogin(string $user, string $password): bool
 {
-    if ($user === ADMIN_USER && password_verify($password, ADMIN_PASSWORD_HASH)) {
+    $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+
+    if (loginAttemptsTooMany($ip)) {
+        // Fail-slow: Angreifer bekommt das gleiche Timing wie ein echter
+        // password_verify, um Rate-Limit-Probing zu erschweren.
+        password_verify($password, ADMIN_PASSWORD_HASH);
+        return false;
+    }
+
+    // Timing-Schutz: password_verify IMMER aufrufen, auch bei falschem
+    // Username. hash_equals fuer konstanten Username-Vergleich.
+    $userOk = hash_equals(ADMIN_USER, $user);
+    $passOk = password_verify($password, ADMIN_PASSWORD_HASH);
+
+    if ($userOk && $passOk) {
+        clearLoginAttempts($ip);
         session_regenerate_id(true);
-        $_SESSION['admin_logged_in'] = true;
+        $_SESSION['admin_logged_in']  = true;
         $_SESSION['admin_login_time'] = time();
         return true;
     }
+
+    recordLoginAttempt($ip);
     return false;
+}
+
+function loginAttemptsTooMany(string $ip): bool
+{
+    $db = getDbAdmin();
+    $cutoff = time() - ADMIN_LOGIN_ATTEMPT_WINDOW;
+    // Garbage-Collect alte Eintraege bei Gelegenheit (ein Sweep pro Check).
+    $db->prepare('DELETE FROM admin_login_attempts WHERE ts < ?')->execute([$cutoff]);
+    $stmt = $db->prepare('SELECT COUNT(*) FROM admin_login_attempts WHERE ip = ? AND ts > ?');
+    $stmt->execute([$ip, $cutoff]);
+    return ((int) $stmt->fetchColumn()) >= ADMIN_LOGIN_ATTEMPT_LIMIT;
+}
+
+function recordLoginAttempt(string $ip): void
+{
+    $db = getDbAdmin();
+    $db->prepare('INSERT INTO admin_login_attempts (ip, ts) VALUES (?, ?)')
+       ->execute([$ip, time()]);
+}
+
+function clearLoginAttempts(string $ip): void
+{
+    $db = getDbAdmin();
+    $db->prepare('DELETE FROM admin_login_attempts WHERE ip = ?')->execute([$ip]);
 }
 
 function adminLogout(): void

@@ -78,7 +78,14 @@ CREATE TABLE submissions (
 CREATE INDEX idx_submissions_paper ON submissions(paper_id);
 CREATE INDEX idx_submissions_status ON submissions(status);
 
+CREATE TABLE admin_login_attempts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ip TEXT NOT NULL,
+    ts INTEGER NOT NULL
+);
+CREATE INDEX idx_admin_login_attempts_ip_ts ON admin_login_attempts(ip, ts);
+
 -- Aktueller Schema-Stand. Muss mit DB_SCHEMA_VERSION in public/db.php
 -- synchron sein. Bei neuem Deploy spielt bootstrapDb() dieses Schema
 -- inkl. user_version → runMigrations() greift dann fast-path.
-PRAGMA user_version = 3;
+PRAGMA user_version = 4;
