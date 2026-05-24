@@ -144,7 +144,7 @@ $pdfRelUrl = pdfUrl($paper);
 
     <?php if ($paper['abstract_text']): ?>
     <div class="mb-4">
-        <h2 class="h6 fw-bold">Abstract</h2>
+        <h2 class="h6 fw-bold"><?= e(t('paper.abstract')) ?></h2>
         <div class="abstract-block">
             <p><?= e($paper['abstract_text']) ?></p>
         </div>
@@ -153,7 +153,7 @@ $pdfRelUrl = pdfUrl($paper);
 
     <?php if (!empty($keywords)): ?>
     <div class="mb-4">
-        <h2 class="h6 fw-bold">Keywords</h2>
+        <h2 class="h6 fw-bold"><?= e(t('paper.keywords')) ?></h2>
         <div class="d-flex flex-wrap gap-1">
             <?php foreach ($keywords as $kw): ?>
                 <span class="badge keyword-badge"><?= e($kw) ?></span>
@@ -166,9 +166,9 @@ $pdfRelUrl = pdfUrl($paper);
     <div class="alert alert-light border d-flex align-items-center gap-2 small">
         <i class="bi bi-info-circle text-muted"></i>
         <div>
-            <strong>Manuskript noch nicht eingereicht.</strong>
+            <strong><?= e(t('paper.manuskript_offen')) ?></strong>
             <?php if (empty($paper['vorlage_phase_aktiv'])): ?>
-                Die Einreichungsphase ist aktuell geschlossen.
+                <?= e(t('paper.einreichung_geschlossen')) ?>
             <?php endif; ?>
         </div>
     </div>

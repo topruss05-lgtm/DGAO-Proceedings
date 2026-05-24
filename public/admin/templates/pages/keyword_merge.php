@@ -53,9 +53,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             setFlash('success', "Keyword \"{$source['keyword']}\" in \"{$target['keyword']}\" zusammengeführt.");
             header('Location: /admin/keywords');
             exit;
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $dbw->rollBack();
-            $errors[] = 'Zusammenführen fehlgeschlagen: ' . $e->getMessage();
+            error_log('keyword_merge error: ' . $e);
+            $errors[] = 'Zusammenführen fehlgeschlagen — Details im Server-Log.';
         }
     }
 }

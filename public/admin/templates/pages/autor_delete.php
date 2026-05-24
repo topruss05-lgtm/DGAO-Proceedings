@@ -29,9 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dbw->commit();
 
         setFlash('success', "Autor \"" . trim($autor['vorname'] . ' ' . $autor['nachname']) . "\" gelöscht.");
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         $dbw->rollBack();
-        setFlash('danger', 'Löschen fehlgeschlagen: ' . $e->getMessage());
+        error_log('autor_delete error: ' . $e);
+        setFlash('danger', 'Löschen fehlgeschlagen — Details im Server-Log.');
     }
 
     header('Location: /admin/autoren');

@@ -58,9 +58,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             setFlash('success', "Autor \"" . trim($source['vorname'] . ' ' . $source['nachname']) . "\" in \"" . trim($target['vorname'] . ' ' . $target['nachname']) . "\" zusammengeführt.");
             header('Location: /admin/autoren');
             exit;
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $dbw->rollBack();
-            $errors[] = 'Zusammenführen fehlgeschlagen: ' . $e->getMessage();
+            error_log('autor_merge error: ' . $e);
+            $errors[] = 'Zusammenführen fehlgeschlagen — Details im Server-Log.';
         }
     }
 }

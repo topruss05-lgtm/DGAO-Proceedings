@@ -144,7 +144,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $db->commit();
         } catch (Throwable $e) {
             $db->rollBack();
-            $errors[] = 'Speichern fehlgeschlagen: ' . $e->getMessage();
+            error_log('tagung_edit save error: ' . $e);
+            $errors[] = 'Speichern fehlgeschlagen — Details im Server-Log.';
         }
     }
 
@@ -155,8 +156,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors[] = $importResult['message'];
         } else {
             $importStats = $importResult['stats'];
-            if (!is_dir(BOOKLET_DIR)) @mkdir(BOOKLET_DIR, 0755, true);
-            @copy($pdfFile['tmp_name'], BOOKLET_DIR . '/DGaO_' . $data['jahr'] . '.pdf');
+            if (!is_dir(BOOKLET_DIR)) {
+                if (!@mkdir(BOOKLET_DIR, 0755, true) && !is_dir(BOOKLET_DIR)) {
+                    error_log('tagung_edit: Booklet-Dir konnte nicht angelegt werden: ' . BOOKLET_DIR);
+                }
+            }
+            $bookletDest = BOOKLET_DIR . '/DGaO_' . $data['jahr'] . '.pdf';
+            if (!@copy($pdfFile['tmp_name'], $bookletDest)) {
+                error_log('tagung_edit: Booklet-Kopie fehlgeschlagen: ' . $bookletDest);
+            }
         }
     }
 

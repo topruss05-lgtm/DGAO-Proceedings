@@ -1,4 +1,5 @@
 User-Agent: *
-Disallow:
+Disallow: /admin/
+Disallow: /data/
 
 Sitemap: https://dgao-proceedings.de/sitemap.xml

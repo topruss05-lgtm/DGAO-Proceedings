@@ -144,9 +144,10 @@ function approveSubmission(string $token, string $reviewer = 'admin', string $no
         )->execute([$finalName, $sub['paper_id']]);
 
         $db->commit();
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         $db->rollBack();
-        return ['ok' => false, 'error' => 'DB-Fehler: ' . $e->getMessage()];
+        error_log('approveSubmission error: ' . $e);
+        return ['ok' => false, 'error' => 'DB-Fehler — Details im Server-Log.'];
     }
 
     return ['ok' => true, 'final_path' => $finalPath, 'final_name' => $finalName];

@@ -43,9 +43,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dbw->commit();
 
         setFlash('success', "Tagung {$nummer} mit {$paperCount} Papers gelöscht.");
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         $dbw->rollBack();
-        setFlash('danger', 'Löschen fehlgeschlagen: ' . $e->getMessage());
+        error_log('tagung_delete error: ' . $e);
+        setFlash('danger', 'Löschen fehlgeschlagen — Details im Server-Log.');
     }
 
     header('Location: /admin/tagungen');
