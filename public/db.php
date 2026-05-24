@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/config.php';
 
+const DB_SCHEMA_VERSION = 3;
+
 function getDb(): PDO
 {
     static $pdo = null;
@@ -14,8 +16,10 @@ function getDb(): PDO
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES => false,
         ]);
-        $pdo->exec('PRAGMA journal_mode = WAL');
+        configureSqlite($pdo);
         runMigrations($pdo);
+        // Read-only fence: selbst wenn ein Frontend-Pfad versehentlich
+        // eine Schreib-Query absetzt, hebt SQLite hier einen Fehler.
         $pdo->exec('PRAGMA query_only = ON');
     }
     return $pdo;
@@ -31,11 +35,31 @@ function getDbAdmin(): PDO
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES => false,
         ]);
-        $pdo->exec('PRAGMA journal_mode = WAL');
-        $pdo->exec('PRAGMA foreign_keys = ON');
+        configureSqlite($pdo);
         runMigrations($pdo);
     }
     return $pdo;
+}
+
+/**
+ * Setzt SQLite-Pragmas, die wir auf jeder Connection wollen.
+ * - WAL: bessere Read/Write-Concurrency
+ * - busy_timeout: verhindert SQLITE_BUSY bei Parallel-Zugriff
+ * - synchronous=NORMAL: mit WAL sicher und deutlich schneller als FULL
+ * - foreign_keys=ON: SQLite haelt FK-Checks per Connection (auch read)
+ * - cache_size: 20 MB Page-Cache
+ * - temp_store=MEMORY: kein Temp-File-I/O
+ * - mmap_size: 128 MB Memory-Mapped-I/O
+ */
+function configureSqlite(PDO $db): void
+{
+    $db->exec('PRAGMA journal_mode = WAL');
+    $db->exec('PRAGMA busy_timeout = 5000');
+    $db->exec('PRAGMA synchronous = NORMAL');
+    $db->exec('PRAGMA foreign_keys = ON');
+    $db->exec('PRAGMA cache_size = -20000');
+    $db->exec('PRAGMA temp_store = MEMORY');
+    $db->exec('PRAGMA mmap_size  = 134217728');
 }
 
 /**
@@ -70,23 +94,36 @@ function bootstrapDb(): void
     $tmp->exec($schema);
 }
 
+/**
+ * Versionierte Migrationen via PRAGMA user_version.
+ * Fast-Path: wenn user_version bereits am Target ist, kein weiterer Call.
+ * Defensive Spalten-Checks halten alte DBs (user_version=0) idempotent,
+ * auch wenn das schema.sql bereits die neueren Spalten enthaelt.
+ */
 function runMigrations(PDO $db): void
 {
-    $columns = $db->query("PRAGMA table_info(autoren)")->fetchAll(PDO::FETCH_COLUMN, 1);
-    if (!in_array('affiliation', $columns, true)) {
+    $current = (int) $db->query('PRAGMA user_version')->fetchColumn();
+    if ($current >= DB_SCHEMA_VERSION) return;
+
+    $autorenColumns  = $db->query('PRAGMA table_info(autoren)')->fetchAll(PDO::FETCH_COLUMN, 1);
+    $tagungenColumns = $db->query('PRAGMA table_info(tagungen)')->fetchAll(PDO::FETCH_COLUMN, 1);
+
+    if (!in_array('affiliation', $autorenColumns, true)) {
         $db->exec("ALTER TABLE autoren ADD COLUMN affiliation TEXT NOT NULL DEFAULT ''");
     }
-
-    $tagungenColumns = $db->query("PRAGMA table_info(tagungen)")->fetchAll(PDO::FETCH_COLUMN, 1);
     if (!in_array('vorlage_phase_aktiv', $tagungenColumns, true)) {
-        $db->exec("ALTER TABLE tagungen ADD COLUMN vorlage_phase_aktiv INTEGER NOT NULL DEFAULT 0");
+        $db->exec('ALTER TABLE tagungen ADD COLUMN vorlage_phase_aktiv INTEGER NOT NULL DEFAULT 0');
     }
     if (!in_array('einreichungsfrist', $tagungenColumns, true)) {
-        $db->exec("ALTER TABLE tagungen ADD COLUMN einreichungsfrist TEXT");
+        $db->exec('ALTER TABLE tagungen ADD COLUMN einreichungsfrist TEXT');
     }
+
+    $db->exec('PRAGMA user_version = ' . DB_SCHEMA_VERSION);
 }
 
 function rebuildFtsIndex(PDO $db): void
 {
     $db->exec("INSERT INTO papers_fts(papers_fts) VALUES('rebuild')");
+    // optimize fusioniert FTS5-Segmente, beschleunigt nachfolgende Suchen
+    $db->exec("INSERT INTO papers_fts(papers_fts) VALUES('optimize')");
 }

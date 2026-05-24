@@ -3,8 +3,10 @@ CREATE TABLE tagungen (
       jahr INTEGER NOT NULL,
       ort TEXT,
       datum_von TEXT,
-      datum_bis TEXT
-    , vorlage_phase_aktiv INTEGER NOT NULL DEFAULT 0);
+      datum_bis TEXT,
+      vorlage_phase_aktiv INTEGER NOT NULL DEFAULT 0,
+      einreichungsfrist TEXT
+    );
 CREATE TABLE papers (
       id TEXT PRIMARY KEY,
       tagung_nummer INTEGER NOT NULL REFERENCES tagungen(nummer),
@@ -75,3 +77,8 @@ CREATE TABLE submissions (
 );
 CREATE INDEX idx_submissions_paper ON submissions(paper_id);
 CREATE INDEX idx_submissions_status ON submissions(status);
+
+-- Aktueller Schema-Stand. Muss mit DB_SCHEMA_VERSION in public/db.php
+-- synchron sein. Bei neuem Deploy spielt bootstrapDb() dieses Schema
+-- inkl. user_version → runMigrations() greift dann fast-path.
+PRAGMA user_version = 3;
