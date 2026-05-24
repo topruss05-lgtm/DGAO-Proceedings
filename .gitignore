@@ -11,3 +11,5 @@ scripts/
 # Runtime data (logs, user uploads) — keep dir, ignore content
 public/data/uploads/
 public/data/*.log
+DGaO_Logo.jpg
+database/backups/
