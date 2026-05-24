@@ -22,6 +22,10 @@ Options -Indexes
 
 # --- Security Headers ---
 <IfModule mod_headers.c>
+    # PHP-Version aus Response entfernen (expose_php=Off geht nur in php.ini,
+    # nicht in .user.ini — also hier hardcoded ueber den Webserver).
+    Header always unset X-Powered-By
+    Header unset X-Powered-By
     # HSTS: 1 Jahr, inkl. Subdomains. Greift nur via HTTPS.
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" "expr=%{HTTPS} == 'on'"
     # Clickjacking
