@@ -38,9 +38,13 @@ $buildSearchHay = function (array $p) use ($affilByPaperId): string {
         $p['hauptautor'] ?? '',
         $affilByPaperId[$p['id']] ?? '',
         $p['affiliationen'] ?? '',
+        $p['abstract_text'] ?? '',
     ];
     $hay = mb_strtolower(implode(' ', array_filter($parts, fn($s) => $s !== '')));
-    return preg_replace('/\*+/', '', $hay);
+    // Sternchen + Newlines + Mehrfach-Whitespace normalisieren.
+    $hay = preg_replace('/\*+/', '', $hay);
+    $hay = preg_replace('/\s+/u', ' ', $hay);
+    return trim($hay);
 };
 
 $pageTitle    = $tagung['nummer'] . '. ' . t('archiv_detail.jahrestagung') . ' (' . $tagung['jahr'] . ') - ' . SITE_NAME;

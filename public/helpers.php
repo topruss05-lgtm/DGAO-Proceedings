@@ -130,6 +130,7 @@ function getPapersByTagung(int $tagungNummer): array
     $stmt = getDb()->prepare("
         SELECT p.id, p.code, p.typ, p.titel, p.autoren_text, p.hauptautor,
                p.zeit, p.raum, p.datum, p.hat_pdf, p.pdf_dateiname,
+               p.affiliationen, p.abstract_text,
                p.session_id,
                s.titel       AS session_titel,
                s.saal        AS session_saal,
