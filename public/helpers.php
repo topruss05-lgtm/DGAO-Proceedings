@@ -121,28 +121,169 @@ function renderMetaTag(array $tag): string
 }
 
 /**
- * Liefert die Papers einer Tagung in Konferenz-Reihenfolge (Hauptvortraege,
- * Sondervortraege, Vortraege, Poster — innerhalb des Typs nach Code).
+ * Liefert die Papers einer Tagung mit ihrer Session-Zuordnung (LEFT JOIN
+ * auf sessions). Sortierung nach Tagungsprogramm-Reihenfolge: erst nach
+ * Code-Buchstabe (H/A/B/C/P/S), dann Code-Nummer.
  */
 function getPapersByTagung(int $tagungNummer): array
 {
     $stmt = getDb()->prepare("
-        SELECT id, code, typ, titel, autoren_text, hauptautor,
-               zeit, raum, datum, hat_pdf, pdf_dateiname
-        FROM papers
-        WHERE tagung_nummer = ?
+        SELECT p.id, p.code, p.typ, p.titel, p.autoren_text, p.hauptautor,
+               p.zeit, p.raum, p.datum, p.hat_pdf, p.pdf_dateiname,
+               p.session_id,
+               s.titel       AS session_titel,
+               s.saal        AS session_saal,
+               s.datum       AS session_datum,
+               s.zeit_von    AS session_zeit_von,
+               s.zeit_bis    AS session_zeit_bis,
+               s.sortorder   AS session_sortorder
+        FROM papers p
+        LEFT JOIN sessions s ON s.id = p.session_id
+        WHERE p.tagung_nummer = ?
         ORDER BY
-            CASE typ
-                WHEN 'hauptvortrag'  THEN 1
-                WHEN 'sondervortrag' THEN 2
-                WHEN 'vortrag'       THEN 3
-                WHEN 'poster'        THEN 4
+            CASE substr(p.code, 1, 1)
+                WHEN 'H' THEN 1
+                WHEN 'A' THEN 2
+                WHEN 'B' THEN 3
+                WHEN 'C' THEN 4
+                WHEN 'P' THEN 5
+                WHEN 'S' THEN 6
                 ELSE 9
             END,
-            substr(code,1,1), CAST(substr(code,2) AS INTEGER)
+            CAST(substr(p.code, 2) AS INTEGER)
     ");
     $stmt->execute([$tagungNummer]);
     return $stmt->fetchAll();
+}
+
+/**
+ * Liefert ein Sortier-Gewicht fuer einen Paper-Code-Buchstaben (Programm-
+ * Reihenfolge im Booklet: Hauptvortrag, Vorträge A/B/C, Poster, Sondervortrag,
+ * danach Sonstige).
+ */
+function paperCodeOrder(string $code): int
+{
+    return match (substr($code, 0, 1)) {
+        'H' => 1,
+        'A' => 2,
+        'B' => 3,
+        'C' => 4,
+        'P' => 5,
+        'S' => 6,
+        default => 9,
+    };
+}
+
+/**
+ * Gruppiert eine bereits sortierte Paper-Liste (aus getPapersByTagung) zu
+ * Anzeige-Gruppen fuer das Archiv-Detail:
+ *   - Hauptvortraege (alle H-Codes, eine Gruppe)
+ *   - Themen-Sessions (nach session.sortorder)
+ *   - Vortraege A/B/C ohne Session-Zuordnung (eigene Gruppen pro Code-Letter)
+ *   - Sondervortraege (alle S ohne Session)
+ *   - Poster (alle P ohne Session)
+ *   - Sonstige (W/Z/...)
+ *
+ * Liefert: [ ['key'=>..., 'type'=>..., 'titel'=>..., 'saal'=>..., 'datum'=>...,
+ *             'zeit_von'=>..., 'papers'=>[...]], ... ] in Anzeige-Reihenfolge.
+ */
+function groupPapersForArchiveDetail(array $papers): array
+{
+    $groups = [];
+
+    foreach ($papers as $p) {
+        $letter = substr($p['code'], 0, 1);
+
+        // Session-Zuordnung hat Vorrang (ausser fuer H, die immer gemeinsame
+        // Hauptvortraege-Gruppe bekommen — im Programm-Heft sind H-Slots
+        // einzeln, im Archiv aber kompakter zusammengefasst).
+        if ($letter !== 'H' && $p['session_id'] !== null) {
+            $key = 'session_' . $p['session_id'];
+            if (!isset($groups[$key])) {
+                $groups[$key] = [
+                    'key'       => $key,
+                    'type'      => 'session',
+                    'titel'     => $p['session_titel'] ?? '',
+                    'saal'      => $p['session_saal'] ?? null,
+                    'datum'     => $p['session_datum'] ?? null,
+                    'zeit_von'  => $p['session_zeit_von'] ?? null,
+                    'sortkey'   => [2, (int)($p['session_sortorder'] ?? 0)],
+                    'papers'    => [],
+                ];
+            }
+            $groups[$key]['papers'][] = $p;
+            continue;
+        }
+
+        // Fallback nach Code-Buchstabe
+        $key = 'cat_' . $letter;
+        if (!isset($groups[$key])) {
+            $titel = match ($letter) {
+                'H' => 'Hauptvorträge',
+                'A' => 'Vorträge — A',
+                'B' => 'Vorträge — B',
+                'C' => 'Vorträge — C',
+                'P' => 'Poster',
+                'S' => 'Sondervorträge',
+                default => 'Sonstige Beiträge',
+            };
+            $sortPrimary = match ($letter) {
+                'H' => 1,
+                'P' => 4,
+                'S' => 5,
+                default => 3, // A/B/C/W/Z zwischen Sessions und Poster/Sondervorträge
+            };
+            $groups[$key] = [
+                'key'      => $key,
+                'type'     => 'category',
+                'titel'    => $titel,
+                'saal'     => null,
+                'datum'    => null,
+                'zeit_von' => null,
+                'sortkey'  => [$sortPrimary, ord($letter)],
+                'papers'   => [],
+            ];
+        }
+        $groups[$key]['papers'][] = $p;
+    }
+
+    // Anzeige-Reihenfolge: sortiert nach 'sortkey' (Primary + Secondary).
+    uasort($groups, fn($a, $b) => $a['sortkey'] <=> $b['sortkey']);
+
+    return array_values($groups);
+}
+
+/**
+ * Liefert alle Autoren einer Tagung (Erst- und Coautoren) als Liste fuer
+ * Autocomplete/Filter im Archiv-Detail.
+ *
+ * @return list<array{id:int, label:string}>
+ */
+function getAuthorsByTagung(int $tagungNummer): array
+{
+    $stmt = getDb()->prepare("
+        SELECT DISTINCT a.id, a.vorname, a.nachname
+        FROM autoren a
+        JOIN paper_autoren pa ON pa.autor_id = a.id
+        JOIN papers p ON p.id = pa.paper_id
+        WHERE p.tagung_nummer = ?
+        ORDER BY a.nachname COLLATE NOCASE, a.vorname COLLATE NOCASE
+    ");
+    $stmt->execute([$tagungNummer]);
+    $seen = [];
+    $out  = [];
+    foreach ($stmt as $row) {
+        // Sternchen-Marker (Affiliation-Hinweise im Originalformat) aus
+        // Display-Label entfernen — der originale Autor-Record bleibt
+        // unangetastet.
+        $nachname = trim(preg_replace('/\*+/', '', (string)$row['nachname']));
+        $vorname  = trim(preg_replace('/\*+/', '', (string)$row['vorname']));
+        $label    = trim($nachname . ($vorname === '' ? '' : ', ' . $vorname));
+        if ($label === '' || isset($seen[$label])) continue;
+        $seen[$label] = true;
+        $out[] = ['id' => (int)$row['id'], 'label' => $label];
+    }
+    return $out;
 }
 
 function getAllTagungen(): array

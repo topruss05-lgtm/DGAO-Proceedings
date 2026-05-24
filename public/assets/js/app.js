@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Language detection ---
     const lang = document.body.dataset.lang || 'de';
 
     // --- Mobile navbar toggle ---
@@ -14,32 +13,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Paper sorting on conference detail page ---
-    const sortButtons = document.querySelectorAll('[data-sort]');
-    const paperList = document.getElementById('paper-list');
+    // --- Archive detail: sort buttons (programm/autor) + author filter ---
+    const sortButtons   = document.querySelectorAll('#archiv-sort-buttons .sort-btn');
+    const viewProgramm  = document.getElementById('paper-list-programm');
+    const viewAutor     = document.getElementById('paper-list-autor');
+    const authorInput   = document.getElementById('archiv-author-input');
+    const emptyMessage  = document.getElementById('archiv-empty');
 
-    if (sortButtons.length && paperList) {
-        sortButtons.forEach((btn) => {
-            btn.addEventListener('click', () => {
-                sortButtons.forEach((b) => b.classList.remove('active'));
-                btn.classList.add('active');
+    if (sortButtons.length && viewProgramm && viewAutor) {
+        const switchView = (mode) => {
+            sortButtons.forEach(b => b.classList.toggle('active', b.dataset.sort === mode));
+            if (mode === 'autor') {
+                viewProgramm.classList.add('d-none');
+                viewAutor.classList.remove('d-none');
+            } else {
+                viewAutor.classList.add('d-none');
+                viewProgramm.classList.remove('d-none');
+            }
+            applyAuthorFilter();
+        };
 
-                const sortBy = btn.getAttribute('data-sort');
-                const items = Array.from(paperList.children);
-
-                items.sort((a, b) => {
-                    if (sortBy === 'titel') {
-                        return (a.dataset.title || '').localeCompare(b.dataset.title || '', lang);
-                    } else if (sortBy === 'autor') {
-                        return (a.dataset.author || '').localeCompare(b.dataset.author || '', lang);
-                    } else {
-                        return parseInt(a.dataset.sortOrder) - parseInt(b.dataset.sortOrder);
-                    }
-                });
-
-                items.forEach((item) => paperList.appendChild(item));
-            });
+        sortButtons.forEach(btn => {
+            btn.addEventListener('click', () => switchView(btn.dataset.sort));
         });
+
+        // Author filter: matches against data-author attribute (lowercased,
+        // contains all co-authors). Empty input shows everything. Whitespace
+        // is normalized; commas and asterisks ignored.
+        const normalizeQuery = (q) =>
+            q.toLowerCase().replace(/\*+/g, '').replace(/\s+/g, ' ').trim();
+
+        const applyAuthorFilter = () => {
+            if (!authorInput) return;
+            const q = normalizeQuery(authorInput.value);
+            const activeView = viewProgramm.classList.contains('d-none') ? viewAutor : viewProgramm;
+            const items = activeView.querySelectorAll('.archiv-item');
+            let visible = 0;
+            items.forEach(it => {
+                const hay = it.dataset.author || '';
+                const match = q === '' || hay.includes(q);
+                it.classList.toggle('d-none', !match);
+                if (match) visible++;
+            });
+            // Sessions/Kategorien ohne sichtbare Papers ausblenden.
+            activeView.querySelectorAll('details.archiv-session').forEach(det => {
+                const anyVisible = det.querySelectorAll('.archiv-item:not(.d-none)').length > 0;
+                det.classList.toggle('d-none', !anyVisible);
+                if (anyVisible && q !== '') det.open = true;
+            });
+            if (emptyMessage) emptyMessage.classList.toggle('d-none', visible > 0);
+        };
+
+        if (authorInput) {
+            authorInput.addEventListener('input', applyAuthorFilter);
+        }
     }
 
     // --- BibTeX toggle and copy ---

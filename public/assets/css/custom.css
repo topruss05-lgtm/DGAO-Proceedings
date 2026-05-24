@@ -1203,6 +1203,70 @@ h3, .h3 {
 
 
 /* ============================
+   ARCHIV-DETAIL — Sessions als <details>
+   ============================ */
+
+.archiv-session {
+    margin-bottom: 1.5rem;
+    border: none;
+}
+
+.archiv-session__summary {
+    cursor: pointer;
+    padding: 0.65rem 0.75rem;
+    background: rgba(15, 23, 42, 0.035);
+    border-left: 3px solid var(--accent, #b42e42);
+    border-radius: 4px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.75rem;
+    transition: background-color 0.15s ease;
+}
+
+.archiv-session__summary::-webkit-details-marker {
+    display: none;
+}
+
+.archiv-session__summary::before {
+    content: "▸";
+    display: inline-block;
+    font-size: 0.85em;
+    color: var(--accent, #b42e42);
+    width: 1em;
+    transition: transform 0.15s ease;
+}
+
+.archiv-session[open] > .archiv-session__summary::before {
+    transform: rotate(90deg);
+}
+
+.archiv-session__summary:hover {
+    background: rgba(15, 23, 42, 0.06);
+}
+
+.archiv-session__title {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.archiv-session__meta {
+    font-size: 0.82rem;
+}
+
+.archiv-session__papers {
+    padding-left: 1.25rem;
+}
+
+#archiv-empty {
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+
+/* ============================
    REDUCED MOTION (Accessibility)
    ============================ */
 
