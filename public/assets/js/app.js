@@ -38,20 +38,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Author filter: matches against data-author attribute (lowercased,
-        // contains all co-authors). Empty input shows everything. Whitespace
-        // is normalized; commas and asterisks ignored.
-        const normalizeQuery = (q) =>
-            q.toLowerCase().replace(/\*+/g, '').replace(/\s+/g, ' ').trim();
+        // contains all co-authors). Empty input shows everything.
+        // Query is tokenized by whitespace+commas so that "Schmidt, I."
+        // (Datalist format) matches data-author "i. schmidt, a. mueller"
+        // (autoren_text format). Each token must appear in data-author.
+        const normalizeAndTokenize = (q) =>
+            q.toLowerCase()
+             .replace(/\*+/g, '')
+             .split(/[\s,]+/)
+             .filter(t => t.length > 0);
 
         const applyAuthorFilter = () => {
             if (!authorInput) return;
-            const q = normalizeQuery(authorInput.value);
+            const tokens = normalizeAndTokenize(authorInput.value);
             const activeView = viewProgramm.classList.contains('d-none') ? viewAutor : viewProgramm;
             const items = activeView.querySelectorAll('.archiv-item');
             let visible = 0;
             items.forEach(it => {
                 const hay = it.dataset.author || '';
-                const match = q === '' || hay.includes(q);
+                const match = tokens.length === 0 || tokens.every(t => hay.includes(t));
                 it.classList.toggle('d-none', !match);
                 if (match) visible++;
             });
