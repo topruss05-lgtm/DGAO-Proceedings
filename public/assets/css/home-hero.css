@@ -1,0 +1,581 @@
+/* =============================================
+   Homepage — Optics Refraction Hero
+   Dark stage; white beam refracts and disperses through an Apple-
+   style liquid-glass search bar. Mobile shows just the prism;
+   desktop adds a biconvex lens with chromatic aberration.
+   Geometry is computed in PHP (Snell's law) and rendered as SVG.
+   The interactive form is positioned in % so it stays in lock-
+   step with the SVG glass shape (stage uses aspect-ratio).
+   ============================================= */
+
+.hero {
+    position: relative;
+    background: #050811;
+    color: #fff;
+    overflow: hidden;
+    isolation: isolate;
+    padding: clamp(2rem, 4vw, 3.25rem) 0 clamp(2rem, 4vw, 3.25rem);
+}
+/* Mobile: Hero darf direkt am Header andocken, sonst klafft über dem
+   Titelblock eine tote schwarze Zone unter dem Hamburger. */
+@media (max-width: 767.98px) {
+    .hero { padding: 0.25rem 0 0.5rem; }
+}
+
+/* ---------- atmospheric background ----------
+   WICHTIG: Der Hero muss am OBEREN Rand denselben Ton wie die dunkle
+   Home-Navbar treffen (#050811), sonst entsteht eine sichtbare Stoßkante.
+   Deshalb sind alle Glow-/Vignette-Quellen so positioniert, dass sie die
+   oberen 25 % der Hero nicht einfärben oder abdunkeln. Der zentrale
+   Radial-Gradient läuft VON OBEN nach unten (statt aus der Mitte), damit
+   die Top-Linie überall exakt #050811 ist. */
+.hero__bg {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background:
+        radial-gradient(ellipse 65% 45% at 10% 100%,
+            rgba(255, 215, 175, 0.16) 0%, rgba(255, 200, 150, 0) 60%),
+        radial-gradient(ellipse 55% 45% at 92% 55%,
+            rgba(120, 180, 255, 0.12) 0%, rgba(80, 130, 220, 0) 65%),
+        linear-gradient(180deg, #050811 0%, #050811 18%, #0a1024 60%, #050811 100%);
+}
+.hero__bg::before, .hero__bg::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+}
+.hero__bg::before {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.45;
+    mix-blend-mode: overlay;
+    /* Noise startet erst unterhalb der Navbar-Übergangszone, damit am
+       Top-Edge nichts flackert und der Übergang nahtlos bleibt. */
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, transparent 12%, #000 28%, #000 100%);
+            mask-image: linear-gradient(180deg, transparent 0%, transparent 12%, #000 28%, #000 100%);
+}
+/* Vignette nur unten/in der Mitte unten — KEIN Darken am Top-Rand. */
+.hero__bg::after {
+    background: radial-gradient(ellipse 95% 90% at 50% 85%,
+        transparent 50%, rgba(0, 0, 0, 0.45) 100%);
+}
+
+/* ---------- locked-aspect stage ---------- */
+.hero__stage {
+    position: relative;
+    z-index: 1;
+    width: min(100% - 2rem, 1280px);
+    margin: 0 auto;
+    aspect-ratio: 1280 / 560;
+}
+@media (max-width: 767.98px) {
+    .hero__stage {
+        width: min(100% - 1rem, 600px);
+        aspect-ratio: 600 / 760;
+    }
+}
+
+/* ---------- SVG optics ---------- */
+.hero__optics {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: visible;
+}
+.hero__optics--mobile  { display: none; }
+@media (max-width: 767.98px) {
+    .hero__optics--desktop { display: none; }
+    .hero__optics--mobile  { display: block; }
+}
+.dgao-grid line { stroke: rgba(255,255,255,0.025); stroke-width: 1; }
+.dgao-axis      { stroke: rgba(255,255,255,0.10); stroke-width: 1; stroke-dasharray: 2 4; }
+.dgao-anno      {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    fill: rgba(255,255,255,0.42);
+}
+.dgao-anno--n   { font-size: 10.5px; letter-spacing: 0.05em; text-transform: none; }
+.dgao-focus-dot { fill: rgba(255,255,255,0.85); }
+
+/* ---------- text overlay ---------- */
+.hero__overlay { position: absolute; inset: 0; }
+
+.hero__text {
+    position: absolute;
+    top: 6%;
+    left: 5.5%;
+    width: clamp(280px, 46%, 540px);
+    z-index: 3;
+}
+
+.hero__eyebrow {
+    margin: 0 0 1.4rem;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+.hero__eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.32);
+}
+
+.hero__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.85rem, 3.1vw, 2.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+}
+.hero__title-line { display: block; }
+.hero__title-line--1 { color: #ffffff; }
+.hero__title-line--2 { color: rgba(255, 255, 255, 0.78); }
+.hero__title-line--3 { color: rgba(255, 255, 255, 0.55); }
+
+/* Die ersten zwei Zeilen sind ein Link zur dgao.de — visuell
+   identisch zum nicht-verlinkten Verhalten, nur per Cursor + sanftem
+   Opazitäts-Dip beim Hover als Affordance erkennbar. */
+.hero__title-link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    transition: opacity 0.22s var(--ease);
+}
+.hero__title-link:hover { opacity: 0.78; text-decoration: none; }
+.hero__title-link:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+/* ---------- liquid-glass search form ----------
+   Positioned in % to align with the SVG glass coordinates.
+   Desktop glass at viewBox (360, 235, 560, 90) on 1280×560.
+   Mobile glass at viewBox (60, 415, 480, 90) on 600×760. */
+.hero__search-form {
+    position: absolute;
+    top:    41.07%;     /* desktop glass.y / vb.h = 230/560 */
+    left:   6.25%;      /* glass.x / vb.w  =  80/1280 */
+    width:  40.625%;    /* glass.w / vb.w  = 520/1280 */
+    height: 17.86%;     /* glass.h / vb.h  = 100/560  */
+    z-index: 4;
+    margin: 0;
+}
+@media (max-width: 767.98px) {
+    .hero__search-form {
+        top:    53.95%; /* mobile glass.y / vb.h = 410/760 */
+        left:   10%;    /* glass.x / vb.w  = 60/600  */
+        width:  80%;    /* glass.w / vb.w  = 480/600 */
+        height: 13.16%; /* glass.h / vb.h  = 100/760 */
+    }
+}
+
+/* Visually hidden but still announced to assistive tech: the search
+   icon + placeholder make the form's purpose obvious to sighted users
+   and a printed label was crowding the spectrum exit area. */
+.hero__search-label {
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Wissenschaftlich-präzises Glas statt iOS-Pille:
+   leicht abgerundetes Rechteck (wie ein optisches Element / Glasplatte),
+   kräftigerer Backdrop-Blur (Inhalte HINTER der Form werden geblurrt —
+   die Suche-Eingabe selbst liegt darüber und bleibt knackscharf), eine
+   einzelne dünne Hairline-Border statt buntem Verlaufsrahmen. */
+.hero__search {
+    position: relative;
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 7px 7px 7px clamp(16px, 1.6vw, 24px);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    -webkit-backdrop-filter: blur(8px) saturate(1.4);
+            backdrop-filter: blur(8px) saturate(1.4);
+    box-shadow:
+        inset 0 1px 0    rgba(255, 255, 255, 0.18),
+        0 12px 36px -14px rgba(0, 0, 0, 0.55);
+    transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.hero__search:focus-within {
+    border-color: rgba(255, 255, 255, 0.32);
+    box-shadow:
+        inset 0 1px 0     rgba(255, 255, 255, 0.22),
+        0 14px 44px -12px rgba(0, 0, 0, 0.6),
+        0 0 0 3px         rgba(120, 180, 255, 0.16);
+}
+
+.hero__search-icon {
+    flex-shrink: 0;
+    margin-right: 14px;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 1.05rem;
+    line-height: 1;
+    z-index: 1;
+}
+
+.hero__search-input {
+    flex: 1; min-width: 0;
+    height: 100%;
+    background: transparent;
+    border: 0; outline: 0;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 1vw, 1rem);
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    padding: 0;
+    z-index: 1;
+}
+.hero__search-input::placeholder { color: rgba(255, 255, 255, 0.55); }
+.hero__search-input::-webkit-search-cancel-button { display: none; }
+
+.hero__search-btn {
+    flex-shrink: 0;
+    height: 100%;
+    aspect-ratio: 1;
+    margin-left: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.10);
+    color: #fff;
+    font-size: 1rem; line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    z-index: 1;
+    transition: background 0.18s var(--ease), border-color 0.18s var(--ease);
+}
+.hero__search-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.30);
+}
+.hero__search-btn:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.7);
+    outline-offset: 2px;
+}
+
+/* ---------- stats ---------- */
+.hero__stats {
+    position: absolute;
+    left: 5.5%;
+    right: 5.5%;
+    bottom: 6%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, auto));
+    column-gap: clamp(1.75rem, 4vw, 4rem);
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    z-index: 3;
+}
+.hero__stat-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 1.8vw, 1.65rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 0.35rem;
+    font-feature-settings: 'tnum' 1, 'lnum' 1;
+}
+.hero__stat-lbl {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width: 767.98px) {
+    /* Titel direkt unter den Hamburger setzen + linksbündig auf Höhe
+       der Suchbox (left=10%), damit Titel und Suche eine sauberer
+       vertikale Linie bilden. Ein Hauch Luft (top=6%) verhindert,
+       dass der Titel direkt am Hamburger-Strich klebt. */
+    .hero__text { top: 6%; left: 10%; width: 80%; }
+    .hero__eyebrow { font-size: 0.62rem; margin-bottom: 0.55rem; }
+    .hero__title { font-size: clamp(1.7rem, 7vw, 2.2rem); }
+    .hero__lead  { font-size: 0.92rem; }
+    .hero__stats {
+        bottom: 4%;
+        column-gap: 1.4rem;
+        padding-top: 1rem;
+    }
+    .hero__stat-num { font-size: 1.15rem; }
+    .hero__stat-lbl { font-size: 0.6rem; letter-spacing: 0.1em; }
+}
+
+/* ---------- bottom hairline ---------- */
+.hero__edge {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    z-index: 2;
+}
+
+/* ---------- subtle photon shimmer on the white beam ---------- */
+@keyframes dgao-shimmer {
+    0%, 100% { opacity: 0.92; }
+    50%      { opacity: 1; }
+}
+.dgao-ray-white { animation: dgao-shimmer 4.5s ease-in-out infinite; }
+
+/* --- DOWNSTREAM SECTIONS --- */
+.v4-section-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.v4-section-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.015em;
+    margin: 0 0 0.3rem;
+}
+
+.v4-section-bar {
+    display: block;
+    height: 3px;
+    width: 56px;
+    border: none;
+    border-radius: 2px;
+    background: var(--accent);
+    margin: 0 0 1.75rem;
+    opacity: 1;
+}
+
+/* --- NEWS — compact editorial grid --- */
+.v4-news {
+    background: var(--white);
+    padding: 2.75rem 0 2.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.v4-news-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.v4-news-item {
+    padding: 1.05rem 0 1.1rem;
+    border-bottom: 1px solid var(--border-light);
+    min-width: 0;
+}
+
+.v4-news-date {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+}
+
+.v4-news-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.005em;
+    line-height: 1.35;
+    margin: 0 0 0.3rem;
+}
+
+.v4-news-text {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 767.98px) {
+    .v4-news-list {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+    }
+    .v4-news-item { padding: 0.9rem 0 1rem; }
+    .v4-news-title { font-size: 0.96rem; }
+    .v4-news-text { font-size: 0.85rem; }
+}
+
+.v4-conferences {
+    background: var(--paper);
+    padding: 3.25rem 0 3.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.v4-conf-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.5rem;
+}
+
+.v4-conf-grid > * { min-width: 0; }
+
+.v4-conf-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    min-width: 0;
+    transition: box-shadow 0.25s var(--ease),
+                transform 0.25s var(--ease);
+}
+
+.v4-conf-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+/* Bild ist auf jeder Viewport-Größe der Haupt-Klick-Target. Auf Mobile
+   verschwindet zusätzlich der Button-Block, das Bild bleibt das einzige
+   Tap-Element. */
+.v4-conf-img-link {
+    display: block;
+    line-height: 0;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-light);
+    transition: opacity 0.22s var(--ease);
+}
+.v4-conf-img-link:hover { opacity: 0.92; }
+.v4-conf-img-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+}
+
+.v4-conf-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s var(--ease);
+}
+.v4-conf-card:hover .v4-conf-img { transform: scale(1.01); }
+
+.v4-conf-body { padding: 1.25rem 1.5rem 1.5rem; }
+
+.v4-conf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: var(--font-display);
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--accent);
+    border: none;
+    border-radius: 6px;
+    padding: 0.55rem 1.1rem;
+    text-decoration: none;
+    transition: background 0.18s var(--ease),
+                transform 0.18s var(--ease);
+}
+.v4-conf-btn:hover {
+    background: var(--accent-light);
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+/* HAW Hamburg verwendet ihre Hochschulfarbe (#004C98). Konsistent zur
+   Mutterseite, signalisiert "externer Partner" optisch ohne Erklärung. */
+.v4-conf-btn--haw {
+    background: #004C98;
+}
+.v4-conf-btn--haw:hover {
+    background: #003B79;
+}
+
+.v4-archive {
+    background: var(--white);
+    padding: 3.25rem 0 3.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.v4-features {
+    background: var(--paper);
+    padding: 3.25rem 0 3.75rem;
+}
+
+.v4-trust {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.v4-trust-item { display: flex; align-items: flex-start; gap: 0.7rem; }
+
+.v4-trust-icon {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: var(--accent-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 0.95rem;
+}
+
+.v4-trust-label {
+    font-family: var(--font-display);
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.v4-trust-desc {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin: 0.15rem 0 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 767.98px) {
+    .v4-conf-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .v4-trust { grid-template-columns: 1fr; gap: 1.25rem; }
+    /* Auf Mobile sind die Bilder allein das Klick-Target — Button-Block
+       weg, Bild übernimmt komplett (Stacked-Look bleibt sauber). */
+    .v4-conf-body { display: none; }
+    .v4-conf-img-link { border-bottom: 0; }
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
