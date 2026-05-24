@@ -104,40 +104,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $data['pdf_dateiname'], $data['hat_pdf'],
             ]);
 
-            // Autoren verarbeiten
-            $stmtAI = $dbw->prepare('INSERT OR IGNORE INTO autoren (vorname, nachname) VALUES (?, ?)');
-            $stmtAG = $dbw->prepare('SELECT id FROM autoren WHERE nachname = ? AND vorname = ?');
-            $stmtPA = $dbw->prepare('INSERT OR REPLACE INTO paper_autoren (paper_id, autor_id, position, ist_hauptautor) VALUES (?, ?, ?, ?)');
-
-            $autoren = array_map('trim', explode(',', $data['autoren_text']));
-            foreach ($autoren as $pos => $autorDisplay) {
-                if (empty($autorDisplay)) continue;
-                $parsed = parseAuthorDisplayName($autorDisplay);
-                $stmtAI->execute([$parsed['vorname'], $parsed['nachname']]);
-                $stmtAG->execute([$parsed['nachname'], $parsed['vorname']]);
-                $autorRow = $stmtAG->fetch();
-                if ($autorRow) {
-                    $stmtPA->execute([$newPaperId, $autorRow['id'], $pos + 1, $pos === 0 ? 1 : 0]);
-                }
-            }
-
-            // Keywords verarbeiten
-            $stmtKI = $dbw->prepare('INSERT OR IGNORE INTO keywords (keyword) VALUES (?)');
-            $stmtKG = $dbw->prepare('SELECT id FROM keywords WHERE keyword = ?');
-            $stmtPK = $dbw->prepare('INSERT OR REPLACE INTO paper_keywords (paper_id, keyword_id) VALUES (?, ?)');
-
-            if (!empty($data['keywords_raw'])) {
-                $keywords = array_map('trim', explode(',', $data['keywords_raw']));
-                foreach ($keywords as $kw) {
-                    if (empty($kw)) continue;
-                    $stmtKI->execute([$kw]);
-                    $stmtKG->execute([$kw]);
-                    $kwRow = $stmtKG->fetch();
-                    if ($kwRow) {
-                        $stmtPK->execute([$newPaperId, $kwRow['id']]);
-                    }
-                }
-            }
+            syncPaperAuthors($dbw, $newPaperId, $data['autoren_text']);
+            syncPaperKeywords($dbw, $newPaperId, $data['keywords_raw']);
 
             rebuildFtsIndex($dbw);
             $dbw->commit();
@@ -145,9 +113,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             setFlash('success', $isNew ? 'Paper angelegt.' : 'Paper aktualisiert.');
             header('Location: /admin/papers?tagung=' . $data['tagung_nummer']);
             exit;
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $dbw->rollBack();
-            $errors[] = 'Speichern fehlgeschlagen: ' . $e->getMessage();
+            error_log('paper_edit save error: ' . $e);
+            $errors[] = 'Speichern fehlgeschlagen — Details im Server-Log.';
         }
     }
 }

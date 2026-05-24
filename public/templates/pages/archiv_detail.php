@@ -12,22 +12,7 @@ if (!$tagung) {
     return;
 }
 
-$stmt = $db->prepare('
-    SELECT id, code, typ, titel, autoren_text, hauptautor,
-           zeit, raum, datum, hat_pdf, pdf_dateiname
-    FROM papers
-    WHERE tagung_nummer = ?
-    ORDER BY
-        CASE typ
-            WHEN \'hauptvortrag\' THEN 1
-            WHEN \'sondervortrag\' THEN 2
-            WHEN \'vortrag\' THEN 3
-            WHEN \'poster\' THEN 4
-        END,
-            substr(code,1,1), CAST(substr(code,2) AS INTEGER)
-');
-$stmt->execute([$nummer]);
-$papers = $stmt->fetchAll();
+$papers = getPapersByTagung((int) $nummer);
 
 $pageTitle    = $tagung['nummer'] . '. ' . t('archiv_detail.jahrestagung') . ' (' . $tagung['jahr'] . ') - ' . SITE_NAME;
 $canonicalUrl = canonicalUrl('/archiv/' . $tagung['nummer']);

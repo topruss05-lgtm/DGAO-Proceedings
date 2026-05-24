@@ -2,25 +2,7 @@
 $activeTagung = getCurrentVorlagenTagung();
 $isOpen       = $activeTagung !== null;
 
-$papers = [];
-if ($isOpen) {
-    $stmt = getDb()->prepare(
-        'SELECT id, code, typ, titel, hauptautor
-         FROM papers
-         WHERE tagung_nummer = ?
-         ORDER BY
-            CASE typ
-                WHEN \'hauptvortrag\'  THEN 1
-                WHEN \'sondervortrag\' THEN 2
-                WHEN \'vortrag\'       THEN 3
-                WHEN \'poster\'        THEN 4
-                ELSE 9
-            END,
-            substr(code,1,1), CAST(substr(code,2) AS INTEGER)'
-    );
-    $stmt->execute([$activeTagung['nummer']]);
-    $papers = $stmt->fetchAll();
-}
+$papers = $isOpen ? getPapersByTagung((int) $activeTagung['nummer']) : [];
 
 $pageTitle    = t('einreichen.page_title') . ' — ' . SITE_NAME;
 $canonicalUrl = canonicalUrl('/einreichen');

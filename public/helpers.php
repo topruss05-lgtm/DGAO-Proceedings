@@ -107,6 +107,31 @@ function renderMetaTag(array $tag): string
     return '<meta' . $attrs . ' content="' . e($tag['content']) . '">';
 }
 
+/**
+ * Liefert die Papers einer Tagung in Konferenz-Reihenfolge (Hauptvortraege,
+ * Sondervortraege, Vortraege, Poster — innerhalb des Typs nach Code).
+ */
+function getPapersByTagung(int $tagungNummer): array
+{
+    $stmt = getDb()->prepare("
+        SELECT id, code, typ, titel, autoren_text, hauptautor,
+               zeit, raum, datum, hat_pdf, pdf_dateiname
+        FROM papers
+        WHERE tagung_nummer = ?
+        ORDER BY
+            CASE typ
+                WHEN 'hauptvortrag'  THEN 1
+                WHEN 'sondervortrag' THEN 2
+                WHEN 'vortrag'       THEN 3
+                WHEN 'poster'        THEN 4
+                ELSE 9
+            END,
+            substr(code,1,1), CAST(substr(code,2) AS INTEGER)
+    ");
+    $stmt->execute([$tagungNummer]);
+    return $stmt->fetchAll();
+}
+
 function getAllTagungen(): array
 {
     $db = getDb();

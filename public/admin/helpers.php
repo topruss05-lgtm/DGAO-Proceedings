@@ -148,6 +148,80 @@ function parseAuthorDisplayName(string $displayName): array
     ];
 }
 
+// --- Paper-Persistenz: Autoren- und Keyword-Sync ---
+// Beide Helpers werden von executeImport (CSV-Import) und paper_edit (UI) genutzt.
+
+/**
+ * Verknüpft die im autoren_text genannten Autoren mit einem Paper.
+ * Legt neue autoren-Zeilen on the fly an. Caller ist fuer das vorherige
+ * Loeschen alter paper_autoren-Eintraege verantwortlich.
+ *
+ * @return int Anzahl erfolgreich verknuepfter Autoren.
+ */
+function syncPaperAuthors(PDO $db, string $paperId, string $autorenText): int
+{
+    if ($autorenText === '') return 0;
+
+    static $stmtInsert = null, $stmtGet = null, $stmtLink = null;
+    static $boundDb = null;
+    if ($boundDb !== $db) {
+        $stmtInsert = $db->prepare('INSERT OR IGNORE INTO autoren (vorname, nachname) VALUES (?, ?)');
+        $stmtGet    = $db->prepare('SELECT id FROM autoren WHERE nachname = ? AND vorname = ?');
+        $stmtLink   = $db->prepare('INSERT OR REPLACE INTO paper_autoren (paper_id, autor_id, position, ist_hauptautor) VALUES (?, ?, ?, ?)');
+        $boundDb = $db;
+    }
+
+    $linked = 0;
+    $autoren = array_map('trim', explode(',', $autorenText));
+    foreach ($autoren as $pos => $display) {
+        if ($display === '') continue;
+        $parsed = parseAuthorDisplayName($display);
+        $stmtInsert->execute([$parsed['vorname'], $parsed['nachname']]);
+        $stmtGet->execute([$parsed['nachname'], $parsed['vorname']]);
+        $row = $stmtGet->fetch();
+        if ($row) {
+            $stmtLink->execute([$paperId, $row['id'], $pos + 1, $pos === 0 ? 1 : 0]);
+            $linked++;
+        }
+    }
+    return $linked;
+}
+
+/**
+ * Verknüpft die komma-separierten Keywords mit einem Paper. Legt neue
+ * keyword-Zeilen on the fly an. Caller ist fuer das vorherige Loeschen
+ * alter paper_keywords-Eintraege verantwortlich.
+ *
+ * @return int Anzahl erfolgreich verknuepfter Keywords.
+ */
+function syncPaperKeywords(PDO $db, string $paperId, string $keywordsRaw): int
+{
+    if ($keywordsRaw === '') return 0;
+
+    static $stmtInsert = null, $stmtGet = null, $stmtLink = null;
+    static $boundDb = null;
+    if ($boundDb !== $db) {
+        $stmtInsert = $db->prepare('INSERT OR IGNORE INTO keywords (keyword) VALUES (?)');
+        $stmtGet    = $db->prepare('SELECT id FROM keywords WHERE keyword = ?');
+        $stmtLink   = $db->prepare('INSERT OR REPLACE INTO paper_keywords (paper_id, keyword_id) VALUES (?, ?)');
+        $boundDb = $db;
+    }
+
+    $linked = 0;
+    $keywords = array_map('trim', explode(',', $keywordsRaw));
+    foreach ($keywords as $kw) {
+        if ($kw === '') continue;
+        $stmtInsert->execute([$kw]);
+        $stmtGet->execute([$kw]);
+        $row = $stmtGet->fetch();
+        if ($row) {
+            $stmtLink->execute([$paperId, $row['id']]);
+            $linked++;
+        }
+    }
+    return $linked;
+}
+
 // --- Import-Logik ---
 
 /**
@@ -198,14 +272,6 @@ function executeImport(int $tagungNummer, array $rows, bool $overwrite): array
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ');
 
-        $stmtAutorInsert = $db->prepare('INSERT OR IGNORE INTO autoren (vorname, nachname) VALUES (?, ?)');
-        $stmtAutorGet = $db->prepare('SELECT id FROM autoren WHERE nachname = ? AND vorname = ?');
-        $stmtPaperAutor = $db->prepare('INSERT OR REPLACE INTO paper_autoren (paper_id, autor_id, position, ist_hauptautor) VALUES (?, ?, ?, ?)');
-
-        $stmtKwInsert = $db->prepare('INSERT OR IGNORE INTO keywords (keyword) VALUES (?)');
-        $stmtKwGet = $db->prepare('SELECT id FROM keywords WHERE keyword = ?');
-        $stmtPaperKw = $db->prepare('INSERT OR REPLACE INTO paper_keywords (paper_id, keyword_id) VALUES (?, ?)');
-
         foreach ($rows as $row) {
             $validation = validateImportRow($row);
             if (!empty($validation['errors'])) {
@@ -248,47 +314,8 @@ function executeImport(int $tagungNummer, array $rows, bool $overwrite): array
             ]);
             $paperCount++;
 
-            // Autoren verarbeiten
-            if (!empty($autorenText)) {
-                $autoren = array_map('trim', explode(',', $autorenText));
-                foreach ($autoren as $pos => $autorDisplay) {
-                    if (empty($autorDisplay)) continue;
-
-                    $parsed = parseAuthorDisplayName($autorDisplay);
-
-                    $stmtAutorInsert->execute([$parsed['vorname'], $parsed['nachname']]);
-                    $stmtAutorGet->execute([$parsed['nachname'], $parsed['vorname']]);
-                    $autorRow = $stmtAutorGet->fetch();
-
-                    if ($autorRow) {
-                        $stmtPaperAutor->execute([
-                            $paperId,
-                            $autorRow['id'],
-                            $pos + 1,
-                            $pos === 0 ? 1 : 0,
-                        ]);
-                        $authorCount++;
-                    }
-                }
-            }
-
-            // Keywords verarbeiten
-            $keywordsRaw = $row['keywords'] ?? '';
-            if (!empty($keywordsRaw)) {
-                $keywords = array_map('trim', explode(',', $keywordsRaw));
-                foreach ($keywords as $kw) {
-                    if (empty($kw)) continue;
-
-                    $stmtKwInsert->execute([$kw]);
-                    $stmtKwGet->execute([$kw]);
-                    $kwRow = $stmtKwGet->fetch();
-
-                    if ($kwRow) {
-                        $stmtPaperKw->execute([$paperId, $kwRow['id']]);
-                        $keywordCount++;
-                    }
-                }
-            }
+            $authorCount  += syncPaperAuthors($db, $paperId, $autorenText);
+            $keywordCount += syncPaperKeywords($db, $paperId, $row['keywords'] ?? '');
         }
 
         // 4. FTS-Index neu aufbauen
@@ -305,11 +332,12 @@ function executeImport(int $tagungNummer, array $rows, bool $overwrite): array
                 'keywords' => $keywordCount,
             ],
         ];
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         $db->rollBack();
+        error_log('executeImport error: ' . $e);
         return [
             'success' => false,
-            'message' => 'Import fehlgeschlagen: ' . $e->getMessage(),
+            'message' => 'Import fehlgeschlagen — Details im Server-Log.',
             'stats'   => [],
         ];
     }
