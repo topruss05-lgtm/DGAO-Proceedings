@@ -2,7 +2,26 @@
 
 declare(strict_types=1);
 
-session_start();
+// Session-Hardening BEVOR session_start. Diese Defaults werden nur fuer den
+// Admin-Pfad gesetzt (admin/auth.php wird nur dort geladen). secure=true
+// setzt voraus, dass das Admin-UI ausschliesslich ueber HTTPS erreichbar ist;
+// lokaler Dev-Server unter http://localhost laesst den Cookie sonst fallen.
+if (session_status() === PHP_SESSION_NONE) {
+    ini_set('session.use_strict_mode', '1');
+    ini_set('session.use_only_cookies', '1');
+    ini_set('session.cookie_httponly', '1');
+    // Auf localhost (Dev) ohne TLS: secure off, sonst landet kein Cookie.
+    $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+            || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https');
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path'     => '/',
+        'secure'   => $isHttps,
+        'httponly' => true,
+        'samesite' => 'Lax',
+    ]);
+    session_start();
+}
 
 function isAdminLoggedIn(): bool
 {

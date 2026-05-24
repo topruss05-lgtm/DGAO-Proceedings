@@ -1,12 +1,9 @@
 RewriteEngine On
+Options -Indexes
 
 # --- Upload-Limits für Tagungsband-PDFs (bis ~30 MB) ---
 # Wirkt nur bei mod_php — bei PHP-FPM siehe .user.ini
 <IfModule mod_php.c>
-    php_value upload_max_filesize 32M
-    php_value post_max_size       32M
-</IfModule>
-<IfModule mod_php7.c>
     php_value upload_max_filesize 32M
     php_value post_max_size       32M
 </IfModule>
@@ -15,14 +12,62 @@ RewriteEngine On
     php_value post_max_size       32M
 </IfModule>
 
+# --- HTTPS-Redirect (falls Hoster kein automatisches TLS-Forwarding macht) ---
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+    RewriteCond %{HTTP_HOST} !^localhost
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# --- Security Headers ---
+<IfModule mod_headers.c>
+    # HSTS: 1 Jahr, inkl. Subdomains. Greift nur via HTTPS.
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" "expr=%{HTTPS} == 'on'"
+    # Clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+    # MIME-Sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    # Referrer-Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    # Permissions-Policy: keine Hardware-APIs noetig
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+    # Content-Security-Policy. 'unsafe-inline' fuer Scripts/Styles ist
+    # Kompromiss (Inline-JS in einreichen.php/statistik.php, Inline-Styles
+    # in mehreren Templates). Migration auf Nonces ist separater Task.
+    Header always set Content-Security-Policy "default-src 'self'; \
+        script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; \
+        style-src  'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; \
+        font-src   'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; \
+        img-src    'self' data:; \
+        connect-src 'self'; \
+        frame-ancestors 'self'; \
+        base-uri 'self'; \
+        form-action 'self'"
+    # Cross-Origin Isolation
+    Header always set Cross-Origin-Opener-Policy "same-origin"
+    Header always set X-Permitted-Cross-Domain-Policies "none"
+</IfModule>
+
 # --- Security: block sensitive files ---
-<FilesMatch "\.(db|db-shm|db-wal|sqlite)$">
+<FilesMatch "\.(db|db-shm|db-wal|sqlite|sqlite3|backup|bak|sql|log|env|ini|yml|yaml|md)$">
     Require all denied
 </FilesMatch>
 
-<FilesMatch "^(config|db|router|helpers|sitemap|redirect)\.php$">
+<FilesMatch "^(config|db|router|helpers|sitemap|redirect|mailer|submissions|lang|template_generator|manuskript_vorlage_download|paper_template_download)\.php$">
     Require all denied
 </FilesMatch>
+
+<FilesMatch "^(composer\.(json|lock)|package\.json|\.htaccess|\.user\.ini|\.gitignore)$">
+    Require all denied
+</FilesMatch>
+
+# .git, .env und andere sensible Hidden-Files blockieren
+# (.well-known bleibt erreichbar fuer ACME / security.txt etc.)
+RedirectMatch 404 /\.git(/|$)
+RedirectMatch 404 /\.env(/|$)
+RedirectMatch 404 /\.user\.ini$
+RedirectMatch 404 /\.htaccess$
 
 RewriteRule ^templates/ - [F,L]
 RewriteRule ^data/ - [F,L]
@@ -30,17 +75,25 @@ RewriteRule ^data/ - [F,L]
 # Block direct access to admin PHP files (routed via front controller)
 RewriteRule ^admin/(?!assets/).+\.php$ - [F,L]
 
+# --- Compression ---
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css \
+                                  application/javascript application/json \
+                                  application/xml image/svg+xml
+</IfModule>
+
 # --- Cache headers for static assets ---
 <IfModule mod_expires.c>
     ExpiresActive On
     ExpiresByType text/css "access plus 1 year"
     ExpiresByType application/javascript "access plus 1 year"
     ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
     ExpiresByType application/pdf "access plus 1 month"
 </IfModule>
 
 <IfModule mod_headers.c>
-    <FilesMatch "\.(css|js|ico)$">
+    <FilesMatch "\.(css|js|ico|svg)$">
         Header set Cache-Control "public, max-age=31536000, immutable"
     </FilesMatch>
     <FilesMatch "\.pdf$">
