@@ -11,16 +11,14 @@ $pageTitle = t('impressum.title') . ' - ' . SITE_NAME;
 
     <h3 class="h6 mt-4 section-header"><?= t('impressum.provider') ?></h3>
     <p>
-        Deutsche Gesellschaft f&uuml;r angewandte Optik e.V. (DGaO)<br>
-        c/o Prof. Dr. Gerd H&auml;usler<br>
-        Friedrich-Alexander-Universit&auml;t Erlangen-N&uuml;rnberg<br>
-        Institut f&uuml;r Optik, Information und Photonik<br>
-        Staudtstr. 7/B2<br>
-        91058 Erlangen
+        Deutsche Gesellschaft für angewandte Optik e.V. (DGaO)<br>
+        c/o Prof. Dr.-Ing. Steffen Reichel<br>
+        Hochschule Pforzheim<br>
+        Tiefenbronner Str. 65<br>
+        75175 Pforzheim
     </p>
     <p>
-        Fax: +49 (0)9131-13508<br>
-        E-Mail: <a href="mailto:info@dgao-proceedings.de" class="accent-link">info@dgao-proceedings.de</a><br>
+        E-Mail: <a href="mailto:sekretariat@dgao.de" class="accent-link">sekretariat@dgao.de</a><br>
         Web: <a href="https://www.dgao-proceedings.de/" class="accent-link">https://www.dgao-proceedings.de/</a>
     </p>
 
@@ -30,12 +28,23 @@ $pageTitle = t('impressum.title') . ' - ' . SITE_NAME;
     </p>
 
     <h3 class="h6 mt-4 section-header"><?= t('impressum.board') ?></h3>
+    <p class="small text-muted mb-3">
+        <?= e(t('impressum.board_link')) ?>
+        <a href="https://dgao.de/vorstand/" target="_blank" rel="noopener" class="accent-link">dgao.de/vorstand/</a>
+    </p>
     <div class="row">
         <div class="col-md-6 mb-3">
             <strong><?= t('impressum.president') ?></strong><br>
+            Prof. Dr.-Ing. Steffen Reichel<br>
+            Hochschule Pforzheim<br>
+            Tiefenbronner Str. 65<br>
+            75175 Pforzheim
+        </div>
+        <div class="col-md-6 mb-3">
+            <strong><?= t('impressum.past_president') ?></strong><br>
             Dipl.-Phys. Ricarda Kafka<br>
             TRIOPTICS Berlin GmbH<br>
-            Schwarzschildstra&szlig;e 12<br>
+            Schwarzschildstraße 12<br>
             12489 Berlin
         </div>
     </div>
@@ -49,9 +58,9 @@ $pageTitle = t('impressum.title') . ' - ' . SITE_NAME;
         </div>
         <div class="col-md-6 mb-3">
             <strong><?= t('impressum.secretary') ?></strong><br>
-            Dr. Christof Pruss<br>
-            ITO &ndash; Institut f&uuml;r Technische Optik<br>
-            Universit&auml;t Stuttgart<br>
+            Dr. Christof Pruß<br>
+            ITO &ndash; Institut für Technische Optik<br>
+            Universität Stuttgart<br>
             Pfaffenwaldring 9<br>
             70569 Stuttgart
         </div>
@@ -60,17 +69,17 @@ $pageTitle = t('impressum.title') . ' - ' . SITE_NAME;
     <h3 class="h6 mt-4 section-header"><?= t('impressum.editors') ?></h3>
     <div class="row">
         <div class="col-md-6 mb-3">
-            Prof. Dr. Gerd H&auml;usler<br>
-            Friedrich-Alexander-Universit&auml;t Erlangen-N&uuml;rnberg<br>
-            Institut f&uuml;r Optik, Information und Photonik<br>
+            Prof. Dr. Gerd Häusler<br>
+            Friedrich-Alexander-Universität Erlangen-Nürnberg<br>
+            Institut für Optik, Information und Photonik<br>
             Staudtstr. 7/B2<br>
             91058 Erlangen
         </div>
         <div class="col-md-6 mb-3">
-            Dr. Alexander Bielke<br>
-            ASML Berlin GmbH<br>
-            Waldkraiburger Str. 5<br>
-            12347 Berlin
+            Prof. Dr. Christian Faber<br>
+            Hochschule Landshut<br>
+            Am Lurzenhof 1<br>
+            84036 Landshut
         </div>
     </div>
 
@@ -80,7 +89,7 @@ $pageTitle = t('impressum.title') . ' - ' . SITE_NAME;
     </p>
     <p>
         <?= t('impressum.responsible') ?><br>
-        Prof. Dr. Gerd H&auml;usler <?= t('impressum.responsible_note') ?>
+        Prof. Dr.-Ing. Steffen Reichel <?= t('impressum.responsible_note') ?>
     </p>
 
     <h3 class="h6 mt-4 section-header"><?= t('impressum.disclaimer') ?></h3>

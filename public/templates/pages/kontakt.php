@@ -1,61 +1,55 @@
 <?php
-$pageTitle = t('kontakt.title') . ' - ' . SITE_NAME;
+$pageTitle    = t('kontakt.title') . ' - ' . SITE_NAME;
+$canonicalUrl = canonicalUrl('/kontakt');
 ?>
 
-<h1 class="h3 mb-4"><?= t('kontakt.title') ?></h1>
+<h1 class="h3 mb-4"><?= e(t('kontakt.title')) ?></h1>
 
 <div class="article-detail">
-    <p>
-        <?= t('kontakt.intro') ?>
-    </p>
-    <p>
-        <?= t('kontakt.questions') ?>
-    </p>
+    <p><?= t('kontakt.intro') ?></p>
 
+    <h2 class="h6 mt-4"><?= e(t('kontakt.web_contact_heading')) ?></h2>
+    <p><?= e(t('kontakt.web_contact_intro')) ?></p>
     <div class="ms-3 mb-4">
-        <p>
-            Frau Katja Richter<br>
-            E-Mail: <a href="mailto:info@dgao-proceedings.de" class="accent-link">info@dgao-proceedings.de</a>
+        <p class="mb-2">
+            Christof Pruß<br>
+            <a href="mailto:info@dgao-proceedings.de" class="accent-link">
+                <i class="bi bi-envelope"></i> info@dgao-proceedings.de
+            </a>
         </p>
-        <p><?= t('kontakt.or') ?></p>
-        <p>
-            DGaO Sekretariat<br>
-            Technische Universit&auml;t Ilmenau<br>
-            Fachgebiet Technische Optik<br>
-            Frau Katja Richter<br>
-            Postfach 100565<br>
-            98684 Ilmenau
+        <p class="text-muted small mb-0"><?= e(t('kontakt.or')) ?></p>
+    </div>
+
+    <h2 class="h6 mt-4"><?= e(t('kontakt.sekretariat_heading')) ?></h2>
+    <div class="ms-3 mb-4">
+        <p class="mb-2">
+            c/o Hochschule Pforzheim<br>
+            Tiefenbronner Str. 65<br>
+            75175 Pforzheim
         </p>
-        <p>
-            Tel: +49 (0)3677 - 692491<br>
-            Fax: +49 (0)3677 - 691281
+        <p class="mb-0">
+            <a href="mailto:sekretariat@dgao.de" class="accent-link">
+                <i class="bi bi-envelope"></i> sekretariat@dgao.de
+            </a>
         </p>
     </div>
 
-    <p><?= t('kontakt.submit_intro') ?></p>
-
+    <h2 class="h6 mt-4"><?= e(t('kontakt.dgao_address_heading')) ?></h2>
     <div class="ms-3 mb-4">
-        <p>
-            E-Mail: <a href="mailto:submit@dgao-proceedings.de" class="accent-link">submit@dgao-proceedings.de</a>
+        <p class="mb-2">
+            <strong>Deutsche Gesellschaft für angewandte Optik e.V.</strong><br>
+            c/o Prof. Dr. Steffen Reichel<br>
+            Hochschule Pforzheim<br>
+            Tiefenbronner Str. 65<br>
+            75175 Pforzheim
         </p>
-    </div>
-
-    <p><?= t('kontakt.dgao_address') ?></p>
-
-    <div class="ms-3 mb-4">
-        <p>
-            <strong>Deutsche Gesellschaft f&uuml;r angewandte Optik e.V.</strong><br>
-            c/o Elizabeth Erhard<br>
-            <?= t('kontakt.dgao_sekretariat') ?><br>
-            Im Wolfsgarten 28<br>
-            D-91056 Erlangen
-        </p>
-        <p>
-            Tel.: +49 (0)9131 9408920
-        </p>
-        <p>
-            E-Mail: <a href="mailto:DGaO-Sekretariat@dgao.de" class="accent-link">DGaO-Sekretariat@dgao.de</a><br>
-            Web: <a href="https://www.dgao.de/" target="_blank" rel="noopener" class="accent-link">www.dgao.de</a>
+        <p class="mb-0">
+            <a href="mailto:sekretariat@dgao.de" class="accent-link">
+                <i class="bi bi-envelope"></i> sekretariat@dgao.de
+            </a><br>
+            <a href="https://www.dgao.de/" target="_blank" rel="noopener" class="accent-link">
+                <i class="bi bi-globe2"></i> www.dgao.de
+            </a>
         </p>
     </div>
 </div>

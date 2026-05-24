@@ -82,31 +82,32 @@ $deadline = $activeTagung['einreichungsfrist'] ?? '';
                         </optgroup>
                     <?php endif; ?>
                 </select>
-
-                <div id="vorlage-paper-hint" class="form-text mt-2 d-none">
-                    <i class="bi bi-check-circle text-success"></i>
-                    <span data-role="hint-text"></span>
-                </div>
             </div>
         </div>
 
         <div class="d-flex flex-wrap gap-2 align-items-center">
             <a class="btn btn-primary vorlage-dl-kit"
                href="/manuskript-vorlage/kit">
-                <i class="bi bi-archive"></i> <?= t('einreichen.dl_kit') ?>
+                <i class="bi bi-archive"></i> <?= e(t('einreichen.dl_kit')) ?>
             </a>
             <span class="text-muted small">— <?= t('einreichen.dl_kit_desc') ?></span>
         </div>
     </section>
 
+    <section class="mt-4">
+        <p class="mb-2"><?= e(t('einreichen.submit_to')) ?></p>
+        <p class="mb-0">
+            <a href="mailto:sekretariat@dgao.de" class="accent-link">
+                <i class="bi bi-envelope"></i> sekretariat@dgao.de
+            </a>
+        </p>
+    </section>
+
     <script>
     (function() {
-        var sel  = document.getElementById('vorlage-paper-select');
-        var hint = document.getElementById('vorlage-paper-hint');
-        var kit  = document.querySelector('a.vorlage-dl-kit');
+        var sel = document.getElementById('vorlage-paper-select');
+        var kit = document.querySelector('a.vorlage-dl-kit');
         if (!sel || !kit) return;
-        var hintTxt = hint.querySelector('[data-role="hint-text"]');
-        var msgPaper = <?= jsonForScript(html_entity_decode(t('vorlage.picker_hint_paper'), ENT_QUOTES | ENT_HTML5, 'UTF-8')) ?>;
 
         function update() {
             var opt  = sel.options[sel.selectedIndex];
@@ -114,11 +115,8 @@ $deadline = $activeTagung['einreichungsfrist'] ?? '';
             var mode = opt.getAttribute('data-mode');
             if (mode === 'paper' && id) {
                 kit.href = '/paper/' + encodeURIComponent(id) + '/template/kit';
-                hintTxt.textContent = msgPaper.replace('%s', opt.textContent.trim());
-                hint.classList.remove('d-none');
             } else {
                 kit.href = '/manuskript-vorlage/kit';
-                hint.classList.add('d-none');
             }
         }
         sel.addEventListener('change', update);

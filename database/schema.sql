@@ -23,8 +23,10 @@ CREATE TABLE papers (
       kontakt_email TEXT,
       pdf_dateiname TEXT,
       hat_pdf INTEGER DEFAULT 0,
-      alte_abstract_id INTEGER
+      alte_abstract_id INTEGER,
+      session_id INTEGER REFERENCES sessions(id)
     );
+CREATE INDEX idx_papers_session ON papers(session_id);
 CREATE TABLE paper_autoren (
       paper_id TEXT REFERENCES papers(id),
       autor_id INTEGER REFERENCES autoren(id),
@@ -85,7 +87,28 @@ CREATE TABLE admin_login_attempts (
 );
 CREATE INDEX idx_admin_login_attempts_ip_ts ON admin_login_attempts(ip, ts);
 
+-- Themen-Sessions aus den Tagungs-Booklets (Programmübersicht).
+-- Eine Tagung hat 0..N Sessions. Sessions ohne Papers (z.B. Eröffnung,
+-- Pausen, Postersession-Slots ohne Codes) werden hier NICHT gespeichert,
+-- sondern nur Sessions, denen mind. 1 Paper zugeordnet ist.
+CREATE TABLE sessions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tagung_nummer INTEGER NOT NULL REFERENCES tagungen(nummer),
+    titel TEXT NOT NULL,
+    saal TEXT,              -- z.B. 'A', 'B', 'C', oder NULL fuer raumlose
+    sortorder INTEGER NOT NULL,
+    datum TEXT,             -- 'YYYY-MM-DD' oder NULL
+    zeit_von TEXT,          -- 'HH:MM' oder NULL
+    zeit_bis TEXT           -- 'HH:MM' oder NULL
+);
+CREATE INDEX idx_sessions_tagung ON sessions(tagung_nummer, sortorder);
+
+-- papers.session_id ist optional. NULL = noch keine Session-Zuordnung
+-- (z.B. fuer Tagungen ohne Booklet-Import). Frontend faellt dann auf
+-- die alte Code-Buchstaben-Gruppierung zurueck.
+-- ALTER TABLE wird durch runMigrations() ausgefuehrt.
+
 -- Aktueller Schema-Stand. Muss mit DB_SCHEMA_VERSION in public/db.php
 -- synchron sein. Bei neuem Deploy spielt bootstrapDb() dieses Schema
 -- inkl. user_version → runMigrations() greift dann fast-path.
-PRAGMA user_version = 4;
+PRAGMA user_version = 5;

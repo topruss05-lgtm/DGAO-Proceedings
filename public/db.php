@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/config.php';
 
-const DB_SCHEMA_VERSION = 4;
+const DB_SCHEMA_VERSION = 5;
 
 function getDb(): PDO
 {
@@ -128,6 +128,30 @@ function runMigrations(PDO $db): void
         ts INTEGER NOT NULL
     )');
     $db->exec('CREATE INDEX IF NOT EXISTS idx_admin_login_attempts_ip_ts ON admin_login_attempts(ip, ts)');
+
+    // v5: sessions-Tabelle + papers.session_id (Themen-Gruppierung aus
+    // Tagungs-Booklets). Sessions sind optional pro Tagung — Frontend
+    // faellt auf Code-Buchstaben-Gruppierung zurueck, wo keine Sessions
+    // importiert sind.
+    $hasSessions = (int) $db->query("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='sessions'")->fetchColumn();
+    if (!$hasSessions) {
+        $db->exec('CREATE TABLE sessions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            tagung_nummer INTEGER NOT NULL REFERENCES tagungen(nummer),
+            titel TEXT NOT NULL,
+            saal TEXT,
+            sortorder INTEGER NOT NULL,
+            datum TEXT,
+            zeit_von TEXT,
+            zeit_bis TEXT
+        )');
+        $db->exec('CREATE INDEX IF NOT EXISTS idx_sessions_tagung ON sessions(tagung_nummer, sortorder)');
+    }
+    $papersColumns = $db->query('PRAGMA table_info(papers)')->fetchAll(PDO::FETCH_COLUMN, 1);
+    if (!in_array('session_id', $papersColumns, true)) {
+        $db->exec('ALTER TABLE papers ADD COLUMN session_id INTEGER REFERENCES sessions(id)');
+        $db->exec('CREATE INDEX IF NOT EXISTS idx_papers_session ON papers(session_id)');
+    }
 
     $db->exec('PRAGMA user_version = ' . DB_SCHEMA_VERSION);
 }
