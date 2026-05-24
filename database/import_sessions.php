@@ -205,7 +205,10 @@ function unlinkedCodesSummary(PDO $pdo, int $tagungNummer): string
     return implode(', ', $parts);
 }
 
-// Hauptablauf
+// --- CLI-Hauptablauf ---
+$ROOT_DIR     = __DIR__ . '/..';
+$BOOKLETS_DIR = $ROOT_DIR . '/booklets';
+$DB_PATH      = $ROOT_DIR . '/public/data/proceedings.db';
 
 $filterYears = [];
 for ($i = 1; $i < $argc; $i++) {
@@ -215,14 +218,14 @@ for ($i = 1; $i < $argc; $i++) {
     }
 }
 
-if (!is_file(DB_PATH)) {
-    fwrite(STDERR, "DB nicht gefunden: " . DB_PATH . "\n");
+if (!is_file($DB_PATH)) {
+    fwrite(STDERR, "DB nicht gefunden: " . $DB_PATH . "\n");
     exit(1);
 }
 
-$pdo = dbConnect(DB_PATH);
+$pdo = dbConnect($DB_PATH);
 $yearToTagung = loadYearToTagungMap($pdo);
-$booklets = listBooklets(BOOKLETS_DIR, $filterYears);
+$booklets = listBooklets($BOOKLETS_DIR, $filterYears);
 
 if ($booklets === []) {
     echo "Keine passenden Booklets gefunden.\n";
@@ -231,7 +234,7 @@ if ($booklets === []) {
 
 echo str_repeat('=', 78) . "\n";
 echo "DGaO Session Import\n";
-echo "DB: " . DB_PATH . "\n";
+echo "DB: " . $DB_PATH . "\n";
 echo "Booklets: " . count($booklets) . " (" . implode(', ', array_keys($booklets)) . ")\n";
 echo str_repeat('=', 78) . "\n\n";
 
