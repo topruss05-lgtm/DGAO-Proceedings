@@ -8,39 +8,19 @@ $fTitel   = trim((string)($_GET['titel']    ?? ''));
 $fAutor   = trim((string)($_GET['autor']    ?? ''));
 $fInst    = trim((string)($_GET['institut'] ?? ''));
 $fAbs     = trim((string)($_GET['abstract'] ?? ''));
-$fJahrVon = (int)($_GET['jahr_von'] ?? 0);
-$fJahrBis = (int)($_GET['jahr_bis'] ?? 0);
 $fTagung  = (int)($_GET['tagung']   ?? 0);
 
 $sortRaw = (string)($_GET['sort'] ?? 'relevanz');
-$ALLOWED_SORTS = ['relevanz', 'tagung_neu', 'tagung_alt', 'vortragsart'];
+$ALLOWED_SORTS = ['relevanz', 'tagung_neu', 'tagung_alt', 'titel_az'];
 $sort = in_array($sortRaw, $ALLOWED_SORTS, true) ? $sortRaw : 'relevanz';
-
-$KNOWN_TYP_LETTERS = ['H', 'A', 'B', 'C', 'P', 'S'];
-$OTHER_LETTERS     = ['W', 'Z'];
-$typIn  = $_GET['typ'] ?? null;
-if (!is_array($typIn)) $typIn = null;
-$typFilter = null;
-if ($typIn !== null) {
-    $typFilter = [];
-    foreach ($typIn as $t) {
-        $t = strtoupper((string)$t);
-        if (in_array($t, $KNOWN_TYP_LETTERS, true)) {
-            $typFilter[] = $t;
-        } elseif ($t === 'OTHER') {
-            $typFilter = array_merge($typFilter, $OTHER_LETTERS);
-        }
-    }
-    if (empty($typFilter)) $typFilter = null;
-}
 
 // Hat der User irgendwas eingegeben?
 $hasInput = $q !== '' || $fTitel !== '' || $fAutor !== '' || $fInst !== ''
-         || $fAbs !== '' || $fJahrVon > 0 || $fJahrBis > 0 || $fTagung > 0;
+         || $fAbs !== '' || $fTagung > 0;
 
 $advancedOpen = $fTitel !== '' || $fAutor !== '' || $fInst !== '' || $fAbs !== ''
-             || $fJahrVon > 0 || $fJahrBis > 0 || $fTagung > 0
-             || $sort !== 'relevanz' || $typFilter !== null
+             || $fTagung > 0
+             || $sort !== 'relevanz'
              || isset($_GET['adv']);
 
 $results       = [];
@@ -104,31 +84,13 @@ if ($hasInput) {
         $wheres[] = 'p.tagung_nummer = :tagung';
         $params[':tagung'] = $fTagung;
     }
-    if ($fJahrVon > 0 || $fJahrBis > 0) {
-        // Tagungsjahr via Tagungen-JOIN
-        $wheres[] = 'EXISTS (SELECT 1 FROM tagungen tg WHERE tg.nummer = p.tagung_nummer'
-                  . ($fJahrVon > 0 ? ' AND tg.jahr >= :jvon' : '')
-                  . ($fJahrBis > 0 ? ' AND tg.jahr <= :jbis' : '')
-                  . ')';
-        if ($fJahrVon > 0) $params[':jvon'] = $fJahrVon;
-        if ($fJahrBis > 0) $params[':jbis'] = $fJahrBis;
-    }
-    if ($typFilter !== null) {
-        $typPlaceholders = [];
-        foreach (array_values($typFilter) as $i => $code) {
-            $key = ':typ' . $i;
-            $typPlaceholders[] = $key;
-            $params[$key] = $code;
-        }
-        $wheres[] = 'substr(p.code, 1, 1) IN (' . implode(',', $typPlaceholders) . ')';
-    }
 
     // --- ORDER BY ---
     $orderBy = match ($sort) {
-        'tagung_neu'   => "ORDER BY p.tagung_nummer DESC, $paperCodeOrderSql, CAST(substr(p.code,2) AS INTEGER)",
-        'tagung_alt'   => "ORDER BY p.tagung_nummer ASC, $paperCodeOrderSql, CAST(substr(p.code,2) AS INTEGER)",
-        'vortragsart'  => "ORDER BY $paperCodeOrderSql, p.tagung_nummer DESC, CAST(substr(p.code,2) AS INTEGER)",
-        default        => 'ORDER BY p.tagung_nummer DESC, p.code',
+        'tagung_neu' => "ORDER BY p.tagung_nummer DESC, $paperCodeOrderSql, CAST(substr(p.code,2) AS INTEGER)",
+        'tagung_alt' => "ORDER BY p.tagung_nummer ASC, $paperCodeOrderSql, CAST(substr(p.code,2) AS INTEGER)",
+        'titel_az'   => "ORDER BY p.titel COLLATE NOCASE",
+        default      => 'ORDER BY p.tagung_nummer DESC, p.code',
     };
 
     // --- Volltext-Suche ueber FTS (wenn $q da und sort=relevanz) ---
@@ -203,13 +165,6 @@ if ($hasInput) {
 $authorSuggest  = getTopAuthorSuggestions(200);
 $affilSuggest   = getTopAffiliationSuggestions(100);
 $tagungenAll    = getAllTagungenForFilter();
-
-$isTypChecked = function (string $code) use ($typIn, $typFilter): bool {
-    if ($typIn === null) return false;
-    return $typFilter !== null && in_array($code, $typFilter, true);
-};
-$isOtherChecked = $typIn !== null && $typFilter !== null
-    && count(array_intersect($OTHER_LETTERS, $typFilter)) > 0;
 ?>
 
 <h1 class="h3 mb-4"><?= e(t('suche.title')) ?></h1>
@@ -251,17 +206,6 @@ $isOtherChecked = $typIn !== null && $typFilter !== null
             </button>
         </div>
     </div>
-    <div class="small text-muted mt-1 suche-syntax-hint">
-        <?= e(t('suche.syntax_hint_label')) ?>
-        <code>"laser pulse"</code>
-        <span aria-hidden="true">·</span>
-        <code>hologr*</code>
-        <span aria-hidden="true">·</span>
-        <code>laser OR maser</code>
-        <span aria-hidden="true">·</span>
-        <code>laser -plasma</code>
-    </div>
-
     <details class="suche-advanced mt-3"<?= $advancedOpen ? ' open' : '' ?>>
         <summary class="small text-muted suche-advanced__summary">
             <i class="bi bi-sliders"></i> <?= e(t('suche.advanced_toggle')) ?>
@@ -314,7 +258,7 @@ $isOtherChecked = $typIn !== null && $typFilter !== null
                        value="<?= e($fAbs) ?>" autocomplete="off">
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label for="suche-tagung" class="form-label small text-muted mb-1">
                     <?= e(t('suche.field_tagung')) ?>
                 </label>
@@ -327,61 +271,16 @@ $isOtherChecked = $typIn !== null && $typFilter !== null
                     <?php endforeach; ?>
                 </select>
             </div>
-            <div class="col-md-2">
-                <label for="suche-jahr-von" class="form-label small text-muted mb-1">
-                    <?= e(t('suche.field_jahr_von')) ?>
-                </label>
-                <input type="number" name="jahr_von" id="suche-jahr-von"
-                       class="form-control form-control-sm"
-                       min="1949" max="2099" placeholder="1949"
-                       value="<?= $fJahrVon > 0 ? $fJahrVon : '' ?>">
-            </div>
-            <div class="col-md-2">
-                <label for="suche-jahr-bis" class="form-label small text-muted mb-1">
-                    <?= e(t('suche.field_jahr_bis')) ?>
-                </label>
-                <input type="number" name="jahr_bis" id="suche-jahr-bis"
-                       class="form-control form-control-sm"
-                       min="1949" max="2099" placeholder="2099"
-                       value="<?= $fJahrBis > 0 ? $fJahrBis : '' ?>">
-            </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label for="suche-sort" class="form-label small text-muted mb-1">
                     <?= e(t('suche.sort_label')) ?>
                 </label>
                 <select id="suche-sort" name="sort" class="form-select form-select-sm">
-                    <option value="relevanz"    <?= $sort === 'relevanz'    ? 'selected' : '' ?>><?= e(t('suche.sort_relevanz')) ?></option>
-                    <option value="tagung_neu"  <?= $sort === 'tagung_neu'  ? 'selected' : '' ?>><?= e(t('suche.sort_tagung_neu')) ?></option>
-                    <option value="tagung_alt"  <?= $sort === 'tagung_alt'  ? 'selected' : '' ?>><?= e(t('suche.sort_tagung_alt')) ?></option>
-                    <option value="vortragsart" <?= $sort === 'vortragsart' ? 'selected' : '' ?>><?= e(t('suche.sort_vortragsart')) ?></option>
+                    <option value="relevanz"   <?= $sort === 'relevanz'   ? 'selected' : '' ?>><?= e(t('suche.sort_relevanz')) ?></option>
+                    <option value="tagung_neu" <?= $sort === 'tagung_neu' ? 'selected' : '' ?>><?= e(t('suche.sort_tagung_neu')) ?></option>
+                    <option value="tagung_alt" <?= $sort === 'tagung_alt' ? 'selected' : '' ?>><?= e(t('suche.sort_tagung_alt')) ?></option>
+                    <option value="titel_az"   <?= $sort === 'titel_az'   ? 'selected' : '' ?>><?= e(t('suche.sort_titel_az')) ?></option>
                 </select>
-            </div>
-
-            <div class="col-12">
-                <fieldset>
-                    <legend class="form-label small text-muted mb-1"><?= e(t('suche.filter_typ_label')) ?></legend>
-                    <div class="suche-typ-checks">
-                        <?php foreach ([
-                            'H' => 'suche.filter_typ_h',
-                            'A' => 'suche.filter_typ_a',
-                            'B' => 'suche.filter_typ_b',
-                            'C' => 'suche.filter_typ_c',
-                            'P' => 'suche.filter_typ_p',
-                            'S' => 'suche.filter_typ_s',
-                        ] as $code => $key): ?>
-                        <label class="form-check form-check-inline mb-1">
-                            <input class="form-check-input" type="checkbox" name="typ[]" value="<?= $code ?>"
-                                   <?= $isTypChecked($code) ? 'checked' : '' ?>>
-                            <span class="form-check-label small"><?= e(t($key)) ?></span>
-                        </label>
-                        <?php endforeach; ?>
-                        <label class="form-check form-check-inline mb-1">
-                            <input class="form-check-input" type="checkbox" name="typ[]" value="OTHER"
-                                   <?= $isOtherChecked ? 'checked' : '' ?>>
-                            <span class="form-check-label small"><?= e(t('suche.filter_typ_other')) ?></span>
-                        </label>
-                    </div>
-                </fieldset>
             </div>
 
             <div class="col-12 d-flex gap-2 mt-1">
@@ -428,15 +327,10 @@ $isOtherChecked = $typIn !== null && $typFilter !== null
         </h2>
 
         <?php if (empty($results)): ?>
-            <div class="suche-empty">
-                <p class="mb-2"><?= e(sprintf(t('suche.no_results_for'), $q !== '' ? $q : ($fTitel ?: $fAutor ?: $fInst ?: $fAbs))) ?></p>
-                <ul class="small text-muted mb-0">
-                    <li><?= e(t('suche.hint_shorter')) ?></li>
-                    <li><?= e(t('suche.hint_wildcard')) ?> <code>optik*</code></li>
-                    <li><?= e(t('suche.hint_phrase')) ?> <code>"laser pulse"</code></li>
-                    <li><?= e(t('suche.hint_boolean')) ?> <code>laser OR maser</code>, <code>optik NOT linse</code></li>
-                </ul>
-            </div>
+            <p class="text-muted">
+                <?= e(sprintf(t('suche.no_results_for'), $q !== '' ? $q : ($fTitel ?: $fAutor ?: $fInst ?: $fAbs))) ?>
+                <?= e(t('suche.hint_shorter')) ?>
+            </p>
         <?php else: ?>
             <div id="suche-results"
                  data-highlight="<?= e(implode(' ', array_filter([$q, $fTitel, $fAutor, $fInst, $fAbs]))) ?>">
