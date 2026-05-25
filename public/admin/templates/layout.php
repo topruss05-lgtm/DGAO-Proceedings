@@ -49,6 +49,8 @@
                 <i class="bi bi-people"></i> Autoren</a></li>
             <li><a href="/admin/keywords" class="<?= str_starts_with($page ?? '', 'admin/keyword') ? 'active' : '' ?>">
                 <i class="bi bi-tags"></i> Keywords</a></li>
+            <li><a href="/admin/news" class="<?= str_starts_with($page ?? '', 'admin/news') ? 'active' : '' ?>">
+                <i class="bi bi-megaphone"></i> News</a></li>
         </ul>
         <div class="sidebar-footer">
             <a href="/" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Zur Website</a>

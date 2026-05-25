@@ -12,6 +12,8 @@ $recentTagungen = $db->query('
     ORDER BY t.nummer DESC
     LIMIT 5
 ')->fetchAll();
+
+$activeNewsCount = countActiveNews();
 ?>
 
 <h1 class="mb-4">Dashboard</h1>
@@ -39,6 +41,12 @@ $recentTagungen = $db->query('
         <div class="stat-card">
             <div class="stat-value"><?= $db->query('SELECT COUNT(*) FROM keywords')->fetchColumn() ?></div>
             <div class="stat-label">Keywords</div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+        <div class="stat-card">
+            <div class="stat-value"><?= $activeNewsCount ?></div>
+            <div class="stat-label"><a href="/admin/news" class="text-decoration-none">News (aktiv)</a></div>
         </div>
     </div>
 </div>
@@ -90,6 +98,9 @@ $recentTagungen = $db->query('
                 </a>
                 <a href="/admin/papers/neu" class="btn btn-outline-secondary">
                     <i class="bi bi-plus-circle"></i> Neues Paper (manuell)
+                </a>
+                <a href="/admin/news/neu" class="btn btn-outline-secondary">
+                    <i class="bi bi-megaphone"></i> Neue News
                 </a>
             </div>
         </div>

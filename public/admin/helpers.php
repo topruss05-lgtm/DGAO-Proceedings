@@ -343,6 +343,128 @@ function executeImport(int $tagungNummer, array $rows, bool $overwrite): array
     }
 }
 
+// --- News (Hybrid Auto + Manual) ---
+
+/**
+ * Alle News-Items fuer das Admin-Listing (auto + manual, aktiv + inaktiv).
+ * Sortierung wie Frontend: Pin DESC, dann Datum DESC, dann id DESC.
+ */
+function getAllNewsForAdmin(): array
+{
+    return getDbAdmin()->query("
+        SELECT id, source, trigger_key, tagung_nummer, display_date,
+               title_de, title_en, body_de, body_en, link_url,
+               is_active, sort_weight, created_at, updated_at
+        FROM news
+        ORDER BY sort_weight DESC, display_date DESC, id DESC
+    ")->fetchAll();
+}
+
+function getNewsById(int $id): ?array
+{
+    $stmt = getDbAdmin()->prepare('SELECT * FROM news WHERE id = ?');
+    $stmt->execute([$id]);
+    $row = $stmt->fetch();
+    return $row ?: null;
+}
+
+/**
+ * Manual-News anlegen.
+ */
+function createManualNews(array $data): int
+{
+    $db = getDbAdmin();
+    $stmt = $db->prepare("
+        INSERT INTO news (source, display_date, title_de, title_en, body_de, body_en,
+                          link_url, is_active, sort_weight)
+        VALUES ('manual', :d, :td, :te, :bd, :be, :l, :a, :w)
+    ");
+    $stmt->execute([
+        ':d'  => $data['display_date'],
+        ':td' => $data['title_de'],
+        ':te' => $data['title_en'],
+        ':bd' => $data['body_de'] ?? '',
+        ':be' => $data['body_en'] ?? '',
+        ':l'  => $data['link_url'] ?: null,
+        ':a'  => isset($data['is_active']) ? (int)$data['is_active'] : 1,
+        ':w'  => (int)($data['sort_weight'] ?? 0),
+    ]);
+    return (int)$db->lastInsertId();
+}
+
+/**
+ * Update. Bei Auto-Items werden Titel/Body NICHT geaendert — nur Datum,
+ * Pin, Aktiv-Toggle und Link. Bei Manual-Items: alles.
+ */
+function updateNews(int $id, array $data): void
+{
+    $news = getNewsById($id);
+    if (!$news) return;
+
+    if ($news['source'] === 'manual') {
+        $stmt = getDbAdmin()->prepare("
+            UPDATE news SET
+                display_date = :d,
+                title_de = :td, title_en = :te,
+                body_de = :bd, body_en = :be,
+                link_url = :l, is_active = :a, sort_weight = :w,
+                updated_at = datetime('now')
+            WHERE id = :id
+        ");
+        $stmt->execute([
+            ':d'  => $data['display_date'],
+            ':td' => $data['title_de'],
+            ':te' => $data['title_en'],
+            ':bd' => $data['body_de'] ?? '',
+            ':be' => $data['body_en'] ?? '',
+            ':l'  => $data['link_url'] ?: null,
+            ':a'  => isset($data['is_active']) ? (int)$data['is_active'] : 1,
+            ':w'  => (int)($data['sort_weight'] ?? 0),
+            ':id' => $id,
+        ]);
+    } else {
+        // Auto: nur Metadaten anfassen, Texte aus Template-Hoheit belassen.
+        $stmt = getDbAdmin()->prepare("
+            UPDATE news SET
+                display_date = :d,
+                is_active    = :a,
+                sort_weight  = :w,
+                updated_at   = datetime('now')
+            WHERE id = :id
+        ");
+        $stmt->execute([
+            ':d'  => $data['display_date'],
+            ':a'  => isset($data['is_active']) ? (int)$data['is_active'] : 1,
+            ':w'  => (int)($data['sort_weight'] ?? 0),
+            ':id' => $id,
+        ]);
+    }
+}
+
+function toggleNewsActive(int $id): void
+{
+    getDbAdmin()->prepare(
+        "UPDATE news SET is_active = 1 - is_active, updated_at = datetime('now') WHERE id = ?"
+    )->execute([$id]);
+}
+
+function deleteNews(int $id): void
+{
+    // Hard-Delete nur fuer Manual erlaubt — Auto-Items wuerden beim
+    // naechsten Tagungs-Save sowieso wieder angelegt.
+    getDbAdmin()->prepare(
+        "DELETE FROM news WHERE id = ? AND source = 'manual'"
+    )->execute([$id]);
+}
+
+/**
+ * Anzahl aktiver News (fuer Dashboard).
+ */
+function countActiveNews(): int
+{
+    return (int)getDbAdmin()->query('SELECT COUNT(*) FROM news WHERE is_active = 1')->fetchColumn();
+}
+
 // --- Paginierung ---
 
 function paginate(int $total, int $perPage, int $currentPage): array

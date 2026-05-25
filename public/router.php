@@ -110,6 +110,7 @@ function matchRoute(string $uri): array
         '/admin/papers'      => 'admin/papers',
         '/admin/autoren'     => 'admin/autoren',
         '/admin/keywords'    => 'admin/keywords',
+        '/admin/news'        => 'admin/news',
         '/admin/submissions' => 'admin/submissions',
     ];
 
@@ -170,6 +171,20 @@ function matchRoute(string $uri): array
     }
     if ($path === '/admin/keywords/merge') {
         return ['page' => 'admin/keyword_merge', 'params' => []];
+    }
+
+    // News CRUD
+    if ($path === '/admin/news/neu') {
+        return ['page' => 'admin/news_edit', 'params' => ['id' => null]];
+    }
+    if (preg_match('#^/admin/news/(\d+)/edit$#', $path, $m)) {
+        return ['page' => 'admin/news_edit', 'params' => ['id' => (int)$m[1]]];
+    }
+    if (preg_match('#^/admin/news/(\d+)/delete$#', $path, $m)) {
+        return ['page' => 'admin/news_delete', 'params' => ['id' => (int)$m[1]]];
+    }
+    if (preg_match('#^/admin/news/(\d+)/toggle$#', $path, $m)) {
+        return ['page' => 'admin/news_toggle', 'params' => ['id' => (int)$m[1]]];
     }
 
     return ['page' => '404', 'params' => []];
