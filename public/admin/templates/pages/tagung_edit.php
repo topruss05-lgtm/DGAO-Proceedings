@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../pdf_parser.php';
+require_once __DIR__ . '/../../news_events.php';
 
 const BOOKLET_DIR = __DIR__ . '/../../../../booklets';
 
@@ -142,6 +143,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $data['vorlage_phase_aktiv'],
             ]);
             $db->commit();
+
+            // News-Auto-Trigger: erkennt Status-Wechsel
+            // (vorlage_phase_aktiv 0↔1, einreichungsfrist set/changed).
+            // $tagung ist der pre-save-State (null bei isNew).
+            newsOnTagungSaved($tagung ?: null, $data);
         } catch (Throwable $e) {
             $db->rollBack();
             error_log('tagung_edit save error: ' . $e);
@@ -164,6 +170,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $bookletDest = BOOKLET_DIR . '/DGaO_' . $data['jahr'] . '.pdf';
             if (!@copy($pdfFile['tmp_name'], $bookletDest)) {
                 error_log('tagung_edit: Booklet-Kopie fehlgeschlagen: ' . $bookletDest);
+            }
+            // Proceedings-Online-News, wenn Papers importiert wurden.
+            $paperCount = (int)($importStats['papers'] ?? 0);
+            if ($paperCount > 0) {
+                newsOnTagungProceedingsOnline($data, $paperCount);
             }
         }
     }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/config.php';
 
-const DB_SCHEMA_VERSION = 5;
+const DB_SCHEMA_VERSION = 6;
 
 function getDb(): PDO
 {
@@ -151,6 +151,31 @@ function runMigrations(PDO $db): void
     if (!in_array('session_id', $papersColumns, true)) {
         $db->exec('ALTER TABLE papers ADD COLUMN session_id INTEGER REFERENCES sessions(id)');
         $db->exec('CREATE INDEX IF NOT EXISTS idx_papers_session ON papers(session_id)');
+    }
+
+    // v6: news-Tabelle (Hybrid auto + manual).
+    $hasNews = (int) $db->query("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='news'")->fetchColumn();
+    if (!$hasNews) {
+        $db->exec("CREATE TABLE news (
+            id            INTEGER PRIMARY KEY AUTOINCREMENT,
+            source        TEXT NOT NULL CHECK (source IN ('auto','manual')),
+            trigger_key   TEXT,
+            tagung_nummer INTEGER REFERENCES tagungen(nummer) ON DELETE CASCADE,
+            display_date  TEXT NOT NULL,
+            title_de      TEXT NOT NULL,
+            title_en      TEXT NOT NULL,
+            body_de       TEXT NOT NULL DEFAULT '',
+            body_en       TEXT NOT NULL DEFAULT '',
+            link_url      TEXT,
+            is_active     INTEGER NOT NULL DEFAULT 1,
+            sort_weight   INTEGER NOT NULL DEFAULT 0,
+            created_at    TEXT NOT NULL DEFAULT (datetime('now')),
+            updated_at    TEXT NOT NULL DEFAULT (datetime('now'))
+        )");
+        $db->exec("CREATE UNIQUE INDEX idx_news_auto_unique
+                   ON news(source, trigger_key, tagung_nummer)
+                   WHERE source = 'auto'");
+        $db->exec("CREATE INDEX idx_news_active_date ON news(is_active, display_date DESC)");
     }
 
     $db->exec('PRAGMA user_version = ' . DB_SCHEMA_VERSION);

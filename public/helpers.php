@@ -474,6 +474,31 @@ function getCurrentVorlagenTagung(): ?array
     return $row ?: null;
 }
 
+/**
+ * Aktive News-Items in der aktuellen Sprache, sortiert nach Pin (sort_weight)
+ * + display_date DESC. Liefert leere Liste, wenn die news-Tabelle leer ist —
+ * Home faellt dann auf die Lang-Key-Fallbacks zurueck.
+ *
+ * @return list<array{id:int, source:string, display_date:string,
+ *                    title:string, body:string, link_url:?string}>
+ */
+function getActiveNews(int $limit = 3): array
+{
+    $lang  = currentLang() === 'en' ? 'en' : 'de';
+    $stmt  = getDb()->prepare("
+        SELECT id, source, display_date,
+               title_{$lang} AS title, body_{$lang} AS body,
+               link_url
+        FROM news
+        WHERE is_active = 1
+        ORDER BY sort_weight DESC, display_date DESC, id DESC
+        LIMIT :n
+    ");
+    $stmt->bindValue(':n', $limit, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
 function getSiteStats(): array
 {
     $db = getDb();

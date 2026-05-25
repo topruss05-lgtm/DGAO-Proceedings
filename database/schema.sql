@@ -108,7 +108,32 @@ CREATE INDEX idx_sessions_tagung ON sessions(tagung_nummer, sortorder);
 -- die alte Code-Buchstaben-Gruppierung zurueck.
 -- ALTER TABLE wird durch runMigrations() ausgefuehrt.
 
+-- Hybrid-News: Auto-generierte (z.B. bei vorlage_phase_aktiv-Wechsel) +
+-- manuell vom Admin gepflegte Items. Idempotenz fuer Auto via
+-- UNIQUE(source, trigger_key, tagung_nummer): mehrfaches Speichern in
+-- tagung_edit erzeugt kein Duplikat (UPSERT).
+CREATE TABLE news (
+    id            INTEGER PRIMARY KEY AUTOINCREMENT,
+    source        TEXT NOT NULL CHECK (source IN ('auto','manual')),
+    trigger_key   TEXT,            -- z.B. 'submission_open' (NULL bei manual)
+    tagung_nummer INTEGER REFERENCES tagungen(nummer) ON DELETE CASCADE,
+    display_date  TEXT NOT NULL,   -- 'YYYY-MM-DD' (Admin-overridable)
+    title_de      TEXT NOT NULL,
+    title_en      TEXT NOT NULL,
+    body_de       TEXT NOT NULL DEFAULT '',
+    body_en       TEXT NOT NULL DEFAULT '',
+    link_url      TEXT,            -- z.B. /einreichen oder /archiv/127
+    is_active     INTEGER NOT NULL DEFAULT 1,
+    sort_weight   INTEGER NOT NULL DEFAULT 0,  -- >0 = gepinnt
+    created_at    TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at    TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE UNIQUE INDEX idx_news_auto_unique
+    ON news(source, trigger_key, tagung_nummer)
+    WHERE source = 'auto';
+CREATE INDEX idx_news_active_date ON news(is_active, display_date DESC);
+
 -- Aktueller Schema-Stand. Muss mit DB_SCHEMA_VERSION in public/db.php
 -- synchron sein. Bei neuem Deploy spielt bootstrapDb() dieses Schema
 -- inkl. user_version → runMigrations() greift dann fast-path.
-PRAGMA user_version = 5;
+PRAGMA user_version = 6;
