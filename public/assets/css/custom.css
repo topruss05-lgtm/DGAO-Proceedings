@@ -1389,6 +1389,76 @@ h3, .h3 {
     font-size: 0.85em;
 }
 
+
+/* --- /einreichen: schlankes, akademisches Layout (kein Icon-Slop) --- */
+
+.einreichen-status {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    background: rgba(15, 23, 42, 0.03);
+    border-left: 3px solid var(--accent, #b42e42);
+}
+
+.einreichen-status--closed {
+    border-left-color: rgba(15, 23, 42, 0.25);
+    background: rgba(15, 23, 42, 0.02);
+}
+
+.einreichen-status__main {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.einreichen-status__main h2 {
+    font-weight: 600;
+}
+
+.einreichen-status__deadline {
+    flex: 0 0 auto;
+    text-align: right;
+    padding-left: 1rem;
+    border-left: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.einreichen-step {
+    padding-top: 0.5rem;
+}
+
+.einreichen-step__title {
+    font-weight: 600;
+    font-family: var(--font-display, inherit);
+    margin-bottom: 0.5rem;
+    color: var(--text, #212529);
+}
+
+.einreichen-step__title::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent, #b42e42);
+    vertical-align: middle;
+    margin-right: 0.6em;
+    transform: translateY(-2px);
+}
+
+.einreichen-picker {
+    max-width: 640px;
+    margin-top: 1rem;
+}
+
+.einreichen-mail {
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: var(--font-mono, "SF Mono", Menlo, monospace);
+}
+
 .suche-combobox__option--keyword .suche-combobox__option-main::before {
     content: '\f47e'; /* bi-tag */
     font-family: 'bootstrap-icons';
