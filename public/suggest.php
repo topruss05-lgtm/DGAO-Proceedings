@@ -5,10 +5,13 @@ declare(strict_types=1);
 /**
  * Live-Suggest-Endpoint fuer die /suche-Combobox (Google-style Autocomplete).
  *
- * Liefert JSON mit den Top-Treffern in drei Kategorien:
- *   - authors  (Top 5): Substring-Match auf Nachname/Vorname
- *   - papers   (Top 6): Substring-Match auf Titel
+ * Liefert JSON mit den Top-Treffern in vier Kategorien:
+ *   - authors  (Top 5): Substring-Match auf Nachname/Vorname/Affiliation
+ *                       (typischer User-Workflow: "Fraunhofer" findet alle
+ *                       Fraunhofer-Autor:innen, "Müller" deren Personen)
+ *   - papers   (Top 6): Substring-Match auf Titel oder Hauptautor
  *   - tagungen (Top 3): Substring-Match auf Ort + Jahr
+ *   - keywords (Top 4): Substring-Match auf Keyword
  *
  * Aufgerufen ueber /api/suggest?q=... (siehe router.php).
  * Cache-Control: no-store — Suggestions sind benutzerspezifisch + dynamisch.
@@ -23,7 +26,7 @@ $q = trim((string)($_GET['q'] ?? ''));
 // Empty/zu kurze Query -> leere Antwort (keine Suggestions, wie Google).
 if (mb_strlen($q) < 2) {
     echo json_encode(
-        ['authors' => [], 'papers' => [], 'tagungen' => []],
+        ['authors' => [], 'papers' => [], 'tagungen' => [], 'keywords' => []],
         JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
     );
     exit;
@@ -35,20 +38,22 @@ $like = '%' . $q . '%';
 // Stripping helper for display labels (Sternchen-Markers raus).
 $strip = static fn(?string $s): string => trim(preg_replace('/\*+/', '', (string)$s));
 
-// --- Authors ---
+// --- Authors (Name ODER Affiliation): Personen-Treffer mit Affiliation-Match
+//     liefern oft den passenden Hit, wenn der User z.B. "Fraunhofer" eintippt.
 $stmtA = $db->prepare("
     SELECT a.id, a.vorname, a.nachname, a.affiliation,
            COUNT(DISTINCT pa.paper_id) AS papers
     FROM autoren a
     JOIN paper_autoren pa ON pa.autor_id = a.id
-    WHERE a.nachname LIKE :q1 COLLATE NOCASE
-       OR a.vorname  LIKE :q2 COLLATE NOCASE
+    WHERE a.nachname    LIKE :q1 COLLATE NOCASE
+       OR a.vorname     LIKE :q2 COLLATE NOCASE
+       OR a.affiliation LIKE :q3 COLLATE NOCASE
     GROUP BY a.id
     HAVING papers > 0
     ORDER BY papers DESC, a.nachname COLLATE NOCASE
     LIMIT 5
 ");
-$stmtA->execute([':q1' => $like, ':q2' => $like]);
+$stmtA->execute([':q1' => $like, ':q2' => $like, ':q3' => $like]);
 $authors = [];
 foreach ($stmtA as $row) {
     $name = $strip($row['nachname']);
@@ -105,7 +110,31 @@ foreach ($stmtT as $row) {
     ];
 }
 
+// --- Keywords (nur falls Treffer existieren — viele User suchen direkt
+//     nach Themen wie "Holografie" oder "Interferometrie").
+$stmtK = $db->prepare("
+    SELECT k.id, k.keyword, COUNT(DISTINCT pk.paper_id) AS papers
+    FROM keywords k
+    JOIN paper_keywords pk ON pk.keyword_id = k.id
+    WHERE k.keyword LIKE :q COLLATE NOCASE
+    GROUP BY k.id
+    HAVING papers > 0
+    ORDER BY papers DESC, k.keyword COLLATE NOCASE
+    LIMIT 4
+");
+$stmtK->execute([':q' => $like]);
+$keywords = [];
+foreach ($stmtK as $row) {
+    $keywords[] = [
+        'id'      => (int)$row['id'],
+        'keyword' => (string)$row['keyword'],
+        'papers'  => (int)$row['papers'],
+        // Keyword klick -> Suche mit q=keyword, beschraenkt auf alle Felder.
+        'url'     => '/suche?q=' . rawurlencode((string)$row['keyword']),
+    ];
+}
+
 echo json_encode(
-    ['authors' => $authors, 'papers' => $papers, 'tagungen' => $tagungen],
+    ['authors' => $authors, 'papers' => $papers, 'tagungen' => $tagungen, 'keywords' => $keywords],
     JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
 );

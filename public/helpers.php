@@ -73,12 +73,98 @@ function generateBibtex(array $paper): string
          . "}";
 }
 
+/**
+ * Bereitet eine User-Query so auf, dass sie als FTS5-MATCH-Ausdruck
+ * sicher ausfuehrbar ist UND die wichtigsten FTS5-Features unterstuetzt:
+ *   - Phrase-Suche per "..."         z.B.   "laser pulse"
+ *   - Wildcard-Prefix per word*      z.B.   hologr*
+ *   - Boolean Operatoren AND/OR/NOT  z.B.   laser OR maser, optik NOT linse
+ *   - Negation per -word             z.B.   laser -plasma  (umgesetzt zu NOT)
+ *
+ * Defensive: FTS5-Spezialzeichen, die nicht zu diesen Features gehoeren,
+ * werden entfernt. Einzelbuchstaben (<2 chars) werden verworfen.
+ * Gibt null zurueck, wenn nichts Sinnvolles uebrig bleibt.
+ */
 function sanitizeFtsQuery(string $q): ?string
 {
-    $q = str_replace(['"', "'"], '', $q);
-    $words = array_filter(preg_split('/\s+/', trim($q)), fn($w) => mb_strlen($w) >= 2);
-    if (empty($words)) return null;
-    return implode(' ', array_map(fn($w) => '"' . $w . '"', $words));
+    $q = trim($q);
+    if ($q === '') return null;
+
+    $tokens = [];
+    $len    = strlen($q);
+    $cursor = 0;
+
+    while ($cursor < $len) {
+        // Whitespace ueberspringen.
+        while ($cursor < $len && ctype_space($q[$cursor])) $cursor++;
+        if ($cursor >= $len) break;
+
+        // Phrase: "..."
+        if ($q[$cursor] === '"') {
+            $cursor++;
+            $end = strpos($q, '"', $cursor);
+            if ($end === false) $end = $len;
+            $phrase = substr($q, $cursor, $end - $cursor);
+            // FTS5-Spezialzeichen aus dem Phrase-Inneren entfernen.
+            $phrase = preg_replace('/["\(\)\*:^]/', ' ', $phrase);
+            $phrase = trim(preg_replace('/\s+/u', ' ', $phrase));
+            if ($phrase !== '' && mb_strlen($phrase) >= 2) {
+                $tokens[] = '"' . $phrase . '"';
+            }
+            $cursor = ($end < $len) ? $end + 1 : $len;
+            continue;
+        }
+
+        // Wort bis Whitespace oder Anfuehrungszeichen.
+        $start = $cursor;
+        while ($cursor < $len && !ctype_space($q[$cursor]) && $q[$cursor] !== '"') $cursor++;
+        $word = substr($q, $start, $cursor - $start);
+
+        // Boolean-Operatoren (uppercase) durchreichen.
+        if ($word === 'AND' || $word === 'OR' || $word === 'NOT') {
+            $tokens[] = $word;
+            continue;
+        }
+
+        // Negation: -word -> NOT word
+        $negate = false;
+        if (strlen($word) > 1 && $word[0] === '-') {
+            $negate = true;
+            $word   = substr($word, 1);
+        }
+
+        // Wildcard-Prefix?
+        $isPrefix = str_ends_with($word, '*');
+        if ($isPrefix) $word = rtrim($word, '*');
+
+        // Restliche FTS5-Spezialzeichen entfernen.
+        $word = preg_replace('/["\(\)\*:^]/', '', $word);
+        if (mb_strlen($word) < 2) continue;
+
+        // Worte mit Sonderzeichen (Bindestrich, Slash etc.) sicher quoten —
+        // dann allerdings ohne Wildcard, da FTS5 *"foo" nicht kennt.
+        if (preg_match('/[^\p{L}\p{N}]/u', $word)) {
+            $term = '"' . $word . '"';
+        } else {
+            $term = $word . ($isPrefix ? '*' : '');
+        }
+
+        if ($negate) {
+            // FTS5-NOT braucht linken Operanden — kein Lead-Negate.
+            $prev = end($tokens);
+            if ($prev !== false && !in_array($prev, ['AND', 'OR', 'NOT'], true)) {
+                $tokens[] = 'NOT';
+            }
+        }
+        $tokens[] = $term;
+    }
+
+    // Trailing/leading operators aufraeumen.
+    while (!empty($tokens) && in_array(end($tokens), ['AND', 'OR', 'NOT'], true)) array_pop($tokens);
+    while (!empty($tokens) && in_array(reset($tokens), ['AND', 'OR'], true)) array_shift($tokens);
+
+    if (empty($tokens)) return null;
+    return implode(' ', $tokens);
 }
 
 function pdfUrl(array $paper): ?string
