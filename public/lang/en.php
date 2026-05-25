@@ -139,6 +139,14 @@ return [
     'suche.suggest_authors'  => 'Authors',
     'suche.suggest_papers'   => 'Papers',
     'suche.suggest_tagungen' => 'Conferences',
+    'suche.suggest_keywords' => 'Keywords',
+    'suche.syntax_hint_label' => 'Tips:',
+    'suche.no_results_for'   => 'No matches for “%s”.',
+    'suche.hint_shorter'     => 'Try shorter or different terms.',
+    'suche.hint_wildcard'    => 'Wildcard at word end:',
+    'suche.hint_phrase'      => 'Phrase in quotes:',
+    'suche.hint_boolean'     => 'Operators:',
+    'suche.limit_hint'       => 'Showing the first 100 results. Refine your filters to narrow down further.',
 
     // -- Authors page --
     'autoren.title'       => 'Authors',

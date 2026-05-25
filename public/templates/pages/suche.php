@@ -251,6 +251,16 @@ $isOtherChecked = $typIn !== null && $typFilter !== null
             </button>
         </div>
     </div>
+    <div class="small text-muted mt-1 suche-syntax-hint">
+        <?= e(t('suche.syntax_hint_label')) ?>
+        <code>"laser pulse"</code>
+        <span aria-hidden="true">·</span>
+        <code>hologr*</code>
+        <span aria-hidden="true">·</span>
+        <code>laser OR maser</code>
+        <span aria-hidden="true">·</span>
+        <code>laser -plasma</code>
+    </div>
 
     <details class="suche-advanced mt-3"<?= $advancedOpen ? ' open' : '' ?>>
         <summary class="small text-muted suche-advanced__summary">
@@ -418,9 +428,18 @@ $isOtherChecked = $typIn !== null && $typFilter !== null
         </h2>
 
         <?php if (empty($results)): ?>
-            <p class="text-muted"><?= e(t('suche.no_results')) ?></p>
+            <div class="suche-empty">
+                <p class="mb-2"><?= e(sprintf(t('suche.no_results_for'), $q !== '' ? $q : ($fTitel ?: $fAutor ?: $fInst ?: $fAbs))) ?></p>
+                <ul class="small text-muted mb-0">
+                    <li><?= e(t('suche.hint_shorter')) ?></li>
+                    <li><?= e(t('suche.hint_wildcard')) ?> <code>optik*</code></li>
+                    <li><?= e(t('suche.hint_phrase')) ?> <code>"laser pulse"</code></li>
+                    <li><?= e(t('suche.hint_boolean')) ?> <code>laser OR maser</code>, <code>optik NOT linse</code></li>
+                </ul>
+            </div>
         <?php else: ?>
-            <div>
+            <div id="suche-results"
+                 data-highlight="<?= e(implode(' ', array_filter([$q, $fTitel, $fAutor, $fInst, $fAbs]))) ?>">
                 <?php foreach ($results as $p):
                     $showTagung = true;
                     $tagungLabel = (string)$p['tagung_nummer'];
@@ -428,6 +447,9 @@ $isOtherChecked = $typIn !== null && $typFilter !== null
                     <?php require __DIR__ . '/../partials/paper_card.php'; ?>
                 <?php endforeach; ?>
             </div>
+            <?php if (count($results) >= 100): ?>
+                <p class="small text-muted mt-2"><i class="bi bi-info-circle"></i> <?= e(t('suche.limit_hint')) ?></p>
+            <?php endif; ?>
         <?php endif; ?>
     </section>
 

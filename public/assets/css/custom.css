@@ -1472,6 +1472,57 @@ h3, .h3 {
     font-size: 0.85em;
 }
 
+.suche-combobox__option--keyword .suche-combobox__option-main::before {
+    content: '\f47e'; /* bi-tag */
+    font-family: 'bootstrap-icons';
+    color: var(--accent, #b42e42);
+    margin-right: 0.5rem;
+    font-size: 0.85em;
+}
+
+/* Mobile: 44px Mindesthoehe pro Listbox-Item (Apple HIG). */
+@media (max-width: 575.98px) {
+    .suche-combobox__option,
+    .archiv-filter__option {
+        min-height: 44px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+}
+
+/* Syntax-Hint unterhalb der Hauptsuchzeile. */
+.suche-syntax-hint {
+    line-height: 1.6;
+}
+.suche-syntax-hint code {
+    background: rgba(15, 23, 42, 0.05);
+    padding: 0.05rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.85em;
+    color: inherit;
+}
+
+/* Empty-State-Block fuer 0 Treffer auf /suche. */
+.suche-empty {
+    padding: 0.85rem 1rem;
+    border: 1px dashed rgba(15, 23, 42, 0.18);
+    border-radius: 6px;
+    background: rgba(15, 23, 42, 0.02);
+}
+.suche-empty code {
+    background: rgba(15, 23, 42, 0.06);
+    padding: 0.05rem 0.35rem;
+    border-radius: 3px;
+}
+
+/* Highlight in Suchergebnis-Snippets. */
+#suche-results mark {
+    background-color: rgba(255, 215, 0, 0.45);
+    color: inherit;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
 
 /* ============================
    SUCHE — Erweiterte Suche + Autor-Cards

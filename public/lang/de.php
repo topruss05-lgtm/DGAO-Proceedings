@@ -140,6 +140,14 @@ return [
     'suche.suggest_authors'  => 'Autor:innen',
     'suche.suggest_papers'   => 'Beiträge',
     'suche.suggest_tagungen' => 'Tagungen',
+    'suche.suggest_keywords' => 'Stichworte',
+    'suche.syntax_hint_label' => 'Tipps:',
+    'suche.no_results_for'   => 'Keine Treffer für »%s«.',
+    'suche.hint_shorter'     => 'Kürzere oder andere Begriffe versuchen.',
+    'suche.hint_wildcard'    => 'Wildcard am Wortende:',
+    'suche.hint_phrase'      => 'Phrase in Anführungszeichen:',
+    'suche.hint_boolean'     => 'Operatoren:',
+    'suche.limit_hint'       => 'Die ersten 100 Treffer werden angezeigt. Filter weiter eingrenzen, um die Liste zu verfeinern.',
 
     // -- Authors page --
     'autoren.title'       => 'Autoren',

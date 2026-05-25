@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Custom Listbox statt <datalist> (Mobile/Safari-Bugs).
     initArchivFilter();
     initSucheCombobox();
+    initSucheHighlight();
 
     // --- BibTeX toggle and copy ---
     const bibtexToggle = document.getElementById('bibtex-toggle-btn');
@@ -434,4 +435,104 @@ function initSucheCombobox() {
         });
         clearBtn.hidden = input.value === '';
     }
+}
+
+
+// ============================================================
+// /suche — Highlight der Suchbegriffe in den Ergebnis-Snippets.
+// Diakritik-aware (NFD-Mapping zwischen Original-Text und seinem
+// normalisierten Pendant), wendet <mark> nur auf Textknoten an —
+// kein innerHTML-Replace, damit Tags und Attribute unangetastet
+// bleiben. Ignoriert Phrasen-Anführungszeichen, Wildcards und
+// Boolean-Operatoren wie der Server.
+// ============================================================
+function initSucheHighlight() {
+    const root = document.getElementById('suche-results');
+    if (!root) return;
+    const raw = (root.dataset.highlight || '').trim();
+    if (raw === '') return;
+
+    // Tokens extrahieren: gleiches Vorgehen wie sanitizeFtsQuery clientseitig.
+    const tokens = [];
+    const phraseRe = /"([^"]+)"/g;
+    let working = raw;
+    let m;
+    while ((m = phraseRe.exec(raw)) !== null) {
+        if (m[1].trim()) tokens.push(m[1].trim());
+    }
+    working = working.replace(phraseRe, ' ');
+    working.split(/\s+/).forEach(w => {
+        if (!w) return;
+        if (w === 'AND' || w === 'OR' || w === 'NOT') return;
+        let t = w;
+        if (t.startsWith('-')) t = t.slice(1);
+        if (t.endsWith('*'))   t = t.slice(0, -1);
+        if (t.length >= 2) tokens.push(t);
+    });
+    if (tokens.length === 0) return;
+
+    const normalize = (s) =>
+        (s || '').toString().normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+
+    // Eindeutige Tokens nach Laenge (laengster zuerst -> greedy match).
+    const uniq = [...new Set(tokens.map(normalize))].filter(t => t.length >= 2);
+    uniq.sort((a, b) => b.length - a.length);
+    if (uniq.length === 0) return;
+
+    // Highlight pro Textknoten: original und normalize parallel, finde Matches
+    // im Normalized-String, baue dann Original-Slices + <mark> aus den
+    // selben Indizes (Length-Mapping: 1 zu 1 nach NFD-Strip-of-Diakritik).
+    function highlightTextNode(node) {
+        const orig = node.nodeValue;
+        if (!orig || orig.length < 2) return;
+        const norm = normalize(orig);
+        if (norm.length !== orig.length) {
+            // NFD koennte Compose-Sequenzen erzeugen, wo Laenge differiert
+            // (selten in Latin1+Umlauts, aber moeglich). In dem Fall skippen.
+            return;
+        }
+        // Finde alle Match-Bereiche (start,end).
+        const ranges = [];
+        uniq.forEach(t => {
+            let from = 0;
+            while (from < norm.length) {
+                const idx = norm.indexOf(t, from);
+                if (idx === -1) break;
+                ranges.push([idx, idx + t.length]);
+                from = idx + t.length;
+            }
+        });
+        if (ranges.length === 0) return;
+        // Merge ueberlappende Ranges.
+        ranges.sort((a, b) => a[0] - b[0]);
+        const merged = [ranges[0].slice()];
+        for (let i = 1; i < ranges.length; i++) {
+            const last = merged[merged.length - 1];
+            if (ranges[i][0] <= last[1]) last[1] = Math.max(last[1], ranges[i][1]);
+            else merged.push(ranges[i].slice());
+        }
+        // DOM ersetzen.
+        const frag = document.createDocumentFragment();
+        let cursor = 0;
+        merged.forEach(([s, e]) => {
+            if (s > cursor) frag.appendChild(document.createTextNode(orig.slice(cursor, s)));
+            const mark = document.createElement('mark');
+            mark.textContent = orig.slice(s, e);
+            frag.appendChild(mark);
+            cursor = e;
+        });
+        if (cursor < orig.length) frag.appendChild(document.createTextNode(orig.slice(cursor)));
+        node.parentNode.replaceChild(frag, node);
+    }
+
+    // Nur Titel + Autorenzeile in jeder Card highlighten (keine Metadaten,
+    // damit "2020" nicht jede Jahreszahl markiert).
+    const targets = root.querySelectorAll('.paper-card .card-title, .paper-card .card-authors');
+    targets.forEach(el => {
+        const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+        const nodes = [];
+        let n;
+        while ((n = walker.nextNode())) nodes.push(n);
+        nodes.forEach(highlightTextNode);
+    });
 }
