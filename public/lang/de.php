@@ -87,6 +87,7 @@ return [
     'einreichen.step1_desc'         => 'W&auml;hlen Sie Ihren Beitrag aus &mdash; Titel, Autor:innen, Affiliation und Kontakt-E-Mail werden in die Vorlage eingetragen. Anschlie&szlig;end schreiben Sie den Inhalt und exportieren als zweiseitiges PDF.',
     'einreichen.step2_heading'      => 'Einreichung',
     'einreichen.step2_desc'         => 'Senden Sie Ihr fertiges Manuskript-PDF zusammen mit dem unterzeichneten Copyright-Agreement an die DGaO-Gesch&auml;ftsstelle:',
+    'einreichen.step2_attachments'  => 'Anh&auml;nge: Manuskript-PDF (zweiseitig) &middot; unterzeichnetes Copyright-Agreement',
     'einreichen.dl_kit'             => 'Autorenpaket herunterladen',
     'einreichen.dl_kit_desc'        => 'Word, LaTeX, Copyright und Hinweise &mdash; deutsch und englisch in einer Datei.',
 

@@ -1426,37 +1426,134 @@ h3, .h3 {
     border-left: 1px solid rgba(15, 23, 42, 0.1);
 }
 
+/* Steps werden als nummerierte Cards mit subtilem Connector dargestellt.
+   Marker (Circle mit accent-Border) sitzt links absolut, body rückt rechts ein. */
+.einreichen-steps {
+    list-style: none;
+    counter-reset: einreichen-step;
+    padding: 0;
+    margin: 1.75rem 0 0 0;
+}
+
 .einreichen-step {
-    padding-top: 0.5rem;
+    position: relative;
+    padding: 1.5rem 1.5rem 1.5rem 4.5rem;
+    background: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
+}
+
+.einreichen-step + .einreichen-step {
+    margin-top: 1.5rem;
+}
+
+/* Connector zwischen den Steps — dünne vertikale Linie, mittig auf Marker. */
+.einreichen-step + .einreichen-step::before {
+    content: '';
+    position: absolute;
+    top: -1.5rem;
+    left: calc(1.5rem + 14px);
+    width: 1px;
+    height: 1.5rem;
+    background: rgba(var(--accent-rgb, 219, 9, 44), 0.25);
+}
+
+.einreichen-step__marker {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent, #b42e42);
+    color: var(--accent, #b42e42);
+    background: #fff;
+    font-family: var(--font-display, inherit);
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.einreichen-step__body {
+    min-width: 0;
 }
 
 .einreichen-step__title {
-    font-weight: 600;
     font-family: var(--font-display, inherit);
-    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+    margin: 0 0 0.4rem 0;
     color: var(--text, #212529);
 }
 
-.einreichen-step__title::before {
-    content: '';
-    display: inline-block;
-    width: 24px;
-    height: 1px;
-    background: var(--accent, #b42e42);
-    vertical-align: middle;
-    margin-right: 0.6em;
-    transform: translateY(-2px);
+.einreichen-step__desc {
+    color: var(--text-muted, #6b7280);
+    margin-bottom: 1rem;
+    line-height: 1.55;
 }
 
 .einreichen-picker {
     max-width: 640px;
-    margin-top: 1rem;
+    margin: 0 0 1.25rem 0;
 }
 
-.einreichen-mail {
-    font-size: 1.1rem;
-    font-weight: 500;
+.einreichen-step__action {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.einreichen-step__action-note {
+    color: var(--text-muted, #6b7280);
+}
+
+/* Aktions-Box für Schritt 2: dezent eingerahmt, akzent-Border-Left
+   wie bei der Status-Box oben — visuell konsistent. */
+.einreichen-mailbox {
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-left: 3px solid var(--accent, #b42e42);
+    background: rgba(15, 23, 42, 0.02);
+    padding: 0.95rem 1.15rem;
+    border-radius: 4px;
+    max-width: 520px;
+}
+
+.einreichen-mailbox__addr {
+    display: inline-block;
     font-family: var(--font-mono, "SF Mono", Menlo, monospace);
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 0.35rem;
+}
+
+.einreichen-mailbox__note {
+    margin: 0;
+    color: var(--text-muted, #6b7280);
+    font-size: 0.875rem;
+    line-height: 1.45;
+}
+
+/* Mobile: weniger Padding, Marker etwas kleiner. */
+@media (max-width: 575.98px) {
+    .einreichen-step {
+        padding: 1.25rem 1rem 1.25rem 3.5rem;
+    }
+    .einreichen-step__marker {
+        top: 1.25rem;
+        left: 1rem;
+        width: 24px;
+        height: 24px;
+        font-size: 0.85rem;
+    }
+    .einreichen-step + .einreichen-step::before {
+        left: calc(1rem + 12px);
+    }
 }
 
 .suche-combobox__option--keyword .suche-combobox__option-main::before {

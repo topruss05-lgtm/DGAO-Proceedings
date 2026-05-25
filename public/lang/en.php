@@ -87,6 +87,7 @@ return [
     'einreichen.step1_desc'         => 'Select your contribution &mdash; title, authors, affiliation and contact email are inserted into the template. Then write the content and export as a two-page PDF.',
     'einreichen.step2_heading'      => 'Submission',
     'einreichen.step2_desc'         => 'Send your finished manuscript PDF together with the signed copyright agreement to the DGaO office:',
+    'einreichen.step2_attachments'  => 'Attachments: manuscript PDF (two pages) &middot; signed copyright agreement',
     'einreichen.dl_kit'             => 'Download author kit',
     'einreichen.dl_kit_desc'        => 'Word, LaTeX, Copyright and notes &mdash; German and English in one file.',
     // -- Paper detail --

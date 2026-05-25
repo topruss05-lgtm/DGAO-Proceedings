@@ -85,8 +85,12 @@ function newsOnTagungSaved(?array $old, array $new): void
 
     $today = date('Y-m-d');
 
-    // --- Manuskripteinreichung offen (0 -> 1) ---
-    if ($oldPhase === 0 && $newPhase === 1) {
+    // --- Manuskripteinreichung offen ---
+    // Wir triggern IDEMPOTENT bei jedem Save mit newPhase=1 (nicht nur 0->1),
+    // damit ein Admin auch durch erneutes Speichern einer bereits offenen
+    // Tagung die fehlende News nachholen kann. UPSERT mit unique-Index
+    // verhindert Duplikate; vorhandene werden nur refresht und reaktiviert.
+    if ($newPhase === 1) {
         newsUpsertAuto('submission_open', $tagung, [
             'display_date' => $today,
             'title_de' => "Manuskripteinreichung für die {$tagung}. Jahrestagung offen",
@@ -103,7 +107,10 @@ function newsOnTagungSaved(?array $old, array $new): void
         newsDeactivateAuto('submission_closed', $tagung);
     }
 
-    // --- Beitragsanmeldung geschlossen (1 -> 0) ---
+    // --- Beitragsanmeldung geschlossen (1 -> 0, echte Transition!) ---
+    // Nur bei Transition, damit eine Tagung die schon immer phase=0 hatte
+    // (alte Tagungen, Neuanlage als 0) nicht versehentlich eine
+    // "Geschlossen"-News bekommt.
     if ($oldPhase === 1 && $newPhase === 0) {
         newsDeactivateAuto('submission_open', $tagung);
         newsDeactivateAuto('deadline_set', $tagung);
@@ -121,8 +128,8 @@ function newsOnTagungSaved(?array $old, array $new): void
         ]);
     }
 
-    // --- Einreichungsfrist gesetzt/geaendert (nur wenn Phase offen) ---
-    if ($newPhase === 1 && $newFrist !== '' && $newFrist !== $oldFrist) {
+    // --- Einreichungsfrist gesetzt (idempotent bei Phase offen) ---
+    if ($newPhase === 1 && $newFrist !== '') {
         $fristNice = formatDateLong($newFrist);
         newsUpsertAuto('deadline_set', $tagung, [
             'display_date' => $today,
@@ -134,8 +141,8 @@ function newsOnTagungSaved(?array $old, array $new): void
         ]);
     }
 
-    // --- Einreichungsfrist entfernt (alt gesetzt, neu leer) ---
-    if ($oldFrist !== '' && $newFrist === '') {
+    // --- Einreichungsfrist entfernt oder Phase geschlossen → deadline_set raus ---
+    if (($oldFrist !== '' && $newFrist === '') || $newPhase === 0) {
         newsDeactivateAuto('deadline_set', $tagung);
     }
 }
