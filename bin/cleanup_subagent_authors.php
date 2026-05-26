@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../public/helpers.php';
 
-if (PHP_SAPI === 'cli' && realpath($argv[0]) === __FILE__) {
+if (PHP_SAPI === 'cli' && isset($argv[0]) && realpath($argv[0]) === __FILE__) {
     require_once __DIR__ . '/../public/config.php';
     require_once __DIR__ . '/../public/db.php';
 
