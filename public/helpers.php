@@ -185,7 +185,10 @@ function normalizeForAliasMatch(string $s): string
     // 3. ß -> ss (vor der ICU-Transliterierung, die ß -> s kuerzt).
     $s = str_replace('ß', 'ss', $s);
     // 4. Diakritika -> ASCII (ü -> u, ö -> o, etc.).
-    $s = transliterator_transliterate('Any-Latin; Latin-ASCII; Lower()', $s) ?? $s;
+    $result = transliterator_transliterate('Any-Latin; Latin-ASCII; [:Nonspacing Mark:] Remove; Lower()', $s);
+    $s = ($result !== false && $result !== null) ? $result : $s;
+    // Safety net: strip any non-ASCII that slipped through (rare scripts, broken encodings).
+    $s = preg_replace('/[^\x20-\x7E]+/', '', $s);
     // 5. Punkte, Spaces, Kommas, Bindestriche entfernen.
     $s = preg_replace('/[\.\s,\-]+/u', '', $s);
     // 6. Trim (sicherheitshalber).

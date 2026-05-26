@@ -17,3 +17,5 @@ assert_equals(
 );
 assert_equals('', normalizeForAliasMatch(''),    'leerer Input');
 assert_equals('', normalizeForAliasMatch('***'), 'nur Sterne');
+assert_equals('mlab',      normalizeForAliasMatch('μ-Lab'),         'Greek mu -> m via Any-Latin');
+assert_equals('pinstitut', normalizeForAliasMatch('Π-Institut'),    'Greek capital pi -> p via Any-Latin');
