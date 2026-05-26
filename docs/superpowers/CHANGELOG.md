@@ -38,3 +38,16 @@ Publikationen unter beiden Schreibweisen mit identischen Co-Autoren.
 IFNANO ging 2018/2020 aus LLG hervor, gleiche Adresse.
 Re-Merge: 9046 (C.M. Beckmann) ist Anchor, 4 Papers, beide Institute
 verknüpft. Live-DB: 4547 Autoren, 632 Redirects.
+
+## 2026-05-26 (late): Phase 4 Institutions-Konsolidierung mit Web-Recherche
+
+- 223 Institut-Cluster-Kandidaten durch Sonnet-Subagents mit Web-Recherche bewertet (ROR-API, Wikipedia, Institut-Webseiten)
+- Verdicts: 133 merge, 90 keep_separate, 0 unsure
+- Auto-merged (Konfidenz ≥ 0.85): 131 Cluster mit 372 Records eliminiert
+- Live-DB: 1973 → 1601 Institutionen (-372, ~19% Reduktion)
+- 131 Institute mit name_en (deutsch+englisch), 114 mit ROR-ID, 106 mit Kürzel
+- 92 weitere Vorschläge in merge_review_queue (insg. 478 mit Author-Queue)
+- Bug-Fix in `processInstitutionVerdicts`: UNIQUE-Konflikt bei Multi-Edge-Autoren über INSERT-OR-IGNORE statt UPDATE
+- Backup: database/backups/proceedings_pre_phase4_2026-05-26_2128.db
+- Beispiele für erfolgreiche Merges: ITO Stuttgart (21 Schreibvarianten → 1), LZH Hannover (15 → 1, ROR 01gkym270), BIAS Bremen (14 → 1, ROR 01k6z4z19), MPI für extraterrestrische Physik (3 → 1), ILM Ulm, JENOPTIK Polymer Systems
+- Sub-Institute korrekt getrennt: Carl Zeiss AG vs Zeiss SMT, KIT in 7 Sub-Institute, WWU Münster Mega-Cluster in 9 Sub-Institute, HOT Hannover vs ZOT Aalen

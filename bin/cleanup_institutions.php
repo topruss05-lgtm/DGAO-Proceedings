@@ -271,15 +271,21 @@ function processInstitutionVerdicts(PDO $db, string $verdictDir, float $threshol
                 $db->prepare("DELETE FROM institut_aliase WHERE institut_id IN ($dupPh)")
                    ->execute($duplicates);
 
-                // autor_institutionen umhaengen: zuerst Konflikte beseitigen,
-                // dann restliche Verknuepfungen auf Anker verschieben
+                // autor_institutionen umhaengen via INSERT OR IGNORE + DELETE:
+                // Falls Autor X bereits an Anker UND mehreren Duplikaten verknuepft
+                // ist, kollidiert ein simples UPDATE auf (X, anchor). Stattdessen:
+                // (1) Anker-Verknuepfung fuer alle betroffenen Autoren idempotent
+                //     anlegen (INSERT OR IGNORE behaelt bestehende ist_aktuell),
+                // (2) alle Duplikat-Verknuepfungen loeschen.
                 $db->prepare("
-                    DELETE FROM autor_institutionen
+                    INSERT OR IGNORE INTO autor_institutionen (autor_id, institut_id, ist_aktuell)
+                    SELECT DISTINCT autor_id, ?, MAX(ist_aktuell)
+                    FROM autor_institutionen
                     WHERE institut_id IN ($dupPh)
-                      AND autor_id IN (SELECT autor_id FROM autor_institutionen WHERE institut_id = ?)
-                ")->execute([...$duplicates, $anchor]);
-                $db->prepare("UPDATE autor_institutionen SET institut_id = ? WHERE institut_id IN ($dupPh)")
-                   ->execute([$anchor, ...$duplicates]);
+                    GROUP BY autor_id
+                ")->execute([$anchor, ...$duplicates]);
+                $db->prepare("DELETE FROM autor_institutionen WHERE institut_id IN ($dupPh)")
+                   ->execute($duplicates);
 
                 // Duplikate aus institutionen entfernen
                 $db->prepare("DELETE FROM institutionen WHERE id IN ($dupPh)")->execute($duplicates);
