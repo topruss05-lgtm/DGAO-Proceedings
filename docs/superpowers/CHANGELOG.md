@@ -77,3 +77,21 @@ Sonnet-Subagent mit Web-Recherche (Google Scholar, ResearchGate, Institut-Websei
 - 9 keep_separate via Web bestätigt
 - 2 unsure (Tan, Tu — keine Paper / Affiliation)
 - Live-DB: 4536 → 4517 Autoren
+
+## 2026-05-26 (final final): Full Queue Sweep mit Web-Recherche
+
+User-Feedback: "Bei fast allen ist Websearch easy — wir haben Nachname + Initialen + Institut + Themen."
+
+10 parallele Sonnet-Subagents mit Web-Recherche durch ALLE verbliebenen 398 Queue-Einträge (349 Autoren + 49 Institute):
+- 2 zusätzliche Autoren-Merges (Cordelia Wittemann HS Aalen, Philipp-Immanuel Schneider JCMwave Berlin)
+- 1 zusätzlicher Institut-Merge (TSI Labs → Laboratoire Hubert Curien 2007 Umbenennung)
+- 395 keep_separate via Web bestätigt
+- 2 unsure verbleiben: M./A. Breitbarth (Verdacht: OCR-Fehler in Tagung 2007 - manuelles PDF-Check nötig); FAU/IOIP-Mega-Cluster (38 IDs, 8 Sub-Gruppen, komplexe Historie inkl. MPL-Vorläufer)
+
+Live-DB final:
+- 4516 Autoren (Start 5184, -668, -13%)
+- 1443 Institutionen (Start 1973, -530, -27%)
+- 657 Redirects (URL-stabil)
+- 4635 Autor-Aliase, 1889 Institut-Aliase
+- 186 Institute mit name_en, 159 mit ROR-ID
+- 476 Queue-Einträge approved, 2 pending (komplexe Sonderfälle)
