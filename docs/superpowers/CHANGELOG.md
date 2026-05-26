@@ -114,3 +114,20 @@ Live-DB:
 - 4515 Autoren (Start 5184, -669, -13%)
 - 1411 Institutionen (Start 1973, -562, -28%)
 - Queue: 0 pending, 478 approved (100%)
+
+## 2026-05-26 (deployed!): Production-Deploy + Stichproben-Verifikation
+
+**Stichprobe Phase-3 Hochkonfidenz (≥0.95):** 30 randomisierte Merges via Web-Recherche verifiziert (Subagent mit Google Scholar, ResearchGate, Institut-Webseiten).
+- Confirmed ✅: 30/30
+- Wrong ❌: 0
+- Geschätzte Fehlerquote in ≥0.95-Bereich: ~0%
+- Belege u.a.: Boris N. Chichkov (LZH Nano-Department-Head), Tobias J. Kippenberg (EPFL), Meint Smit (TU Eindhoven COBRA), Ernst-Bernhard Kley (IAP Jena), Heidrun Schmitzer (Xavier Univ. Cincinnati)
+
+**Production-Deploy:** Lokale konsolidierte DB nach dgao.tpapps.de hochgeladen.
+- Remote-Backup vor Replace: `proceedings.db.bak-pre-consolidation-20260526-2218` auf Production
+- rsync 12.18 MB hochgeladen
+- WAL/SHM-Files entfernt, Permissions auf 664 gesetzt
+- Smoke-Tests:
+  - `https://dgao.tpapps.de/api/suggest?q=Pruss` → `Pruß, C., ITO, 51 Papers` ✅
+  - `https://dgao.tpapps.de/api/suggest?q=Pruß` → identisches Ergebnis ✅
+  - `https://dgao.tpapps.de/autor/50` → 301 Redirect auf `/autor/1466` ✅
