@@ -433,6 +433,14 @@
     border-bottom: 1px solid var(--border-light);
 }
 
+/* Diese Section darf bewusst schmaler bleiben als die übrigen 1280er
+   Sections — die Tagungsbilder mit Button-Body würden bei voller
+   Breite zu wuchtig wirken. Section-BG (paper-tinted) ist trotzdem
+   full-bleed, nur der Card-Container ist zentral schmaler. */
+.v4-conferences .v4-section-inner {
+    max-width: 1080px;
+}
+
 .v4-conf-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
