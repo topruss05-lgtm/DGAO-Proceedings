@@ -1174,9 +1174,17 @@ h3, .h3 {
     border-left-color: var(--accent);
 }
 
+/* Open-State: gesamte Session sitzt einheitlich auf paper-bg —
+   kein Farbsprung mehr zwischen Header (vorher leicht accent-tinted)
+   und Papers-Grid (paper). 3px Accent-Left + Count-Pill bleiben als
+   State-Indikatoren. */
+.archiv-session[open] {
+    background: var(--paper);
+}
+
 .archiv-session[open] > .archiv-session__summary {
     border-left-color: var(--accent);
-    background: rgba(var(--accent-rgb), 0.03);
+    background: transparent;
 }
 
 .archiv-session[open] > .archiv-session__summary:hover {
@@ -1217,15 +1225,21 @@ h3, .h3 {
     color: var(--white);
 }
 
-/* Paper-Grid: 2 Spalten ab md, 1 Spalte mobil. Sitzt auf warm-paper
-   Band, damit visuell klar als "Inhalt der Session" lesbar. */
+/* Paper-Grid: erbt paper-bg von [open]-Container, keine eigene
+   Top-Hairline mehr (vermeidet harten Cut zum Header).
+   3 Spalten ab xl — bei 1140px-Container wären 2 Spalten sonst
+   "breitgezogen" und Cards wirken zu sparse. */
 .archiv-session__papers {
     padding: 0.85rem 1rem 1rem;
-    background: var(--paper);
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.6rem;
-    border-top: 1px solid var(--border-light);
+}
+
+@media (min-width: 1200px) {
+    .archiv-session__papers {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 767.98px) {
