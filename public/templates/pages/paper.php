@@ -144,7 +144,6 @@ $pdfRelUrl = pdfUrl($paper);
 
     <?php if ($paper['abstract_text']): ?>
     <div class="mb-4">
-        <h2 class="h6 fw-bold"><?= e(t('paper.abstract')) ?></h2>
         <div class="abstract-block">
             <p><?= e($paper['abstract_text']) ?></p>
         </div>
