@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.97,
+  "groups": [[1119], [9016], [11923], [12352]],
+  "reason": "Vier verschiedene Initialen (K., H., M., A.) mit vollständig disjunkten Affiliationen (Frankfurt, Schweiz, Stuttgart, Pforzheim) und Themen."
+}

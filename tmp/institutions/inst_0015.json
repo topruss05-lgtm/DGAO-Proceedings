@@ -1,0 +1,110 @@
+{
+    "cluster_id": 15,
+    "variants": [
+        {
+            "id": 42,
+            "name_de": "Institut für Technische Optik, Universität Stuttgart",
+            "author_count": 66
+        },
+        {
+            "id": 74,
+            "name_de": "Institut für Technische Optik, Uni Stuttgart",
+            "author_count": 2
+        },
+        {
+            "id": 75,
+            "name_de": "Institut für technische Optik, Universität Stuttgart",
+            "author_count": 6
+        },
+        {
+            "id": 413,
+            "name_de": "Institut für Technische Optik (ITO), Universität Stuttgart, Pfaffenwaldring 9, 70569 Stuttgart, Germany\nStuttgart Research Center of Photonic Engineering (SCoPE), Universität Stuttgart, Pfaffenwaldring 9, 70569 Stuttgart, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 481,
+            "name_de": "Institut füt Technische Optik, Universität Stuttgart",
+            "author_count": 1
+        },
+        {
+            "id": 483,
+            "name_de": "Institut für Technische Optik\nUniversität Stuttgart, Pfaffenwaldring 9, D-70596 Stuttgart, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 490,
+            "name_de": "Institut für Technische Optik, Universität Stuttgart\nPfaffenwadring 9, 70569 Stuttgart",
+            "author_count": 1
+        },
+        {
+            "id": 553,
+            "name_de": "Institut für Technische Optik (ITO), Universität Stuttgart",
+            "author_count": 9
+        },
+        {
+            "id": 622,
+            "name_de": "Institut für Technische Optik, Universität Stuttgart, Pfaffenwaldring 9, 70569 Stuttgart",
+            "author_count": 4
+        },
+        {
+            "id": 648,
+            "name_de": "Institut für Technische Optik (ITO), Uni Stuttgart",
+            "author_count": 1
+        },
+        {
+            "id": 665,
+            "name_de": "Institut für Technische Optik (ITO), Universität Stuttgart, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 744,
+            "name_de": "Institut fuer Technische Optik, Univ. Stuttgart, Pfaffenwaldring 9, 70569 Stuttgart",
+            "author_count": 1
+        },
+        {
+            "id": 1081,
+            "name_de": "Institut für Technische Optik (ITO), University Stuttgart, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 1082,
+            "name_de": "Institut für Technische Optik, Stuttgart",
+            "author_count": 1
+        },
+        {
+            "id": 1226,
+            "name_de": "Institut für Technische Optik ITO, University of Stuttgart, Pfaffenwaldring 9, 70569 Stuttgart, Germany",
+            "author_count": 2
+        },
+        {
+            "id": 1556,
+            "name_de": "Institut für Technische Optik, Universität Stuttgart\nPfaffenwaldring 9, 70195 Stuttgart",
+            "author_count": 1
+        },
+        {
+            "id": 1584,
+            "name_de": "Institut für Technische Optik – Universität Stuttgart",
+            "author_count": 2
+        },
+        {
+            "id": 1625,
+            "name_de": "Institut fuer Technische Optik Universität Stuttgart",
+            "author_count": 1
+        },
+        {
+            "id": 1810,
+            "name_de": "Institut für Technische Optik (ITO), Universität Stuttgart, Pfaffenwaldring 9, 70569 Stuttgart",
+            "author_count": 1
+        },
+        {
+            "id": 1926,
+            "name_de": "Institut für technische Optik - ITO, Universität Stuttgart",
+            "author_count": 1
+        },
+        {
+            "id": 1967,
+            "name_de": "Institut für Technische Optik | Universität Stuttgart",
+            "author_count": 1
+        }
+    ]
+}

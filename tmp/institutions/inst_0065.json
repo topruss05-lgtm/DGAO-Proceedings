@@ -1,0 +1,30 @@
+{
+    "cluster_id": 65,
+    "variants": [
+        {
+            "id": 273,
+            "name_de": "Technische Hochschule Wildau, Hochschulring 1, 15745 Wildau, Germany",
+            "author_count": 18
+        },
+        {
+            "id": 1590,
+            "name_de": "THD-Technische Hochschule Deggendorf, Germany, rolf.rascher@th-deg.de",
+            "author_count": 1
+        },
+        {
+            "id": 1725,
+            "name_de": "Technische Hochschule Wildau",
+            "author_count": 1
+        },
+        {
+            "id": 1769,
+            "name_de": "Fraunhofer Institut für Angewandte Polymerforschung IAP, PYCO, Schmiedestraße 5, 15745 Wildau, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 1798,
+            "name_de": "Fakultät Ingenieurwissenschaften, Technische Hochschule Aschaffenburg (Germany)",
+            "author_count": 1
+        }
+    ]
+}

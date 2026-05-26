@@ -1,0 +1,13 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.97,
+    "groups": [
+        [
+            6592
+        ],
+        [
+            6595
+        ]
+    ],
+    "reason": "B.A. Ribeiro und R.M. Ribeiro sind Co-Autoren desselben Papers an der Universidade Federal Fluminense – verschiedene Initialen bestätigen zwei verschiedene Personen."
+}

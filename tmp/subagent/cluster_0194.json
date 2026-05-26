@@ -1,0 +1,20 @@
+{
+    "cluster_id": 194,
+    "nachname_norm": "khanh",
+    "candidates": [
+        {
+            "id": 5073,
+            "name": "T. Khanh",
+            "papers": 1,
+            "affiliations": "Fachgebiet Lichttechnik, TU Darmstadt",
+            "sample_titles": "Lichttechnische Messungen an LED-Modulen und -Leuchten – eine Herausforderung an die Lichttechnik"
+        },
+        {
+            "id": 8066,
+            "name": "T. Q. Khanh",
+            "papers": 3,
+            "affiliations": "Universität Darmstadt, Fachgebiet Lichttechnik",
+            "sample_titles": "Aktuelle Technologien und Trends in der Lichttechnik und Bildverarbeitung || LED-Alterung – Einflussfaktoren und Lebensdauerberechnung || Einfluss der melanopsinhaltigen Ganglienzellen auf die kurz- und langzeitige Pupillenlichtreaktion"
+        }
+    ]
+}

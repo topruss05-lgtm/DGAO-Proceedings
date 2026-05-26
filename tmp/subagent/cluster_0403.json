@@ -1,0 +1,27 @@
+{
+    "cluster_id": 403,
+    "nachname_norm": "teichert",
+    "candidates": [
+        {
+            "id": 4911,
+            "name": "S. Teichert",
+            "papers": 3,
+            "affiliations": "Physikalisch-Technische Bundesanstalt (PTB), Bundesallee 100, 38116 Braunschweig, Germany",
+            "sample_titles": "Analysis of ellipsometric layer thickness measurements applying a novel optimization method for depolarizing Mueller matrices || A new method to derive best-fit parameters and their uncertainties from depolarizing Mueller-matrices || Multidimensionale Reflektometrie von goniochromatischen Oberflächen"
+        },
+        {
+            "id": 9877,
+            "name": "A. Teichert",
+            "papers": 1,
+            "affiliations": "NOB Nano Optics Berlin GmbH, Krumme Str. 64, 10627 Berlin, Germany",
+            "sample_titles": "Grautonlithographie für die Herstellung von Blazegittern"
+        },
+        {
+            "id": 10038,
+            "name": "M. Teichert",
+            "papers": 1,
+            "affiliations": "Universitätsklinikum Jena, Klinik für Neurologie, Am Klinikum 1, 07747 Jena, Deutschland",
+            "sample_titles": "Stereophotogrammetrie mit strukturierter Beleuchtung zur Vermessung von Mäusetasthaaren"
+        }
+    ]
+}

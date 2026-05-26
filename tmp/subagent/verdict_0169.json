@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[5058], [7083], [8938]],
+  "reason": "Drei verschiedene Personen mit unterschiedlichen Initialen (H. Hofer/PTB Braunschweig, S. Höfer/Fraunhofer IOSB Karlsruhe, B. Höfer/Fraunhofer IOF Jena) und vollständig disjunkten Themen und Affiliationen."
+}

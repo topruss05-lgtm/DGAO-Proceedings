@@ -1,0 +1,6 @@
+{
+  "verdict": "merge",
+  "confidence": 0.95,
+  "groups": [[6910, 11520]],
+  "reason": "Ch. Sinn (id 6910) und C. Sinn (id 11520) teilen dieselbe Firma (Köln.Optik Ingenieurbüro) und überlappende Themen (Optikdesign, Beleuchtung); Ch./C. ist eine typische Initialvariante derselben Person."
+}

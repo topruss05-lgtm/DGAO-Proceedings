@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.97,
+  "groups": [[572], [2071], [3145], [5629], [6275], [7869], [8907]],
+  "reason": "Sieben Schäfer-Kandidaten mit verschiedenen Initialen (B., G., M., S., D., T., J.) und vollständig disjunkten Affiliationen."
+}

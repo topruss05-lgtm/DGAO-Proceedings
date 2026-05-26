@@ -1,0 +1,20 @@
+{
+    "cluster_id": 398,
+    "nachname_norm": "sturmer",
+    "candidates": [
+        {
+            "id": 5504,
+            "name": "M. Stürmer",
+            "papers": 5,
+            "affiliations": "Laboratory for Microactuators, University of Freiburg, Germany",
+            "sample_titles": "Nicht-sphärische adaptive Optik für die Lebenswissenschaften || Adaptive piezogetriebene Hochgeschwindigkeits-Linse mit asphärischer Korrektur || Confocal microscopy employing pressure controlled adaptive lenses"
+        },
+        {
+            "id": 6599,
+            "name": "J. Stürmer",
+            "papers": 1,
+            "affiliations": "Fakultät Elektrotechnik und Informationstechnik, Technische Universität Dresden, Professur für Mess- und Sensorsystemtechnik",
+            "sample_titles": "Depth resolution by means of helical wavefronts for particle tracking applications"
+        }
+    ]
+}

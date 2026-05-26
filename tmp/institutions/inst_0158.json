@@ -1,0 +1,15 @@
+{
+    "cluster_id": 158,
+    "variants": [
+        {
+            "id": 966,
+            "name_de": "SUSS MicroTec Lithography GmbH, Garching, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 967,
+            "name_de": "SUSS MicroTec Lithography GmbH, Garching",
+            "author_count": 1
+        }
+    ]
+}

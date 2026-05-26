@@ -1,0 +1,49 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.92,
+  "groups": [
+    [235],
+    [306, 307, 354],
+    [319],
+    [363]
+  ],
+  "canonical": [
+    {
+      "name_de": "Institut für Physik, Nikolaus-Kopernikus-Universität Toruń",
+      "name_en": "Institute of Physics, Nicolaus Copernicus University Toruń",
+      "kuerzel": "",
+      "universitaet": "Nicolaus Copernicus University",
+      "ort": "Toruń",
+      "land": "PL",
+      "ror_id": ""
+    },
+    {
+      "name_de": "Institut für Physik, Technische Universität Wrocław",
+      "name_en": "Institute of Physics, Wrocław University of Technology",
+      "kuerzel": "",
+      "universitaet": "Wrocław University of Technology",
+      "ort": "Wrocław",
+      "land": "PL",
+      "ror_id": ""
+    },
+    {
+      "name_de": "Institut für Physik, Technische Universität Warschau",
+      "name_en": "Institute of Physics, Warsaw University of Technology",
+      "kuerzel": "",
+      "universitaet": "Warsaw University of Technology",
+      "ort": "Warschau",
+      "land": "PL",
+      "ror_id": ""
+    },
+    {
+      "name_de": "Institut für Physik, Technische Universität Łódź",
+      "name_en": "Institute of Physics, Technical University of Łódź",
+      "kuerzel": "",
+      "universitaet": "Technical University of Łódź",
+      "ort": "Łódź",
+      "land": "PL",
+      "ror_id": ""
+    }
+  ],
+  "reason": "Vier verschiedene polnische Universitäten (Toruń, Wrocław, Warschau, Łódź); IDs 306/307/354 sind Schreibvarianten desselben Instituts in Wrocław und werden zusammengeführt."
+}

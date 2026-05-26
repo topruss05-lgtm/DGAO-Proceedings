@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.98,
+  "groups": [[898, 899]],
+  "canonical": [
+    {
+      "name_de": "Fachbereich Informationstechnik-Elektrotechnik-Mechatronik, FH Gießen-Friedberg",
+      "name_en": "Department of Information Technology, Electrical Engineering and Mechatronics, FH Gießen-Friedberg",
+      "kuerzel": "IEM",
+      "universitaet": "Technische Hochschule Mittelhessen (ehem. FH Gießen-Friedberg)",
+      "ort": "Friedberg",
+      "land": "DE",
+      "ror_id": "https://ror.org/02qdc9985"
+    }
+  ],
+  "reason": "Beide Einträge bezeichnen denselben Fachbereich IEM der FH Gießen-Friedberg an identischer Adresse; der einzige Unterschied ist ein Leerzeichen vor dem Bindestrich in 'Informationstechnik- Elektrotechnik-Mechatronik'."
+}

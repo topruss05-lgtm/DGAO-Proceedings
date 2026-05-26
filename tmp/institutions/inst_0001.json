@@ -1,0 +1,205 @@
+{
+    "cluster_id": 1,
+    "variants": [
+        {
+            "id": 3,
+            "name_de": "Institut für Optik, Information und Photonik,\nFriedrich-Alexander-Universität Erlangen-Nürnberg",
+            "author_count": 1
+        },
+        {
+            "id": 9,
+            "name_de": "Institut für Optik, Information und Photonik, Universität Erlangen-Nürnberg",
+            "author_count": 3
+        },
+        {
+            "id": 10,
+            "name_de": "Institut für Optik, Information und Photonik, Friedrich-Alexander Universität Erlangen-Nürnberg",
+            "author_count": 3
+        },
+        {
+            "id": 22,
+            "name_de": "Lehrstuhl für Optik, FAU Erlangen-Nürnberg",
+            "author_count": 1
+        },
+        {
+            "id": 41,
+            "name_de": "Lehrstuhl für Optik, Universität Erlangen-Nürnberg",
+            "author_count": 1
+        },
+        {
+            "id": 61,
+            "name_de": "Institute of Optics, Information and Photonics, University of Erlangen-Nürnberg",
+            "author_count": 2
+        },
+        {
+            "id": 154,
+            "name_de": "Institut für Optik, Information und Photonik (IOIP), Max-Planck-Forschungsgruppe, Universität Erlangen-Nürnberg",
+            "author_count": 2
+        },
+        {
+            "id": 156,
+            "name_de": "Max-Planck-Institut für die Physik des Lichts, \nFriedrich-Alexander-Universität Erlangen-Nürnberg und\nUniversity of Ottawa",
+            "author_count": 1
+        },
+        {
+            "id": 237,
+            "name_de": "Institute of Optics, Information and Photonics, Friedrich-Alexander-University Erlangen-Nuremberg",
+            "author_count": 7
+        },
+        {
+            "id": 238,
+            "name_de": "Max-Planck-Forschungsgruppe, Institut für Optik, Information und Photonik, Universität Erlangen-Nürnberg",
+            "author_count": 1
+        },
+        {
+            "id": 251,
+            "name_de": "Institut für Optik, Information und Photonik, Universität Erlangen",
+            "author_count": 1
+        },
+        {
+            "id": 261,
+            "name_de": "Institut für Optik,Information und Photonik,Max-Planck-Forschungsgruppe, Universität Erlangen-Nürnberg",
+            "author_count": 1
+        },
+        {
+            "id": 276,
+            "name_de": "Institut für Optik, Information und Photonik, Max-Planck-Forschungsgruppe, Universität Erlangen-Nürnberg",
+            "author_count": 2
+        },
+        {
+            "id": 330,
+            "name_de": "Max Planck Research Group, Institute of Optics, Information and Photonics, University of Erlangen-Nuernberg",
+            "author_count": 1
+        },
+        {
+            "id": 331,
+            "name_de": "Institut für Optik, Information und Photonik, Universität Erlangen-Nürnberg, Staudtstraße 7, D-91058 Erlangen, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 415,
+            "name_de": "Institut für Optik, Information und Photonik\nUniversität Erlangen-Nürnberg",
+            "author_count": 1
+        },
+        {
+            "id": 420,
+            "name_de": "Max-Planck-Forschungsgruppe für Optik, Information und Photonik Erlangen",
+            "author_count": 1
+        },
+        {
+            "id": 434,
+            "name_de": "Institut für Optik, Information und Photonik, Universität Erlangen-Nürnberg, Staudtstraße 7/B2, 91054 Erlangen",
+            "author_count": 1
+        },
+        {
+            "id": 458,
+            "name_de": "Institut für Optik, Information und Photonik, Friedrich-Alexander-Universität Erlangen",
+            "author_count": 2
+        },
+        {
+            "id": 523,
+            "name_de": "Institut für Optik, Information und Photonik (Max-Planck Forschungsgruppe), Friedrich-Alexander-Universität Erlangen-Nürnberg",
+            "author_count": 4
+        },
+        {
+            "id": 551,
+            "name_de": "Institut für Optik, Information und Photonik, Friedrich-Alexander-Universität Erlangen-Nürnberg",
+            "author_count": 2
+        },
+        {
+            "id": 554,
+            "name_de": "Lehrstuhl für Optik, Physikalisches Institut der Universität Erlangen – Nürnberg",
+            "author_count": 1
+        },
+        {
+            "id": 578,
+            "name_de": "Lehrstuhl für Optik, IOIP, Friedrich-Alexander-Universität Erlangen-Nürnberg",
+            "author_count": 2
+        },
+        {
+            "id": 886,
+            "name_de": "Institut für Optik, Information und Photonik, Friedrich-Alexander-Universität Erlangen-Nürnberg, Staudtstraße 7/B2, 91058 Erlangen",
+            "author_count": 2
+        },
+        {
+            "id": 947,
+            "name_de": "Institut für Optik, Universität Erlangen-Nürnberg",
+            "author_count": 1
+        },
+        {
+            "id": 998,
+            "name_de": "Friedrich-Alexander-Universität Erlangen-Nürnberg",
+            "author_count": 1
+        },
+        {
+            "id": 999,
+            "name_de": "Lehrstuhl für Fertigungsautomatisierung und Produktionssystematik, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
+            "author_count": 3
+        },
+        {
+            "id": 1008,
+            "name_de": "Osmin, Institute of Optics, Friedrich-Alexander-Universität Erlangen-Nürnberg",
+            "author_count": 2
+        },
+        {
+            "id": 1056,
+            "name_de": "Erlangen Center of Astroparticle Physics, Friedrich-Alexander-Universität Erlangen-Nürnberg",
+            "author_count": 2
+        },
+        {
+            "id": 1083,
+            "name_de": "Institute of Optics, Information, and Photonics,\n  Friedrich-Alexander-University of Erlangen-Nuremberg",
+            "author_count": 2
+        },
+        {
+            "id": 1087,
+            "name_de": "Epilepsy Center, University Hospital of Neurology, Friedrich-Alexander-University Erlangen-Nuremberg",
+            "author_count": 1
+        },
+        {
+            "id": 1088,
+            "name_de": "Pattern Recognition Lab, Department of Computer Science, Friedrich-Alexander-University Erlangen-Nuremberg",
+            "author_count": 3
+        },
+        {
+            "id": 1090,
+            "name_de": "University Hospital of Neurology, Friedrich-Alexander-University Erlangen-Nuremberg",
+            "author_count": 1
+        },
+        {
+            "id": 1214,
+            "name_de": "Institut für Optik, Information und Photonik, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
+            "author_count": 7
+        },
+        {
+            "id": 1346,
+            "name_de": "Institut für Optik, Information und Photonik der Friedrich-Alexander-Universität Erlangen-Nürnberg",
+            "author_count": 1
+        },
+        {
+            "id": 1351,
+            "name_de": "Institute of Optics, Information and Photonics, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU), Staudtstraße 7/B2, 91058 Erlangen",
+            "author_count": 1
+        },
+        {
+            "id": 1399,
+            "name_de": "Lehrstuhl für Fertigungsautomatisierung und Produktionssystematik, Friedrich-Alexander-Universität Erlangen Nürnberg;",
+            "author_count": 1
+        },
+        {
+            "id": 1473,
+            "name_de": "MAOT and Institut für Optik, Friedrich-Alexander-Universität Erlangen-Nürnberg",
+            "author_count": 1
+        },
+        {
+            "id": 1712,
+            "name_de": "Institut für Optik, Information und Photonik, FAU Erlangen-Nürnberg",
+            "author_count": 1
+        },
+        {
+            "id": 1783,
+            "name_de": "Friedrich Alexander Universität Erlangen-Nürnberg",
+            "author_count": 1
+        }
+    ]
+}

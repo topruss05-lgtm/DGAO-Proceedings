@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[8127], [8656]],
+  "reason": "L. Kiefer (Hochschule Darmstadt, Bildverarbeitung) und J. Kiefer (Universität Bremen, Spektroskopie) haben verschiedene Vornamen-Initialen, disjunkte Affiliations und Themen."
+}

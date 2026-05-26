@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[2386], [11862]],
+  "reason": "Verschiedene Initialen (S. vs. A.) und verschiedene Affiliationen (FSU Jena Angewandte Optik vs. BAM Berlin) sowie unterschiedliche Themen (digitale Holographie vs. Ellipsometrie)."
+}

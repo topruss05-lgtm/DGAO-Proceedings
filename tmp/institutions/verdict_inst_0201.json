@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.99,
+  "groups": [[1391, 1393]],
+  "canonical": [
+    {
+      "name_de": "Communications Signal Processing Group, Hochschule Wismar",
+      "name_en": "Communications Signal Processing Group, Wismar University of Applied Sciences",
+      "kuerzel": "",
+      "universitaet": "Hochschule Wismar",
+      "ort": "Wismar",
+      "land": "DE",
+      "ror_id": "https://ror.org/00s1ckt27"
+    }
+  ],
+  "reason": "Identische Einrichtung (Communications Signal Processing Group, Hochschule Wismar): ID 1391 mit Länderangabe \"Germany\", ID 1393 ohne. Reine Schreibvarianten – merge."
+}

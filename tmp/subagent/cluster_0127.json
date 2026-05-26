@@ -1,0 +1,20 @@
+{
+    "cluster_id": 127,
+    "nachname_norm": "gross",
+    "candidates": [
+        {
+            "id": 786,
+            "name": "R. Gross",
+            "papers": 4,
+            "affiliations": "3D-Shape GmbH, Erlangen",
+            "sample_titles": "Ultrafast 4-Megapixel White-Light-Interferometry || Schnellere Weisslichtinterferometrie durch Unterabtastung || 3D-Messtechnik an den Grenzen des Machbaren"
+        },
+        {
+            "id": 5091,
+            "name": "H. Gross",
+            "papers": 14,
+            "affiliations": "Physikalisch-Technische Bundesanstalt | Fraunhofer Institut für Angewandte Optik und Feinmechanik IOF",
+            "sample_titles": "Simulation und Tolerierung optischer Systeme mit Freiformflächen || Homogenisierung partiell kohärenter Strahlung || Higher-order aberration and sensitivity analysis of symmetry-free optical systems"
+        }
+    ]
+}

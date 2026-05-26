@@ -1,0 +1,55 @@
+{
+    "cluster_id": 469,
+    "nachname_norm": "zimmermann",
+    "candidates": [
+        {
+            "id": 1102,
+            "name": "F. Zimmermann",
+            "papers": 1,
+            "affiliations": "Physikalisch-Chemisches Institut, Universität Heidelberg",
+            "sample_titles": "UV-Endoskop mit diffraktiver Aberrationskorrektur für die Motorenentwicklung"
+        },
+        {
+            "id": 2440,
+            "name": "R. Zimmermann",
+            "papers": 1,
+            "affiliations": "Physikalisches Institut, Johann Wolfgang Goethe-Universität Frankfurt,\nMax-von-Laue-Str. 1, D-60438 Frankfurt am Main, Germany\n\nChair of Paper Technology and Mechanical Process Engineering (PMV),\nTechnische Universität Darmstadt, Alexanderstr. 8, D-64283, Darmstadt, Germany\n\nRPG Radiometer Physics GmbH, Birkenmaarstraße 10, 53340 Meckenheim, Germany",
+            "sample_titles": "Active Terahertz imaging with high acquisition rates and its application for moisture sensing"
+        },
+        {
+            "id": 4274,
+            "name": "J. Zimmermann",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Performance of FlexRay, a fully programmable Illumination system for generation of Freeform Sources on high NA immersion systems"
+        },
+        {
+            "id": 7571,
+            "name": "T. Zimmermann",
+            "papers": 2,
+            "affiliations": "Fraunhofer-Institut für angewandte Optik und Feinmechanik IOF Jena, Leistungszentrum Photonik",
+            "sample_titles": "Deflektometrie unter Verwendung aperiodischer Sinusmuster || 3D-Sensornetzwerk mit geringer Latenz für die Echtzeit-Objektrekonstruktion"
+        },
+        {
+            "id": 8168,
+            "name": "A. Zimmermann",
+            "papers": 2,
+            "affiliations": "Universität Passau FORWISS",
+            "sample_titles": "Multiplexed light source for flexible coupling into fan-out fiber bundles in biomedical optical imaging || Eine neue Methode zur Lösung des Höhenproblems in der Deflektometrie"
+        },
+        {
+            "id": 10535,
+            "name": "M. Zimmermann",
+            "papers": 3,
+            "affiliations": "Institut für Technische Optik, Universität Stuttgart",
+            "sample_titles": "Experimenteller Vergleich von Methoden zur Speckleentfernung in Computergenerierten Hologrammen || Experimentelle Demonstration der Specklereduktion in Fernfeldhologrammen von SLMs durch hochgenaue Camera-in-the-loop Kalibrierung || Berechnungsmethoden für Fernfeldhologramme – Gerchberg-Saxton Erweiterungen und Stochastic Gradient Descent Optimierer"
+        },
+        {
+            "id": 12624,
+            "name": "C. Zimmermann",
+            "papers": 1,
+            "affiliations": "Institut für Photonics und Robotics, Fachhochschule Graubünden, Schweiz",
+            "sample_titles": "Automatisierte Detektion von Wolframwendeln zur Entnahme aus Petrischalen"
+        }
+    ]
+}

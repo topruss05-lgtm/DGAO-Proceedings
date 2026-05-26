@@ -1,0 +1,6 @@
+{
+  "verdict": "merge",
+  "confidence": 0.95,
+  "groups": [[8337, 8518]],
+  "reason": "S. Kontermann und St. Kontermann sind dieselbe Person: gleiche Affiliation (Institut für Mikrotechnologien, Hochschule RheinMain), gleiche Themen (Laser-Mikrogitter, DOE). St. ist eine Abkürzungsvariante von S."
+}

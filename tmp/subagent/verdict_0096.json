@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.9,
+  "groups": [[7740], [8533]],
+  "reason": "Verschiedene Initialen (F. vs. A.) bei gleicher Affiliation (Leibniz-Institut Leipzig). Gleiche Institution spricht nicht gegen Trennung – unterschiedliche Vornamen-Initialen ohne Überschneidung."
+}

@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[1772], [4996], [10328]],
+  "reason": "Drei verschiedene Personen: K. Kröger (Innovent Jena, Beschichtungsmesstechnik), I. Kröger (PTB, Laserstrahlungsmetrologie) und M. Kröger (RWTH Aachen, Lasermaterialbearbeitung) haben unterschiedliche Initialen, Affiliations und Themen."
+}

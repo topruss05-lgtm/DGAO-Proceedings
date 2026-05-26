@@ -1,0 +1,50 @@
+{
+    "cluster_id": 22,
+    "variants": [
+        {
+            "id": 73,
+            "name_de": "Carl Zeiss AG, Corporate Research & Technology, Optics Concepts, \nOberkochen",
+            "author_count": 1
+        },
+        {
+            "id": 256,
+            "name_de": "Corporate Research & Technology, Carl Zeiss AG",
+            "author_count": 6
+        },
+        {
+            "id": 311,
+            "name_de": "Carl Zeiss AG, Corporate Research and Technology",
+            "author_count": 1
+        },
+        {
+            "id": 488,
+            "name_de": "LIT-TBD / Optical Design, Carl Zeiss SMT AG, Geschäftsbereich Lithographie-Optik/Lithography Optics Division, Oberkochen",
+            "author_count": 1
+        },
+        {
+            "id": 1065,
+            "name_de": "Carl Zeiss AG, Corporate Research and Technology, Oberkochen",
+            "author_count": 3
+        },
+        {
+            "id": 1722,
+            "name_de": "Carl Zeiss AG, Corporate Research & Technology, Jena",
+            "author_count": 1
+        },
+        {
+            "id": 1729,
+            "name_de": "Corporate Research & Technology, Carl Zeiss AG, Carl-Zeiss Promenade 10, 07745, Jena",
+            "author_count": 2
+        },
+        {
+            "id": 1787,
+            "name_de": "Corporate Research & Technology, Carl Zeiss AG, 07745 Jena, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 1855,
+            "name_de": "Corporate Research & Technology, Carl Zeiss AG, Jena",
+            "author_count": 1
+        }
+    ]
+}

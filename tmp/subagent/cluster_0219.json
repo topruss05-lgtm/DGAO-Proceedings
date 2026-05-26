@@ -1,0 +1,20 @@
+{
+    "cluster_id": 219,
+    "nachname_norm": "kroesen",
+    "candidates": [
+        {
+            "id": 4416,
+            "name": "G. M. W. Kroesen",
+            "papers": 1,
+            "affiliations": "Eindhoven University of Technology",
+            "sample_titles": "Optical phenomena in nature"
+        },
+        {
+            "id": 5332,
+            "name": "S. Kroesen",
+            "papers": 3,
+            "affiliations": "Nonlinear Photonics Group, Institute of Applied Physics, University of MÃƒÂ¼nster (Germany)",
+            "sample_titles": "Integrated opto-microfluidics platforms in lithium niobate crystals for sensing applications || Direktes Laserstrahlschreiben zur Erzeugung von organischen Festkörperlasern || Integration funktionaler optischer Elemente in Lithiumniobat mit ultrakurzen Laserpulsen"
+        }
+    ]
+}

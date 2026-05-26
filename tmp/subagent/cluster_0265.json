@@ -1,0 +1,20 @@
+{
+    "cluster_id": 265,
+    "nachname_norm": "may",
+    "candidates": [
+        {
+            "id": 1161,
+            "name": "T. May",
+            "papers": 3,
+            "affiliations": "Luphos GmbH",
+            "sample_titles": "Hochgenaue Vermessung asphärischer Linsen in der Fertigungsmaschine || Ultra-hochpräzise, kontaktlose, absolute Abstandsmessung durch Mehrwellenlängeninterferometrie || Phasenkodierung zur Kapazitätserhöhung eines volumenholographischen Datenspeichersystems"
+        },
+        {
+            "id": 10393,
+            "name": "J. May",
+            "papers": 2,
+            "affiliations": "Fachgebiet Technische Optik, Technische Universität Ilmenau",
+            "sample_titles": "Digitale holografische Vibrometrie – Auswertemethodik || Digitale holografische Vibrometrie – (technologische) Grenzen und Anwendungsbeispiele"
+        }
+    ]
+}

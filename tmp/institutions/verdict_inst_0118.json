@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[607, 958]],
+  "canonical": [
+    {
+      "name_de": "Institut für Nanostrukturtechnologie und Analytik (INA), Fachgebiet Technische Elektronik, Universität Kassel",
+      "name_en": "Institute for Nanostructure Technologies and Analytics (INA), University of Kassel",
+      "kuerzel": "INA",
+      "universitaet": "Universität Kassel",
+      "ort": "Kassel",
+      "land": "DE",
+      "ror_id": "https://ror.org/04zc7p361"
+    }
+  ],
+  "reason": "Beide Varianten bezeichnen das Institut INA (Technische Elektronik) an der Universität Kassel; unterscheiden sich nur in Reihenfolge und Detailgrad der Angaben."
+}

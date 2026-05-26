@@ -1,0 +1,20 @@
+{
+    "cluster_id": 214,
+    "nachname_norm": "kraft",
+    "candidates": [
+        {
+            "id": 1255,
+            "name": "A. Kraft",
+            "papers": 5,
+            "affiliations": "Institut für Mess- und Regelungstechnik, Universität Hannover",
+            "sample_titles": "Nichtinvasive optische Blutanalyse- Anwendungen und Algorithmik || Vergleich von Bildverarbeitungsalgorithmen zur Analyse von in-plane Schwingungsstrukturen || Verwendung eines optischen Bildderotators für LDV Messungen an schnell rotierenden Bauteilen"
+        },
+        {
+            "id": 9377,
+            "name": "F. A. Kraft",
+            "papers": 1,
+            "affiliations": "Technische Fakultät, Christian-Albrechts-Universität zu Kiel",
+            "sample_titles": "Chiplabore auf Basis eines photonischen Kristalls und PDMS-Mikrofluidik für den multiparametrischen sowie markerfreien Nachweis von Biomarkern"
+        }
+    ]
+}

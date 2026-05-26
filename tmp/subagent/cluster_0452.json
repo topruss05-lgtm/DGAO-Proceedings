@@ -1,0 +1,27 @@
+{
+    "cluster_id": 452,
+    "nachname_norm": "wolff",
+    "candidates": [
+        {
+            "id": 96,
+            "name": "S. Wolff",
+            "papers": 6,
+            "affiliations": "SCHOTT AG",
+            "sample_titles": "Material Compliance 2021 – Fokus Optisches Glas || Material Compliance 2020 – Fokus Optisches Glas || Optisches Glas - Materialspezifikation 3.0"
+        },
+        {
+            "id": 6300,
+            "name": "E. K. Wolff",
+            "papers": 1,
+            "affiliations": "Institute for Applied Biotechnology and System Analysis at the University of Witten/Herdecke, Herrhausenstrasse 44, 58455 Witten, Germany",
+            "sample_titles": "Protein-based, high-speed photonic logical gates"
+        },
+        {
+            "id": 9528,
+            "name": "F. Wolff",
+            "papers": 1,
+            "affiliations": "SCHOTT AG",
+            "sample_titles": "Schutzscheiben im optischen Pfad von LIDAR Systemen"
+        }
+    ]
+}

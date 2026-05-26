@@ -1,0 +1,20 @@
+{
+    "cluster_id": 60,
+    "nachname_norm": "chojetzki",
+    "candidates": [
+        {
+            "id": 390,
+            "name": "Ch. Chojetzki",
+            "papers": 1,
+            "affiliations": "Institut für Physikalische Hochtechnologie e.V., Jena",
+            "sample_titles": "Faser-Bragg-Gitter mit anormalem Temperaturverhalten"
+        },
+        {
+            "id": 5298,
+            "name": "C. Chojetzki",
+            "papers": 2,
+            "affiliations": "FBGS Technologies GmbH, Winzerlaer Str. 2, 07745 Jena, Germany",
+            "sample_titles": "Novel Bragg grating fibers for strain and temperature separated sensor systems || Ein faserintegriertes Konzept zur Abstimmung der Emissionswellenlänge gepulster Faserlaser mit Faser-Bragg-Gitter Arrays als spektraler Filter"
+        }
+    ]
+}

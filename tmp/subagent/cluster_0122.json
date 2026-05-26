@@ -1,0 +1,20 @@
+{
+    "cluster_id": 122,
+    "nachname_norm": "geyer",
+    "candidates": [
+        {
+            "id": 6920,
+            "name": "C. Geyer",
+            "papers": 1,
+            "affiliations": "Technische Universität Ilmenau, Fakultät für Mathematik und Naturwissenschaften, Institut für Mathematik, Fachgebiet Mathematische Methoden des Operations Research",
+            "sample_titles": "Synthesis of Initial Plane-Symmetric Optical Systems using Parabasal Theory"
+        },
+        {
+            "id": 8423,
+            "name": "D. Geyer",
+            "papers": 3,
+            "affiliations": "Labor für Optische Diagnosemethoden und Erneuerbare Energien, Hochschule Darmstadt",
+            "sample_titles": "Hochtemperatur Raman-Spektren von gasförmigen Kohlenwasserstoffen zur Konzentrationsmessung in Ethanolflammen und katalytischen Prozessen || Optische Messmethoden für die Material- und Prozesstechnik || Optische Analyseverfahren für den Einsatz in der Prozesstechnik"
+        }
+    ]
+}

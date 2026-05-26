@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.93,
+  "groups": [[916, 942]],
+  "canonical": [
+    {
+      "name_de": "Fraunhofer-Institut für Angewandte Informationstechnik FIT",
+      "name_en": "Fraunhofer Institute for Applied Information Technology FIT",
+      "kuerzel": "FIT",
+      "universitaet": "",
+      "ort": "Sankt Augustin",
+      "land": "DE",
+      "ror_id": "https://ror.org/01ak24c12"
+    }
+  ],
+  "reason": "BioMOS (Biomolecular Optical Systems) ist eine Forschungsabteilung innerhalb des Fraunhofer FIT in Sankt Augustin, keine eigenständige Institution; beide Einträge referenzieren dasselbe Institut."
+}

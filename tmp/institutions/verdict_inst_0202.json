@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.99,
+  "groups": [[1424, 1560, 1630]],
+  "canonical": [
+    {
+      "name_de": "Max-Planck-Institut für extraterrestrische Physik, Garching",
+      "name_en": "Max Planck Institute for Extraterrestrial Physics",
+      "kuerzel": "MPE",
+      "universitaet": "",
+      "ort": "Garching",
+      "land": "DE",
+      "ror_id": "https://ror.org/00e4bwe12"
+    }
+  ],
+  "reason": "Alle drei Einträge bezeichnen dasselbe Max-Planck-Institut für extraterrestrische Physik in Garching: Variationen in Schreibweise (Bindestrich/kein Bindestrich, mit/ohne PLZ). Reine Schreibvarianten – merge."
+}

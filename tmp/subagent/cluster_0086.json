@@ -1,0 +1,20 @@
+{
+    "cluster_id": 86,
+    "nachname_norm": "engelke",
+    "candidates": [
+        {
+            "id": 4946,
+            "name": "F. Engelke",
+            "papers": 2,
+            "affiliations": "Leibniz Universität Hannover, Institut für Mess- und Regelungstechnik",
+            "sample_titles": "Vergleichbarkeitsuntersuchung von optischen und taktilen Messgeräten bezüglich der ISO 25178 || Verbessertes Stitching von 3D-Mikroskopiedaten auf Grundlage von Simulationsergebnissen"
+        },
+        {
+            "id": 8675,
+            "name": "A. Engelke",
+            "papers": 1,
+            "affiliations": "Deutsche Forschungsgemeinschaft (DFG)",
+            "sample_titles": "Forschungsförderung durch die DFG"
+        }
+    ]
+}

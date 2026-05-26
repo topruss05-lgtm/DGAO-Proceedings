@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[1132, 1153]],
+  "canonical": [
+    {
+      "name_de": "Center of Smart Interfaces, Technische Universität Darmstadt",
+      "name_en": "Center of Smart Interfaces, Technische Universität Darmstadt",
+      "kuerzel": "CSI",
+      "universitaet": "Technische Universität Darmstadt",
+      "ort": "Darmstadt",
+      "land": "DE",
+      "ror_id": "https://ror.org/05n911h24"
+    }
+  ],
+  "reason": "Beide Varianten bezeichnen dasselbe Forschungszentrum an der TU Darmstadt; Variante 1153 enthält lediglich zusätzliche Kontaktdaten eines Autors (PTB-E-Mail), die nicht zur Institutionsidentität gehören."
+}

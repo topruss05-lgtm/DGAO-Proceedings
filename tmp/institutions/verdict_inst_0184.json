@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.98,
+  "groups": [[1239, 1240]],
+  "canonical": [
+    {
+      "name_de": "TOPAG Lasertechnik GmbH",
+      "name_en": "TOPAG Lasertechnik GmbH",
+      "kuerzel": "TOPAG",
+      "universitaet": "",
+      "ort": "Darmstadt",
+      "land": "DE",
+      "ror_id": ""
+    }
+  ],
+  "reason": "Beide Varianten bezeichnen dasselbe Unternehmen (TOPAG Lasertechnik GmbH in Darmstadt); Unterschied nur in Vollständigkeit des Namens und Adressangabe."
+}

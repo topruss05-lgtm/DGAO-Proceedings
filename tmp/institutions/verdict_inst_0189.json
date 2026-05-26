@@ -1,0 +1,29 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [
+    [1263, 1637],
+    [1529, 1530]
+  ],
+  "canonical": [
+    {
+      "name_de": "Fachbereich Elektrische Energietechnik, Fachhochschule Südwestfalen, Soest",
+      "name_en": "Department of Electrical Power Engineering, South Westphalia University of Applied Sciences, Soest",
+      "kuerzel": "",
+      "universitaet": "Fachhochschule Südwestfalen",
+      "ort": "Soest",
+      "land": "DE",
+      "ror_id": "https://ror.org/04t5phd24"
+    },
+    {
+      "name_de": "Fraunhofer-Anwendungszentrum für Anorganische Leuchtstoffe, Außenstelle des Fraunhofer-IMWS, Soest",
+      "name_en": "Fraunhofer Application Center for Inorganic Phosphors, branch of Fraunhofer IMWS, Soest",
+      "kuerzel": "Fraunhofer IMWS Soest",
+      "universitaet": "",
+      "ort": "Soest",
+      "land": "DE",
+      "ror_id": "https://ror.org/050mbz718"
+    }
+  ],
+  "reason": "Zwei verschiedene Institutionen an derselben Adresse in Soest: FH Südwestfalen (Hochschule) und Fraunhofer-Anwendungszentrum IMWS (Fraunhofer-Außenstelle). Varianten 1263/1637 bzw. 1529/1530 sind jeweils identische Schreibvarianten."
+}

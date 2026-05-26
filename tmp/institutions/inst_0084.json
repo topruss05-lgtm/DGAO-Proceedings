@@ -1,0 +1,25 @@
+{
+    "cluster_id": 84,
+    "variants": [
+        {
+            "id": 376,
+            "name_de": "Applied Computational Optics Group, Friedrich-Schiller-Universität Jena",
+            "author_count": 5
+        },
+        {
+            "id": 1180,
+            "name_de": "Institute of Applied Physics, Friedrich-Schiller-Universität Jena",
+            "author_count": 1
+        },
+        {
+            "id": 1355,
+            "name_de": "Applied Computational Optics Group, Friedrich Schiller University Jena",
+            "author_count": 2
+        },
+        {
+            "id": 1812,
+            "name_de": "Institute of Applied Physics, Friedrich Schiller University Jena",
+            "author_count": 1
+        }
+    ]
+}

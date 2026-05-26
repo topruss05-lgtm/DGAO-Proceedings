@@ -1,0 +1,20 @@
+{
+    "cluster_id": 45,
+    "nachname_norm": "buchner",
+    "candidates": [
+        {
+            "id": 3871,
+            "name": "M. Büchner",
+            "papers": 1,
+            "affiliations": "Mahr OKM GmbH, Jena",
+            "sample_titles": "Optische Messverfahren zur Hochgeschwindigkeitsprüfung von rotationssymmetrischen Präzisionswerkzeugen"
+        },
+        {
+            "id": 6341,
+            "name": "F. Buchner",
+            "papers": 1,
+            "affiliations": "Hochschule Landshut – University of Applied Sciences",
+            "sample_titles": "Inline detection of defects on free formed metal pressings using a single shot inverse fringe projection approach"
+        }
+    ]
+}

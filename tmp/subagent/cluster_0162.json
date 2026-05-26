@@ -1,0 +1,20 @@
+{
+    "cluster_id": 162,
+    "nachname_norm": "herzog",
+    "candidates": [
+        {
+            "id": 2294,
+            "name": "H. Herzog",
+            "papers": 1,
+            "affiliations": "ISAS - Institute for Analytical Sciences, Dortmund",
+            "sample_titles": "Optical CCD lock-in device for differential Raman spectroscopy"
+        },
+        {
+            "id": 9115,
+            "name": "M. Herzog",
+            "papers": 3,
+            "affiliations": "Technische Hochschule Wildau, Hochschulring 1, 15745 Wildau, Germany",
+            "sample_titles": "Bestimmung der optischen Konstanten und Streueigenschaften von transparenten Kunststoffen auf Polyurethanbasis für den Einsatz in der Optoelektronik || Neuartige UV-transparente 2-Komponenten-Polyurethanharze für Chip-on-Board-LED-Mikrolinsen || Neuartige UV-transparente 2-Komponenten-Polyurethanharze für Chip-on-Board-LED-Mikrolinsen"
+        }
+    ]
+}

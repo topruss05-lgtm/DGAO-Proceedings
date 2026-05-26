@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[1942], [3343]],
+  "reason": "Y. Menke (Schott AG, optische Materialien/Prozesskontrolle) und C. Menke (Carl Zeiss AG, Wavelet-Methoden für optische Oberflächen) haben unterschiedliche Vornamen-Initialen und unterschiedliche Institutionen."
+}

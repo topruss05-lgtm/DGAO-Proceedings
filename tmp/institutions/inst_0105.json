@@ -1,0 +1,30 @@
+{
+    "cluster_id": 105,
+    "variants": [
+        {
+            "id": 496,
+            "name_de": "Institut für Nanostrukturtechnologie und Analytik (INA) und Center for Interdisciplinary Nanostructure Science and Technology (CINSaT), Universität Kassel",
+            "author_count": 1
+        },
+        {
+            "id": 497,
+            "name_de": "Institut für Nanostrukturtechnologie und Analytik (INA), Universität Kassel",
+            "author_count": 1
+        },
+        {
+            "id": 637,
+            "name_de": "Institut für Nanostrukturtechnologie und Analytik (INA) und Center for Interdisciplinary \nNanostructure Science and Technology (CINSaT), Universität Kassel",
+            "author_count": 1
+        },
+        {
+            "id": 1434,
+            "name_de": "Institut für Nanostrukturtechnologie und Analytik/ CINSaT, Universität Kassel",
+            "author_count": 3
+        },
+        {
+            "id": 1458,
+            "name_de": "Institute of Nanostructure Technologies and Analytics / CINSaT, \nUniversity of Kassel, Heinrich-Plett-Str. 40, 34132 Kassel, Germany",
+            "author_count": 1
+        }
+    ]
+}

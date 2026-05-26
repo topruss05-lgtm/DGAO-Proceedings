@@ -1,0 +1,39 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [
+    [409, 1429],
+    [1195, 1224, 1414, 1724],
+    [1498, 1499, 1569, 1647, 1777, 1802, 1857, 1972]
+  ],
+  "canonical": [
+    {
+      "name_de": "Institut für Quantenoptik, Gottfried Wilhelm Leibniz Universität Hannover",
+      "name_en": "Institute of Quantum Optics, Leibniz University Hannover",
+      "kuerzel": "IQ-LUH",
+      "universitaet": "Leibniz Universität Hannover",
+      "ort": "Hannover",
+      "land": "DE",
+      "ror_id": "https://ror.org/0304hq317"
+    },
+    {
+      "name_de": "Institut für Mess- und Regelungstechnik, Leibniz Universität Hannover",
+      "name_en": "Institute of Measurement and Automatic Control, Leibniz University Hannover",
+      "kuerzel": "IMR-LUH",
+      "universitaet": "Leibniz Universität Hannover",
+      "ort": "Hannover",
+      "land": "DE",
+      "ror_id": "https://ror.org/0304hq317"
+    },
+    {
+      "name_de": "Institut für Produktentwicklung und Gerätebau, Gottfried Wilhelm Leibniz Universität Hannover",
+      "name_en": "Institute of Product Development, Leibniz University Hannover",
+      "kuerzel": "IPeG-LUH",
+      "universitaet": "Leibniz Universität Hannover",
+      "ort": "Garbsen / Hannover",
+      "land": "DE",
+      "ror_id": "https://ror.org/0304hq317"
+    }
+  ],
+  "reason": "Der Cluster enthält drei inhaltlich verschiedene Institute an der Leibniz Universität Hannover: Institut für Quantenoptik (IDs 409/1429), Institut für Mess- und Regelungstechnik (IDs 1195/1224/1414/1724) und Institut für Produktentwicklung und Gerätebau (IDs 1498/1499/1569/1647/1777/1802/1857/1972). Innerhalb jeder Gruppe handelt es sich um Schreibvarianten desselben Instituts."
+}

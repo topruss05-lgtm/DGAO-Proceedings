@@ -1,0 +1,20 @@
+{
+    "cluster_id": 256,
+    "nachname_norm": "lucke",
+    "candidates": [
+        {
+            "id": 475,
+            "name": "P. Lücke",
+            "papers": 1,
+            "affiliations": "Forschungszentrum Karlsruhe, Institut für Mikrostrukturtechnik",
+            "sample_titles": "Diffractive Elements for Chromatic Confocal Sensors"
+        },
+        {
+            "id": 1008,
+            "name": "C. Lücke",
+            "papers": 1,
+            "affiliations": "Carl Zeiss AG, Oberkochen",
+            "sample_titles": "Okular mit Kompensation der chromatischen Längsabweichung des Auges"
+        }
+    ]
+}

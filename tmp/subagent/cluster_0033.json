@@ -1,0 +1,20 @@
+{
+    "cluster_id": 33,
+    "nachname_norm": "brauer",
+    "candidates": [
+        {
+            "id": 144,
+            "name": "A. Bräuer",
+            "papers": 1,
+            "affiliations": "Fraunhofer IOF, Jena",
+            "sample_titles": "Selbstorganisierte Filamentierung UV-sensitiver Polymere bei partiell-kohärenter Bestrahlung"
+        },
+        {
+            "id": 11320,
+            "name": "F. Brauer",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Integrated Silicon Nitride Optical Gyroscope: Design, Fabrication, and Path to Quantum Enhancement"
+        }
+    ]
+}

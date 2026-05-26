@@ -1,0 +1,20 @@
+{
+    "cluster_id": 172,
+    "nachname_norm": "hoh",
+    "candidates": [
+        {
+            "id": 4508,
+            "name": "D. Hoh",
+            "papers": 2,
+            "affiliations": "FBGS Technologies GmbH, Winzerlaer Str. 2, 07745 Jena, Germany",
+            "sample_titles": "Novel Bragg grating fibers for strain and temperature separated sensor systems || Chromatic dispersion measurement of microstructured optical fibers for nonlinear applications"
+        },
+        {
+            "id": 5177,
+            "name": "M. Höh",
+            "papers": 1,
+            "affiliations": "Center of Smart Interfaces, Technische Universiät Darmstadt",
+            "sample_titles": "Kompakte, direkt fasergekoppelte Multipass-Zellen für spektroskopische Anwendungen im NIR- und MIR-Bereich"
+        }
+    ]
+}

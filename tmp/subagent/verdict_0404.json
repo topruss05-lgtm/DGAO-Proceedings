@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.97,
+  "groups": [[837], [12185]],
+  "reason": "H. R. Telle (PTB Braunschweig, CARS-Spektroskopie) und A. Telle (ACM Coatings, ultraschwarze Beschichtungen/BRDF) haben unterschiedliche Vornamen-Initialen, Affiliationen und Themen."
+}

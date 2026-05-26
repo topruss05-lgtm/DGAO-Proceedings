@@ -1,0 +1,15 @@
+{
+    "cluster_id": 192,
+    "variants": [
+        {
+            "id": 1279,
+            "name_de": "Department of Physics, Istanbul Technical University, Istanbul, Turkey",
+            "author_count": 4
+        },
+        {
+            "id": 1281,
+            "name_de": "Department of Physics, Koc University, Istanbul, Turkey",
+            "author_count": 1
+        }
+    ]
+}

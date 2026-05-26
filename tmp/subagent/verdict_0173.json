@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[649], [869]],
+  "reason": "Verschiedene Initialen (M. vs. W.) und unterschiedliche Affiliationen (Ruhr-Universität Bochum vs. WWU Münster) sowie disjunkte Themen (Whispering Gallery Modes vs. Lithiumniobat/Holographiespeicher)."
+}

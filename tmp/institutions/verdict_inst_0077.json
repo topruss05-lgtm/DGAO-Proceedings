@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.88,
+  "groups": [[322, 526]],
+  "canonical": [
+    {
+      "name_de": "FH Wiesbaden, Fachbereich Physikalische Technik / Max-Planck-Institut für Polymerforschung, Mainz",
+      "name_en": "Hochschule RheinMain, Physical Engineering / Max Planck Institute for Polymer Research, Mainz",
+      "kuerzel": "FHWi-MPIpoly",
+      "universitaet": null,
+      "ort": "Wiesbaden / Mainz",
+      "land": "DE",
+      "ror_id": null
+    }
+  ],
+  "reason": "Beide Varianten bezeichnen dieselbe doppelte Affiliation eines Autors (FH Wiesbaden/Physikalische Technik + MPI Polymerforschung Mainz); Variante 526 ergänzt noch DOOS-Tabarz, aber der Kern ist identisch. Zusammenführung als kombinierte Affiliation gerechtfertigt."
+}

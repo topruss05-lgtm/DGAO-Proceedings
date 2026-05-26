@@ -1,0 +1,35 @@
+{
+    "cluster_id": 139,
+    "variants": [
+        {
+            "id": 737,
+            "name_de": "Department of Electrical and Computer Engineering, Boston University\n8 Saint Mary’s street, Boston, MA, 02215-2421 (USA)",
+            "author_count": 2
+        },
+        {
+            "id": 1070,
+            "name_de": "Department of Electrical and Computer Engineering, Northwestern University",
+            "author_count": 4
+        },
+        {
+            "id": 1228,
+            "name_de": "Department of Electrical Engineering and Computer Science, Northwestern University, Evanston, IL 60208, USA",
+            "author_count": 3
+        },
+        {
+            "id": 1252,
+            "name_de": "OptiCE Laboratory, Department of Telecommunications, Faculty of Electrical Engineering and Computer Science, Technical University of Ostrava",
+            "author_count": 5
+        },
+        {
+            "id": 1461,
+            "name_de": "School of electrical and computer engineering of the National Technical University of Athens",
+            "author_count": 3
+        },
+        {
+            "id": 1835,
+            "name_de": "Department of Electrical and Computer Engineering, Rice University",
+            "author_count": 1
+        }
+    ]
+}

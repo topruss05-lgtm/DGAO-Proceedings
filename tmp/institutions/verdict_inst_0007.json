@@ -1,0 +1,11 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.97,
+  "groups": [
+    [15, 652, 996],
+    [1105],
+    [1314]
+  ],
+  "canonical": [],
+  "reason": "Drei verschiedene Institutionen: (1) Chair of Optoelectronics / ZITI, Universität Heidelberg, (2) INESC Porto (Portugal), (3) Brno University of Technology / Institute of Scientific Instruments Brno (Tschechien). Nur die ersten drei IDs sind Schreibvarianten desselben Heidelberger Lehrstuhls; die anderen beiden sind unabhängige ausländische Einrichtungen."
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 7,
+    "nachname_norm": "arnold",
+    "candidates": [
+        {
+            "id": 1564,
+            "name": "T. Arnold",
+            "papers": 3,
+            "affiliations": "Institut für Technische Optik, Universität Stuttgart",
+            "sample_titles": "CGH-basierte Verbesserung der Messunsicherheit von Positionsbestimmungen mittels pixelierten Bildaufnehmern || Plasma Jet Machining - Fertigung von off-axis Parabolspiegeln aus Siliziumkarbid || Deterministische Formgebung kleinformatiger Präzisionsoptiken mit reaktiven Normaldruck-Plasmajets"
+        },
+        {
+            "id": 9568,
+            "name": "P. Arnold",
+            "papers": 1,
+            "affiliations": "Pforzheim University, School of Engineering, Robotics and Artificial Intelligence",
+            "sample_titles": "Neural network based face mask detection using thermal imaging sensors"
+        }
+    ]
+}

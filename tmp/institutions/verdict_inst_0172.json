@@ -1,0 +1,26 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.92,
+  "groups": [[1123], [1184]],
+  "canonical": [
+    {
+      "name_de": "ZARM – Zentrum für angewandte Raumfahrttechnologie und Mikrogravitation, Universität Bremen",
+      "name_en": "Center of Applied Space Technology and Microgravity (ZARM), University of Bremen",
+      "kuerzel": "ZARM",
+      "universitaet": "Universität Bremen",
+      "ort": "Bremen",
+      "land": "DE",
+      "ror_id": "https://ror.org/04ers2y35"
+    },
+    {
+      "name_de": "Fakultät 1: Physik/Elektrotechnik, Universität Bremen",
+      "name_en": "Faculty 1: Physics/Electrical Engineering, University of Bremen",
+      "kuerzel": "",
+      "universitaet": "Universität Bremen",
+      "ort": "Bremen",
+      "land": "DE",
+      "ror_id": "https://ror.org/04ers2y35"
+    }
+  ],
+  "reason": "ZARM ist ein eigenständiges An-Institut an der Universität Bremen mit eigener Identität; Variante 1184 bezeichnet die allgemeine Physik/Elektrotechnik-Fakultät — zwei unterschiedliche Einrichtungen an derselben Universität."
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 67,
+    "nachname_norm": "destefano",
+    "candidates": [
+        {
+            "id": 2522,
+            "name": "L. De Stefano",
+            "papers": 2,
+            "affiliations": "Institute for Microelectronics and Microsystems \" National Council of Researches - Unit of Napoli, Via P. Castellino 111, 80131 Napoli, Italy",
+            "sample_titles": "MICROOPTICS IN CENTRIC DIATOMS || DNA HYBRIDIZATION DETECTION BY A NANOSTRUCTURED SILICON MICROARRAY"
+        },
+        {
+            "id": 2525,
+            "name": "M. De Stefano",
+            "papers": 1,
+            "affiliations": "Environmental Science Department, 2nd University of Naples, 81100, Caserta, Italy",
+            "sample_titles": "MICROOPTICS IN CENTRIC DIATOMS"
+        }
+    ]
+}

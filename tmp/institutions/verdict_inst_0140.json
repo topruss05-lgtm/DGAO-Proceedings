@@ -1,0 +1,26 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[745], [1826]],
+  "canonical": [
+    {
+      "name_de": "4. Physikalisches Institut, Universität Stuttgart",
+      "name_en": "4th Physics Institute, University of Stuttgart",
+      "kuerzel": "PI4",
+      "universitaet": "Universität Stuttgart",
+      "ort": "Stuttgart",
+      "land": "DE",
+      "ror_id": "https://ror.org/04vnq7t77"
+    },
+    {
+      "name_de": "Institut für Strahlwerkzeuge (IFSW), Universität Stuttgart",
+      "name_en": "Institut für Strahlwerkzeuge (IFSW), University of Stuttgart",
+      "kuerzel": "IFSW",
+      "universitaet": "Universität Stuttgart",
+      "ort": "Stuttgart",
+      "land": "DE",
+      "ror_id": "https://ror.org/04vnq7t77"
+    }
+  ],
+  "reason": "Zwei verschiedene Institute der Universität Stuttgart: das 4. Physikalische Institut (Festkörperphysik/Optik) und das Institut für Strahlwerkzeuge IFSW (Lasertechnik/Fertigungstechnik) – beide eigenständige Einrichtungen mit unterschiedlichem Forschungsschwerpunkt, obwohl beide der gleichen Universität angehören."
+}

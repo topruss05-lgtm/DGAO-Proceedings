@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[5329], [7899]],
+  "reason": "M. Lotz (Mahr GmbH, Tilted Wave Interferometer) und S. Lotz (ITO Stuttgart, Nachwuchsförderung/Baukastensysteme) haben unterschiedliche Vornamen-Initialen, Institutionen und Themengebiete."
+}

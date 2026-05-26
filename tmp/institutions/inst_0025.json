@@ -1,0 +1,30 @@
+{
+    "cluster_id": 25,
+    "variants": [
+        {
+            "id": 80,
+            "name_de": "Institute of Photonic Technology (IPHT Jena)",
+            "author_count": 1
+        },
+        {
+            "id": 96,
+            "name_de": "Leibniz Institute of Photonic Technology, Jena, Germany",
+            "author_count": 4
+        },
+        {
+            "id": 141,
+            "name_de": "Institute of Photonic Technology",
+            "author_count": 3
+        },
+        {
+            "id": 201,
+            "name_de": "Leibniz Institute of Photonic Technology",
+            "author_count": 3
+        },
+        {
+            "id": 997,
+            "name_de": "Institute of Photonic Technology, Jena",
+            "author_count": 1
+        }
+    ]
+}

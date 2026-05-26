@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[4126], [7128]],
+  "reason": "A. Fricke (PTB, Brechzahl/Polarimetrie) vs. D. Fricke (Leibniz Hannover, Müller-Matrix-Polarimetrie für Dermatoskopie) – verschiedene Initialen, verschiedene Affiliationen. Themen berühren sich leicht (Polarimetrie), aber klar verschiedene Personen."
+}

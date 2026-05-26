@@ -1,0 +1,27 @@
+{
+    "cluster_id": 321,
+    "nachname_norm": "rothe",
+    "candidates": [
+        {
+            "id": 1837,
+            "name": "R. Rothe",
+            "papers": 1,
+            "affiliations": "FHOOW Standort Emden; Loughborough University, Leicestershire (UK)",
+            "sample_titles": "DOE-Strahlteiler zum kontinuierlichen Messen der Leistung von Hochleistungs-Laserstrahlen in Experimenten zur Ermittlung der Austrittsarbeit von Elektronen in Metallen"
+        },
+        {
+            "id": 7493,
+            "name": "S. Rothe",
+            "papers": 3,
+            "affiliations": "Fakultät Elektrotechnik und Informationstechnik, TU Dresden",
+            "sample_titles": "Digitale optische Modenprogrammierung für räumliches Multiplexing von Quantenzuständen || Untersuchung von Modenmischung bei einer Multimodefaser für die sichere Informationsübertragung || Numerische Simulation der digitalen optischen Phasenkonjugation für räumliches Multiplexing bei einer Multimodefaser"
+        },
+        {
+            "id": 8863,
+            "name": "St. Rothe",
+            "papers": 1,
+            "affiliations": "TU Dresden, Mess- und Sensorsystemtechnik",
+            "sample_titles": "Multimode-Fasern für die Informationsübertragung mit verbesserter Datensicherheit"
+        }
+    ]
+}

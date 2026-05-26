@@ -1,0 +1,27 @@
+{
+    "cluster_id": 392,
+    "nachname_norm": "strauss",
+    "candidates": [
+        {
+            "id": 1777,
+            "name": "H. Strauß",
+            "papers": 1,
+            "affiliations": "Institute of Applied Mathematics, University of Erlangen-Nuremberg, Germany",
+            "sample_titles": "Fast and robust 3D shape reconstruction from gradient data"
+        },
+        {
+            "id": 5597,
+            "name": "C. Strauss",
+            "papers": 1,
+            "affiliations": "Department of Neurosurgery, Martin-Luther-University Halle-Wittemberg, Halle, Germany",
+            "sample_titles": "Automated evaluation tools in medicine enabled by a motion-robust optical 3D sensor"
+        },
+        {
+            "id": 12222,
+            "name": "A. Strauß",
+            "papers": 3,
+            "affiliations": "Institut für Photonische Technologien\nBereich: Optische Fasern und Faseranwendungen\nAlbert-Einstein-Straße 9\n07745 Jena | Institut für Pathologie und Neuropathologie, Universitätsklinikum Tübingen",
+            "sample_titles": "Elastografische Messungen mittels Fourier-Transformations-Profilometrie zur Gewebe­ differenzierung in der Onkologie || Parametrische Untersuchungen an gepoltem Quarzglas || Thermal Poling of Silica"
+        }
+    ]
+}

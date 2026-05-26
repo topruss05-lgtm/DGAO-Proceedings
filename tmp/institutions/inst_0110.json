@@ -1,0 +1,15 @@
+{
+    "cluster_id": 110,
+    "variants": [
+        {
+            "id": 558,
+            "name_de": "Institute of Solid State Physics, Sofia, Bulgaria",
+            "author_count": 1
+        },
+        {
+            "id": 825,
+            "name_de": "Laboratory of Bioactive Polymers, Institute of Polymers, Bulgarian Academy of Sciences, 1113 Sofia, Bulgaria",
+            "author_count": 3
+        }
+    ]
+}

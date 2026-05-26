@@ -1,0 +1,45 @@
+{
+    "cluster_id": 69,
+    "variants": [
+        {
+            "id": 288,
+            "name_de": "Institute of Optics, Technical University Berlin, Strasse des 17 Juni 135, D-10623 Berlin, Germany",
+            "author_count": 2
+        },
+        {
+            "id": 349,
+            "name_de": "Institute of Applied Physics, Technical University of Darmstadt, GERMANY",
+            "author_count": 3
+        },
+        {
+            "id": 1010,
+            "name_de": "Institute for Machine Tools and Factory Management, Technical University Berlin",
+            "author_count": 2
+        },
+        {
+            "id": 1312,
+            "name_de": "Institute of Chemistry, Bioenergetics, TU Berlin, Straße des 17. Juni 135, D-10623 Berlin, Germany",
+            "author_count": 5
+        },
+        {
+            "id": 1340,
+            "name_de": "Institute of Physics, Humboldt-University Berlin, Germany",
+            "author_count": 3
+        },
+        {
+            "id": 1475,
+            "name_de": "Institute of Technical Chemistry, Leibniz University Hannover, Hannover, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 1580,
+            "name_de": "Institute for X-Optics, RheinAhrCampus, Joseph-Rovan-Allee 2, 53424 Remagen, Germany",
+            "author_count": 3
+        },
+        {
+            "id": 1840,
+            "name_de": "NOB Nano Optics Berlin GmbH, Krumme Str. 64, 10627 Berlin, Germany",
+            "author_count": 2
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.88,
+  "groups": [
+    [248, 457],
+    [1492]
+  ],
+  "canonical": [
+    {
+      "name_de": "Professur für Mikrooptik (Gisela-und-Erwin-Sick-Professur), Institut für Mikrosystemtechnik (IMTEK), Universität Freiburg",
+      "name_en": "Professorship for Micro-Optics, Institute for Microsystems Technology (IMTEK), University of Freiburg",
+      "kuerzel": "IMTEK",
+      "universitaet": "Universität Freiburg",
+      "ort": "Freiburg",
+      "land": "DE",
+      "ror_id": "https://ror.org/0245cg223"
+    },
+    {
+      "name_de": "Professur für Mikroaktorik, Institut für Mikrosystemtechnik (IMTEK), Universität Freiburg",
+      "name_en": "Professorship for Microactuators, Institute for Microsystems Technology (IMTEK), University of Freiburg",
+      "kuerzel": "IMTEK",
+      "universitaet": "Universität Freiburg",
+      "ort": "Freiburg",
+      "land": "DE",
+      "ror_id": "https://ror.org/0245cg223"
+    }
+  ],
+  "reason": "IDs 248/457 sind Schreibvarianten der Mikrooptik-Professur am IMTEK Freiburg; ID 1492 ist eine andere Professur (Mikroaktorik) am selben Institut, die als eigenständige Einheit getrennt zu halten ist."
+}

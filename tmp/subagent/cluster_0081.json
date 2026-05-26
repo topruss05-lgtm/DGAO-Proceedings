@@ -1,0 +1,20 @@
+{
+    "cluster_id": 81,
+    "nachname_norm": "eichhorn",
+    "candidates": [
+        {
+            "id": 155,
+            "name": "K. Eichhorn",
+            "papers": 4,
+            "affiliations": "Hella KGaA Hueck & Co.",
+            "sample_titles": "Optiken in hoher Stückzahl für automobile Anwendungen || Optikkonzepte in der automobilen Frontbeleuchtung || Adaptive Scheinwerferoptikkonzepte zur subtraktiven Lichtverteilungserzeugung"
+        },
+        {
+            "id": 804,
+            "name": "V. Eichhorn",
+            "papers": 1,
+            "affiliations": "Institut für Physik, Carl von Ossietzky Universität Oldenburg",
+            "sample_titles": "Phase-Shifting Electronic Speckle Pattern Interferometry (ESPI) with Unresolved Speckle"
+        }
+    ]
+}

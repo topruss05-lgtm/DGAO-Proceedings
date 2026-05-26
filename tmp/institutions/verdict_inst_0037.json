@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.96,
+  "groups": [[129, 197, 855, 856, 902, 945, 946, 1375, 1383, 1400, 1411, 1428, 1430, 1435, 1451]],
+  "canonical": [
+    {
+      "name_de": "Laser Zentrum Hannover e.V.",
+      "name_en": "Laser Zentrum Hannover",
+      "kuerzel": "LZH",
+      "universitaet": null,
+      "ort": "Hannover",
+      "land": "DE",
+      "ror_id": "01gkym270"
+    }
+  ],
+  "reason": "Alle 15 Varianten bezeichnen dasselbe LZH in Hannover; Abteilungsbezeichnungen wie 'Nanotechnology Department', 'Biomedical Optics Department' und 'Production & Systems Department' sind interne Einheiten desselben Instituts. ROR 01gkym270 bestätigt."
+}

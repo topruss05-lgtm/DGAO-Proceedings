@@ -1,0 +1,62 @@
+{
+    "cluster_id": 429,
+    "nachname_norm": "wagner",
+    "candidates": [
+        {
+            "id": 694,
+            "name": "C. Wagner",
+            "papers": 1,
+            "affiliations": "Kirchhoff Institute for Physics, University of Heidelberg",
+            "sample_titles": "Nanometry of Bio-Molecular Complexes using PSF Reconstruction in SMI Microscopy"
+        },
+        {
+            "id": 5005,
+            "name": "S. Wagner",
+            "papers": 2,
+            "affiliations": "Hahn-Schickard",
+            "sample_titles": "Fertigung eines mikrostrukturierten Werkzeugeinsatzes zur kostengünstigen Herstellung von Hybridoptiken || Justage-armes, open-path Diodenlaser-Spektrometer auf Basis retroreflektierender Folien"
+        },
+        {
+            "id": 5584,
+            "name": "L. Wagner",
+            "papers": 3,
+            "affiliations": "Optocraft GmbH, Am Weichselgarten 7, 91058 Erlangen, Germany",
+            "sample_titles": "Charakterisierung von Wellenfrontsensoren mittels sphärischer Wellenfronten || Hochgenaue und rückgeführte Charakterisierung von Wellenfrontsensoren || Aufbau einer stabilisierten Fabry-Pérot-Kavität für die Homogenitätsprüfung von Glasplatten mittels eines Frequenzkamms"
+        },
+        {
+            "id": 7101,
+            "name": "F. Wagner",
+            "papers": 1,
+            "affiliations": "Lehrstuhl für Optik, IOIP, Friedrich-Alexander-Universität Erlangen-Nürnberg",
+            "sample_titles": "Spatiales Heterodyn-Spektrometer zur Temperaturmessung in der mittleren Atmosphäre"
+        },
+        {
+            "id": 7291,
+            "name": "M. Wagner",
+            "papers": 5,
+            "affiliations": "THD - Technische Hochschule Deggendorf, IPH - Institut für Präzisionsbearbeitung und Hofrequenztechnik",
+            "sample_titles": "Erstmalige Simulation eines neuartigen berührungslosen optischen Wellenfront-Messverfahrens mit hoher lateraler Auflösung || LED-Alterung – Einflussfaktoren und Lebensdauerberechnung || Axial Tomography in Single Cell Fluorescence Microscopy"
+        },
+        {
+            "id": 7482,
+            "name": "D. Wagner",
+            "papers": 1,
+            "affiliations": "IBI-Deutschland, Retired",
+            "sample_titles": "Ein 2-Strahl-Interferenz-Mikroskop für die Gehirnforschung"
+        },
+        {
+            "id": 11430,
+            "name": "H. Wagner",
+            "papers": 3,
+            "affiliations": "Friedrich Schiller Universität Jena, Institut für Angewandte Optik",
+            "sample_titles": "Antireflektive Strukturen zur Effizienzsteigerung optischer Hybridpolymere – Herstellung und Anwendungen || Optimierung eines korrelationsbasiereten Verfahrens der Stereophotogrammetrie zur Gesichtsvermessung || 3-D measurement of human face by stereophotogrammetry"
+        },
+        {
+            "id": 12199,
+            "name": "H. P. Wagner",
+            "papers": 5,
+            "affiliations": "University of Cincinnati | Department of Physics, University of Cincinnati, Cincinnati, OH 45221, USA",
+            "sample_titles": "Enhancing Plasmon-Exciton Interaction: Gold Nanotriangle Arrays Coupled with Monolayers of MoSe2 || Optimizing Lasing Thresholds: Exploring the Impact of Pitch and Nanowire Diameter in InP Photonic Crystal Arrays || Optical Elements for Photonic Integrated Circuits based on Nanowire Photonic Crystal Arrays"
+        }
+    ]
+}

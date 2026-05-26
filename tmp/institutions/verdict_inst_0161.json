@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[1000, 1001]],
+  "canonical": [
+    {
+      "name_de": "Institut für Aufbau- und Verbindungstechnik der Elektronik, TU Dresden",
+      "name_en": "Institute for Assembly and Connection Technology in Electronics, TU Dresden",
+      "kuerzel": "IAVT",
+      "universitaet": "Technische Universität Dresden",
+      "ort": "Dresden",
+      "land": "DE",
+      "ror_id": "https://ror.org/042aqky30"
+    }
+  ],
+  "reason": "Beide Einträge bezeichnen dasselbe Institut an der TU Dresden; der Unterschied besteht nur darin, dass einer 'Dresden' statt 'TU Dresden' als Ortsangabe verwendet."
+}

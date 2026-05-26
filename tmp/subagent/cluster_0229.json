@@ -1,0 +1,41 @@
+{
+    "cluster_id": 229,
+    "nachname_norm": "konig",
+    "candidates": [
+        {
+            "id": 6635,
+            "name": "J. König",
+            "papers": 2,
+            "affiliations": "SAWLab Saxony, IFW Dresden",
+            "sample_titles": "3D-Partikelverfolgung und Größenbestimmung durch doppelbrechende Abbildung || Wavefront-shaping for flow-field measurements"
+        },
+        {
+            "id": 7329,
+            "name": "P. König",
+            "papers": 1,
+            "affiliations": "Fraunhofer-Institut für Organische Elektronik, Elektronenstrahl- und Plasmatechnik FEP",
+            "sample_titles": "OLED-on-Silicon: Technologie für Mikrodisplays, optoelektronische Sensorik und Bildgebung"
+        },
+        {
+            "id": 8197,
+            "name": "G. König",
+            "papers": 4,
+            "affiliations": "Lehrstuhl für Technologie Optischer Systeme TOS, RWTH Aachen",
+            "sample_titles": "Methodik zur kostenbasierten Toleranzbudgetfestlegung optomechanischer Systeme || Apparat zur automatisierten Justage optischer Systeme || Agile Auslegung optischer Systeme für die Lasertechnik"
+        },
+        {
+            "id": 9833,
+            "name": "T. König",
+            "papers": 1,
+            "affiliations": "Lehrstuhl für Technologie optischer Systeme, RWTH Aachen University",
+            "sample_titles": "Kompensation von Dezentrierung und Rotation bei der Vermessung von mittels SLM erzeugten Intensitätsverteilungen"
+        },
+        {
+            "id": 11311,
+            "name": "L. König",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Teaching quantum computing using a full adder as an example"
+        }
+    ]
+}

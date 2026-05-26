@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.95,
+  "groups": [[476, 853, 1072, 1156]],
+  "canonical": [
+    {
+      "name_de": "Institut für Mikro- und Nanotechnologien MacroNano, Technische Universität Ilmenau",
+      "name_en": "Institute for Micro- and Nanotechnologies MacroNano, TU Ilmenau",
+      "kuerzel": "IMN MacroNano",
+      "universitaet": "Technische Universität Ilmenau",
+      "ort": "Ilmenau",
+      "land": "DE",
+      "ror_id": "https://ror.org/01weqhp73"
+    }
+  ],
+  "reason": "Alle vier Varianten bezeichnen dasselbe Institut IMN MacroNano an der TU Ilmenau; die Unterschiede betreffen nur Kürzel, Bindestriche und ergänzende Untergruppenangaben (Optik Design, Nanotechnologie)."
+}

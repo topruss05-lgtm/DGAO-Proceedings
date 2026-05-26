@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[1851], [4833], [9082]],
+  "reason": "E. Lindner (FBGS Jena, Faser-Bragg-Gitter), D. Lindner (PTB, Photometrie/OLEDs) und F. Lindner (Leibniz-IPHT Jena, Spezialfasern) haben unterschiedliche Vornamen-Initialen und disjunkte Themengebiete bzw. Institutionen."
+}

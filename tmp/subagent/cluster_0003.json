@@ -1,0 +1,20 @@
+{
+    "cluster_id": 3,
+    "nachname_norm": "alpmann",
+    "candidates": [
+        {
+            "id": 3037,
+            "name": "C. Alpmann",
+            "papers": 6,
+            "affiliations": "Institut für Angewandte Physik, Westfälische Wilhelms-Universität Münster",
+            "sample_titles": "Vectorial flower gardens and wind roses -- tailoring the polarization of light || Holographic approach for the investigation of singular optics – from phase to polarization singularities || Polyelectrolyte multilayer core-shell particles in holographic optical tweezers"
+        },
+        {
+            "id": 3837,
+            "name": "Ch. Alpmann",
+            "papers": 2,
+            "affiliations": "Westfälisch Wilhelms-Universität Münster",
+            "sample_titles": "Optische Mikromanipulation in maßgeschneiderten Ince Gauß Strahlen || Holographisch optische Pinzetten zur Anordnung und Organisation von Nanocontainern"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "cluster_id": 307,
+    "nachname_norm": "reichel",
+    "candidates": [
+        {
+            "id": 113,
+            "name": "V. Reichel",
+            "papers": 7,
+            "affiliations": "Leibniz-Institut für Photonische Technologien (Leibniz-IPHT)",
+            "sample_titles": "Plasma-based synthesis of multicomponent preform material for high-performance optical fibers || Entwicklung optischer Spezialfasern für breitbandige Laserlichtquellen || Füllung photonischer Kristallfasern mit elektro-optischen Polymeren"
+        },
+        {
+            "id": 4127,
+            "name": "St. Reichel",
+            "papers": 1,
+            "affiliations": "Schott AG, Mainz",
+            "sample_titles": "Precise measurement of internal transmittance of high absorbing filter glass"
+        },
+        {
+            "id": 11245,
+            "name": "S. Reichel",
+            "papers": 30,
+            "affiliations": "Hochschule Pforzheim, Tiefenbronner Str. 65, D-75175 Pforzheim, Germany",
+            "sample_titles": "Comparison of Readability and Sharpness of Different Professional Displays || Teaching quantum computing using a full adder as an example || A New Approach for Efficient Evaluation of Switchable Privacy Displays"
+        }
+    ]
+}

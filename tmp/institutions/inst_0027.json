@@ -1,0 +1,25 @@
+{
+    "cluster_id": 27,
+    "variants": [
+        {
+            "id": 84,
+            "name_de": "Institut für Angewandte Physik, Technische Universität Darmstadt",
+            "author_count": 15
+        },
+        {
+            "id": 257,
+            "name_de": "Institut für Angewandte Physik, TU Darmstadt, Hochschulstr. 6, 64293 Darmstadt",
+            "author_count": 1
+        },
+        {
+            "id": 911,
+            "name_de": "Institut für Angewandte Physik, Schloßgartenstr.7, 64289 Darmstadt",
+            "author_count": 1
+        },
+        {
+            "id": 913,
+            "name_de": "Institut für angewandte Physik, TU Darmstadt",
+            "author_count": 1
+        }
+    ]
+}

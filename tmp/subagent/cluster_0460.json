@@ -1,0 +1,20 @@
+{
+    "cluster_id": 460,
+    "nachname_norm": "yang",
+    "candidates": [
+        {
+            "id": 2573,
+            "name": "Z. Yang",
+            "papers": 18,
+            "affiliations": "Institute of Optics, Information and Photonics,\nUniversity of Erlangen-Nuremberg, Germany",
+            "sample_titles": "Space-Bandwidth-Speed: the real challenge for optical 3D-sensors || Single-shot Phase Measuring Deflectometry for Cornea Measurements || Fast and information-efficient microdeflectometry with travelling cross-fringes"
+        },
+        {
+            "id": 8467,
+            "name": "L. Yang",
+            "papers": 1,
+            "affiliations": "Applied Computational Optics Group, Friedrich-Schiller-Universität Jena",
+            "sample_titles": "Freeform, HOE, DOE, Diffuser, Metasurfaces – Different Ways for Light Shaping and How They are Connected"
+        }
+    ]
+}

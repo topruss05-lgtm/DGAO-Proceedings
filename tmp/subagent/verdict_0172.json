@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[4508], [5177]],
+  "reason": "Verschiedene Initialen (D. Hoh vs. M. Höh) und verschiedene Affiliationen (FBGS Technologies Jena vs. TU Darmstadt) sowie unterschiedliche Themen (Faser-Bragg-Gitter vs. Multipass-Zellen Spektroskopie)."
+}

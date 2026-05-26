@@ -1,0 +1,19 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [
+    [11, 13, 17, 19, 160, 161, 424, 444, 528, 545, 586, 603, 641, 664, 859, 894, 1004, 1050, 1071, 1118, 1148, 1577, 1589, 1709, 1830, 1847]
+  ],
+  "canonical": [
+    {
+      "name_de": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik IOF",
+      "name_en": "Fraunhofer Institute for Applied Optics and Precision Engineering IOF",
+      "kuerzel": "IOF",
+      "universitaet": null,
+      "ort": "Jena",
+      "land": "DE",
+      "ror_id": "https://ror.org/02afjh072"
+    }
+  ],
+  "reason": "Alle 26 Einträge sind Schreibvarianten desselben Fraunhofer-Instituts in Jena – Unterschiede in Bindestrichschreibung, Groß-/Kleinschreibung ('für' vs 'für'), Adressangaben und Kürzel-Platzierung. Eintrag 1071 enthält Zusatzaffiliation (Corning), aber die Hauptinstitution ist eindeutig Fraunhofer IOF."
+}

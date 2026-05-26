@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.99,
+  "groups": [[602, 655]],
+  "canonical": [
+    {
+      "name_de": "Hochschule Aalen – Technik und Wirtschaft, Studiengang Optoelektronik/Lasertechnik",
+      "name_en": "Aalen University, Optoelectronics/Laser Technology",
+      "kuerzel": null,
+      "universitaet": "Hochschule Aalen",
+      "ort": "Aalen",
+      "land": "DE",
+      "ror_id": "https://ror.org/04gg60e72"
+    }
+  ],
+  "reason": "Identische Institution, zweite Variante enthält nur zusätzliche Adressangabe; beide verweisen auf denselben Studiengang an der Hochschule Aalen."
+}

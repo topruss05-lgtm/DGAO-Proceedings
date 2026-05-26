@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.9,
+  "groups": [[5873], [5875]],
+  "reason": "J. Hiltunen und M. Hiltunen haben zwar dieselbe Affiliation (VTT Finnland) und dasselbe Paper, sind aber verschiedene Personen (unterschiedliche Vornamen-Initialen J. vs. M.) — vermutlich Geschwister oder Kollegen."
+}

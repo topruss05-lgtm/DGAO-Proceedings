@@ -1,0 +1,15 @@
+{
+    "cluster_id": 86,
+    "variants": [
+        {
+            "id": 384,
+            "name_de": "TU Ilmenau, FG Biomedizinische Technik",
+            "author_count": 2
+        },
+        {
+            "id": 925,
+            "name_de": "Institut für Biomedizinische Technik und Informatik, Technische Universität Ilmenau",
+            "author_count": 1
+        }
+    ]
+}

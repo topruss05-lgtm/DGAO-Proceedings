@@ -1,0 +1,35 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.98,
+  "groups": [[1329], [1650], [1806]],
+  "canonical": [
+    {
+      "name_de": "AG Angewandte Lasertechnik & Photonik, Hochschule Aschaffenburg",
+      "name_en": "Applied Laser Technology and Photonics Group, Aschaffenburg University of Applied Sciences",
+      "kuerzel": "",
+      "universitaet": "Hochschule Aschaffenburg",
+      "ort": "Aschaffenburg",
+      "land": "DE",
+      "ror_id": "https://ror.org/04sms9203"
+    },
+    {
+      "name_de": "Fakultät Angewandte Natur- und Geisteswissenschaften, Hochschule für angewandte Wissenschaften Würzburg-Schweinfurt",
+      "name_en": "Faculty of Applied Natural and Humanities Sciences, University of Applied Sciences Würzburg-Schweinfurt",
+      "kuerzel": "FHWS",
+      "universitaet": "Hochschule für angewandte Wissenschaften Würzburg-Schweinfurt",
+      "ort": "Würzburg",
+      "land": "DE",
+      "ror_id": "https://ror.org/01k5h5v15"
+    },
+    {
+      "name_de": "Institut für Sensor- und Aktortechnik, Hochschule für angewandte Wissenschaften Coburg",
+      "name_en": "Institute for Sensor and Actuator Technology, Coburg University of Applied Sciences",
+      "kuerzel": "ISAT",
+      "universitaet": "Hochschule Coburg",
+      "ort": "Coburg",
+      "land": "DE",
+      "ror_id": "https://ror.org/02p5hsv84"
+    }
+  ],
+  "reason": "Drei verschiedene bayerische Hochschulen für angewandte Wissenschaften: Aschaffenburg, Würzburg-Schweinfurt und Coburg. Obwohl alle zum bayerischen HAW-Verbund gehören, sind es rechtlich eigenständige Institutionen. keep_separate."
+}

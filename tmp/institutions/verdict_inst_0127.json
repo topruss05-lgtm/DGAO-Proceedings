@@ -1,0 +1,62 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.90,
+  "groups": [[681], [732, 768], [769], [742], [827], [832]],
+  "canonical": [
+    {
+      "name_de": "Dipartimento di Ingegneria dell'Informazione, Università degli Studi di Padova",
+      "name_en": "Department of Information Engineering, University of Padova",
+      "kuerzel": null,
+      "universitaet": "Università degli Studi di Padova",
+      "ort": "Padova",
+      "land": "IT",
+      "ror_id": null
+    },
+    {
+      "name_de": "Dipartimento di Fisica, Università degli Studi di Firenze",
+      "name_en": "Department of Physics, University of Florence",
+      "kuerzel": null,
+      "universitaet": "Università degli Studi di Firenze",
+      "ort": "Firenze",
+      "land": "IT",
+      "ror_id": "https://ror.org/04jr1s763"
+    },
+    {
+      "name_de": "Dipartimento di Chimica, Università degli Studi di Firenze",
+      "name_en": "Department of Chemistry, University of Florence",
+      "kuerzel": null,
+      "universitaet": "Università degli Studi di Firenze",
+      "ort": "Firenze",
+      "land": "IT",
+      "ror_id": "https://ror.org/04jr1s763"
+    },
+    {
+      "name_de": "CNR-INFM LIT3 / Dipartimento Interateneo di Fisica, Università degli Studi di Bari",
+      "name_en": "CNR-INFM Regional Laboratory LIT3 / Interuniversity Department of Physics, University of Bari",
+      "kuerzel": "LIT3",
+      "universitaet": "Università degli Studi di Bari Aldo Moro",
+      "ort": "Bari",
+      "land": "IT",
+      "ror_id": "https://ror.org/027ynra39"
+    },
+    {
+      "name_de": "Dipartimento di Fisica, Università degli Studi Roma Tre",
+      "name_en": "Department of Physics, Roma Tre University",
+      "kuerzel": null,
+      "universitaet": "Università degli Studi Roma Tre",
+      "ort": "Roma",
+      "land": "IT",
+      "ror_id": null
+    },
+    {
+      "name_de": "Dipartimento di Ingegneria dei Materiali e T.I., Università di Trento",
+      "name_en": "Department of Materials Engineering, University of Trento",
+      "kuerzel": null,
+      "universitaet": "Università degli Studi di Trento",
+      "ort": "Trento",
+      "land": "IT",
+      "ror_id": "https://ror.org/05trd4x28"
+    }
+  ],
+  "reason": "Der Cluster enthält sechs distinkte Institutionen aus fünf verschiedenen Städten/Universitäten: Padova, Firenze (Physik und Chemie separat), Bari, Roma Tre, Trento – IDs 732 und 768 sind Schreibvarianten desselben Departements Firenze Physik."
+}

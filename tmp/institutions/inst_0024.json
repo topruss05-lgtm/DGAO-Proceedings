@@ -1,0 +1,30 @@
+{
+    "cluster_id": 24,
+    "variants": [
+        {
+            "id": 79,
+            "name_de": "Institut für Photonische Technologien e. V., Albert-Einstein-Straße 9, 07745 Jena, Deutschland",
+            "author_count": 1
+        },
+        {
+            "id": 362,
+            "name_de": "Institut für Photonische Technologien\nBereich: Optische Fasern und Faseranwendungen\nAlbert-Einstein-Straße 9\n07745 Jena",
+            "author_count": 2
+        },
+        {
+            "id": 629,
+            "name_de": "Leibniz Institute of Photonic Technology, Albert-Einstein Str. 9, 07745 Jena, Germa-ny",
+            "author_count": 1
+        },
+        {
+            "id": 1085,
+            "name_de": "Institut für Photonische Technologien e.V., Albert-Einstein-Str. 9, 07745 Jena",
+            "author_count": 1
+        },
+        {
+            "id": 1179,
+            "name_de": "Institut für Angewandte Physik, Friedrich-Schiller- Universität, Albert-Einstein-Str. 15, 07745 Jena",
+            "author_count": 2
+        }
+    ]
+}

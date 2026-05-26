@@ -1,0 +1,25 @@
+{
+    "cluster_id": 103,
+    "variants": [
+        {
+            "id": 477,
+            "name_de": "Institut für Prozessmess- und Sensortechnik, Technische Universität Ilmenau",
+            "author_count": 7
+        },
+        {
+            "id": 929,
+            "name_de": "Technische Universität Ilmenau, Institut für Prozessmess- und Sensortechnik",
+            "author_count": 1
+        },
+        {
+            "id": 1185,
+            "name_de": "Institut für Prozessmess- und Sensortechnik, TU Ilmenau",
+            "author_count": 5
+        },
+        {
+            "id": 1821,
+            "name_de": "Technische Universität Ilmenau, Institut für Prozessmess- und Sensortechnologie",
+            "author_count": 1
+        }
+    ]
+}

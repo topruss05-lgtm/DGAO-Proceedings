@@ -1,0 +1,27 @@
+{
+    "cluster_id": 203,
+    "nachname_norm": "knauer",
+    "candidates": [
+        {
+            "id": 83,
+            "name": "M. Knauer",
+            "papers": 4,
+            "affiliations": "Institute of Optics, Information and Photonics, University of Erlangen-Nürnberg",
+            "sample_titles": "3D-microscopy with large depth of field || Micro-deflectometry in transmission || Full field measurement of progressive lenses within seconds"
+        },
+        {
+            "id": 1104,
+            "name": "M. C. Knauer",
+            "papers": 8,
+            "affiliations": "Institut für Optik, Information und Photonik\nUniversität Erlangen-Nürnberg",
+            "sample_titles": "Can deflectometry work in presence of parasitic reflections? || Object tilt - a source of systematic error in transmission deflectometry || Microdeflectometry: SEM-like quantitative 3D images with nanometer height sensitivity"
+        },
+        {
+            "id": 9134,
+            "name": "A. Knauer",
+            "papers": 2,
+            "affiliations": "Institut für Mikro- und Nanotechnologien, Technische Universität Ilmenau",
+            "sample_titles": "Vergleich verschiedener Ansätze zur zerstörungsfreien optischen Charakterisierung von Subwellenlängenstrukturen || Ellipsometrie zur Charakterisierung optischer Beugungsgitter mit hohem Aspektverhältnis"
+        }
+    ]
+}

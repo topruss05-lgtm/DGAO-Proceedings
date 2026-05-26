@@ -1,0 +1,34 @@
+{
+    "cluster_id": 25,
+    "nachname_norm": "bischoff",
+    "candidates": [
+        {
+            "id": 386,
+            "name": "G. Bischoff",
+            "papers": 8,
+            "affiliations": "Centrum für Biomedizinische Optik und Photonik, Universität Münster",
+            "sample_titles": "3D-Formerfassung mittels Korrelation projizierter Specklemuster || Charakterisierung und Optimierung der Messgenauigkeit eines topometrischen 3D-Messsystems || Charakterisierung & Optimierung der Farbreproduktion eines topometrischen Messsystems"
+        },
+        {
+            "id": 3983,
+            "name": "J. Bischoff",
+            "papers": 1,
+            "affiliations": "OSIRES Optical Engineering & Software Development, Ilmenau",
+            "sample_titles": "Verbesserung der Kantenfindung mit einem Fokussensor durch Simulationen auf der Grundlage rigoroser Beugungstheorie"
+        },
+        {
+            "id": 4248,
+            "name": "M. Bischoff",
+            "papers": 3,
+            "affiliations": "Qioptiq Photonics GmbH & Co. KG.",
+            "sample_titles": "Design und Herstellung von \"perfekten\" breitbandigen polarisierenden Strahlteilerwürfeln || Metal oxide thin films for precision optics in the DUV spectral range || Stray light minimised optical coatings and their application in UV inspection optics"
+        },
+        {
+            "id": 5643,
+            "name": "C. Bischoff",
+            "papers": 2,
+            "affiliations": "TOPAG Lasertechnik, Darmstadt",
+            "sample_titles": "Integration diffraktiver Optiken zur Top-Hat Strahlformung und Vergrößerung der Tiefenschärfe || Herstellung und Charakterisierung mehrstufiger strahlungsresistenter Diffraktiver Optischer Strahlteiler für die Lasermaterialbearbeitung"
+        }
+    ]
+}

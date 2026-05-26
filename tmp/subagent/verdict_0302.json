@@ -1,0 +1,13 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.97,
+    "groups": [
+        [
+            6031
+        ],
+        [
+            6159
+        ]
+    ],
+    "reason": "Verschiedene Initialen (D. vs I.) und unterschiedliche tschechische Institutionen (Brno vs Prag) – zwei verschiedene Personen."
+}

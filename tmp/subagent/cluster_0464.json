@@ -1,0 +1,20 @@
+{
+    "cluster_id": 464,
+    "nachname_norm": "zeitner",
+    "candidates": [
+        {
+            "id": 2706,
+            "name": "U. Zeitner",
+            "papers": 2,
+            "affiliations": "Fraunhofer IOF, Jena",
+            "sample_titles": "Modellierung und Simulation bei Mask Aligner Lithographie (Source-Mask Optimization || Development of a large blazed transmission grating by binary index modulation for the GAIA Radial Velocity Spectrometer"
+        },
+        {
+            "id": 8319,
+            "name": "U. D. Zeitner",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Si-microstructures for back-illuminated Ge-on-Si photodetectors"
+        }
+    ]
+}

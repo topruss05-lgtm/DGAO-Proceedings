@@ -1,0 +1,20 @@
+{
+    "cluster_id": 43,
+    "nachname_norm": "bruns",
+    "candidates": [
+        {
+            "id": 7518,
+            "name": "S. Bruns",
+            "papers": 1,
+            "affiliations": "Institut für Angewandte Forschung, Hochschule Aalen",
+            "sample_titles": "Axial Tomography in Single Cell Fluorescence Microscopy"
+        },
+        {
+            "id": 7519,
+            "name": "T. Bruns",
+            "papers": 1,
+            "affiliations": "Institut für Angewandte Forschung, Hochschule Aalen",
+            "sample_titles": "Axial Tomography in Single Cell Fluorescence Microscopy"
+        }
+    ]
+}

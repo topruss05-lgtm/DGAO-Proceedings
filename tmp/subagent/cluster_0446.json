@@ -1,0 +1,20 @@
+{
+    "cluster_id": 446,
+    "nachname_norm": "willenborg",
+    "candidates": [
+        {
+            "id": 3236,
+            "name": "E. Willenborg",
+            "papers": 1,
+            "affiliations": "Fraunhofer Institut für Lasertechnik ILT, Aachen",
+            "sample_titles": "Polieren optischer Präzisionsoberflächen mit Laserstrahlung - PoliLas"
+        },
+        {
+            "id": 4380,
+            "name": "Dr. E. Willenborg",
+            "papers": 1,
+            "affiliations": "Fraunhofer Institut für Lasertechnik",
+            "sample_titles": "Polishing of illumination optics with CO2 laser radiation"
+        }
+    ]
+}

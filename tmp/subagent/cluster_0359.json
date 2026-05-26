@@ -1,0 +1,20 @@
+{
+    "cluster_id": 359,
+    "nachname_norm": "schweitzer",
+    "candidates": [
+        {
+            "id": 3368,
+            "name": "H. Schweitzer",
+            "papers": 4,
+            "affiliations": "Docter Optics SE, Neustadt an der Orla",
+            "sample_titles": "Kompakte Tageslicht-Laser-Projektionssysteme für autonome Fahrzeuge basierend auf einem Spatial Light Modulator || Parametrische Optimierung refraktiver Strahlformungssysteme unter Berücksichtigung von Beugungs- und Interferenzeffekten || Quasi-analytische Beachtung der Materialdispersion bei der Propagation von fs Pulsen durch optische Systeme"
+        },
+        {
+            "id": 10143,
+            "name": "Dr. H. Schweitzer",
+            "papers": 1,
+            "affiliations": "Docter Optics SE",
+            "sample_titles": "Nutzung von Fresnellinsen in hochauflösenden abbildenden Pixellicht-Scheinwerfern"
+        }
+    ]
+}

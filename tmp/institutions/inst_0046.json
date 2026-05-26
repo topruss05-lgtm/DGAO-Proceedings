@@ -1,0 +1,15 @@
+{
+    "cluster_id": 46,
+    "variants": [
+        {
+            "id": 147,
+            "name_de": "Institut für Angewandte Physik, WWU Münster",
+            "author_count": 3
+        },
+        {
+            "id": 471,
+            "name_de": "Institut für Angewandte Physik, Westfählische Wilhelms-Universität Münster",
+            "author_count": 1
+        }
+    ]
+}

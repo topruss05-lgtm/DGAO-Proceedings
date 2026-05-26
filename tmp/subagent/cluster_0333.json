@@ -1,0 +1,20 @@
+{
+    "cluster_id": 333,
+    "nachname_norm": "schenk",
+    "candidates": [
+        {
+            "id": 1040,
+            "name": "C. Schenk",
+            "papers": 1,
+            "affiliations": "SCHOTT AG, Business Unit Optic for Devices",
+            "sample_titles": "Präzisions-Blankpressen bei SCHOTT – Schlüsseltechnologie zur Fertigung asphärischer Linsen in großen Stückzahlen"
+        },
+        {
+            "id": 10248,
+            "name": "H. Schenk",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Optical Through-Silicon Waveguides for 3D-Chip-Interconnections"
+        }
+    ]
+}

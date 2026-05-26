@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[765, 791]],
+  "canonical": [
+    {
+      "name_de": "Abteilung für Angewandte Physik und Photonik (TONA), Vrije Universiteit Brussel",
+      "name_en": "Department of Applied Physics and Photonics (TONA), Vrije Universiteit Brussel (VUB)",
+      "kuerzel": "TONA",
+      "universitaet": "Vrije Universiteit Brussel",
+      "ort": "Brussel",
+      "land": "BE",
+      "ror_id": "https://ror.org/006e5kg04"
+    }
+  ],
+  "reason": "Beide Einträge bezeichnen dasselbe Departement TONA an der VUB – ID 765 in Niederländisch/Englisch mit Adresse, ID 791 auf Englisch mit Kürzel; identische Einrichtung, nur unterschiedliche Schreibvarianten."
+}

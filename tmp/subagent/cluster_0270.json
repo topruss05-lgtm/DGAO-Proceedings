@@ -1,0 +1,20 @@
+{
+    "cluster_id": 270,
+    "nachname_norm": "menke",
+    "candidates": [
+        {
+            "id": 1942,
+            "name": "Y. Menke",
+            "papers": 2,
+            "affiliations": "Schott AG, Mainz",
+            "sample_titles": "Optische in-situ Prozesskontrolle bei der Herstellung von anorganischen Materialien || Optical Materials beyond Glass"
+        },
+        {
+            "id": 3343,
+            "name": "C. Menke",
+            "papers": 1,
+            "affiliations": "Konzernfunktion Forschung und Technologie, Carl Zeiss AG, Oberkochen",
+            "sample_titles": "Wavelet-Methoden zur Darstellung, Analyse und Simulation optischer Grenzflächen"
+        }
+    ]
+}

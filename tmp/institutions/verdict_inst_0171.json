@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.98,
+  "groups": [[1112, 1113, 1204, 1636]],
+  "canonical": [
+    {
+      "name_de": "Institut für Produktentwicklung und Gerätebau, Leibniz Universität Hannover",
+      "name_en": "Institute for Product Development and Engineering Design, Leibniz University Hannover",
+      "kuerzel": "IPeG",
+      "universitaet": "Leibniz Universität Hannover",
+      "ort": "Hannover",
+      "land": "DE",
+      "ror_id": "https://ror.org/0304hq317"
+    }
+  ],
+  "reason": "Alle vier Varianten bezeichnen das IPeG der Leibniz Universität Hannover — Unterschiede nur in Schreibweise (Leibiz/Leibniz), Reihenfolge und Zeichensetzung."
+}

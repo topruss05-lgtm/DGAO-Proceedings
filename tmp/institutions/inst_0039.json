@@ -1,0 +1,15 @@
+{
+    "cluster_id": 39,
+    "variants": [
+        {
+            "id": 131,
+            "name_de": "Institute of Physics, Faculty V, Carl von Ossietzky University of Oldenburg",
+            "author_count": 1
+        },
+        {
+            "id": 356,
+            "name_de": "Faculty of Physics, Warsaw University of Technology, Koszykowa 75, 00-662 Warsaw, Poland.\nInstitute of Electronics Materials Technology Wólczyńska 133, 01 919 Warsaw, Poland (A.Kowalik).",
+            "author_count": 6
+        }
+    ]
+}

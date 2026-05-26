@@ -1,0 +1,69 @@
+{
+    "cluster_id": 208,
+    "nachname_norm": "koch",
+    "candidates": [
+        {
+            "id": 562,
+            "name": "H. Koch",
+            "papers": 2,
+            "affiliations": "Max-Planck Research Group, Institute of Optics, Information and Photonics, University of Erlangen-Nuremberg, Erlangen, Germany",
+            "sample_titles": "A simple and efficient optical 3D-Sensor based on \"Photometric Stereo\" || A simple and efficient Photometric Stereo sensor for dermatological applications (\"UV-Laser Therapy\")"
+        },
+        {
+            "id": 1307,
+            "name": "A. W. Koch",
+            "papers": 10,
+            "affiliations": "Lehrstuhl für Messsystem- und Sensortechnik, Technische Universität München",
+            "sample_titles": "Statisches Fourier-Transformations-Spektrometer für den mittleren Infrarotbereich mit erhöhter spektraler Auflösung || ATR-Messsystem zur Fluidanalyse mit statischen Fourier-Transformations-Infrarotspektrometern || Modellierung von Referenzwellen zur lokalen Desensibilisierung in der Speckle-Interferometrie mittels Qualitätskriterien des Phasenbildes"
+        },
+        {
+            "id": 3494,
+            "name": "M. Koch",
+            "papers": 3,
+            "affiliations": "Faculty of Physics and Material Sciences Center, Philipps-Universitat Marburg, Renthof 5, 35032 Marburg, Germany",
+            "sample_titles": "Quasi-optical components for the THz-regime: Fabrication and characterization || Bestimmung des Wassergehaltes von Pflanzenblättern mittels Terahertz-Strahlung || Pseudointerferometrische Längenmessung und Refraktometrie mit Sub-Millimeter- (Terahertz-) Wellen"
+        },
+        {
+            "id": 4679,
+            "name": "A. Koch",
+            "papers": 1,
+            "affiliations": "Fakultät Naturwissenschaften und Technik, Hochschule für angewandte Wissenschaft und Kunst Hildesheim / Holzminden / Göttingen",
+            "sample_titles": "Digitale Lochkamera"
+        },
+        {
+            "id": 6404,
+            "name": "J. Koch",
+            "papers": 1,
+            "affiliations": "Laser Zentrum Hannover e.V.",
+            "sample_titles": "Additive manufacturing of polymer based waveguides using hybrid µ-stereolithography"
+        },
+        {
+            "id": 7122,
+            "name": "E. Koch",
+            "papers": 5,
+            "affiliations": "Klinisches Sensoring und Monitoring, Klinik für Anästhesiologie und Intensivtherapie, Technische Universität Dresden",
+            "sample_titles": "Erweiterte morphologische und funktionelle Diagnostik am humanen Mittelohr mittels endoskopischer optischer Kohärenztomografie || CARS imaging of therapeutic alginate implants after spinal cord injury in the rat || Near infrared optical spectroscopy: a new approach for sexing of domestic chicken eggs"
+        },
+        {
+            "id": 7724,
+            "name": "F. Koch",
+            "papers": 4,
+            "affiliations": "Carl Zeiss Jena GmbH, Jena",
+            "sample_titles": "Methoden zur Charakterisierung optischer Gitter über einen großen Ortsfrequenzbereich || Reaktives Ionenstrahlätzen von hochdispersiven Transmissionsgittern mit höchster Beugungseffizienz || Optimization and manufacturing of gold gratings for pulse compression"
+        },
+        {
+            "id": 9889,
+            "name": "D. Koch",
+            "papers": 1,
+            "affiliations": "UPT Optik Wodak GmbH",
+            "sample_titles": "Hochpräzise Werkzeugeinsätze für den Spritzgussprozess diffraktiver Gitter für high-volume Anwendungen"
+        },
+        {
+            "id": 12668,
+            "name": "S. Koch",
+            "papers": 1,
+            "affiliations": "EAH – Ernst-Abbe-Hochschule, Fachbereich SciTech, Jena, Deutschland",
+            "sample_titles": "Kratzerheilung mit CO2-Laser auf Quarzglas für die Reparatur von optischen Komponenten"
+        }
+    ]
+}

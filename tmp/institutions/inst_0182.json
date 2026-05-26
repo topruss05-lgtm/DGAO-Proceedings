@@ -1,0 +1,30 @@
+{
+    "cluster_id": 182,
+    "variants": [
+        {
+            "id": 1232,
+            "name_de": "Technische Hochschule Deggendorf",
+            "author_count": 6
+        },
+        {
+            "id": 1233,
+            "name_de": "THD - Technische Hochschule Deggendorf",
+            "author_count": 4
+        },
+        {
+            "id": 1555,
+            "name_de": "THD - Technische Hochschule Deggendorf, IPH - Institut für Präzisionsbearbeitung und Hofrequenztechnik",
+            "author_count": 3
+        },
+        {
+            "id": 1691,
+            "name_de": "Technische Hochschule Deggendorf (THD)",
+            "author_count": 1
+        },
+        {
+            "id": 1693,
+            "name_de": "Technische Hochschule Deggendorf (THD), Standort Technologiecampus Teisnach Sensorik",
+            "author_count": 4
+        }
+    ]
+}

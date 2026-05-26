@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[1956], [2657], [3413], [6374], [7786], [8139], [8284], [9931], [13023]],
+  "reason": "Neun verschiedene Personen mit Nachnamen Li; alle haben unterschiedliche Vornamen-Initialen, unterschiedliche Institutionen auf verschiedenen Kontinenten und disjunkte Forschungsthemen."
+}

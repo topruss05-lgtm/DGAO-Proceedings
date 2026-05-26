@@ -1,0 +1,16 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.97,
+    "groups": [
+        [
+            2073
+        ],
+        [
+            5017
+        ],
+        [
+            12254
+        ]
+    ],
+    "reason": "Drei verschiedene Initialen (S., C., A.) und unterschiedliche Institutionen – drei verschiedene Personen."
+}

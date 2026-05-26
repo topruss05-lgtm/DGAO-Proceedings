@@ -1,0 +1,13 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.97,
+    "groups": [
+        [
+            648
+        ],
+        [
+            8388
+        ]
+    ],
+    "reason": "Verschiedene Initialen (I. vs S.) und unterschiedliche Institutionen (Leica AG vs Hochschule RheinMain) sprechen eindeutig für zwei verschiedene Personen."
+}

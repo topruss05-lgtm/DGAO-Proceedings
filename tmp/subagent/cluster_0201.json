@@ -1,0 +1,20 @@
+{
+    "cluster_id": 201,
+    "nachname_norm": "kley",
+    "candidates": [
+        {
+            "id": 327,
+            "name": "E.-B. Kley",
+            "papers": 5,
+            "affiliations": "Institut für Angewandte Physik, Friedrich-Schiller-Universität Jena | FSU Jena",
+            "sample_titles": "Effiziente Strukturierungsmethoden für deterministische nanooptische Strukturen || Mikrostrukturierte Photodioden mit Wellenlängen- und Richtungsselektivtät || High efficient transmission- and reflection gratings for femtosecond pulse compression applications"
+        },
+        {
+            "id": 863,
+            "name": "E. Kley",
+            "papers": 1,
+            "affiliations": "Institut für Angewandte Physik, Friedrich-Schiller-Universität Jena",
+            "sample_titles": "Combination of binary and analog lithography to fabricate efficient planar-integrated free-space optical interconnects"
+        }
+    ]
+}

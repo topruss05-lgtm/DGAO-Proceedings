@@ -1,0 +1,20 @@
+{
+    "cluster_id": 233,
+    "nachname_norm": "lamprecht",
+    "candidates": [
+        {
+            "id": 334,
+            "name": "J. Lamprecht",
+            "papers": 5,
+            "affiliations": "Optocraft GmbH, Erlangen",
+            "sample_titles": "Wellenfront geführte Justage und Prüfung von Optiksystemen mit Lichtquellen niedriger Kohärenz || Nicht-Null Test in Durchlicht und Auflicht || Fast, comprehensive and reliable testing of micro-optical elements and systems"
+        },
+        {
+            "id": 7464,
+            "name": "T. Lamprecht",
+            "papers": 1,
+            "affiliations": "vario-optics ag, Heiden, Schweiz",
+            "sample_titles": "Passiv alignierte Mehrfachkopplung von Single-Mode-Glasfasern und integriert optischen Wellenleitern"
+        }
+    ]
+}

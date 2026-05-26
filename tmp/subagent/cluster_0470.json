@@ -1,0 +1,20 @@
+{
+    "cluster_id": 470,
+    "nachname_norm": "zou",
+    "candidates": [
+        {
+            "id": 5526,
+            "name": "Y. Zou",
+            "papers": 2,
+            "affiliations": "Institute of Measurement and Automatic Control, Leibniz University of Hannover",
+            "sample_titles": "Wear process monitoring of thermal spray coatings and surface topography analysis using confocal laser scanning microscopy || Multiskalenmethode zur dimensionellen Charakterisierung der porösen Oberflächen"
+        },
+        {
+            "id": 11102,
+            "name": "X. Zou",
+            "papers": 1,
+            "affiliations": "Institute of Process Measurement and Sensor Technology, Ilmenau University of Technology",
+            "sample_titles": "Pre-Development Positional Metrology for Exposed Photoresist Patterns Using a High-Sensitivity Focus Sensor Integrated with a Nanopositioning System"
+        }
+    ]
+}

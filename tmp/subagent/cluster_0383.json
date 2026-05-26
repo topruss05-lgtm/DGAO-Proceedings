@@ -1,0 +1,27 @@
+{
+    "cluster_id": 383,
+    "nachname_norm": "stark",
+    "candidates": [
+        {
+            "id": 75,
+            "name": "M. Stark",
+            "papers": 1,
+            "affiliations": "Bayrisches Laserzentrum gGmbH, Erlangen",
+            "sample_titles": "Auslegung eines optischen Systems zur Übertragung von Daten über eine rotierende Schnittstelle"
+        },
+        {
+            "id": 11291,
+            "name": "A. Stark",
+            "papers": 3,
+            "affiliations": "",
+            "sample_titles": "Vergleichende stereophotogrammetrische 3D-Messung im sichtbaren und ultravioletten Spektralbereich || Subpixelgenaue dichte 4D-Messung dynamischer Szenen mit Event-Kameras und strukturierter Beleuchtung || Telezentrisches Stereo-3D-Messsystem für biologische Proben – Präzise Volumenmessung mit isotroper Mikrometerauflösung"
+        },
+        {
+            "id": 12079,
+            "name": "A. W. Stark",
+            "papers": 10,
+            "affiliations": "Physikalisch-Astronomische Fakultät, Friedrich-Schiller-Universität Jena",
+            "sample_titles": "Democratizing 3D Measurements in the Life Science – DIY & low cost 360° Stereophotogrammetry || Structured Illumination in microscopy: A Leap in nanoscopic Imaging || Stereophotogrammetrie mit strukturierter Beleuchtung zur Vermessung von Mäusetasthaaren"
+        }
+    ]
+}

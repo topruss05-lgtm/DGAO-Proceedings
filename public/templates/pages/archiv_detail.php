@@ -15,12 +15,15 @@ if (!$tagung) {
 $papers  = getPapersByTagung((int) $nummer);
 $groups  = groupPapersForArchiveDetail($papers);
 
-// Affiliations pro Paper aus paper_autoren JOIN autoren ziehen (für Filter).
+// Affiliations pro Paper für Filter — aus autor_institutionen → institutionen
+// (alle Verknüpfungen pro Autor, nicht nur ist_aktuell, damit der Filter
+// historisch korrekt funktioniert).
 $affilByPaperId = [];
 $affilStmt = $db->prepare('
-    SELECT pa.paper_id, GROUP_CONCAT(a.affiliation, " | ") AS affils
+    SELECT pa.paper_id, GROUP_CONCAT(i.name_de, " | ") AS affils
     FROM paper_autoren pa
-    JOIN autoren a ON a.id = pa.autor_id
+    JOIN autor_institutionen ai ON ai.autor_id = pa.autor_id
+    JOIN institutionen i ON i.id = ai.institut_id
     WHERE pa.paper_id IN (SELECT id FROM papers WHERE tagung_nummer = ?)
     GROUP BY pa.paper_id
 ');

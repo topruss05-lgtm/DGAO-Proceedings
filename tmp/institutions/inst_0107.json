@@ -1,0 +1,15 @@
+{
+    "cluster_id": 107,
+    "variants": [
+        {
+            "id": 503,
+            "name_de": "Leibnitz-Institut für Oberflächenmodifizierung, Permoserstr. 15, \n04318 Leipzig, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 505,
+            "name_de": "Leibniz-Institut fürOberflächenmodifizierung e.V.\nPermoserstr. 15, D-04318 Leipzig, Germany",
+            "author_count": 3
+        }
+    ]
+}

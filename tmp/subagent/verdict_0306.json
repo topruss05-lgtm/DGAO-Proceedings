@@ -1,0 +1,13 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.97,
+    "groups": [
+        [
+            7653
+        ],
+        [
+            7703
+        ]
+    ],
+    "reason": "Verschiedene Initialen (F.G. vs M.S.) und unterschiedliche Institutionen (Leipzig vs TU München) – zwei verschiedene Personen."
+}

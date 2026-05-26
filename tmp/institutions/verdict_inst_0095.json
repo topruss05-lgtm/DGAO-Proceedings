@@ -1,0 +1,44 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[446], [521], [594], [1505]],
+  "canonical": [
+    {
+      "name_de": "Institut für Antriebstechnik, Deutsches Zentrum für Luft- und Raumfahrt (DLR)",
+      "name_en": "Institute of Propulsion Technology, German Aerospace Center (DLR)",
+      "kuerzel": "DLR-AT",
+      "universitaet": null,
+      "ort": "Köln",
+      "land": "DE",
+      "ror_id": "https://ror.org/04bwf3e34"
+    },
+    {
+      "name_de": "Institut für Aerodynamik und Strömungstechnik, Deutsches Zentrum für Luft- und Raumfahrt (DLR)",
+      "name_en": "Institute of Aerodynamics and Flow Technology, German Aerospace Center (DLR)",
+      "kuerzel": "DLR-AS",
+      "universitaet": null,
+      "ort": "Göttingen / Braunschweig",
+      "land": "DE",
+      "ror_id": "https://ror.org/04bwf3e34"
+    },
+    {
+      "name_de": "Institut für Technische Physik, Deutsches Zentrum für Luft- und Raumfahrt (DLR)",
+      "name_en": "Institute of Technical Physics, German Aerospace Center (DLR)",
+      "kuerzel": "DLR-TF",
+      "universitaet": null,
+      "ort": "Stuttgart",
+      "land": "DE",
+      "ror_id": "https://ror.org/04bwf3e34"
+    },
+    {
+      "name_de": "Institut für Raumfahrtantriebe, Deutsches Zentrum für Luft- und Raumfahrt (DLR)",
+      "name_en": "Institute of Space Propulsion, German Aerospace Center (DLR)",
+      "kuerzel": "DLR-RA",
+      "universitaet": null,
+      "ort": "Lampoldshausen",
+      "land": "DE",
+      "ror_id": "https://ror.org/04bwf3e34"
+    }
+  ],
+  "reason": "Vier verschiedene DLR-Fachinstitute (Antriebstechnik, Aerodynamik, Technische Physik, Raumfahrtantriebe) an verschiedenen Standorten; inhaltlich und organisatorisch eigenständige Einheiten trotz gemeinsamer Trägerorganisation."
+}

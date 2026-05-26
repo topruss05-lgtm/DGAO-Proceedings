@@ -1,0 +1,26 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.98,
+  "groups": [[439], [739]],
+  "canonical": [
+    {
+      "name_de": "Studiengang Augenoptik/Optometrie, Ernst-Abbe-Hochschule Jena (ehem. Fachhochschule Jena)",
+      "name_en": "Optometry Programme, Ernst Abbe University of Applied Sciences Jena",
+      "kuerzel": "FHJ-AO",
+      "universitaet": "Ernst-Abbe-Hochschule Jena",
+      "ort": "Jena",
+      "land": "DE",
+      "ror_id": "https://ror.org/01rfnc002"
+    },
+    {
+      "name_de": "Studiengang Augenoptik/Optometrie, Fachhochschule Lübeck",
+      "name_en": "Optometry Programme, University of Applied Sciences Lübeck",
+      "kuerzel": "FHL-AO",
+      "universitaet": "Technische Hochschule Lübeck",
+      "ort": "Lübeck",
+      "land": "DE",
+      "ror_id": "https://ror.org/032xqbj11"
+    }
+  ],
+  "reason": "Zwei verschiedene Hochschulen in verschiedenen Städten (FH Jena und FH Lübeck), die zwar beide den Studiengang Augenoptik/Optometrie anbieten, aber organisatorisch vollständig unabhängig sind."
+}

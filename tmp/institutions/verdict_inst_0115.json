@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.95,
+  "groups": [[595, 840, 1326]],
+  "canonical": [
+    {
+      "name_de": "TRUMPF Laser- und Systemtechnik SE",
+      "name_en": "TRUMPF Laser and System Technology SE",
+      "kuerzel": "TRUMPF LST",
+      "universitaet": null,
+      "ort": "Ditzingen",
+      "land": "DE",
+      "ror_id": "https://ror.org/03459qp74"
+    }
+  ],
+  "reason": "Alle drei Einträge bezeichnen dieselbe TRUMPF-Tochtergesellschaft für Laser- und Systemtechnik in Ditzingen; 'GmbH' (id 595/1326) ist die frühere Rechtsform, 'SE' (id 840) die aktuelle – inhaltlich identisch."
+}

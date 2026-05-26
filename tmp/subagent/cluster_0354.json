@@ -1,0 +1,27 @@
+{
+    "cluster_id": 354,
+    "nachname_norm": "schulte",
+    "candidates": [
+        {
+            "id": 34,
+            "name": "S. Schulte",
+            "papers": 3,
+            "affiliations": "Carl Zeiss SMT AG",
+            "sample_titles": "Interferogrammanalyse mit Trägerfrequenzverfahren und hoher lateraler Auflösung || Störreflexunterdrückung durch Modulation der Laserwellenlänge bei der interferometrischen Vermessung der Oberflächen von transparenten Planparallelplatten || EUV-Lithographie - eine Herausforderung für die interferometrische Messtechnik"
+        },
+        {
+            "id": 1203,
+            "name": "B. Schulte",
+            "papers": 1,
+            "affiliations": "Institut für Physik, Carl von Ossietzky Universität Oldenburg",
+            "sample_titles": "Low-Cost Speckle-Messtechnik mit Laserpointer, CCD-Modul und Notebook"
+        },
+        {
+            "id": 1958,
+            "name": "M. Schulte",
+            "papers": 3,
+            "affiliations": "BIAS - Bremer Institut für angewandte Strahltechnik",
+            "sample_titles": "Sichtstrahlkalibrierung für optisch abbildende Systeme || Reflektometrie - ein flexibles und robustes Messverfahren für unterschiedlichste Anwendungen im Mikro- und Makrobereich || Praxisgerechte Systemauslegung durch modulare analytische Messunsicherheitsmodellierung am Beispiel des Streifenprojektionssystems 3D-Kamera"
+        }
+    ]
+}

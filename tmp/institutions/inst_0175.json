@@ -1,0 +1,20 @@
+{
+    "cluster_id": 175,
+    "variants": [
+        {
+            "id": 1161,
+            "name_de": "Institut für Lasertechnologien in der Medizin und Meßtechnik an der Universität Ulm",
+            "author_count": 4
+        },
+        {
+            "id": 1322,
+            "name_de": "Institut für Lasertechnologien in der Medizin und Messtechnik",
+            "author_count": 8
+        },
+        {
+            "id": 1957,
+            "name_de": "Institut für Lasertechnologien in der Medizin und Meßtechnik an der Universität Ulm (ILM)",
+            "author_count": 3
+        }
+    ]
+}

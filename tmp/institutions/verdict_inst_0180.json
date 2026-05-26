@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.98,
+  "groups": [[1188, 1477]],
+  "canonical": [
+    {
+      "name_de": "Institut für Mikrostrukturtechnik, Karlsruher Institut für Technologie",
+      "name_en": "Institute for Microstructure Technology, Karlsruhe Institute of Technology",
+      "kuerzel": "IMT",
+      "universitaet": "Karlsruher Institut für Technologie",
+      "ort": "Karlsruhe",
+      "land": "DE",
+      "ror_id": "https://ror.org/04t3en479"
+    }
+  ],
+  "reason": "Beide Varianten bezeichnen dasselbe IMT am KIT auf Deutsch; Unterschied nur in Komma und Leerzeichen. (Entspricht den EN-Varianten aus Cluster 178, Gruppe 1.)"
+}

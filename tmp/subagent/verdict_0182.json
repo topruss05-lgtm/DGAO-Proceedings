@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[611], [2977], [4982], [6040], [8367]],
+  "reason": "Fünf verschiedene Personen mit unterschiedlichen Initialen (R., T., S., J., B.) und vollständig disjunkten Affiliationen und Themen; keinerlei Überschneidungen erkennbar."
+}

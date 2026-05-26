@@ -1,0 +1,20 @@
+{
+    "cluster_id": 82,
+    "nachname_norm": "eichler",
+    "candidates": [
+        {
+            "id": 629,
+            "name": "H. J. Eichler",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Sol-gel coatings for fiberoptics appliances"
+        },
+        {
+            "id": 10928,
+            "name": "M. Eichler",
+            "papers": 1,
+            "affiliations": "Fachgebiet für Mikro- und Feingeräte, Technische Universität Berlin",
+            "sample_titles": "Entwicklung eines optischen Sensorsystems und einer Experimentalumgebung zur arteriellen Sauerstoffmessung in subkutanen Gewebeschichten"
+        }
+    ]
+}

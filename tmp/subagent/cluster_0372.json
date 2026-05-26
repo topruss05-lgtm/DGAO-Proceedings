@@ -1,0 +1,20 @@
+{
+    "cluster_id": 372,
+    "nachname_norm": "silberhorn",
+    "candidates": [
+        {
+            "id": 7759,
+            "name": "Ch. Silberhorn",
+            "papers": 2,
+            "affiliations": "Universität Paderborn",
+            "sample_titles": "Integrated devices for quantum communication systems || Fabrication of periodically poled low-loss rubidium exchanged ridge waveguides in z-cut KTP"
+        },
+        {
+            "id": 8231,
+            "name": "C. Silberhorn",
+            "papers": 2,
+            "affiliations": "Integrierte Quantenoptik, Universität Paderborn",
+            "sample_titles": "Highly efficient frequency converter in spatially single mode PPKTP waveguides at NIR wavelengths || Optimization of corrugation-free Rb-exchanged waveguide in periodically poled KTiOPO4"
+        }
+    ]
+}

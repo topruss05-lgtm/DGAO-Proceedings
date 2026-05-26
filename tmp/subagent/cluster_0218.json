@@ -1,0 +1,20 @@
+{
+    "cluster_id": 218,
+    "nachname_norm": "krieg",
+    "candidates": [
+        {
+            "id": 1902,
+            "name": "R. Krieg",
+            "papers": 1,
+            "affiliations": "LightTrans GmbH, Jena",
+            "sample_titles": "Farbe und zeitliche Kohärenz in physikalisch-optischer Modellierung"
+        },
+        {
+            "id": 4153,
+            "name": "J. Krieg",
+            "papers": 2,
+            "affiliations": "Fraunhofer IOSB, Ettlingen",
+            "sample_titles": "Entwicklungsergebnisse einer neuen ultrastabilen Variante von ZERODUR® für Anwendungen mit Pikometerpräzision || Monolithisches optisches Freiformelement für eine IR-Detektorzeile"
+        }
+    ]
+}

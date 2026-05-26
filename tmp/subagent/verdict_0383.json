@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.85,
+  "groups": [[75], [11291, 12079]],
+  "reason": "M. Stark (BLZ Erlangen, Datenkommunikation) ist klar verschieden. A. Stark (id 11291) und A.W. Stark (id 12079) teilen überlappende Themen (Stereophotogrammetrie, strukturierte Beleuchtung, biologische Proben); A.W. könnte die vollständigere Initialform von A. sein, aber keine explizite Affiliationsangabe bei id 11291 – bei 12079 FSU Jena. Konservativ merge für A./A.W. Stark."
+}

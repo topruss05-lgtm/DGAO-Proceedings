@@ -1,0 +1,15 @@
+{
+    "cluster_id": 80,
+    "variants": [
+        {
+            "id": 352,
+            "name_de": "ISAS - Institute for Analytical Sciences",
+            "author_count": 3
+        },
+        {
+            "id": 656,
+            "name_de": "ISAS - Institute for Analytical Sciences, Dortmund",
+            "author_count": 2
+        }
+    ]
+}

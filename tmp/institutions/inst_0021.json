@@ -1,0 +1,25 @@
+{
+    "cluster_id": 21,
+    "variants": [
+        {
+            "id": 69,
+            "name_de": "Institut für Optik und Mikrosysteme, Technische Hochschule Mittelhessen",
+            "author_count": 4
+        },
+        {
+            "id": 283,
+            "name_de": "Labor für Medizinische Optik, Technische Hochschule Lübeck",
+            "author_count": 3
+        },
+        {
+            "id": 1023,
+            "name_de": "Institut für Angewandte Optik und Elektronik, Technische Hochschule Köln",
+            "author_count": 2
+        },
+        {
+            "id": 1657,
+            "name_de": "Fachbereich Elektro- und Informationstechnik, Technische Hochschule Mittelhessen",
+            "author_count": 2
+        }
+    ]
+}

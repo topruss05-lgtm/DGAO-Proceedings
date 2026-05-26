@@ -1,0 +1,62 @@
+{
+    "cluster_id": 200,
+    "nachname_norm": "klein",
+    "candidates": [
+        {
+            "id": 3508,
+            "name": "K.-F. Klein",
+            "papers": 3,
+            "affiliations": "FH Gießen-Friedberg, Fachbereich Informationstechnik-Elektrotechnik-Mechatronik\nW.-Leuschner-Str. 13, 61169 Friedberg",
+            "sample_titles": "UV-Übertragung von gepulstem Nd-YAG Laserlicht durch Multimode-Quarzglasfasern || Breitbandige Quarzglasfaser für Anwendungen im Wellenlängenbereich von 200 nm bis 2300 nm || Quarzglasfasern in der instrumentelle UV-Analytik"
+        },
+        {
+            "id": 4351,
+            "name": "J. Klein",
+            "papers": 1,
+            "affiliations": "Lumerical Solutions, Inc., Vancouver, Canada",
+            "sample_titles": "Photonic integrated circuit simulations that incorporate physical device effects"
+        },
+        {
+            "id": 4714,
+            "name": "T. Klein",
+            "papers": 2,
+            "affiliations": "BIAS-Bremer Institut für angewandte Strahltechnik GmbH, Klagenfurter Str. 2, 28359 Bremen, Germany",
+            "sample_titles": "Improved reconstruction quality of holographic projections by controlling the individual pixel shape || Traceable measurement of nanoparticle size using transmission scanning electron microscopy (TSEM)"
+        },
+        {
+            "id": 5012,
+            "name": "A. Klein",
+            "papers": 4,
+            "affiliations": "Physikalisch-Technische Bundesanstallt",
+            "sample_titles": "Minimal-invasive, fasergekoppelte Optode für die schnelle, lokale Gasanalyse im Infrarotbereich mittels Laserabsorptionsspektroskopie || Eine neue, fasergekoppelte offene White-Zelle für die „open-path“-Gasanalyse auf Forschungsflugzeugen || Minimal-invasiver, fasergekoppelter, absorptionsspektroskopischer Sensor für die motorische Gasanalyse im 2-3 µm Bereich"
+        },
+        {
+            "id": 5066,
+            "name": "R. M. Klein",
+            "papers": 1,
+            "affiliations": "Physikalisch-Technische Bundesanstalt Braunschweig",
+            "sample_titles": "Charakterisierung von Einzelphotonendetektoren bei 1,55 µm"
+        },
+        {
+            "id": 5931,
+            "name": "M. Klein",
+            "papers": 1,
+            "affiliations": "Fachklinik Hornheide, Department of Cranio-Maxillofacial Surgery, Münster",
+            "sample_titles": "A perception-based approach for assessing facial symmetry and attractiveness from opti-cally acquired surface data"
+        },
+        {
+            "id": 11899,
+            "name": "A. C. Klein",
+            "papers": 2,
+            "affiliations": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik IOF, Jena",
+            "sample_titles": "Meta-optischer Sensorkopf für seismische Messungen für das Einstein-Teleskop || Realisierung eines hoch-NA Punktmustergenerators durch Implementierung binärer Subwellenstrukturen"
+        },
+        {
+            "id": 11991,
+            "name": "S. Klein",
+            "papers": 1,
+            "affiliations": "Fraunhofer-Institut für Lasertechnik ILT",
+            "sample_titles": "Teilautomatisiertes Optikdesign und Datenkette für eine laserbasierte Optikfertigung"
+        }
+    ]
+}

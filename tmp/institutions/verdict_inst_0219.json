@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.98,
+  "groups": [[1779, 1883]],
+  "canonical": [
+    {
+      "name_de": "IHP – Leibniz-Institut für innovative Mikroelektronik",
+      "name_en": "IHP – Leibniz Institute for High Performance Microelectronics",
+      "kuerzel": "IHP",
+      "universitaet": "",
+      "ort": "Frankfurt (Oder)",
+      "land": "DE",
+      "ror_id": "https://ror.org/0489gab80"
+    }
+  ],
+  "reason": "Beide Varianten bezeichnen dasselbe Institut (IHP) in Frankfurt(Oder); der einzige Unterschied ist das optionale ', Germany' am Ende von ID 1779."
+}

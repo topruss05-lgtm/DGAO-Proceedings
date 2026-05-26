@@ -1,0 +1,19 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [
+    [66, 391, 583, 669, 854, 912, 1038]
+  ],
+  "canonical": [
+    {
+      "name_de": "SCHOTT AG",
+      "name_en": "SCHOTT AG",
+      "kuerzel": "",
+      "universitaet": "",
+      "ort": "Mainz",
+      "land": "DE",
+      "ror_id": "https://ror.org/000q08p21"
+    }
+  ],
+  "reason": "Alle sieben Varianten bezeichnen dieselbe SCHOTT AG in Mainz — teils mit Division 'Advanced Optics', aber dasselbe Unternehmen an derselben Adresse (Hattenbergstraße 10, Mainz)."
+}

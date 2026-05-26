@@ -1,0 +1,15 @@
+{
+    "cluster_id": 143,
+    "variants": [
+        {
+            "id": 811,
+            "name_de": "ENEA, CR Casaccia, Via Anguillarese 301, 00123 ROME, Italy",
+            "author_count": 3
+        },
+        {
+            "id": 828,
+            "name_de": "ENEA-FIM-MATQUAL - Via Anguillarese 301, 00123 S. Maria di Galeria, (Rome) Italy\ntel ++390630484661, fax ++390630486332 franca.persia@enea.it",
+            "author_count": 2
+        }
+    ]
+}

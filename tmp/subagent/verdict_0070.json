@@ -1,0 +1,6 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[3752, 4285]],
+  "reason": "Ph. und P. Dienstbier sind dieselbe Person: identische Affiliation (Institute of Optics, Erlangen-Nürnberg), identisches Thema (Structured-Illumination Macroscopy, 3D-Sensorik). Ph. ist eine längere Schreibweise von P. (z.B. Philipp)."
+}

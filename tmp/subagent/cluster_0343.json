@@ -1,0 +1,20 @@
+{
+    "cluster_id": 343,
+    "nachname_norm": "schmitzer",
+    "candidates": [
+        {
+            "id": 149,
+            "name": "H. Schmitzer",
+            "papers": 30,
+            "affiliations": "Xavier Univ. Cincinnati",
+            "sample_titles": "Ultra-compact InP nanowire photonic crystal surface emitting lasers H. Wagner*, N. Jayawardana*, M. Larson*, C. Tu*, W. Wong**, H. Tan**, C. Jagadish**, || Photons as Qubits for the Quantum Computer? || de Broglie-Bohms Pilot Wave Theory to Determine Photon Trajectories in a System of Two Twisted Slits."
+        },
+        {
+            "id": 3174,
+            "name": "Schmitzer",
+            "papers": 1,
+            "affiliations": "Xavier University, Cincinnati, USA;",
+            "sample_titles": "An Experimental Demonstration of Optical Number Factorization by Gaußian Sums"
+        }
+    ]
+}

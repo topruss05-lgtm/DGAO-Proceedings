@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[475], [1008]],
+  "reason": "P. Lücke (Forschungszentrum Karlsruhe, diffraktive Elemente) und C. Lücke (Carl Zeiss Oberkochen, Okular-Design) haben unterschiedliche Vornamen-Initialen und disjunkte Institutionen."
+}

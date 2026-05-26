@@ -1,0 +1,20 @@
+{
+    "cluster_id": 401,
+    "nachname_norm": "tamulevicius",
+    "candidates": [
+        {
+            "id": 6226,
+            "name": "T. Tamulevičius",
+            "papers": 2,
+            "affiliations": "",
+            "sample_titles": "Fabrication of integrated micro-optical elements via focused laser beams and holographic lithography || Fabrication of scaffolds for stem cells via ultrafast laser material processing of polymer films and electrospun webs"
+        },
+        {
+            "id": 6232,
+            "name": "S. Tamulevičius",
+            "papers": 2,
+            "affiliations": "",
+            "sample_titles": "Fabrication of integrated micro-optical elements via focused laser beams and holographic lithography || Fabrication of scaffolds for stem cells via ultrafast laser material processing of polymer films and electrospun webs"
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "cluster_id": 182,
+    "nachname_norm": "kaiser",
+    "candidates": [
+        {
+            "id": 611,
+            "name": "R. Kaiser",
+            "papers": 1,
+            "affiliations": "Amicra GmbH, Regensburg",
+            "sample_titles": "Fast, comprehensive and reliable testing of micro-optical elements and systems"
+        },
+        {
+            "id": 2977,
+            "name": "T. Kaiser",
+            "papers": 2,
+            "affiliations": "Institut für Angewandte Optik\nFriedrich-Schiller-Universität Jena",
+            "sample_titles": "Laser beam characterization by means of modal decomposition versus M2 method || Field reconstruction by modal decomposition in passive optical fibers used for brilliant laser beam transmission"
+        },
+        {
+            "id": 4982,
+            "name": "S. Kaiser",
+            "papers": 2,
+            "affiliations": "OEC AG, München",
+            "sample_titles": "Double Tailoring eines Head-Up-Displays mit Korrektur der als Combiner verwendeten Windschutzscheibe || Maßschneidern mit durch Eikonalfunktionen genäherten ausgedehnten Quellen"
+        },
+        {
+            "id": 6040,
+            "name": "J. Kaiser",
+            "papers": 1,
+            "affiliations": "CEITECÃ¢â‚¬â€Central European Institute of Technology, Brno University of Technology, Technicka 3058/10, 616 00 Brno, Czech Republic",
+            "sample_titles": "Recent developments on instrumentation for Laser-Induced Breakdown Spectroscopy"
+        },
+        {
+            "id": 8367,
+            "name": "B. Kaiser",
+            "papers": 2,
+            "affiliations": "Technische Universität Kaiserslautern",
+            "sample_titles": "Aktive elektrochrome Iriden für die Anwendung in integrierten Mikrooptiken || Aktiv steuerbare, elektrochrome Blende zur Raumfrequenz-Filterung"
+        }
+    ]
+}

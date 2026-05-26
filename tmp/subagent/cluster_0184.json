@@ -1,0 +1,20 @@
+{
+    "cluster_id": 184,
+    "nachname_norm": "kamm",
+    "candidates": [
+        {
+            "id": 9401,
+            "name": "M. Kamm",
+            "papers": 2,
+            "affiliations": "Stuttgart Technology Center, Sony Europe B.V.",
+            "sample_titles": "Multi Aperture Computed Tomography Imaging Spectrometer || Hyperspektrale Bildgebung mit Hilfe eines Computed Tomography Imaging Spectrometer unter Verwendung moderner Methoden"
+        },
+        {
+            "id": 9922,
+            "name": "A. Kamm",
+            "papers": 1,
+            "affiliations": "Institut für angewandte Optik und Feinmechanik, Fraunhofer Jena",
+            "sample_titles": "Topologie-Optimierte, konventionell gefertigte Gehäuse für Weltraumanwendungen"
+        }
+    ]
+}

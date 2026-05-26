@@ -1,0 +1,40 @@
+{
+    "cluster_id": 106,
+    "variants": [
+        {
+            "id": 501,
+            "name_de": "Leibniz-Institut für Oberflächenmodifizierung Leipzig",
+            "author_count": 1
+        },
+        {
+            "id": 502,
+            "name_de": "Leibniz -Institut für Oberflächenmodifizierung e.V., Leipzig",
+            "author_count": 1
+        },
+        {
+            "id": 506,
+            "name_de": "Leibniz-Institut für Oberflächenmodifizierung e.V., Permoserstr. 15, 04318 Leipzig",
+            "author_count": 1
+        },
+        {
+            "id": 507,
+            "name_de": "Leibniz-Institut für Oberflächenmodifizierung, Permoserstr. 15, D-04318 Leipzig",
+            "author_count": 1
+        },
+        {
+            "id": 509,
+            "name_de": "Leibniz-Institut für Oberflächenmodifizierung, 04318 Leipzig, Deutschland",
+            "author_count": 4
+        },
+        {
+            "id": 511,
+            "name_de": "Leibniz -Institut für Oberflächenmodifizierung e.V.,Permoserstr. 15, 04318 Leipzig, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 1611,
+            "name_de": "Leibniz -Institut für Oberflächenmodifizierung e.V., Permoserstr. 15, 04318 Leipzig, Germany",
+            "author_count": 1
+        }
+    ]
+}

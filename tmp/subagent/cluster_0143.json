@@ -1,0 +1,20 @@
+{
+    "cluster_id": 143,
+    "nachname_norm": "hahn",
+    "candidates": [
+        {
+            "id": 121,
+            "name": "J. Hahn",
+            "papers": 4,
+            "affiliations": "Institut für Angewandte Physik, Technische Universität Darmstadt",
+            "sample_titles": "Grenzflächenuntersuchungen an biologischen Proben mit einem optischen Nahfeldsensor || Messung der evaneszenten Felder wellenleitender Strukturen in Lithiumniobat || Measuring the pressure of light with an adaptive holographic interferometer"
+        },
+        {
+            "id": 7628,
+            "name": "R. Hahn",
+            "papers": 4,
+            "affiliations": "Institut für Technische Optik (ITO), Universität Stuttgart",
+            "sample_titles": "Wellenoptische Simulation 3D-gedruckter Mikrooptiken || Neuartiger Hyperspektralsensor basierend auf einem diffraktiven Element || Anwendungsgebiete der Multipoint Technik in der 3D-Positionsmessung"
+        }
+    ]
+}

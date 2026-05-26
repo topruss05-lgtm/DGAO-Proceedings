@@ -1,0 +1,20 @@
+{
+    "cluster_id": 287,
+    "nachname_norm": "otte",
+    "candidates": [
+        {
+            "id": 6355,
+            "name": "M. Otte",
+            "papers": 1,
+            "affiliations": "Hannover Centre for Optical Technologies (HOT) - Leibniz Universität Hannover, Germany",
+            "sample_titles": "Simulation of the OCT-depth signal of homogeneous turbid media using a modified Monte-Carlo model"
+        },
+        {
+            "id": 6664,
+            "name": "E. Otte",
+            "papers": 4,
+            "affiliations": "Institute of Applied Physics, University of Muenster",
+            "sample_titles": "Shaping focal light landscapes by advanced polarization modulation || Vectorial flower gardens and wind roses -- tailoring the polarization of light || Complex energy flow structures in tailored light fields for future optical micromanipulation"
+        }
+    ]
+}

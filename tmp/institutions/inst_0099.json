@@ -1,0 +1,20 @@
+{
+    "cluster_id": 99,
+    "variants": [
+        {
+            "id": 465,
+            "name_de": "Fakultät für Elektrotechnik und Informationstechnik Technische Universität Dresden",
+            "author_count": 2
+        },
+        {
+            "id": 1172,
+            "name_de": "Fakultät Elektrotechnik Feinwerktechnik Informationstechnik,\nTechnische Hochschule Nürnberg Georg Simon Ohm",
+            "author_count": 4
+        },
+        {
+            "id": 1219,
+            "name_de": "Fakultät Elektrotechnik und Informationstechnik, TU Dresden",
+            "author_count": 4
+        }
+    ]
+}

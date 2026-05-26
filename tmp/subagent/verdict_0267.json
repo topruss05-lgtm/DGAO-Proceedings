@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[5273], [5644]],
+  "reason": "D. Meier (KIT, elektro-optische Frequenzkämme) und A. Meier (HS RheinMain, diffraktive optische Strahlteiler) haben unterschiedliche Vornamen-Initialen und disjunkte Institutionen sowie Themengebiete."
+}

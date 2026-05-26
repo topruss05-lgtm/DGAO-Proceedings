@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[6340], [8634], [11313], [12065]],
+  "reason": "M. Ludwig (HS Landshut, Streifenprojektion), S. Ludwig (ITO Stuttgart, Scatter-Plate-Mikroskopie), C. Ludwig (Quantencomputing-Lehre) und K. Ludwig (Fraunhofer ILT, optische Pinzetten/Quantencomputing) haben unterschiedliche Vornamen-Initialen; C. und K. Ludwig könnten thematisch verwandt sein, aber unterschiedliche Initialen und keine Affiliationsüberschneidung sprechen für separate Identitäten."
+}

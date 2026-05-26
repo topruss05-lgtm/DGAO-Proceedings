@@ -1,0 +1,6 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[5263, 5470]],
+  "reason": "M. Lauermann und Matthias Lauermann sind dieselbe Person: gleiche Affiliation (KIT, IPQ), gleiche Themen (Silicon Photonics, SOH). Matthias ist die ausgeschriebene Form von M."
+}

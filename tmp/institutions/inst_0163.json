@@ -1,0 +1,60 @@
+{
+    "cluster_id": 163,
+    "variants": [
+        {
+            "id": 1016,
+            "name_de": "Hannoversches Zentrum für optische Technologien, Leibniz Universität Hannover",
+            "author_count": 2
+        },
+        {
+            "id": 1338,
+            "name_de": "Leibniz Universität Hannover, Hannoversches Zentrum für Optische Technologien",
+            "author_count": 2
+        },
+        {
+            "id": 1394,
+            "name_de": "Zentrum für Optische Technologien, Hochschule Aalen",
+            "author_count": 6
+        },
+        {
+            "id": 1501,
+            "name_de": "Zentrum für optische Technologien, Hochschule Aalen",
+            "author_count": 9
+        },
+        {
+            "id": 1503,
+            "name_de": "Zentrum für optische Technologien, Hochschule Aalen, Anton-Huber-Str. 21, 73430 Aalen",
+            "author_count": 4
+        },
+        {
+            "id": 1542,
+            "name_de": "Hannoversches Zentrum für Optische Technologien, Leibniz Universität Hannover",
+            "author_count": 1
+        },
+        {
+            "id": 1583,
+            "name_de": "Hannoversches Zentrum für optische Technologien",
+            "author_count": 1
+        },
+        {
+            "id": 1638,
+            "name_de": "Hannoversches Zentrum für optische Technologien, Leibnitz Universität Hannover",
+            "author_count": 1
+        },
+        {
+            "id": 1727,
+            "name_de": "Zentrum für Optische Technologien\nHochschule Aalen",
+            "author_count": 1
+        },
+        {
+            "id": 1846,
+            "name_de": "HS Aalen, Zentrum für optische Technologien, Mikro- & Nanophotonik",
+            "author_count": 1
+        },
+        {
+            "id": 1899,
+            "name_de": "Zentrum für Optische Technologien, Aalen School of Applied Photonics, Hochschule Aalen, Aalen",
+            "author_count": 2
+        }
+    ]
+}

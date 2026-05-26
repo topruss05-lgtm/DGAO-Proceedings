@@ -1,0 +1,34 @@
+{
+    "cluster_id": 137,
+    "variants": [
+        {
+            "id": 727,
+            "name_de": "Dipartimento di Fisica, Università di Trento, via Sommarive 14, 38050 Povo-Trento, Italy",
+            "author_count": 1
+        },
+        {
+            "id": 824,
+            "name_de": "Dipartimento di Medicina Sperimentale, Seconda Università di Napoli, Naples, Italy",
+            "author_count": 3
+        },
+        {
+            "id": 1259,
+            "name_de": "Università Politecnica delle Marche, Dipartimento SIMAU Ancona, Italy",
+            "author_count": 1
+        },
+        {
+            "id": 1260,
+            "name_de": "Dipartimento SIMAU, Università Politecnica delle Marche, Via Brecce Bianche \n60131 Ancona, Italy",
+            "author_count": 5
+        }
+    ],
+    "verdict": "keep_separate",
+    "confidence": 0.97,
+    "groups": [[727], [824], [1259, 1260]],
+    "canonical": [
+        {"name_de": "Dipartimento di Fisica, Università degli Studi di Trento", "name_en": "Department of Physics, University of Trento", "kuerzel": null, "universitaet": "Università degli Studi di Trento", "ort": "Trento", "land": "IT", "ror_id": "https://ror.org/05trd4x28"},
+        {"name_de": "Dipartimento di Medicina Sperimentale, Seconda Università degli Studi di Napoli", "name_en": "Department of Experimental Medicine, Second University of Naples", "kuerzel": null, "universitaet": "Università della Campania Luigi Vanvitelli", "ort": "Napoli", "land": "IT", "ror_id": null},
+        {"name_de": "Dipartimento SIMAU, Università Politecnica delle Marche", "name_en": "SIMAU Department, Marche Polytechnic University", "kuerzel": "SIMAU", "universitaet": "Università Politecnica delle Marche", "ort": "Ancona", "land": "IT", "ror_id": "https://ror.org/00x69rs40"}
+    ],
+    "reason": "Drei völlig verschiedene Institutionen in Trento, Napoli und Ancona; IDs 1259/1260 sind Schreibvarianten des Dipartimento SIMAU in Ancona; alle anderen sind eigenständige Einrichtungen."
+}

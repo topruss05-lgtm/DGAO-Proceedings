@@ -1,0 +1,20 @@
+{
+    "cluster_id": 246,
+    "nachname_norm": "lin",
+    "candidates": [
+        {
+            "id": 1436,
+            "name": "H. Lin",
+            "papers": 1,
+            "affiliations": "Institut für Technische Optik, Universität Stuttgart",
+            "sample_titles": "Holografisch generierte Doppelfallen für dreidimensionales Trapping"
+        },
+        {
+            "id": 1858,
+            "name": "S. Lin",
+            "papers": 2,
+            "affiliations": "Sony Europe B.V.\nSony Semiconductor Solutions Europe\nStuttgart Technology Center",
+            "sample_titles": "An ultracompact hyperspectral imager based on the MACTIS technology || Konstruktion eines planar-integrierten Schreib-Lese-Kopfes für holografische Datenspeicher"
+        }
+    ]
+}

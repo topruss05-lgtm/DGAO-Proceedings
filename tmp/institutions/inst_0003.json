@@ -1,0 +1,35 @@
+{
+    "cluster_id": 3,
+    "variants": [
+        {
+            "id": 8,
+            "name_de": "Max Planck Institute for the Science of Light",
+            "author_count": 1
+        },
+        {
+            "id": 698,
+            "name_de": "Max Planck Institute for the Science of Light, Erlangen",
+            "author_count": 1
+        },
+        {
+            "id": 1039,
+            "name_de": "Photonic Nanostructures, Max Planck Institute for the Science of Light",
+            "author_count": 2
+        },
+        {
+            "id": 1444,
+            "name_de": "Max-Planck-Institute for the Science of Light, Erlangen",
+            "author_count": 2
+        },
+        {
+            "id": 1472,
+            "name_de": "Max Planck Institute for the Science of Light, 91058 Erlangen",
+            "author_count": 2
+        },
+        {
+            "id": 1707,
+            "name_de": "Max Planck Institute for the Science of Light, \nStaudtstrasse 2, 91058 Erlangen, Germany",
+            "author_count": 1
+        }
+    ]
+}

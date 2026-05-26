@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.99,
+  "groups": [[685, 688, 692, 693, 800]],
+  "canonical": [
+    {
+      "name_de": "Labor für Optoelektronik, Università degli Studi di Brescia",
+      "name_en": "Laboratory of Optoelectronics, University of Brescia",
+      "kuerzel": null,
+      "universitaet": "Università degli Studi di Brescia",
+      "ort": "Brescia",
+      "land": "IT",
+      "ror_id": "https://ror.org/02q2d2610"
+    }
+  ],
+  "reason": "Alle fünf Einträge bezeichnen dasselbe Labor an der Universität Brescia; Unterschiede sind nur Tippfehler ('Universtity'), Adressangaben und Länderangabe."
+}

@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.97,
+  "groups": [[1550], [2341], [5004], [9640]],
+  "reason": "Vier Seidel-Kandidaten mit verschiedenen Initialen (P., N., A., D.) und disjunkten Affiliationen (Leipzig, Innovent Jena, TU Darmstadt, Carl Zeiss AG)."
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 39,
+    "nachname_norm": "breuer",
+    "candidates": [
+        {
+            "id": 8221,
+            "name": "St. Breuer",
+            "papers": 4,
+            "affiliations": "Institute of Applied Physics, Technische Universität Darmstadt, Schloßgartenstraße 7, 64289 Darmstadt, Germany",
+            "sample_titles": "Photonic integrated passively mode-locked ring laser emitting picosecond short optical pulses in the L-band || Nanometric control of an ultrafast passively mode-locked quantum-well laser at 1070 nm by optical self-feedback || Dynamic mode-spacing control of an optical frequency comb quantum dash semiconductor laser emitting at 1535 nm"
+        },
+        {
+            "id": 8613,
+            "name": "S. Breuer",
+            "papers": 1,
+            "affiliations": "Institute of Applied Physics, Technische Universität Darmstadt, Schloßgartenstraße 7, 64289 Darmstadt, Germany",
+            "sample_titles": "Experimental studies of modal gain, absorption and dispersion of nanostructured semiconductor lasers emitting in the near-infrared wavelength regime"
+        }
+    ]
+}

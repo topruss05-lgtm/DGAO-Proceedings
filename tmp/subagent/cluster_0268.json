@@ -1,0 +1,20 @@
+{
+    "cluster_id": 268,
+    "nachname_norm": "meinecke",
+    "candidates": [
+        {
+            "id": 322,
+            "name": "T. Meinecke",
+            "papers": 23,
+            "affiliations": "Fachgebiet Technische Optik, Technische Universität Ilmenau",
+            "sample_titles": "Systementwurf für Phase Retrieval mittels Wignerverteilung || Arrays of radially polarized beams – generation and characterization || Optisches Interface für Phase Retrieval"
+        },
+        {
+            "id": 2838,
+            "name": "Th. Meinecke",
+            "papers": 5,
+            "affiliations": "Technische Universität Ilmenau",
+            "sample_titles": "Talbot images formed with an arbitrary incidence wave || Numerical propagation algorithms and phase retrieval techniques || Bestimmung der Genauigkeit beim holographischen Messverfahren in Mikrofluidsystemen"
+        }
+    ]
+}

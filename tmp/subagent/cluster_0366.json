@@ -1,0 +1,20 @@
+{
+    "cluster_id": 366,
+    "nachname_norm": "seiler",
+    "candidates": [
+        {
+            "id": 887,
+            "name": "T. Seiler",
+            "papers": 2,
+            "affiliations": "FernUniversität in Hagen, Lehrgebiet Mikro- und Nanophotonik",
+            "sample_titles": "Space-variant polarization conversion with hollow waveguide arrays || Practical realization of reflective metallic coatings for planar-integrated free-space optics"
+        },
+        {
+            "id": 12136,
+            "name": "M. Seiler",
+            "papers": 1,
+            "affiliations": "Fachbereich SciTec, Ernst-Abbe-Hochschule Jena",
+            "sample_titles": "Abtragsfreie Oberflächenstrukturierung silikatischer Gläser mittels ultrakurz gepulster Laserstrahlung"
+        }
+    ]
+}

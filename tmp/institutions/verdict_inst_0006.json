@@ -1,0 +1,19 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [
+    [14, 159, 416]
+  ],
+  "canonical": [
+    {
+      "name_de": "Lehrstuhl für Optoelektronik",
+      "name_en": "Chair of Optoelectronics",
+      "kuerzel": "",
+      "universitaet": "Universität Mannheim",
+      "ort": "Mannheim",
+      "land": "DE",
+      "ror_id": "https://ror.org/031bsb921"
+    }
+  ],
+  "reason": "Alle drei Varianten bezeichnen denselben Lehrstuhl für Optoelektronik an der Universität Mannheim — lediglich Schreibvarianten (doppeltes Leerzeichen, fehlendes 'für')."
+}

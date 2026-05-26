@@ -1,0 +1,40 @@
+{
+    "cluster_id": 29,
+    "variants": [
+        {
+            "id": 91,
+            "name_de": "Laser-Laboratorium Göttingen e.V., Göttingen, Germany",
+            "author_count": 4
+        },
+        {
+            "id": 93,
+            "name_de": "Laser-Laboratorium Göttingen",
+            "author_count": 2
+        },
+        {
+            "id": 133,
+            "name_de": "Laser-Laboratorium Göttingen e.V., G�ttingen",
+            "author_count": 1
+        },
+        {
+            "id": 266,
+            "name_de": "Laser-Laboratorium Göttingen e.V., Göttingen",
+            "author_count": 4
+        },
+        {
+            "id": 285,
+            "name_de": "Laser-Laboratorium Göttingen e. V.",
+            "author_count": 1
+        },
+        {
+            "id": 850,
+            "name_de": "Laser-Laboratorium Göttingen e.V.",
+            "author_count": 5
+        },
+        {
+            "id": 851,
+            "name_de": "Laser-Laboratorium Göttingen, Hans-Adolf-Krebs-Weg 1, 37077 Göttingen, Germany",
+            "author_count": 2
+        }
+    ]
+}

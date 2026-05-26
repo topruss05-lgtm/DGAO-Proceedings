@@ -483,16 +483,20 @@ function getTopAuthorSuggestions(int $limit = 200): array
 }
 
 /**
- * Top-N Affiliations aus autoren.affiliation (nach Häufigkeit).
+ * Top-N Institut-Namen (lokalisiert) nach Anzahl verknüpfter Autoren.
+ * Verwendet die kanonische institutionen-Tabelle (Schema v8+).
  * @return list<string>
  */
 function getTopAffiliationSuggestions(int $limit = 100): array
 {
+    $lang    = $_SESSION['lang'] ?? 'de';
+    $instCol = $lang === 'en' ? 'i.name_en' : 'i.name_de';
     $stmt = getDb()->prepare("
-        SELECT affiliation, COUNT(*) AS n
-        FROM autoren
-        WHERE affiliation <> ''
-        GROUP BY affiliation
+        SELECT COALESCE(NULLIF($instCol, ''), i.name_de) AS affiliation,
+               COUNT(DISTINCT ai.autor_id) AS n
+        FROM institutionen i
+        JOIN autor_institutionen ai ON ai.institut_id = i.id
+        GROUP BY i.id
         ORDER BY n DESC, affiliation COLLATE NOCASE
         LIMIT ?
     ");

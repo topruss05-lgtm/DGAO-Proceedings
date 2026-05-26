@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.97,
+  "groups": [[5446], [10107]],
+  "reason": "M. Tessmer (FSU Jena, Feldpropagation/Fresnel-Koeffizienten) und A. Tessmer (Uni Osnabrück, Open-Source-Optikbaukästen für Bildung) haben unterschiedliche Initialen, Affiliationen und Themen."
+}

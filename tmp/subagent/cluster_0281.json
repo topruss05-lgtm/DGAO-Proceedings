@@ -1,0 +1,20 @@
+{
+    "cluster_id": 281,
+    "nachname_norm": "noll",
+    "candidates": [
+        {
+            "id": 62,
+            "name": "T. Noll",
+            "papers": 1,
+            "affiliations": "Berliner Elektronenspeicherringgesellschaft für Syncronstrahlung mbH - BESSY, Berlin",
+            "sample_titles": "XUV-Optik - neue unkonventionelle Bestimmung ihrer Flächenformen bei BESSY mit der NOM"
+        },
+        {
+            "id": 826,
+            "name": "M. Noll",
+            "papers": 1,
+            "affiliations": "Karl Storz GmbH & Co. KG, Tuttlingen",
+            "sample_titles": "Elasticity difference detection of silicon models and biological tissue by spatial phase shifting endoscopic Electronic-Speckle-Pattern Interferometry"
+        }
+    ]
+}

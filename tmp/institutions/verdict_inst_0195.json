@@ -1,0 +1,26 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.97,
+  "groups": [[1304, 1316], [1441]],
+  "canonical": [
+    {
+      "name_de": "Nationales Institut für Laser-, Plasma- und Strahlungsphysik (INFLPR), Măgurele",
+      "name_en": "National Institute for Laser, Plasma and Radiation Physics",
+      "kuerzel": "INFLPR",
+      "universitaet": "",
+      "ort": "Măgurele",
+      "land": "RO",
+      "ror_id": "https://ror.org/01468by48"
+    },
+    {
+      "name_de": "Nationales Institut für Physik, Universität der Philippinen Diliman",
+      "name_en": "National Institute of Physics, University of the Philippines Diliman",
+      "kuerzel": "NIP",
+      "universitaet": "University of the Philippines Diliman",
+      "ort": "Quezon City",
+      "land": "PH",
+      "ror_id": "https://ror.org/03tbh6y23"
+    }
+  ],
+  "reason": "IDs 1304 und 1316 sind Schreibvarianten desselben rumänischen Instituts INFLPR (Laser-Abteilung = Sub-Einheit); ID 1441 ist ein vollständig anderes Institut auf den Philippinen. INFLPR-Varianten werden zusammengeführt, philippinisches Institut bleibt separat."
+}

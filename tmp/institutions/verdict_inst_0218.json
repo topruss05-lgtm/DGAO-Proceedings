@@ -1,0 +1,26 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.82,
+  "groups": [[1764], [1765]],
+  "canonical": [
+    {
+      "name_de": "Glycochemistry, Centre for Biomolecular Interactions Bremen (CBIB), Universität Bremen",
+      "name_en": "Glycochemistry, Centre for Biomolecular Interactions Bremen (CBIB), University of Bremen",
+      "kuerzel": "CBIB-Glyco",
+      "universitaet": "Universität Bremen",
+      "ort": "Bremen",
+      "land": "DE",
+      "ror_id": "https://ror.org/04ers2y35"
+    },
+    {
+      "name_de": "Wound Repair Unit, Centre for Biomolecular Interactions Bremen (CBIB), Universität Bremen",
+      "name_en": "Wound Repair Unit, Centre for Biomolecular Interactions Bremen (CBIB), University of Bremen",
+      "kuerzel": "CBIB-WR",
+      "universitaet": "Universität Bremen",
+      "ort": "Bremen",
+      "land": "DE",
+      "ror_id": "https://ror.org/04ers2y35"
+    }
+  ],
+  "reason": "Beide Einträge gehören zum Centre for Biomolecular Interactions Bremen (CBIB), aber die Glycochemistry-Gruppe und die Wound Repair Unit sind eigenständige Forschungsgruppen mit verschiedenen Themengebieten innerhalb des Zentrums."
+}

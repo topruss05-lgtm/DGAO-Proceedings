@@ -1,0 +1,20 @@
+{
+    "cluster_id": 114,
+    "nachname_norm": "gastaldi",
+    "candidates": [
+        {
+            "id": 2674,
+            "name": "G. Gastaldi",
+            "papers": 1,
+            "affiliations": "Removable Prosthodontics School of Dentistry, University of Brescia",
+            "sample_titles": "Prosthetic reconstruction of maxillo-facial defects by means of 3D optical reverse engineering and prototyping"
+        },
+        {
+            "id": 3165,
+            "name": "M. Gastaldi",
+            "papers": 1,
+            "affiliations": "Information Engineering Department, University of Padova, via Gradenigo 6B, Padova, 35131 Italy",
+            "sample_titles": "Realization and characterization of XUV multilayer coating for attosecond pulses"
+        }
+    ]
+}

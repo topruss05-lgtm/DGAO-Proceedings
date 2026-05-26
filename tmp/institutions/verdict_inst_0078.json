@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.95,
+  "groups": [[324, 1676, 1690]],
+  "canonical": [
+    {
+      "name_de": "Institut für Mikrotechnologien, Hochschule RheinMain",
+      "name_en": "Institute for Microtechnologies, RheinMain University of Applied Sciences",
+      "kuerzel": "IMtech-HSRM",
+      "universitaet": "Hochschule RheinMain",
+      "ort": "Rüsselsheim",
+      "land": "DE",
+      "ror_id": "https://ror.org/0378gm372"
+    }
+  ],
+  "reason": "Alle drei Varianten bezeichnen dasselbe Institut IMtech (Institut für Mikrotechnologien) an der Hochschule RheinMain in Rüsselsheim. Die Unterschiede sind rein formale Schreibvarianten (Fachbereichszusatz, Adressangabe, Fußnote zu Co-Autoren)."
+}

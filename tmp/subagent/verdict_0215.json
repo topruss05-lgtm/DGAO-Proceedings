@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[5016], [5389], [6047], [11971]],
+  "reason": "Vier verschiedene Personen: M. Krämer (Forschungszentrum Jülich), A. Krämer (KIT Karlsruhe), D. Kramer (Prag, ELI) und S. Krämer (THM) haben unterschiedliche Initialen, Affiliations und Themen."
+}

@@ -1,0 +1,19 @@
+{
+  "verdict": "merge",
+  "confidence": 0.98,
+  "groups": [
+    [77, 142, 314, 473, 562, 606, 1152]
+  ],
+  "canonical": [
+    {
+      "name_de": "Leibniz-Institut für Photonische Technologien (Leibniz-IPHT)",
+      "name_en": "Leibniz Institute of Photonic Technology (Leibniz-IPHT)",
+      "kuerzel": "Leibniz-IPHT",
+      "universitaet": "",
+      "ort": "Jena",
+      "land": "DE",
+      "ror_id": "https://ror.org/02se0t636"
+    }
+  ],
+  "reason": "Alle sieben Varianten bezeichnen dasselbe Leibniz-Institut für Photonische Technologien (IPHT) in Jena — früher 'Institut für Photonische Technologien e.V.', später umbenannt, stets dieselbe Einrichtung an der Albert-Einstein-Str. 9, Jena."
+}

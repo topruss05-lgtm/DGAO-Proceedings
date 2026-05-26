@@ -1,0 +1,27 @@
+{
+    "cluster_id": 52,
+    "nachname_norm": "bohm",
+    "candidates": [
+        {
+            "id": 1563,
+            "name": "G. Böhm",
+            "papers": 2,
+            "affiliations": "Leibniz-Institut für Oberflächenmodifizierung e.V., Permoserstr. 15, 04318 Leipzig",
+            "sample_titles": "Plasma Jet Machining - Fertigung von off-axis Parabolspiegeln aus Siliziumkarbid || Deterministische Formgebung kleinformatiger Präzisionsoptiken mit reaktiven Normaldruck-Plasmajets"
+        },
+        {
+            "id": 1696,
+            "name": "A. Böhm",
+            "papers": 1,
+            "affiliations": "BARTEC GmbH",
+            "sample_titles": "Neuartiger optischer Taupunktsensor"
+        },
+        {
+            "id": 11283,
+            "name": "S. Böhm",
+            "papers": 2,
+            "affiliations": "Laser Zentrum Hannover e.V. (LZH)",
+            "sample_titles": "Speckle-basierte Wellenlängenmessungen || Entwicklung eines Herstellungsprozesses von faserbasierten Evaneszenzfeldkopplern"
+        }
+    ]
+}

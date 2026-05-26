@@ -1,0 +1,20 @@
+{
+    "cluster_id": 45,
+    "variants": [
+        {
+            "id": 138,
+            "name_de": "Carl Zeiss AG, Carl-Zeiss-Straße 22, D-73447 Oberkochen, Deutschland",
+            "author_count": 2
+        },
+        {
+            "id": 1291,
+            "name_de": "Carl Zeiss Industrielle Messtechnik, Carl Zeiss Straße 22, 73447 Oberkochen",
+            "author_count": 1
+        },
+        {
+            "id": 1730,
+            "name_de": "Carl Zeiss SMT GmbH, Rudolf-Eber-Straße 2, 73447, Oberkochen",
+            "author_count": 1
+        }
+    ]
+}

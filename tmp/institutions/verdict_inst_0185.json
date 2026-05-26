@@ -1,0 +1,26 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.90,
+  "groups": [[1247, 1372], [1371]],
+  "canonical": [
+    {
+      "name_de": "Laboratory for Process Technology, IMTEK, Universität Freiburg",
+      "name_en": "Laboratory for Process Technology, IMTEK, University of Freiburg",
+      "kuerzel": "",
+      "universitaet": "Universität Freiburg",
+      "ort": "Freiburg",
+      "land": "DE",
+      "ror_id": "https://ror.org/0245cg223"
+    },
+    {
+      "name_de": "Laboratory for Chemistry and Physics of Interfaces, IMTEK, Universität Freiburg",
+      "name_en": "Laboratory for Chemistry and Physics of Interfaces, Department of Microsystems Engineering, University of Freiburg",
+      "kuerzel": "",
+      "universitaet": "Universität Freiburg",
+      "ort": "Freiburg",
+      "land": "DE",
+      "ror_id": "https://ror.org/0245cg223"
+    }
+  ],
+  "reason": "Beide Labore gehören zum IMTEK der Universität Freiburg, sind jedoch inhaltlich verschiedene Laboreinheiten: Prozesstechnologie vs. Chemie und Physik der Grenzflächen. Variante 1372 ohne Kontextangabe wird dem Process Technology Lab zugeordnet."
+}

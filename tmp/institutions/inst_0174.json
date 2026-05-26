@@ -1,0 +1,20 @@
+{
+    "cluster_id": 174,
+    "variants": [
+        {
+            "id": 1146,
+            "name_de": "Fachgebiet Lichttechnik, TU Darmstadt",
+            "author_count": 2
+        },
+        {
+            "id": 1639,
+            "name_de": "Universität Darmstadt, Fachgebiet Lichttechnik",
+            "author_count": 1
+        },
+        {
+            "id": 1670,
+            "name_de": "Fachgebiet Lichttechnik, Technische Universität Darmstadt",
+            "author_count": 2
+        }
+    ]
+}

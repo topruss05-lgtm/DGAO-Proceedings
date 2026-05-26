@@ -1,0 +1,25 @@
+{
+    "cluster_id": 98,
+    "variants": [
+        {
+            "id": 464,
+            "name_de": "Technische Universität Dresden, Professur für Mess- und Prüftechnik\nHelmholtzstr. 18, 01069 Dresden\nInternet: http://eeemp1.et.tu-dresden.de/",
+            "author_count": 1
+        },
+        {
+            "id": 573,
+            "name_de": "Professur für Mess- und Prüftechnik, Fakultät Elektrotechnik und Informationstechnik, TU Dresden",
+            "author_count": 1
+        },
+        {
+            "id": 1131,
+            "name_de": "TU Dresden, Fakultät E&I, Professur für Mess- und Prüftechnik, 01062 Dresden, www.lasermetrology.de",
+            "author_count": 1
+        },
+        {
+            "id": 1308,
+            "name_de": "Professur für Mess- und Prüftechnik, TU Dresden",
+            "author_count": 2
+        }
+    ]
+}

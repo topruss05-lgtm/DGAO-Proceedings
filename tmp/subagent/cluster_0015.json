@@ -1,0 +1,20 @@
+{
+    "cluster_id": 15,
+    "nachname_norm": "bayer",
+    "candidates": [
+        {
+            "id": 1312,
+            "name": "C. Bayer",
+            "papers": 1,
+            "affiliations": "Fakultät für Elektrotechnik und Informationstechnik Technische Universität Dresden",
+            "sample_titles": "Hochauflösender Laser-Doppler-Sensor zur dreikomponentigen ortsverteilten Geschwindigkeitsmessung in Strömungsfeldern"
+        },
+        {
+            "id": 3249,
+            "name": "A. Bayer",
+            "papers": 1,
+            "affiliations": "Laser-Laboratorium Göttingen e.V.",
+            "sample_titles": "Insitu Charakterisierung von Absorptionsverlusten und Degradationseffekten in Quarzglas: Photothermie & Spannungsdoppelbrechung (BMWi-Projekt PoliLas)"
+        }
+    ]
+}

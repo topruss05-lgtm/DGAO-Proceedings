@@ -1,0 +1,19 @@
+{
+  "verdict": "merge",
+  "confidence": 0.92,
+  "groups": [
+    [5, 6, 7, 190, 435, 474, 530]
+  ],
+  "canonical": [
+    {
+      "name_de": "Jade Hochschule – Hochschule Oldenburg/Ostfriesland/Wilhelmshaven",
+      "name_en": "Jade University of Applied Sciences",
+      "kuerzel": null,
+      "universitaet": null,
+      "ort": "Oldenburg / Wilhelmshaven / Emden",
+      "land": "DE",
+      "ror_id": "https://ror.org/02vvvm705"
+    }
+  ],
+  "reason": "Alle Varianten bezeichnen dieselbe Institution: die frühere Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven, die 2009 zur Jade Hochschule fusioniert wurde. Einige Einträge enthalten Zusatzinformationen (Loughborough University, Standortangaben), sind aber eindeutig Schreibvarianten derselben FH."
+}

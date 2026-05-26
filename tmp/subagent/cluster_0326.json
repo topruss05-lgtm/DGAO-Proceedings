@@ -1,0 +1,20 @@
+{
+    "cluster_id": 326,
+    "nachname_norm": "sansoni",
+    "candidates": [
+        {
+            "id": 2472,
+            "name": "G. Sansoni",
+            "papers": 6,
+            "affiliations": "Laboratory of Optoelectronics, Universtity of Brescia",
+            "sample_titles": "Optoelectronic multifunction portals for the monitoring of trains in railway || Use of non-contact 3-D imaging for crime scene analysis || Prosthetic reconstruction of maxillo-facial defects by means of 3D optical reverse engineering and prototyping"
+        },
+        {
+            "id": 7768,
+            "name": "L. Sansoni",
+            "papers": 1,
+            "affiliations": "Universität Paderborn",
+            "sample_titles": "Integrated devices for quantum communication systems"
+        }
+    ]
+}

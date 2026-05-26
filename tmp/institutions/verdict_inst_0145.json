@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.98,
+  "groups": [[847, 962]],
+  "canonical": [
+    {
+      "name_de": "Fraunhofer-Institut für Lasertechnik ILT",
+      "name_en": "Fraunhofer Institute for Laser Technology ILT",
+      "kuerzel": "ILT",
+      "universitaet": "",
+      "ort": "Aachen",
+      "land": "DE",
+      "ror_id": "https://ror.org/03ebbfh95"
+    }
+  ],
+  "reason": "Beide Varianten bezeichnen dasselbe Fraunhofer-Institut für Lasertechnik in Aachen (ROR: 03ebbfh95); der Unterschied liegt nur in der Schreibweise ('Institut' vs. 'Institut' ohne Bindestrich sowie Weglassen des Kürzels ILT)."
+}

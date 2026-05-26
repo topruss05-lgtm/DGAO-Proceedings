@@ -1,0 +1,20 @@
+{
+    "cluster_id": 85,
+    "nachname_norm": "engel",
+    "candidates": [
+        {
+            "id": 106,
+            "name": "A. Engel",
+            "papers": 7,
+            "affiliations": "SCHOTT AG",
+            "sample_titles": "Messung des spannungsoptischen Koeffizienten von optischem Glas: Neue Daten über einen großen Spektralbereich || Die Quanteneffizienz der Fluoreszenz von optischen Gläsern von SCHOTT || Latest results on fluorescence in optical filter glass"
+        },
+        {
+            "id": 10799,
+            "name": "P. Engel",
+            "papers": 1,
+            "affiliations": "Holoeye Photonics AG",
+            "sample_titles": "Optimizing Spatial Light Modulators: Full Characterization of Liquid Crystal on Silicon Devices"
+        }
+    ]
+}

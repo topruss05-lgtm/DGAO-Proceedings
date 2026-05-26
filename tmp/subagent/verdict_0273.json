@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[822], [9487]],
+  "reason": "W. Michalski (TU Wroclaw, Biostimulations-Laser) und E. Michalski (ITO Stuttgart, Mikroskop-Fokusverschiebung) haben unterschiedliche Vornamen-Initialen und disjunkte Institutionen sowie Themengebiete."
+}

@@ -1,0 +1,60 @@
+{
+    "cluster_id": 178,
+    "variants": [
+        {
+            "id": 1186,
+            "name_de": "Institute for Microstructure Technology (IMT), Karlsruhe Institute of Technology (KIT)",
+            "author_count": 4
+        },
+        {
+            "id": 1189,
+            "name_de": "Institute of Microstructure Technology, Karlsruhe Institute of Technology, Germany",
+            "author_count": 3
+        },
+        {
+            "id": 1191,
+            "name_de": "Institute of Nanotechnology, Karlsruhe Institute of Technology, Germany",
+            "author_count": 2
+        },
+        {
+            "id": 1194,
+            "name_de": "Light Technology Institute, Karlsruhe Institute of Technology (KIT)",
+            "author_count": 5
+        },
+        {
+            "id": 1202,
+            "name_de": "Institute for Information Processing Technologies (ITIV), Karlsruhe Institute of Technology (KIT)",
+            "author_count": 3
+        },
+        {
+            "id": 1212,
+            "name_de": "Karlsruhe Institute of Technology (KIT), Germany",
+            "author_count": 3
+        },
+        {
+            "id": 1217,
+            "name_de": "Karlsruhe Institute of Technology, Engesserstraße 5, 76131 Karlsruhe",
+            "author_count": 1
+        },
+        {
+            "id": 1218,
+            "name_de": "Institute for Information Processing Technologies, Karlsruhe Institute of Technology",
+            "author_count": 1
+        },
+        {
+            "id": 1421,
+            "name_de": "Karlsruhe Institute of Technology",
+            "author_count": 2
+        },
+        {
+            "id": 1482,
+            "name_de": "Institute for Applied Materials, Karlsruhe Institute of Technology, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 1721,
+            "name_de": "Karlsruhe Institute for Technology (KIT)\nInstitute for Industrial Information Technology (IIIT)",
+            "author_count": 2
+        }
+    ]
+}

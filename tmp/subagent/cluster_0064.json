@@ -1,0 +1,20 @@
+{
+    "cluster_id": 64,
+    "nachname_norm": "czarske",
+    "candidates": [
+        {
+            "id": 193,
+            "name": "J. Czarske",
+            "papers": 44,
+            "affiliations": "Professur für Mess- und Sensorsystemtechnik, TU Dresden",
+            "sample_titles": "AI-driven adaptive achromatic microscopy || Linsenlose Real-Time-Faserbündel-Endoskopie mittels digitaler optischer Phasenkompensation für die Biomedizin || Neuronale Netze für holografische Faserbündel Endoskopie"
+        },
+        {
+            "id": 5500,
+            "name": "J. W. Czarske",
+            "papers": 12,
+            "affiliations": "Fakultät Elektrotechnik und Informationstechnik, TU Dresden",
+            "sample_titles": "Digitale optische Modenprogrammierung für räumliches Multiplexing von Quantenzuständen || Adaptiver Achromat zur Korrektur chromatischer Aberrationen || Multimode-Fasern für die Informationsübertragung mit verbesserter Datensicherheit"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[1460], [1984], [4162], [7611], [9902], [12648]],
+  "reason": "Sechs Kandidaten mit verschiedenen Initialen (S., J., F., G., P.-I., P.) und vollständig unterschiedlichen Affiliationen (KIT, RWTH Aachen, HS Deggendorf, Helmholtz Berlin, JCMwave); P.-I. Schneider und P. Schneider unterschiedliche Personen durch verschiedene Vornamen-Initialen und Affiliationen."
+}

@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.93,
+  "groups": [[1153], [3807], [4019], [6578], [12645]],
+  "reason": "Fünf verschiedene Personen: S. Krüger (HU Berlin, Holographie), U. Krüger (TechnoTeam Ilmenau, Bildverarbeitung), M. Krüger (TU Ilmenau, Flüssigkristalle), A. Krüger (LZH Hannover, Laserchirurgie) und J. Krüger (PTB, Mikroskopie) haben unterschiedliche Initialen, Affiliations und Themen."
+}

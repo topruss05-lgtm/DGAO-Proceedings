@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.92,
+  "groups": [[303, 1706]],
+  "canonical": [
+    {
+      "name_de": "Institut für Pharmazie und Molekulare Biotechnologie (IPMB), Universität Heidelberg",
+      "name_en": "Institute of Pharmacy and Molecular Biotechnology, Heidelberg University",
+      "kuerzel": "IPMB",
+      "universitaet": "Universität Heidelberg",
+      "ort": "Heidelberg",
+      "land": "DE",
+      "ror_id": ""
+    }
+  ],
+  "reason": "Beide Einträge bezeichnen dasselbe IPMB an der Universität Heidelberg; ID 303 enthält zusätzlich die Kooperationsaffiliation 'Institut für Molekulare Biologie, Mainz' eines Autors, was aber keine eigene Institution begründet."
+}

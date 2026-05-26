@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.96,
+  "groups": [[585, 1773, 1803, 1807, 1814, 1820]],
+  "canonical": [
+    {
+      "name_de": "Hochschule Pforzheim – Technik und Wirtschaft",
+      "name_en": "Pforzheim University of Applied Sciences",
+      "kuerzel": "HS Pforzheim",
+      "universitaet": "Hochschule Pforzheim",
+      "ort": "Pforzheim",
+      "land": "DE",
+      "ror_id": "https://ror.org/00qakfc35"
+    }
+  ],
+  "reason": "Alle sechs Varianten bezeichnen dieselbe Hochschule Pforzheim; Unterschiede sind Adresszusätze, Leerzeichen, Sprachversionen (Germany/Deutschland) sowie interne Abteilungsnamen (Display Lab, Informationstechnik, Lasermaterialbearbeitung) als nachgeordnete Teilangaben."
+}

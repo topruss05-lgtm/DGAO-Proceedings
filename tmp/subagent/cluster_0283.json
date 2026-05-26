@@ -1,0 +1,27 @@
+{
+    "cluster_id": 283,
+    "nachname_norm": "novak",
+    "candidates": [
+        {
+            "id": 5798,
+            "name": "J. Novák",
+            "papers": 3,
+            "affiliations": "Faculty of Civil Engineering, Department of Physics, Czech Technical University in Prague | Czech Technical University in Prague",
+            "sample_titles": "Design Aspects and Realization of an Interferometer Unit || Influence of selection of discrete set of points on calculation of correlation coefficient in processing of image data || Analysis of method for determination of parameters of cemented doublets"
+        },
+        {
+            "id": 5799,
+            "name": "P. Novák",
+            "papers": 3,
+            "affiliations": "Faculty of Civil Engineering, Department of Physics, Czech Technical University in Prague | Czech Technical University in Prague",
+            "sample_titles": "Design Aspects and Realization of an Interferometer Unit || Influence of selection of discrete set of points on calculation of correlation coefficient in processing of image data || Analysis of method for determination of parameters of cemented doublets"
+        },
+        {
+            "id": 7033,
+            "name": "T. Novak",
+            "papers": 1,
+            "affiliations": "Zentrum für optische Technologien, Hochschule Aalen",
+            "sample_titles": "Additive Fertigung und Analyse von Flüssiglinsen"
+        }
+    ]
+}

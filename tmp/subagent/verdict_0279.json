@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[3461], [4167], [6447], [11895]],
+  "reason": "B. Neumann (FH Südwestfalen, Bildverarbeitung/Pinzetten), D. Neumann (Uni Münster, Farbmessung), J. Neumann (Hamburg, Polymer-Fasern) und C. Neumann (KIT, elektrisch deformierte Linsen) haben unterschiedliche Vornamen-Initialen und disjunkte Institutionen sowie Themengebiete."
+}

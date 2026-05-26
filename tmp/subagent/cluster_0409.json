@@ -1,0 +1,20 @@
+{
+    "cluster_id": 409,
+    "nachname_norm": "thomas",
+    "candidates": [
+        {
+            "id": 6900,
+            "name": "C. Thomas",
+            "papers": 1,
+            "affiliations": "Fakultät II – Maschinenbau und Bioverfahrenstechnik, Hochschule Hannover, Hannover, Germany",
+            "sample_titles": "Investigation of light coupling techniques for electrospun polymer-optical nanofibers"
+        },
+        {
+            "id": 11335,
+            "name": "N. Thomas",
+            "papers": 2,
+            "affiliations": "Institute for Electronic Appliances and Circuits, University of Rostock",
+            "sample_titles": "Konzept für ein Dreispiegelobjektiv zur Fernerkundung || Precision laser direct writing of polymer optical waveguides and optofluidic systems"
+        }
+    ]
+}

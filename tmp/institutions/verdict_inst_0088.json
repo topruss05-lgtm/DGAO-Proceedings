@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[392, 394]],
+  "canonical": [
+    {
+      "name_de": "Pädagogische Hochschule Weingarten",
+      "name_en": "University of Education Weingarten",
+      "kuerzel": "PH-Weingarten",
+      "universitaet": "Pädagogische Hochschule Weingarten",
+      "ort": "Weingarten",
+      "land": "DE",
+      "ror_id": "https://ror.org/031eq5e98"
+    }
+  ],
+  "reason": "Variante 394 fügt lediglich die Fachbezeichnung 'Fach Physik' hinzu, bezeichnet aber dieselbe Institution (PH Weingarten). Zusammenführung eindeutig."
+}

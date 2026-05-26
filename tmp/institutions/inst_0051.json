@@ -1,0 +1,30 @@
+{
+    "cluster_id": 51,
+    "variants": [
+        {
+            "id": 175,
+            "name_de": "Institut für Nachhaltige Technische Systeme, Albert-Ludwigs-Universität Freiburg",
+            "author_count": 1
+        },
+        {
+            "id": 325,
+            "name_de": "Lehrstuhl für Mikrooptik, Institut für Mikrosystemtechnik (IMTEK), Albert-Ludwigs-Universität Freiburg",
+            "author_count": 1
+        },
+        {
+            "id": 540,
+            "name_de": "Lehrstuhl für optische Mess- und Prüfverfahren, Institut für Mikrosystemtechnik,  Albert-Ludwigs-Universität Freiburg",
+            "author_count": 1
+        },
+        {
+            "id": 1142,
+            "name_de": "Institut für Mikrosystemtechnik, Albert-Ludwigs-Universität Freiburg",
+            "author_count": 6
+        },
+        {
+            "id": 1370,
+            "name_de": "Institut für Mikrosystemtechnik IMTEK, Albert-Ludwigs-Universität Freiburg",
+            "author_count": 1
+        }
+    ]
+}

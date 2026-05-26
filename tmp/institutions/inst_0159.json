@@ -1,0 +1,25 @@
+{
+    "cluster_id": 159,
+    "variants": [
+        {
+            "id": 975,
+            "name_de": "Hochschule Darmstadt, Fachbereich Mathematik und Naturwissenschaften, Studienbereich Optotechnik und Bildverarbeitung",
+            "author_count": 1
+        },
+        {
+            "id": 1640,
+            "name_de": "Hochschule Darmstadt, Fachbereich Mathematik und Naturwissenschaften",
+            "author_count": 2
+        },
+        {
+            "id": 1645,
+            "name_de": "FB Mathematik und Naturwissenschaften, Hochschule Darmstadt",
+            "author_count": 1
+        },
+        {
+            "id": 1649,
+            "name_de": "Fachbereich Mathematik und Natur­wissen­schaften, Hochschule Darmstadt",
+            "author_count": 2
+        }
+    ]
+}

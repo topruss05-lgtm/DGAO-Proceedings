@@ -1,0 +1,20 @@
+{
+    "cluster_id": 115,
+    "nachname_norm": "gebhardt",
+    "candidates": [
+        {
+            "id": 1206,
+            "name": "M. Gebhardt",
+            "papers": 4,
+            "affiliations": "Studiengang Augenoptik/Optometrie, Fachhochschule Jena",
+            "sample_titles": "Wellenfrontkorrektion menschlicher Augen mit einem adaptiv-optischen System || Adapitve optical system to test the visual performance of the human eye || Rigorose Modellierung der Wechselwirkung optischer Strahlung mit stochastisch nanostrukturierten PMMA-Oberflächen"
+        },
+        {
+            "id": 2339,
+            "name": "A. Gebhardt",
+            "papers": 3,
+            "affiliations": "Fraunhofer Institüt für Angewandte Optik und Feinmechanik Jena",
+            "sample_titles": "Bestimmung des Justierfehlers asphärischer Linsen mittels Distanzmessung || Optimised Glass Rod Drawing Process for Gradient-Index Microlenses || Hoch nichtlineare Photonische Kristallfasern auf Basis optimierter Glaskombinationen"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "cluster_id": 217,
+    "variants": [
+        {
+            "id": 1755,
+            "name_de": "Hochschule Hannover, Fakultät 1, Fachgebiet: Industrieelektronik, Digital- und Lichttechnik",
+            "author_count": 1
+        },
+        {
+            "id": 1756,
+            "name_de": "Fachgebiet für Integrierte Schaltungen und Eingebettete Systeme, Fak.I - Elektro- und Informationstechnik, Hochschule Hannover",
+            "author_count": 2
+        }
+    ]
+}

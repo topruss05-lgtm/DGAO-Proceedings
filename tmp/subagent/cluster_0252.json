@@ -1,0 +1,20 @@
+{
+    "cluster_id": 252,
+    "nachname_norm": "lorenz",
+    "candidates": [
+        {
+            "id": 3885,
+            "name": "A. Lorenz",
+            "papers": 3,
+            "affiliations": "Leibniz-IPHT – Leibniz-Institut für Photonische Technologien e.V., Albert-Einstein-Str. 9, 07745 Jena, Deutschland",
+            "sample_titles": "Herstellung Mikrostrukturierter Hohlkernfasern für spektroskopische Anwendungen || Entwicklung optischer Spezialfasern für breitbandige Laserlichtquellen || Design von Hochleistungstransportfasern mit wenigen Moden"
+        },
+        {
+            "id": 6436,
+            "name": "L. Lorenz",
+            "papers": 2,
+            "affiliations": "Institut für Aufbau- und Verbindungstechnik der Elektronik, TU Dresden",
+            "sample_titles": "Asymmetric optical bus couplers with Aerosol Jet printed polymer waveguides || Combination of Flexographic and Aerosol Jet Printing for Integrated Polymer Optical Step Index Waveguides"
+        }
+    ]
+}

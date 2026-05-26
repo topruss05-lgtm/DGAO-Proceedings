@@ -1,0 +1,20 @@
+{
+    "cluster_id": 170,
+    "variants": [
+        {
+            "id": 1110,
+            "name_de": "Fakultät für Maschinenbau, Technische Universität Ilmenau;",
+            "author_count": 1
+        },
+        {
+            "id": 1585,
+            "name_de": "Fakultät für Maschinenbau, Technische Universität Ilmenau",
+            "author_count": 1
+        },
+        {
+            "id": 1595,
+            "name_de": "Fakultät für Maschinenbau, FG Qualitätssicherung und Industrielle Bildverarbeitung,  Technische Universität Ilmenau, Gustav- Kirchhoff-Platz 2, 98693 Ilmenau",
+            "author_count": 1
+        }
+    ]
+}

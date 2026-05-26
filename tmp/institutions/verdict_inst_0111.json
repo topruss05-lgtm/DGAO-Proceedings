@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.98,
+  "groups": [[564, 1794]],
+  "canonical": [
+    {
+      "name_de": "Sony Semiconductor Solutions Europe, Stuttgart Technology Center",
+      "name_en": "Sony Semiconductor Solutions Europe, Stuttgart Technology Center",
+      "kuerzel": "STC Stuttgart",
+      "universitaet": null,
+      "ort": "Stuttgart",
+      "land": "DE",
+      "ror_id": null
+    }
+  ],
+  "reason": "Beide Einträge bezeichnen dasselbe Sony-Forschungszentrum in Stuttgart (Stuttgart Technology Center, Teil von Sony Europe B.V. / Sony Semiconductor Solutions Europe); Variante 1794 ist eine gekürzte Schreibweise."
+}

@@ -1,0 +1,27 @@
+{
+    "cluster_id": 415,
+    "nachname_norm": "tosi",
+    "candidates": [
+        {
+            "id": 2647,
+            "name": "A. Tosi",
+            "papers": 1,
+            "affiliations": "Politecnico di Milano, Dipartimento di Elettronica e Informazione, Piazza Leonardo da Vinci 32, I-20133 Milano, Italy",
+            "sample_titles": "Functional imaging of brain activity at small source-detector distances using fast-gated Single-Photon Avalanche Diodes"
+        },
+        {
+            "id": 2717,
+            "name": "D. Tosi",
+            "papers": 1,
+            "affiliations": "Department of Electronics, Politecnico di Torino, Torino, Italy",
+            "sample_titles": "Improved Fibre Bragg Grating Interrogation for Dynamic Strain Measurement"
+        },
+        {
+            "id": 3209,
+            "name": "Alberto Tosi",
+            "papers": 1,
+            "affiliations": "Politechnic of Milan - Department of Electronics and Information",
+            "sample_titles": "Performance of new InGaAs/InP Single-Photon Detectors for the Near-Infrared Spectral Range"
+        }
+    ]
+}

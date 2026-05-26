@@ -1,0 +1,20 @@
+{
+    "cluster_id": 5,
+    "nachname_norm": "altmeyer",
+    "candidates": [
+        {
+            "id": 4199,
+            "name": "St. Altmeyer",
+            "papers": 1,
+            "affiliations": "Fachhochschule Köln",
+            "sample_titles": "Quantitative Phasenrekonstruktion in Echtzeit unter Verwendung der Intensitäts-Transport-Gleichung"
+        },
+        {
+            "id": 4807,
+            "name": "S. Altmeyer",
+            "papers": 2,
+            "affiliations": "Institut für Angewandte Optik und Elektronik, Technische Hochschule Köln",
+            "sample_titles": "Interferenzkontrastreduzierung für simultanes, holografisches Multiplexen mittels rotierender Planplatte || Multiplexing von Transmissionshologrammen in Fotopolymer"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 58,
+    "nachname_norm": "cheng",
+    "candidates": [
+        {
+            "id": 8955,
+            "name": "R. Cheng",
+            "papers": 1,
+            "affiliations": "Technische Thermodynamik, Universität Bremen, Bremen, Deutschland",
+            "sample_titles": "Correction of distorted ATR infrared spectra"
+        },
+        {
+            "id": 10973,
+            "name": "X. Cheng",
+            "papers": 1,
+            "affiliations": "5th Institute of Physics, University of Stuttgart, Pfaffenwaldring 57, 70569 Stuttgart, Germany",
+            "sample_titles": "Hot vapor spectroscopy with integrated photonic waveguides"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.93,
+  "groups": [[3966], [5686], [10686]],
+  "reason": "Drei Personen mit verschiedenen Initialen (R., E., F.) und unterschiedlichen Affiliationen (FSU Jena, Ernst-Abbe-Hochschule Jena, Hochschule Pforzheim) sowie disjunkten Themen. F. Forster ohne Umlaut ist zudem ein anderer Namens-Typ."
+}

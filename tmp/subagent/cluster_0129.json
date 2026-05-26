@@ -1,0 +1,20 @@
+{
+    "cluster_id": 129,
+    "nachname_norm": "gruber",
+    "candidates": [
+        {
+            "id": 310,
+            "name": "M. Gruber",
+            "papers": 12,
+            "affiliations": "TNO Technical sciences, Delft, The Netherlands",
+            "sample_titles": "Pre-correction adaptive optics performance of a 10 km laser link || Herstellung eines optischen Sensorkopfes zur Gasanalyse mittels spanender, ablativer und planarer Fertigungsverfahren || Spanende Fertigung mikrooptischer Komponenten mit einer parallelkinematischen Laborwerkzeugmaschine"
+        },
+        {
+            "id": 7887,
+            "name": "J. M. Gruber",
+            "papers": 1,
+            "affiliations": "Optics Department, TNO Delft",
+            "sample_titles": "Komplementäres Designtool zur Optimierung von Freiformflächen"
+        }
+    ]
+}

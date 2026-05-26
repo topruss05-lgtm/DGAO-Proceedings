@@ -1,0 +1,19 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [
+    [63, 313, 642]
+  ],
+  "canonical": [
+    {
+      "name_de": "Lehrstuhl für Optoelektronik, ZITI",
+      "name_en": "Chair of Optoelectronics, ZITI",
+      "kuerzel": "",
+      "universitaet": "Universität Heidelberg",
+      "ort": "Heidelberg",
+      "land": "DE",
+      "ror_id": "https://ror.org/038t36y30"
+    }
+  ],
+  "reason": "Alle drei Varianten bezeichnen denselben Lehrstuhl für Optoelektronik am ZITI (Zentralinstitut für Technische Informatik) der Universität Heidelberg — lediglich Schreibvarianten mit/ohne 'Germany' und 'ziti' vs. ausgeschrieben."
+}

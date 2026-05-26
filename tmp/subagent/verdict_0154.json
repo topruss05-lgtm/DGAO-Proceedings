@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[1071], [10086]],
+  "reason": "Verschiedene Initialen (K. vs. P.), verschiedene Affiliationen (Bergische Uni Wuppertal vs. TU Ilmenau) und völlig verschiedene Themen (Neutrinoteleskope vs. Fourier-Ptychographie Laborpraktikum)."
+}

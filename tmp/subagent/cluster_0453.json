@@ -1,0 +1,20 @@
+{
+    "cluster_id": 453,
+    "nachname_norm": "wondraczek",
+    "candidates": [
+        {
+            "id": 6257,
+            "name": "K. Wondraczek",
+            "papers": 4,
+            "affiliations": "Leibniz-Institut für Photonische Technologien (Leibniz-IPHT)",
+            "sample_titles": "Plasma-based synthesis of multicomponent preform material for high-performance optical fibers || Herstellung Mikrostrukturierter Hohlkernfasern für spektroskopische Anwendungen || Entwicklung optischer Spezialfasern für breitbandige Laserlichtquellen"
+        },
+        {
+            "id": 8916,
+            "name": "L. Wondraczek",
+            "papers": 1,
+            "affiliations": "Otto-Schott-Institut für Materialforschung",
+            "sample_titles": "Plasma-based synthesis of multicomponent preform material for high-performance optical fibers"
+        }
+    ]
+}

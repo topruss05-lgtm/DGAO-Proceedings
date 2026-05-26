@@ -1,0 +1,20 @@
+{
+    "cluster_id": 14,
+    "variants": [
+        {
+            "id": 36,
+            "name_de": "Jenoptik Optical Systems GmbH Jena",
+            "author_count": 3
+        },
+        {
+            "id": 38,
+            "name_de": "Jenoptik Optical Systems GmbH, Jena",
+            "author_count": 3
+        },
+        {
+            "id": 1968,
+            "name_de": "JENOPTIK Optical Systems GmbH",
+            "author_count": 2
+        }
+    ]
+}

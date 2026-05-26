@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[1078], [5769]],
+  "reason": "Verschiedene Initialen (M. Kanka vs. J. Kanka), vollständig verschiedene Affiliationen (IPHT Jena vs. ISI Brünn/Tschechien) und unterschiedliche Themen (Speckle-Bildgebung vs. Raman-Spektroskopie/Zellanalyse)."
+}

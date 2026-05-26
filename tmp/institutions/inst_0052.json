@@ -1,0 +1,15 @@
+{
+    "cluster_id": 52,
+    "variants": [
+        {
+            "id": 188,
+            "name_de": "Technische Universiät Darmstadt",
+            "author_count": 4
+        },
+        {
+            "id": 1154,
+            "name_de": "Center of Smart Interfaces, Technische Universiät Darmstadt",
+            "author_count": 1
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[309], [7330]],
+  "reason": "Verschiedene Initialen (R. vs. O.) und unterschiedliche Affiliationen (HTWK Leipzig vs. Fraunhofer FEP Dresden) sowie disjunkte Themen (Phasenfilter/Radiometrie vs. OLED-on-Silicon)."
+}

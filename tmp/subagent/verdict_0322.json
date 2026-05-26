@@ -1,0 +1,13 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.95,
+    "groups": [
+        [
+            758
+        ],
+        [
+            7475
+        ]
+    ],
+    "reason": "Verschiedene Initialen (T. vs P.) und unterschiedliche Forschungsthemen (3D-Farbsensor vs OCT Mittelohr) – zwei verschiedene Personen."
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 242,
+    "nachname_norm": "lensch",
+    "candidates": [
+        {
+            "id": 9697,
+            "name": "H. P. A. Lensch",
+            "papers": 1,
+            "affiliations": "Eberhard-Karls-Universität Tübingen",
+            "sample_titles": "Superresolution von Multispektral-Kamerabildern im SWIR"
+        },
+        {
+            "id": 9986,
+            "name": "H. P. Lensch",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Geometrische Kalibrierung einer kompakten Mehrkanal-Tiefenkamera mit großem Gesichtsfeld"
+        }
+    ]
+}

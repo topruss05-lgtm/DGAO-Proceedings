@@ -1,0 +1,20 @@
+{
+    "cluster_id": 390,
+    "nachname_norm": "stollenwerk",
+    "candidates": [
+        {
+            "id": 6495,
+            "name": "J. Stollenwerk",
+            "papers": 29,
+            "affiliations": "Lehrstuhl für Technologie optischer Systeme, RWTH Aachen University",
+            "sample_titles": "Kaskadiertes optisches System: rotierendes diffraktives optisches Element - Design, Evaluierung und Anwendung || Auf zwei kaskadierten Phasenmodulatoren basierendes optisches Modul für die f­ lexible Lasermaterialbearbeitung || Productivity Analysis and Control of Advanced Scanning Systems for Digital Photonic Production"
+        },
+        {
+            "id": 12234,
+            "name": "M. Stollenwerk",
+            "papers": 6,
+            "affiliations": "Fakultät Ingenieurwissenschaften, Technische Hochschule Aschaffenburg, D-63743 Aschaffenburg",
+            "sample_titles": "Forschung zu Strahlenschäden mit dem Stratosphärenballon-Experiment ASTRABAX || Umweltbeständige Spiegelbeschichtungen aus Iridium für den infraroten Spektralbereich || Low-density coatings for enhanced X-ray reflectivity of astronomical telescope mirrors"
+        }
+    ]
+}

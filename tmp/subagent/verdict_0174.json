@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[4112], [11341]],
+  "reason": "Verschiedene Initialen (F. vs. L.) und unterschiedliche Affiliationen (FAU Erlangen vs. keine Angabe) sowie verschiedene Themen (3D-Sensor Medizin vs. Fischaugenkamera-Modell)."
+}

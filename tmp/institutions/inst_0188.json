@@ -1,0 +1,15 @@
+{
+    "cluster_id": 188,
+    "variants": [
+        {
+            "id": 1262,
+            "name_de": "University of Bordeaux and CNRS,  LOMA, Talence, France.",
+            "author_count": 1
+        },
+        {
+            "id": 1277,
+            "name_de": "Univ. Bordeaux, LOMA, UMR5798, F-33400 Talence, France\nCNRS, LOMA, UMR5798, F-33400 Talence, France",
+            "author_count": 4
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[694], [5005], [5584], [7101], [7291], [7482], [11430], [12199]],
+  "reason": "Alle acht Wagner-Einträge haben unterschiedliche Vornamen-Initialen (C., S., L., F., M., D., H., H.P.) und vollständig disjunkte Affiliationen und Themengebiete; H. Wagner (FSU Jena, Stereophotogrammetrie) und H. P. Wagner (Uni Cincinnati, Plasmonik/Nanodraht-Photonik) sind trotz ähnlicher Initial eindeutig verschiedene Personen."
+}

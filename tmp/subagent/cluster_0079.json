@@ -1,0 +1,20 @@
+{
+    "cluster_id": 79,
+    "nachname_norm": "edelmann",
+    "candidates": [
+        {
+            "id": 1072,
+            "name": "M. Edelmann",
+            "papers": 1,
+            "affiliations": "Carl Zeiss AG",
+            "sample_titles": "Head Mounted Displays: Grundlagen, Applikationen, Lösungen"
+        },
+        {
+            "id": 4786,
+            "name": "A. Edelmann",
+            "papers": 3,
+            "affiliations": "FernUniversität in Hagen, Lehrgebiet Mikro- und Nanophotonik",
+            "sample_titles": "Fabrication of subwavelength-structured hollow waveguide array by two-photon polymerization || Erzeugung eines komplexen Wellenfeldes zur Ankopplung von THz-Strahlung an einen metallischen Draht || Ankopplung von Terahertz-Strahlung an einen metallischen Draht mit Hilfe eines diffraktiven Axicons"
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[980, 981, 1575, 1623, 1624]],
+  "canonical": [
+    {
+      "name_de": "NTB Interstaatliche Hochschule für Technik Buchs",
+      "name_en": "Interstate University of Applied Sciences of Technology Buchs NTB",
+      "kuerzel": "NTB",
+      "universitaet": "",
+      "ort": "Buchs",
+      "land": "CH",
+      "ror_id": "https://ror.org/03mg0ce08"
+    }
+  ],
+  "reason": "Alle fünf Einträge bezeichnen dieselbe NTB in Buchs, Schweiz; das genannte Institut für Produktionsmesstechnik, Werkstoffe und Optik (PMO) ist eine interne Abteilung ohne eigene institutionelle Rechtspersönlichkeit."
+}

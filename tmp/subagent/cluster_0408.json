@@ -1,0 +1,20 @@
+{
+    "cluster_id": 408,
+    "nachname_norm": "thieme",
+    "candidates": [
+        {
+            "id": 8303,
+            "name": "C. Thieme",
+            "papers": 1,
+            "affiliations": "Fraunhofer-Institut für Mikrostruktur von Werkstoffen und Systemen IMWS",
+            "sample_titles": "LEAZit - Ein neuartiges glaskeramischen Laserspiegelsubstrat"
+        },
+        {
+            "id": 8304,
+            "name": "K. Thieme",
+            "papers": 1,
+            "affiliations": "Fraunhofer-Institut für Mikrostruktur von Werkstoffen und Systemen IMWS",
+            "sample_titles": "LEAZit - Ein neuartiges glaskeramischen Laserspiegelsubstrat"
+        }
+    ]
+}

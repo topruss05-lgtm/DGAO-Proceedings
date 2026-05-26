@@ -1,0 +1,26 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.9,
+  "groups": [[1655], [1656]],
+  "canonical": [
+    {
+      "name_de": "Department of Electrical Engineering, Southern Methodist University",
+      "name_en": "Department of Electrical Engineering, Southern Methodist University",
+      "kuerzel": "EE-SMU",
+      "universitaet": "Southern Methodist University",
+      "ort": "Dallas, TX",
+      "land": "US",
+      "ror_id": "https://ror.org/042tdr378"
+    },
+    {
+      "name_de": "Lyle School of Engineering, Southern Methodist University",
+      "name_en": "Lyle School of Engineering, Southern Methodist University",
+      "kuerzel": "Lyle-SMU",
+      "universitaet": "Southern Methodist University",
+      "ort": "Dallas, TX",
+      "land": "US",
+      "ror_id": "https://ror.org/042tdr378"
+    }
+  ],
+  "reason": "Das Department of Electrical Engineering ist eine Untereinheit der Lyle School of Engineering an der SMU. Da Autor:innen gezielt eine der beiden Ebenen (Abteilung vs. Schule) angegeben haben, werden beide Einträge als eigenständige Affiliationen geführt."
+}

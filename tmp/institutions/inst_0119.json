@@ -1,0 +1,25 @@
+{
+    "cluster_id": 119,
+    "variants": [
+        {
+            "id": 612,
+            "name_de": "Albert-Einstein-Institut Hannover: Max-Planck-Institut für Gravitationsphysik und Institut für Gravitationsphysik Leibniz Universität Hannover",
+            "author_count": 1
+        },
+        {
+            "id": 1734,
+            "name_de": "Max-Planck-Institut für Gravitationsphysik und Institut für Gravitationsphysik, Leibniz Universität Hannover",
+            "author_count": 1
+        },
+        {
+            "id": 1735,
+            "name_de": "Albert-Einstein-Institu Hannover, Max-Planck-Institut für Gravitationsphysik, Leibniz Universität Hannover",
+            "author_count": 1
+        }
+    ],
+    "verdict": "merge",
+    "confidence": 0.95,
+    "groups": [[612, 1734, 1735]],
+    "canonical": [{"name_de": "Albert-Einstein-Institut Hannover – Max-Planck-Institut für Gravitationsphysik / Institut für Gravitationsphysik, Leibniz Universität Hannover", "name_en": "Albert Einstein Institute Hannover – Max Planck Institute for Gravitational Physics / Institute for Gravitational Physics, Leibniz University Hannover", "kuerzel": "AEI", "universitaet": "Leibniz Universität Hannover", "ort": "Hannover", "land": "DE", "ror_id": "https://ror.org/03sry2h30"}],
+    "reason": "Alle drei Varianten bezeichnen dasselbe gemeinsame Außeninstitut (AEI Hannover), das offiziell als Kooperation von MPI für Gravitationsphysik und Leibniz Universität Hannover geführt wird; Variante 1735 enthält lediglich einen Tippfehler."
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 420,
+    "nachname_norm": "tu",
+    "candidates": [
+        {
+            "id": 9948,
+            "name": "C.-W. Tu",
+            "papers": 1,
+            "affiliations": "Department of Physics University of Cincinnati, USA",
+            "sample_titles": "Optical Elements for Photonic Integrated Circuits based on Nanowire Photonic Crystal Arrays"
+        },
+        {
+            "id": 11442,
+            "name": "C. Tu",
+            "papers": 0,
+            "affiliations": "",
+            "sample_titles": ""
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "cluster_id": 21,
+    "nachname_norm": "bergmann",
+    "candidates": [
+        {
+            "id": 1079,
+            "name": "J. Bergmann",
+            "papers": 1,
+            "affiliations": "Institut für Physikalische Hochtechnologie, Jena",
+            "sample_titles": "Unconventional Imaging by Synthetic Apertures"
+        },
+        {
+            "id": 6775,
+            "name": "R. Bergmann",
+            "papers": 4,
+            "affiliations": "Bremer Institut für angewandte Strahltechnik",
+            "sample_titles": "Cavity-Ring-Down-Spektroskopie mit nichtlinearen Kristallen || Linsenlose Weißlichtinterferometrie an technischen Bauteilen || Materiewellenoptik mit levitierten Nanopartikeln"
+        },
+        {
+            "id": 7378,
+            "name": "J. P. Bergmann",
+            "papers": 3,
+            "affiliations": "Fachgebiet Fertigungstechnik, TU Ilmenau",
+            "sample_titles": "Design eines optischen Systems zur Untersuchung der optimalen Intensitätsverteilung beim Laserstrahlschweißen || Optimized beam shaping for high power laser welding applications || Efficient generation of nearly arbitrary intensity profiles for optimizing high power laser machining processes"
+        },
+        {
+            "id": 11871,
+            "name": "R. B. Bergmann",
+            "papers": 28,
+            "affiliations": "Bremer Institut für angewandte Strahltechnik (BIAS)",
+            "sample_titles": "Multiple Aperture Shear Interferometry (MArS) and the influence of spatial light modulator and light sources on measurement errors || Finite Refractive Index Selective Propagation (FRISP) – eine hocheffiziente Methode zur optischen Simulation refraktiver Mikrostrukturen || Der Einfluss der Wellenvektorunsicherheit auf die Rekonstruktion der Oberflächenform bei einer MArS-Messung"
+        },
+        {
+            "id": 12649,
+            "name": "D. Bergmann",
+            "papers": 11,
+            "affiliations": "Physikalisch-Technische Bundesanstalt, 38116 Braunschweig",
+            "sample_titles": "Implementierung der Auswertealgorithmen für ein neuartiges mikroskopisches Verfahren zur Bestimmung bidirektionaler Größen aus Fokusserienmessungen || Ein in-situ Verfahren zur Bestimmung der numerischen Aperturen (NA) der Beleuchtung und der Abbildung optischer Mikroskope || Dimensional optical metrology on deep sub-wavelength nanostructures"
+        }
+    ]
+}

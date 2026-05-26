@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.98,
+  "groups": [[1050], [6027]],
+  "reason": "Unterschiedliche Vornamen-Initialen (B. vs. C.), disjunkte Affiliations (DLR Wessling vs. Leibniz Universität Hannover) und völlig verschiedene Themengebiete (Airborne Remote Sensing vs. Hautoptik) schließen eine Identität aus."
+}

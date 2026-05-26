@@ -1,0 +1,20 @@
+{
+    "cluster_id": 311,
+    "nachname_norm": "rendina",
+    "candidates": [
+        {
+            "id": 2527,
+            "name": "I. Rendina",
+            "papers": 3,
+            "affiliations": "CNR-IMM - Unità di Napoli, Via P. Castellino 111, 80131 Napoli, Italy",
+            "sample_titles": "MICROOPTICS IN CENTRIC DIATOMS || Large area light propagation in quasi-zero average refractive index metamaterial based on photonic crystals. || DNA HYBRIDIZATION DETECTION BY A NANOSTRUCTURED SILICON MICROARRAY"
+        },
+        {
+            "id": 2655,
+            "name": "Ivo Rendina",
+            "papers": 2,
+            "affiliations": "National Research Council- Institute for Microelectronics and Microsystems,",
+            "sample_titles": "Enhanced stimulated Raman scattering in silicon nanocrystals embedded in silicon-rich nitride/silicon superlattice structures || Silicon resonant cavity enhanced photodetector based on the internal photoemission effect at 1.55 micron: fabrication and characterization"
+        }
+    ]
+}

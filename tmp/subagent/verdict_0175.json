@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[1549], [5226]],
+  "reason": "Verschiedene Initialen (T. vs. A.) und völlig verschiedene Affiliationen (NTG GmbH Gelnhausen vs. TU Delft) sowie unterschiedliche Themen (Ionenstrahlkorrektur vs. abstimmbarer Laser für Gasdetektion)."
+}

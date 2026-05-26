@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.90,
+  "groups": [[5909], [11443]],
+  "reason": "E. Wong (FSU Jena, 3D-Messtechnik mit 7 Papern) und W. Wong (keine Affiliation, 0 Paper) haben unterschiedliche Initialen; W. Wong ist ohne jegliche Information, daher keep_separate."
+}

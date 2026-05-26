@@ -1,0 +1,34 @@
+{
+    "cluster_id": 54,
+    "nachname_norm": "buttner",
+    "candidates": [
+        {
+            "id": 404,
+            "name": "L. Büttner",
+            "papers": 23,
+            "affiliations": "Professur für Mess- und Sensorsystemtechnik (MST), TU Dresden, 01062 Dresden",
+            "sample_titles": "Neuartiges Lasermesssystem mit adaptiver Bildkorrektur unter Nutzung von helikalen Wellenfronten und eines deformierbaren Spiegels || FPGA based wavefront correction for measurements through optical disturbances || Kamerabasierte Messung durch gekrümmte Grenzflächen mit variabler Messebene und Aberrationskorrektur"
+        },
+        {
+            "id": 928,
+            "name": "C. Büttner",
+            "papers": 1,
+            "affiliations": "Kappa opto-electronics GmbH",
+            "sample_titles": "Optimierung der Farbbildverarbeitung digitaler Kameras durch spektrale Charakterisierung"
+        },
+        {
+            "id": 997,
+            "name": "A. Büttner",
+            "papers": 1,
+            "affiliations": "Leica Microsystems Semiconductor GmbH",
+            "sample_titles": "Simultane Beleuchtungshomogenisierung in Objekt- und Bildfeld - eine triviale Angelegenheit?"
+        },
+        {
+            "id": 2269,
+            "name": "R. Büttner",
+            "papers": 2,
+            "affiliations": "Department Information Systems, Aalen University",
+            "sample_titles": "Application of deep learning in materials microscopy to evaluate Lithium-Ion batteries || Optischer Sensor zur Abstands- und Geschwindigkeitsmessung"
+        }
+    ]
+}

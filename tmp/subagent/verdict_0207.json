@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[1665], [3401]],
+  "reason": "W. Knoll (Max Planck Institut, Polymerforschung) und G. Knoll (Fraunhofer IPM, Mehrwellenlängenholografie) haben unterschiedliche Initialen, verschiedene Affiliations und Themen."
+}

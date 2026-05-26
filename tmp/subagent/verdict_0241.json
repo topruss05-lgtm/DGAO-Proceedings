@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[6977], [10117], [12715]],
+  "reason": "F. Lemke (Freiburg, adaptive Optik), S. Lemke (BESSY Berlin, Synchrotron) und K. Lemke (Heiligenstadt, Lichtschichtmikroskopie) haben unterschiedliche Vornamen-Initialen, verschiedene Institutionen und disjunkte Themengebiete."
+}

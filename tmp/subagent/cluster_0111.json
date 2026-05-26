@@ -1,0 +1,20 @@
+{
+    "cluster_id": 111,
+    "nachname_norm": "galli",
+    "candidates": [
+        {
+            "id": 2601,
+            "name": "A. Galli",
+            "papers": 1,
+            "affiliations": "Istituto Sperimentale Italiano \"Lazzaro Spallanzani\", Rivolta d’Adda (CR), 26027, (Italy)",
+            "sample_titles": "MORPHOLOGICAL ANALYSIS OF ANIMAL SPERM BY MEANS OF A DIGITAL HOLOGRAPHY MICROSCOPE"
+        },
+        {
+            "id": 7118,
+            "name": "R. Galli",
+            "papers": 2,
+            "affiliations": "Clinical Sensoring and Monitoring, Anesthesiology and Intensive Care Medicine, Faculty of Medicine, TU Dresden",
+            "sample_titles": "CARS imaging of therapeutic alginate implants after spinal cord injury in the rat || Near infrared optical spectroscopy: a new approach for sexing of domestic chicken eggs"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 380,
+    "nachname_norm": "sprenger",
+    "candidates": [
+        {
+            "id": 3318,
+            "name": "J. Sprenger",
+            "papers": 9,
+            "affiliations": "Carl Zeiss CMP GmbH",
+            "sample_titles": "Die Lichtverteilung und ihre Beeinflussung durch Aberrationen || Die Lichtverteilung und ihre Beeinflussung durch Aberrationen || Überhalbkugeln in Mikroskopobjektiven"
+        },
+        {
+            "id": 3349,
+            "name": "D. Sprenger",
+            "papers": 3,
+            "affiliations": "Institute of Optics, Information and Photonics, University of Erlangen-Nuremberg",
+            "sample_titles": "Phase-Shift vs. Line-Shift: Two ways to do Deflectometry || Algorithmic Elimination of Parasitic Reflections in Deflectometry || UV-Deflectometry: No parasitic reflections"
+        }
+    ]
+}

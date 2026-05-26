@@ -1,0 +1,20 @@
+{
+    "cluster_id": 297,
+    "nachname_norm": "peter",
+    "candidates": [
+        {
+            "id": 520,
+            "name": "F. Peter",
+            "papers": 1,
+            "affiliations": "Trioptics GmbH, Hafenstrasse 39, 22880 Wedel",
+            "sample_titles": "MTF test equipment for control of image quality in the production line of camera lenses"
+        },
+        {
+            "id": 4471,
+            "name": "A. Peter",
+            "papers": 4,
+            "affiliations": "Institut für Strahlwerkzeuge (IFSW), Universität Stuttgart",
+            "sample_titles": "Methode für Direct Laser Interference Patterning auf große Flächen mit hohen Raten || Optimierung der mechanischen und thermischen Stabilität des Etalons von Kugelinterferometer II || Das neue Kugelinterferometer zur Durchmesserbestimmung der Si-Einkristall-Kugeln zur Neudefinition des Kilogramms"
+        }
+    ]
+}

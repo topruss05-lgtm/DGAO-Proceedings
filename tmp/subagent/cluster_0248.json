@@ -1,0 +1,34 @@
+{
+    "cluster_id": 248,
+    "nachname_norm": "link",
+    "candidates": [
+        {
+            "id": 2006,
+            "name": "D. Link",
+            "papers": 3,
+            "affiliations": "Technische Universität Ilmenau",
+            "sample_titles": "Funduskamera zur berührungslosen Bildgebung und retinalen Gefäßanalyse in der Ratte || Farbstimulator für die elektrophysiologische Diagnostik am Auge || Neuartiges System für die Fundusdiagnostik unter Anwendung von Mikrodisplays"
+        },
+        {
+            "id": 4690,
+            "name": "J. Link",
+            "papers": 1,
+            "affiliations": "Xavier University Cincinnati",
+            "sample_titles": "Investigating the transfer of orbital angular momentum of light to micrometer-sized helical structures"
+        },
+        {
+            "id": 8136,
+            "name": "S. Link",
+            "papers": 1,
+            "affiliations": "Hochschule Koblenz, Konrad-Zuse-Str. 1, 56075 Koblenz",
+            "sample_titles": "Systematische Toleranzierung von Oberflächenrauheit bei additiv gefertigten Freiformoptiken"
+        },
+        {
+            "id": 10466,
+            "name": "C. Link",
+            "papers": 3,
+            "affiliations": "Vision & Control GmbH, Suhl",
+            "sample_titles": "Objektseitige und bildseitige Telezentrie – Wann ist die Kante symmetrisch? || Auflösungs- und Schärfentiefe-Erweiterung telezentrischer Objektive durch Verwendung blauen LED-Lichts || Geometry measurements with image processing and forward projection"
+        }
+    ]
+}

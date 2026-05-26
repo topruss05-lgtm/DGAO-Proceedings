@@ -1,0 +1,7 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.88,
+  "groups": [],
+  "canonical": [],
+  "reason": "Der Cluster enthält mindestens zwei verschiedene Institute der FSU Jena: das Institut für Angewandte Physik (IAP, Max-Wien-Platz 1, ids 82/181/182/805/932) und das Institut für Angewandte Optik bzw. Institut für Angewandte Optik und Biophysik (IAO/IAOB, Fröbelstieg 1, übrige ids). Die unterschiedlichen Adressen und Namen belegen getrennte Einrichtungen."
+}

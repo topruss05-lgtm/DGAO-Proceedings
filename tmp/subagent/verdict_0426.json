@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.97,
+  "groups": [[1311], [9575]],
+  "reason": "A. Voigt (TU Dresden, Laser-Doppler-Profilsensor/Strömungsmessung) und J. Voigt (TH Aschaffenburg, Physics-informed Neural Networks für Lasermaterialbearbeitung) haben unterschiedliche Initialen, Affiliationen und Themen."
+}

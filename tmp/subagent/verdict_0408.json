@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.75,
+  "groups": [[8303, 8304]],
+  "reason": "C. Thieme und K. Thieme sind zwei verschiedene Personen (unterschiedliche Initialen), die am selben Paper (LEAZit-Laserspiegelsubstrat) von derselben Institution (Fraunhofer IMWS) zusammenarbeiten – wahrscheinlich Kollegen."
+}

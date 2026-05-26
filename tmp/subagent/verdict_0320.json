@@ -1,0 +1,22 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.95,
+    "groups": [
+        [
+            2145
+        ],
+        [
+            3882
+        ],
+        [
+            6029
+        ],
+        [
+            7134
+        ],
+        [
+            7250
+        ]
+    ],
+    "reason": "Fünf verschiedene Initialen (S., E., B., C., M.) und unterschiedliche Institutionen – eindeutig fünf verschiedene Personen."
+}

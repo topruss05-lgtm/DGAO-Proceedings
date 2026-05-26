@@ -1,0 +1,20 @@
+{
+    "cluster_id": 144,
+    "nachname_norm": "hanemann",
+    "candidates": [
+        {
+            "id": 5134,
+            "name": "M. Hanemann",
+            "papers": 1,
+            "affiliations": "Institut für Angewandte Optik, Friedrich-Schiller-Universität Jena",
+            "sample_titles": "Deformationsvektorbestimmung mittels bildfeldholographischer Stereophotogrammetrie"
+        },
+        {
+            "id": 6907,
+            "name": "T. Hanemann",
+            "papers": 1,
+            "affiliations": "Institute for Applied Materials, Karlsruhe Institute of Technology, Germany",
+            "sample_titles": "Fluorescent rare-earth complex doped acrylate based host-guest system for optical applications fabricated by microstructure technologies"
+        }
+    ]
+}

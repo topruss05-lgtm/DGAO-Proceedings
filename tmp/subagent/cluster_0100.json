@@ -1,0 +1,34 @@
+{
+    "cluster_id": 100,
+    "nachname_norm": "frank",
+    "candidates": [
+        {
+            "id": 1151,
+            "name": "J. Frank",
+            "papers": 2,
+            "affiliations": "Fachhochschule Köln",
+            "sample_titles": "Quantitative Phasenrekonstruktion in Echtzeit unter Verwendung der Intensitäts-Transport-Gleichung || Dynamisches System für die Aufnahme und optische Rekonstruktion von Hologrammen"
+        },
+        {
+            "id": 1565,
+            "name": "W. Frank",
+            "papers": 1,
+            "affiliations": "Leibniz-Institut für Oberflächenmodifizierung, Permoserstr. 15, D-04318 Leipzig",
+            "sample_titles": "Deterministische Formgebung kleinformatiger Präzisionsoptiken mit reaktiven Normaldruck-Plasmajets"
+        },
+        {
+            "id": 9058,
+            "name": "B. Frank",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Optisches Sensorsystem zur Überwachung der Sauerstoffkonzentration in biologischen Proben"
+        },
+        {
+            "id": 12667,
+            "name": "S. Frank",
+            "papers": 1,
+            "affiliations": "EAH – Ernst-Abbe-Hochschule, Fachbereich SciTech, Jena, Deutschland",
+            "sample_titles": "Kratzerheilung mit CO2-Laser auf Quarzglas für die Reparatur von optischen Komponenten"
+        }
+    ]
+}

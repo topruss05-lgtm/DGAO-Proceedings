@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[1495], [1692], [4334], [6943], [7561], [8179], [8864], [10639], [12414], [12459]],
+  "reason": "Zehn verschiedene Vornamen-Initialen (F., X., S., H., C., Y., Q., Z., D. W., W. Q.) mit unterschiedlichen Affiliationen und Themen – ausnahmslos verschiedene Personen; Zhang ist ein sehr häufiger chinesischer Familienname."
+}

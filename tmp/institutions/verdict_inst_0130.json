@@ -1,0 +1,26 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.88,
+  "groups": [[690, 721], [813]],
+  "canonical": [
+    {
+      "name_de": "Istituto Nazionale di Ottica (CNR-INO)",
+      "name_en": "National Institute of Optics (CNR-INO)",
+      "kuerzel": "CNR-INO",
+      "universitaet": null,
+      "ort": "Firenze",
+      "land": "IT",
+      "ror_id": "https://ror.org/02dp3a879"
+    },
+    {
+      "name_de": "Istituto di Fisica Applicata \"Nello Carrara\" (CNR-IFAC)",
+      "name_en": "Nello Carrara Institute of Applied Physics (CNR-IFAC)",
+      "kuerzel": "CNR-IFAC",
+      "universitaet": null,
+      "ort": "Sesto Fiorentino",
+      "land": "IT",
+      "ror_id": "https://ror.org/00dqega85"
+    }
+  ],
+  "reason": "IDs 690 und 721 sind Schreibvarianten des CNR-INO (ehemals INOA, jetzt INO), standortbedingt in Firenze und Napoli; ID 813 ist das separate CNR-IFAC (Istituto Nello Carrara) – zwei verschiedene CNR-Institute, obwohl beide in Florenz ansässig."
+}

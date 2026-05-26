@@ -1,0 +1,25 @@
+{
+    "cluster_id": 102,
+    "variants": [
+        {
+            "id": 476,
+            "name_de": "Institut für Mikro- und Nanotechnologien MacroNano, TU Ilmenau",
+            "author_count": 1
+        },
+        {
+            "id": 853,
+            "name_de": "Institut für Mikro- und Nanotechnologien, Technische Universität Ilmenau",
+            "author_count": 3
+        },
+        {
+            "id": 1072,
+            "name_de": "Optik Design, Institut für Mikro-und Nanotechnologien, Macro-Nano, TU-Ilmenau",
+            "author_count": 1
+        },
+        {
+            "id": 1156,
+            "name_de": "Institut für Mikro- und Nanotechnologien MacroNano, Nanotechnologie, TU Ilmenau",
+            "author_count": 1
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "cluster_id": 187,
+    "variants": [
+        {
+            "id": 1258,
+            "name_de": "Institute of Lightweight Engineering and Polymer Technology, Dresden, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 1426,
+            "name_de": "Leibniz Institute of Technology, Jena, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 1431,
+            "name_de": "Clausthal University of Technology, Institute of Energy Research and Physical Technologies (IEPT) and Energy\nResearch Center of Lower Saxony (EFZN), Am Stollen 19B, 38640 Goslar, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 1457,
+            "name_de": "Institute of Energy Research and Physical Technologies, Clausthal University of Technology, Leibnizstr. 4, 38678 Clauthal-Zellerfeld, Germany",
+            "author_count": 1
+        }
+    ]
+}

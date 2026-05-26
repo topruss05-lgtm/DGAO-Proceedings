@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[3230], [8283]],
+  "reason": "D. Wächter (Fraunhofer IPT, Polierüberwachung) und C. Wächter (Fraunhofer IOF, automotive Mikrooptik) haben unterschiedliche Initialen, Affiliationen und Themen – zwei verschiedene Personen."
+}

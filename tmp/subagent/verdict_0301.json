@@ -1,0 +1,13 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.97,
+    "groups": [
+        [
+            924
+        ],
+        [
+            6525
+        ]
+    ],
+    "reason": "Verschiedene Initialen (A. vs J.) und klar unterschiedliche Forschungsfelder (Interferometrie/Faseroptik vs Biophotonics/Raman) bei verschiedenen Institutionen."
+}

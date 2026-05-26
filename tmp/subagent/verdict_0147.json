@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.97,
+  "groups": [[92], [1451]],
+  "reason": "Verschiedene Initialen (P. vs. A.), unterschiedliche Affiliationen (SCHOTT AG Mainz vs. WWU Münster) und disjunkte Themengebiete (optisches Glas/ZERODUR vs. holographische Pinzetten)."
+}

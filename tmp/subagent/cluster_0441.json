@@ -1,0 +1,20 @@
+{
+    "cluster_id": 441,
+    "nachname_norm": "westerhoff",
+    "candidates": [
+        {
+            "id": 1585,
+            "name": "T. Westerhoff",
+            "papers": 1,
+            "affiliations": "SCHOTT AG, Optics for Devices",
+            "sample_titles": "Diffraktive optische Elemente hergestellt durch Präzisionsblankpressen in optischen Gläsern"
+        },
+        {
+            "id": 3308,
+            "name": "Th. Westerhoff",
+            "papers": 1,
+            "affiliations": "SCHOTT AG",
+            "sample_titles": "ZERODUR®-Spiegel und Strukturen mit sehr hoher Gewichtserleichterung"
+        }
+    ]
+}

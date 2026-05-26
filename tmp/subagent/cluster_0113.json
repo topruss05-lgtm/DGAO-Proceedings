@@ -1,0 +1,20 @@
+{
+    "cluster_id": 113,
+    "nachname_norm": "gassner",
+    "candidates": [
+        {
+            "id": 8244,
+            "name": "Ch. Gassner",
+            "papers": 3,
+            "affiliations": "Fraunhofer Institut für Angewandte Optik und Feinmechanik IOF",
+            "sample_titles": "3D-Sensor bestehend aus zwei miniaturisierten Arraykameras und einem Gobo-Projektionssystem für autonomes Fahren || Ultrakompakte Snapshot Multispektralkamera mittels Mikrooptik und monolithischem Filterarray || Ultrakompakte Snapshot Multispektralkameras basierend auf einem mikrooptischen Abbildungssystem und räumlich variable Interferenzfiltern"
+        },
+        {
+            "id": 9393,
+            "name": "C. Gassner",
+            "papers": 2,
+            "affiliations": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik IOF",
+            "sample_titles": "Design und Realisierung einer kompakten Multi-Apertur-ToF-Weitwinkelkamera || Ultrakompakte Snapshot Multispektralkamera mittels Mikrooptik und monolithischem Filterarray"
+        }
+    ]
+}

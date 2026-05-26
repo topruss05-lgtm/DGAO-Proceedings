@@ -1,0 +1,40 @@
+{
+    "cluster_id": 156,
+    "variants": [
+        {
+            "id": 963,
+            "name_de": "Lehrstuhl für Technologie Optischer Systeme TOS, RWTH Aachen",
+            "author_count": 3
+        },
+        {
+            "id": 1022,
+            "name_de": "Lehrstuhl für Technologie Optischer Systeme TOS, RWTH Aachen University",
+            "author_count": 5
+        },
+        {
+            "id": 1418,
+            "name_de": "Lehrstuhl für Technologie Optischer Systeme, RWTH Aachen University",
+            "author_count": 8
+        },
+        {
+            "id": 1420,
+            "name_de": "Lehrstuhl für Technologie optischer Systeme, RWTH Aachen University",
+            "author_count": 4
+        },
+        {
+            "id": 1673,
+            "name_de": "Lehrstuhl für Technologie Optischer Systeme, RWTH Aachen",
+            "author_count": 2
+        },
+        {
+            "id": 1858,
+            "name_de": "Lehrstuhl für Technologie optischer Systeme TOS, RWTH Aachen",
+            "author_count": 2
+        },
+        {
+            "id": 1902,
+            "name_de": "RWTH Aachen University TOS – Lehrstuhl für Technologie optischer Systeme",
+            "author_count": 2
+        }
+    ]
+}

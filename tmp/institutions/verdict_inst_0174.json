@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.98,
+  "groups": [[1146, 1639, 1670]],
+  "canonical": [
+    {
+      "name_de": "Fachgebiet Lichttechnik, Technische Universität Darmstadt",
+      "name_en": "Lighting Technology Group, Technische Universität Darmstadt",
+      "kuerzel": "",
+      "universitaet": "Technische Universität Darmstadt",
+      "ort": "Darmstadt",
+      "land": "DE",
+      "ror_id": "https://ror.org/05n911h24"
+    }
+  ],
+  "reason": "Alle drei Varianten bezeichnen das Fachgebiet Lichttechnik der TU Darmstadt; Unterschiede nur in Abkürzung (TU vs. Technische Universität) und Reihenfolge der Namensteile."
+}

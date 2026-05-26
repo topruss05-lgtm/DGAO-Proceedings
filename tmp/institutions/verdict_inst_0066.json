@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.99,
+  "groups": [[277, 335]],
+  "canonical": [
+    {
+      "name_de": "Institut für Physik, Technische Universität Wrocław",
+      "name_en": "Institute of Physics, Wrocław University of Technology",
+      "kuerzel": "",
+      "universitaet": "Wrocław University of Science and Technology",
+      "ort": "Wrocław",
+      "land": "PL",
+      "ror_id": "https://ror.org/008fyn775"
+    }
+  ],
+  "reason": "Beide Einträge sind identisch — einziger Unterschied ist ein fehlendes Leerzeichen in ID 277 ('ofTechnology' statt 'of Technology')."
+}

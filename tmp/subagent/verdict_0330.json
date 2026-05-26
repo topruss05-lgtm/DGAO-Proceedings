@@ -1,0 +1,13 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.97,
+    "groups": [
+        [
+            780
+        ],
+        [
+            1069
+        ]
+    ],
+    "reason": "Verschiedene Initialen (M. vs D.) und völlig unterschiedliche Institutionen (TU München vs GSI Darmstadt) und Felder – zwei verschiedene Personen."
+}

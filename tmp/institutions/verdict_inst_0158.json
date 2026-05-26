@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.99,
+  "groups": [[966, 967]],
+  "canonical": [
+    {
+      "name_de": "SUSS MicroTec Lithography GmbH",
+      "name_en": "SUSS MicroTec Lithography GmbH",
+      "kuerzel": "",
+      "universitaet": "",
+      "ort": "Garching",
+      "land": "DE",
+      "ror_id": "https://ror.org/05vcgwf09"
+    }
+  ],
+  "reason": "Beide Einträge sind identisch bis auf den Zusatz ', Germany' – es handelt sich um dieselbe Institution an identischem Ort."
+}

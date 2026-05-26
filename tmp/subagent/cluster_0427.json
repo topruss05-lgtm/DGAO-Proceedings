@@ -1,0 +1,20 @@
+{
+    "cluster_id": 427,
+    "nachname_norm": "vollmer",
+    "candidates": [
+        {
+            "id": 2412,
+            "name": "A. Vollmer",
+            "papers": 4,
+            "affiliations": "Institut für Hygiene, Westfälische Wilhelms-Universität Münster",
+            "sample_titles": "Aktuelle Anwendungen digitalholographischer Mikroskopieverfahren in den Lebenswissenschaften || Color Digital Holographic Microscopy Investigations on Stained Tissue Sections || Investigations on Label-Free Identification of Subcellular Tumor Cell Structures by Digital Holographic Phase Contrast Microscopy"
+        },
+        {
+            "id": 4417,
+            "name": "M. Vollmer",
+            "papers": 1,
+            "affiliations": "University of Applied Sciences Brandenburg",
+            "sample_titles": "Beautiful phenomena in the skies : a colorful journey in the realm of atmospheric optics"
+        }
+    ]
+}

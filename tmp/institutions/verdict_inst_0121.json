@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.99,
+  "groups": [[623, 858]],
+  "canonical": [
+    {
+      "name_de": "Fraunhofer-Institut für Angewandte Festkörperphysik IAF",
+      "name_en": "Fraunhofer Institute for Applied Solid State Physics IAF",
+      "kuerzel": "Fraunhofer IAF",
+      "universitaet": null,
+      "ort": "Freiburg im Breisgau",
+      "land": "DE",
+      "ror_id": "https://ror.org/0083ncs46"
+    }
+  ],
+  "reason": "Beide Einträge bezeichnen dasselbe Fraunhofer-Institut IAF in Freiburg; Variante 858 fehlt nur das Kürzel und der Bindestrich."
+}

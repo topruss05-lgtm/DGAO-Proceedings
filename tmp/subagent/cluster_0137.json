@@ -1,0 +1,34 @@
+{
+    "cluster_id": 137,
+    "nachname_norm": "gunther",
+    "candidates": [
+        {
+            "id": 680,
+            "name": "J.-U. Günther",
+            "papers": 1,
+            "affiliations": "Institut für Physik, Universität Greifswald",
+            "sample_titles": "Measurement of the frequency linewidth of single-mode lasers by means of a quadrature signal interferometer"
+        },
+        {
+            "id": 1152,
+            "name": "C. Günther",
+            "papers": 1,
+            "affiliations": "Humboldt-Universität Berlin, Institut für Physik\nHoloEye Photonics AG Berlin",
+            "sample_titles": "Dynamisches System für die Aufnahme und optische Rekonstruktion von Hologrammen"
+        },
+        {
+            "id": 1890,
+            "name": "P. Günther",
+            "papers": 4,
+            "affiliations": "Professur für Mess- und Prüftechnik, Fakultät Elektrotechnik und Informationstechnik, TU Dresden",
+            "sample_titles": "Shape measurements of rotating objects using mutually tilted interference fringe systems || Miniaturized non-incremental fiber-optic distance sensor using diffractive optics for simultaneous distance and velocity measurement || Vibration measurements of rotating objects by a novel interferometric technique"
+        },
+        {
+            "id": 4164,
+            "name": "A. Günther",
+            "papers": 5,
+            "affiliations": "Hannoversches Zentrum für optische Technologien, Leibniz Universität Hannover",
+            "sample_titles": "Optical Coupling Structures for Integrated Polymer Photonics || Low-cost fabrication of all-polymer planar optical waveguides || Production and characterization of all-polymer based optical waveguides and interconnects"
+        }
+    ]
+}

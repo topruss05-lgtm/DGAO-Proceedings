@@ -1,0 +1,27 @@
+{
+    "cluster_id": 152,
+    "nachname_norm": "heinisch",
+    "candidates": [
+        {
+            "id": 552,
+            "name": "C. Heinisch",
+            "papers": 3,
+            "affiliations": "Institut für Angewandte Physik, TU Darmstadt, Hochschulstr. 6, 64293 Darmstadt",
+            "sample_titles": "Spectral Bragg filter with a synthesized transfer function || Gas refractive index measurements using dynamic phase-shift keyed gratings || Coupled-wave theory of reflective phase-shift keyed Bragg grating"
+        },
+        {
+            "id": 2482,
+            "name": "Ch. Heinisch",
+            "papers": 1,
+            "affiliations": "Institut für Angewandte Physik, Technische Universität Darmstadt",
+            "sample_titles": "Optical measurements of the temporal behaviour of spray and aerosols"
+        },
+        {
+            "id": 11254,
+            "name": "J. Heinisch",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Zentrierprüfung optischer Systeme mittels rotierender Vorsatzoptik: Ein neuer Ansatz für komplexe Prüfszenarien"
+        }
+    ]
+}

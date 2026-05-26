@@ -1,0 +1,20 @@
+{
+    "cluster_id": 212,
+    "nachname_norm": "kontermann",
+    "candidates": [
+        {
+            "id": 8337,
+            "name": "S. Kontermann",
+            "papers": 3,
+            "affiliations": "Institut für Mikrotechnologien, Hochschule RheinMain",
+            "sample_titles": "Quantitative phase measurement of direct laser written waveguides using differential phase contrast || Herstellung von Mikrogittern in optischen Gläsern mittels Ultrakurzpulslaserablation || Charakterisierung von mikrostrukturiertem Silizium, hergestellt durch Femtosekundenlaserpulse, mittels Ulbrichtkugel und Rasterelektronenmikroskop"
+        },
+        {
+            "id": 8518,
+            "name": "St. Kontermann",
+            "papers": 1,
+            "affiliations": "Institut für Mikrotechnologien, Hochschule RheinMain, Am Brückweg 26, D-65428 Rüsselsheim\nCo- Autoren hda: *Stefan Hitzel",
+            "sample_titles": "Diffraktiv optische Elemente mit großer Stufenhöhe"
+        }
+    ]
+}

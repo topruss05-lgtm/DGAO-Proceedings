@@ -1,0 +1,20 @@
+{
+    "cluster_id": 308,
+    "nachname_norm": "reichelt",
+    "candidates": [
+        {
+            "id": 538,
+            "name": "S. Reichelt",
+            "papers": 33,
+            "affiliations": "Institut für Technische Optik, Universität Stuttgart",
+            "sample_titles": "Möglichkeiten der intraoperativen multispektralen Bildgebung zur Differenzierung von malignem und gesundem Gewebe || Speckle-basierte Wellenlängenmessungen || Experimenteller Vergleich von Methoden zur Speckleentfernung in Computergenerierten Hologrammen"
+        },
+        {
+            "id": 8024,
+            "name": "L.-M. Reichelt",
+            "papers": 1,
+            "affiliations": "Fachbereich Elektrische Energietechnik, Fachhochschule Südwestfalen, Lübecker Ring 2, 59494 Soest, Deutschland",
+            "sample_titles": "Der Einfluss der Anregungsleistung auf die optischen Eigenschaften typischer LED-Leuchtstoffe"
+        }
+    ]
+}

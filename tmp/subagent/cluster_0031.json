@@ -1,0 +1,20 @@
+{
+    "cluster_id": 31,
+    "nachname_norm": "braig",
+    "candidates": [
+        {
+            "id": 9876,
+            "name": "C. Braig",
+            "papers": 1,
+            "affiliations": "IAP Institut für angewandte Photonik e.V., Rudower Chaussee 29, 12489 Berlin",
+            "sample_titles": "Grautonlithographie für die Herstellung von Blazegittern"
+        },
+        {
+            "id": 11115,
+            "name": "F. Braig",
+            "papers": 1,
+            "affiliations": "Carl Zeiss AG",
+            "sample_titles": "Towards Automated Spectroscopy: Leveraging a Robotic Arm for Enhanced Spectroscopic Measurements"
+        }
+    ]
+}

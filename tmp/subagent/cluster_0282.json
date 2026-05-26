@@ -1,0 +1,27 @@
+{
+    "cluster_id": 282,
+    "nachname_norm": "nolte",
+    "candidates": [
+        {
+            "id": 6641,
+            "name": "L. Nolte",
+            "papers": 1,
+            "affiliations": "Department of Biomedical Optics, Laser Zentrum Hannover e.V.",
+            "sample_titles": "SLOT: Computed Tomography with laser light for volumetric microscopy of mesoscopic specimens"
+        },
+        {
+            "id": 7178,
+            "name": "P. W. Nolte",
+            "papers": 3,
+            "affiliations": "Fraunhofer-Anwendungszentrum für Anorganische Leuchtstoffe, Außenstelle des Fraunhofer-Instituts für Mikrostruktur von Werkstoffen und Systemen IMWS, Lübecker Ring 2, 59494 Soest",
+            "sample_titles": "Lichtkonversion und Farbmischung mit lumineszierenden Lichtstäben || Lumineszierende Glaskeramiken als streuende Lichtkonverter für LED-Anwendungen || Photometrische Fernfeldmessungen an lumineszierenden Gläsern für LED-Anwendungen"
+        },
+        {
+            "id": 12556,
+            "name": "S. Nolte",
+            "papers": 2,
+            "affiliations": "Friedrich-Schiller-Universität Jena, Institut für Angewandte Physik, Jena",
+            "sample_titles": "Extreme Parallelisierung erschließen: 1 kW Ultrakurzpulsbearbeitung mit Kompensation räumlich-zeitlicher Effekte bei großen Strahlteilungswinkeln || Optische Response von periodischen 1D und 2D metallischen Subwellenlängenstrukturen"
+        }
+    ]
+}

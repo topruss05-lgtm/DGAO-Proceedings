@@ -1,0 +1,27 @@
+{
+    "cluster_id": 236,
+    "nachname_norm": "lange",
+    "candidates": [
+        {
+            "id": 9737,
+            "name": "O. Lange",
+            "papers": 1,
+            "affiliations": "Lehrstuhl für Technologie Optischer Systeme, RWTH Aachen University",
+            "sample_titles": "Optomechanische Toleranzangaben aus dem Optikdesign nach ISO-GPS-Norm"
+        },
+        {
+            "id": 11352,
+            "name": "N. Lange",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "In-Situ Raman Spectroscopy for Process Optimization in Volumetric 3D Printing"
+        },
+        {
+            "id": 11827,
+            "name": "F. Lange",
+            "papers": 2,
+            "affiliations": "SCANLAB GmbH",
+            "sample_titles": "Kaskadiertes optisches System: rotierendes diffraktives optisches Element - Design, Evaluierung und Anwendung || Productivity Analysis and Control of Advanced Scanning Systems for Digital Photonic Production"
+        }
+    ]
+}

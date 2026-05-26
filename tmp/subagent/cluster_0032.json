@@ -1,0 +1,20 @@
+{
+    "cluster_id": 32,
+    "nachname_norm": "brand",
+    "candidates": [
+        {
+            "id": 4039,
+            "name": "D. Brand",
+            "papers": 1,
+            "affiliations": "Institute of Photonic Technology, Jena",
+            "sample_titles": "Optische Faserspitzen für nanoskopische Anwendungen"
+        },
+        {
+            "id": 7808,
+            "name": "F. Brand",
+            "papers": 2,
+            "affiliations": "Institut für Sensor- und Aktortechnik",
+            "sample_titles": "Herstellung von planar integrierten Multimode-Wellenleitern in Glas für asymmetrische Verzweiger || Simulation zur Herstellung von planar integrierten Multimode-Wellenleitern in Glas"
+        }
+    ]
+}

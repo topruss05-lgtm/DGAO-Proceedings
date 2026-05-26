@@ -1,0 +1,20 @@
+{
+    "cluster_id": 228,
+    "nachname_norm": "kahler",
+    "candidates": [
+        {
+            "id": 35,
+            "name": "W. Kähler",
+            "papers": 1,
+            "affiliations": "Carl Zeiss SMT AG, 73446 Oberkochen",
+            "sample_titles": "Störreflexunterdrückung durch Modulation der Laserwellenlänge bei der interferometrischen Vermessung der Oberflächen von transparenten Planparallelplatten"
+        },
+        {
+            "id": 7126,
+            "name": "C. Kähler",
+            "papers": 1,
+            "affiliations": "Institut für Strömungsmechanik und Aerodynamik, Universität der Bundeswehr München",
+            "sample_titles": "Simultane, volumetrische Temperatur- und Geschwindigkeitsmessung in der Mikrofluidik"
+        }
+    ]
+}

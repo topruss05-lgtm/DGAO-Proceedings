@@ -1,0 +1,15 @@
+{
+    "cluster_id": 109,
+    "variants": [
+        {
+            "id": 556,
+            "name_de": "CNRS TSI Labs, - Université Jean Monnet, 18 Rue Benoît Lauras, F-42000 Saint-Etienne, France",
+            "author_count": 1
+        },
+        {
+            "id": 557,
+            "name_de": "Hubert Curien Labor UMR CNRS 5516, Saint-Etienne, France",
+            "author_count": 1
+        }
+    ]
+}

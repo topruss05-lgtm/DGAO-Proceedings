@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[892, 896, 897]],
+  "canonical": [
+    {
+      "name_de": "Fachbereich Physik, Philipps-Universität Marburg",
+      "name_en": "Faculty of Physics, Philipps University of Marburg",
+      "kuerzel": "",
+      "universitaet": "Philipps-Universität Marburg",
+      "ort": "Marburg",
+      "land": "DE",
+      "ror_id": "https://ror.org/01rdrb571"
+    }
+  ],
+  "reason": "Alle drei Varianten bezeichnen denselben Fachbereich Physik der Philipps-Universität Marburg; Unterschiede beschränken sich auf Sprache (DE/EN), Adressangaben und die Erwähnung des Wissenschaftlichen Zentrums für Materialwissenschaften als übergeordnete Einheit."
+}

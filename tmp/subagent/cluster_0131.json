@@ -1,0 +1,20 @@
+{
+    "cluster_id": 131,
+    "nachname_norm": "gruner",
+    "candidates": [
+        {
+            "id": 247,
+            "name": "T. Gruner",
+            "papers": 1,
+            "affiliations": "Carl Zeiss SMT AG, Oberkochen",
+            "sample_titles": "Gute Bilder mit doppelbrechenden Linsen: Bewertung und Kompensation intrinsischer Doppelbrechung"
+        },
+        {
+            "id": 8290,
+            "name": "E. Grüner",
+            "papers": 1,
+            "affiliations": "Mahr GmbH",
+            "sample_titles": "Herstellung optischer Freiformbauteile – Vorstellung einer neuartigen Prozesskette zur Fertigung und Herausforderungen bei der Oberflächenmessung"
+        }
+    ]
+}

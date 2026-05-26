@@ -1,0 +1,30 @@
+{
+    "cluster_id": 131,
+    "variants": [
+        {
+            "id": 699,
+            "name_de": "Institute for Microelectronics and Microsystems \" National Council of Researches - Unit of Napoli, Via P. Castellino 111, 80131 Napoli, Italy",
+            "author_count": 3
+        },
+        {
+            "id": 702,
+            "name_de": "CNR-IMM - Unità di Napoli, Via P. Castellino 111, 80131 Napoli, Italy",
+            "author_count": 3
+        },
+        {
+            "id": 719,
+            "name_de": "Istituto per la Microelettronica e Microsistemi, CNR, Napoli,80131, (Italy)",
+            "author_count": 1
+        },
+        {
+            "id": 736,
+            "name_de": "Istituto per la Microelettronica e Microsistemi - CNR\nVia P. Castellino 111 - 80131 Napoli (Italy)",
+            "author_count": 1
+        }
+    ],
+    "verdict": "merge",
+    "confidence": 0.99,
+    "groups": [[699, 702, 719, 736]],
+    "canonical": [{"name_de": "Istituto per la Microelettronica e Microsistemi CNR – Unità di Napoli (CNR-IMM Napoli)", "name_en": "Institute for Microelectronics and Microsystems CNR – Naples Unit (CNR-IMM Naples)", "kuerzel": "CNR-IMM", "universitaet": null, "ort": "Napoli", "land": "IT", "ror_id": "https://ror.org/05vk2g845"}],
+    "reason": "Alle vier Einträge bezeichnen dieselbe Napoli-Einheit des CNR-IMM (Via P. Castellino 111, 80131 Napoli); Unterschiede sind nur Sprache (EN/IT), Schreibweise und Adressdetails."
+}

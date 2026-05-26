@@ -1,0 +1,20 @@
+{
+    "cluster_id": 207,
+    "nachname_norm": "knoll",
+    "candidates": [
+        {
+            "id": 1665,
+            "name": "W. Knoll",
+            "papers": 1,
+            "affiliations": "Max Planck Institut für Polymer Forschung, Fachhochschule Wiesbaden - Physikalische Technik,\nDOOS-Tabarz",
+            "sample_titles": "Evaneszente Optik zur Untersuchung des Quellverhaltens stimuli-sensitiver „intelligenter“ Polymerschichten."
+        },
+        {
+            "id": 3401,
+            "name": "G. Knoll",
+            "papers": 1,
+            "affiliations": "Fraunhofer-Institut für Physikalische Messtechnik IPM, Freiburg",
+            "sample_titles": "Realisierung eines hochauflösenden optischen Sensors auf Basis digitaler Mehrwellenlängenholografie"
+        }
+    ]
+}

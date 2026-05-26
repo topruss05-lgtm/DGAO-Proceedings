@@ -1,0 +1,13 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.97,
+    "groups": [
+        [
+            5026
+        ],
+        [
+            5052
+        ]
+    ],
+    "reason": "Verschiedene Initialen (C. vs S.), unterschiedliche Institutionen (Leibniz Uni Hannover vs PTB Braunschweig) und klar verschiedene Themengebiete schließen eine Verwechslung aus."
+}

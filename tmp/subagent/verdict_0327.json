@@ -1,0 +1,13 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.97,
+    "groups": [
+        [
+            5654
+        ],
+        [
+            6651
+        ]
+    ],
+    "reason": "Völlig verschiedene Initialen (J.L. vs I.V.A.) und unterschiedliche Länder/Institutionen – zwei verschiedene Personen."
+}

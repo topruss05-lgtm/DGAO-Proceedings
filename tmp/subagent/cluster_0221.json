@@ -1,0 +1,20 @@
+{
+    "cluster_id": 221,
+    "nachname_norm": "kruse",
+    "candidates": [
+        {
+            "id": 6055,
+            "name": "A. Kruse",
+            "papers": 1,
+            "affiliations": "MExLab Physics, Institute for Applied Physics, University of Muenster, Corrensstrasse 2/4, 48149 Münster, Germany",
+            "sample_titles": "Light up your life - how to foster girl´s interest in STEM"
+        },
+        {
+            "id": 7765,
+            "name": "R. Kruse",
+            "papers": 1,
+            "affiliations": "Universität Paderborn",
+            "sample_titles": "Integrated devices for quantum communication systems"
+        }
+    ]
+}

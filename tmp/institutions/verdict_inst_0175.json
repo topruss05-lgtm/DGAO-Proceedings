@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.98,
+  "groups": [[1161, 1322, 1957]],
+  "canonical": [
+    {
+      "name_de": "Institut für Lasertechnologien in der Medizin und Messtechnik an der Universität Ulm",
+      "name_en": "Institute for Laser Technologies in Medicine and Metrology at the University of Ulm",
+      "kuerzel": "ILM",
+      "universitaet": "Universität Ulm",
+      "ort": "Ulm",
+      "land": "DE",
+      "ror_id": "https://ror.org/04edeq073"
+    }
+  ],
+  "reason": "Alle drei Varianten bezeichnen das ILM Ulm; Unterschiede nur in Schreibweise (Meß-/Mess-), Länge des Namens und expliziter Kürzelnennung."
+}

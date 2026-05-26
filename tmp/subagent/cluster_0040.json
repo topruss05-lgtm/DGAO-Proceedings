@@ -1,0 +1,20 @@
+{
+    "cluster_id": 40,
+    "nachname_norm": "breunig",
+    "candidates": [
+        {
+            "id": 446,
+            "name": "I. Breunig",
+            "papers": 1,
+            "affiliations": "Physikalisches Institut, Universität Bonn, 53115 Bonn",
+            "sample_titles": "Untersuchung und Modellierung von strahlungsinduzierten Brechungsindexänderungen in PMMA"
+        },
+        {
+            "id": 6521,
+            "name": "E. Breunig",
+            "papers": 1,
+            "affiliations": "Max-Planck-Institute for extraterrestrial Physics, Garching, Germany",
+            "sample_titles": "The challenging development of lightweight glass mirrors for future X-ray telescopes"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 38,
+    "nachname_norm": "bretschneider",
+    "candidates": [
+        {
+            "id": 1146,
+            "name": "S. Bretschneider",
+            "papers": 1,
+            "affiliations": "MPI für biophysikalische Chemie, Dep. NanoBiophotonics",
+            "sample_titles": "Ground-State-Depletion Fluorescence Microscopy provides subdiffraction resolution through triplet state pumping"
+        },
+        {
+            "id": 2241,
+            "name": "M. Bretschneider",
+            "papers": 1,
+            "affiliations": "Institut für Mess- und Regelungstechnik, Leibniz Universität Hannover",
+            "sample_titles": "Chromatische Punktsensoren in der Kontur- und Oberflächenmesstechnik"
+        }
+    ]
+}

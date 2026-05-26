@@ -1,0 +1,53 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.97,
+  "groups": [[737], [1070, 1228], [1252], [1461], [1835]],
+  "canonical": [
+    {
+      "name_de": "Department of Electrical and Computer Engineering, Boston University",
+      "name_en": "Department of Electrical and Computer Engineering, Boston University",
+      "kuerzel": null,
+      "universitaet": "Boston University",
+      "ort": "Boston, MA",
+      "land": "US",
+      "ror_id": "https://ror.org/05qwgg493"
+    },
+    {
+      "name_de": "Department of Electrical Engineering and Computer Science, Northwestern University",
+      "name_en": "Department of Electrical Engineering and Computer Science, Northwestern University",
+      "kuerzel": null,
+      "universitaet": "Northwestern University",
+      "ort": "Evanston, IL",
+      "land": "US",
+      "ror_id": "https://ror.org/000e0be47"
+    },
+    {
+      "name_de": "OptiCE Laboratory, Department of Telecommunications, VSB-Technical University of Ostrava",
+      "name_en": "OptiCE Laboratory, Department of Telecommunications, VSB-Technical University of Ostrava",
+      "kuerzel": "OptiCE",
+      "universitaet": "VSB – Technical University of Ostrava",
+      "ort": "Ostrava",
+      "land": "CZ",
+      "ror_id": "https://ror.org/05x8mcb75"
+    },
+    {
+      "name_de": "School of Electrical and Computer Engineering, National Technical University of Athens",
+      "name_en": "School of Electrical and Computer Engineering, National Technical University of Athens",
+      "kuerzel": "NTUA",
+      "universitaet": "National Technical University of Athens",
+      "ort": "Athen",
+      "land": "GR",
+      "ror_id": "https://ror.org/03cx6bg69"
+    },
+    {
+      "name_de": "Department of Electrical and Computer Engineering, Rice University",
+      "name_en": "Department of Electrical and Computer Engineering, Rice University",
+      "kuerzel": null,
+      "universitaet": "Rice University",
+      "ort": "Houston, TX",
+      "land": "US",
+      "ror_id": "https://ror.org/008zs3103"
+    }
+  ],
+  "reason": "Fünf verschiedene Universitäten in vier Ländern (USA, Tschechien, Griechenland); IDs 1070 und 1228 sind Schreibvarianten desselben Northwestern-Departements (ECE vs. EECS – letzteres ist der offizielle Name). Alle anderen sind eigenständige Einrichtungen ohne gemeinsame institutionelle Basis."
+}

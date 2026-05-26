@@ -1,0 +1,27 @@
+{
+    "cluster_id": 226,
+    "nachname_norm": "kuhne",
+    "candidates": [
+        {
+            "id": 5450,
+            "name": "U. Kühne",
+            "papers": 1,
+            "affiliations": "Hochschule Bremerhaven,\nfk-wind: Institut für Windenergie",
+            "sample_titles": "Entwicklung eines insitu Messsytems zur Untersuchung von Salzablagerungen in Offshore-Windenergieanlagen mittels kohärent optischer Verfahren"
+        },
+        {
+            "id": 6420,
+            "name": "M. Kuhne",
+            "papers": 1,
+            "affiliations": "Materialforschungs- und -prüfanstalt an der Bauhaus-Universität Weimar (MFPA Weimar), Weimar",
+            "sample_titles": "Fibre optic sensor systems for structural health monitoring of concrete structures"
+        },
+        {
+            "id": 9816,
+            "name": "S. Kühne",
+            "papers": 4,
+            "affiliations": "Fachgebiet Mikro- und Feingeräte, Technische Universität Berlin",
+            "sample_titles": "Ein Einblick in die Herausforderungen und Potenziale der Bearbeitung unterschiedlicher Werkstoffe für optische Komponenten an der TU Berlin || KI-gestützte Qualitätsprüfung von optischen Systemen || Prozess zur automatisierten Replikation von stark gekrümmten Beugungsoptiken"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 397,
+    "nachname_norm": "stute",
+    "candidates": [
+        {
+            "id": 191,
+            "name": "U. Stute",
+            "papers": 1,
+            "affiliations": "Laser Zentrum Hannover eV., Hannover",
+            "sample_titles": "Herstellung integriert-optischer Wellenleiter durch Excimer- und fs-Pulslaser für den Einsatz in der Interferometrie"
+        },
+        {
+            "id": 12546,
+            "name": "F. Stute",
+            "papers": 1,
+            "affiliations": "Lehrstuhl für Technologie Optischer Systeme TOS, RWTH Aachen University",
+            "sample_titles": "Dynamische Hochleistungsstrahlformung mittels LCoS und anschließender Verstärkung"
+        }
+    ]
+}

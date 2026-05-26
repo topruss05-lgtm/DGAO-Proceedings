@@ -1,0 +1,20 @@
+{
+    "cluster_id": 381,
+    "nachname_norm": "stanik",
+    "candidates": [
+        {
+            "id": 11304,
+            "name": "E. Stanik",
+            "papers": 9,
+            "affiliations": "Technologietransferzentrum für nachhaltige Energien, Technischen Hochschule Aschaffenburg",
+            "sample_titles": "Historische Röntgenbilder in das UNESCO-Weltdokumentenerbe aufgenommen || Verknüpfte optische und thermische Simulationen von Infrarot-Heizöfen für Pulverbeschichtungs-Prozesse || Optik-Simulation für die Energiewende am Beispiel eines industriellen Infrarot-Heizofens"
+        },
+        {
+            "id": 12682,
+            "name": "M. Stanik",
+            "papers": 1,
+            "affiliations": "Metallbau Nick GmbH, Lampertheim",
+            "sample_titles": "Infrared heating for a sustainable powder coating technology"
+        }
+    ]
+}

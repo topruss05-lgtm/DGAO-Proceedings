@@ -1,0 +1,6 @@
+{
+  "verdict": "merge",
+  "confidence": 0.95,
+  "groups": [[149, 3174]],
+  "reason": "H. Schmitzer (id 149) und 'Schmitzer' (id 3174, ohne Vorname) teilen dieselbe Affiliation (Xavier University Cincinnati) und überlappende Themen (Quantenoptik, Gaußsche Summen); der Eintrag ohne Vorname ist mit hoher Wahrscheinlichkeit H. Schmitzer."
+}

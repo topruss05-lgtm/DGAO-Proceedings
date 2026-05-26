@@ -1,0 +1,25 @@
+{
+    "cluster_id": 62,
+    "variants": [
+        {
+            "id": 253,
+            "name_de": "Hochschule Ravensburg-Weingarten",
+            "author_count": 7
+        },
+        {
+            "id": 379,
+            "name_de": "Hochschule Ravensburg-Weingarten, Weingarten",
+            "author_count": 1
+        },
+        {
+            "id": 810,
+            "name_de": "Optical Systems Engineering (Master Course), Hochschule Ravensburg-Weingarten, University of Applied Science",
+            "author_count": 1
+        },
+        {
+            "id": 1160,
+            "name_de": "Hochschule Ravensburg-Weingarten, SG Optische Systemtechnik",
+            "author_count": 2
+        }
+    ]
+}

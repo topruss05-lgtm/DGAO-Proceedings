@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[6453], [8574]],
+  "reason": "Verschiedene Initialen (T. vs. S.) und völlig verschiedene Affiliationen (Hochschule Bremen Messtechnik vs. Universität Kassel VCSEL) sowie disjunkte Themen."
+}

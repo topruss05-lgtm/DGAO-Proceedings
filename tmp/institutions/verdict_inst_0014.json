@@ -1,0 +1,19 @@
+{
+  "verdict": "merge",
+  "confidence": 0.98,
+  "groups": [
+    [36, 38, 1968]
+  ],
+  "canonical": [
+    {
+      "name_de": "JENOPTIK Optical Systems GmbH",
+      "name_en": "JENOPTIK Optical Systems GmbH",
+      "kuerzel": "",
+      "universitaet": "",
+      "ort": "Jena",
+      "land": "DE",
+      "ror_id": "https://ror.org/05g7t5c49"
+    }
+  ],
+  "reason": "Alle drei Varianten bezeichnen dieselbe JENOPTIK Optical Systems GmbH in Jena — nur Groß-/Kleinschreibung und Interpunktion unterscheiden sich."
+}

@@ -1,0 +1,79 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.90,
+  "groups": [
+    [1186, 1189],
+    [1191],
+    [1194],
+    [1202, 1218],
+    [1482],
+    [1721],
+    [1212, 1217, 1421]
+  ],
+  "canonical": [
+    {
+      "name_de": "Institut für Mikrostrukturtechnik (IMT), Karlsruher Institut für Technologie",
+      "name_en": "Institute for Microstructure Technology (IMT), Karlsruhe Institute of Technology",
+      "kuerzel": "IMT",
+      "universitaet": "Karlsruher Institut für Technologie",
+      "ort": "Karlsruhe",
+      "land": "DE",
+      "ror_id": "https://ror.org/04t3en479"
+    },
+    {
+      "name_de": "Institut für Nanotechnologie, Karlsruher Institut für Technologie",
+      "name_en": "Institute of Nanotechnology, Karlsruhe Institute of Technology",
+      "kuerzel": "INT",
+      "universitaet": "Karlsruher Institut für Technologie",
+      "ort": "Karlsruhe",
+      "land": "DE",
+      "ror_id": "https://ror.org/04t3en479"
+    },
+    {
+      "name_de": "Lichttechnisches Institut, Karlsruher Institut für Technologie",
+      "name_en": "Light Technology Institute, Karlsruhe Institute of Technology",
+      "kuerzel": "LTI",
+      "universitaet": "Karlsruher Institut für Technologie",
+      "ort": "Karlsruhe",
+      "land": "DE",
+      "ror_id": "https://ror.org/04t3en479"
+    },
+    {
+      "name_de": "Institut für Informationsverarbeitung und Prozessautomatisierung (ITIV), Karlsruher Institut für Technologie",
+      "name_en": "Institute for Information Processing Technologies (ITIV), Karlsruhe Institute of Technology",
+      "kuerzel": "ITIV",
+      "universitaet": "Karlsruher Institut für Technologie",
+      "ort": "Karlsruhe",
+      "land": "DE",
+      "ror_id": "https://ror.org/04t3en479"
+    },
+    {
+      "name_de": "Institut für Angewandte Materialien, Karlsruher Institut für Technologie",
+      "name_en": "Institute for Applied Materials, Karlsruhe Institute of Technology",
+      "kuerzel": "IAM",
+      "universitaet": "Karlsruher Institut für Technologie",
+      "ort": "Karlsruhe",
+      "land": "DE",
+      "ror_id": "https://ror.org/04t3en479"
+    },
+    {
+      "name_de": "Institut für Industrielle Informationstechnik (IIIT), Karlsruher Institut für Technologie",
+      "name_en": "Institute for Industrial Information Technology (IIIT), Karlsruhe Institute of Technology",
+      "kuerzel": "IIIT",
+      "universitaet": "Karlsruher Institut für Technologie",
+      "ort": "Karlsruhe",
+      "land": "DE",
+      "ror_id": "https://ror.org/04t3en479"
+    },
+    {
+      "name_de": "Karlsruher Institut für Technologie",
+      "name_en": "Karlsruhe Institute of Technology",
+      "kuerzel": "KIT",
+      "universitaet": "Karlsruher Institut für Technologie",
+      "ort": "Karlsruhe",
+      "land": "DE",
+      "ror_id": "https://ror.org/04t3en479"
+    }
+  ],
+  "reason": "Der Cluster enthält 6 verschiedene KIT-Institute (IMT, INT, LTI, ITIV, IAM, IIIT) sowie generische KIT-Einträge ohne Institutsangabe. Jedes Institut ist eine eigenständige Forschungseinheit; generische KIT-Einträge werden zusammengefasst."
+}

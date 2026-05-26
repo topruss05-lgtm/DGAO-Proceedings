@@ -1,0 +1,20 @@
+{
+    "cluster_id": 471,
+    "nachname_norm": "zuhlke",
+    "candidates": [
+        {
+            "id": 3618,
+            "name": "D. Zühlke",
+            "papers": 1,
+            "affiliations": "Fraunhofer-Institut für Angewandte Informationstechnik, Sankt Augustin",
+            "sample_titles": "Automatisierte Pollenanalyse mit dem BioAerosolAnalyzer BAA500"
+        },
+        {
+            "id": 6668,
+            "name": "M. Zühlke",
+            "papers": 1,
+            "affiliations": "Universität Potsdam, Physikalische Chemie",
+            "sample_titles": "IR-MALDI Ion Mobility Spectrometry: Characterization and applications"
+        }
+    ]
+}

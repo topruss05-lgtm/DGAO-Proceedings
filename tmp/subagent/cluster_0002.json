@@ -1,0 +1,20 @@
+{
+    "cluster_id": 2,
+    "nachname_norm": "ahmed",
+    "candidates": [
+        {
+            "id": 7009,
+            "name": "M. A. Ahmed",
+            "papers": 2,
+            "affiliations": "Institut für Strahlwerkzeuge, Universität Stuttgart",
+            "sample_titles": "Modellierung thermomechanisch aktuierter, deformierbarer Spiegel für adaptive Optiken || Sub-lambda Polarisationsformer für Hochleistungslaser"
+        },
+        {
+            "id": 12528,
+            "name": "Abdou Ahmed",
+            "papers": 3,
+            "affiliations": "",
+            "sample_titles": "Highly tolerant, high-efficiency pulse compressor gratings for high-power lasers || Eine vielseitige Laserplattform - kombinierte Emission von CW und ultraschnell gepulster Strahlung aus einem einzigen Scheiben-Multipass-Verstärker || Methode für Direct Laser Interference Patterning auf große Flächen mit hohen Raten"
+        }
+    ]
+}

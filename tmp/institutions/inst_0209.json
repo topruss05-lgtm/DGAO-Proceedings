@@ -1,0 +1,15 @@
+{
+    "cluster_id": 209,
+    "variants": [
+        {
+            "id": 1520,
+            "name_de": "Ostbayerische Technische Hochschule Regensburg",
+            "author_count": 6
+        },
+        {
+            "id": 1692,
+            "name_de": "Ostbayerische Technische Hochschule Regenbsurg;",
+            "author_count": 2
+        }
+    ]
+}

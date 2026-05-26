@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.97,
+  "groups": [[201], [8078]],
+  "reason": "Verschiedene Initialen (B. vs. M.) und vollständig verschiedene Affiliationen (WWU Münster Biomedizin vs. TU Dresden HNO-Klinik) sowie unterschiedliche Themen (digitale holographische Mikroskopie vs. endoskopische OCT am Mittelohr)."
+}

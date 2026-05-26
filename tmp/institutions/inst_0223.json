@@ -1,0 +1,15 @@
+{
+    "cluster_id": 223,
+    "variants": [
+        {
+            "id": 1859,
+            "name_de": "Universitätsklinikum Jena, Klinik für Neurologie, Am Klinikum 1, 07747 Jena, Deutschland",
+            "author_count": 5
+        },
+        {
+            "id": 1862,
+            "name_de": "Universitätsklinikum Jena, Klinik für Neurologie",
+            "author_count": 1
+        }
+    ]
+}

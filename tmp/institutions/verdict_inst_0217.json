@@ -1,0 +1,26 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.9,
+  "groups": [[1755], [1756]],
+  "canonical": [
+    {
+      "name_de": "Fachgebiet Industrieelektronik, Digital- und Lichttechnik, Fakultät I, Hochschule Hannover",
+      "name_en": "Department of Industrial Electronics, Digital and Lighting Technology, Faculty I, Hochschule Hannover",
+      "kuerzel": "IDL-HsH",
+      "universitaet": "Hochschule Hannover",
+      "ort": "Hannover",
+      "land": "DE",
+      "ror_id": "https://ror.org/03m2kj587"
+    },
+    {
+      "name_de": "Fachgebiet für Integrierte Schaltungen und Eingebettete Systeme, Fakultät I, Hochschule Hannover",
+      "name_en": "Department of Integrated Circuits and Embedded Systems, Faculty I, Hochschule Hannover",
+      "kuerzel": "ISES-HsH",
+      "universitaet": "Hochschule Hannover",
+      "ort": "Hannover",
+      "land": "DE",
+      "ror_id": "https://ror.org/03m2kj587"
+    }
+  ],
+  "reason": "Die Fachgebiete 'Industrieelektronik, Digital- und Lichttechnik' und 'Integrierte Schaltungen und Eingebettete Systeme' sind zwei inhaltlich verschiedene Lehr- und Forschungseinheiten innerhalb der Fakultät I der Hochschule Hannover."
+}

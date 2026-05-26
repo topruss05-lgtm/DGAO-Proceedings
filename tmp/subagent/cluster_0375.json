@@ -1,0 +1,20 @@
+{
+    "cluster_id": 375,
+    "nachname_norm": "sinn",
+    "candidates": [
+        {
+            "id": 6910,
+            "name": "Ch. Sinn",
+            "papers": 2,
+            "affiliations": "Köln.Optik Ingenieurbüro",
+            "sample_titles": "Hyperspektral-Kameraobjektiv für die medizinische Hautuntersuchung || Light Guides for Illumination Applications"
+        },
+        {
+            "id": 11520,
+            "name": "C. Sinn",
+            "papers": 3,
+            "affiliations": "Köln.Optik Ingenieurbüro",
+            "sample_titles": "Strahlung des Jahres 2026 – UV-Strahlung || Wenn die Nacht zum Tag wird: Lichtverschmutzung – eine gesamtgesellschaftliche Herausforderung || Ein Messsystem zur Einzelteildokumentation der winkelabhängigen Reflexion und Transmission bei Excimerlaserwellenlängen für die optische Serienfertigung"
+        }
+    ]
+}

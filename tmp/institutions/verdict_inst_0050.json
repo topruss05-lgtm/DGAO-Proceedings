@@ -1,0 +1,26 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.85,
+  "groups": [[171, 338, 472], [568]],
+  "canonical": [
+    {
+      "name_de": "Fachbereich Physik, Belarussische Staatliche Universität Minsk",
+      "name_en": "Physical Department, Belarusian State University, Minsk",
+      "kuerzel": "BSU",
+      "universitaet": "Belarusian State University",
+      "ort": "Minsk",
+      "land": "BY",
+      "ror_id": "021036w13"
+    },
+    {
+      "name_de": "Institut für Physikalisch-Chemische Probleme, Belarussische Staatliche Universität Minsk",
+      "name_en": "Institute of Physical and Chemical Problems, Belarusian State University, Minsk",
+      "kuerzel": "IPCP",
+      "universitaet": "Belarusian State University",
+      "ort": "Minsk",
+      "land": "BY",
+      "ror_id": "021036w13"
+    }
+  ],
+  "reason": "Gruppe 1 (171, 338, 472) bezeichnet den physikalischen Fachbereich der BSU Minsk in verschiedenen Schreibweisen. Gruppe 2 (568) ist das eigenständige 'Institute of Physical and Chemical Problems' (IPCP) – ein separates Forschungsinstitut, das der BSU angegliedert, aber organisatorisch eigenständig ist. Sub-Institut → keep_separate."
+}

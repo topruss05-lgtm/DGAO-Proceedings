@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[477, 929, 1185, 1821]],
+  "canonical": [
+    {
+      "name_de": "Institut für Prozessmess- und Sensortechnik, Technische Universität Ilmenau",
+      "name_en": "Institute for Process Measurement and Sensor Technology, TU Ilmenau",
+      "kuerzel": "IPMS",
+      "universitaet": "Technische Universität Ilmenau",
+      "ort": "Ilmenau",
+      "land": "DE",
+      "ror_id": "https://ror.org/01weqhp73"
+    }
+  ],
+  "reason": "Alle vier Varianten bezeichnen dasselbe Institut an der TU Ilmenau; Unterschiede sind Reihenfolge (Institut/Universität), Abkürzung TU vs ausgeschrieben, und ein leichter Namensvariante 'Sensortechnologie' statt 'Sensortechnik' in id 1821."
+}

@@ -1,0 +1,50 @@
+{
+    "cluster_id": 125,
+    "variants": [
+        {
+            "id": 673,
+            "name_de": "Istituto di Fotonica e Nanotecnologie - CNR and Dipartimento di Fisica-Politecnico di Milano",
+            "author_count": 5
+        },
+        {
+            "id": 679,
+            "name_de": "National Laboratory  for Ultrafast and Ultraintense Optical Science, INFM-CNR, Dipartimento di Fisica, Politecnico di Milano",
+            "author_count": 3
+        },
+        {
+            "id": 683,
+            "name_de": "Dipartimento di Fisica, Istituto Nazionale di Fisica Nucleare, Università La Sapienza",
+            "author_count": 1
+        },
+        {
+            "id": 710,
+            "name_de": "IIT, ULTRAS-INFM-CNR and IFN-CNR, Politecnico di Milano-Dipartimento di Fisica, Piazza Leonardo da Vinci 32, 20133 Milano, Italy",
+            "author_count": 7
+        },
+        {
+            "id": 733,
+            "name_de": "Politecnico di Milano, Dipartimento di Elettronica e Informazione, Piazza Leonardo da Vinci 32, I-20133 Milano, Italy",
+            "author_count": 3
+        },
+        {
+            "id": 749,
+            "name_de": "Istituto di Fotonica e Nanotecnologie - CNR, Dipartimento di Fisica, Politecnico di Milano, Piazza L. da Vinci 32, 20133 Milano, Italy",
+            "author_count": 4
+        },
+        {
+            "id": 755,
+            "name_de": "Dipartimento di Fisica, Politecnico di Torino",
+            "author_count": 1
+        }
+    ],
+    "verdict": "keep_separate",
+    "confidence": 0.88,
+    "groups": [[673, 679, 710, 749], [733], [683], [755]],
+    "canonical": [
+        {"name_de": "Istituto di Fotonica e Nanotecnologie CNR / Dipartimento di Fisica, Politecnico di Milano", "name_en": "Institute of Photonics and Nanotechnologies CNR / Department of Physics, Politecnico di Milano", "kuerzel": "IFN-CNR", "universitaet": "Politecnico di Milano", "ort": "Milano", "land": "IT", "ror_id": "https://ror.org/049ebw417"},
+        {"name_de": "Dipartimento di Elettronica e Informazione, Politecnico di Milano", "name_en": "Department of Electronics and Information, Politecnico di Milano", "kuerzel": null, "universitaet": "Politecnico di Milano", "ort": "Milano", "land": "IT", "ror_id": "https://ror.org/01nffqt88"},
+        {"name_de": "Dipartimento di Fisica, Università La Sapienza Roma", "name_en": "Department of Physics, Sapienza University of Rome", "kuerzel": null, "universitaet": "Sapienza Università di Roma", "ort": "Roma", "land": "IT", "ror_id": null},
+        {"name_de": "Dipartimento di Fisica, Politecnico di Torino", "name_en": "Department of Physics, Polytechnic University of Turin", "kuerzel": null, "universitaet": "Politecnico di Torino", "ort": "Torino", "land": "IT", "ror_id": "https://ror.org/00bgk9508"}
+    ],
+    "reason": "Der Cluster enthält vier distinkte Einrichtungen: IFN-CNR/Politecnico di Milano Fisica (673/679/710/749 – gleiche Forschungsgruppe, mehrere Schreibvarianten), Politecnico di Milano Elettronica (733 – anderes Departement), Sapienza Roma (683) und Politecnico di Torino (755)."
+}

@@ -1,0 +1,27 @@
+{
+    "cluster_id": 141,
+    "nachname_norm": "hagemann",
+    "candidates": [
+        {
+            "id": 3891,
+            "name": "M. Hagemann",
+            "papers": 1,
+            "affiliations": "University of Applied Sciences - Darmstadt",
+            "sample_titles": "Analysis and optimization of volume diffusors"
+        },
+        {
+            "id": 6773,
+            "name": "J.-H. Hagemann",
+            "papers": 3,
+            "affiliations": "Physikalisch-Technische Bundesanstalt (PTB), Bundesallee 100, 38116 Braunschweig, Germany",
+            "sample_titles": "Lens inspection using Multiple Aperture Shear Interferometry: Comparison to Wave Front Sensing Methods || Shearing-Interferometer mit unterschiedlich kohärenten Multilichtquellen zur optischen Formmessung optischer Oberflächen || Realization of a shearing interferometer with LED multipoint illumination for form characterization of optics"
+        },
+        {
+            "id": 8728,
+            "name": "V. Hagemann",
+            "papers": 3,
+            "affiliations": "Schott AG, Mainz",
+            "sample_titles": "Static ceramic converters for laser pumped phosphor light sources with white light emission || Modeling of ceramic phosphor assemblies for high luminance solid state lighting || Optische Materialien für die Digitale Projektion"
+        }
+    ]
+}

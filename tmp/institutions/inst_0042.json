@@ -1,0 +1,100 @@
+{
+    "cluster_id": 42,
+    "variants": [
+        {
+            "id": 135,
+            "name_de": "Biomedizinisches Technologiezentrum der Medizinischen Fakultät, Westfälische Wilhelms-Universität Münster, Mendelstr. 17, D-48149 Münster, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 144,
+            "name_de": "Institut für Angewandte Physik, Westfälische Wilhelms-Universität Münster",
+            "author_count": 16
+        },
+        {
+            "id": 145,
+            "name_de": "Institut fuer Angewandte Physik, Westfaelische Wilhelms Universitaet, Muenster",
+            "author_count": 1
+        },
+        {
+            "id": 195,
+            "name_de": "Laboratory of Biophysics, University of Muenster\nRobert-Koch-Str. 45\n48149 Muenster\nGermany",
+            "author_count": 1
+        },
+        {
+            "id": 295,
+            "name_de": "Biomedizinisches Technologiezentrum der Medizinischen Fakultät, Westfälische Wilhelms-Universität Münster, D-48149 Münster, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 436,
+            "name_de": "MExLab Physics, Institute for Applied Physics, University of Muenster, Corrensstrasse 2/4, 48149 Münster, Germany",
+            "author_count": 4
+        },
+        {
+            "id": 674,
+            "name_de": "Institut für Hygiene, Westfälische Wilhelms-Universität Münster",
+            "author_count": 1
+        },
+        {
+            "id": 687,
+            "name_de": "AG Nichtlineare Photonik, Westfälische Wilhelms-Universität Münster",
+            "author_count": 2
+        },
+        {
+            "id": 815,
+            "name_de": "Center für Biomedizinische Optik und Photonik, Westfälische Wilhelms-Universität Münster",
+            "author_count": 1
+        },
+        {
+            "id": 816,
+            "name_de": "Medizinische Klinik und Poliklinik B, Gastroenterologische Molekulare Zellbiologie, Westfälische Wilhelms-Universität Münster",
+            "author_count": 1
+        },
+        {
+            "id": 817,
+            "name_de": "Biomedizinisches Technologiezentrum der Medizinischen Fakultät, Westfälische Wilhelms-Universität Münster",
+            "author_count": 2
+        },
+        {
+            "id": 895,
+            "name_de": "Medizinische Klinik und Poliklinik D, Experimentelle Nephrologie, Westfälische Wilhelms-Universität Münster",
+            "author_count": 2
+        },
+        {
+            "id": 903,
+            "name_de": "Gastroenterologische Molekulare Zellbiologie, Med. Klinik und Poliklinik B, Westfälische Wilhelms-Universität Münster",
+            "author_count": 2
+        },
+        {
+            "id": 905,
+            "name_de": "Institut für Zoologie und Genetik,  Westfälische Wilhelms-Universität Münster",
+            "author_count": 2
+        },
+        {
+            "id": 1182,
+            "name_de": "Institut für Angewandte Physik and Center for Nonlinear Science (CeNoS), \nWestfälische Wilhelms-Universität Münster, 48149 Münster, Germany",
+            "author_count": 3
+        },
+        {
+            "id": 1360,
+            "name_de": "Institut für Physikalische Chemie, Westfälische Wilhelms-Universität Münster",
+            "author_count": 2
+        },
+        {
+            "id": 1563,
+            "name_de": "Institute of Applied Physics and Center for Nonlinear Science (CeNoS), University of Münster, 48149 Münster, Germany",
+            "author_count": 2
+        },
+        {
+            "id": 1599,
+            "name_de": "Institut für Theoretische Physik, Westfälische Wilhelms-Universität Münster",
+            "author_count": 2
+        },
+        {
+            "id": 1708,
+            "name_de": "Klinik für Augenheilkunde, Universitätsklinikum Münster, D-48149 Münster, Germany",
+            "author_count": 2
+        }
+    ]
+}

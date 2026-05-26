@@ -1,0 +1,27 @@
+{
+    "cluster_id": 247,
+    "nachname_norm": "lindner",
+    "candidates": [
+        {
+            "id": 1851,
+            "name": "E. Lindner",
+            "papers": 5,
+            "affiliations": "FBGS Technologies GmbH, Winzerlaer Str. 2, 07745 Jena, Germany",
+            "sample_titles": "Novel Bragg grating fibers for strain and temperature separated sensor systems || Hochtemperaturresistente Metallbeschichtungen für optische Fasern || Erzeugung von Faser-Bragg-Gittern in Saphirfasern für die Hochtemperatursensorik"
+        },
+        {
+            "id": 4833,
+            "name": "D. Lindner",
+            "papers": 2,
+            "affiliations": "Physikalisch-Technische Bundesanstalt",
+            "sample_titles": "Candela: Entwicklungen und Perspektiven in der Photometrie || Änderungen optischer Eigenschaften organischer Leuchtdioden bei hoher Betriebsdauer"
+        },
+        {
+            "id": 9082,
+            "name": "F. Lindner",
+            "papers": 1,
+            "affiliations": "Leibniz-IPHT – Leibniz-Institut für Photonische Technologien e.V., Albert-Einstein-Str. 9, 07745 Jena, Deutschland",
+            "sample_titles": "Entwicklung optischer Spezialfasern für breitbandige Laserlichtquellen"
+        }
+    ]
+}

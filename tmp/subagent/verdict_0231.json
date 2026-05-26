@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[229], [6323], [10911]],
+  "reason": "Drei verschiedene Personen: K. Körner (ITO Stuttgart, Weißlichtinterferometrie), M. Körner (IMTEK Freiburg, Polymere) und J. Körner (SCHOTT AG, Glasmaterialien) haben unterschiedliche Initialen, Affiliations und Themen."
+}

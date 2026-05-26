@@ -1,0 +1,15 @@
+{
+    "cluster_id": 164,
+    "variants": [
+        {
+            "id": 1017,
+            "name_de": "Bundesanstalt für Materialforschung und –prüfung (BAM), Berlin",
+            "author_count": 3
+        },
+        {
+            "id": 1897,
+            "name_de": "Bundesanstalt für Materialforschung und -prüfung, D-12203 Berlin",
+            "author_count": 2
+        }
+    ]
+}

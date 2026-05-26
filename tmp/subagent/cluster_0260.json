@@ -1,0 +1,27 @@
+{
+    "cluster_id": 260,
+    "nachname_norm": "mai",
+    "candidates": [
+        {
+            "id": 4930,
+            "name": "T. Mai",
+            "papers": 3,
+            "affiliations": "Physikalisch-Technische Bundesanstalt (PTB), Bundesallee 100, 38116 Braunschweig",
+            "sample_titles": "Second, improved sphere interferometer of PTB || Simulative determination of the wavefront uncertainty of PTB’s Sphere Interferometer II || Das neue Kugelinterferometer zur Durchmesserbestimmung der Si-Einkristall-Kugeln zur Neudefinition des Kilogramms"
+        },
+        {
+            "id": 10295,
+            "name": "C. Mai",
+            "papers": 1,
+            "affiliations": "IHP – Leibniz-Institut für innovative Mikroelektronik, Im Technologiepark 25, 15236 Frankfurt(Oder)",
+            "sample_titles": "Silizium-photonische Biosensoren mit monolithisch integrierter Mikrofluidik"
+        },
+        {
+            "id": 11321,
+            "name": "A. Mai",
+            "papers": 4,
+            "affiliations": "",
+            "sample_titles": "Integrated Silicon Nitride Optical Gyroscope: Design, Fabrication, and Path to Quantum Enhancement || Messverfahren zur Kontrolle tiefer Siliziumstrukturen für die 3D-Chip-Integration || Optical Through-Silicon Waveguides for 3D-Chip-Interconnections"
+        }
+    ]
+}

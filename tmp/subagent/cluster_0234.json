@@ -1,0 +1,27 @@
+{
+    "cluster_id": 234,
+    "nachname_norm": "lang",
+    "candidates": [
+        {
+            "id": 1316,
+            "name": "M. Lang",
+            "papers": 1,
+            "affiliations": "High Resolution Optical Microscopy Group, Deutsches Krebsforschungszentrum (DKFZ) Heidelberg",
+            "sample_titles": "Side-lobe free 4Pi-Microscopy"
+        },
+        {
+            "id": 1612,
+            "name": "N. Lang",
+            "papers": 1,
+            "affiliations": "INP Greifswald, Felix-Hausdorff-Str. 2, 17489 Greifswald, Deutschland",
+            "sample_titles": "Hochempfindliche Infrarotspektroskopie – eine neue Technik auf dem Weg aus der Forschung in die Industrie"
+        },
+        {
+            "id": 6454,
+            "name": "W. Lang",
+            "papers": 2,
+            "affiliations": "Institute for microsensors, -actuators and -systems, University of Bremen",
+            "sample_titles": "Designing a Secondary Optical Freeform Lens for Signal Lighting || Application of radial basis functions for the surface reconstruction using deflectometry"
+        }
+    ]
+}

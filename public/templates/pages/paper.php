@@ -28,14 +28,22 @@ $stmt = $db->prepare('
 $stmt->execute([$id]);
 $keywords = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-// Authors
-$stmt = $db->prepare('
-    SELECT a.id, a.vorname, a.nachname, a.affiliation, pa.position, pa.ist_hauptautor
+// Authors — affiliation aus autor_institutionen (aktuelle) lokalisiert via Seitensprache
+$lang    = $_SESSION['lang'] ?? 'de';
+$instCol = $lang === 'en' ? 'i.name_en' : 'i.name_de';
+$stmt = $db->prepare("
+    SELECT a.id, a.vorname, a.nachname,
+           (SELECT COALESCE(NULLIF($instCol, ''), i.name_de)
+            FROM autor_institutionen ai
+            JOIN institutionen i ON i.id = ai.institut_id
+            WHERE ai.autor_id = a.id AND ai.ist_aktuell = 1
+            LIMIT 1) AS affiliation,
+           pa.position, pa.ist_hauptautor
     FROM autoren a
     JOIN paper_autoren pa ON pa.autor_id = a.id
     WHERE pa.paper_id = ?
     ORDER BY pa.position
-');
+");
 $stmt->execute([$id]);
 $autoren = $stmt->fetchAll();
 

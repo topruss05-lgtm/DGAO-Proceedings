@@ -1,0 +1,15 @@
+{
+    "cluster_id": 222,
+    "variants": [
+        {
+            "id": 1851,
+            "name_de": "Department of Electronic Materials Engineering, The Australian National University, Australia",
+            "author_count": 1
+        },
+        {
+            "id": 1852,
+            "name_de": "Department of Electronic Materials Engineering, Research School of Physics, The Australian National University, Canberra, ACT 2600, Australia",
+            "author_count": 3
+        }
+    ]
+}

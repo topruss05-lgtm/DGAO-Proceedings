@@ -1,0 +1,27 @@
+{
+    "cluster_id": 250,
+    "nachname_norm": "lohmann",
+    "candidates": [
+        {
+            "id": 130,
+            "name": "A. W. Lohmann",
+            "papers": 4,
+            "affiliations": "Lehrstuhl für Multimediakommunikation und Signalverarbeitung, Universität Erlangen-Nürnberg",
+            "sample_titles": "Fabry-Pérot-Resonatoren mit strukturierten Spiegeln || Diffraktiv-refraktive Filterung von kurzen optischen Pulsen || Fresnel Similarity"
+        },
+        {
+            "id": 1489,
+            "name": "A. Lohmann",
+            "papers": 1,
+            "affiliations": "Lehrstuhl für Multimediakommunikation und Signalverarbeitung, Universität Erlangen",
+            "sample_titles": "Talbot-Bänder und Frequenzkämme"
+        },
+        {
+            "id": 11959,
+            "name": "L. Lohmann",
+            "papers": 1,
+            "affiliations": "RWTH Aachen University TOS – Lehrstuhl für Technologie optischer Systeme",
+            "sample_titles": "Herstellung von (komplex) periodischen Strukturen durch Talbot-Lithografie mit kompakten EUV-Quellen"
+        }
+    ]
+}

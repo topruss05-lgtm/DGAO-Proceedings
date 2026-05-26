@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.92,
+  "groups": [[1904, 3874], [6060]],
+  "reason": "C. Hellmann und Ch. Hellmann sind dieselbe Person (Wyrowski Photonics / LightTrans VirtualLab, gleiche Themen physikalische Optik). R. Hellmann ist eine andere Person (Hochschule Aschaffenburg, Lasertechnik/Photonik)."
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 243,
+    "nachname_norm": "leopold",
+    "candidates": [
+        {
+            "id": 1865,
+            "name": "S. Leopold",
+            "papers": 5,
+            "affiliations": "Fachgebiet Mikromechanische Systeme, Technische Universität Ilmenau",
+            "sample_titles": "Adaptive micro-eye based on tunable micro-optical components || Scannend abbildendes Mikrosystem auf Basis durchstimmbarer Elemente aus Aluminiumnitrid Membranen || 3D Scanning system based on tunable cylindrical lenses"
+        },
+        {
+            "id": 4023,
+            "name": "St. Leopold",
+            "papers": 1,
+            "affiliations": "TU Ilmenau",
+            "sample_titles": "Scannende Compound-Kamera zur hochauflösenden 3D-Objektabtastung"
+        }
+    ]
+}

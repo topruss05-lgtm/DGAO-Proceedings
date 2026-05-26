@@ -1,0 +1,6 @@
+{
+  "verdict": "merge",
+  "confidence": 0.95,
+  "groups": [[3368, 10143]],
+  "reason": "H. Schweitzer (id 3368) und Dr. H. Schweitzer (id 10143) teilen dieselbe Affiliation (Docter Optics SE) und überlappende Themen (Pixellicht-Scheinwerfer, Fresnellinsen); 'Dr.' ist lediglich ein Titelpräfix derselben Person."
+}

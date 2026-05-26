@@ -1,0 +1,27 @@
+{
+    "cluster_id": 378,
+    "nachname_norm": "smit",
+    "candidates": [
+        {
+            "id": 153,
+            "name": "M. K. Smit",
+            "papers": 1,
+            "affiliations": "COBRA - TU Eindhoven, P.O.Box 513, 5600 MB Eindhoven, The Netherlands",
+            "sample_titles": "Principles and Applications of Photonic Integrated Multiplexers"
+        },
+        {
+            "id": 4497,
+            "name": "M. Smit",
+            "papers": 1,
+            "affiliations": "Technical University Eindhoven",
+            "sample_titles": "Moore’s law in Photonics"
+        },
+        {
+            "id": 5462,
+            "name": "Meint Smit",
+            "papers": 1,
+            "affiliations": "Eindhoven Technical University / COBRA, Eindhoven, Netherlands",
+            "sample_titles": "Low-Cost Access to Development and Manufacturing of Photonic Integrated Circuits"
+        }
+    ]
+}

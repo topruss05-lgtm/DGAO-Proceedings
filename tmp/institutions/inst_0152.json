@@ -1,0 +1,15 @@
+{
+    "cluster_id": 152,
+    "variants": [
+        {
+            "id": 898,
+            "name_de": "FH Gießen-Friedberg, Fachbereich Informationstechnik-Elektrotechnik-Mechatronik\nW.-Leuschner-Str. 13, 61169 Friedberg",
+            "author_count": 4
+        },
+        {
+            "id": 899,
+            "name_de": "FH Gießen-Friedberg, Fachbereich Informationstechnik- Elektrotechnik-Mechatronik\nW.-Leuschner-Str. 13, 61169 Friedberg",
+            "author_count": 2
+        }
+    ]
+}

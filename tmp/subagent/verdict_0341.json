@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.97,
+  "groups": [[3949], [5642], [5998], [6607], [9350], [9809]],
+  "reason": "Sechs Kandidaten mit verschiedenen Initialen (R., J., F.-J., H., M., P.) und vollständig disjunkten Affiliationen (RWTH Aachen, Hochschule RheinMain, TU Berlin, MHH, KoWi, Fraunhofer IOF)."
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 309,
+    "nachname_norm": "reichert",
+    "candidates": [
+        {
+            "id": 6868,
+            "name": "C. C. Reichert",
+            "papers": 1,
+            "affiliations": "Institut für Technische Optik, Universität Stuttgart",
+            "sample_titles": "An easy and cheap way to use smartphones as a microscope"
+        },
+        {
+            "id": 7550,
+            "name": "C. Reichert",
+            "papers": 5,
+            "affiliations": "Institut für Technische Optik – Universität Stuttgart",
+            "sample_titles": "BaKaRoS: Open Source Optik Baukästen – Nachwuchsförderung an Schulen und Universitäten || Entwicklung eines Algorithmus zur Ersetzung eines Optikdesigns durch Kataloglinsen mit kontinuierlicher Designanpassung || Ganzheitliche Optimierung von optischen Systemen"
+        }
+    ]
+}

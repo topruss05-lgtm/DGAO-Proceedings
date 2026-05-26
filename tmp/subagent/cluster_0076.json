@@ -1,0 +1,27 @@
+{
+    "cluster_id": 76,
+    "nachname_norm": "duparre",
+    "candidates": [
+        {
+            "id": 23,
+            "name": "A. Duparré",
+            "papers": 27,
+            "affiliations": "Fraunhofer Institut für Angewandte Optik und Feinmechanik IOF, Jena",
+            "sample_titles": "Compact and fast sensor systems for light scattering analysis of optical components || Multi-wavelength table top light scattering metrology || Combined optical sensor for simultaneously measuring roughness and 3D shape"
+        },
+        {
+            "id": 935,
+            "name": "M. Duparré",
+            "papers": 10,
+            "affiliations": "Institute of Applied Optics, Friedrich Schiller University Jena",
+            "sample_titles": "Determination of the mutual modal degree of coherence for optical fiber modes || Measuring laser beam quality using spatial light modulators || Complete Optical Field Reconstruction Using Computer Generated Holograms"
+        },
+        {
+            "id": 1218,
+            "name": "J. Duparré",
+            "papers": 1,
+            "affiliations": "Fraunhofer Institut für Angewandte Optik und Feinmechanik, Jena",
+            "sample_titles": "Hochgenaue Positionsbestimmung und Farbsehen mit ultra-flachen, künstlichen Facettenaugen"
+        }
+    ]
+}

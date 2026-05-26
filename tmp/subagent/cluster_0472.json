@@ -1,0 +1,20 @@
+{
+    "cluster_id": 472,
+    "nachname_norm": "vkopylow",
+    "candidates": [
+        {
+            "id": 1959,
+            "name": "C. v. Kopylow",
+            "papers": 3,
+            "affiliations": "BIAS - Bremer Institut für angewandte Strahltechnik",
+            "sample_titles": "Sichtstrahlkalibrierung für optisch abbildende Systeme || Reflektometrie - ein flexibles und robustes Messverfahren für unterschiedlichste Anwendungen im Mikro- und Makrobereich || Praxisgerechte Systemauslegung durch modulare analytische Messunsicherheitsmodellierung am Beispiel des Streifenprojektionssystems 3D-Kamera"
+        },
+        {
+            "id": 3725,
+            "name": "Ch. v. Kopylow",
+            "papers": 1,
+            "affiliations": "BIAS - Bremer Institut für angewandte Strahltechnik",
+            "sample_titles": "Absolut-Abstandsreferenz für die Streifenreflexionstechnik zur Verringerung systematischer Messfehler"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 91,
+    "nachname_norm": "ettl",
+    "candidates": [
+        {
+            "id": 1443,
+            "name": "S. Ettl",
+            "papers": 20,
+            "affiliations": "Institute of Optics, Information and Photonics, Friedrich-Alexander-University Erlangen-Nuremberg",
+            "sample_titles": "Light-sectioning with many lines - how to settle the information deficit || Plausibility-based approach to eliminate line pattern indexing ambiguities || Automated evaluation tools in medicine enabled by a motion-robust optical 3D sensor"
+        },
+        {
+            "id": 1813,
+            "name": "P. Ettl",
+            "papers": 2,
+            "affiliations": "3D-Shape GmbH, Erlangen",
+            "sample_titles": "Ultrafast 4-Megapixel White-Light-Interferometry || 3D-Messtechnik an den Grenzen des Machbaren"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[1543], [2756], [3957]],
+  "reason": "T. Weigel (Uni Bremen, Ultrapräzision), D. Weigel (FSU Jena, Holografie/3D-Vermessung) und A. Weigel (Fraunhofer IOF, THz) haben unterschiedliche Initialen, Affiliationen und Themen – drei verschiedene Personen."
+}

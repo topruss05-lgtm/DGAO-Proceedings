@@ -1,0 +1,20 @@
+{
+    "cluster_id": 69,
+    "nachname_norm": "dharmarasu",
+    "candidates": [
+        {
+            "id": 1536,
+            "name": "N. Dharmarasu",
+            "papers": 1,
+            "affiliations": "Institut für Nanostrukturtechnologie und Analytik (INA) und Center for Interdisciplinary Nanostructure Science and Technology (CINSaT), Universität Kassel",
+            "sample_titles": "Durchstimmbare Fabry-Perot Filter mit InP/Luft DBR-Spiegeln. Optical MEMS Technologie für Photonik und Spektroskopie."
+        },
+        {
+            "id": 2169,
+            "name": "Ne. Dharmarasu",
+            "papers": 1,
+            "affiliations": "Institut für Nanostrukturtechnologie und Analytik (INA) und Center for Interdisciplinary \nNanostructure Science and Technology (CINSaT), Universität Kassel",
+            "sample_titles": "Herstellung und Charakterisierung von nanophotonischen Strukturen mit Hilfe fokussierter Ionenstrahlen"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.93,
+  "groups": [[5450], [6420], [9816]],
+  "reason": "Drei verschiedene Personen: U. Kühne (Hochschule Bremerhaven, Windenergie), M. Kuhne (MFPA Weimar, Strukturmonitoring) und S. Kühne (TU Berlin, Optikfertigung) haben unterschiedliche Initialen, Affiliations und Themen."
+}

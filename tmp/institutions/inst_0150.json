@@ -1,0 +1,20 @@
+{
+    "cluster_id": 150,
+    "variants": [
+        {
+            "id": 892,
+            "name_de": "Fachbereich Physik und Wissenschaftliches Zentrum für Materialwissenschaften,\nPhilipps-Universität Marburg, Renthof 5, D-35032 Marburg, Deutschland",
+            "author_count": 1
+        },
+        {
+            "id": 896,
+            "name_de": "Fachbereich Physik, Philipps-Universität Marburg",
+            "author_count": 2
+        },
+        {
+            "id": 897,
+            "name_de": "Faculty of Physics and Material Sciences Center, Philipps-Universitat Marburg, Renthof 5, 35032 Marburg, Germany",
+            "author_count": 3
+        }
+    ]
+}

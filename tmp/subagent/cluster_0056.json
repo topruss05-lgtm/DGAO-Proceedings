@@ -1,0 +1,20 @@
+{
+    "cluster_id": 56,
+    "nachname_norm": "cattaneo",
+    "candidates": [
+        {
+            "id": 2485,
+            "name": "C. Cattaneo",
+            "papers": 1,
+            "affiliations": "Laboratory of Optoelectronics, University of Brescia, Via Branze 38, Brescia",
+            "sample_titles": "Use of non-contact 3-D imaging for crime scene analysis"
+        },
+        {
+            "id": 12662,
+            "name": "H. Cattaneo",
+            "papers": 1,
+            "affiliations": "OST – Ostschweizer Fachhochschulen, Institut für Mikrotechnik und Photonik, Buchs SG, Schweiz",
+            "sample_titles": "Kratzerheilung mit CO2-Laser auf Quarzglas für die Reparatur von optischen Komponenten"
+        }
+    ]
+}

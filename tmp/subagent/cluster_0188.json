@@ -1,0 +1,34 @@
+{
+    "cluster_id": 188,
+    "nachname_norm": "keller",
+    "candidates": [
+        {
+            "id": 176,
+            "name": "H. U. Keller",
+            "papers": 1,
+            "affiliations": "Max-Planck-Institut für Aeronomie, Katlenburg-Lindau",
+            "sample_titles": "Optischer und mechanischer Entwurf eines Kameraobjektivs für den NASA-Asteroidenorbiter DAWN"
+        },
+        {
+            "id": 577,
+            "name": "U. Keller",
+            "papers": 2,
+            "affiliations": "ETH Zürich, Physics Department / Institute of Quantum Electronics",
+            "sample_titles": "Dual-comb generation made simple || Characterisation, wavefront reconstruction and propagation of ultra-broadband laser pulses from Hartmann-Shack measurements"
+        },
+        {
+            "id": 8932,
+            "name": "K. Keller",
+            "papers": 1,
+            "affiliations": "Hochschule Koblenz, Konrad-Zuse-Str. 1, 56705 Koblenz",
+            "sample_titles": "Zusammenspiel von Oberflächenrauheit und Formabweichungen in Freiformoptiken für Beleuchtung - hilfreiche Störeinflüsse?"
+        },
+        {
+            "id": 11522,
+            "name": "B. Keller",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Strahlung des Jahres 2026 – UV-Strahlung"
+        }
+    ]
+}

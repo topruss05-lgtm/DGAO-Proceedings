@@ -1,0 +1,13 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.97,
+    "groups": [
+        [
+            8219
+        ],
+        [
+            8972
+        ]
+    ],
+    "reason": "Verschiedene Initialen (P. vs T.) und unterschiedliche Institutionen (TU Darmstadt vs Uni Passau) – zwei verschiedene Personen."
+}

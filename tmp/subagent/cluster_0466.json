@@ -1,0 +1,76 @@
+{
+    "cluster_id": 466,
+    "nachname_norm": "zhang",
+    "candidates": [
+        {
+            "id": 1495,
+            "name": "F. Zhang",
+            "papers": 1,
+            "affiliations": "Institut für Technische Optik, Universität Stuttgart\nPfaffenwadring 9, 70569 Stuttgart",
+            "sample_titles": "Phase retrieval from the intensity of a volume speckle field"
+        },
+        {
+            "id": 1692,
+            "name": "X. Zhang",
+            "papers": 1,
+            "affiliations": "TEDA Applied Physics School, Nankai University, China",
+            "sample_titles": "Erweiterung der Speicher- und Auslesekonzepte und Erhöhung der Speicherkapazität in einem phasenkodierten volumenholographischen Speichersystem"
+        },
+        {
+            "id": 4334,
+            "name": "S. Zhang",
+            "papers": 13,
+            "affiliations": "LightTrans International UG",
+            "sample_titles": "Physical-Optics Analysis of Optical Interferometers || Challenges and Solutions in the Design of Lightguides for XR Glasses || Fast-Physical Optics Modeling of Advanced Microscopy Systems"
+        },
+        {
+            "id": 6943,
+            "name": "H. Zhang",
+            "papers": 2,
+            "affiliations": "Professur für Mess- und Sensorsystemtechnik (MST), TU Dresden",
+            "sample_titles": "Beugungsgitterbasierte Schädigungs-, Eigenfrequenz- und Eigenformmessung an schnelldrehenden Faserverbundrotoren || Camera-based speckle noise reduction for interferometric non-incremental shape measurement"
+        },
+        {
+            "id": 7561,
+            "name": "C. Zhang",
+            "papers": 1,
+            "affiliations": "Fakultät für Maschinenbau, Technische Universität Ilmenau",
+            "sample_titles": "Musterprojektionsbasierte Erzeugung hyperspektraler 3D-Oberflächenmodelle"
+        },
+        {
+            "id": 8179,
+            "name": "Y. Zhang",
+            "papers": 3,
+            "affiliations": "Carl Zeiss AG",
+            "sample_titles": "History and New Insights: Design of Microscope Objectives || History and New Insights: Design of Microscope Objectives || Musterprojektion im kurzwelligen Infrarot (SWIR): augensichere 3D-Formmessung mit hoher Genauigkeit"
+        },
+        {
+            "id": 8864,
+            "name": "Q. Zhang",
+            "papers": 1,
+            "affiliations": "TU Dresden, Mess- und Sensorsystemtechnik",
+            "sample_titles": "Multimode-Fasern für die Informationsübertragung mit verbesserter Datensicherheit"
+        },
+        {
+            "id": 10639,
+            "name": "Z. Zhang",
+            "papers": 4,
+            "affiliations": "Fachgebiet Technische Optik, Technische Universität Ilmenau",
+            "sample_titles": "Bestimmung der hardwarebedingten Leistungsgrenzen eines LS-FLIM-Systems hinsichtlich der Bildaufnahmegeschwindigkeit bei der Fluoreszenzlebenszeitmessung || Fluoreszenzlebenszeitmessungen in einem Lichtschicht-Fluoreszenz-Mikroskop || Analyse von YAG-Kristallen in einer Glaskeramik-Matrix mittels ortsaufgelöster Fluoreszenzlebenszeitmessung"
+        },
+        {
+            "id": 12414,
+            "name": "D. W. Zhang",
+            "papers": 1,
+            "affiliations": "University of Shanghai for Science and Technology, China",
+            "sample_titles": "Absolute Testing for a EURAMET Comparison on a PTB Optical Flat at an Aperture of 300 mm"
+        },
+        {
+            "id": 12459,
+            "name": "W. Q. Zhang",
+            "papers": 1,
+            "affiliations": "STEM, University of South Australia",
+            "sample_titles": "3D-Druck von fluoreszierenden Mikrostrukturen für die Sensorik"
+        }
+    ]
+}

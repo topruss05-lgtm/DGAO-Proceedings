@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.93,
+  "groups": [[132, 304, 305, 334]],
+  "canonical": [
+    {
+      "name_de": "Institut für Physik, Carl von Ossietzky Universität Oldenburg",
+      "name_en": "Institute of Physics, Carl von Ossietzky University of Oldenburg",
+      "kuerzel": null,
+      "universitaet": "Carl von Ossietzky Universität Oldenburg",
+      "ort": "Oldenburg",
+      "land": "DE",
+      "ror_id": "033n9gh91"
+    }
+  ],
+  "reason": "Alle vier Varianten bezeichnen das Institut für Physik (AG Angewandte Optik) der Universität Oldenburg; id 305 nennt nur das übergeordnete Institut ohne AG-Zusatz, gehört aber zur selben Einrichtung. ROR der Universität Oldenburg: 033n9gh91."
+}

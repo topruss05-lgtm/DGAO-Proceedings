@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.93,
+  "groups": [[188, 1154]],
+  "canonical": [
+    {
+      "name_de": "Technische Universität Darmstadt",
+      "name_en": "Technische Universität Darmstadt",
+      "kuerzel": "TU Darmstadt",
+      "universitaet": "Technische Universität Darmstadt",
+      "ort": "Darmstadt",
+      "land": "DE",
+      "ror_id": "05n911h24"
+    }
+  ],
+  "reason": "id 188 nennt nur die TU Darmstadt (mit Tippfehler 'Universiät'), id 1154 nennt das 'Center of Smart Interfaces' als Einheit der TU Darmstadt – beides ist dieselbe Einrichtung. Da CSI ein interdisziplinäres Zentrum der TU Darmstadt ohne eigene ROR-ID ist, wird auf Universitätsebene gemergt. ROR 05n911h24 bestätigt."
+}

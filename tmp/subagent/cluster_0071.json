@@ -1,0 +1,41 @@
+{
+    "cluster_id": 71,
+    "nachname_norm": "dietrich",
+    "candidates": [
+        {
+            "id": 525,
+            "name": "D. Dietrich",
+            "papers": 12,
+            "affiliations": "Universidad de la República Montevideo*, Univ.Frankfurt(Main)**, Xavier Univ. Cincinnati",
+            "sample_titles": "An Adaptive Mechanical Articulation to Illustrate Minkowski‘s Space-Time in Special Relativity || Investigation of a Virtual Torsive Space from Twisted Optical Slits || An Outline to model Light Propagation in a Space with Torsion"
+        },
+        {
+            "id": 4292,
+            "name": "V. Dietrich",
+            "papers": 2,
+            "affiliations": "SCHOTT AG, Hattenbergstrasse 10, 55122 Mainz",
+            "sample_titles": "Optische Materialien für die Digitale Projektion || Bulk Laser Damage Threshold of Optical Glasses"
+        },
+        {
+            "id": 5348,
+            "name": "K. Dietrich",
+            "papers": 2,
+            "affiliations": "Institut für Angewandte Physik, Friedrich-Schiller- Universität, Albert-Einstein-Str. 15, 07745 Jena",
+            "sample_titles": "Si-microstructures for back-illuminated Ge-on-Si photodetectors || Effiziente Strukturierungsmethoden für deterministische nanooptische Strukturen"
+        },
+        {
+            "id": 7371,
+            "name": "T. Dietrich",
+            "papers": 2,
+            "affiliations": "Institut für Strahlwerkzeuge (IFSW), Universität Stuttgart",
+            "sample_titles": "Application of Grating waveguide structures in high-power thin-disk lasers: requirements and challenges || Sub-lambda Polarisationsformer für Hochleistungslaser"
+        },
+        {
+            "id": 8622,
+            "name": "P. Dietrich",
+            "papers": 2,
+            "affiliations": "Fraunhofer-Institut für angewandte Optik und Feinmechanik IOF Jena",
+            "sample_titles": "Schnelle 3D-Vermessung von Gläsern mittels sequenzieller thermischer Streifenprojektion || Deflektometrie unter Verwendung aperiodischer Sinusmuster"
+        }
+    ]
+}

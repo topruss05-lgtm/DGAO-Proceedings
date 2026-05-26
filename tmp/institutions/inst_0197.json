@@ -1,0 +1,20 @@
+{
+    "cluster_id": 197,
+    "variants": [
+        {
+            "id": 1329,
+            "name_de": "AG Angewandte Lasertechnik & Photonik, Hochschule für Angewandte Wissenschaften Aschaffenburg",
+            "author_count": 2
+        },
+        {
+            "id": 1650,
+            "name_de": "Fakultät Angewandte Natur- und Geisteswissenschaften, Hochschule für angewandte Wissenschaften Würzburg-Schweinfurt",
+            "author_count": 1
+        },
+        {
+            "id": 1806,
+            "name_de": "Institut für Sensor- und Aktortechnik, Hochschule für angewandte Wissenschaften Coburg",
+            "author_count": 2
+        }
+    ]
+}

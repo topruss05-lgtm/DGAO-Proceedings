@@ -1,0 +1,20 @@
+{
+    "cluster_id": 273,
+    "nachname_norm": "michalski",
+    "candidates": [
+        {
+            "id": 822,
+            "name": "W. Michalski",
+            "papers": 1,
+            "affiliations": "Technical University of Wroclaw, Institute of Telecommunication and Acoustics,\nLaser group of K.M.Abramski",
+            "sample_titles": "Preliminary studies of influence of CTL-1106 biostimulation laser beam on soft human tissues"
+        },
+        {
+            "id": 9487,
+            "name": "E. Michalski",
+            "papers": 1,
+            "affiliations": "Institut für Technische Optik, Universität Stuttgart",
+            "sample_titles": "Aufbau zur Charakterisierung der temperaturabhängigen Fokusverschiebung von Mikroskopobjektiven"
+        }
+    ]
+}

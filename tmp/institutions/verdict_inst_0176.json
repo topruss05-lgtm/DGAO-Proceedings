@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[1168, 1776]],
+  "canonical": [
+    {
+      "name_de": "Hochschule Aalen – Aalen School of Applied Photonics",
+      "name_en": "Aalen School of Applied Photonics, Hochschule Aalen",
+      "kuerzel": "ASAP",
+      "universitaet": "Hochschule Aalen",
+      "ort": "Aalen",
+      "land": "DE",
+      "ror_id": "https://ror.org/04gg60e72"
+    }
+  ],
+  "reason": "Beide Varianten bezeichnen dieselbe Einrichtung an der Hochschule Aalen — nur Reihenfolge der Namensteile unterschiedlich."
+}

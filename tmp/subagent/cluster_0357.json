@@ -1,0 +1,27 @@
+{
+    "cluster_id": 357,
+    "nachname_norm": "schumacher",
+    "candidates": [
+        {
+            "id": 4,
+            "name": "V. Schumacher",
+            "papers": 2,
+            "affiliations": "opsira GmbH",
+            "sample_titles": "Entwicklung eines Reflektors für eine 18 kW-Leuchte zum Einsatz in der Filmindustrie || Lichtquellenmodellierung auf Basis der Nahfeldphotogoniometrie"
+        },
+        {
+            "id": 6041,
+            "name": "P. M. Schumacher",
+            "papers": 1,
+            "affiliations": "Institut für Technische Optik, Universität Stuttgart",
+            "sample_titles": "Determination of mechanical properties of soft tissue by rolling indentation, digital image correlation and finite element modelling"
+        },
+        {
+            "id": 11323,
+            "name": "J. Schumacher",
+            "papers": 2,
+            "affiliations": "TU Ilmenau",
+            "sample_titles": "Mehrstufiges Gedächtnis im optischen Reservoir Computing || Optisches Reservoir Computing zur Analyse turbulenter Konvektionsströme"
+        }
+    ]
+}

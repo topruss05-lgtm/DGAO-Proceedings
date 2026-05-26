@@ -1,0 +1,20 @@
+{
+    "cluster_id": 18,
+    "nachname_norm": "beier",
+    "candidates": [
+        {
+            "id": 2327,
+            "name": "A. Beier",
+            "papers": 1,
+            "affiliations": "Siemens AG",
+            "sample_titles": "Integriert Elektro-optische Leiterplatten auf Basis von Dünnglaslaminaten"
+        },
+        {
+            "id": 4823,
+            "name": "M. Beier",
+            "papers": 1,
+            "affiliations": "Fraunhofer Institüt für Angewandte Optik und Feinmechanik Jena",
+            "sample_titles": "Bestimmung des Justierfehlers asphärischer Linsen mittels Distanzmessung"
+        }
+    ]
+}

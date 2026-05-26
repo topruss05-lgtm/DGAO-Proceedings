@@ -1,0 +1,20 @@
+{
+    "cluster_id": 238,
+    "nachname_norm": "lauermann",
+    "candidates": [
+        {
+            "id": 5263,
+            "name": "M. Lauermann",
+            "papers": 1,
+            "affiliations": "Institute of Photonics and Quantum Electronics (IPQ)",
+            "sample_titles": "Silicon Photonics, Hybrid Integration, and Frequency Combs: Technologies for Terabit/s Communications, Teratronics, and Optical Metrology"
+        },
+        {
+            "id": 5470,
+            "name": "Matthias Lauermann",
+            "papers": 1,
+            "affiliations": "Karlsruhe Institute of Technology (KIT), Germany",
+            "sample_titles": "Silicon-Organic Hybrid (SOH) Devices for Applications in Optical Communications, Metrology, and Sensing"
+        }
+    ]
+}

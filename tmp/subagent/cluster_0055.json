@@ -1,0 +1,27 @@
+{
+    "cluster_id": 55,
+    "nachname_norm": "cao",
+    "candidates": [
+        {
+            "id": 38,
+            "name": "Q. Cao",
+            "papers": 1,
+            "affiliations": "Optische Nachrichtentechnik, FernUniversität Hagen",
+            "sample_titles": "Modifidied composite high-NA Fresnel zone plates"
+        },
+        {
+            "id": 2778,
+            "name": "J. Cao",
+            "papers": 1,
+            "affiliations": "Fachgebiet Mikroreaktionstechnik, Germany",
+            "sample_titles": "Planar Integrated Free-Space Optical Fluorescence Detector for Micro Fluidic Applications"
+        },
+        {
+            "id": 7059,
+            "name": "X. Cao",
+            "papers": 5,
+            "affiliations": "Technische Universität Ilmenau, Fakultät Maschinenbau, Fachgebiet Technische Optik",
+            "sample_titles": "Einfluss der Rotation der Gitter auf den Lau-Effekt || Untersuchung der dreidimensionalen Feldverteilung bei Beugungsexperimenten in inkohärentem Licht (Lau Effekt) || Phase Retrieval mit Hilfe verstimmbarer Optiken für die Fourier Ptychographie"
+        }
+    ]
+}

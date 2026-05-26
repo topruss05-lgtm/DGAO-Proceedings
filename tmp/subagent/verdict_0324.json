@@ -1,0 +1,13 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.95,
+    "groups": [
+        [
+            560
+        ],
+        [
+            8543
+        ]
+    ],
+    "reason": "Verschiedene Initialen (C. vs G.) und unterschiedliche Institutionen (Erlangen vs TH Deggendorf) – trotz ß/Umlaut-Variation klar zwei verschiedene Personen."
+}

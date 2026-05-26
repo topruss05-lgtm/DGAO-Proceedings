@@ -1,0 +1,41 @@
+{
+    "cluster_id": 239,
+    "nachname_norm": "lehmann",
+    "candidates": [
+        {
+            "id": 281,
+            "name": "H. Lehmann",
+            "papers": 2,
+            "affiliations": "Institut für Photonische Technologien e.V., Albert-Einstein-Straße 9, 07745 Jena, Germany",
+            "sample_titles": "Hohlkern-Mikrostrukturierte Fasern : Herstellung und sensorische Anwendungen || Spektroskopische Untersuchungen an Photonischen Kristallfasern unter sensorischen Anwendungsaspekten"
+        },
+        {
+            "id": 2193,
+            "name": "St. Lehmann",
+            "papers": 1,
+            "affiliations": "VMA GmbH Ilmenau,",
+            "sample_titles": "Modellierung einer hyperchromatischen Optik zur Glasdickenmessung"
+        },
+        {
+            "id": 2869,
+            "name": "S. Lehmann",
+            "papers": 1,
+            "affiliations": "Fachgebiet Technische Optik, Technische Universität Ilmenau",
+            "sample_titles": "Chromatic aberration theory in modern metrology"
+        },
+        {
+            "id": 4537,
+            "name": "L. Lehmann",
+            "papers": 1,
+            "affiliations": "ZITI, Chair of Circuit Design, University of Heidelberg",
+            "sample_titles": "Concept and implementation of a compact multi-channel fluorescence-microscope unit"
+        },
+        {
+            "id": 5429,
+            "name": "P. Lehmann",
+            "papers": 5,
+            "affiliations": "Fachgebiet Messtechnik, Universität Kassel",
+            "sample_titles": "Untersuchung von kohärenzscannenden Interferometern mit integrierter Schwingungskorrektur || Konzept zur interferometrischen Formmessung mit einer nachgeführten Mehrzeilenkamera || Error analysis of an interferometric line-based form measuring system"
+        }
+    ]
+}

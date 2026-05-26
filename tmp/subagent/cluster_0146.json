@@ -1,0 +1,20 @@
+{
+    "cluster_id": 146,
+    "nachname_norm": "hartel",
+    "candidates": [
+        {
+            "id": 184,
+            "name": "K. Härtel",
+            "papers": 1,
+            "affiliations": "Kayser-Threde GmbH, München",
+            "sample_titles": "Theoretische Abbildungsleistung des SUNRISE Primärspiegels mit verschiedenen thermalen Kontrollsystementwürfen"
+        },
+        {
+            "id": 8721,
+            "name": "S. Hartel",
+            "papers": 6,
+            "affiliations": "Hochschule Landshut – University of Applied Sciences",
+            "sample_titles": "From differentiable modelling to system optimization: The full journey using Geometric Algebra exemplarily applied to improve light sectioning systems || The anycentric camera: A unifying pinhole model for ento-, hyper- and telecentric lenses using Geometric Algebra || Combining simulation and optimization: Multipurpose modelling of camera-based optical metrology systems"
+        }
+    ]
+}

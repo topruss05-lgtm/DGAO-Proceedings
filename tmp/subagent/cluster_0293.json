@@ -1,0 +1,34 @@
+{
+    "cluster_id": 293,
+    "nachname_norm": "paul",
+    "candidates": [
+        {
+            "id": 3316,
+            "name": "O. Paul",
+            "papers": 1,
+            "affiliations": "Dept. Microsystems Eng. - IMTEK, Univ. Freiburg, Georges-Koehler-Allee 103, 79110 Freiburg",
+            "sample_titles": "Measurement of nanometric deformations of microsystems"
+        },
+        {
+            "id": 5708,
+            "name": "T. Paul",
+            "papers": 1,
+            "affiliations": "Lehrstuhl für Optoelektronik, ziti, Universität Heidelberg",
+            "sample_titles": "Untersuchung und Anwendung von Schmelzlackstrukturen in der Mikrooptik"
+        },
+        {
+            "id": 9671,
+            "name": "J. Paul",
+            "papers": 1,
+            "affiliations": "Hochschule Pforzheim, Tiefenbronner Str. 65, D-75175 Pforzheim, Germany",
+            "sample_titles": "Pylonenerkennung durch einen KI-basierten YOLOv2-Objektdetektor für einen Formula Student Rennwagen"
+        },
+        {
+            "id": 10293,
+            "name": "M. Paul",
+            "papers": 1,
+            "affiliations": "IHP – Leibniz-Institut für innovative Mikroelektronik, Im Technologiepark 25, 15236 Frankfurt(Oder)",
+            "sample_titles": "Silizium-photonische Biosensoren mit monolithisch integrierter Mikrofluidik"
+        }
+    ]
+}

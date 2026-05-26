@@ -1,0 +1,20 @@
+{
+    "cluster_id": 216,
+    "nachname_norm": "kraus",
+    "candidates": [
+        {
+            "id": 7225,
+            "name": "M. Kraus",
+            "papers": 7,
+            "affiliations": "Angewandte Optik, Ernst Abbe Hochschule Jena",
+            "sample_titles": "Konzeptvergleich verschiedener kompakter Kreuzgitter-Spektrometer || Schwarzes und weißes Quarzglas: Hochabsorbierendes und diffus reflektierendes SiO2 durch Sol-Gel Prozess und ‚Mottenaugen‘-Strukturen || Variable, ringförmige Belichtung zur lithografischen Herstellung rotationssymmetrischer mikrooptischer Elemente - Konzeption und Funktionsnachweis"
+        },
+        {
+            "id": 7820,
+            "name": "D. Kraus",
+            "papers": 1,
+            "affiliations": "Leibniz Institute of Photonic Technology, Jena, Germany",
+            "sample_titles": "Speckle imaging for surface measurement with low-cost laser diodes"
+        }
+    ]
+}

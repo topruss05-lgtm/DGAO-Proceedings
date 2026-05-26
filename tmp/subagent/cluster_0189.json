@@ -1,0 +1,20 @@
+{
+    "cluster_id": 189,
+    "nachname_norm": "kellermann",
+    "candidates": [
+        {
+            "id": 6121,
+            "name": "C. Kellermann",
+            "papers": 2,
+            "affiliations": "Institut für Optik, Information und Photonik der Friedrich-Alexander-Universität Erlangen-Nürnberg",
+            "sample_titles": "Theoretical description of a method for simultaneous measurement of phase and arbitrary polarization || Experimental results of the simultaneous measurement of spatially varying phase and polarization."
+        },
+        {
+            "id": 7314,
+            "name": "Ch. Kellermann",
+            "papers": 1,
+            "affiliations": "Institut für Optik, Information und Photonik, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
+            "sample_titles": "Vermessung konvexer, rauer Asphären mittels Interferometrie in streifender Inzidenz"
+        }
+    ]
+}

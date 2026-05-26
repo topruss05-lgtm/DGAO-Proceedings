@@ -1,0 +1,15 @@
+{
+    "cluster_id": 111,
+    "variants": [
+        {
+            "id": 564,
+            "name_de": "Sony Europe B.V.\nSony Semiconductor Solutions Europe\nStuttgart Technology Center",
+            "author_count": 3
+        },
+        {
+            "id": 1794,
+            "name_de": "Stuttgart Technology Center, Sony Europe B.V.",
+            "author_count": 1
+        }
+    ]
+}

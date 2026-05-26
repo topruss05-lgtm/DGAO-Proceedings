@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[8321], [12366]],
+  "reason": "P. Kienle (TU München, FT-Spektrometer) und A. Kienle (Uni Ulm, Raman-Spektroskopie) haben unterschiedliche Initialen, verschiedene Affiliations und Themen."
+}

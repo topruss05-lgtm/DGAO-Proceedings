@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.97,
+  "groups": [[2542], [4387], [7189], [11086]],
+  "reason": "Vier verschiedene Personen mit unterschiedlichen Initialen (A., N., U., J.), verschiedenen Affiliationen (IPHT Jena, TU Ilmenau, Fraunhofer FEP, Fraunhofer IOF) und disjunkten Themen."
+}

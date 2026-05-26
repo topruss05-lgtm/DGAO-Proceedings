@@ -1,0 +1,44 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.88,
+  "groups": [[673, 679, 710, 749], [733], [683], [755]],
+  "canonical": [
+    {
+      "name_de": "Istituto di Fotonica e Nanotecnologie CNR / Dipartimento di Fisica, Politecnico di Milano",
+      "name_en": "Institute of Photonics and Nanotechnologies CNR / Department of Physics, Politecnico di Milano",
+      "kuerzel": "IFN-CNR",
+      "universitaet": "Politecnico di Milano",
+      "ort": "Milano",
+      "land": "IT",
+      "ror_id": "https://ror.org/049ebw417"
+    },
+    {
+      "name_de": "Dipartimento di Elettronica e Informazione, Politecnico di Milano",
+      "name_en": "Department of Electronics and Information, Politecnico di Milano",
+      "kuerzel": null,
+      "universitaet": "Politecnico di Milano",
+      "ort": "Milano",
+      "land": "IT",
+      "ror_id": "https://ror.org/01nffqt88"
+    },
+    {
+      "name_de": "Dipartimento di Fisica, Università La Sapienza Roma",
+      "name_en": "Department of Physics, Sapienza University of Rome",
+      "kuerzel": null,
+      "universitaet": "Sapienza Università di Roma",
+      "ort": "Roma",
+      "land": "IT",
+      "ror_id": null
+    },
+    {
+      "name_de": "Dipartimento di Fisica, Politecnico di Torino",
+      "name_en": "Department of Physics, Polytechnic University of Turin",
+      "kuerzel": null,
+      "universitaet": "Politecnico di Torino",
+      "ort": "Torino",
+      "land": "IT",
+      "ror_id": "https://ror.org/00bgk9508"
+    }
+  ],
+  "reason": "Der Cluster enthält vier distinkte Einrichtungen: IFN-CNR/Politecnico di Milano Fisica (673/679/710/749 – gleiche Forschungsgruppe, mehrere Schreibvarianten), Politecnico di Milano Elettronica (733 – anderes Departement), Sapienza Roma (683) und Politecnico di Torino (755)."
+}

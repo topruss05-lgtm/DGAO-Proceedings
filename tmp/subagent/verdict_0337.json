@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[921], [930], [4419], [7034]],
+  "reason": "Vier verschiedene Vornamen-Initialen (H.J., B., J., K.) mit disjunkten Affiliationen (Münster, Kappa GmbH, Münster, Hochschule Aalen). H.J. und J. Schlichting teilen Universität Münster und ähnliche Themen (Alltagsoptik), könnten aber dennoch verschiedene Personen sein – hier bleibt Unsicherheit; alle anderen sind klar getrennt."
+}

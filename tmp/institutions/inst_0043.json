@@ -1,0 +1,15 @@
+{
+    "cluster_id": 43,
+    "variants": [
+        {
+            "id": 136,
+            "name_de": "Labor für Biophysik, Universität Münster",
+            "author_count": 4
+        },
+        {
+            "id": 522,
+            "name_de": "Labor für Biophysik, WWU Münster",
+            "author_count": 1
+        }
+    ]
+}

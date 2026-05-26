@@ -1,0 +1,20 @@
+{
+    "cluster_id": 448,
+    "nachname_norm": "wissenbach",
+    "candidates": [
+        {
+            "id": 3237,
+            "name": "K. Wissenbach",
+            "papers": 1,
+            "affiliations": "Fraunhofer Institut für Lasertechnik ILT, Aachen",
+            "sample_titles": "Polieren optischer Präzisionsoberflächen mit Laserstrahlung - PoliLas"
+        },
+        {
+            "id": 4381,
+            "name": "Dr. K. Wissenbach",
+            "papers": 1,
+            "affiliations": "Fraunhofer Institut für Lasertechnik",
+            "sample_titles": "Polishing of illumination optics with CO2 laser radiation"
+        }
+    ]
+}

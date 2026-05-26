@@ -1,0 +1,41 @@
+{
+    "cluster_id": 223,
+    "nachname_norm": "kruger",
+    "candidates": [
+        {
+            "id": 1153,
+            "name": "S. Krüger",
+            "papers": 1,
+            "affiliations": "Humboldt-Universität Berlin, Institut für Physik\nHoloEye Photonics AG Berlin",
+            "sample_titles": "Dynamisches System für die Aufnahme und optische Rekonstruktion von Hologrammen"
+        },
+        {
+            "id": 3807,
+            "name": "U. Krüger",
+            "papers": 1,
+            "affiliations": "TechnoTeam Bildverarbeitung GmbH, Ilmenau",
+            "sample_titles": "Ermittlung der Übertragungsfunktion einer auf Glasfiltern basierenden Multispektralkamera"
+        },
+        {
+            "id": 4019,
+            "name": "M. Krüger",
+            "papers": 2,
+            "affiliations": "Fachgebiet Technische Optik, Institut für Mikro- und Nanotechnologien, Technische Universität Ilmenau",
+            "sample_titles": "Kombinierter Müller-Jones-Formalismus zur umfassenden Optimierung spatialer Flüssigkristall-Lichtmodulatoren || Mikrostrukturierung senkrechter Kanalwände mittels Talbot-Effekt"
+        },
+        {
+            "id": 6578,
+            "name": "A. Krüger",
+            "papers": 3,
+            "affiliations": "Laser Zentrum Hannover e.V.",
+            "sample_titles": "Macrobending losses of glass fibers for optical cochlear stimulation || Adaptive optics assisted and optical coherence tomography guided fs-laser surgery in the posterior eye || Surface analysis of femtosecond laser processed materials by using different interferometric modalities"
+        },
+        {
+            "id": 12645,
+            "name": "J. Krüger",
+            "papers": 6,
+            "affiliations": "Physikalisch-Technische Bundesanstalt, 38116 Braunschweig",
+            "sample_titles": "Implementierung der Auswertealgorithmen für ein neuartiges mikroskopisches Verfahren zur Bestimmung bidirektionaler Größen aus Fokusserienmessungen || Ein in-situ Verfahren zur Bestimmung der numerischen Aperturen (NA) der Beleuchtung und der Abbildung optischer Mikroskope || Untersuchung des Schwingungseinflusses auf gemessene Punktspreizfunktionen in der optischen Mikroskopie"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "cluster_id": 34,
+    "variants": [
+        {
+            "id": 121,
+            "name_de": "Kayser-Threde GmbH, München",
+            "author_count": 5
+        },
+        {
+            "id": 924,
+            "name_de": "Kayser-Threde GmbH, Wolfratshauserstr. 48, 81679 München",
+            "author_count": 4
+        }
+    ]
+}

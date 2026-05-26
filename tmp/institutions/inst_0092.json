@@ -1,0 +1,15 @@
+{
+    "cluster_id": 92,
+    "variants": [
+        {
+            "id": 419,
+            "name_de": "Physikalisches Institut, J.W. Goethe Universität Frankfurt Main",
+            "author_count": 1
+        },
+        {
+            "id": 443,
+            "name_de": "Physikalisches Institut der Johann Wolfgang Goethe-Universität Frankfurt am Main",
+            "author_count": 2
+        }
+    ]
+}

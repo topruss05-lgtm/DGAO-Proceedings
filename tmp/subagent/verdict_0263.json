@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[5405], [6589]],
+  "reason": "S. Matthias (Leibniz Universität Hannover, endoskopische 3D-Messtechnik) und B. Matthias (Laser Zentrum Hannover, adaptive Optik für Augenoperationen) haben unterschiedliche Vornamen-Initialen; trotz gleicher Stadt unterschiedliche Institutionen und Themen."
+}

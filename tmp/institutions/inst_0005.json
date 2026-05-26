@@ -1,0 +1,100 @@
+{
+    "cluster_id": 5,
+    "variants": [
+        {
+            "id": 12,
+            "name_de": "Fraunhofer Institute for Applied Optics and Precision Engineering, Jena",
+            "author_count": 3
+        },
+        {
+            "id": 98,
+            "name_de": "Fraunhofer Institute of Applied Optics and Precision Engineering (IOF), Jena",
+            "author_count": 2
+        },
+        {
+            "id": 169,
+            "name_de": "Institute of Applied Optics, Abbe Center of Photonics, Friedrich Schiller University Jena",
+            "author_count": 2
+        },
+        {
+            "id": 170,
+            "name_de": "Institute of Applied Optics, Friedrich-Schiller-University Jena, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 183,
+            "name_de": "Fraunhofer Institute for Applied Optics and Precision Engineering IOF, Jena",
+            "author_count": 3
+        },
+        {
+            "id": 196,
+            "name_de": "Institute of Applied Optics, Abbe Center of Photonics, Center of Medical Optics and Photonics,\nFriedrich Schiller University",
+            "author_count": 1
+        },
+        {
+            "id": 234,
+            "name_de": "Friedrich-Schiller-University Jena, Institute of Applied Optics\nMax-Wien-Platz 1, D-07743 Jena, Germany\n\nMozyr State Pedagogical University,\nLaboratory of Coherent Optics and Holography\nStudencheskaya 29, Mozyr, Belarus",
+            "author_count": 2
+        },
+        {
+            "id": 359,
+            "name_de": "Institute of Applied Optics, Friedrich-Schiller-University Jena",
+            "author_count": 6
+        },
+        {
+            "id": 370,
+            "name_de": "Institute of Applied Optics, Friedrich Schiller University Jena",
+            "author_count": 2
+        },
+        {
+            "id": 445,
+            "name_de": "Fraunhofer Institute for Applied Optics and Precision Engineering IOF Jena",
+            "author_count": 3
+        },
+        {
+            "id": 654,
+            "name_de": "Fraunhofer Institute of Applied Optics and Precision Engineering, Albert-Einstein-Str. 7, 07745 Jena, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 759,
+            "name_de": "CNR-INOA, National Institute of Applied Optics\nLargo E. Fermi 6\n50125 Firenze (ITALY)",
+            "author_count": 4
+        },
+        {
+            "id": 790,
+            "name_de": "State Key Laboratory of Transient Optics and Photonics, Xi’an Institute of Optics and Precision Mechanics, Chinese Academy of Sciences, China",
+            "author_count": 1
+        },
+        {
+            "id": 944,
+            "name_de": "Fraunhofer Institute for Applied Optics and Precision Engineering IOF",
+            "author_count": 8
+        },
+        {
+            "id": 1051,
+            "name_de": "Fraunhofer Institut for Applied Optics and Precision Engineering",
+            "author_count": 1
+        },
+        {
+            "id": 1618,
+            "name_de": "Institute of Applied Optics and Research Center SCoPE, Pfaffenwaldring 9, 70569, Stuttgart, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 1622,
+            "name_de": "Fraunhofer Institute for Applied Optics and Precision Engineering, Albert-Einstein-Str. 7, 07745 Jena",
+            "author_count": 1
+        },
+        {
+            "id": 1867,
+            "name_de": "Institute of Applied Optics (ITO), University of Stuttgart",
+            "author_count": 1
+        },
+        {
+            "id": 1869,
+            "name_de": "Fraunhofer Institute of Applied Optics and Precision Engineering IOF",
+            "author_count": 1
+        }
+    ]
+}

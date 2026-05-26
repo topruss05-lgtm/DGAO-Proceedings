@@ -1,0 +1,20 @@
+{
+    "cluster_id": 462,
+    "nachname_norm": "yu",
+    "candidates": [
+        {
+            "id": 2345,
+            "name": "K. Yu",
+            "papers": 1,
+            "affiliations": "Institut für Technische Optik (ITO), Universität Stuttgart, Germany",
+            "sample_titles": "Spin-coating of photoresist on convex lens substrates"
+        },
+        {
+            "id": 5288,
+            "name": "Y. Yu",
+            "papers": 1,
+            "affiliations": "Institut für Photonik und Quantenelektronik, Karlsruher Institut für Technologie",
+            "sample_titles": "Kerr-Frequenzkämme und deren Stabilisierung für die Terabit-Kommunikation"
+        }
+    ]
+}

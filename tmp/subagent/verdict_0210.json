@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[3818], [8044]],
+  "reason": "F. Kolb (Jena-Optronik, Zoomoptik Weltraum) und D. Kolb (Hochschule Aalen, Laserbearbeitung) haben unterschiedliche Initialen, verschiedene Affiliations und Themen."
+}

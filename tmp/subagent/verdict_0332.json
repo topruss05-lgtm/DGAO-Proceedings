@@ -1,0 +1,13 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.97,
+    "groups": [
+        [
+            566
+        ],
+        [
+            2832
+        ]
+    ],
+    "reason": "Verschiedene Initialen (I. vs M.) und unterschiedliche Institutionen (TRIOPTICS vs DLR Berlin) – zwei verschiedene Personen."
+}

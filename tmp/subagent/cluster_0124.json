@@ -1,0 +1,20 @@
+{
+    "cluster_id": 124,
+    "nachname_norm": "giel",
+    "candidates": [
+        {
+            "id": 2094,
+            "name": "D. M. Giel",
+            "papers": 2,
+            "affiliations": "Fraunhofer-Institut für Physikalische Messtechnik IPM, Freiburg",
+            "sample_titles": "Realisierung eines hochauflösenden optischen Sensors auf Basis digitaler Mehrwellenlängenholografie || Digitale Mehrwellenlängen-Holographie für die schnelle optische Inline Qualitätskontrolle"
+        },
+        {
+            "id": 3304,
+            "name": "D. Giel",
+            "papers": 3,
+            "affiliations": "Fraunhofer IPM, Freiburg",
+            "sample_titles": "Digitale Mehrwellenlängenholographie zur schnellen 3D-Vermessung technischer Oberflächen || Computer-generierte Polarisationshologramme zur vollständigen Kontrolle über Amplitude und Phase || Hochauflösendes 3D-Messystem auf Basis eines neuartigen digitalholographischen Multilambda-Sensors"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 198,
+    "nachname_norm": "kippenberg",
+    "candidates": [
+        {
+            "id": 5290,
+            "name": "T. J. Kippenberg",
+            "papers": 1,
+            "affiliations": "Laboratory of Photonics and Quantum Measurements, Ecole Polytechnique Federale de Lausanne",
+            "sample_titles": "Kerr-Frequenzkämme und deren Stabilisierung für die Terabit-Kommunikation"
+        },
+        {
+            "id": 6524,
+            "name": "T. Kippenberg",
+            "papers": 1,
+            "affiliations": "EPFL",
+            "sample_titles": "Integrated Optics"
+        }
+    ]
+}

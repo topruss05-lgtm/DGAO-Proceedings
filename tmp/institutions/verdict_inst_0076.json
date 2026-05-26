@@ -1,0 +1,26 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[321], [1074]],
+  "canonical": [
+    {
+      "name_de": "Department of Physics and Astronomy, The University of Western Ontario",
+      "name_en": "Department of Physics and Astronomy, The University of Western Ontario",
+      "kuerzel": "UWO-Physics",
+      "universitaet": "The University of Western Ontario (Western University)",
+      "ort": "London, Ontario",
+      "land": "CA",
+      "ror_id": "https://ror.org/02grkyz14"
+    },
+    {
+      "name_de": "Department of Earth Sciences, The University of Western Ontario",
+      "name_en": "Department of Earth Sciences, The University of Western Ontario",
+      "kuerzel": "UWO-EarthSci",
+      "universitaet": "The University of Western Ontario (Western University)",
+      "ort": "London, Ontario",
+      "land": "CA",
+      "ror_id": "https://ror.org/02grkyz14"
+    }
+  ],
+  "reason": "Beide Einträge gehören zur University of Western Ontario, aber zu verschiedenen Departments (Physics & Astronomy vs. Earth Sciences). Diese sind inhaltlich unterschiedlich und sollten als separate Institutionen geführt werden."
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 116,
+    "nachname_norm": "geckeler",
+    "candidates": [
+        {
+            "id": 73,
+            "name": "R. D. Geckeler",
+            "papers": 17,
+            "affiliations": "Physikalisch-Technische Bundesanstalt",
+            "sample_titles": "Validierung der Raumwinkelkalibrierung von Autokollimatoren mittels interner und externer Vergleichsmessungen || Hochgenaue und reproduzierbare Blendenpositionierung in der Autokollimatoren-Messtechnik || Luftdruck – ein unterschätzter Einflussfaktor in der Winkelmessung mit Autokollimatoren"
+        },
+        {
+            "id": 4278,
+            "name": "R. Geckeler",
+            "papers": 1,
+            "affiliations": "Physikalisch-Technische Bundesanstalt, Braunschweig",
+            "sample_titles": "Recent advances in autocollimator calibration and optimisation at the PTB"
+        }
+    ]
+}

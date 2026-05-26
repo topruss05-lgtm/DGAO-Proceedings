@@ -1,0 +1,20 @@
+{
+    "cluster_id": 12,
+    "nachname_norm": "baldacchini",
+    "candidates": [
+        {
+            "id": 2966,
+            "name": "G. Baldacchini",
+            "papers": 1,
+            "affiliations": "ENEA, Advanced Technologies and New Materials Dep., C: R. Frascati, 00044 Frascati, (Rome) Italy",
+            "sample_titles": "Optical Properties, Morphology and Long Time Degradation of Alq3 Thin Films"
+        },
+        {
+            "id": 2967,
+            "name": "T. Baldacchini",
+            "papers": 1,
+            "affiliations": "Newport Corporation, Technology and Application Center, Irvine, California 92606, USA",
+            "sample_titles": "Optical Properties, Morphology and Long Time Degradation of Alq3 Thin Films"
+        }
+    ]
+}

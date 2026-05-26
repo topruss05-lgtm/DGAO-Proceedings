@@ -1,0 +1,20 @@
+{
+    "cluster_id": 312,
+    "nachname_norm": "ribeiro",
+    "candidates": [
+        {
+            "id": 6592,
+            "name": "B. A. Ribeiro",
+            "papers": 1,
+            "affiliations": "Dept. Engenharia de Telecomunicações,Universidade Federal Fluminense",
+            "sample_titles": "An Optical AC-Amplifier/DC-Suppressor Using Sagnac Interferometer with Semiconductor Optical Amplifier"
+        },
+        {
+            "id": 6595,
+            "name": "R. M. Ribeiro",
+            "papers": 1,
+            "affiliations": "Dept. Engenharia de Telecomunicações,Universidade Federal Fluminense",
+            "sample_titles": "An Optical AC-Amplifier/DC-Suppressor Using Sagnac Interferometer with Semiconductor Optical Amplifier"
+        }
+    ]
+}

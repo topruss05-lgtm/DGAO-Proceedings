@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.92,
+  "groups": [[1343, 12120], [3850], [3864], [10299], [12029], [12144]],
+  "reason": "M. Hofmann (id 1343) und M. K. Hofmann (id 12120) teilen dieselbe Affiliation (TU Ilmenau, Technische Optik) und dasselbe Paper-Thema (YAG-Kristalle/Fluoreszenz), sind daher dieselbe Person. Alle anderen Kandidaten (A., W., D., O., J.) haben verschiedene Initialen und disjunkte Affiliationen."
+}

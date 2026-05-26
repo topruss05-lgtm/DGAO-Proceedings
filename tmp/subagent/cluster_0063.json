@@ -1,0 +1,20 @@
+{
+    "cluster_id": 63,
+    "nachname_norm": "cremer",
+    "candidates": [
+        {
+            "id": 697,
+            "name": "C. Cremer",
+            "papers": 2,
+            "affiliations": "Institut für Pharmazie und Molekulare Biotechnologie, Universität Heidelberg, und Institut für Molekulare Biologie, Mainz",
+            "sample_titles": "Axial Tomography in Single Cell Fluorescence Microscopy || Nanometry of Bio-Molecular Complexes using PSF Reconstruction in SMI Microscopy"
+        },
+        {
+            "id": 8616,
+            "name": "Ch. Cremer",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Superauflösende Mikroskopie mit sehr großem Arbeitsabstand durch verteilte Aperturbeleuchtung"
+        }
+    ]
+}

@@ -1,0 +1,59 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [
+    [207, 208, 616, 650],
+    [454],
+    [600],
+    [686],
+    [1667]
+  ],
+  "canonical": [
+    {
+      "name_de": "Departamento de Física Aplicada, ETS de Minas (ETSIMinas), Universidad Politécnica de Madrid",
+      "name_en": "Department of Applied Physics, School of Mines, Universidad Politécnica de Madrid",
+      "kuerzel": "",
+      "universitaet": "Universidad Politécnica de Madrid",
+      "ort": "Madrid",
+      "land": "ES",
+      "ror_id": "https://ror.org/03n6nwv02"
+    },
+    {
+      "name_de": "Departamento de Física Aplicada II, ETSArquitectura, Universidad de Sevilla",
+      "name_en": "Department of Applied Physics II, School of Architecture, University of Seville",
+      "kuerzel": "",
+      "universitaet": "Universidad de Sevilla",
+      "ort": "Sevilla",
+      "land": "ES",
+      "ror_id": ""
+    },
+    {
+      "name_de": "Departamento de Física, Universidad Autónoma de Barcelona",
+      "name_en": "Department of Physics, Autonomous University of Barcelona",
+      "kuerzel": "",
+      "universitaet": "Universitat Autònoma de Barcelona",
+      "ort": "Barcelona",
+      "land": "ES",
+      "ror_id": ""
+    },
+    {
+      "name_de": "CNR – Istituto Nazionale di Ottica Applicata, Florenz / Universidad Rey Juan Carlos, Madrid",
+      "name_en": "CNR – National Institute of Applied Optics, Florence / Universidad Rey Juan Carlos, Madrid",
+      "kuerzel": "INOA",
+      "universitaet": "",
+      "ort": "Florenz / Madrid",
+      "land": "IT/ES",
+      "ror_id": ""
+    },
+    {
+      "name_de": "Universidad Carlos III de Madrid",
+      "name_en": "Charles III University of Madrid",
+      "kuerzel": "UC3M",
+      "universitaet": "Universidad Carlos III de Madrid",
+      "ort": "Leganés / Madrid",
+      "land": "ES",
+      "ror_id": ""
+    }
+  ],
+  "reason": "Der Cluster enthält fünf verschiedene Institutionen aus drei Ländern (Spanien, Italien) und mehreren Universitäten; ID 686 ist sogar eine gemeinsame Affiliation zweier gänzlich verschiedener Institute. Keine Zusammenführung möglich."
+}

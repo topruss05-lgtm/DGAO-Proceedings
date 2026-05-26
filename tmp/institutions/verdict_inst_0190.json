@@ -1,0 +1,59 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.82,
+  "groups": [
+    [1265],
+    [1311],
+    [1350],
+    [1376, 1761, 1825],
+    [1354, 1559, 1886]
+  ],
+  "canonical": [
+    {
+      "name_de": "Fakultät für Bauingenieurwesen, Fachbereich Physik, Tschechische Technische Universität Prag",
+      "name_en": "Faculty of Civil Engineering, Department of Physics, Czech Technical University in Prague",
+      "kuerzel": "CTU Prague",
+      "universitaet": "Czech Technical University in Prague",
+      "ort": "Prague",
+      "land": "CZ",
+      "ror_id": "https://ror.org/03kqpb082"
+    },
+    {
+      "name_de": "Fachbereich Mikroelektronik, Fakultät Elektrotechnik, Tschechische Technische Universität Prag",
+      "name_en": "Department of Microelectronics, Faculty of Electrical Engineering, Czech Technical University in Prague",
+      "kuerzel": "CTU Prague",
+      "universitaet": "Czech Technical University in Prague",
+      "ort": "Prague",
+      "land": "CZ",
+      "ror_id": "https://ror.org/03kqpb082"
+    },
+    {
+      "name_de": "Fachbereich Physikalische Elektronik, Fakultät Elektrotechnik, Tschechische Technische Universität Prag",
+      "name_en": "Dept. of Physical Electronics, Faculty of Electrical Engineering, Czech Technical University in Prague",
+      "kuerzel": "CTU Prague",
+      "universitaet": "Czech Technical University in Prague",
+      "ort": "Prague",
+      "land": "CZ",
+      "ror_id": "https://ror.org/03kqpb082"
+    },
+    {
+      "name_de": "Fakultät Elektrotechnik, Tschechische Technische Universität Prag",
+      "name_en": "Faculty of Electrical Engineering, Czech Technical University in Prague",
+      "kuerzel": "CTU Prague",
+      "universitaet": "Czech Technical University in Prague",
+      "ort": "Prague",
+      "land": "CZ",
+      "ror_id": "https://ror.org/03kqpb082"
+    },
+    {
+      "name_de": "Tschechische Technische Universität Prag",
+      "name_en": "Czech Technical University in Prague",
+      "kuerzel": "CTU Prague",
+      "universitaet": "Czech Technical University in Prague",
+      "ort": "Prague",
+      "land": "CZ",
+      "ror_id": "https://ror.org/03kqpb082"
+    }
+  ],
+  "reason": "Alle Einträge gehören zur CTU Prague, benennen aber verschiedene Fakultäten/Departments (Bauingenieurwesen, Mikroelektronik, Physikalische Elektronik, Elektrotechnik allgemein, generisch). Da CTU Prague groß ist und die Departments inhaltlich verschieden sind, werden sie separat gehalten; generische Einträge werden zusammengefasst. Konfidenz moderat da Grenzfall."
+}

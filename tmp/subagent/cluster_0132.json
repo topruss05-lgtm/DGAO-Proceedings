@@ -1,0 +1,20 @@
+{
+    "cluster_id": 132,
+    "nachname_norm": "grunewald",
+    "candidates": [
+        {
+            "id": 8438,
+            "name": "T. Grunewald",
+            "papers": 2,
+            "affiliations": "Physikalisch-Technische Bundesanstalt (PTB), Bundesallee 100, 38116 Braunschweig, Germany",
+            "sample_titles": "Analysis of ellipsometric layer thickness measurements applying a novel optimization method for depolarizing Mueller matrices || A new method to derive best-fit parameters and their uncertainties from depolarizing Mueller-matrices"
+        },
+        {
+            "id": 12466,
+            "name": "J. Grunewald",
+            "papers": 1,
+            "affiliations": "Institut für Technische Optik, Universität Stuttgart",
+            "sample_titles": "Mikrofluidisch aktuierbare, 3D-gedruckte PDMS-Membran integriert auf einer optischen Faser"
+        }
+    ]
+}

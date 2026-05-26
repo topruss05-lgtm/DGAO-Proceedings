@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.90,
+  "groups": [[384, 925]],
+  "canonical": [
+    {
+      "name_de": "Institut für Biomedizinische Technik und Informatik, Technische Universität Ilmenau",
+      "name_en": "Institute of Biomedical Engineering and Informatics, Technische Universität Ilmenau",
+      "kuerzel": "IBTI-TUIl",
+      "universitaet": "Technische Universität Ilmenau",
+      "ort": "Ilmenau",
+      "land": "DE",
+      "ror_id": "https://ror.org/01weqhp73"
+    }
+  ],
+  "reason": "Variante 384 (FG Biomedizinische Technik, TU Ilmenau) und Variante 925 (Institut für Biomedizinische Technik und Informatik, TU Ilmenau) bezeichnen dieselbe Einrichtung; FG steht für Fachgebiet und ist Teil des Instituts IBTI."
+}

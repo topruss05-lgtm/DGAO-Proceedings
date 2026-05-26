@@ -1,0 +1,20 @@
+{
+    "cluster_id": 120,
+    "variants": [
+        {
+            "id": 618,
+            "name_de": "Fraunhofer Institut für Physikalische Messtechnik IPM, Freiburg",
+            "author_count": 1
+        },
+        {
+            "id": 620,
+            "name_de": "Fraunhofer-Institut für Physikalische Messtechnik IPM, Freiburg",
+            "author_count": 5
+        }
+    ],
+    "verdict": "merge",
+    "confidence": 0.99,
+    "groups": [[618, 620]],
+    "canonical": [{"name_de": "Fraunhofer-Institut für Physikalische Messtechnik IPM", "name_en": "Fraunhofer Institute for Physical Measurement Techniques IPM", "kuerzel": "Fraunhofer IPM", "universitaet": null, "ort": "Freiburg im Breisgau", "land": "DE", "ror_id": "https://ror.org/004n2nr09"}],
+    "reason": "Identische Institution; der einzige Unterschied ist ein fehlendes Bindestrich-Zeichen zwischen 'Fraunhofer' und 'Institut' in Variante 618."
+}

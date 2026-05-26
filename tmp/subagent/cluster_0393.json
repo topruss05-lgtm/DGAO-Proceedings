@@ -1,0 +1,20 @@
+{
+    "cluster_id": 393,
+    "nachname_norm": "strobel",
+    "candidates": [
+        {
+            "id": 2127,
+            "name": "O. Strobel",
+            "papers": 1,
+            "affiliations": "Mercedes-Benz technology, Sindelfingen/ Hochschule Esslingen",
+            "sample_titles": "Optical Data Bus Technologies for Automotive Applications - Principles, Limits and New Trends for Vehicles and Airplanes"
+        },
+        {
+            "id": 6492,
+            "name": "G. Ströbel",
+            "papers": 1,
+            "affiliations": "Bremer Institut für Messtechnik, Automatisierung und Qualitätswissenschaft (BIMAQ), Universität Bremen",
+            "sample_titles": "Optimized Parametric Optical Surface Characterization Process for Smooth Engineered Surfaces"
+        }
+    ]
+}

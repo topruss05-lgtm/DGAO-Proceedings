@@ -1,0 +1,20 @@
+{
+    "cluster_id": 9,
+    "nachname_norm": "baer",
+    "candidates": [
+        {
+            "id": 4667,
+            "name": "G. Baer",
+            "papers": 7,
+            "affiliations": "Baer - Optical Engineering",
+            "sample_titles": "Object-oriented optical design || Model-based calibration of an adaptive interferometric setup || Calibration of interferometric non-null test setups"
+        },
+        {
+            "id": 8823,
+            "name": "G. B. Baer",
+            "papers": 4,
+            "affiliations": "Baer - Optical Engineering | Quadoa Optical Systems GMbH",
+            "sample_titles": "Methods for the accurate modeling of birefringent optical elements and thin films using multi-sequential raytracing and beamlet propagation methods || Streamlining the workflow of optical and mechanical design || Vergleich und Optimierung von CPU- und GPU-basierten Berechnungen für typische Funktionen im Optikdesign"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 227,
+    "nachname_norm": "kusserow",
+    "candidates": [
+        {
+            "id": 1535,
+            "name": "T. Kusserow",
+            "papers": 6,
+            "affiliations": "Nanophotonik (INA) / CINSaT, Universität Kassel",
+            "sample_titles": "Manipulation der optischen Eigenschaften von Dünnschichten für nanooptische Anwendungen || Weit abstimmbare optische Filter um 1550 nm basierend auf SiC-SiO MEMS-DBR || Distribution of Cavity-modes in Narrowband Filters with Chirped Thin-Films"
+        },
+        {
+            "id": 3730,
+            "name": "Th. Kusserow",
+            "papers": 3,
+            "affiliations": "Universität Kassel",
+            "sample_titles": "VCSEL mit verteilter Rückkopplung in einer gechirpten Dünnschichtstruktur || Polarisationsselektive InP MOEMS Filter mit Photonischen Kristallen || Diffraktiv optische Elemente für künstlerische und darstellende Anwendungen"
+        }
+    ]
+}

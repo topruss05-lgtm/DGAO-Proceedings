@@ -1,0 +1,20 @@
+{
+    "cluster_id": 132,
+    "variants": [
+        {
+            "id": 706,
+            "name_de": "Hochschule Landshut – University of Applied Sciences",
+            "author_count": 5
+        },
+        {
+            "id": 1385,
+            "name_de": "Fakultät Elektrotechnik und Wirtschaftsingenieurwesen, Hochschule Landshut - University of Applied Sciences",
+            "author_count": 1
+        }
+    ],
+    "verdict": "merge",
+    "confidence": 0.99,
+    "groups": [[706, 1385]],
+    "canonical": [{"name_de": "Hochschule Landshut – Hochschule für angewandte Wissenschaften", "name_en": "Landshut University of Applied Sciences", "kuerzel": "HL", "universitaet": null, "ort": "Landshut", "land": "DE", "ror_id": "https://ror.org/056z5bx32"}],
+    "reason": "Beide Einträge bezeichnen dieselbe Hochschule Landshut; ID 1385 nennt zusätzlich die Fakultät, was keine eigenständige Einrichtung darstellt."
+}

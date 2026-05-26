@@ -1,0 +1,30 @@
+{
+    "cluster_id": 135,
+    "variants": [
+        {
+            "id": 716,
+            "name_de": "CNR, Istituto di Fisica Applicata Nello Carrara, 50019 Sesto Fiorentino (Italy)",
+            "author_count": 2
+        },
+        {
+            "id": 724,
+            "name_de": "MDF Lab., IFAC - CNR, Via Madonna del Piano 10, 50019 Sesto Fiorentino (Firenze), Italy.",
+            "author_count": 1
+        },
+        {
+            "id": 764,
+            "name_de": "CNR IFAC, Via Madonna del Piano, 10, I- 50019 Sesto Fiorentino (FI ), Italy",
+            "author_count": 3
+        },
+        {
+            "id": 779,
+            "name_de": "Istituto di Fisica Applicata \"Nello Carrara\", - CNR, Sesto Fiorentino, Italy",
+            "author_count": 4
+        }
+    ],
+    "verdict": "merge",
+    "confidence": 0.99,
+    "groups": [[716, 724, 764, 779]],
+    "canonical": [{"name_de": "Istituto di Fisica Applicata \"Nello Carrara\" CNR (CNR-IFAC)", "name_en": "Nello Carrara Institute of Applied Physics CNR (CNR-IFAC)", "kuerzel": "CNR-IFAC", "universitaet": null, "ort": "Sesto Fiorentino", "land": "IT", "ror_id": "https://ror.org/00dqega85"}],
+    "reason": "Alle vier Einträge bezeichnen dasselbe CNR-IFAC in Sesto Fiorentino; Unterschiede sind Kürzel, Adressdetails und Labornamen (MDF Lab ist ein internes Labor desselben Instituts)."
+}

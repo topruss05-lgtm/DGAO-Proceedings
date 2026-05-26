@@ -1,0 +1,55 @@
+{
+    "cluster_id": 186,
+    "variants": [
+        {
+            "id": 1253,
+            "name_de": "ASCR, Institute of Scientific Instruments, Brno, Czech Republic",
+            "author_count": 3
+        },
+        {
+            "id": 1255,
+            "name_de": "Institute of Scientific Instruments, Czech Academy of Sciences, Kralovopolska 147, 61264 Brno, CZ.",
+            "author_count": 4
+        },
+        {
+            "id": 1264,
+            "name_de": "Institute of Scientific Instruments of the Academy of Science of the Czech republic, v.v.i., Královopolská 147, 612 64 Brno, Czech Republic",
+            "author_count": 1
+        },
+        {
+            "id": 1283,
+            "name_de": "Institute Of Scientific Instruments of the AS CR v.v.i., Brno",
+            "author_count": 2
+        },
+        {
+            "id": 1305,
+            "name_de": "HiLASE Centre, Institute of Physics ASCR, Za Radnicí 828, 25241 Dolní Břežany, Czech Republic",
+            "author_count": 1
+        },
+        {
+            "id": 1321,
+            "name_de": "CEITECÃ¢â‚¬â€Central European Institute of Technology, Brno University of Technology, Technicka 3058/10, 616 00 Brno, Czech Republic",
+            "author_count": 5
+        },
+        {
+            "id": 1330,
+            "name_de": "Institute of Scientific Instruments, Academy of Sciences of the Czech Republic, Královopolská 147, 61264 Brno, Czech Republic",
+            "author_count": 2
+        },
+        {
+            "id": 1334,
+            "name_de": "Institute of Scientific Instruments, v.v.i., Academy of Sciences of the Czech Republic\nKrálovopolská 147, 612 64 Brno, Czech Republic",
+            "author_count": 5
+        },
+        {
+            "id": 1342,
+            "name_de": "HiLASE Centre, Institute of Physics ASCR, v.v.i, Dolní Břežany Czech Republic.",
+            "author_count": 3
+        },
+        {
+            "id": 1344,
+            "name_de": "Institute of Scientific Instruments of the ASCR, v. v. i., Brno, Czech Republic",
+            "author_count": 4
+        }
+    ]
+}

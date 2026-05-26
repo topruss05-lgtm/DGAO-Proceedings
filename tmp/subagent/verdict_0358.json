@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.97,
+  "groups": [[215], [947], [4779], [4883], [10831]],
+  "reason": "Fünf Schuster-Einträge mit verschiedenen Initialen (K., T., N., M., R.) und vollständig disjunkten Affiliationen (IPHT Jena, ITO Stuttgart, SUSTAR, PTB, Hochschule Aalen)."
+}

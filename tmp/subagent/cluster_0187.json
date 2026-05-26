@@ -1,0 +1,27 @@
+{
+    "cluster_id": 187,
+    "nachname_norm": "kaufmann",
+    "candidates": [
+        {
+            "id": 4210,
+            "name": "H. W. Kaufmann",
+            "papers": 1,
+            "affiliations": "Fa Horst W. Kaufmann-Präzisions-Optik, Crailsheim",
+            "sample_titles": "Kaufmann-Präzisions-Optik (ein Rückblick)"
+        },
+        {
+            "id": 7106,
+            "name": "M. Kaufmann",
+            "papers": 6,
+            "affiliations": "Institut für Energie- und Klimaforschung, FZ Jülich",
+            "sample_titles": "In-Orbit-Verifikation eines spatialen Heterodyn-Interferometers zur Temperaturmessung in der oberen Atmosphäre || Kalibrierung eines Doppler-Asymmetric Spatial-Heterodyne (DASH) Spektrometers für die Messung atmosphärischer Windgeschwindigkeiten || Entwicklung eines neuen bodengebundenen Infrarotspektrometers für das Network for the Detection of Mesopause Change"
+        },
+        {
+            "id": 10632,
+            "name": "H. Kaufmann",
+            "papers": 3,
+            "affiliations": "SCHOTT AG",
+            "sample_titles": "Eigenschaften von optischen Gläsern für Laseranwendungen || New results on the temperature coefficient of the refractive index for various optical materials || Messung des spannungsoptischen Koeffizienten von optischem Glas: Neue Daten über einen großen Spektralbereich"
+        }
+    ]
+}

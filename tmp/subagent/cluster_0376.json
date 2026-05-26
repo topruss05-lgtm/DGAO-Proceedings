@@ -1,0 +1,20 @@
+{
+    "cluster_id": 376,
+    "nachname_norm": "sinzinger",
+    "candidates": [
+        {
+            "id": 276,
+            "name": "S. Sinzinger",
+            "papers": 198,
+            "affiliations": "Fachgebiet Technische Optik, Technische Universität Ilmenau",
+            "sample_titles": "Bestimmung der hardwarebedingten Leistungsgrenzen eines LS-FLIM-Systems hinsichtlich der Bildaufnahmegeschwindigkeit bei der Fluoreszenzlebenszeitmessung || Mehrstufiges Gedächtnis im optischen Reservoir Computing || Systementwurf für Phase Retrieval mittels Wignerverteilung"
+        },
+        {
+            "id": 3750,
+            "name": "St. Sinzinger",
+            "papers": 15,
+            "affiliations": "Fachgebiet Technische Optik, TU Ilmenau",
+            "sample_titles": "Design eines Zoomobjektivs mit verstimmbarer Linse für ein Projektionsobjektiv || Mikrosystem zur Partikelkonzentrationsmessung auf Basis der Talbotinterferometrie || Optische Systeme ohne Rotationssymmetrie: Bestimmung von Bildlage und Bildorientierung"
+        }
+    ]
+}

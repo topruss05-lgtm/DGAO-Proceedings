@@ -1,0 +1,26 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.92,
+  "groups": [[1749], [1750]],
+  "canonical": [
+    {
+      "name_de": "Institut für Mikro- und Nanotechnologien, Technische Universität Ilmenau",
+      "name_en": "Institute of Micro- and Nanotechnologies, Technische Universität Ilmenau",
+      "kuerzel": "IMN-TUI",
+      "universitaet": "Technische Universität Ilmenau",
+      "ort": "Ilmenau",
+      "land": "DE",
+      "ror_id": "https://ror.org/01weqhp73"
+    },
+    {
+      "name_de": "Institut für Prozessmess- und Sensortechnik, Technische Universität Ilmenau",
+      "name_en": "Institute of Process Measurement and Sensor Technology, Technische Universität Ilmenau",
+      "kuerzel": "IPMS-TUI",
+      "universitaet": "Technische Universität Ilmenau",
+      "ort": "Ilmenau",
+      "land": "DE",
+      "ror_id": "https://ror.org/01weqhp73"
+    }
+  ],
+  "reason": "Das Institut für Mikro- und Nanotechnologien und das Institut für Prozessmess- und Sensortechnik sind zwei verschiedene, eigenständige Institute an der TU Ilmenau mit unterschiedlichen Forschungsgebieten und organisatorischer Trennung."
+}

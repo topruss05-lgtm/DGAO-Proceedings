@@ -1,0 +1,20 @@
+{
+    "cluster_id": 138,
+    "nachname_norm": "hacker",
+    "candidates": [
+        {
+            "id": 1404,
+            "name": "J. Hacker",
+            "papers": 1,
+            "affiliations": "Fachhochschule Oldenburg Ostfriesland Wilhelmshaven, Wilhemshaven, Emden",
+            "sample_titles": "Diffraktiv optische Elemente aus BK7 mit Hilfe thermischen Ionenaustausches"
+        },
+        {
+            "id": 9715,
+            "name": "A.-V. Häcker",
+            "papers": 2,
+            "affiliations": "Institut für Prozessmess- und Sensortechnik, TU Ilmenau | Technische Universität Ilmenau, Institut für Prozessmess- und Sensortechnologie",
+            "sample_titles": "Integration eines ultravioletten Direktschreiblasers und dessen roten differentiell-konfokalen Messsystems || Weitere Entwicklungen zum Zwei-Photonen direktem Laserschreiben zur großflächigen Nanostrukturierung"
+        }
+    ]
+}

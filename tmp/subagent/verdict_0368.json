@@ -1,0 +1,6 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[3348, 3629]],
+  "reason": "M.C. Seraphim (id 3348) und M. Seraphim (id 3629) teilen dieselbe Affiliation (Uni Erlangen, Optik/Photonik) und überlappende Themen (Deflektometrie, Self-Calibration); M.C. ist die vollständigere Initialform derselben Person."
+}

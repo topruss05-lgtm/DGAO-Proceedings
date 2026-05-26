@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[1902], [4153]],
+  "reason": "R. Krieg (LightTrans, Modellierung) und J. Krieg (Fraunhofer IOSB, IR-Detektor/ZERODUR) haben unterschiedliche Initialen, verschiedene Affiliations und Themen."
+}

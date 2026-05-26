@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[1137], [3303], [4041], [4346], [4868], [6099], [6468], [6610], [7352], [8837], [11359]],
+  "reason": "11 Personen mit jeweils unterschiedlichen Initialen (S., P., Ch., A., B., R., T., M., D., J., L.) und völlig verschiedenen Affiliationen sowie Themengebieten – eindeutig verschiedene Personen."
+}

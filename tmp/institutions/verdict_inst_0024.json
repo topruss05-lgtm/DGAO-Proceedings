@@ -1,0 +1,7 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.92,
+  "groups": [],
+  "canonical": [],
+  "reason": "Der Cluster enthält zwei verschiedene Institutionen an der FSU Jena: das eigenständige außeruniversitäre Leibniz-Institut für Photonische Technologien (IPHT, ids 79/362/629/1085) und das universitäre Institut für Angewandte Physik der FSU Jena (id 1179). Diese müssen getrennt bleiben."
+}

@@ -1,0 +1,27 @@
+{
+    "cluster_id": 222,
+    "nachname_norm": "kroger",
+    "candidates": [
+        {
+            "id": 1772,
+            "name": "K. Kröger",
+            "papers": 3,
+            "affiliations": "Innovent e.V. Technologieentwicklung Jena",
+            "sample_titles": "Besonderheiten bei der Reflexionsgradmessung zur Schichtcharakterisierung auf Floatglas || Deflexionsmessverfahren zur schnellen Charakterisierung von Getriebewellen || Schichtdickenbestimmung an dünnen, optisch transparenten Schichten mit geringer Brechzahldifferenz zwischen Schicht und Substrat"
+        },
+        {
+            "id": 4996,
+            "name": "I. Kröger",
+            "papers": 3,
+            "affiliations": "Physikalisch-Technische Bundesanstalt",
+            "sample_titles": "Umwandlung gepulster Laserstrahlung in kontinuierliche Strahlung || Laser-DSR: Hochgenaue spektrale Kalibrierung von Empfängern mit Hilfe von Laserstrahlung || Analyse der variierenden Einstrahlungsbedingungen auf Outdoor-PV-Messungen"
+        },
+        {
+            "id": 10328,
+            "name": "M. Kröger",
+            "papers": 3,
+            "affiliations": "Lehtstuhl für Lasertechnik, RWTH Aachen",
+            "sample_titles": "Digital Photonics for next generation laser material processing || Plattform für die Adaptive Integration von Pulse Shaping on Demand in Ultrakurzpuls Bearbeitungssystemen || Dynamische Steuerung und automatisierte Justage von diffraktiven neuronalen Netzwerken für effektive Laserstrahlformung"
+        }
+    ]
+}

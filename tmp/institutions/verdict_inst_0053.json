@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[198, 1384, 1551]],
+  "canonical": [
+    {
+      "name_de": "Institut für Quantenoptik, Leibniz Universität Hannover",
+      "name_en": "Institute of Quantum Optics, Leibniz University Hannover",
+      "kuerzel": "IQO",
+      "universitaet": "Leibniz Universität Hannover",
+      "ort": "Hannover",
+      "land": "DE",
+      "ror_id": ""
+    }
+  ],
+  "reason": "Alle drei Varianten bezeichnen dasselbe Institut (IQO) an der Leibniz Universität Hannover; Unterschiede sind nur orthografische Varianten des Universitätsnamens (Kurzform vs. Vollform mit/ohne Bindestrich)."
+}

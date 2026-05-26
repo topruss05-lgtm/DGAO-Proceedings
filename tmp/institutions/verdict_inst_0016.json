@@ -1,0 +1,14 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [
+    [48, 1837],
+    [78, 81, 143, 166, 561],
+    [780],
+    [781],
+    [1145, 1685],
+    [1702]
+  ],
+  "canonical": [],
+  "reason": "Sechs vollständig verschiedene Institutionen im Cluster: (1) Helmholtz-Zentrum Berlin / BESSY II, (2) Leibniz-IPHT Jena (teils mit VITRON-Koautor), (3) DLR Institut für Robotik und Mechatronik Berlin, (4) HOLOEYE Photonics AG Berlin, (5) SENTECH Instruments GmbH Berlin (zwei Schreibvarianten), (6) Ferdinand-Braun-Institut Berlin. Keine dieser Einrichtungen ist mit einer anderen identisch."
+}

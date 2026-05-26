@@ -1,0 +1,69 @@
+{
+    "cluster_id": 170,
+    "nachname_norm": "hoffmann",
+    "candidates": [
+        {
+            "id": 1303,
+            "name": "L. H. Hoffmann",
+            "papers": 1,
+            "affiliations": "Lehrstuhl für Messsystem- und Sensortechnik",
+            "sample_titles": "Hochfrequente spektrale Auswertung von Faser Bragg Gittern zur dynamischen Strukturuntersuchung"
+        },
+        {
+            "id": 1417,
+            "name": "M. Hoffmann",
+            "papers": 10,
+            "affiliations": "Institut für Prozessmess- und Sensortechnik, Technische Universität Ilmenau",
+            "sample_titles": "Aktive Beeinflussung des Brechungsindex der Luft für optische Präzisionssysteme || Adaptive micro-eye based on tunable micro-optical components || Scannend abbildendes Mikrosystem auf Basis durchstimmbarer Elemente aus Aluminiumnitrid Membranen"
+        },
+        {
+            "id": 1784,
+            "name": "C. Hoffmann",
+            "papers": 2,
+            "affiliations": "Augenzentrum Friedrichstadt, Düsseldorf",
+            "sample_titles": "Optisches Mikrophon = Nanophon® als Michelson-Interferometer mit Wavelet-Datenkompression || Anisotrope Charakterisierung der Glastemperatur an Polymerfilmen mittels optischer Modenspektroskopie"
+        },
+        {
+            "id": 6434,
+            "name": "G.-A. Hoffmann",
+            "papers": 1,
+            "affiliations": "Institut für Transport- und Automatisierungstechnik, Leibniz Universität Hannover",
+            "sample_titles": "Combination of Flexographic and Aerosol Jet Printing for Integrated Polymer Optical Step Index Waveguides"
+        },
+        {
+            "id": 8868,
+            "name": "L. Hoffmann",
+            "papers": 1,
+            "affiliations": "Physikalisch Technische Bundesanstalt",
+            "sample_titles": "Hybridmethode zur Oberflächenrekonstruktion von optischen Asphären und Freiformen: Maschinelles Lernen basierend auf dem Tilted-Wave Interferometer"
+        },
+        {
+            "id": 8892,
+            "name": "G. Hoffmann",
+            "papers": 1,
+            "affiliations": "Institut für Transport- und Automatisierungstechnik, Leibniz Universität Hannover",
+            "sample_titles": "Integration of Printed Optical Waveguides in Printed Circuit Boards"
+        },
+        {
+            "id": 12066,
+            "name": "H.-D. Hoffmann",
+            "papers": 1,
+            "affiliations": "Fraunhofer Institut für Lasertechnik ILT",
+            "sample_titles": "Optik-Design für eine skalierbare Anordnung optischer Pinzetten für das Quantum-Computing"
+        },
+        {
+            "id": 12142,
+            "name": "D. Hoffmann",
+            "papers": 5,
+            "affiliations": "Lehrstuhl für Lasertechnik LLT, RWTH Aachen University",
+            "sample_titles": "Strahlformung für die Laser-Diode-Floating-Zone-Kristallzucht || Nutzung von Fresnellinsen in hochauflösenden abbildenden Pixellicht-Scheinwerfern || Kompakte Tageslicht-Laser-Projektionssysteme für autonome Fahrzeuge basierend auf einem Spatial Light Modulator"
+        },
+        {
+            "id": 12174,
+            "name": "K. Hoffmann",
+            "papers": 1,
+            "affiliations": "Institut für Systemdynamik - ISYS, Universität Stuttgart",
+            "sample_titles": "Kalibration eines Mulitpoint Photogrametrischen Sensor für die industriellen Anwendungen"
+        }
+    ]
+}

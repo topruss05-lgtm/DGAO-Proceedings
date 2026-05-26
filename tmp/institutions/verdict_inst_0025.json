@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.99,
+  "groups": [[80, 96, 141, 201, 997]],
+  "canonical": [
+    {
+      "name_de": "Leibniz-Institut für Photonische Technologien",
+      "name_en": "Leibniz Institute of Photonic Technology",
+      "kuerzel": "IPHT",
+      "universitaet": null,
+      "ort": "Jena",
+      "land": "DE",
+      "ror_id": "https://ror.org/02se0t636"
+    }
+  ],
+  "reason": "Alle fünf Varianten bezeichnen dasselbe außeruniversitäre Leibniz-Institut in Jena (IPHT); die Unterschiede sind Schreibvarianten (englisch/deutsch, mit/ohne Ortsangabe)."
+}

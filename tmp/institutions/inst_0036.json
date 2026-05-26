@@ -1,0 +1,25 @@
+{
+    "cluster_id": 36,
+    "variants": [
+        {
+            "id": 128,
+            "name_de": "European Molecular Biology Laboratory (EMBL), Meyerhofstrasse 1,\nD-69117 Heidelberg, Germany",
+            "author_count": 2
+        },
+        {
+            "id": 346,
+            "name_de": "European Molecular Biology Laboratory (EMBL), D-69117 Heidelberg",
+            "author_count": 1
+        },
+        {
+            "id": 426,
+            "name_de": "European Molecular Biology Laboratory (EMBL), Heidelberg",
+            "author_count": 1
+        },
+        {
+            "id": 882,
+            "name_de": "Cell Biology and Biophysics Unit, European Molecular Biology Laboratory, Heidelberg, Germany",
+            "author_count": 1
+        }
+    ]
+}

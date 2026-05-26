@@ -1,0 +1,10 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.88,
+  "groups": [
+    [73, 256, 311, 1065, 1722, 1729, 1787, 1855],
+    [488]
+  ],
+  "canonical": [],
+  "reason": "Carl Zeiss AG Corporate Research & Technology (IDs 73, 256, 311, 1065, 1722, 1729, 1787, 1855 — Schreibvarianten) und Carl Zeiss SMT AG Lithography Optics (ID 488) sind zwei verschiedene rechtliche Einheiten im Zeiss-Konzern: SMT GmbH ist eine separate Tochtergesellschaft mit Minderheitsbeteiligung von ASML."
+}

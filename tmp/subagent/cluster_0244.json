@@ -1,0 +1,20 @@
+{
+    "cluster_id": 244,
+    "nachname_norm": "ley",
+    "candidates": [
+        {
+            "id": 7396,
+            "name": "P.-P. Ley",
+            "papers": 6,
+            "affiliations": "Institute of Product Development, Leibniz University Hannover, An der Universität 1, Garbsen, Germany",
+            "sample_titles": "Potentials and challenges in the additive manufacturing of nanoparticle-infused silicone optics || Hybrid Ray Tracing || Potentials and challenges of additive manufacturing using highly transparent silicone materials"
+        },
+        {
+            "id": 9215,
+            "name": "P. Ley",
+            "papers": 1,
+            "affiliations": "Institute of Product Development, Leibniz University Hannover, D-30823 Garbsen",
+            "sample_titles": "Multiphysical simulation approach to specify material properties of additively manufactured laser heat sinks: Potentials and challenges"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "cluster_id": 108,
+    "variants": [
+        {
+            "id": 535,
+            "name_de": "Martin-Luther-Universität-Halle Wittenberg",
+            "author_count": 1
+        },
+        {
+            "id": 1089,
+            "name_de": "Department of Neurosurgery, Martin-Luther-University Halle-Wittemberg, Halle, Germany",
+            "author_count": 2
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.98,
+  "groups": [[1831, 1832]],
+  "canonical": [
+    {
+      "name_de": "Fachgebiet Mikro- und Feingerätetechnik, Technische Universität Berlin",
+      "name_en": "Department of Micro and Precision Engineering, Technische Universität Berlin",
+      "kuerzel": "MFT-TUB",
+      "universitaet": "Technische Universität Berlin",
+      "ort": "Berlin",
+      "land": "DE",
+      "ror_id": "https://ror.org/03v4gjf40"
+    }
+  ],
+  "reason": "Beide Varianten bezeichnen dasselbe Fachgebiet an der TU Berlin; der einzige Unterschied ist das Wort 'für' in ID 1831 ('Fachgebiet für Mikro- und Feingeräte') gegenüber der verkürzten Form ohne 'für' in ID 1832."
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 417,
+    "nachname_norm": "trapp",
+    "candidates": [
+        {
+            "id": 10072,
+            "name": "J. Trapp",
+            "papers": 4,
+            "affiliations": "Institute of Applied Optics (ITO), University of Stuttgart",
+            "sample_titles": "3D-printed micro-optical systems: Functional toolbox and fiber-optical applications || Robust Design for 3D-Printed Optomechanical Systems || BaKaRoS: Open Source Optik Baukästen – Nachwuchsförderung an Schulen und Universitäten"
+        },
+        {
+            "id": 11526,
+            "name": "Joshua Trapp",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "A 3D-Printed Dual-Fiber Probe for Background-Free Brillouin Spectroscopy"
+        }
+    ]
+}

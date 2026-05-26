@@ -1,0 +1,30 @@
+{
+    "cluster_id": 13,
+    "variants": [
+        {
+            "id": 33,
+            "name_de": "Optische Nachrichtentechnik, FernUniversität Hagen",
+            "author_count": 1
+        },
+        {
+            "id": 357,
+            "name_de": "Juniorprofessur Optische Mikrosysteme, FernUniversität in Hagen",
+            "author_count": 1
+        },
+        {
+            "id": 437,
+            "name_de": "FernUniversität Hagen, Optische Nachrichtechnik, Universitätsstr. 27/PRG, 58084 Hagen",
+            "author_count": 1
+        },
+        {
+            "id": 563,
+            "name_de": "Juniorprofessur für Optische Mikrosysteme, FernUniversität in Hagen",
+            "author_count": 1
+        },
+        {
+            "id": 782,
+            "name_de": "LG Optische Nachrichtentechnik, FernUniversität in Hagen",
+            "author_count": 1
+        }
+    ]
+}

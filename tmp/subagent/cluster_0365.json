@@ -1,0 +1,48 @@
+{
+    "cluster_id": 365,
+    "nachname_norm": "seifert",
+    "candidates": [
+        {
+            "id": 1243,
+            "name": "L. Seifert",
+            "papers": 1,
+            "affiliations": "Institut für Technische Optik, Universität Stuttgart",
+            "sample_titles": "Wellenfrontmessung mit einem inhomogenen diffraktiven Mikrolinsenarray"
+        },
+        {
+            "id": 1502,
+            "name": "U. Seifert",
+            "papers": 1,
+            "affiliations": "Qimonda, Dresden",
+            "sample_titles": "Strategien für die Beschleunigung der Bildsimulation bei der Defekterkennung an Nanostrukturen"
+        },
+        {
+            "id": 1882,
+            "name": "M. Seifert",
+            "papers": 1,
+            "affiliations": "Institut für Mess- und Regelungstechnik, Leibniz Universität Hannover",
+            "sample_titles": "Bewertung von Weißlichtinterferometermessungen mit einer Kantenteststruktur"
+        },
+        {
+            "id": 2007,
+            "name": "B. U. Seifert",
+            "papers": 4,
+            "affiliations": "Technische Universität Ilmenau",
+            "sample_titles": "Funduskamera zur berührungslosen Bildgebung und retinalen Gefäßanalyse in der Ratte || Streulichtmessung mit Hartmann-Shack-Sensor am Auge || Farbstimulator für die elektrophysiologische Diagnostik am Auge"
+        },
+        {
+            "id": 4608,
+            "name": "K. Seifert",
+            "papers": 2,
+            "affiliations": "Institut für Optik, Information und Photonik, Friedrich-Alexander-Universität Erlangen-Nürnberg",
+            "sample_titles": "Reduktion von Phasensingularitäten bei lateraler Shearing-Speckle-Interferometrie || Comparison of phase unwrapping algorithms applied to singular phase fields"
+        },
+        {
+            "id": 5805,
+            "name": "S. Seifert",
+            "papers": 1,
+            "affiliations": "Institut für Chemie, Humboldt-Universität Berlin",
+            "sample_titles": "Planar SERS sensors and their potential in optofluidic systems"
+        }
+    ]
+}

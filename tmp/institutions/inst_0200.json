@@ -1,0 +1,15 @@
+{
+    "cluster_id": 200,
+    "variants": [
+        {
+            "id": 1368,
+            "name_de": "Max Planck Institute for Molecular Biomedicine, Muenster",
+            "author_count": 2
+        },
+        {
+            "id": 1535,
+            "name_de": "Max Planck Institute of Molecular Cell Biology and Genetics, Dresden",
+            "author_count": 4
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "cluster_id": 54,
+    "variants": [
+        {
+            "id": 207,
+            "name_de": "Departamento de Física Aplicada. ETSIMinas. Universidad Politécnica de Madrid (UPM)\nC/Ríos Rosas 21. Madrid (SPAIN)",
+            "author_count": 2
+        },
+        {
+            "id": 208,
+            "name_de": "ETSIMinas, Universidad Politécnica de Madrid (UPM) Spanien;Departamento de Física Aplicada",
+            "author_count": 2
+        },
+        {
+            "id": 454,
+            "name_de": "Departamento de Física Aplicada II. ETSArquitectura, Universidad de Sevilla (Spanien)",
+            "author_count": 1
+        },
+        {
+            "id": 600,
+            "name_de": "Departamento de Fisica, Universidad Autonoma de Barcelona, Spain",
+            "author_count": 2
+        },
+        {
+            "id": 616,
+            "name_de": "ETS de Minas, Universidad Politécnica de Madrid, Madrid, Spain",
+            "author_count": 1
+        },
+        {
+            "id": 650,
+            "name_de": "E.T.S.I. Minas. Departamento de Física Aplicada (FARN). Universidad Politécnica de Madrid (Spanien)",
+            "author_count": 1
+        },
+        {
+            "id": 686,
+            "name_de": "CNR- Istituto Nazionale di Ottica Applicata, Largo E. Fermi 6, 50125 Firenze, Italy\nUniversidad Rey Juan Carlos, Madrid, Spain",
+            "author_count": 5
+        },
+        {
+            "id": 1667,
+            "name_de": "Universidad Carlos III de Madrid, Av de la Universidad 30, 28911 Leganés, Madrid, Spain",
+            "author_count": 2
+        }
+    ]
+}

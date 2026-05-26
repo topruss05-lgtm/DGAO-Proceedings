@@ -1,0 +1,25 @@
+{
+    "cluster_id": 50,
+    "variants": [
+        {
+            "id": 171,
+            "name_de": "Belarusian State University Minsk, Physical Department, Minsk, Belarus",
+            "author_count": 2
+        },
+        {
+            "id": 338,
+            "name_de": "Department of Biophysics, Physical Faculty, Belarus State University, Minsk, Belarus",
+            "author_count": 2
+        },
+        {
+            "id": 472,
+            "name_de": "Physical Department of Belarusian State University, Nezavisimosti av. 4, 220030 Minsk, Belarus",
+            "author_count": 5
+        },
+        {
+            "id": 568,
+            "name_de": "Institute of Physical and Chemical Problems, Belarussian State University Minsk",
+            "author_count": 3
+        }
+    ]
+}

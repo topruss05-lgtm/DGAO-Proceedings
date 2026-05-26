@@ -1,0 +1,27 @@
+{
+    "cluster_id": 57,
+    "nachname_norm": "chen",
+    "candidates": [
+        {
+            "id": 4896,
+            "name": "C.-H. Chen",
+            "papers": 1,
+            "affiliations": "Optical Radiation Laboratory, National Measurement Laboratory Center for Measurement Standards (CMS) Industrial Technology Research Institute (ITRI), Taiwan",
+            "sample_titles": "Herausforderungen bei der optischen Charakterisierung Anorganischer High Power LEDs."
+        },
+        {
+            "id": 8993,
+            "name": "B. Chen",
+            "papers": 1,
+            "affiliations": "Institut für Lasertechnologien in der Medizin und Meßtechnik an der Universität Ulm",
+            "sample_titles": "Characterization and optical design of VCSEL diode for application in 3D mobile Sensorsystems"
+        },
+        {
+            "id": 11339,
+            "name": "W. Chen",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Block-wise Zernike polynomials supported by one Pascal’s triangle"
+        }
+    ]
+}

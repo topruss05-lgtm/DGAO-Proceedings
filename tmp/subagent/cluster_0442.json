@@ -1,0 +1,20 @@
+{
+    "cluster_id": 442,
+    "nachname_norm": "wiedemann",
+    "candidates": [
+        {
+            "id": 5884,
+            "name": "H. Wiedemann",
+            "papers": 1,
+            "affiliations": "Mahr GmbH Jena",
+            "sample_titles": "Topographical Measurements of micro-structured, flexible and soft optical components in water immersion"
+        },
+        {
+            "id": 7915,
+            "name": "T. Wiedemann",
+            "papers": 1,
+            "affiliations": "Institute of Applied Physics, University of Muenster, Germany",
+            "sample_titles": "Active-passive calibration for biomechanical force sensing by optical tweezers"
+        }
+    ]
+}

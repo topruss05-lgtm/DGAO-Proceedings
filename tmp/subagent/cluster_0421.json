@@ -1,0 +1,20 @@
+{
+    "cluster_id": 421,
+    "nachname_norm": "unger",
+    "candidates": [
+        {
+            "id": 114,
+            "name": "S. Unger",
+            "papers": 7,
+            "affiliations": "Leibniz Institute of Photonic Technology, Albert-Einstein-Str. 9, 07745 Jena, Germany",
+            "sample_titles": "Diffusion and Interface Effects during Manufacturing of Compact Microstructured Optical Fibers || Optische Glasfaserspitzen für photonische Mikrosensorsysteme || Entwicklung optischer Großkernfasern für Ytterbium-Faserlaser hoher Pulsenergie"
+        },
+        {
+            "id": 1526,
+            "name": "A. Unger",
+            "papers": 8,
+            "affiliations": "MPI für Polymerforschung Mainz",
+            "sample_titles": "Optimization of nanoparticles for label free detection of single molecules via plasmonic resonances || SENSITIVITY ANALYSIS OF COUPLED PLASMON FIBER MODE PROPAGATION FOR EVANESCENT-WAVE-SENSING || DIRECTIONAL COUPLING INSIDE A STEP-INDEX MULTI-LAYER FIBER"
+        }
+    ]
+}

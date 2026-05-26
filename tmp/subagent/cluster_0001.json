@@ -1,0 +1,20 @@
+{
+    "cluster_id": 1,
+    "nachname_norm": "adams",
+    "candidates": [
+        {
+            "id": 69,
+            "name": "G. Adams",
+            "papers": 1,
+            "affiliations": "The Optical Software Company, UK",
+            "sample_titles": "Aktive Glasauswahl und chromatische Korrektion mittels individueller Glasdiagramme"
+        },
+        {
+            "id": 12063,
+            "name": "M. Adams",
+            "papers": 1,
+            "affiliations": "Fraunhofer Institut für Lasertechnik ILT",
+            "sample_titles": "Optik-Design für eine skalierbare Anordnung optischer Pinzetten für das Quantum-Computing"
+        }
+    ]
+}

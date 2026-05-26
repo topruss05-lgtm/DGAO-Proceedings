@@ -1,0 +1,20 @@
+{
+    "cluster_id": 342,
+    "nachname_norm": "schmitz",
+    "candidates": [
+        {
+            "id": 3595,
+            "name": "D. Schmitz",
+            "papers": 1,
+            "affiliations": "Fraunhofer-Institut Angewandte Optik und Feinmechanik, Jena",
+            "sample_titles": "Separation von Streulichteffekten zur zerstörungsfreien Detektion von Sub-Surface-Damage"
+        },
+        {
+            "id": 9569,
+            "name": "N. Schmitz",
+            "papers": 1,
+            "affiliations": "Pforzheim University, School of Engineering, Robotics and Artificial Intelligence",
+            "sample_titles": "Neural network based face mask detection using thermal imaging sensors"
+        }
+    ]
+}

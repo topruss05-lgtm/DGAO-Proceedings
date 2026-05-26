@@ -1,0 +1,20 @@
+{
+    "cluster_id": 306,
+    "nachname_norm": "rauscher",
+    "candidates": [
+        {
+            "id": 7653,
+            "name": "F. G. Rauscher",
+            "papers": 1,
+            "affiliations": "Institut für medizinische Informatik, Statistik und Epidemiologie, Universität Leipzig",
+            "sample_titles": "Einfluss der humanen Foveaform auf die optische Abbildung"
+        },
+        {
+            "id": 7703,
+            "name": "M. S. Rauscher",
+            "papers": 1,
+            "affiliations": "Lehrstuhl für Messsystem- und Sensortechnik, Technische Universität München",
+            "sample_titles": "ATR-Messsystem zur Fluidanalyse mit statischen Fourier-Transformations-Infrarotspektrometern"
+        }
+    ]
+}

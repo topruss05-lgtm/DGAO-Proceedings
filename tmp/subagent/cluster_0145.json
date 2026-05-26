@@ -1,0 +1,20 @@
+{
+    "cluster_id": 145,
+    "nachname_norm": "hanke",
+    "candidates": [
+        {
+            "id": 1191,
+            "name": "W. Hanke",
+            "papers": 2,
+            "affiliations": "FernUniversität Hagen, Optische Nachrichtechnik, Universitätsstr. 27/PRG, 58084 Hagen",
+            "sample_titles": "Kostengünstige Realisierung von Computer-generierten Hologrammen für den Lehrbetrieb auf der Basis von kommerziellem Offsetfilm || Optimiertes Maskendesign für die Herstellung mikrooptischer Bauelemente mit der optischen Rasterlithographie"
+        },
+        {
+            "id": 11210,
+            "name": "S. Hanke",
+            "papers": 1,
+            "affiliations": "Institut für Photonics und Robotics, Fachhochschule Graubünden",
+            "sample_titles": "Studierendenprojekt: Optisches Messsystem zur Optimierung des Lauftrainings von Athleten"
+        }
+    ]
+}

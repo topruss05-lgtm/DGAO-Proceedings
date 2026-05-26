@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[3778], [5392]],
+  "reason": "Verschiedene Initialen (U. vs. C.) und unterschiedliche Affiliationen (Leibniz-IPHT Jena vs. Fraunhofer ICT Pfinztal) sowie disjunkte Themen (spektrales optisches System vs. polarisationssensitive OCT)."
+}

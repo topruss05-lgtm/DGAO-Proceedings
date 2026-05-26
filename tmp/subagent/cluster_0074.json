@@ -1,0 +1,20 @@
+{
+    "cluster_id": 74,
+    "nachname_norm": "dohler",
+    "candidates": [
+        {
+            "id": 782,
+            "name": "G. Dohler",
+            "papers": 1,
+            "affiliations": "Max Planck Research Group, Institute of Optics, Information and Photonics, University of Erlangen",
+            "sample_titles": "Focusing beams of polarization order number +1 onto a quantum well heterostructure"
+        },
+        {
+            "id": 10279,
+            "name": "T. Döhler",
+            "papers": 2,
+            "affiliations": "Technische Hochschule Wildau, Hochschulring 1, 15745 Wildau, Germany",
+            "sample_titles": "In-Situ Raman Spectroscopy for Process Optimization in Volumetric 3D Printing || Qualitative und quantitative Prüfung von ungleichmäßig galvanisch beschichteten Substraten"
+        }
+    ]
+}

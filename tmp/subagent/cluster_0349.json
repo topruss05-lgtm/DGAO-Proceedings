@@ -1,0 +1,27 @@
+{
+    "cluster_id": 349,
+    "nachname_norm": "schreiber",
+    "candidates": [
+        {
+            "id": 4457,
+            "name": "H. Schreiber",
+            "papers": 1,
+            "affiliations": "Fraunhofer-Institut Angewandte Optik und Feinmechanik, Jena\nCorning Specialty Materials, Fairport, NY, USA",
+            "sample_titles": "Optical scattering - from simple models to complex applications"
+        },
+        {
+            "id": 10309,
+            "name": "K. Schreiber",
+            "papers": 2,
+            "affiliations": "Deutsches Röntgen-Museum, D-42897 Remscheid",
+            "sample_titles": "Unsichtbares erkunden - Experimente im Museumslabor des Deutschen Röntgen-Museums || Hommage auf einen bedeutenden Wissenschaftler - das Deutsche Röntgen-Museum"
+        },
+        {
+            "id": 12052,
+            "name": "P. Schreiber",
+            "papers": 13,
+            "affiliations": "Fraunhofer Institute for Applied Optics and Precision Engineering IOF Jena",
+            "sample_titles": "Efficient LED beam shaping with maskless irregular fly’s eye condenser, its realistic modelling and stray-light analysis || Projection of arbitrary far-field patterns using tailored microlens apertures || Compact optical system for projection of dynamic safety patterns in cobot workspaces"
+        }
+    ]
+}

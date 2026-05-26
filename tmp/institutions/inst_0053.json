@@ -1,0 +1,20 @@
+{
+    "cluster_id": 53,
+    "variants": [
+        {
+            "id": 198,
+            "name_de": "Institut für Quantenoptik, Leibniz Universität Hannover",
+            "author_count": 10
+        },
+        {
+            "id": 1384,
+            "name_de": "Institut für Quantenoptik (IQO), Gottfried Wilhelm Leibniz Universität Hannover",
+            "author_count": 1
+        },
+        {
+            "id": 1551,
+            "name_de": "Institut für Quantenoptik, Gottfried-Wilhelm-Leibniz Universität Hannover",
+            "author_count": 1
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 444,
+    "nachname_norm": "wiesner",
+    "candidates": [
+        {
+            "id": 497,
+            "name": "B. Wiesner",
+            "papers": 3,
+            "affiliations": "Max-Planck-Forschungsgruppe, Institut für Optik, Information und Photonik, Universität Erlangen-Nürnberg",
+            "sample_titles": "Digitalfotografie im professionellen Einsatz - Höchste Anforderungen an eine moderne Optik || Bessere Genauigkeit bei der Weißlichtinterferometrie auf rauhen Oberflächen || A new method to reduce the measuring uncertainty and the number of outliers in white-light interferometry"
+        },
+        {
+            "id": 3712,
+            "name": "M. Wiesner",
+            "papers": 1,
+            "affiliations": "Institut für Technische Optik (ITO), Universität Stuttgart",
+            "sample_titles": "Räumlich aufgelöste nichtpixelierte aktive mikrooptische Polarisationsformung"
+        }
+    ]
+}

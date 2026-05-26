@@ -1,0 +1,20 @@
+{
+    "cluster_id": 288,
+    "nachname_norm": "ozcan",
+    "candidates": [
+        {
+            "id": 6464,
+            "name": "A. Ozcan",
+            "papers": 1,
+            "affiliations": "Electrical Engineering Department, Bioengineering Department, California NanoSystems Institute\nUniversity of California, Los Angeles, CA",
+            "sample_titles": "Democratization of Next-Generation Microscopy, Sensing and Diagnostics Tools through Computational Photonics"
+        },
+        {
+            "id": 7707,
+            "name": "Y. Özcan",
+            "papers": 1,
+            "affiliations": "Hochschule Koblenz",
+            "sample_titles": "Systematische Toleranzierung von additiv oder replikativ gefertigten Freiformflächen"
+        }
+    ]
+}

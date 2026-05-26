@@ -1,0 +1,25 @@
+{
+    "cluster_id": 20,
+    "variants": [
+        {
+            "id": 68,
+            "name_de": "Leica Microsystems CMS GmbH, Wetzlar",
+            "author_count": 2
+        },
+        {
+            "id": 292,
+            "name_de": "Leica Microsystems Semiconductor GmbH; Wetzlar",
+            "author_count": 3
+        },
+        {
+            "id": 735,
+            "name_de": "Leica Microsystems CMS GmbH\nErnst-Leitz-Strasse 17-37\nD-35578 Wetzlar",
+            "author_count": 1
+        },
+        {
+            "id": 884,
+            "name_de": "Leica Microsystems Wetzlar, Germany",
+            "author_count": 1
+        }
+    ]
+}

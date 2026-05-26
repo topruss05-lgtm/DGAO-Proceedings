@@ -1,0 +1,20 @@
+{
+    "cluster_id": 414,
+    "nachname_norm": "torricelli",
+    "candidates": [
+        {
+            "id": 2580,
+            "name": "Al. Torricelli",
+            "papers": 1,
+            "affiliations": "IIT, ULTRAS-INFM-CNR and IFN-CNR, Politecnico di Milano-Dipartimento di Fisica, Piazza Leonardo da Vinci 32, 20133 Milano, Italy",
+            "sample_titles": "Design, development and characterization of a compact time-resolved system for functional NIR studies"
+        },
+        {
+            "id": 2644,
+            "name": "A. Torricelli",
+            "papers": 1,
+            "affiliations": "IIT, ULTRAS-INFM-CNR and IFN-CNR, Politecnico di Milano-Dipartimento di Fisica, Piazza Leonardo da Vinci 32, 20133 Milano, Italy",
+            "sample_titles": "Functional imaging of brain activity at small source-detector distances using fast-gated Single-Photon Avalanche Diodes"
+        }
+    ]
+}

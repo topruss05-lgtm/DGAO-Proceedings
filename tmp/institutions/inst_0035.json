@@ -1,0 +1,25 @@
+{
+    "cluster_id": 35,
+    "variants": [
+        {
+            "id": 125,
+            "name_de": "European Space Agency",
+            "author_count": 1
+        },
+        {
+            "id": 395,
+            "name_de": "European Space Agency/Estec, Noordwijk (NL)",
+            "author_count": 1
+        },
+        {
+            "id": 677,
+            "name_de": "ESTEC, European Space Agency Noordwijk",
+            "author_count": 1
+        },
+        {
+            "id": 1733,
+            "name_de": "European Space Agency, Noordwijk",
+            "author_count": 1
+        }
+    ]
+}

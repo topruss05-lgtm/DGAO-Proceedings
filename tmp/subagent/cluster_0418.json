@@ -1,0 +1,20 @@
+{
+    "cluster_id": 418,
+    "nachname_norm": "treffer",
+    "candidates": [
+        {
+            "id": 7497,
+            "name": "D. Treffer",
+            "papers": 1,
+            "affiliations": "Institute for X-Optics, RheinAhrCampus, Joseph-Rovan-Allee 2, 53424 Remagen, Germany",
+            "sample_titles": "Information recovery in ptychographic coherent diffraction imaging"
+        },
+        {
+            "id": 10096,
+            "name": "A. Treffer",
+            "papers": 1,
+            "affiliations": "SENTECH Instruments GmbH, Schwarzschildstraße 2,12489 Berlin , Germany",
+            "sample_titles": "Messverfahren zur Kontrolle tiefer Siliziumstrukturen für die 3D-Chip-Integration"
+        }
+    ]
+}

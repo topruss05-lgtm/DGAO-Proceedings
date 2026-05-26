@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.99,
+  "groups": [[503, 505]],
+  "canonical": [
+    {
+      "name_de": "Leibniz-Institut für Oberflächenmodifizierung e.V.",
+      "name_en": "Leibniz Institute of Surface Engineering",
+      "kuerzel": "IOM",
+      "universitaet": null,
+      "ort": "Leipzig",
+      "land": "DE",
+      "ror_id": "https://ror.org/04vx4mk32"
+    }
+  ],
+  "reason": "Beide Einträge bezeichnen dasselbe IOM Leipzig; id 503 hat den Tippfehler 'Leibnitz' (statt 'Leibniz') und id 505 hat fehlenden Leerzeichen ('fürOberflächenmodifizierung') – inhaltlich identisch. Hinweis: Dieser Cluster überschneidet sich inhaltlich mit Cluster 106."
+}

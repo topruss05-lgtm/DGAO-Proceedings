@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[1851, 1852]],
+  "canonical": [
+    {
+      "name_de": "Department of Electronic Materials Engineering, Research School of Physics, The Australian National University",
+      "name_en": "Department of Electronic Materials Engineering, Research School of Physics, The Australian National University",
+      "kuerzel": "EME-ANU",
+      "universitaet": "The Australian National University",
+      "ort": "Canberra",
+      "land": "AU",
+      "ror_id": "https://ror.org/019wvm592"
+    }
+  ],
+  "reason": "Beide Varianten bezeichnen dasselbe Department of Electronic Materials Engineering an der ANU Canberra; ID 1852 enthält die vollständige Angabe inklusive 'Research School of Physics' und Postleitzahl, während ID 1851 eine Kurzform ist."
+}

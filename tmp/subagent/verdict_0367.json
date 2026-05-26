@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.90,
+  "groups": [[55], [797], [1139]],
+  "reason": "G. Seitz (Carl Zeiss SMT, Interferometrie), P. Seitz (Rodenstock, 3D-Brillenvermessung) und P.C. Seitz (EMBL Heidelberg, Photonische Kraftmikroskopie) haben verschiedene Affiliationen und Themen; P. und P.C. könnten theoretisch dieselbe Person sein, aber disjunkte Affiliationen und Themen sprechen dagegen."
+}

@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.93,
+  "groups": [[1502, 1744]],
+  "canonical": [
+    {
+      "name_de": "L-LAB – Forschungsinstitut für automobile Lichttechnik und Mechatronik, Lippstadt",
+      "name_en": "L-LAB – Research Institute for Automotive Lighting Technology and Mechatronics",
+      "kuerzel": "L-LAB",
+      "universitaet": "",
+      "ort": "Lippstadt",
+      "land": "DE",
+      "ror_id": ""
+    }
+  ],
+  "reason": "Beide Einträge bezeichnen dasselbe L-LAB in Lippstadt: ID 1502 mit \"automobile\" im Namen (vollständiger Titel), ID 1744 ohne \"automobile\" (Kurzvariante). Gleicher Standort und gleiche Institution – merge."
+}

@@ -2,14 +2,22 @@
 $pageTitle    = t('autoren.title') . ' - ' . SITE_NAME;
 $canonicalUrl = canonicalUrl('/autoren');
 
-$db = getDb();
-$autoren = $db->query('
-    SELECT a.id, a.vorname, a.nachname, a.affiliation, COUNT(pa.paper_id) AS paper_count
+$db   = getDb();
+$lang = $_SESSION['lang'] ?? 'de';
+$instCol = $lang === 'en' ? 'i.name_en' : 'i.name_de';
+$autoren = $db->query("
+    SELECT a.id, a.vorname, a.nachname,
+           (SELECT COALESCE(NULLIF($instCol, ''), i.name_de)
+            FROM autor_institutionen ai
+            JOIN institutionen i ON i.id = ai.institut_id
+            WHERE ai.autor_id = a.id AND ai.ist_aktuell = 1
+            LIMIT 1) AS affiliation,
+           COUNT(pa.paper_id) AS paper_count
     FROM autoren a
     JOIN paper_autoren pa ON pa.autor_id = a.id
     GROUP BY a.id
     ORDER BY a.nachname COLLATE NOCASE, a.vorname COLLATE NOCASE
-')->fetchAll();
+")->fetchAll();
 
 $grouped = [];
 foreach ($autoren as $a) {

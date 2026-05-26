@@ -13,31 +13,34 @@ if (!$autor) {
     exit;
 }
 
+// Aktuelle Affiliation aus autor_institutionen (read-only Anzeige).
+// Bearbeitung der Institute erfolgt jetzt über das Cleanup-Admin-Tool.
+$affStmt = $db->prepare('
+    SELECT i.id, i.name_de
+    FROM autor_institutionen ai
+    JOIN institutionen i ON i.id = ai.institut_id
+    WHERE ai.autor_id = ? AND ai.ist_aktuell = 1
+    LIMIT 1
+');
+$affStmt->execute([$autorId]);
+$currentAff = $affStmt->fetch();
+$autor['affiliation_display'] = $currentAff ? (string)$currentAff['name_de'] : '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     verifyCsrf();
 
-    $vorname = trim($_POST['vorname'] ?? '');
+    $vorname  = trim($_POST['vorname'] ?? '');
     $nachname = trim($_POST['nachname'] ?? '');
-    $affiliation = trim($_POST['affiliation'] ?? '');
 
     $errors = [];
     if (empty($nachname)) $errors[] = 'Nachname erforderlich.';
 
-    // Prüfen ob Kombination bereits existiert (anderer Autor)
-    if (empty($errors)) {
-        $check = $db->prepare('SELECT id FROM autoren WHERE nachname = ? AND vorname = ? AND id != ?');
-        $check->execute([$nachname, $vorname, $autorId]);
-        if ($check->fetch()) {
-            $errors[] = "Ein Autor \"{$vorname} {$nachname}\" existiert bereits. Verwende die Merge-Funktion.";
-        }
-    }
-
     if (empty($errors)) {
         $dbw = getDbAdmin();
-        $dbw->prepare('UPDATE autoren SET vorname = ?, nachname = ?, affiliation = ? WHERE id = ?')
-            ->execute([$vorname, $nachname, $affiliation, $autorId]);
+        $dbw->prepare('UPDATE autoren SET vorname = ?, nachname = ? WHERE id = ?')
+            ->execute([$vorname, $nachname, $autorId]);
 
-        setFlash('success', 'Autor aktualisiert.');
+        setFlash('success', 'Autor aktualisiert. Institut-Zuordnungen über das Cleanup-Tool bearbeiten.');
         header('Location: /admin/autoren');
         exit;
     }
@@ -75,10 +78,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="form-text">z.B. "Schiebelbein", "von Bally"</div>
                 </div>
                 <div class="col-md-4">
-                    <label for="affiliation" class="form-label">Affiliation</label>
-                    <input type="text" class="form-control" id="affiliation" name="affiliation"
-                           value="<?= e($affiliation ?? $autor['affiliation']) ?>">
-                    <div class="form-text">z.B. "Universität Erlangen"</div>
+                    <label class="form-label">Aktuelle Affiliation</label>
+                    <input type="text" class="form-control" readonly
+                           value="<?= e($autor['affiliation_display']) ?>">
+                    <div class="form-text">Read-only — Institut-Zuordnungen via <a href="/admin/cleanup">Cleanup-Tool</a> bearbeiten.</div>
                 </div>
             </div>
 

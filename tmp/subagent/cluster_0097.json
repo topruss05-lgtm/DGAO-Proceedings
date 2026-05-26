@@ -1,0 +1,83 @@
+{
+    "cluster_id": 97,
+    "nachname_norm": "fischer",
+    "candidates": [
+        {
+            "id": 1137,
+            "name": "S. Fischer",
+            "papers": 3,
+            "affiliations": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik IOF",
+            "sample_titles": "The array projector: Breaking Scheimpflug´s rule || Volumenspeicherung in Sol-Gel-Gläsern || Volumenholographie in Ormosilen"
+        },
+        {
+            "id": 3303,
+            "name": "P. Fischer",
+            "papers": 2,
+            "affiliations": "ZITI, Chair of Circuit Design, University of Heidelberg",
+            "sample_titles": "Concept and implementation of a compact multi-channel fluorescence-microscope unit || Computer-generierte Polarisationshologramme zur vollständigen Kontrolle über Amplitude und Phase"
+        },
+        {
+            "id": 4041,
+            "name": "Ch. Fischer",
+            "papers": 1,
+            "affiliations": "Friedrich-Alexander-Universität Erlangen-Nürnberg",
+            "sample_titles": "Rechnergestütztes Design und geometriebasierte Simulation 3D strukturierter optischer Wellenleiter"
+        },
+        {
+            "id": 4346,
+            "name": "A. Fischer",
+            "papers": 21,
+            "affiliations": "Bremer Institut für Messtechnik, Automatisierung und Qualitätswissenschaft, Universität Bremen",
+            "sample_titles": "Direkte optische Messung von Cornea-Deformationen mit Laserlinientriangulation || Vibrationskompensation bei der Weißlichtinterferometrie – eine Livebildbasierte Methode || Hochauflösende indirekte optische Geometriemessung unter der Beugungsgrenze?"
+        },
+        {
+            "id": 4868,
+            "name": "B. Fischer",
+            "papers": 2,
+            "affiliations": "HELLA GmbH & Co. KGaA, Lippstadt",
+            "sample_titles": "Volladaptiver Laserscheinwerfer - Alle Lichtfunktionen aus einem System || Hyperelastische, hochtransparente Optiken – Ein neuer Ansatz zur Realisierung adaptiver Kraftfahrzeugfrontbeleuchtung"
+        },
+        {
+            "id": 6099,
+            "name": "R. Fischer",
+            "papers": 1,
+            "affiliations": "Hembach Photonik GmbH",
+            "sample_titles": "Designing light guides for illumination systems"
+        },
+        {
+            "id": 6468,
+            "name": "T. Fischer",
+            "papers": 3,
+            "affiliations": "Laser Zentrum Hannover",
+            "sample_titles": "Microscope Projection Photolithography for functional optical and plasmonic components || Ultrafast Surface Plasmon-Polariton Logic Gates And Half-Adder || Laser transfer of silicon nanoparticles with optical magnetic response"
+        },
+        {
+            "id": 6610,
+            "name": "M. Fischer",
+            "papers": 2,
+            "affiliations": "Institut für Produktionsmesstechnik, Technische Universität Braunschweig",
+            "sample_titles": "Defekterkennung an spiegelnden und transparenten Oberflächen durch Abbildung einer flächenhaft modulierbaren Lichtquelle || 4Pi mirror based focusing"
+        },
+        {
+            "id": 7352,
+            "name": "D. Fischer",
+            "papers": 7,
+            "affiliations": "ASML Berlin GmbH",
+            "sample_titles": "Using a white noise reference object to determine the depth of field of the instrument transfer function for Fizeau interferometers || Subwellenlängenstrukturierte Gitter mit kontrollierbaren Beugungseffizienzen || Mikrostrukturierung auf nicht-planen Oberflächen durch SLM-basierte holographische Lithographie"
+        },
+        {
+            "id": 8837,
+            "name": "J. Fischer",
+            "papers": 2,
+            "affiliations": "Ostbayerische Technische Hochschule Regensburg",
+            "sample_titles": "Miniaturisierte Sensoren basierend auf Oberflächenplasmonenresonanz, Chancen und Herausforderungen || Miniaturisierte Sensoren basierend auf Oberflächenplasmonenresonanz, Chancen und Herausforderungen"
+        },
+        {
+            "id": 11359,
+            "name": "L. Fischer",
+            "papers": 2,
+            "affiliations": "",
+            "sample_titles": "Scientific Machine Learning zur Vorhersage von Freiform-Mikrolinsen || Vergleich neuronaler Netzarchitekturen zur Vorhersage elektrisch deformierter Polymertropfen"
+        }
+    ]
+}

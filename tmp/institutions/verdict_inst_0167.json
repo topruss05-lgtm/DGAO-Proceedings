@@ -1,0 +1,26 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.97,
+  "groups": [[1073], [1397]],
+  "canonical": [
+    {
+      "name_de": "Institut für Mikrotechnologien, Hochschule RheinMain",
+      "name_en": "Institute for Microtechnologies, RheinMain University of Applied Sciences",
+      "kuerzel": "",
+      "universitaet": "Hochschule RheinMain",
+      "ort": "Wiesbaden",
+      "land": "DE",
+      "ror_id": "https://ror.org/0378gm372"
+    },
+    {
+      "name_de": "Institut für Sensor- und Aktuatortechnik, Hochschule Coburg",
+      "name_en": "Institute of Sensor and Actuator Technology, Coburg University of Applied Sciences and Arts",
+      "kuerzel": "ISAT",
+      "universitaet": "Hochschule Coburg",
+      "ort": "Coburg",
+      "land": "DE",
+      "ror_id": "https://ror.org/02p5hsv84"
+    }
+  ],
+  "reason": "Das Institut für Mikrotechnologien an der Hochschule RheinMain (Wiesbaden) und das Institut of Sensor and Actuator Technology an der Hochschule Coburg sind institutionell und geographisch vollständig verschiedene Einrichtungen."
+}

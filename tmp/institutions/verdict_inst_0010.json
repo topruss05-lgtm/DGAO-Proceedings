@@ -1,0 +1,19 @@
+{
+  "verdict": "merge",
+  "confidence": 0.98,
+  "groups": [
+    [27, 215, 332]
+  ],
+  "canonical": [
+    {
+      "name_de": "Institut für Physik",
+      "name_en": "Institute of Physics",
+      "kuerzel": "",
+      "universitaet": "Universität Greifswald",
+      "ort": "Greifswald",
+      "land": "DE",
+      "ror_id": "https://ror.org/00r1edq15"
+    }
+  ],
+  "reason": "Alle drei Varianten bezeichnen das Institut für Physik an der Ernst-Moritz-Arndt-Universität Greifswald (heute Universität Greifswald) — nur leicht unterschiedliche Schreibweisen des Institutsnamens."
+}

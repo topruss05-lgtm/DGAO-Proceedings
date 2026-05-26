@@ -1,0 +1,15 @@
+{
+    "cluster_id": 142,
+    "variants": [
+        {
+            "id": 775,
+            "name_de": "CNR-ICVBC, Institute for the Conservation and Valorisation of Cultural Heritage, Firenze, Italy",
+            "author_count": 2
+        },
+        {
+            "id": 785,
+            "name_de": "C.N.R. - INOA, Cultural Heritage Group, Lecce (ITALY)",
+            "author_count": 3
+        }
+    ]
+}

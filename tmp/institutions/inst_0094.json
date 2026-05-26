@@ -1,0 +1,15 @@
+{
+    "cluster_id": 94,
+    "variants": [
+        {
+            "id": 439,
+            "name_de": "Studiengang Augenoptik/Optometrie, Fachhochschule Jena",
+            "author_count": 1
+        },
+        {
+            "id": 739,
+            "name_de": "Studiengang Augenoptik/Optometrie, Fachhochschule Lübeck",
+            "author_count": 1
+        }
+    ]
+}

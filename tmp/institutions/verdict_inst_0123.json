@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.98,
+  "groups": [[635, 1909]],
+  "canonical": [
+    {
+      "name_de": "Institut für Transport- und Automatisierungstechnik (ITA), Leibniz Universität Hannover",
+      "name_en": "Institute of Transport and Automation Technology (ITA), Leibniz University Hannover",
+      "kuerzel": "ITA",
+      "universitaet": "Leibniz Universität Hannover",
+      "ort": "Hannover",
+      "land": "DE",
+      "ror_id": "https://ror.org/0304hq317"
+    }
+  ],
+  "reason": "Beide Einträge bezeichnen dasselbe ITA an der Leibniz Universität Hannover; Variante 1909 enthält lediglich einen Tippfehler ('Automatisierungstechnnik') und das Kürzel ITA."
+}

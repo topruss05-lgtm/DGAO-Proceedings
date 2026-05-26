@@ -1,0 +1,15 @@
+{
+    "cluster_id": 212,
+    "variants": [
+        {
+            "id": 1651,
+            "name_de": "Institut für Photonics und Robotics, Fachhochschule Graubünden, Schweiz",
+            "author_count": 4
+        },
+        {
+            "id": 1653,
+            "name_de": "Institut für Photonics und Robotics, Fachhochschule Graubünden",
+            "author_count": 8
+        }
+    ]
+}

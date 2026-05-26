@@ -1,0 +1,20 @@
+{
+    "cluster_id": 72,
+    "nachname_norm": "dittrich",
+    "candidates": [
+        {
+            "id": 7696,
+            "name": "P.-G. Dittrich",
+            "papers": 1,
+            "affiliations": "Fakultät für Maschinenbau, Fachgebiet Qualitätssicherung und Industrielle Bildverarbeitung, Technische Universität Ilmenau",
+            "sample_titles": "Messtechnische Charakterisierung von orts- und multispektral auflösenden Filter-On-Chip CMOS-Sensorsystemen"
+        },
+        {
+            "id": 8806,
+            "name": "L. Dittrich",
+            "papers": 3,
+            "affiliations": "5microns GmbH",
+            "sample_titles": "Simulation und Entwicklung eines optischen Taupunktsensors || Photoakustischer Sensor zur Detektion strahlungsinduzierter Druckstöße || Photoakustischer Sensor zur Detektion strahlungsinduzierter Druckstöße"
+        }
+    ]
+}

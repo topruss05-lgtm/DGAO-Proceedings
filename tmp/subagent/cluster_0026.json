@@ -1,0 +1,20 @@
+{
+    "cluster_id": 26,
+    "nachname_norm": "bock",
+    "candidates": [
+        {
+            "id": 2724,
+            "name": "M. Bock",
+            "papers": 2,
+            "affiliations": "Max-Born-Institut, Berlin",
+            "sample_titles": "Diffraktiv-refraktive Dispersionskompensation bei der Ausbreitung eines optischen Wirbelfelds mit ultrakurzer Pulsdauer || Microoptical CDM-technique for satellite communications"
+        },
+        {
+            "id": 7058,
+            "name": "K. Bock",
+            "papers": 1,
+            "affiliations": "Institut für Aufbau- und Verbindungstechnik der Elektronik, TU Dresden",
+            "sample_titles": "Asymmetric optical bus couplers with Aerosol Jet printed polymer waveguides"
+        }
+    ]
+}

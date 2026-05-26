@@ -1,0 +1,27 @@
+{
+    "cluster_id": 231,
+    "nachname_norm": "korner",
+    "candidates": [
+        {
+            "id": 229,
+            "name": "K. Körner",
+            "papers": 6,
+            "affiliations": "Institut für Technische Optik, Universität Stuttgart",
+            "sample_titles": "Robuster kurzkohärenter Single-Shot-Sensor || Chromatische Aberrationen in der Weißlichtinterferometrie || Einsatz der chromatisch-konfokalen spektralen Interferometrie (CCSI) zur Reduktion der Messunsicherheit bei chromatisch-konfokalen Topografiemessungen"
+        },
+        {
+            "id": 6323,
+            "name": "M. Körner",
+            "papers": 1,
+            "affiliations": "Institut für Mikrosystemtechnik IMTEK, Albert-Ludwigs-Universität Freiburg",
+            "sample_titles": "Polymer hybrid materials for planar optronic systems"
+        },
+        {
+            "id": 10911,
+            "name": "J. Körner",
+            "papers": 1,
+            "affiliations": "SCHOTT AG",
+            "sample_titles": "New results on the temperature coefficient of the refractive index for various optical materials"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [],
+  "reason": "J. Bähr (DESY Zeuthen, Freiformflächenvermessung) und C. Bahr (MPI Göttingen, Flüssigkristalle) haben unterschiedliche Initialen, unterschiedliche Institutionen, unterschiedliche Themen und leicht abweichende Schreibweise (Bähr vs. Bahr)."
+}

@@ -1,0 +1,26 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.90,
+  "groups": [[535], [1089]],
+  "canonical": [
+    {
+      "name_de": "Martin-Luther-Universität Halle-Wittenberg",
+      "name_en": "Martin Luther University Halle-Wittenberg",
+      "kuerzel": "MLU",
+      "universitaet": "Martin-Luther-Universität Halle-Wittenberg",
+      "ort": "Halle (Saale)",
+      "land": "DE",
+      "ror_id": "https://ror.org/05gqaka33"
+    },
+    {
+      "name_de": "Klinik für Neurochirurgie, Martin-Luther-Universität Halle-Wittenberg",
+      "name_en": "Department of Neurosurgery, Martin Luther University Halle-Wittenberg",
+      "kuerzel": null,
+      "universitaet": "Martin-Luther-Universität Halle-Wittenberg",
+      "ort": "Halle (Saale)",
+      "land": "DE",
+      "ror_id": "https://ror.org/05gqaka33"
+    }
+  ],
+  "reason": "Id 535 nennt nur die Universität ohne spezifische Einrichtung; id 1089 benennt konkret die Neurochirurgische Klinik – da unklar ist, welcher Fachbereich hinter id 535 steht, werden beide konservativ separat gehalten."
+}

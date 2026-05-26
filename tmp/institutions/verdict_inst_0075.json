@@ -1,0 +1,29 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.93,
+  "groups": [
+    [317],
+    [345, 1119]
+  ],
+  "canonical": [
+    {
+      "name_de": "Dermatologische Klinik und Poliklinik, Ludwig-Maximilians-Universität München",
+      "name_en": "Department of Dermatology, Ludwig Maximilian University of Munich",
+      "kuerzel": "",
+      "universitaet": "Ludwig-Maximilians-Universität München",
+      "ort": "München",
+      "land": "DE",
+      "ror_id": "https://ror.org/05591te55"
+    },
+    {
+      "name_de": "Lehrstuhl für BioMolekulare Optik / Physik-Department, Ludwig-Maximilians-Universität München",
+      "name_en": "Chair for Biomolecular Optics / Physics Department, Ludwig Maximilian University of Munich",
+      "kuerzel": "",
+      "universitaet": "Ludwig-Maximilians-Universität München",
+      "ort": "München",
+      "land": "DE",
+      "ror_id": "https://ror.org/05591te55"
+    }
+  ],
+  "reason": "Beide Gruppen sind an der LMU München, aber verschiedene Einrichtungen: ID 317 ist eine medizinische Klinik, IDs 345/1119 sind der Lehrstuhl für BioMolekulare Optik bzw. das Physik-Department (inhaltlich zusammengehörig)."
+}

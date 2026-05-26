@@ -1,0 +1,35 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.99,
+  "groups": [[821], [822], [823]],
+  "canonical": [
+    {
+      "name_de": "Dipartimento di Scienze Fisiche, Università degli Studi di Napoli Federico II",
+      "name_en": "Department of Physical Sciences, University of Naples Federico II",
+      "kuerzel": null,
+      "universitaet": "Università degli Studi di Napoli Federico II",
+      "ort": "Napoli",
+      "land": "IT",
+      "ror_id": "https://ror.org/05290cv24"
+    },
+    {
+      "name_de": "Dipartimento di Scienze Biomediche, Università degli Studi di Foggia",
+      "name_en": "Department of Biomedical Sciences, University of Foggia",
+      "kuerzel": null,
+      "universitaet": "Università degli Studi di Foggia",
+      "ort": "Foggia",
+      "land": "IT",
+      "ror_id": "https://ror.org/01xtv3204"
+    },
+    {
+      "name_de": "Dipartimento di Malattie Odontostomatologiche, Seconda Università degli Studi di Napoli",
+      "name_en": "Department of Odontostomatological Diseases, Second University of Naples",
+      "kuerzel": null,
+      "universitaet": "Università della Campania Luigi Vanvitelli",
+      "ort": "Napoli",
+      "land": "IT",
+      "ror_id": "https://ror.org/02kqnpp86"
+    }
+  ],
+  "reason": "Drei vollständig verschiedene Institutionen: Dipartimento di Scienze Fisiche der Federico II Napoli, Dipartimento di Scienze Biomediche der Universität Foggia und Dipartimento Odontostomatologico der Seconda Università Napoli – drei verschiedene Universitäten und Fachbereiche ohne gemeinsame institutionelle Basis."
+}

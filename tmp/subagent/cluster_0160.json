@@ -1,0 +1,20 @@
+{
+    "cluster_id": 160,
+    "nachname_norm": "hertwig",
+    "candidates": [
+        {
+            "id": 2386,
+            "name": "S. Hertwig",
+            "papers": 4,
+            "affiliations": "Institute of Applied Optics, Friedrich-Schiller-University Jena",
+            "sample_titles": "Dynamic holographic interferometry with digital holography || The creation of colored holograms in digital holography || Reduction of speckles in digital holography"
+        },
+        {
+            "id": 11862,
+            "name": "A. Hertwig",
+            "papers": 1,
+            "affiliations": "Bundesanstalt für Materialforschung und -prüfung, D-12203 Berlin",
+            "sample_titles": "Ellipsometrische Charakterisierung von Polydopamin für funktionelle technische Schichten"
+        }
+    ]
+}

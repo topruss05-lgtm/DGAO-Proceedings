@@ -1,0 +1,15 @@
+{
+    "cluster_id": 213,
+    "variants": [
+        {
+            "id": 1654,
+            "name_de": "Hochschule Koblenz, Konrad-Zuse-Str. 1, 56075 Koblenz",
+            "author_count": 2
+        },
+        {
+            "id": 1753,
+            "name_de": "Hochschule Koblenz, Konrad-Zuse-Str. 1, 56705 Koblenz",
+            "author_count": 1
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "cluster_id": 367,
+    "nachname_norm": "seitz",
+    "candidates": [
+        {
+            "id": 55,
+            "name": "G. Seitz",
+            "papers": 3,
+            "affiliations": "Carl Zeiss SMT AG",
+            "sample_titles": "Hochaufgelöste interferometrische Absolutmessung rotationssymmetrischer Oberflächen-Fehler || Absolute interferometeric measurement of non rotational symmetric surface errors - a new evaluation concept || EUV-Lithographie - eine Herausforderung für die interferometrische Messtechnik"
+        },
+        {
+            "id": 797,
+            "name": "P. Seitz",
+            "papers": 3,
+            "affiliations": "Rodenstock GmbH",
+            "sample_titles": "The next generation 3D vision system for measuring the individual parameters of spectacle wearers || The next generation 3D vision system for measuring the individual parameters of spectacle wearers || Scanning functionalized, structured surfaces with optically trapped probes"
+        },
+        {
+            "id": 1139,
+            "name": "P. C. Seitz",
+            "papers": 1,
+            "affiliations": "European Molecular Biology Laboratory (EMBL), Heidelberg",
+            "sample_titles": "Photonic Force Microscopy: Interferometric tracking behind phase relief structures"
+        }
+    ]
+}

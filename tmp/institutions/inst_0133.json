@@ -1,0 +1,46 @@
+{
+    "cluster_id": 133,
+    "variants": [
+        {
+            "id": 712,
+            "name_de": "DIASS-Dipartimento di Ingegneria dell'Ambiente e per lo Sviluppo Sostenibile\nPolitecnico di Bari Via E. Orabona 4 - 70125 Bari Italy, Phone (39) 80-5963269;\nFax (39) 80-5963410; e-mail: prudenzano@poliba.it",
+            "author_count": 3
+        },
+        {
+            "id": 807,
+            "name_de": "Dipartimento Meccanica e Materiali, FacoltÃƒÂ  di Ingegneria, UniversitÃƒÂ  Ã¢â‚¬Å“MediterraneaÃ¢â‚¬Â, 89060 Reggio Calabria (Italy)",
+            "author_count": 2
+        }
+    ],
+    "verdict": "keep_separate",
+    "confidence": 0.97,
+    "groups": [
+        [
+            712
+        ],
+        [
+            807
+        ]
+    ],
+    "canonical": [
+        {
+            "name_de": "DIASS – Dipartimento di Ingegneria dell'Ambiente e per lo Sviluppo Sostenibile, Politecnico di Bari",
+            "name_en": "DIASS – Department of Environmental and Sustainable Engineering, Polytechnic University of Bari",
+            "kuerzel": "DIASS",
+            "universitaet": "Politecnico di Bari",
+            "ort": "Bari",
+            "land": "IT",
+            "ror_id": "https://ror.org/03c44v465"
+        },
+        {
+            "name_de": "Dipartimento di Meccanica e Materiali, Università degli Studi Mediterranea di Reggio Calabria",
+            "name_en": "Department of Mechanics and Materials, Mediterranea University of Reggio Calabria",
+            "kuerzel": null,
+            "universitaet": "Università degli Studi Mediterranea di Reggio Calabria",
+            "ort": "Reggio Calabria",
+            "land": "IT",
+            "ror_id": null
+        }
+    ],
+    "reason": "Zwei verschiedene Universitäten: Politecnico di Bari (Bari) und Università Mediterranea di Reggio Calabria – keine inhaltliche oder institutionelle Verbindung; Cluster-Zuordnung ist vermutlich ein automatischer Matching-Fehler."
+}

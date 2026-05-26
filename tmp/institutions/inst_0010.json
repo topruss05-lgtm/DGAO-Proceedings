@@ -1,0 +1,20 @@
+{
+    "cluster_id": 10,
+    "variants": [
+        {
+            "id": 27,
+            "name_de": "Ernst-Moritz-Arndt-Universität Greifswald, Institut für Physik",
+            "author_count": 4
+        },
+        {
+            "id": 215,
+            "name_de": "Institut für Physik, Ernst Moritz Arndt Universität Greifswald",
+            "author_count": 2
+        },
+        {
+            "id": 332,
+            "name_de": "Institut für Physik, Ernst-Moritz-Arndt-Universität Greifswald",
+            "author_count": 2
+        }
+    ]
+}

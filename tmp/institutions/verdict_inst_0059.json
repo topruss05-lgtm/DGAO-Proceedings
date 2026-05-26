@@ -1,0 +1,49 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.94,
+  "groups": [
+    [240],
+    [242, 1343],
+    [707, 772],
+    [796]
+  ],
+  "canonical": [
+    {
+      "name_de": "NOOEL – Nichtlineare Optik und Optoelektronik Labor, INFM / Università Roma Tre, Rom",
+      "name_en": "NOOEL – Nonlinear Optics and Optoelectronics Lab, INFM / University Roma Tre",
+      "kuerzel": "NOOEL",
+      "universitaet": "Università Roma Tre",
+      "ort": "Rom",
+      "land": "IT",
+      "ror_id": ""
+    },
+    {
+      "name_de": "Gemeinsames Labor für Optik, Palacký Universität Olomouc und Institut für Physik der Akademie der Wissenschaften der Tschechischen Republik",
+      "name_en": "Joint Laboratory of Optics of Palacký University Olomouc and Institute of Physics of the Czech Academy of Sciences",
+      "kuerzel": "JLO",
+      "universitaet": "Palacký University Olomouc",
+      "ort": "Olomouc",
+      "land": "CZ",
+      "ror_id": "https://ror.org/04qxnmv42"
+    },
+    {
+      "name_de": "Istituto di Fisica Applicata 'Nello Carrara', CNR, Sesto Fiorentino",
+      "name_en": "Nello Carrara Institute of Applied Physics, CNR",
+      "kuerzel": "IFAC-CNR",
+      "universitaet": "",
+      "ort": "Sesto Fiorentino",
+      "land": "IT",
+      "ror_id": "https://ror.org/00dqega85"
+    },
+    {
+      "name_de": "ENEA Forschungszentrum / Physik-Abteilung, Universität Rom Tor Vergata",
+      "name_en": "ENEA Research Centre / Physics Department, University of Rome Tor Vergata",
+      "kuerzel": "",
+      "universitaet": "Università di Roma Tor Vergata",
+      "ort": "Rom",
+      "land": "IT",
+      "ror_id": ""
+    }
+  ],
+  "reason": "Der Cluster enthält vier verschiedene Institutionen aus Italien und Tschechien; IDs 242/1343 sind Schreibvarianten desselben Joint Lab in Olomouc, IDs 707/772 sind dasselbe CNR-Institut in Florenz."
+}

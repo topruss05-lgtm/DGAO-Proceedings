@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[1262, 1277]],
+  "canonical": [
+    {
+      "name_de": "Laboratoire Ondes et Matière d'Aquitaine (LOMA), Université de Bordeaux / CNRS",
+      "name_en": "Laboratoire Ondes et Matière d'Aquitaine (LOMA), University of Bordeaux / CNRS",
+      "kuerzel": "LOMA",
+      "universitaet": "Université de Bordeaux",
+      "ort": "Talence",
+      "land": "FR",
+      "ror_id": "https://ror.org/05qsp5m64"
+    }
+  ],
+  "reason": "Beide Varianten bezeichnen dasselbe CNRS-Labor LOMA an der Universität Bordeaux (UMR 5798); Variante 1277 ist die ausführlichere Doppelaffiliations-Schreibweise für dieselbe gemeinsame Einrichtung."
+}

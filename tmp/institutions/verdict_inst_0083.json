@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.99,
+  "groups": [[375, 638]],
+  "canonical": [
+    {
+      "name_de": "LightTrans GmbH",
+      "name_en": "LightTrans GmbH",
+      "kuerzel": "LightTrans",
+      "universitaet": null,
+      "ort": "Jena",
+      "land": "DE",
+      "ror_id": "https://ror.org/05gg5zh68"
+    }
+  ],
+  "reason": "Beide Varianten sind identisch (LightTrans GmbH, Wildenbruchstrasse 15, 07745 Jena); Variante 375 hat lediglich einen abschließenden Punkt mehr. Eindeutiger Merge."
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 133,
+    "nachname_norm": "grunwald",
+    "candidates": [
+        {
+            "id": 2723,
+            "name": "R. Grunwald",
+            "papers": 2,
+            "affiliations": "Max-Born-Institut, Berlin",
+            "sample_titles": "Diffraktiv-refraktive Dispersionskompensation bei der Ausbreitung eines optischen Wirbelfelds mit ultrakurzer Pulsdauer || Microoptical CDM-technique for satellite communications"
+        },
+        {
+            "id": 11852,
+            "name": "T. Grunwald",
+            "papers": 1,
+            "affiliations": "Fraunhofer Institute for Production Technology IPT, Aachen",
+            "sample_titles": "Flexibility analysis on precision glass molding by finite element method (FEM) simulation"
+        }
+    ]
+}

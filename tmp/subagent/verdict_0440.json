@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[430], [4699], [10122], [11428]],
+  "reason": "D. Werner (EPFL, Laserfrequenzstabilisierung), J. Werner (TU Ilmenau, NURBS-Flächen), S. Werner (Helmholtz Berlin, Synchrotron), L. Werner (EAH Jena, diffraktive Optik) – vier verschiedene Initialen, Affiliationen und Themenfelder."
+}

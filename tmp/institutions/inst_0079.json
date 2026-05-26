@@ -1,0 +1,35 @@
+{
+    "cluster_id": 79,
+    "variants": [
+        {
+            "id": 328,
+            "name_de": "Lehrstuhl für Messsystem- und Sensortechnik, TU München",
+            "author_count": 4
+        },
+        {
+            "id": 460,
+            "name_de": "Lehrstuhl für Messsystem- und Sensortechnik",
+            "author_count": 1
+        },
+        {
+            "id": 462,
+            "name_de": "Lehrstuhl für Messsystem- und Sensortechnik\nTechnische Universität München",
+            "author_count": 2
+        },
+        {
+            "id": 463,
+            "name_de": "Lehrstuhl für Messsystem- und Sensortechnik, Technische Universität München",
+            "author_count": 12
+        },
+        {
+            "id": 1006,
+            "name_de": "Lehrstuhl fuer Messsystem- und Sensortechnik, TU München",
+            "author_count": 1
+        },
+        {
+            "id": 1080,
+            "name_de": "Lehrstuhl für Messsytem und Sensortechnik, TU München, Theresienstraße 90/N5, 80333 München",
+            "author_count": 1
+        }
+    ]
+}

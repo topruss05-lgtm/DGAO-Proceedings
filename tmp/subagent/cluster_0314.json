@@ -1,0 +1,20 @@
+{
+    "cluster_id": 314,
+    "nachname_norm": "riegel",
+    "candidates": [
+        {
+            "id": 7568,
+            "name": "H. Riegel",
+            "papers": 6,
+            "affiliations": "LaserApplicationCenter / Center of optical Technologies, Aalen University",
+            "sample_titles": "Laser surface structuring of additive manufactured optics || Prozessfenster und -strategien beim Laserstrahlpolieren von additiv gefertigten Metalloberflächen || Licht als Werkzeug in der Materialentwicklung – Additive Fertigung in der Materialforschung"
+        },
+        {
+            "id": 7587,
+            "name": "R. Riegel",
+            "papers": 1,
+            "affiliations": "Institut für Materialforschung Aalen, Hochschule Aalen",
+            "sample_titles": "Beurteilung der Laservorbehandlung auf Oberflächen- und Festigkeitseigenschaften hybrider CFK/Al Verbindungen"
+        }
+    ]
+}

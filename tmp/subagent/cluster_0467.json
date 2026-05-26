@@ -1,0 +1,20 @@
+{
+    "cluster_id": 467,
+    "nachname_norm": "zhao",
+    "candidates": [
+        {
+            "id": 3637,
+            "name": "M. Zhao",
+            "papers": 3,
+            "affiliations": "Fachgebiet Technische Optik, Technische Universität Ilmenau",
+            "sample_titles": "An optimization method for radial NURBS surfaces || RBF-based optical surfaces || Untersuchungen zur Genauigkeit NURBS-basierter optischer Freiformflächen"
+        },
+        {
+            "id": 12069,
+            "name": "J. Zhao",
+            "papers": 1,
+            "affiliations": "Universität Stuttgart, 5. Physikalisches Institut",
+            "sample_titles": "Optik-Design für eine skalierbare Anordnung optischer Pinzetten für das Quantum-Computing"
+        }
+    ]
+}

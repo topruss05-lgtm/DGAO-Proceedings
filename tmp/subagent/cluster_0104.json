@@ -1,0 +1,20 @@
+{
+    "cluster_id": 104,
+    "nachname_norm": "frasch",
+    "candidates": [
+        {
+            "id": 3386,
+            "name": "H. J. Frasch",
+            "papers": 2,
+            "affiliations": "Carl Zeiss AG, Oberkochen | Optik Design, Carl Zeiss AG, Oberkochen",
+            "sample_titles": "Falschlicht, Streulicht, Geisterbilder - Simulation und Abhilfe || Modellierung von Flächen- und Volumenstreuung in Raytracing Software"
+        },
+        {
+            "id": 9923,
+            "name": "J. Frasch",
+            "papers": 2,
+            "affiliations": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik",
+            "sample_titles": "Fertigung und Charakterisierung von Metalloptiken mit Freiformflächen || Topologie-Optimierte, konventionell gefertigte Gehäuse für Weltraumanwendungen"
+        }
+    ]
+}

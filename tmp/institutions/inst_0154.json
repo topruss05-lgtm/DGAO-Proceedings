@@ -1,0 +1,20 @@
+{
+    "cluster_id": 154,
+    "variants": [
+        {
+            "id": 931,
+            "name_de": "CiS Forschungsinstitut für Mikrosensorik und Photovoltaik GmbH, Erfurt",
+            "author_count": 1
+        },
+        {
+            "id": 995,
+            "name_de": "CIS Forschungsinstirut für Mikrosensorik und Photovoltaik GmbH, Erfurt",
+            "author_count": 1
+        },
+        {
+            "id": 1157,
+            "name_de": "CiS Forschungsinstitut für Mikrosensorik und Photovoltaik Gmbh, Erfurt",
+            "author_count": 2
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.93,
+  "groups": [[6364], [8672]],
+  "reason": "O. Melchert (HOT Hannover, Optakustik) und N. Melchert (IMR Hannover, LC-Filter für Interferometrie) haben unterschiedliche Vornamen-Initialen; trotz gleicher Stadt sind Institutionen und Themengebiete unterschiedlich."
+}

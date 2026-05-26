@@ -1,0 +1,30 @@
+{
+    "cluster_id": 160,
+    "variants": [
+        {
+            "id": 980,
+            "name_de": "Interstaatliche Hochschule für Technik Buchs NTB, Schweiz",
+            "author_count": 1
+        },
+        {
+            "id": 981,
+            "name_de": "NTB Interstaatliche Hochschule für Technik Buchs",
+            "author_count": 1
+        },
+        {
+            "id": 1575,
+            "name_de": "Interstaatliche Hochschule für Technik Buchs - NTB, Schweiz",
+            "author_count": 1
+        },
+        {
+            "id": 1623,
+            "name_de": "NTB Interstaatliche Hochschule für Technik Buchs, Institut für Produktionsmesstechnik, Werkstoffe und Optik",
+            "author_count": 2
+        },
+        {
+            "id": 1624,
+            "name_de": "Interstaatliche Hochschule für Technik Buchs NTB",
+            "author_count": 3
+        }
+    ]
+}

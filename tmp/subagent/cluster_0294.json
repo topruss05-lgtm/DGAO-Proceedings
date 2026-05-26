@@ -1,0 +1,20 @@
+{
+    "cluster_id": 294,
+    "nachname_norm": "paulus",
+    "candidates": [
+        {
+            "id": 648,
+            "name": "I. Paulus",
+            "papers": 1,
+            "affiliations": "Leica Microsystems AG",
+            "sample_titles": "Ultra high resolution DUV water immersion microscope objective"
+        },
+        {
+            "id": 8388,
+            "name": "S. Paulus",
+            "papers": 1,
+            "affiliations": "Hochschule RheinMain",
+            "sample_titles": "Charakterisierung von mikrostrukturiertem Silizium, hergestellt durch Femtosekundenlaserpulse, mittels Ulbrichtkugel und Rasterelektronenmikroskop"
+        }
+    ]
+}

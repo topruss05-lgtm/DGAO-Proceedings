@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[62], [826]],
+  "reason": "T. Noll (BESSY Berlin, XUV-Optik) und M. Noll (Karl Storz Tuttlingen, ESPI-Endoskopie) haben unterschiedliche Vornamen-Initialen und disjunkte Institutionen sowie Themengebiete."
+}

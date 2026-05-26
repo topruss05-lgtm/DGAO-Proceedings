@@ -1,0 +1,20 @@
+{
+    "cluster_id": 443,
+    "nachname_norm": "wiegmann",
+    "candidates": [
+        {
+            "id": 569,
+            "name": "A. Wiegmann",
+            "papers": 12,
+            "affiliations": "Mahr GmbH",
+            "sample_titles": "Erweiterte Anwendungen bei der Radiusmessung optischer Komponenten || Calibration of wavefront sensors without knowledge of the reference wavefront || Entwicklung von Kalibriernormalen für die Charakterisierung von Messsystemen für asphärische optische Oberflächen"
+        },
+        {
+            "id": 6458,
+            "name": "K. Wiegmann",
+            "papers": 1,
+            "affiliations": "Hanover Centre for Optical Technologies (HOT), Leibniz University Hannover, Hannover, Germany",
+            "sample_titles": "Utilizing 3D printing for the packaging of fiber optic sensors"
+        }
+    ]
+}

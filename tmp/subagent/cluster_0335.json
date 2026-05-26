@@ -1,0 +1,41 @@
+{
+    "cluster_id": 335,
+    "nachname_norm": "schindler",
+    "candidates": [
+        {
+            "id": 1552,
+            "name": "A. Schindler",
+            "papers": 6,
+            "affiliations": "Leibnitz-Institut für Oberflächenmodifizierung, Permoserstr. 15, \n04318 Leipzig, Germany",
+            "sample_titles": "Imaging gratings with modulated blaze realized by a combination of holography and reactive ion beam etching || Deterministische Ionenstrahlkorrektur von Oberflächenformfehlern bis in den sub-mm Ortswellenlängenbereich || One-step fabrication of refractive and diffractive microoptical elements in fused silica with laser etching"
+        },
+        {
+            "id": 4813,
+            "name": "J. Schindler",
+            "papers": 6,
+            "affiliations": "Institut für Technische Optik, Universität Stuttgart, Pfaffenwaldring 9, 70569 Stuttgart",
+            "sample_titles": "Kugeln und Zylinder stapeln - ein hybrides Projektionsmodell für Fischaugenkameras || Shearing interferometry and structured illumination for the depth-resolved detection of fluorescent light || Calibration of interferometric non-null test setups"
+        },
+        {
+            "id": 7477,
+            "name": "M. Schindler",
+            "papers": 2,
+            "affiliations": "Klinisches Sensoring und Monitoring, Klinik für Anästhesiologie und Intensivtherapie, Technische Universität Dresden",
+            "sample_titles": "Erweiterte morphologische und funktionelle Diagnostik am humanen Mittelohr mittels endoskopischer optischer Kohärenztomografie || Imaging of the human middle ear by endoscopic optical coherence tomography"
+        },
+        {
+            "id": 11240,
+            "name": "P. C. Schindler",
+            "papers": 3,
+            "affiliations": "Karlsruher Institut für Technologie (KIT",
+            "sample_titles": "Kerr-Frequenzkämme und deren Stabilisierung für die Terabit-Kommunikation || Frequenzmultiplex-Verfahren für zukünftige optische Zugangsnetzwerke || Silicon Photonics, Hybrid Integration, and Frequency Combs: Technologies for Terabit/s Communications, Teratronics, and Optical Metrology"
+        },
+        {
+            "id": 11362,
+            "name": "T. Schindler",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Precise integration of flexo-printed optical waveguides into printed circuit boards via opto-electrical layout registration"
+        }
+    ]
+}

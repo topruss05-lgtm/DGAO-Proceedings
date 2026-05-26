@@ -1,0 +1,34 @@
+{
+    "cluster_id": 299,
+    "nachname_norm": "petrov",
+    "candidates": [
+        {
+            "id": 120,
+            "name": "V. M. Petrov",
+            "papers": 12,
+            "affiliations": "Photonik Zentrum Hessen in Wetzlar AG",
+            "sample_titles": "Elektrisch abstimmbare Filter und Schalter für die faseroptische Sensorik und Nachrichtentechnik || Nano-optische Mechanik: Vom Lichtdruck zur Casimirkraft || Super-breitband Photodetektor basierend auf Lichtdruck"
+        },
+        {
+            "id": 691,
+            "name": "M. P. Petrov",
+            "papers": 2,
+            "affiliations": "A. F. Ioffe Physical Technical Institute, St. Petersburg, Russia",
+            "sample_titles": "Nano-optische Mechanik: Vom Lichtdruck zur Casimirkraft || Measuring the pressure of light with an adaptive holographic interferometer"
+        },
+        {
+            "id": 1364,
+            "name": "V. Petrov",
+            "papers": 1,
+            "affiliations": "Institut für Angewandte Physik, Technische Universität Darmstadt",
+            "sample_titles": "Informationstransfer durch optische räumliche Solitonen in einem wechselwirkenden 2-Solitonensystem"
+        },
+        {
+            "id": 9947,
+            "name": "M. Petrov",
+            "papers": 1,
+            "affiliations": "ASML Berlin GmbH",
+            "sample_titles": "Scalable Fizeau Interferometer"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "cluster_id": 199,
+    "variants": [
+        {
+            "id": 1366,
+            "name_de": "Institute for Applied Biotechnology and System Analysis at the University of Witten/Herdecke, Herrhausenstrasse 44, 58455 Witten, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 1533,
+            "name_de": "Applied Systems Biology, Leibniz Institute for Natural Product Research and Infection Biology, Hans-Knöll-Institute (HKI), Jena, Germany",
+            "author_count": 1
+        }
+    ]
+}

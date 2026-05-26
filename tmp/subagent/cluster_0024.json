@@ -1,0 +1,41 @@
+{
+    "cluster_id": 24,
+    "nachname_norm": "birk",
+    "candidates": [
+        {
+            "id": 7938,
+            "name": "U. J. Birk",
+            "papers": 1,
+            "affiliations": "Institut für Photonics und ICT, Hochschule für Technik und Wirtschaft HTW Chur; \nInstitut für Physik, Universität Mainz",
+            "sample_titles": "Benutzerpositionsabhängige adaptive Anzeige von 3D-Daten ohne zusätzliche stereoskopische Hardware"
+        },
+        {
+            "id": 8132,
+            "name": "U. Birk",
+            "papers": 8,
+            "affiliations": "Institut für Photonics und Robotics, Fachhochschule Graubünden, Schweiz",
+            "sample_titles": "M.I.A.U. (Machine Integrated Authentication Unit): Intelligente Katzenidentifikation auf einem Embedded System || Automatisierte Detektion von Wolframwendeln zur Entnahme aus Petrischalen || Studierendenprojekt: Optisches Messsystem zur Optimierung des Lauftrainings von Athleten"
+        },
+        {
+            "id": 12100,
+            "name": "A. Birk",
+            "papers": 1,
+            "affiliations": "Institut für Technische Optik, Universität Stuttgart",
+            "sample_titles": "Die Time-Gated Single Pixel Camera (TGSPC): Innovatives Konzept zur Objekterkennung durch streuende Medien"
+        },
+        {
+            "id": 12725,
+            "name": "H. Birk",
+            "papers": 2,
+            "affiliations": "Center for Curriculum and Teaching Development, Universität St. Gallen, Schweiz",
+            "sample_titles": "Erzählungen als treibende Kraft in der Photonik-Ausbildung: Einblicke und Anwendungsbeispiele || Didaktische und experimentelle Konzepte für Hands-on Machine Vision Experimente in der Online-Lehre"
+        },
+        {
+            "id": 12726,
+            "name": "E. Birk",
+            "papers": 1,
+            "affiliations": "Faculty of Arts, University of Malta",
+            "sample_titles": "Erzählungen als treibende Kraft in der Photonik-Ausbildung: Einblicke und Anwendungsbeispiele"
+        }
+    ]
+}

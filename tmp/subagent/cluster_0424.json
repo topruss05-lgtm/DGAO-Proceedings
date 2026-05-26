@@ -1,0 +1,20 @@
+{
+    "cluster_id": 424,
+    "nachname_norm": "vogl",
+    "candidates": [
+        {
+            "id": 7721,
+            "name": "C. Vögl",
+            "papers": 2,
+            "affiliations": "Institut für Optik, Information und Photonik, Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
+            "sample_titles": "Anwendung von Beam-Propagation-Method und Wave-Propagation-Method zur Simulation innovativ gedruckter Lichtwellenleiter || Simulationen zur Erfassung der Güte gedruckter Polymer Optischer Wellenleiter (POWs) bei Variation signifikanter Charakteristika"
+        },
+        {
+            "id": 11284,
+            "name": "U. Vogl",
+            "papers": 3,
+            "affiliations": "Carl Zeiss AG",
+            "sample_titles": "Speckle-basierte Wellenlängenmessungen || Speckle-basierter relativer 6DOF Sensor || Qualifizierung und Kompensierung transienter thermischer Lasten in Kameras für Photogrammmetrie-Systeme"
+        }
+    ]
+}

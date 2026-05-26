@@ -1,0 +1,20 @@
+{
+    "cluster_id": 6,
+    "nachname_norm": "amann",
+    "candidates": [
+        {
+            "id": 151,
+            "name": "M. Amann",
+            "papers": 1,
+            "affiliations": "Walter Schottky Institut, TU München",
+            "sample_titles": "Laserdioden für die optische Kommunikationstechnik"
+        },
+        {
+            "id": 8272,
+            "name": "S. Amann",
+            "papers": 3,
+            "affiliations": "Institut für Technische Optik, Universität Stuttgart",
+            "sample_titles": "Multi Aperture Computed Tomography Imaging Spectrometer || Hyperspektrale Bildgebung mit Hilfe eines Computed Tomography Imaging Spectrometer unter Verwendung moderner Methoden || Charakterisierung von Homogenisierkomponenten für die satellitengestützte Messung von Treibhausgasen"
+        }
+    ]
+}

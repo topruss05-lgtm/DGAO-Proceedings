@@ -1,0 +1,20 @@
+{
+    "cluster_id": 445,
+    "nachname_norm": "wilke",
+    "candidates": [
+        {
+            "id": 4584,
+            "name": "M. Wilke",
+            "papers": 1,
+            "affiliations": "Institut für Technische Optik, Universität Stuttgart",
+            "sample_titles": "Optical Metrology, Remote Laboratories, and Cloud Computing"
+        },
+        {
+            "id": 8603,
+            "name": "F. Wilke",
+            "papers": 1,
+            "affiliations": "Institute of Applied Physics, Technische Universität Darmstadt, Schloßgartenstraße 7, 64289 Darmstadt, Germany",
+            "sample_titles": "Experimental studies of modal gain, absorption and dispersion of nanostructured semiconductor lasers emitting in the near-infrared wavelength regime"
+        }
+    ]
+}

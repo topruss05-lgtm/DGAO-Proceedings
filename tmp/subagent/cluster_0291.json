@@ -1,0 +1,20 @@
+{
+    "cluster_id": 291,
+    "nachname_norm": "pape",
+    "candidates": [
+        {
+            "id": 5026,
+            "name": "C. Pape",
+            "papers": 3,
+            "affiliations": "Institut für Mess- und Regelungstechnik, Leibniz Universität Hannover",
+            "sample_titles": "Automated Assembly of Optical Systems based on Wavefront Predictions || Vibration Measurements of Rotating Objects Using an Optomechatronical Image Derotator || Kalibrierung der optischen Achsen eines Bildderotators mittels Bildverarbeitung und einer 6 Achsen Parallelkinematik"
+        },
+        {
+            "id": 5052,
+            "name": "S. Pape",
+            "papers": 1,
+            "affiliations": "Physikalisch-Technische Bundesanstalt, Braunschweig & Berlin",
+            "sample_titles": "Realisierung und Weitergabe der Einheit spektraler Bestrahlungsstärke in der PTB"
+        }
+    ]
+}

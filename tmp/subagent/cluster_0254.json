@@ -1,0 +1,34 @@
+{
+    "cluster_id": 254,
+    "nachname_norm": "ludwig",
+    "candidates": [
+        {
+            "id": 6340,
+            "name": "M. Ludwig",
+            "papers": 1,
+            "affiliations": "Hochschule Landshut – University of Applied Sciences",
+            "sample_titles": "Inline detection of defects on free formed metal pressings using a single shot inverse fringe projection approach"
+        },
+        {
+            "id": 8634,
+            "name": "S. Ludwig",
+            "papers": 2,
+            "affiliations": "Institut für Technische Optik, Universität Stuttgart",
+            "sample_titles": "Scatter-plate microscopy with coherent illumination and moving scattering media || Scatter-plate microscopy with coherent illumination and moving scattering media"
+        },
+        {
+            "id": 11313,
+            "name": "C. Ludwig",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Teaching quantum computing using a full adder as an example"
+        },
+        {
+            "id": 12065,
+            "name": "K. Ludwig",
+            "papers": 1,
+            "affiliations": "Fraunhofer Institut für Lasertechnik ILT",
+            "sample_titles": "Optik-Design für eine skalierbare Anordnung optischer Pinzetten für das Quantum-Computing"
+        }
+    ]
+}

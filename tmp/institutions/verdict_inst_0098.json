@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[464, 573, 1131, 1308]],
+  "canonical": [
+    {
+      "name_de": "Professur für Mess- und Prüftechnik, Technische Universität Dresden",
+      "name_en": "Chair of Measurement and Testing Technology, Technische Universität Dresden",
+      "kuerzel": "MPT-TUD",
+      "universitaet": "Technische Universität Dresden",
+      "ort": "Dresden",
+      "land": "DE",
+      "ror_id": "https://ror.org/042aqky30"
+    }
+  ],
+  "reason": "Alle vier Varianten bezeichnen dieselbe Professur für Mess- und Prüftechnik an der TU Dresden; Unterschiede sind Angabe der Fakultät, URL und Abkürzungen."
+}

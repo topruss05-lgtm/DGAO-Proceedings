@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[4911], [9877], [10038]],
+  "reason": "S. Teichert (PTB Braunschweig, Ellipsometrie/Mueller-Matrizen), A. Teichert (NOB Berlin, Grautonlithografie) und M. Teichert (Universitätsklinikum Jena, Stereophotogrammetrie) haben vollständig unterschiedliche Initialen, Affiliationen und Themen."
+}

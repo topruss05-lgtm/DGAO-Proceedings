@@ -1,0 +1,20 @@
+{
+    "cluster_id": 183,
+    "nachname_norm": "kallweit",
+    "candidates": [
+        {
+            "id": 5014,
+            "name": "S. Kallweit",
+            "papers": 1,
+            "affiliations": "Physikalisch-Technische Bundesanstalt Braunschweig, Germany",
+            "sample_titles": "Eine neue, fasergekoppelte offene White-Zelle für die „open-path“-Gasanalyse auf Forschungsflugzeugen"
+        },
+        {
+            "id": 6575,
+            "name": "N. Kallweit",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Macrobending losses of glass fibers for optical cochlear stimulation"
+        }
+    ]
+}

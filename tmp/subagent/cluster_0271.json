@@ -1,0 +1,27 @@
+{
+    "cluster_id": 271,
+    "nachname_norm": "meyer",
+    "candidates": [
+        {
+            "id": 5666,
+            "name": "J. Meyer",
+            "papers": 1,
+            "affiliations": "Karlsruher Institut für Technologie (KIT",
+            "sample_titles": "Frequenzmultiplex-Verfahren für zukünftige optische Zugangsnetzwerke"
+        },
+        {
+            "id": 6645,
+            "name": "H. Meyer",
+            "papers": 1,
+            "affiliations": "Department of Biomedical Optics, Laser Zentrum Hannover e.V.",
+            "sample_titles": "SLOT: Computed Tomography with laser light for volumetric microscopy of mesoscopic specimens"
+        },
+        {
+            "id": 11380,
+            "name": "M. Meyer",
+            "papers": 3,
+            "affiliations": "Physikalisch-Technische Bundesanstalt",
+            "sample_titles": "Optimierung der absoluten Formmessung in der Tilted Wave Interferometrie || Änderungen optischer Eigenschaften organischer Leuchtdioden bei hoher Betriebsdauer || Funktionsprüfung von Stereomikroskopobjektiven bei mehreren Wellenlängen mittes Shack-Hartmann Wellenfrontsensor"
+        }
+    ]
+}

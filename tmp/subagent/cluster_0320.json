@@ -1,0 +1,41 @@
+{
+    "cluster_id": 320,
+    "nachname_norm": "roth",
+    "candidates": [
+        {
+            "id": 2145,
+            "name": "S. Roth",
+            "papers": 2,
+            "affiliations": "Leica Camera AG",
+            "sample_titles": "Digitalfotografie im professionellen Einsatz - Höchste Anforderungen an eine moderne Optik || Eindimensionale Diffusoren für Laseranwendungen"
+        },
+        {
+            "id": 3882,
+            "name": "E. Roth",
+            "papers": 1,
+            "affiliations": "Augenzentrum Friedrichstadt, Düsseldorf",
+            "sample_titles": "Optisches Mikrophon = Nanophon® als Michelson-Interferometer mit Wavelet-Datenkompression"
+        },
+        {
+            "id": 6029,
+            "name": "B. Roth",
+            "papers": 29,
+            "affiliations": "Hannover Centre for Optical Technologies, Leibniz University Hannover",
+            "sample_titles": "Fast wavefront manipulation for OCT signal enhancement || Mueller Matrix polarimetry for dermatoscopic application || Low cost fabrication of polymer based optical devices"
+        },
+        {
+            "id": 7134,
+            "name": "C. Roth",
+            "papers": 4,
+            "affiliations": "Ostbayerische Technische Hochschule Regensburg",
+            "sample_titles": "Miniaturisierte Sensoren basierend auf Oberflächenplasmonenresonanz, Chancen und Herausforderungen || Entwicklung eines Echzeit-Schädlingsmonitoringsystems auf Basis einer energieeffizienten optischen Sensoreinheit || Miniaturisiertes Sensorsystem zur Oberflächenplasmonenresonanzspektroskopie"
+        },
+        {
+            "id": 7250,
+            "name": "M. Roth",
+            "papers": 2,
+            "affiliations": "OST - Ostschweizer Fachhochschule",
+            "sample_titles": "Laserbasierte Herstellung einer akustischen Kammer für ein optisches Mikrofon || Schnelle Flächenlichtmodulation in Amplitude und Phase auf Basis diffraktiver Kippspiegelarrays"
+        }
+    ]
+}

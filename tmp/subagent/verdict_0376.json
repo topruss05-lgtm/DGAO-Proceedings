@@ -1,0 +1,6 @@
+{
+  "verdict": "merge",
+  "confidence": 0.95,
+  "groups": [[276, 3750]],
+  "reason": "S. Sinzinger (id 276, 198 Paper) und St. Sinzinger (id 3750, 15 Paper) teilen dieselbe Affiliation (TU Ilmenau, Technische Optik) und überlappende Themen (Zoomobjektiv, Talbotinterferometrie, Partikelmesstechnik); St./S. ist eine typische Abkürzungsvariante (Stefan → S. bzw. St.)."
+}

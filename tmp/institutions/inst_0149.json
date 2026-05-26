@@ -1,0 +1,15 @@
+{
+    "cluster_id": 149,
+    "variants": [
+        {
+            "id": 885,
+            "name_de": "Carl Zeiss NTS GmbH, Oberkochen, Germany",
+            "author_count": 1
+        },
+        {
+            "id": 1169,
+            "name_de": "Carl Zeiss AG, Oberkochen, Germany",
+            "author_count": 1
+        }
+    ]
+}

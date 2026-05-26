@@ -1,0 +1,34 @@
+{
+    "cluster_id": 215,
+    "nachname_norm": "kramer",
+    "candidates": [
+        {
+            "id": 5016,
+            "name": "M. Krämer",
+            "papers": 1,
+            "affiliations": "Forschungszentrum Jülich,  IEK-7, 52425, Jülich, Germany",
+            "sample_titles": "Eine neue, fasergekoppelte offene White-Zelle für die „open-path“-Gasanalyse auf Forschungsflugzeugen"
+        },
+        {
+            "id": 5389,
+            "name": "A. Krämer",
+            "papers": 1,
+            "affiliations": "Institut für Photonik und Quantenelektronik (IPQ), Karlsruher Institut für Technologie (KIT)",
+            "sample_titles": "Polarization-Sensitive Optical Coherence Tomography for Characterization of Size and Shape of Nano-Particles"
+        },
+        {
+            "id": 6047,
+            "name": "D. Kramer",
+            "papers": 1,
+            "affiliations": "Institute of Physics Academy of Sciences CR, Na Slovance 2, 182 21 Praha 8",
+            "sample_titles": "Challenges of the ELI beamlines laser systems"
+        },
+        {
+            "id": 11971,
+            "name": "S. Krämer",
+            "papers": 6,
+            "affiliations": "Institut für Optik und Mikrosysteme, Technische Hochschule Mittelhessen",
+            "sample_titles": "Machine Learning in der kohärenten Fourier-Scatterometrie zur Unterscheidung geometrischer Strukturen sphärischer Goldnanopartikel || Fernfeldmethode zur Detektion von strukturiert angeordneten Goldnanopartieln || Experimentelle Bestimmung von Zernike-Koeffizienten anhand gemessener Kantenbildfunktionen"
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "cluster_id": 59,
+    "variants": [
+        {
+            "id": 240,
+            "name_de": "NOOEL – Nonliner Optics and Optoelectronics Lab., Italian Institute for the Physics of the Matter (INFM) – University 'Roma Tre', Via della Vasca Navale 84, 00146 Rome,  Italy",
+            "author_count": 2
+        },
+        {
+            "id": 242,
+            "name_de": "Institute of Physics of the Academy of Sciences of the Czech Republic,\nJoint Laboratory of Optics of Palacky University and Institute of Physics ASCR,\n17. listopadu 50a, CZ-772 07 Olomouc, Czech Republic",
+            "author_count": 2
+        },
+        {
+            "id": 707,
+            "name_de": "Institute of Applied Physics, CNR, Firenze,Italy",
+            "author_count": 5
+        },
+        {
+            "id": 772,
+            "name_de": "'Nello Carrara' Institute for Applied Physics - National Research Council, Sesto Fiorentino, Florence, Italy",
+            "author_count": 2
+        },
+        {
+            "id": 796,
+            "name_de": "ENEA Research Centre, Optical Coatings Group, Via Anguillarese 301, 00123 Rome, Italy\n\nPhysics Department, University of Rome Tor Vergata and INSTM, via della Ricerca Scientifica 1, 00133 Rome, Italy",
+            "author_count": 2
+        },
+        {
+            "id": 1343,
+            "name_de": "Joint Laboratory of Optics of Palacky University Olomouc, Czech Republic and Institute of Physics of Academy of Sciences of the Czech Republic.",
+            "author_count": 3
+        }
+    ]
+}

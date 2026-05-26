@@ -1,0 +1,13 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.97,
+    "groups": [
+        [
+            538
+        ],
+        [
+            8024
+        ]
+    ],
+    "reason": "Verschiedene Initialen (S. vs L.-M.) und unterschiedliche Institutionen (ITO Stuttgart vs FH Südwestfalen) – eindeutig zwei verschiedene Personen."
+}

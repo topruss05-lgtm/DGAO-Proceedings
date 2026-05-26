@@ -1,0 +1,13 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.97,
+    "groups": [
+        [
+            5059
+        ],
+        [
+            6089
+        ]
+    ],
+    "reason": "Verschiedene Initialen (S. vs A.) und unterschiedliche Institutionen (SENTECH vs Humboldt-Universität Berlin) sprechen für zwei verschiedene Personen."
+}

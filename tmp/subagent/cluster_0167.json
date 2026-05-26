@@ -1,0 +1,20 @@
+{
+    "cluster_id": 167,
+    "nachname_norm": "hiltunen",
+    "candidates": [
+        {
+            "id": 5873,
+            "name": "J. Hiltunen",
+            "papers": 1,
+            "affiliations": "VTT Technical Research Centre of Finland, Kaitoväylä 1, FI90571 Oulu, Finland",
+            "sample_titles": "Mass-manufacturing methods for opto-fluidic structures"
+        },
+        {
+            "id": 5875,
+            "name": "M. Hiltunen",
+            "papers": 1,
+            "affiliations": "VTT Technical Research Centre of Finland, Kaitoväylä 1, FI90571 Oulu, Finland",
+            "sample_titles": "Mass-manufacturing methods for opto-fluidic structures"
+        }
+    ]
+}

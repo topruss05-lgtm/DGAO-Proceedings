@@ -1,0 +1,20 @@
+{
+    "cluster_id": 202,
+    "nachname_norm": "klug",
+    "candidates": [
+        {
+            "id": 1175,
+            "name": "R. Klug",
+            "papers": 1,
+            "affiliations": "opsira GmbH",
+            "sample_titles": "Möglichkeiten der BSDF Messung und Umsetzung der Messdaten im Optik-Design"
+        },
+        {
+            "id": 3278,
+            "name": "U. Klug",
+            "papers": 1,
+            "affiliations": "Laser Zentrum Hannover e.V.",
+            "sample_titles": "Anwendungen ortsvarianter Polarisationsverteilungen bei der Mikromaterialbearbeitung mit ultrakurzen Laserpulsen"
+        }
+    ]
+}

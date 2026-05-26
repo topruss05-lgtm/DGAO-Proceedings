@@ -1,0 +1,104 @@
+{
+    "cluster_id": 340,
+    "nachname_norm": "schmidt",
+    "candidates": [
+        {
+            "id": 78,
+            "name": "M. Schmidt",
+            "papers": 1,
+            "affiliations": "Fachhochschule Nürnberg",
+            "sample_titles": "Auslegung eines optischen Systems zur Übertragung von Daten über eine rotierende Schnittstelle"
+        },
+        {
+            "id": 172,
+            "name": "E. Schmidt",
+            "papers": 1,
+            "affiliations": "Kayser-Threde GmbH, München",
+            "sample_titles": "Optischer und mechanischer Entwurf eines Kameraobjektivs für den NASA-Asteroidenorbiter DAWN"
+        },
+        {
+            "id": 1134,
+            "name": "R. Schmidt",
+            "papers": 1,
+            "affiliations": "Max-Planck-Institut für Biophysikalische Chemie, Göttingen",
+            "sample_titles": "STED-4Pi Microscopy"
+        },
+        {
+            "id": 1363,
+            "name": "J. Schmidt",
+            "papers": 1,
+            "affiliations": "Institut für Angewandte Physik, Technische Universität Darmstadt",
+            "sample_titles": "Informationstransfer durch optische räumliche Solitonen in einem wechselwirkenden 2-Solitonensystem"
+        },
+        {
+            "id": 1951,
+            "name": "I. Schmidt",
+            "papers": 6,
+            "affiliations": "Fraunhofer Institut für Angewandte Optik und Feinmechanik Jena",
+            "sample_titles": "GOBO-Projektion für schnelle IR-3D-Messtechnik || Combined optical sensor for simultaneously measuring roughness and 3D shape || 3D-Schneidkantenvermessung von Präzisionsschneidwerkzeugen"
+        },
+        {
+            "id": 2976,
+            "name": "O. Schmidt",
+            "papers": 1,
+            "affiliations": "Institut für Angewandte Optik\nFriedrich-Schiller-Universität Jena",
+            "sample_titles": "Laser beam characterization by means of modal decomposition versus M2 method"
+        },
+        {
+            "id": 3097,
+            "name": "L. Schmidt",
+            "papers": 1,
+            "affiliations": "Center for Biomedical Optics and Photonics, University of Muenster, Germany",
+            "sample_titles": "Influence of Sample Preparation in Digital Holographic Phase Contrast Microscopy"
+        },
+        {
+            "id": 3806,
+            "name": "F. Schmidt",
+            "papers": 2,
+            "affiliations": "TechnoTeam Bildverarbeitung GmbH, Ilmenau",
+            "sample_titles": "LED-Messtechnik und Bestimmung der Eigenschaften von LED-Lichtquellen || Ermittlung der Übertragungsfunktion einer auf Glasfiltern basierenden Multispektralkamera"
+        },
+        {
+            "id": 5658,
+            "name": "M. A. Schmidt",
+            "papers": 3,
+            "affiliations": "Leibniz-IPHT – Leibniz Institute of Photonic Technology, Albert-Einstein-Str. 9, 07745 Jena, Germany",
+            "sample_titles": "Preparation Technique of Antiresonant Hollow Core Microstructured Optical Fibers for Chemical Sensing || Square and hexagonal shaped hollow-core optical fibers – Novel design variations for antiresonant sensor waveguides || Herstellung und Charakterisierung von Metalldraht-Arrays in optischen Fasern"
+        },
+        {
+            "id": 6400,
+            "name": "C. Schmidt",
+            "papers": 1,
+            "affiliations": "Hella KGaA, Hueck&Co., Lippstadt",
+            "sample_titles": "Active Vehicle Frontlighting Systems based on Innovative LED and Laser Headlamps"
+        },
+        {
+            "id": 6659,
+            "name": "W. Schmidt",
+            "papers": 1,
+            "affiliations": "Kiepenheuer-Institut für Sonnenphysik",
+            "sample_titles": "Simulation of a Double/Triple-Fabry-Perot-Spectropolarimeter for the solar telescope DKIST"
+        },
+        {
+            "id": 7006,
+            "name": "K. Schmidt",
+            "papers": 4,
+            "affiliations": "Professur für Mess- und Sensorsystemtechnik, TU Dresden",
+            "sample_titles": "AI-driven adaptive achromatic microscopy || Adaptiver Achromat zur Korrektur chromatischer Aberrationen || Adaptive optical elements & Machine Learning - The road to smart microscopy"
+        },
+        {
+            "id": 9332,
+            "name": "S. Schmidt",
+            "papers": 1,
+            "affiliations": "Corporate Research & Technology, Carl Zeiss AG, 07745 Jena, Germany",
+            "sample_titles": "Integrated structured illumination concepts by complex optical 3d-printing"
+        },
+        {
+            "id": 9424,
+            "name": "T. Schmidt",
+            "papers": 1,
+            "affiliations": "Faculty of Electrical Engineering, Czech Technical University in Prague",
+            "sample_titles": "Charakterisierung von Weitwinkel-Röntgenteleskopen in der Testanlage PANTER"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "cluster_id": 119,
+    "nachname_norm": "gerhardt",
+    "candidates": [
+        {
+            "id": 7031,
+            "name": "N. C. Gerhardt",
+            "papers": 1,
+            "affiliations": "Lehrstuhl für Photonik und Terahertztechnologie, Ruhr-Universität Bochum",
+            "sample_titles": "Digital holographic microscopy of buried specimen using a common-path reflective setup"
+        },
+        {
+            "id": 8292,
+            "name": "M. Gerhardt",
+            "papers": 1,
+            "affiliations": "Günter Effgen GmbH",
+            "sample_titles": "Herstellung optischer Freiformbauteile – Vorstellung einer neuartigen Prozesskette zur Fertigung und Herausforderungen bei der Oberflächenmessung"
+        },
+        {
+            "id": 8901,
+            "name": "U. Gerhardt",
+            "papers": 1,
+            "affiliations": "Technische Universität Ilmenau, Institute of Process Measurement and Sensor Technology",
+            "sample_titles": "A thermal actuated Membrane as oscillating Pinhole for the high-frequent Modulation of Light"
+        }
+    ]
+}

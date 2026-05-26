@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.93,
+  "groups": [[562], [1307], [3494], [4679], [6404], [7122], [7724], [9889], [12668]],
+  "reason": "Neun verschiedene Personen mit dem Nachnamen Koch: alle haben unterschiedliche Vornamen-Initialen (H., A. W., M., A., J., E., F., D., S.) und vollständig disjunkte Affiliations sowie Themengebiete."
+}

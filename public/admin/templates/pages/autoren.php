@@ -17,29 +17,37 @@ if (!empty($search)) {
 $total = (int)$countStmt->fetchColumn();
 $pag = paginate($total, $perPage, $currentPage);
 
-// Autoren laden
+// Autoren laden — Affiliation via Institutionen-JOIN (aktuelle ist_aktuell=1),
+// Suche matcht auch über autor_aliase + alle verknüpften institutionen.name_de.
+$affSubq = "(SELECT i.name_de FROM autor_institutionen ai
+             JOIN institutionen i ON i.id = ai.institut_id
+             WHERE ai.autor_id = a.id AND ai.ist_aktuell = 1 LIMIT 1) AS affiliation";
 if (!empty($search)) {
-    $stmt = $db->prepare('
-        SELECT a.id, a.vorname, a.nachname, a.affiliation,
+    $stmt = $db->prepare("
+        SELECT a.id, a.vorname, a.nachname, $affSubq,
                COUNT(pa.paper_id) as paper_count
         FROM autoren a
         LEFT JOIN paper_autoren pa ON pa.autor_id = a.id
-        WHERE a.nachname LIKE ? OR a.vorname LIKE ? OR a.affiliation LIKE ?
+        WHERE a.nachname LIKE ? OR a.vorname LIKE ?
+           OR EXISTS (SELECT 1 FROM autor_aliase al WHERE al.autor_id = a.id AND al.alias_text LIKE ?)
+           OR EXISTS (SELECT 1 FROM autor_institutionen ai2
+                      JOIN institutionen i2 ON i2.id = ai2.institut_id
+                      WHERE ai2.autor_id = a.id AND i2.name_de LIKE ?)
         GROUP BY a.id
         ORDER BY a.nachname COLLATE NOCASE, a.vorname COLLATE NOCASE
         LIMIT ? OFFSET ?
-    ');
-    $stmt->execute([$searchParam, $searchParam, $searchParam, $pag['per_page'], $pag['offset']]);
+    ");
+    $stmt->execute([$searchParam, $searchParam, $searchParam, $searchParam, $pag['per_page'], $pag['offset']]);
 } else {
-    $stmt = $db->prepare('
-        SELECT a.id, a.vorname, a.nachname, a.affiliation,
+    $stmt = $db->prepare("
+        SELECT a.id, a.vorname, a.nachname, $affSubq,
                COUNT(pa.paper_id) as paper_count
         FROM autoren a
         LEFT JOIN paper_autoren pa ON pa.autor_id = a.id
         GROUP BY a.id
         ORDER BY a.nachname COLLATE NOCASE, a.vorname COLLATE NOCASE
         LIMIT ? OFFSET ?
-    ');
+    ");
     $stmt->execute([$pag['per_page'], $pag['offset']]);
 }
 $autoren = $stmt->fetchAll();

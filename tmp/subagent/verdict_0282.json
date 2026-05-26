@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[6641], [7178], [12556]],
+  "reason": "L. Nolte (LZH Hannover, SLOT-Mikroskopie), P. W. Nolte (Fraunhofer IMWS Soest, Lichtkonverter/LEDs) und S. Nolte (FSU Jena, Ultrakurzpulslaser) haben unterschiedliche Vornamen-Initialen und disjunkte Institutionen sowie Themengebiete."
+}

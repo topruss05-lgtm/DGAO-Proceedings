@@ -1,0 +1,15 @@
+{
+    "cluster_id": 47,
+    "variants": [
+        {
+            "id": 149,
+            "name_de": "Robert Bosch GmbH, Stuttgart",
+            "author_count": 2
+        },
+        {
+            "id": 703,
+            "name_de": "Robert Bosch, Stuttgart",
+            "author_count": 1
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.95,
+  "groups": [[1110, 1585, 1595]],
+  "canonical": [
+    {
+      "name_de": "Fakultät für Maschinenbau, Technische Universität Ilmenau",
+      "name_en": "Faculty of Mechanical Engineering, Technische Universität Ilmenau",
+      "kuerzel": "",
+      "universitaet": "Technische Universität Ilmenau",
+      "ort": "Ilmenau",
+      "land": "DE",
+      "ror_id": "https://ror.org/01weqhp73"
+    }
+  ],
+  "reason": "Alle drei Varianten bezeichnen die Fakultät für Maschinenbau der TU Ilmenau; Variante 1595 spezifiziert zusätzlich das FG Qualitätssicherung, ist aber Teil derselben Fakultät. Zusammenführung angemessen."
+}

@@ -1,0 +1,49 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.93,
+  "groups": [
+    [213],
+    [957],
+    [1115],
+    [1481]
+  ],
+  "canonical": [
+    {
+      "name_de": "Laboratory of Nanophotonics and Metrology (NAM), EPFL Lausanne",
+      "name_en": "Laboratory of Nanophotonics and Metrology, Swiss Federal Institute of Technology Lausanne",
+      "kuerzel": "NAM",
+      "universitaet": "EPFL",
+      "ort": "Lausanne",
+      "land": "CH",
+      "ror_id": ""
+    },
+    {
+      "name_de": "Optics & Photonics Technology Laboratory, EPFL Lausanne",
+      "name_en": "Optics & Photonics Technology Laboratory, EPFL",
+      "kuerzel": "",
+      "universitaet": "EPFL",
+      "ort": "Lausanne",
+      "land": "CH",
+      "ror_id": ""
+    },
+    {
+      "name_de": "Optical Radiation Laboratory, CMS/ITRI, Taiwan",
+      "name_en": "Optical Radiation Laboratory, National Measurement Laboratory CMS, Industrial Technology Research Institute",
+      "kuerzel": "CMS/ITRI",
+      "universitaet": "",
+      "ort": "Taiwan",
+      "land": "TW",
+      "ror_id": ""
+    },
+    {
+      "name_de": "Labor für Materialbearbeitung, Institut für Mikrosystemtechnik, Universität Freiburg",
+      "name_en": "Laboratory for Materials Processing, Institute for Microsystems Technology, University of Freiburg",
+      "kuerzel": "IMTEK",
+      "universitaet": "Universität Freiburg",
+      "ort": "Freiburg",
+      "land": "DE",
+      "ror_id": "https://ror.org/0245cg223"
+    }
+  ],
+  "reason": "Vier völlig verschiedene Institutionen aus der Schweiz, Taiwan und Deutschland wurden fälschlicherweise geclustert; selbst die beiden EPFL-Einträge sind unterschiedliche Labore an der EPFL und daher getrennt zu halten."
+}

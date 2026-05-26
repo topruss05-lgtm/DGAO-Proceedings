@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[1804, 1919]],
+  "canonical": [
+    {
+      "name_de": "Institut für Smart Systems und Services (IoS³), Hochschule Pforzheim",
+      "name_en": "Institute for Smart Systems and Services (IoS³), Pforzheim University",
+      "kuerzel": "IoS3-HsPF",
+      "universitaet": "Hochschule Pforzheim",
+      "ort": "Pforzheim",
+      "land": "DE",
+      "ror_id": "https://ror.org/00qakfc35"
+    }
+  ],
+  "reason": "Beide Varianten bezeichnen dasselbe Institut IoS³ an der Hochschule Pforzheim; ID 1804 nennt den Institutsnamen zuerst, ID 1919 hat einen Zeilenumbruch und stellt die Hochschule voran – inhaltlich identisch."
+}

@@ -1,0 +1,15 @@
+{
+    "cluster_id": 210,
+    "variants": [
+        {
+            "id": 1592,
+            "name_de": "Institut für Materialforschung Aalen, Hochschule Aalen",
+            "author_count": 4
+        },
+        {
+            "id": 1596,
+            "name_de": "Institut für Materialforschung, Hochschule Aalen",
+            "author_count": 3
+        }
+    ]
+}

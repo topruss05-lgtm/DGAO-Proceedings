@@ -1,0 +1,20 @@
+{
+    "cluster_id": 399,
+    "nachname_norm": "sturwald",
+    "candidates": [
+        {
+            "id": 1521,
+            "name": "S. Stürwald",
+            "papers": 3,
+            "affiliations": "Fraunhofer IPT, Aachen",
+            "sample_titles": "Simulationsgestützte und experimentelle Analyse von systematischen Messfehlern bei der Formprüfung mittels Computer generierter Hologramme || Charakterisierung von ultrahellen Leuchtdioden für den Einsatz in der digitalen Holographie || Anwendung zeitlicher Phasenschiebeverfahren in einem LED basierten kurzkohärenten digitalholographischen Mikroskop"
+        },
+        {
+            "id": 3948,
+            "name": "St. Stürwald",
+            "papers": 1,
+            "affiliations": "Fraunhofer IPT, Telgte",
+            "sample_titles": "Anpassung von digitalholographischen Propagationsalgorithmen an kurzkohärente Lichtquellen in einem hochauflösenden Sensorsystem"
+        }
+    ]
+}

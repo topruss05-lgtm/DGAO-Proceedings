@@ -1,0 +1,26 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.85,
+  "groups": [[138, 1291], [1730]],
+  "canonical": [
+    {
+      "name_de": "Carl Zeiss AG",
+      "name_en": "Carl Zeiss (Germany)",
+      "kuerzel": "Zeiss",
+      "universitaet": null,
+      "ort": "Oberkochen",
+      "land": "DE",
+      "ror_id": "02mp31p96"
+    },
+    {
+      "name_de": "Carl Zeiss SMT GmbH",
+      "name_en": "Carl Zeiss SMT GmbH",
+      "kuerzel": "Zeiss SMT",
+      "universitaet": null,
+      "ort": "Oberkochen",
+      "land": "DE",
+      "ror_id": null
+    }
+  ],
+  "reason": "Carl Zeiss AG (id 138, 1291) und Carl Zeiss SMT GmbH (id 1730) sind zwar beide in Oberkochen und zum Zeiss-Konzern gehörig, aber Carl Zeiss SMT GmbH ist eine eigenständige Tochtergesellschaft (Halbleitertechnik/Lithographie). Konzern-Töchter → keep_separate gemäß Regel. Carl Zeiss Industrielle Messtechnik ist eine Abteilung/Division der Carl Zeiss AG, daher mit 138 zusammengefasst."
+}

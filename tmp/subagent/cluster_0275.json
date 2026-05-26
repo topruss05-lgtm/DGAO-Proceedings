@@ -1,0 +1,27 @@
+{
+    "cluster_id": 275,
+    "nachname_norm": "mitschunas",
+    "candidates": [
+        {
+            "id": 1735,
+            "name": "B. Mitschunas",
+            "papers": 23,
+            "affiliations": "Fachgebiet Technische Optik, Institut für Mikro- und Nanotechnologien, Technische Universität Ilmenau",
+            "sample_titles": "Optik Design für Phase Retrieval mit verstimmbaren Linsen || Design Methodik für Zoomobjektive mit verstimmbaren Linsen || Design eines optischen Systems zur Untersuchung der optimalen Intensitätsverteilung beim Laserstrahlschweißen"
+        },
+        {
+            "id": 3701,
+            "name": "Beate Mitschunas",
+            "papers": 1,
+            "affiliations": "Technische Universität Ilmenau, Fachgebiet Technische Optik",
+            "sample_titles": "55 Jahre Optik in Ilmenau - von der analytischen Bildfehlertheorie zu optischen Mikrosystemen"
+        },
+        {
+            "id": 6941,
+            "name": "J. Mitschunas",
+            "papers": 1,
+            "affiliations": "Fakultät für Mathematik und Informatik, Friedrich-Schiller-Universität Jena",
+            "sample_titles": "PARAX 2.0 – A Powerful GUI for Initial Step Optical Design"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "cluster_id": 141,
+    "variants": [
+        {
+            "id": 765,
+            "name_de": "Vrije Universiteit Brussel, Applied Physics and Photonics Dept., Pleinlaan, 2, B-1050 Brussel, Belgium",
+            "author_count": 2
+        },
+        {
+            "id": 791,
+            "name_de": "Department of Applied Physics and Photonics (TONA), Free University of Brussels (VUB)",
+            "author_count": 1
+        }
+    ]
+}

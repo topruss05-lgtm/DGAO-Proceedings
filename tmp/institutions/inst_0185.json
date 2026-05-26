@@ -1,0 +1,20 @@
+{
+    "cluster_id": 185,
+    "variants": [
+        {
+            "id": 1247,
+            "name_de": "Laboratory for Process Technology, IMTEK, Department of Microsystem Engineering, University of Freiburg",
+            "author_count": 1
+        },
+        {
+            "id": 1371,
+            "name_de": "Laboratory for Chemistry and Physics of Interfaces, Department of Microsystems Engineering, University of Freiburg",
+            "author_count": 3
+        },
+        {
+            "id": 1372,
+            "name_de": "Laboratory for Process Technology",
+            "author_count": 3
+        }
+    ]
+}

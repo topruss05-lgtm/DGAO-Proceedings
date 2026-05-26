@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.99,
+  "groups": [[447, 1127, 1313]],
+  "canonical": [
+    {
+      "name_de": "FISBA Optik AG",
+      "name_en": "FISBA Optik AG",
+      "kuerzel": "FISBA",
+      "universitaet": null,
+      "ort": "St. Gallen",
+      "land": "CH",
+      "ror_id": "https://ror.org/04axend95"
+    }
+  ],
+  "reason": "Alle drei Varianten bezeichnen dasselbe Unternehmen FISBA Optik AG in St. Gallen; Unterschiede sind nur Groß-/Kleinschreibung (OPTIK vs. Optik) und das Weglassen der Rechtsform."
+}

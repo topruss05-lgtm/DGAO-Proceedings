@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [[2126], [2156]],
+  "reason": "R. Mayer (Viaoptic Wetzlar, Automobil-Optik) und V. Mayer (Hahn-Schickard Stuttgart, optische Drehgeber) haben unterschiedliche Vornamen-Initialen und disjunkte Institutionen sowie Themen."
+}

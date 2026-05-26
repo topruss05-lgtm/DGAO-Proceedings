@@ -1,0 +1,27 @@
+{
+    "cluster_id": 364,
+    "nachname_norm": "seidl",
+    "candidates": [
+        {
+            "id": 3310,
+            "name": "K. Seidl",
+            "papers": 2,
+            "affiliations": "Meopta - optika, s.r.o., Přerov",
+            "sample_titles": "Design Aspects and Realization of an Interferometer Unit || Design für ein Zoomobjektiv mit deformierbaren Spiegeln"
+        },
+        {
+            "id": 9515,
+            "name": "A. Seidl",
+            "papers": 2,
+            "affiliations": "Schott AG, Mainz",
+            "sample_titles": "Static ceramic converters for laser pumped phosphor light sources with white light emission || Modeling of ceramic phosphor assemblies for high luminance solid state lighting"
+        },
+        {
+            "id": 10213,
+            "name": "P. Seidl",
+            "papers": 1,
+            "affiliations": "Technische Hochschule Deggendorf (THD), Standort Technologiecampus Teisnach Sensorik",
+            "sample_titles": "Design of an eye-safe passively Q-switched microchip laser for laser range-finding"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "verdict": "keep_separate",
+    "confidence": 0.88,
+    "groups": [
+        [
+            1837
+        ],
+        [
+            7493,
+            8863
+        ]
+    ],
+    "reason": "R. Rothe (FHOOW Emden) ist klar verschieden von S./St. Rothe (TU Dresden); S. Rothe und St. Rothe teilen Institution und Thema (Multimodefasern, TU Dresden) und sind dieselbe Person."
+}

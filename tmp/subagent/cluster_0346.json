@@ -1,0 +1,48 @@
+{
+    "cluster_id": 346,
+    "nachname_norm": "schneider",
+    "candidates": [
+        {
+            "id": 1460,
+            "name": "S. Schneider",
+            "papers": 2,
+            "affiliations": "Institut für Photonik und Quantenelektronik (IPQ), Karlsruher Institut für Technologie (KIT)",
+            "sample_titles": "Polarization-Sensitive Optical Coherence Tomography for Characterization of Size and Shape of Nano-Particles || Vermessung von Spiegeloberflächen mit großen Krümmungsradien"
+        },
+        {
+            "id": 1984,
+            "name": "J. Schneider",
+            "papers": 5,
+            "affiliations": "Lehrstuhl für Lasertechnik, RWTH Aachen",
+            "sample_titles": "Digital Photonics for next generation laser material processing || Automated Optical Qualification Method for Position Sensitive Diodes || Streulichtbasierte Partikelkonzentrationsmessung auf der Grundlage von planaren Strahler-Empfänger-Baugruppen"
+        },
+        {
+            "id": 4162,
+            "name": "F. Schneider",
+            "papers": 1,
+            "affiliations": "Hochschule Deggendorf",
+            "sample_titles": "Modellierung und Bearbeitung optischer Flächen mittels CAD/CAM-Software"
+        },
+        {
+            "id": 7611,
+            "name": "G. Schneider",
+            "papers": 5,
+            "affiliations": "Helmholtz Zentrum Berlin für Materialien und Energie, Elektronenspeicherring BESSY II\nAlbert-Einstein-Str. 15, 12489 Berlin, Germany",
+            "sample_titles": "Ultra-präzise optische Elemente für Synchrotron- und FEL-Anwendungen || Licht als Werkzeug in der Materialentwicklung – Additive Fertigung in der Materialforschung || Machine Learning als Tool in der Materialmikroskopie"
+        },
+        {
+            "id": 9902,
+            "name": "P.-I. Schneider",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Machine learning based optimization with applications in optics design, scatterometry, and experiment control"
+        },
+        {
+            "id": 12648,
+            "name": "P. Schneider",
+            "papers": 2,
+            "affiliations": "JCMwave GmbH, 14050 Berlin",
+            "sample_titles": "Implementierung der Auswertealgorithmen für ein neuartiges mikroskopisches Verfahren zur Bestimmung bidirektionaler Größen aus Fokusserienmessungen || Light scattering off semi-infinite structures"
+        }
+    ]
+}

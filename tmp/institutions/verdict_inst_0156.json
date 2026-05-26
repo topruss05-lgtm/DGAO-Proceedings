@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.99,
+  "groups": [[963, 1022, 1418, 1420, 1673, 1858, 1902]],
+  "canonical": [
+    {
+      "name_de": "Lehrstuhl für Technologie Optischer Systeme (TOS), RWTH Aachen University",
+      "name_en": "Chair for Technology of Optical Systems (TOS), RWTH Aachen University",
+      "kuerzel": "TOS",
+      "universitaet": "RWTH Aachen University",
+      "ort": "Aachen",
+      "land": "DE",
+      "ror_id": "https://ror.org/04xfq0f34"
+    }
+  ],
+  "reason": "Alle sieben Einträge bezeichnen denselben Lehrstuhl TOS an der RWTH Aachen; die Varianten unterscheiden sich nur in Großschreibung ('Optischer'/'optischer'), dem Zusatz 'University' und der Wortstellung."
+}

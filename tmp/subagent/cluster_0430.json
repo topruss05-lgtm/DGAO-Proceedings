@@ -1,0 +1,20 @@
+{
+    "cluster_id": 430,
+    "nachname_norm": "wahl",
+    "candidates": [
+        {
+            "id": 7641,
+            "name": "S. Wahl",
+            "papers": 4,
+            "affiliations": "Technology and Innovation, Carl Zeiss Vision International GmbH",
+            "sample_titles": "Novel optical technologies to assist the visually impaired || Angewandte Forschung zur Entstehung und Entwicklung von Kurzsichtigkeit || Experimental evaluation of spectacle-induced ocular protection from harming irradiance"
+        },
+        {
+            "id": 9509,
+            "name": "R. Wahl",
+            "papers": 2,
+            "affiliations": "Hochschule Pforzheim, Tiefenbronner Str. 65, D-75175 Pforzheim, Germany;",
+            "sample_titles": "Photonische Technologien in der Fakultät Technik || Ortsaufgelöstes geometrie- und temperaturgeregeltes Laserauftragschweißen von hartmetallähnlichen Schichten im gescannten Breitstrahl"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 78,
+    "nachname_norm": "eberhardt",
+    "candidates": [
+        {
+            "id": 3291,
+            "name": "R. Eberhardt",
+            "papers": 3,
+            "affiliations": "Fraunhofer Institüt für Angewandte Optik und Feinmechanik Jena",
+            "sample_titles": "Bestimmung des Justierfehlers asphärischer Linsen mittels Distanzmessung || Diamond machining of aspherical and freeform mirrors || Spannungsarmes Löten von Linsenbaugruppen"
+        },
+        {
+            "id": 5308,
+            "name": "J. Eberhardt",
+            "papers": 3,
+            "affiliations": "Fakultät Technologie und Management, HS Ravensburg-Weingarten",
+            "sample_titles": "Optimized deep learning algorithms for application with data from PMD cameras || Resolution enhancement of large pixel PMD sensors || Entwicklung einer polychromatischen Beleuchtungseinheit für PMD-Kameras"
+        }
+    ]
+}

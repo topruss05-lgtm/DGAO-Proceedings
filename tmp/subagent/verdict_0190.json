@@ -1,0 +1,6 @@
+{
+  "verdict": "unsure",
+  "confidence": 0.6,
+  "groups": [[4203, 5258]],
+  "reason": "D.-P. Kelly und D. Kelly haben ähnliche Themen (Speckle-Felder, Fresnel-Propagation), aber verschiedene Affiliationen (TU Ilmenau vs. Uni Ulm ILM). Möglicherweise dieselbe Person mit Wechsel der Institution, aber Konfidenz zu niedrig für sicheres Merge."
+}

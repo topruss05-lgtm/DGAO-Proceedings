@@ -1,0 +1,20 @@
+{
+    "cluster_id": 449,
+    "nachname_norm": "witt",
+    "candidates": [
+        {
+            "id": 3247,
+            "name": "Th. Witt",
+            "papers": 1,
+            "affiliations": "Technische Universität Ilmenau",
+            "sample_titles": "Ultrapräzisionsfertigung für die Herstellung optischer Freiformflächen"
+        },
+        {
+            "id": 5051,
+            "name": "F. Witt",
+            "papers": 1,
+            "affiliations": "Physikalisch-Technische Bundesanstalt",
+            "sample_titles": "Laser-DSR: Hochgenaue spektrale Kalibrierung von Empfängern mit Hilfe von Laserstrahlung"
+        }
+    ]
+}

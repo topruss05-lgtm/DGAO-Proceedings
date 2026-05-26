@@ -1,0 +1,26 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.97,
+  "groups": [[893], [1064]],
+  "canonical": [
+    {
+      "name_de": "I. Physikalisches Institut, Justus-Liebig-Universität Gießen",
+      "name_en": "1st Physics Institute, Justus Liebig University Giessen",
+      "kuerzel": "",
+      "universitaet": "Justus-Liebig-Universität Gießen",
+      "ort": "Gießen",
+      "land": "DE",
+      "ror_id": "https://ror.org/033eqas34"
+    },
+    {
+      "name_de": "Abteilung Allgemeine Psychologie und Kognitionswissenschaft, Justus-Liebig-Universität Gießen",
+      "name_en": "Experimental Psychology and Cognitive Science, Justus Liebig University Giessen",
+      "kuerzel": "",
+      "universitaet": "Justus-Liebig-Universität Gießen",
+      "ort": "Gießen",
+      "land": "DE",
+      "ror_id": "https://ror.org/033eqas34"
+    }
+  ],
+  "reason": "Das I. Physikalische Institut (Physik) und die Abteilung Experimental Psychology and Cognitive Science (Psychologie/Kognitionswissenschaft) sind thematisch und organisatorisch völlig verschiedene Einrichtungen an der JLU Gießen – eine Zusammenführung wäre fachlich falsch."
+}

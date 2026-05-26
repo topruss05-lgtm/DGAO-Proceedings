@@ -1,0 +1,59 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.95,
+  "groups": [
+    [309, 408],
+    [738],
+    [1402, 1467],
+    [1463, 1687, 1799],
+    [1470]
+  ],
+  "canonical": [
+    {
+      "name_de": "Hochschule Ravensburg-Weingarten",
+      "name_en": "University of Applied Sciences Ravensburg-Weingarten",
+      "kuerzel": "RWU",
+      "universitaet": "Hochschule Ravensburg-Weingarten",
+      "ort": "Weingarten",
+      "land": "DE",
+      "ror_id": "https://ror.org/00s4rmz74"
+    },
+    {
+      "name_de": "Ernst-Abbe-Hochschule Jena",
+      "name_en": "Ernst Abbe University of Applied Sciences Jena",
+      "kuerzel": "EAH Jena",
+      "universitaet": "Ernst-Abbe-Hochschule Jena",
+      "ort": "Jena",
+      "land": "DE",
+      "ror_id": "https://ror.org/01rfnc002"
+    },
+    {
+      "name_de": "Hochschule Bremen",
+      "name_en": "Bremen University of Applied Sciences",
+      "kuerzel": "HS Bremen",
+      "universitaet": "Hochschule Bremen",
+      "ort": "Bremen",
+      "land": "DE",
+      "ror_id": "https://ror.org/04f7jc139"
+    },
+    {
+      "name_de": "Technische Hochschule Aschaffenburg",
+      "name_en": "Aschaffenburg University of Applied Sciences",
+      "kuerzel": "TH AB",
+      "universitaet": "Technische Hochschule Aschaffenburg",
+      "ort": "Aschaffenburg",
+      "land": "DE",
+      "ror_id": "https://ror.org/04sms9203"
+    },
+    {
+      "name_de": "Technische Hochschule Wildau",
+      "name_en": "Technical University of Applied Sciences Wildau",
+      "kuerzel": "TH Wildau",
+      "universitaet": "Technische Hochschule Wildau",
+      "ort": "Wildau",
+      "land": "DE",
+      "ror_id": "https://ror.org/00k62pe27"
+    }
+  ],
+  "reason": "Fünf verschiedene deutsche Fachhochschulen (Ravensburg-Weingarten, Jena, Bremen, Aschaffenburg, Wildau); IDs 309/408 sowie 1402/1467 und 1463/1687/1799 sind jeweils Schreibvarianten derselben Hochschule."
+}

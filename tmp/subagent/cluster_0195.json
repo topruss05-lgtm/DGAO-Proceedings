@@ -1,0 +1,20 @@
+{
+    "cluster_id": 195,
+    "nachname_norm": "kiefer",
+    "candidates": [
+        {
+            "id": 8127,
+            "name": "L. Kiefer",
+            "papers": 1,
+            "affiliations": "Fachbereich Mathematik und Natur­wissen­schaften, Hochschule Darmstadt",
+            "sample_titles": "Nichtkonvexe variationelle Methoden zur Partitionierung von Bildern"
+        },
+        {
+            "id": 8656,
+            "name": "J. Kiefer",
+            "papers": 3,
+            "affiliations": "Technische Thermodynamik, Universität Bremen, Bremen, Deutschland",
+            "sample_titles": "Entwicklung einer spektroskopischen Messmethode zur Analyse von Lebensmittelkomponenten || Raman-Spektroskopie mit Multilinienlichtquellen || Correction of distorted ATR infrared spectra"
+        }
+    ]
+}

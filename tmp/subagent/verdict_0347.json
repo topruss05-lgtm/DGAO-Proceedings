@@ -1,0 +1,6 @@
+{
+  "verdict": "merge",
+  "confidence": 0.95,
+  "groups": [[9488, 11382], [11347]],
+  "reason": "Ch. Schober (id 9488) und C. Schober (id 11382) teilen dieselbe Affiliation (ITO Universität Stuttgart) und überlappende Themen (Mikroskopobjektive, TWI) – Ch./C. ist eine typische Initialvariante derselben Person. B. Schober (id 11347) hat keine Affiliation und anderes Thema (Digitaler Optischer Zwilling), bleibt separat."
+}

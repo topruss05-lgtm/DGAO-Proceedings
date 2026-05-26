@@ -1,0 +1,20 @@
+{
+    "cluster_id": 325,
+    "nachname_norm": "runte",
+    "candidates": [
+        {
+            "id": 4168,
+            "name": "Ch. Runte",
+            "papers": 1,
+            "affiliations": "Universitätsklinikum Münster, Poliklinik für Zahnärztliche Prothetik und Werkstoffkunde",
+            "sample_titles": "Ein goniometrisches Farbmesssystem für Anwendungen in der Farbrezeptierung"
+        },
+        {
+            "id": 4646,
+            "name": "C. Runte",
+            "papers": 3,
+            "affiliations": "Department of Prosthetic Dentistry and Biomaterials, University of Münster",
+            "sample_titles": "A perception-based approach for assessing facial symmetry and attractiveness from opti-cally acquired surface data || Rechnergestützte Konstruktion von Epithesen auf der Basis optischer Oberflächenvermessung || Color recipe prediction for facial epithesis materials"
+        }
+    ]
+}

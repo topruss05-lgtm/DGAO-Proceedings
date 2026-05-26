@@ -1,0 +1,34 @@
+{
+    "cluster_id": 348,
+    "nachname_norm": "scholz",
+    "candidates": [
+        {
+            "id": 926,
+            "name": "I. Scholz",
+            "papers": 1,
+            "affiliations": "Institut für Informatik, Lehrstuhl für Mustererkennung, Universität Erlangen-Nürnberg",
+            "sample_titles": "Endoskopische 3D-Rekonstruktion mit kohärenztheoretisch optimierter Beleuchtung"
+        },
+        {
+            "id": 7074,
+            "name": "H. Scholz",
+            "papers": 1,
+            "affiliations": "Professur für Mess- und Sensorsystemtechnik, TU Dresden",
+            "sample_titles": "Bildgebende Laser-Vibrometrie mittels Hochgeschwindigkeitskamera (1 Mfps) zur seedinglosen nichtinvasiven Messung in drall-stabilisierten Flammen"
+        },
+        {
+            "id": 11379,
+            "name": "G. Scholz",
+            "papers": 3,
+            "affiliations": "Physikalisch-Technische Bundesanstalt (PTB), Bundesallee 100, 38116 Braunschweig",
+            "sample_titles": "Optimierung der absoluten Formmessung in der Tilted Wave Interferometrie || Untersuchung der Referenzpunkt-abgestützten Prüflingsjustage am Tilted-Wave Interferometer || Current activities towards traceable form measurements of aspheres with a tiltedwave interferometer"
+        },
+        {
+            "id": 12070,
+            "name": "A. Scholz",
+            "papers": 1,
+            "affiliations": "Universität Stuttgart, 5. Physikalisches Institut",
+            "sample_titles": "Optik-Design für eine skalierbare Anordnung optischer Pinzetten für das Quantum-Computing"
+        }
+    ]
+}

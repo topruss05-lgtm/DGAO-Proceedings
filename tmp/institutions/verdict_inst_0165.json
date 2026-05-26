@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[1026, 1028]],
+  "canonical": [
+    {
+      "name_de": "Philips Lighting, Eindhoven",
+      "name_en": "Philips Lighting, Eindhoven",
+      "kuerzel": "",
+      "universitaet": "",
+      "ort": "Eindhoven",
+      "land": "NL",
+      "ror_id": "https://ror.org/0532vdr17"
+    }
+  ],
+  "reason": "Beide Einträge bezeichnen Philips Lighting in Eindhoven; 'LED Strategist' ist eine Berufsbezeichnung eines Autors, keine eigenständige organisatorische Einheit."
+}

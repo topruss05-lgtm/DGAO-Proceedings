@@ -1,0 +1,6 @@
+{
+  "verdict": "keep_separate",
+  "confidence": 0.88,
+  "groups": [[281], [2193, 2869], [4537], [5429]],
+  "reason": "H. Lehmann (IPHT Jena, Hohlkernfasern), St./S. Lehmann (ITO Ilmenau / VMA Ilmenau, chromatische Optik – vermutlich gleich), L. Lehmann (Uni Heidelberg, Fluoreszenz) und P. Lehmann (Uni Kassel, Interferometrie) sind verschiedene Personen. St. Lehmann und S. Lehmann teilen Thema (chromatische Aberration) und Umfeld (Ilmenau), daher tentativ zusammengefasst."
+}

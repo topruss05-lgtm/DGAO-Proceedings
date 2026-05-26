@@ -1,0 +1,62 @@
+{
+    "cluster_id": 432,
+    "nachname_norm": "wang",
+    "candidates": [
+        {
+            "id": 2690,
+            "name": "Y. Wang",
+            "papers": 2,
+            "affiliations": "Institut für Transport- und Automatisierungstechnik, Leibniz Universität Hannover",
+            "sample_titles": "Flexographic printing of multimode waveguides and optodic bonding of laser diodes for integrated polymer optical sensor systems || Two Beam Interferometric Inscription of UV femtosecond Fiber Bragg Gratings"
+        },
+        {
+            "id": 4456,
+            "name": "J. Wang",
+            "papers": 3,
+            "affiliations": "Department of Electrical and Computer Engineering, Northwestern University",
+            "sample_titles": "Optimization Based Eye Tracking using Deflectometric Information || Precise VR Eye Tracking using Single-Shot Deflectometry || Optical scattering - from simple models to complex applications"
+        },
+        {
+            "id": 5752,
+            "name": "Z. Wang",
+            "papers": 4,
+            "affiliations": "Applied Computational Optics Group, Friedrich-Schiller-Universität Jena",
+            "sample_titles": "Fast-Physical Optics Modeling of Advanced Microscopy Systems || The semi-analytical Fast Fourier Transform || Rigorous modeling of dispersive, reflective, and polarization prisms"
+        },
+        {
+            "id": 7441,
+            "name": "S. Wang",
+            "papers": 1,
+            "affiliations": "Lehrstuhl für Messsystem- und Sensortechnik, Technische Universität München",
+            "sample_titles": "Modellierung von Referenzwellen zur lokalen Desensibilisierung in der Speckle-Interferometrie mittels Qualitätskriterien des Phasenbildes"
+        },
+        {
+            "id": 8460,
+            "name": "W. Wang",
+            "papers": 1,
+            "affiliations": "Applied Computational Optics Group, Friedrich-Schiller-Universität Jena",
+            "sample_titles": "Design of Single-Mode Fiber-Coupling Lenses and Tolerance Analysis"
+        },
+        {
+            "id": 9930,
+            "name": "H. Wang",
+            "papers": 1,
+            "affiliations": "Department of Electrical and Computer Engineering, Northwestern University",
+            "sample_titles": "Dynamic High-Precision ToF Imaging utilizing Single-Shot Synthetic Wavelength Interferometry on Rough Surfaces"
+        },
+        {
+            "id": 11412,
+            "name": "T. Wang",
+            "papers": 2,
+            "affiliations": "Department of Computer Science, ETH Zürich",
+            "sample_titles": "Synthetic Wavelength Vibrometry – Towards Versatile Vibration Imaging || Optimization Based Eye Tracking using Deflectometric Information"
+        },
+        {
+            "id": 12202,
+            "name": "N. Wang",
+            "papers": 1,
+            "affiliations": "Department of Electronic Materials Engineering, Research School of Physics, The Australian National University, Canberra, ACT 2600, Australia",
+            "sample_titles": "Optimizing Lasing Thresholds: Exploring the Impact of Pitch and Nanowire Diameter in InP Photonic Crystal Arrays"
+        }
+    ]
+}

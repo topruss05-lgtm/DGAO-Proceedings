@@ -1,0 +1,20 @@
+{
+    "cluster_id": 402,
+    "nachname_norm": "tan",
+    "candidates": [
+        {
+            "id": 11444,
+            "name": "H. Tan",
+            "papers": 0,
+            "affiliations": "",
+            "sample_titles": ""
+        },
+        {
+            "id": 12203,
+            "name": "H. H. Tan",
+            "papers": 2,
+            "affiliations": "Department of Electronic Materials Engineering, Research School of Physics, The Australian National University, Canberra, ACT 2600, Australia",
+            "sample_titles": "Optimizing Lasing Thresholds: Exploring the Impact of Pitch and Nanowire Diameter in InP Photonic Crystal Arrays || Optical Elements for Photonic Integrated Circuits based on Nanowire Photonic Crystal Arrays"
+        }
+    ]
+}

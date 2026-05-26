@@ -1,0 +1,27 @@
+{
+    "cluster_id": 305,
+    "nachname_norm": "rausch",
+    "candidates": [
+        {
+            "id": 1392,
+            "name": "A. Rausch",
+            "papers": 3,
+            "affiliations": "Physikalisch-Technische Bundesanstalt, Bundesallee 100, 38116 Braunschweig",
+            "sample_titles": "Ein Vergleich zwischen photoakustischer und Cavity-Ring-Down Spektroskopie am Beispiel des Spurennachweises von Ammoniak || Influence of the Order of Averaging and FFT on FTIR Measurements || Selbstfokussierung in Bariumtitanat"
+        },
+        {
+            "id": 4245,
+            "name": "D. Rausch",
+            "papers": 1,
+            "affiliations": "Institut für technische Optik, Universität Stuttgart",
+            "sample_titles": "Geometrical optical design in phase space"
+        },
+        {
+            "id": 9258,
+            "name": "R. Rausch",
+            "papers": 1,
+            "affiliations": "Institut für Technische Optik",
+            "sample_titles": "Entwicklung eines Algorithmus zur Ersetzung eines Optikdesigns durch Kataloglinsen mit kontinuierlicher Designanpassung"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "cluster_id": 155,
+    "nachname_norm": "helfert",
+    "candidates": [
+        {
+            "id": 2171,
+            "name": "S. Helfert",
+            "papers": 6,
+            "affiliations": "FernUniversität in Hagen",
+            "sample_titles": "Räumliche und zeitliche Simulation von dielektrischen Dipolresonatoren. || Herstellung eines subwellenlängen-strukturierten Polarisationskonverters mittels Zwei-Photonen-Polymerisation und seine Charakterisierung || Space-variant polarization conversion with hollow waveguide arrays"
+        },
+        {
+            "id": 5907,
+            "name": "S. F. Helfert",
+            "papers": 1,
+            "affiliations": "Chair of Micro- and Nanophotonics, FernUniversität in Hagen, Germany",
+            "sample_titles": "Subwavelength-structured metallic film as polarization-converting element"
+        }
+    ]
+}

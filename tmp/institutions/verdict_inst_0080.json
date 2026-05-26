@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[352, 656]],
+  "canonical": [
+    {
+      "name_de": "ISAS - Institut für Analytische Wissenschaften",
+      "name_en": "ISAS - Institute for Analytical Sciences",
+      "kuerzel": "ISAS",
+      "universitaet": null,
+      "ort": "Dortmund",
+      "land": "DE",
+      "ror_id": "https://ror.org/02jhqqg57"
+    }
+  ],
+  "reason": "Beide Varianten bezeichnen dasselbe Institut (ISAS - Institute for Analytical Sciences in Dortmund); Variante 656 fügt lediglich den Ortsnamen hinzu, was keine inhaltliche Unterscheidung darstellt."
+}

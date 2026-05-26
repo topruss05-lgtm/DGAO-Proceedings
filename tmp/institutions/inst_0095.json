@@ -1,0 +1,25 @@
+{
+    "cluster_id": 95,
+    "variants": [
+        {
+            "id": 446,
+            "name_de": "Deutsches Zentrum für Luft- und Raumfahrt (DLR), Institut für Antriebstechnik",
+            "author_count": 2
+        },
+        {
+            "id": 521,
+            "name_de": "Institut für Aerodynamik and Strömungstechnik, Deutsches Zentrum für Luft- und Raumfahrt e.V.",
+            "author_count": 1
+        },
+        {
+            "id": 594,
+            "name_de": "Deutsches Zentrum für Luft- und Raumfahrt e.V.\nIn der Helmholtz-Gemeinschaft, \nInstitut für Technische Physik",
+            "author_count": 1
+        },
+        {
+            "id": 1505,
+            "name_de": "Institut für Raumfahrtantriebe, Deutsches Zentrum für Luft- und Raumfahrt Lampoldshausen",
+            "author_count": 3
+        }
+    ]
+}

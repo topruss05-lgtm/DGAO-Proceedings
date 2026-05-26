@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.97,
+  "groups": [[1197, 1488]],
+  "canonical": [
+    {
+      "name_de": "Lehrstuhl für Messtechnik, Fachbereich Elektrotechnik/Informatik, Universität Kassel",
+      "name_en": "Chair in Measurement Technology (CMT), Department of Electrical Engineering/Computer Science, University of Kassel",
+      "kuerzel": "CMT",
+      "universitaet": "Universität Kassel",
+      "ort": "Kassel",
+      "land": "DE",
+      "ror_id": "https://ror.org/04zc7p361"
+    }
+  ],
+  "reason": "Beide Varianten bezeichnen denselben Lehrstuhl an der Universität Kassel — einmal auf Englisch (Chair in Measurement Technology / CMT), einmal auf Deutsch."
+}

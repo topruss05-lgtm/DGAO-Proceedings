@@ -1,0 +1,20 @@
+{
+    "cluster_id": 284,
+    "nachname_norm": "novotny",
+    "candidates": [
+        {
+            "id": 6030,
+            "name": "J. Novotný",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Recent developments on instrumentation for Laser-Induced Breakdown Spectroscopy"
+        },
+        {
+            "id": 6039,
+            "name": "K. Novotný",
+            "papers": 1,
+            "affiliations": "",
+            "sample_titles": "Recent developments on instrumentation for Laser-Induced Breakdown Spectroscopy"
+        }
+    ]
+}

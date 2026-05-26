@@ -1,0 +1,20 @@
+{
+    "cluster_id": 280,
+    "nachname_norm": "nicolaus",
+    "candidates": [
+        {
+            "id": 79,
+            "name": "A. Nicolaus",
+            "papers": 11,
+            "affiliations": "Physikalisch-Technische Bundesanstalt (PTB)",
+            "sample_titles": "Messung der Topografie einer 30 mm Siliziumkugel mit dem Kugelinterferometer || An den Grenzen der Auflösung: zwei Kugelinterferometer – ein Ergebnis? || Zwei Interferometer für die Realisierung des neuen Kilogramms: Messungen mit /4000 Genauigkeit"
+        },
+        {
+            "id": 1906,
+            "name": "R. Nicolaus",
+            "papers": 4,
+            "affiliations": "Luphos GmbH, Mainz",
+            "sample_titles": "Polarkoordinaten Messsystem zur schnellen, hochgenauen Formvermessung asphärischer Oberflächen || Hochgenaue Vermessung asphärischer Linsen in der Fertigungsmaschine || Ultra-hochpräzise, kontaktlose, absolute Abstandsmessung durch Mehrwellenlängeninterferometrie"
+        }
+    ]
+}

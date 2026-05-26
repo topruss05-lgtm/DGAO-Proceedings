@@ -1,0 +1,20 @@
+{
+    "cluster_id": 180,
+    "nachname_norm": "just",
+    "candidates": [
+        {
+            "id": 2309,
+            "name": "F. Just",
+            "papers": 3,
+            "affiliations": "IPHT Jena",
+            "sample_titles": "Tomographische Messung der Spannungsverteilung in optischen Faser-Preformen mit mikrostrukturiertem Kern || Anomaly of Thermal Stress in Optical Fiber Preforms Caused by Aluminum and Phosphorous Doping || Mechanische Spannungen in Seltenerd-dotierten Faser-Preformen"
+        },
+        {
+            "id": 4280,
+            "name": "A. Just",
+            "papers": 11,
+            "affiliations": "Physikalisch-Technische Bundesanstalt",
+            "sample_titles": "Validierung der Raumwinkelkalibrierung von Autokollimatoren mittels interner und externer Vergleichsmessungen || Hochgenaue und reproduzierbare Blendenpositionierung in der Autokollimatoren-Messtechnik || Luftdruck – ein unterschätzter Einflussfaktor in der Winkelmessung mit Autokollimatoren"
+        }
+    ]
+}

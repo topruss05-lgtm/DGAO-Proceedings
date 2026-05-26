@@ -1,0 +1,17 @@
+{
+  "verdict": "merge",
+  "confidence": 0.99,
+  "groups": [[1511, 1512, 1626]],
+  "canonical": [
+    {
+      "name_de": "Institut für Atmosphären- und Umweltforschung, Bergische Universität Wuppertal",
+      "name_en": "Institute for Atmospheric and Environmental Research, University of Wuppertal",
+      "kuerzel": "IAU",
+      "universitaet": "Bergische Universität Wuppertal",
+      "ort": "Wuppertal",
+      "land": "DE",
+      "ror_id": "https://ror.org/00613ak93"
+    }
+  ],
+  "reason": "Alle drei Einträge bezeichnen dasselbe Institut: ID 1511 (Langname), ID 1512 (Abkürzung \"BU\"), ID 1626 (Langname mit vollständiger Adresse). Reine Schreibvarianten – merge."
+}
