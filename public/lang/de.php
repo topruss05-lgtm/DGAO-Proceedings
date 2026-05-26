@@ -78,7 +78,6 @@ return [
 
     // -- Einreichen page (Vorlage + Info zur Mail-Einreichung) --
     'einreichen.page_title' => 'Manuskript einreichen',
-    'einreichen.breadcrumb' => 'Manuskript einreichen',
     'einreichen.heading'    => 'Manuskript einreichen',
     'einreichen.lead'       => 'Vorlage herunterladen, Manuskript verfassen, fertiges PDF an die DGaO senden.',
     'einreichen.meta_desc'  => 'Manuskript-Vorlagen herunterladen und fertiges Manuskript-PDF zur DGaO-Jahrestagung per E-Mail einreichen.',

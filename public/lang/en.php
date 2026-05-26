@@ -78,7 +78,6 @@ return [
 
     // -- Einreichen page (template + email submission info) --
     'einreichen.page_title' => 'Submit Manuscript',
-    'einreichen.breadcrumb' => 'Submit Manuscript',
     'einreichen.heading'    => 'Submit your manuscript',
     'einreichen.lead'       => 'Download the template, write your manuscript, send the final PDF to the DGaO.',
     'einreichen.meta_desc'  => 'Download manuscript templates and submit your final manuscript PDF for the DGaO Annual Conference by email.',

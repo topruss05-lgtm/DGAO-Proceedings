@@ -11,13 +11,6 @@ $metaTags = [['name' => 'description', 'content' => t('einreichen.meta_desc')]];
 $deadline = $activeTagung['einreichungsfrist'] ?? '';
 ?>
 
-<nav aria-label="breadcrumb" class="mb-3">
-    <ol class="breadcrumb small">
-        <li class="breadcrumb-item"><a href="/"><?= e(t('nav.home')) ?></a></li>
-        <li class="breadcrumb-item active"><?= e(t('einreichen.breadcrumb')) ?></li>
-    </ol>
-</nav>
-
 <h1 class="h3 mb-3"><?= e(t('einreichen.heading')) ?></h1>
 <p class="lead text-muted mb-4"><?= t('einreichen.lead') ?></p>
 
