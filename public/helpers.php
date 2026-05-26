@@ -568,19 +568,16 @@ function bootstrapAutoNewsForCurrentTagungen(): void
 
 /**
  * Aktive News-Items in der aktuellen Sprache, sortiert nach Pin (sort_weight)
- * + display_date DESC. Jedes Item bekommt zusaetzlich ein
- * sprachabhaengiges 'category'-Label, das aus trigger_key (auto) bzw.
- * source (manual) abgeleitet wird — fuer den Mono-Eyebrow auf Home.
+ * + display_date DESC.
  *
  * @return list<array{id:int, source:string, display_date:string,
- *                    title:string, body:string, link_url:?string,
- *                    category:string}>
+ *                    title:string, body:string, link_url:?string}>
  */
 function getActiveNews(int $limit = 3): array
 {
     $lang  = currentLang() === 'en' ? 'en' : 'de';
     $stmt  = getDb()->prepare("
-        SELECT id, source, trigger_key, display_date,
+        SELECT id, source, display_date,
                title_{$lang} AS title, body_{$lang} AS body,
                link_url
         FROM news
@@ -590,30 +587,7 @@ function getActiveNews(int $limit = 3): array
     ");
     $stmt->bindValue(':n', $limit, PDO::PARAM_INT);
     $stmt->execute();
-    $rows = $stmt->fetchAll();
-    foreach ($rows as &$r) {
-        $r['category'] = newsCategoryLabel($r);
-    }
-    return $rows;
-}
-
-/**
- * Liefert das Category-Label fuer einen News-Eintrag in der aktuellen
- * Sprache. Editorial-Eyebrow auf der Home: kompakt, mono, dezent.
- */
-function newsCategoryLabel(array $news): string
-{
-    $isEn = currentLang() === 'en';
-    if (($news['source'] ?? '') !== 'auto') {
-        return $isEn ? 'Note' : 'Hinweis';
-    }
-    return match ($news['trigger_key'] ?? '') {
-        'submission_open', 'deadline_set' => $isEn ? 'Submissions' : 'Manuskripte',
-        'submission_closed'               => $isEn ? 'Archive'     : 'Archiv',
-        'proceedings_online'              => 'Proceedings',
-        'tagung_dates'                    => $isEn ? 'Conference'  : 'Jahrestagung',
-        default                           => $isEn ? 'Update'      : 'Aktuell',
-    };
+    return $stmt->fetchAll();
 }
 
 function getSiteStats(): array
