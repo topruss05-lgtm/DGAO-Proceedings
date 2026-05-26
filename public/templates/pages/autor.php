@@ -12,7 +12,18 @@ if ($neue !== false) {
     exit;
 }
 
-$stmt = $db->prepare('SELECT id, vorname, nachname, affiliation FROM autoren WHERE id = ?');
+$lang    = $_SESSION['lang'] ?? 'de';
+$instCol = $lang === 'en' ? 'i.name_en' : 'i.name_de';
+$stmt = $db->prepare("
+    SELECT a.id, a.vorname, a.nachname,
+           (SELECT COALESCE(NULLIF($instCol, ''), i.name_de)
+            FROM autor_institutionen ai
+            JOIN institutionen i ON i.id = ai.institut_id
+            WHERE ai.autor_id = a.id AND ai.ist_aktuell = 1
+            LIMIT 1) AS affiliation
+    FROM autoren a
+    WHERE a.id = ?
+");
 $stmt->execute([$autorId]);
 $autor = $stmt->fetch();
 
