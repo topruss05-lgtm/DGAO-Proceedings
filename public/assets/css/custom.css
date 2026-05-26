@@ -443,11 +443,13 @@ h1, h2, h3, h4, h5, h6,
         min-width: 38px;
         padding: 0.4rem 0.4rem;
     }
-    /* Menue absolut positioniert als Overlay unter der Navbar — NICHT
-       im Flow. Damit gibt es keinen Layout-Shift beim Öffnen (vorher
-       sichtbarer Flicker, weil die Page beim Aufklappen nach unten
-       geschoben wurde). Page-Inhalt bleibt stehen, Menü zieht sich
-       smooth darüber. */
+    /* Menü als absoluter Overlay unter der Navbar — NICHT im Flow.
+       Bewusst KEINE max-height/opacity-Transition mehr: dabei waren
+       die Items während der Animation kurz in ihrer base-flex-Layout
+       sichtbar (horizontale Anordnung von der Desktop-Regel her, bevor
+       flex-direction:column "festgesetzt" war im Render). Display
+       none/flex ist instant, hat keinen Übergangs-Frame zwischen
+       horizontal und vertikal → kein Flicker. */
     .site-nav2__list {
         position: absolute;
         top: 100%;
@@ -458,15 +460,12 @@ h1, h2, h3, h4, h5, h6,
         box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
         flex-direction: column;
         flex-basis: auto;
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: max-height 0.18s var(--ease), opacity 0.18s var(--ease);
+        flex-wrap: nowrap;
         z-index: 100;
+        display: none;
     }
     .site-nav2__list.is-open {
-        max-height: 360px;
-        opacity: 1;
+        display: flex;
     }
     .site-nav2__link {
         padding: 0.85rem 1.5rem;

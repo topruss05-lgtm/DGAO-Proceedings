@@ -121,13 +121,21 @@ function newsOnTagungSaved(?array $old, array $new): void
                 $titleEn = "Save the date — {$tagung}. Annual Conference: {$ort}, {$dateRange}";
             }
 
+            // Link-Logik: laufende und kommende Tagungen verweisen extern
+            // auf die DGaO-Tagungsseite (wo Programm, Anmeldung, Hotels etc.
+            // gepflegt sind). Erst wenn die Tagung vorbei ist und die
+            // Proceedings im Archiv liegen, dann auf /archiv/<N>.
+            $linkUrl = $isPast
+                ? ('/archiv/' . $tagung)
+                : 'https://www.dgao.de/jahrestagung/';
+
             newsUpsertAuto('tagung_dates', $tagung, [
                 'display_date' => $today,
                 'title_de' => $titleDe,
                 'title_en' => $titleEn,
                 'body_de'  => "Die {$tagung}. DGaO-Jahrestagung findet vom {$dateRange} in {$ort} statt.",
                 'body_en'  => "The {$tagung}. DGaO Annual Conference takes place {$dateRange} in {$ort}.",
-                'link_url' => '/archiv/' . $tagung,
+                'link_url' => $linkUrl,
             ]);
         } else {
             // Tagung liegt > 60 Tage zurück → ggf. existierendes Item deaktivieren
