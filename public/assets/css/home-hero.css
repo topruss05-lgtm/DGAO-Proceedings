@@ -505,7 +505,7 @@ a.v4-news-row:hover .v4-news-cta-arrow {
 }
 
 .v4-archive {
-    background: var(--paper);
+    background: var(--white);
     padding: 3.25rem 0 3.5rem;
     border-bottom: 1px solid var(--border-light);
 }
