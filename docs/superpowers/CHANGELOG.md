@@ -51,3 +51,21 @@ verknüpft. Live-DB: 4547 Autoren, 632 Redirects.
 - Backup: database/backups/proceedings_pre_phase4_2026-05-26_2128.db
 - Beispiele für erfolgreiche Merges: ITO Stuttgart (21 Schreibvarianten → 1), LZH Hannover (15 → 1, ROR 01gkym270), BIAS Bremen (14 → 1, ROR 01k6z4z19), MPI für extraterrestrische Physik (3 → 1), ILM Ulm, JENOPTIK Polymer Systems
 - Sub-Institute korrekt getrennt: Carl Zeiss AG vs Zeiss SMT, KIT in 7 Sub-Institute, WWU Münster Mega-Cluster in 9 Sub-Institute, HOT Hannover vs ZOT Aalen
+
+## 2026-05-26 (final): Sub-Group-Merges aus Queue ausgeführt
+
+User-Feedback: "Admin-Queue manuell durchklicken ist Quatsch — Subagent-Sub-Merges innerhalb von keep_separate-Verdicts direkt anwenden."
+
+- 478 Queue-Einträge analysiert (386 Autoren + 92 Institute)
+- 111 Verdicts (32 Autoren + 79 Institute) hatten echte Sub-Merge-Gruppen (≥2 IDs)
+- Auto-merged mit gleichem Konfidenz-Threshold wie zuvor (Autoren ≥0.90, Institute ≥0.85)
+
+Resultat:
+- **11 zusätzliche Autoren-Sub-Merges**: graf, hellmann, gruber, friedrich u.a.
+- **69 zusätzliche Institut-Sub-Merges**: IOIP Erlangen (Hauptgruppe), TOS RWTH, etc.
+- Live-DB: Autoren 4547 → 4536, Institutionen 1601 → 1444 (-157, weitere 10% Reduktion)
+- name_en jetzt für 185 Institute (+54), ROR-IDs für 158 (+44)
+- Queue: 426 pending (= 400+ reine keep_separates + 26 mit niedriger Konfidenz)
+- Backup: database/backups/proceedings_pre_subgroups_2126.db
+
+Skript: bin/process_queue_subgroups.php
