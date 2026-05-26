@@ -111,7 +111,10 @@ function matchRoute(string $uri): array
         '/admin/autoren'     => 'admin/autoren',
         '/admin/keywords'    => 'admin/keywords',
         '/admin/news'        => 'admin/news',
-        '/admin/submissions' => 'admin/submissions',
+        '/admin/submissions'    => 'admin/submissions',
+        '/admin/cleanup'        => 'admin/cleanup_dashboard',
+        '/admin/cleanup/queue'  => 'admin/cleanup_queue',
+        '/admin/cleanup/action' => 'admin/cleanup_action',
     ];
 
     // Submission Detail/Action
