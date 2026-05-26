@@ -709,6 +709,21 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
     padding: 0;
 }
 
+/* Ab md zweispaltig — nutzt die neue 1280-Content-Breite besser aus
+   und halbiert die vertikale Liste auf /archiv (23 Tagungen) sowie auf
+   Home (5 Recent). Letztes Item bei ungerader Anzahl spannt über beide
+   Spalten, damit keine halb leere Reihe stehen bleibt. */
+@media (min-width: 768px) {
+    .v4-archive-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 1.5rem;
+    }
+    .v4-archive-list > li:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+    }
+}
+
 .v4-archive-item {
     display: flex;
     align-items: center;
