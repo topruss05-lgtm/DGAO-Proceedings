@@ -77,13 +77,9 @@ foreach ($news as $n) {
                     </td>
                     <td>
                         <?php if ($n['source'] === 'auto'): ?>
-                            <span class="badge bg-info-subtle text-info-emphasis" title="<?= e($n['trigger_key'] ?? '') ?>">
-                                <i class="bi bi-robot"></i> Auto
-                            </span>
+                            <span class="badge bg-info-subtle text-info-emphasis" title="<?= e($n['trigger_key'] ?? '') ?>">Auto</span>
                         <?php else: ?>
-                            <span class="badge bg-secondary-subtle text-secondary-emphasis">
-                                <i class="bi bi-pencil-square"></i> Manuell
-                            </span>
+                            <span class="badge bg-secondary-subtle text-secondary-emphasis">Manuell</span>
                         <?php endif; ?>
                     </td>
                     <td>

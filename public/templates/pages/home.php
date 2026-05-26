@@ -122,14 +122,26 @@ $mScene = dgao_compute_optics([
         ?>
         <?php if (!empty($newsItems)): ?>
             <ol class="v4-news-list">
-                <?php foreach ($newsItems as $i => $n): ?>
+                <?php foreach ($newsItems as $i => $n):
+                    $hasLink = !empty($n['link_url']);
+                ?>
                     <li class="v4-news-item v4-reveal v4-rd<?= $i + 1 ?>">
-                        <time class="v4-news-date" datetime="<?= e($n['display_date']) ?>">
-                            <?= e(formatDateLong($n['display_date'])) ?>
-                        </time>
+                        <header class="v4-news-meta">
+                            <span class="v4-news-category"><?= e($n['category']) ?></span>
+                            <time class="v4-news-date" datetime="<?= e($n['display_date']) ?>">
+                                <?= e(formatDateLong($n['display_date'])) ?>
+                            </time>
+                        </header>
                         <h3 class="v4-news-title">
-                            <?php if (!empty($n['link_url'])): ?>
-                                <a href="<?= e($n['link_url']) ?>"><?= e($n['title']) ?></a>
+                            <?php if ($hasLink): ?>
+                                <a href="<?= e($n['link_url']) ?>"<?= str_starts_with($n['link_url'], 'http') ? ' target="_blank" rel="noopener"' : '' ?>>
+                                    <span class="v4-news-title-text"><?= e($n['title']) ?></span>
+                                    <span class="v4-news-arrow" aria-hidden="true">
+                                        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M3 8h10M9.5 4.5 13 8l-3.5 3.5"/>
+                                        </svg>
+                                    </span>
+                                </a>
                             <?php else: ?>
                                 <?= e($n['title']) ?>
                             <?php endif; ?>

@@ -28,6 +28,11 @@ function newsUpsertAuto(string $triggerKey, int $tagungNummer, array $data): voi
     // SQLite-Spezifik: ON CONFLICT auf partial-unique-Index braucht die
     // exakt gleiche WHERE-Klausel wie der Index-DDL. Unser Index ist
     // CREATE UNIQUE INDEX ... WHERE source = 'auto'.
+    //
+    // WHERE manual_override = 0 in der ON CONFLICT-Klausel: wenn Admin
+    // diese auto-News manuell editiert hat (manual_override=1 gesetzt),
+    // bleibt der Inhalt unangetastet. UPSERT wird zum partial-no-op
+    // (nur updated_at wird gebumpt nicht — kein Update fired).
     $stmt = $db->prepare("
         INSERT INTO news (source, trigger_key, tagung_nummer, display_date,
                           title_de, title_en, body_de, body_en, link_url, is_active)
@@ -41,6 +46,7 @@ function newsUpsertAuto(string $triggerKey, int $tagungNummer, array $data): voi
             link_url     = excluded.link_url,
             is_active    = 1,
             updated_at   = datetime('now')
+        WHERE news.manual_override = 0
     ");
     $stmt->execute([
         ':k'  => $triggerKey,

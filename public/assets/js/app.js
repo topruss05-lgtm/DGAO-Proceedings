@@ -1,5 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Defensive: kein Input darf beim Page-Load Fokus haben. Manche
+    // Browser (insbesondere Mobile-Safari/Chrome) restoren Fokus-State
+    // beim Navigieren zwischen Seiten — das poppt überraschend die
+    // Tastatur und zwingt den User in ein Suchfeld, das er gar nicht
+    // anfassen wollte. User muss bewusst klicken/tippen um zu fokussieren.
+    if (document.activeElement && document.activeElement.tagName === 'INPUT') {
+        document.activeElement.blur();
+    }
+
     const lang = document.body.dataset.lang || 'de';
 
     // --- Mobile navbar toggle ---

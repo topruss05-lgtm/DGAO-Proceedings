@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/config.php';
 
-const DB_SCHEMA_VERSION = 6;
+const DB_SCHEMA_VERSION = 7;
 
 function getDb(): PDO
 {
@@ -176,6 +176,14 @@ function runMigrations(PDO $db): void
                    ON news(source, trigger_key, tagung_nummer)
                    WHERE source = 'auto'");
         $db->exec("CREATE INDEX idx_news_active_date ON news(is_active, display_date DESC)");
+    }
+
+    // v7: manual_override-Flag fuer auto-News. Wenn 1, laesst der
+    // naechste Tagung-Save (newsUpsertAuto) Titel/Body/Link unangetastet —
+    // Admin-Edits persistieren. Default 0 (Template-Hoheit wie bisher).
+    $newsColumns = $db->query('PRAGMA table_info(news)')->fetchAll(PDO::FETCH_COLUMN, 1);
+    if (!in_array('manual_override', $newsColumns, true)) {
+        $db->exec('ALTER TABLE news ADD COLUMN manual_override INTEGER NOT NULL DEFAULT 0');
     }
 
     $db->exec('PRAGMA user_version = ' . DB_SCHEMA_VERSION);

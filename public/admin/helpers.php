@@ -393,52 +393,41 @@ function createManualNews(array $data): int
 }
 
 /**
- * Update. Bei Auto-Items werden Titel/Body NICHT geaendert — nur Datum,
- * Pin, Aktiv-Toggle und Link. Bei Manual-Items: alles.
+ * Update. Manual- und Auto-Items koennen vollstaendig editiert werden;
+ * bei Auto-Items setzt der Save ein manual_override=1, sodass der
+ * naechste Tagung-Save den Inhalt nicht mehr ueberschreibt — Admin-Edits
+ * persistieren.
  */
 function updateNews(int $id, array $data): void
 {
     $news = getNewsById($id);
     if (!$news) return;
 
-    if ($news['source'] === 'manual') {
-        $stmt = getDbAdmin()->prepare("
-            UPDATE news SET
-                display_date = :d,
-                title_de = :td, title_en = :te,
-                body_de = :bd, body_en = :be,
-                link_url = :l, is_active = :a, sort_weight = :w,
-                updated_at = datetime('now')
-            WHERE id = :id
-        ");
-        $stmt->execute([
-            ':d'  => $data['display_date'],
-            ':td' => $data['title_de'],
-            ':te' => $data['title_en'],
-            ':bd' => $data['body_de'] ?? '',
-            ':be' => $data['body_en'] ?? '',
-            ':l'  => $data['link_url'] ?: null,
-            ':a'  => isset($data['is_active']) ? (int)$data['is_active'] : 1,
-            ':w'  => (int)($data['sort_weight'] ?? 0),
-            ':id' => $id,
-        ]);
-    } else {
-        // Auto: nur Metadaten anfassen, Texte aus Template-Hoheit belassen.
-        $stmt = getDbAdmin()->prepare("
-            UPDATE news SET
-                display_date = :d,
-                is_active    = :a,
-                sort_weight  = :w,
-                updated_at   = datetime('now')
-            WHERE id = :id
-        ");
-        $stmt->execute([
-            ':d'  => $data['display_date'],
-            ':a'  => isset($data['is_active']) ? (int)$data['is_active'] : 1,
-            ':w'  => (int)($data['sort_weight'] ?? 0),
-            ':id' => $id,
-        ]);
-    }
+    $overrideClause = $news['source'] === 'auto'
+        ? ', manual_override = 1'
+        : '';
+
+    $stmt = getDbAdmin()->prepare("
+        UPDATE news SET
+            display_date = :d,
+            title_de = :td, title_en = :te,
+            body_de = :bd, body_en = :be,
+            link_url = :l, is_active = :a, sort_weight = :w,
+            updated_at = datetime('now')
+            {$overrideClause}
+        WHERE id = :id
+    ");
+    $stmt->execute([
+        ':d'  => $data['display_date'],
+        ':td' => $data['title_de'],
+        ':te' => $data['title_en'],
+        ':bd' => $data['body_de'] ?? '',
+        ':be' => $data['body_en'] ?? '',
+        ':l'  => $data['link_url'] ?: null,
+        ':a'  => isset($data['is_active']) ? (int)$data['is_active'] : 1,
+        ':w'  => (int)($data['sort_weight'] ?? 0),
+        ':id' => $id,
+    ]);
 }
 
 function toggleNewsActive(int $id): void

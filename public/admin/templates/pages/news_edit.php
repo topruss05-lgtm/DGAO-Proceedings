@@ -43,10 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $form['display_date'])) {
         $errors[] = 'Datum erforderlich (Format YYYY-MM-DD).';
     }
-    if ($isNew || !$isAuto) {
-        if ($form['title_de'] === '') $errors[] = 'Titel (DE) erforderlich.';
-        if ($form['title_en'] === '') $errors[] = 'Titel (EN) erforderlich.';
-    }
+    if ($form['title_de'] === '') $errors[] = 'Titel (DE) erforderlich.';
+    if ($form['title_en'] === '') $errors[] = 'Titel (EN) erforderlich.';
     if ($form['link_url'] !== ''
         && !preg_match('#^(https?://|/)#', $form['link_url'])) {
         $errors[] = 'Link-URL muss mit "/" oder "http(s)://" beginnen.';
@@ -85,11 +83,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php if ($isAuto): ?>
 <div class="alert alert-info">
-    <i class="bi bi-robot"></i>
-    Dies ist eine Auto-News (Trigger: <code><?= e($news['trigger_key'] ?? '') ?></code>,
-    Tagung <?= (int)$news['tagung_nummer'] ?>). Titel und Text sind Template-gesteuert
-    und werden beim n&auml;chsten Speichern der Tagung &uuml;berschrieben. Du kannst
-    hier nur Datum, Aktiv-Status, Pin und Link &auml;ndern.
+    Auto-News (Trigger: <code><?= e($news['trigger_key'] ?? '') ?></code>,
+    Tagung <?= (int)$news['tagung_nummer'] ?>). Titel und Text wurden urspr&uuml;nglich
+    aus einem Template generiert. <strong>Du kannst hier alles &auml;ndern</strong> &mdash;
+    sobald du speicherst, ist dieser Eintrag als manuell &uuml;berschrieben markiert und
+    wird bei k&uuml;nftigen Tagung-Saves nicht mehr aus dem Template &uuml;berschrieben.
+    Um die Template-Hoheit wiederherzustellen, l&ouml;sche den Eintrag &mdash; ein Save
+    der Tagung erzeugt ihn neu aus dem aktuellen Template.
 </div>
 <?php endif; ?>
 
@@ -123,13 +123,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="mb-3">
                         <label for="title_de" class="form-label">Titel *</label>
                         <input type="text" class="form-control" id="title_de" name="title_de"
-                               value="<?= e($form['title_de']) ?>"
-                               <?= $isAuto ? 'readonly' : '' ?> <?= $isAuto ? '' : 'required' ?>>
+                               value="<?= e($form['title_de']) ?>" required>
                     </div>
                     <div class="mb-0">
                         <label for="body_de" class="form-label">Text</label>
-                        <textarea class="form-control" id="body_de" name="body_de" rows="4"
-                                  <?= $isAuto ? 'readonly' : '' ?>><?= e($form['body_de']) ?></textarea>
+                        <textarea class="form-control" id="body_de" name="body_de" rows="4"><?= e($form['body_de']) ?></textarea>
                     </div>
                 </div>
             </div>
@@ -140,13 +138,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="mb-3">
                         <label for="title_en" class="form-label">Title *</label>
                         <input type="text" class="form-control" id="title_en" name="title_en"
-                               value="<?= e($form['title_en']) ?>"
-                               <?= $isAuto ? 'readonly' : '' ?> <?= $isAuto ? '' : 'required' ?>>
+                               value="<?= e($form['title_en']) ?>" required>
                     </div>
                     <div class="mb-0">
                         <label for="body_en" class="form-label">Body</label>
-                        <textarea class="form-control" id="body_en" name="body_en" rows="4"
-                                  <?= $isAuto ? 'readonly' : '' ?>><?= e($form['body_en']) ?></textarea>
+                        <textarea class="form-control" id="body_en" name="body_en" rows="4"><?= e($form['body_en']) ?></textarea>
                     </div>
                 </div>
             </div>
