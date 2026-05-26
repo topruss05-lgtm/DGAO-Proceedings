@@ -283,7 +283,7 @@ $tagungenAll    = getAllTagungenForFilter();
                 </select>
             </div>
 
-            <div class="col-12 d-flex gap-2 mt-1">
+            <div class="col-12 d-flex gap-2 mt-3">
                 <button type="submit" class="btn btn-sm btn-accent">
                     <i class="bi bi-search"></i> <?= e(t('suche.btn')) ?>
                 </button>
