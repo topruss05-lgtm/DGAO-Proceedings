@@ -159,7 +159,7 @@ foreach (array_keys($affilSet) as $aff) {
                 <span class="archiv-session__title">
                     <?= e($g['titel']) ?>
                 </span>
-                <span class="archiv-session__meta text-muted small">
+                <span class="archiv-session__meta">
                     <?php if ($g['type'] === 'session'): ?>
                         <?php if (!empty($g['datum'])): ?>
                             <?= e(formatDate($g['datum'])) ?>
@@ -170,9 +170,10 @@ foreach (array_keys($affilSet) as $aff) {
                         <?php if (!empty($g['saal'])): ?>
                             &middot; Saal <?= e($g['saal']) ?>
                         <?php endif; ?>
-                        &middot;
                     <?php endif; ?>
-                    <?= count($g['papers']) ?> <?= t('archiv_detail.beitraege') ?>
+                </span>
+                <span class="archiv-session__count" aria-label="<?= count($g['papers']) ?> <?= e(t('archiv_detail.beitraege')) ?>">
+                    <?= count($g['papers']) ?>
                 </span>
             </summary>
             <div class="archiv-session__papers">
