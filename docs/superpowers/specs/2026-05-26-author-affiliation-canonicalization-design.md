@@ -102,7 +102,6 @@ CREATE TABLE autor_aliase (
     autor_id     INTEGER NOT NULL REFERENCES autoren(id) ON DELETE CASCADE,
     alias_text   TEXT NOT NULL,            -- z.B. "Ch. Pruß", "C. Pruss" (OHNE Sterne)
     alias_norm   TEXT NOT NULL,            -- normalisiert: "chpruss"
-    source       TEXT NOT NULL CHECK (source IN ('pdf','manual')),
     created_at   TEXT NOT NULL DEFAULT (datetime('now')),
     UNIQUE (autor_id, alias_norm)          -- Auto-Dedup beim Merge
 );
@@ -130,7 +129,7 @@ CREATE TABLE institut_aliase (
     institut_id     INTEGER NOT NULL REFERENCES institutionen(id) ON DELETE CASCADE,
     alias_text      TEXT NOT NULL,             -- Original-PDF-String
     alias_norm      TEXT NOT NULL,             -- normalisiert für Match
-    source          TEXT NOT NULL CHECK (source IN ('pdf','manual')),
+    created_at      TEXT NOT NULL DEFAULT (datetime('now')),
     UNIQUE (institut_id, alias_norm)
 );
 
@@ -138,12 +137,14 @@ CREATE INDEX idx_institut_aliase_norm ON institut_aliase(alias_norm);
 CREATE INDEX idx_institut_aliase_inst ON institut_aliase(institut_id);
 
 -- ── Verknüpfung Autor ↔ Institut ────────────────────────────────────
+-- Pro Autor genau eine Zeile mit ist_aktuell=1, beliebig viele mit 0.
+-- "Aktuell" = Institut vom Paper mit der höchsten tagung_nummer dieses Autors.
+-- Wird beim Import berechnet (kein gecachtes Datumsfeld, immer dynamisch
+-- via JOIN auf paper_autoren + papers).
 CREATE TABLE autor_institutionen (
     autor_id        INTEGER NOT NULL REFERENCES autoren(id) ON DELETE CASCADE,
     institut_id     INTEGER NOT NULL REFERENCES institutionen(id) ON DELETE CASCADE,
-    ist_aktuell     INTEGER NOT NULL DEFAULT 0,
-    last_seen       INTEGER,                    -- höchste tagung_nummer
-    first_seen      INTEGER,                    -- niedrigste tagung_nummer
+    ist_aktuell     INTEGER NOT NULL DEFAULT 0,   -- 1 = aktuell, 0 = vergangen
     PRIMARY KEY (autor_id, institut_id)
 );
 
@@ -203,7 +204,7 @@ Beispiele:
    * Treffer → `autor_id` aus dem Treffer holen
    * Kein Treffer → neuen `autoren`-Record (gestrippter Name als kanonisch) + Initial-Alias mit dem gestrippten PDF-String
 4. Analog für Affiliation gegen `institut_aliase` → `institut_id`
-5. `paper_autoren` und `autor_institutionen` upserten (`last_seen` aktualisieren, `ist_aktuell` ggf. umsetzen wenn aktuellere Tagung)
+5. `paper_autoren` einfügen. `autor_institutionen` upserten: falls die neue Tagung höher ist als die bisher höchste dieses Autors (Query: `MAX(p.tagung_nummer) FROM paper_autoren pa JOIN papers p ON p.id=pa.paper_id WHERE pa.autor_id=?`), wird `ist_aktuell` umgesetzt — alle bisherigen auf 0, die neue auf 1
 
 ---
 
@@ -216,14 +217,13 @@ Beispiele:
 * Schema-Migration in `runMigrations()`, `DB_SCHEMA_VERSION = 7`.
 * Für jeden existierenden `autoren`-Record:
   * Sterne aus `vorname`/`nachname` strippen (in-place UPDATE)
-  * Initial-Alias mit dem **gestrippten** Original-String erstellen, `source='pdf'`
+  * Initial-Alias mit dem **gestrippten** Original-String erstellen
 * Für jeden distinct `papers.affiliationen`-String:
   * Initial-`institutionen`-Record (name_de = Original-String, name_en = '')
-  * Initial-Alias mit `source='pdf'`
+  * Initial-Alias
 * `autor_institutionen` aus den bestehenden `paper_autoren`-Verknüpfungen füllen:
-  * `last_seen = MAX(papers.tagung_nummer)` pro `(autor, affiliation_string→institut)`
-  * `first_seen = MIN(...)`
-  * `ist_aktuell=1` für genau die eine Verknüpfung pro Autor mit dem höchsten `last_seen`
+  * Pro `(autor_id, institut_id)`-Paar eine Zeile
+  * `ist_aktuell=1` für genau die Verknüpfung, deren zugehöriges Paper die höchste `tagung_nummer` hat (ermittelt via JOIN `paper_autoren` + `papers`)
 
 **Ergebnis:** Schema steht, funktional kein Unterschied zur alten DB. Bei Rollback einfach Backup einspielen.
 
@@ -246,8 +246,8 @@ GROUP BY key HAVING n > 1;
 **Merge-Operation pro Cluster:**
 1. **Anker wählen:** Record mit höchster `MAX(papers.tagung_nummer)` (= aktuellster). Bei Gleichstand: niedrigste `autoren.id`.
 2. `UPDATE paper_autoren SET autor_id = anker WHERE autor_id IN (duplikate)`
-3. `UPDATE autor_institutionen SET autor_id = anker WHERE autor_id IN (duplikate)` — Duplikate via `INSERT OR REPLACE` mit `MAX(last_seen)`, `MIN(first_seen)`
-4. `ist_aktuell` neu berechnen: pro Autor genau eine Verknüpfung = 1, nämlich die mit höchstem `last_seen`
+3. `UPDATE autor_institutionen SET autor_id = anker WHERE autor_id IN (duplikate)` — Duplikate via `INSERT OR IGNORE` (PRIMARY KEY auf `(autor_id, institut_id)` schluckt doppelte Paare automatisch)
+4. `ist_aktuell` neu berechnen: pro Autor genau eine Verknüpfung = 1, ermittelt via JOIN auf `paper_autoren` + `papers` (Verknüpfung mit höchster Tagungs-Nummer)
 5. `UPDATE autor_aliase SET autor_id = anker WHERE autor_id IN (duplikate)` — `UNIQUE(autor_id, alias_norm)` macht Auto-Dedup via `INSERT OR IGNORE`
 6. `DELETE FROM autoren WHERE id IN (duplikate)` — sicher, weil keine FKs mehr darauf zeigen
 7. Alle Aliase des Ankers behalten die Original-Schreibung (kein Anker-Alias-Verlust)
@@ -347,7 +347,7 @@ Affiliation: `name_de` oder `name_en` je nach `$_SESSION['lang']`, Fallback DE b
 ### 6.3 Autor-Profilseite (`/autor/{id}`)
 
 * URL bleibt `/autor/{autoren.id}` — kein Redirect nötig, weil keine Records „weggemergt" werden in einer URL-relevanten Form (Duplikate werden gelöscht, ihre IDs waren ohnehin meist nicht öffentlich verlinkt; für die wenigen relevanten kann eine Redirect-Map als `WHERE alte_id → neue_id` in einer winzigen Hilfstabelle gepflegt werden — siehe Phase 2).
-* Anzeige: Name, alle Papers gruppiert nach Tagung, aktuelles Institut, frühere Institute (sortiert nach `last_seen DESC`).
+* Anzeige: Name, alle Papers gruppiert nach Tagung, aktuelles Institut, frühere Institute (Sortierung der Vergangenen: nach höchster Tagung wo diese Verknüpfung gesehen wurde, DESC — via JOIN ermittelt).
 * Aliase werden **nicht** öffentlich angezeigt (nur im Admin).
 
 ### 6.4 Redirect-Map
@@ -428,8 +428,8 @@ autoren:
   id=50, vorname="C.", nachname="Pruß", orcid_id=NULL
 
 autor_aliase (Auto-Dedup via UNIQUE(autor_id, alias_norm)):
-  (50, "C. Pruss",    "cpruss",   "pdf")  ← Erste Einfügung gewinnt
-  (50, "Ch. Pruß",    "chpruss",  "pdf")
+  (50, "C. Pruss",  "cpruss")   ← Erste Einfügung gewinnt
+  (50, "Ch. Pruß",  "chpruss")
   ↑ "C. Pruß"  → norm "cpruss"  → bereits vorhanden, INSERT OR IGNORE schluckt es
   ↑ "C. Pruß*" → strip → "C. Pruß" → norm "cpruss"  → ebenfalls dedupliziert
   ↑ "C. Pruß**" → analog → dedupliziert
@@ -442,12 +442,12 @@ institutionen:
          kuerzel="ITO", universitaet="Universität Stuttgart", ort="Stuttgart"
 
 institut_aliase:
-  (42, "Institut für Technische Optik, Universität Stuttgart",   "institutfurtechnischeoptikunistuttgart", "pdf")
-  (42, "ITO, Universität Stuttgart",                              "itounistuttgart",                       "pdf")
+  (42, "Institut für Technische Optik, Universität Stuttgart",   "institutfurtechnischeoptikunistuttgart")
+  (42, "ITO, Universität Stuttgart",                              "itounistuttgart")
   ... (16 Varianten)
 
 autor_institutionen:
-  (50, 42, ist_aktuell=1, last_seen=129, first_seen=104)
+  (50, 42, ist_aktuell=1)
 
 paper_autoren: 51 Zeilen, alle autor_id=50 (vorher auf 5 IDs verteilt)
 
