@@ -285,8 +285,8 @@ function runMigrations(PDO $db): void
 
             // --- d) Initiale Institutionen aus autoren.affiliation ---
             $db->exec("INSERT INTO institutionen (name_de)
-                SELECT DISTINCT affiliation FROM autoren
-                WHERE affiliation IS NOT NULL AND affiliation != ''");
+                SELECT DISTINCT TRIM(affiliation) FROM autoren
+                WHERE affiliation IS NOT NULL AND TRIM(affiliation) != ''");
 
             // --- e) Institut-Aliase befuellen ---
             $institutionen = $db->query('SELECT id, name_de FROM institutionen')->fetchAll(PDO::FETCH_ASSOC);
@@ -302,8 +302,8 @@ function runMigrations(PDO $db): void
             $db->exec("INSERT INTO autor_institutionen (autor_id, institut_id, ist_aktuell)
                 SELECT a.id, i.id, 0
                 FROM autoren a
-                JOIN institutionen i ON i.name_de = a.affiliation
-                WHERE a.affiliation != ''");
+                JOIN institutionen i ON i.name_de = TRIM(a.affiliation)
+                WHERE TRIM(a.affiliation) != ''");
 
             // Autoren mit genau einer Institution als 'aktuell' markieren
             $db->exec("UPDATE autor_institutionen SET ist_aktuell = 1

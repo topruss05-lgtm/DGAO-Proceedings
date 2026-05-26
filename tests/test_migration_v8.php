@@ -8,6 +8,10 @@ with_test_db(function (PDO $pdo) {
     $versionBefore = (int) $pdo->query('PRAGMA user_version')->fetchColumn();
     assert_equals(7, $versionBefore, 'v8-migration: backup is at v7 before migration');
 
+    // Insert test author with whitespace-only affiliation before migration (ghost-institution check)
+    $stmtWs = $pdo->prepare('INSERT INTO autoren (vorname, nachname, affiliation) VALUES (?, ?, ?)');
+    $stmtWs->execute(['X.', 'WhitespaceTest', '   ']);
+
     // Run migration
     runMigrations($pdo);
 
@@ -47,7 +51,11 @@ with_test_db(function (PDO $pdo) {
     )->fetchColumn();
     assert_equals(0, $multiCurrent, 'v8-migration: no author has more than 1 ist_aktuell=1 in autor_institutionen');
 
-    // 11. Idempotence: second call, version stays 8, no duplicate aliases
+    // 11. Keine Ghost-Institutionen aus Whitespace-only affiliation
+    $ghosts = (int) $pdo->query("SELECT COUNT(*) FROM institutionen WHERE TRIM(name_de) = ''")->fetchColumn();
+    assert_equals(0, $ghosts, 'v8-migration: keine Ghost-Institutionen aus Whitespace-only affiliation');
+
+    // 12. Idempotence: second call, version stays 8, no duplicate aliases
     $aliasCountBefore2ndCall = (int) $pdo->query('SELECT COUNT(*) FROM autor_aliase')->fetchColumn();
     runMigrations($pdo);
     $versionAfter2nd = (int) $pdo->query('PRAGMA user_version')->fetchColumn();
