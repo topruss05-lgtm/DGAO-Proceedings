@@ -69,3 +69,11 @@ Resultat:
 - Backup: database/backups/proceedings_pre_subgroups_2126.db
 
 Skript: bin/process_queue_subgroups.php
+
+## 2026-05-26 (later): Borderline Queue-Recherche (30 Cases)
+
+Sonnet-Subagent mit Web-Recherche (Google Scholar, ResearchGate, Institut-Webseiten) für die 30 Queue-Einträge mit Konfidenz <0.9:
+- 19 Merges nach Web-Beleg ausgeführt: Christian Stegmann (Erlangen→DESY), Robert Palmer (KIT), Steffen Reichel (Schott→HS Pforzheim), Damien P. Kelly (Ulm→Ilmenau), Hendrik P.A. Lensch (Tübingen), Andreas W. Stark (FSU Jena), Stefan Rothe (TU Dresden), Hans-Martin Heuck (Leica Wetzlar), Max Christian Funck (RWTH→Funck Optics GmbH), Markus C. Knauer u.a.
+- 9 keep_separate via Web bestätigt
+- 2 unsure (Tan, Tu — keine Paper / Affiliation)
+- Live-DB: 4536 → 4517 Autoren
