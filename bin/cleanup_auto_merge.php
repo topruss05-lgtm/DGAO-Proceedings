@@ -3,6 +3,78 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../public/helpers.php';
 
+// ---------------------------------------------------------------------------
+// CLI entry point — only runs when invoked directly, never when require'd
+// ---------------------------------------------------------------------------
+if (PHP_SAPI === 'cli' && realpath($argv[0]) === __FILE__) {
+    require_once __DIR__ . '/../public/config.php';
+    require_once __DIR__ . '/../public/db.php';
+
+    $dryRun = false;
+    $dbPath = null;
+
+    $args = array_slice($argv, 1);
+    foreach ($args as $arg) {
+        if ($arg === '--dry-run') {
+            $dryRun = true;
+        } else {
+            $dbPath = $arg;
+        }
+    }
+
+    if ($dbPath === null) {
+        $dbPath = __DIR__ . '/../public/data/proceedings.db';
+    }
+
+    if (!is_file($dbPath)) {
+        fwrite(STDERR, "FEHLER: Datenbank nicht gefunden: $dbPath\n");
+        exit(1);
+    }
+
+    $pdo = new PDO('sqlite:' . $dbPath, null, null, [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => false,
+    ]);
+    $pdo->exec('PRAGMA foreign_keys = ON');
+
+    runMigrations($pdo);
+
+    $clusters = findAuthorAutoMergeClusters($pdo);
+
+    $totalDups = 0;
+    foreach ($clusters as $c) {
+        $totalDups += count($c['ids']) - 1;
+    }
+
+    printf("Gefunden: %d Cluster, %d Duplikate insgesamt\n", count($clusters), $totalDups);
+
+    if ($dryRun) {
+        echo "Top 10 Cluster:\n";
+        foreach (array_slice($clusters, 0, 10) as $c) {
+            printf("  %-30s  \xe2\x86\x92  %d IDs: %s\n", $c['key'], count($c['ids']), implode(', ', $c['ids']));
+        }
+        echo "\n(dry-run, nichts gemerged)\n";
+        exit(0);
+    }
+
+    // Real run
+    $merged = 0;
+    $errors = 0;
+    foreach ($clusters as $c) {
+        try {
+            mergeAuthorCluster($pdo, $c['ids']);
+            $merged += count($c['ids']) - 1;
+        } catch (Throwable $e) {
+            $errors++;
+            fwrite(STDERR, "FEHLER bei {$c['key']}: {$e->getMessage()}\n");
+        }
+    }
+
+    printf("Fertig: %d Records gemerged, %d Fehler\n", $merged, $errors);
+    exit($errors > 0 ? 1 : 0);
+}
+
 /**
  * Identifies author clusters eligible for rule-based auto-merge.
  *
