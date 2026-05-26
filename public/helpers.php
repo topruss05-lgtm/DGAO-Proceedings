@@ -167,6 +167,31 @@ function sanitizeFtsQuery(string $q): ?string
     return implode(' ', $tokens);
 }
 
+/**
+ * Normalisiert einen Autoren-/Affiliations-String fuer den Alias-Index-Vergleich.
+ * Entfernt Funooten-Marker, wandelt Umlaute und sonstige Diakritika nach ASCII,
+ * entfernt Satzzeichen und Whitespace — so dass z.B.:
+ *   'C. Pruß'                    -> 'cpruss'
+ *   'Müller, H.-P.'              -> 'mullerhp'
+ *   'Institut für Optik, Uni UL' -> 'institutfuroptikuniul'
+ *   ''                           -> ''
+ */
+function normalizeForAliasMatch(string $s): string
+{
+    // 1. Fußnoten-Marker entfernen (PDF-Importer-Artefakte).
+    $s = preg_replace('/[\*†‡§#^]+/u', '', $s);
+    // 2. Kleinschreibung.
+    $s = mb_strtolower($s);
+    // 3. ß -> ss (vor der ICU-Transliterierung, die ß -> s kuerzt).
+    $s = str_replace('ß', 'ss', $s);
+    // 4. Diakritika -> ASCII (ü -> u, ö -> o, etc.).
+    $s = transliterator_transliterate('Any-Latin; Latin-ASCII; Lower()', $s) ?? $s;
+    // 5. Punkte, Spaces, Kommas, Bindestriche entfernen.
+    $s = preg_replace('/[\.\s,\-]+/u', '', $s);
+    // 6. Trim (sicherheitshalber).
+    return trim($s);
+}
+
 function pdfUrl(array $paper): ?string
 {
     if (!$paper['hat_pdf'] || !$paper['pdf_dateiname']) return null;
