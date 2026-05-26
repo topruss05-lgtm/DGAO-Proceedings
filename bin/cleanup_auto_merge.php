@@ -34,3 +34,136 @@ function findAuthorAutoMergeClusters(PDO $db): array
     }
     return $clusters;
 }
+
+/**
+ * Merges a cluster of duplicate author IDs into a single anchor record.
+ *
+ * Anchor selection: the ID whose paper-authorships span the latest tagung
+ * (highest MAX(papers.tagung_nummer)). Tie-break by lowest ID for determinism.
+ *
+ * Operations (atomic transaction):
+ *   1. Move paper_autoren links to anchor (dedup PK conflicts first)
+ *   2. Move autor_institutionen links to anchor (dedup PK conflicts first)
+ *   3. Recompute ist_aktuell for anchor (one row per author at most)
+ *   4. Move autor_aliase to anchor (UNIQUE swallows dups via OR IGNORE)
+ *   5. Write autor_id_redirects entries (alte_id -> neue_id = anchor)
+ *   6. DELETE duplicate rows from autoren
+ *
+ * @param int[] $ids Cluster ids, must be >= 2 entries.
+ * @return int The chosen anchor id.
+ * @throws InvalidArgumentException If fewer than 2 ids given.
+ */
+function mergeAuthorCluster(PDO $db, array $ids): int
+{
+    if (count($ids) < 2) {
+        throw new InvalidArgumentException('mergeAuthorCluster needs >= 2 ids');
+    }
+    sort($ids);
+
+    $db->beginTransaction();
+    try {
+        // -- 1. Anchor selection: highest max tagung_nummer, then lowest id
+        $placeholders = implode(',', array_fill(0, count($ids), '?'));
+        $stmt = $db->prepare("
+            SELECT a.id,
+                   COALESCE((SELECT MAX(p.tagung_nummer)
+                             FROM paper_autoren pa
+                             JOIN papers p ON p.id = pa.paper_id
+                             WHERE pa.autor_id = a.id), 0) AS max_tg
+            FROM autoren a
+            WHERE a.id IN ($placeholders)
+            ORDER BY max_tg DESC, a.id ASC
+        ");
+        $stmt->execute($ids);
+        $anchor = (int) $stmt->fetch(PDO::FETCH_ASSOC)['id'];
+
+        $duplicates      = array_values(array_filter($ids, fn($id) => $id !== $anchor));
+        $dupPlaceholders = implode(',', array_fill(0, count($duplicates), '?'));
+
+        // -- 2. paper_autoren: delete conflicts, then update rest
+        $db->prepare("
+            DELETE FROM paper_autoren
+            WHERE autor_id IN ($dupPlaceholders)
+              AND paper_id IN (SELECT paper_id FROM paper_autoren WHERE autor_id = ?)
+        ")->execute([...$duplicates, $anchor]);
+
+        $db->prepare("
+            UPDATE paper_autoren SET autor_id = ?
+            WHERE autor_id IN ($dupPlaceholders)
+        ")->execute([$anchor, ...$duplicates]);
+
+        // -- 3. autor_institutionen: same dedup pattern
+        $db->prepare("
+            DELETE FROM autor_institutionen
+            WHERE autor_id IN ($dupPlaceholders)
+              AND institut_id IN (SELECT institut_id FROM autor_institutionen WHERE autor_id = ?)
+        ")->execute([...$duplicates, $anchor]);
+
+        $db->prepare("
+            UPDATE autor_institutionen SET autor_id = ?
+            WHERE autor_id IN ($dupPlaceholders)
+        ")->execute([$anchor, ...$duplicates]);
+
+        // -- 4. ist_aktuell recompute on the anchor
+        $db->prepare("UPDATE autor_institutionen SET ist_aktuell = 0 WHERE autor_id = ?")->execute([$anchor]);
+        $best = $db->prepare("
+            SELECT ai.institut_id, MAX(p.tagung_nummer) AS max_tg
+            FROM autor_institutionen ai
+            JOIN paper_autoren pa ON pa.autor_id = ai.autor_id
+            JOIN papers p ON p.id = pa.paper_id
+            WHERE ai.autor_id = ?
+            GROUP BY ai.institut_id
+            ORDER BY max_tg DESC, ai.institut_id ASC
+            LIMIT 1
+        ");
+        $best->execute([$anchor]);
+        $row = $best->fetch(PDO::FETCH_ASSOC);
+        if ($row) {
+            $db->prepare("
+                UPDATE autor_institutionen SET ist_aktuell = 1
+                WHERE autor_id = ? AND institut_id = ?
+            ")->execute([$anchor, (int) $row['institut_id']]);
+        } else {
+            // Anchor has no paper authorships — fall back to lowest institut_id (deterministic).
+            $fallback = $db->prepare("
+                SELECT institut_id FROM autor_institutionen
+                WHERE autor_id = ? ORDER BY institut_id ASC LIMIT 1
+            ");
+            $fallback->execute([$anchor]);
+            $fid = $fallback->fetchColumn();
+            if ($fid !== false) {
+                $db->prepare("
+                    UPDATE autor_institutionen SET ist_aktuell = 1
+                    WHERE autor_id = ? AND institut_id = ?
+                ")->execute([$anchor, (int) $fid]);
+            }
+        }
+
+        // -- 5. Aliase: UPDATE OR IGNORE handles UNIQUE conflicts; then DELETE leftovers
+        $db->prepare("
+            UPDATE OR IGNORE autor_aliase SET autor_id = ?
+            WHERE autor_id IN ($dupPlaceholders)
+        ")->execute([$anchor, ...$duplicates]);
+
+        $db->prepare("
+            DELETE FROM autor_aliase WHERE autor_id IN ($dupPlaceholders)
+        ")->execute($duplicates);
+
+        // -- 6. Redirect map
+        $insRedir = $db->prepare(
+            "INSERT OR REPLACE INTO autor_id_redirects (alte_id, neue_id) VALUES (?, ?)"
+        );
+        foreach ($duplicates as $d) {
+            $insRedir->execute([$d, $anchor]);
+        }
+
+        // -- 7. Drop duplicate autoren rows (must be last: FK constraint)
+        $db->prepare("DELETE FROM autoren WHERE id IN ($dupPlaceholders)")->execute($duplicates);
+
+        $db->commit();
+        return $anchor;
+    } catch (Throwable $e) {
+        $db->rollBack();
+        throw $e;
+    }
+}

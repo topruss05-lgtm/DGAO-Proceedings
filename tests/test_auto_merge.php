@@ -37,3 +37,102 @@ with_test_db(function (PDO $pdo) {
         }
     }
 });
+
+// ── mergeAuthorCluster tests ──────────────────────────────────────────────────
+
+with_test_db(function (PDO $pdo) {
+    runMigrations($pdo);
+
+    // --- Happy-path: merge a real cluster from the live data ---
+    $clusters = findAuthorAutoMergeClusters($pdo);
+    assert_true(count($clusters) >= 1, "at least one cluster exists for merge test");
+
+    $first      = $clusters[0];
+    $idsBefore  = $first['ids'];
+
+    // Count all paper_autoren rows for the whole cluster before merge
+    $placeholders = implode(',', array_fill(0, count($idsBefore), '?'));
+    $stmtBefore   = $pdo->prepare(
+        "SELECT COUNT(*) FROM paper_autoren WHERE autor_id IN ($placeholders)"
+    );
+    $stmtBefore->execute($idsBefore);
+    $paperCountBefore = (int) $stmtBefore->fetchColumn();
+
+    $anchor = mergeAuthorCluster($pdo, $idsBefore);
+
+    // anchor must come from the original cluster
+    assert_true(in_array($anchor, $idsBefore, true),
+        "anchor is one of the cluster ids");
+
+    // duplicates deleted from autoren
+    $duplicates = array_values(array_filter($idsBefore, fn($id) => $id !== $anchor));
+    foreach ($duplicates as $d) {
+        $gone = (int) $pdo->query("SELECT COUNT(*) FROM autoren WHERE id = $d")->fetchColumn();
+        assert_equals(0, $gone, "duplicate $d deleted from autoren");
+    }
+
+    // redirect entries exist for every duplicate
+    foreach ($duplicates as $d) {
+        $redir = (int) $pdo->query(
+            "SELECT COUNT(*) FROM autor_id_redirects WHERE alte_id = $d AND neue_id = $anchor"
+        )->fetchColumn();
+        assert_equals(1, $redir, "redirect entry for duplicate $d to anchor $anchor");
+    }
+
+    // all paper_autoren transferred to anchor
+    $cntAfter = (int) $pdo->query(
+        "SELECT COUNT(*) FROM paper_autoren WHERE autor_id = $anchor"
+    )->fetchColumn();
+    assert_equals($paperCountBefore, $cntAfter,
+        "all paper_autoren transferred to anchor (got $cntAfter, expected $paperCountBefore)");
+
+    // ist_aktuell: at most 1 row per anchor
+    $aktCnt = (int) $pdo->query(
+        "SELECT COUNT(*) FROM autor_institutionen WHERE autor_id = $anchor AND ist_aktuell = 1"
+    )->fetchColumn();
+    assert_true($aktCnt <= 1,
+        "anchor has at most 1 ist_aktuell row (got $aktCnt)");
+
+    // no duplicate (paper_id, autor_id) pairs in the whole table
+    $dups = (int) $pdo->query(
+        "SELECT COUNT(*) FROM (
+            SELECT paper_id, autor_id FROM paper_autoren
+            GROUP BY paper_id, autor_id HAVING COUNT(*) > 1
+        )"
+    )->fetchColumn();
+    assert_equals(0, $dups, "no duplicate (paper_id, autor_id) pairs after merge");
+
+    // --- Edge-case: two authors on the same paper (PK dedup path) ---
+    $pdo->exec("INSERT INTO autoren (vorname, nachname) VALUES ('T.', 'TestPersonA')");
+    $id1 = (int) $pdo->lastInsertId();
+    $pdo->exec("INSERT INTO autoren (vorname, nachname) VALUES ('T.', 'TestPersonA')");
+    $id2 = (int) $pdo->lastInsertId();
+
+    // identical alias_norm so they form a cluster
+    $pdo->exec("INSERT INTO autor_aliase (autor_id, alias_text, alias_norm)
+                VALUES ($id1, 'T. TestPersonA', 'ttestpersona')");
+    $pdo->exec("INSERT INTO autor_aliase (autor_id, alias_text, alias_norm)
+                VALUES ($id2, 'T. TestPersonA', 'ttestpersona')");
+
+    // link both to the same paper (pick a paper neither is already on)
+    $pid = $pdo->query(
+        "SELECT id FROM papers
+         WHERE id NOT IN (SELECT paper_id FROM paper_autoren WHERE autor_id IN ($id1, $id2))
+         LIMIT 1"
+    )->fetchColumn();
+    $pdo->exec("INSERT INTO paper_autoren (paper_id, autor_id, position) VALUES ('$pid', $id1, 9901)");
+    $pdo->exec("INSERT INTO paper_autoren (paper_id, autor_id, position) VALUES ('$pid', $id2, 9902)");
+
+    $anchor2 = mergeAuthorCluster($pdo, [$id1, $id2]);
+
+    // exactly one paper_autoren row for that paper with the anchor
+    $cnt = (int) $pdo->query(
+        "SELECT COUNT(*) FROM paper_autoren WHERE paper_id = '$pid' AND autor_id = $anchor2"
+    )->fetchColumn();
+    assert_equals(1, $cnt, "exactly one paper_autoren row after dedup-merge (same paper)");
+
+    // the non-anchor id is gone from autoren
+    $other = ($anchor2 === $id1) ? $id2 : $id1;
+    $gone  = (int) $pdo->query("SELECT COUNT(*) FROM autoren WHERE id = $other")->fetchColumn();
+    assert_equals(0, $gone, "non-anchor test author deleted from autoren");
+});
