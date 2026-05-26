@@ -2,6 +2,16 @@
 $autorId = $params['id'];
 $db = getDb();
 
+// 301-Redirect für gemergte alte IDs (Phase-2 Auto-Merge).
+// autor_id_redirects mapping wird beim Merge gefüllt.
+$redirStmt = $db->prepare("SELECT neue_id FROM autor_id_redirects WHERE alte_id = ?");
+$redirStmt->execute([(int) $autorId]);
+$neue = $redirStmt->fetchColumn();
+if ($neue !== false) {
+    header('Location: /autor/' . (int) $neue, true, 301);
+    exit;
+}
+
 $stmt = $db->prepare('SELECT id, vorname, nachname, affiliation FROM autoren WHERE id = ?');
 $stmt->execute([$autorId]);
 $autor = $stmt->fetch();

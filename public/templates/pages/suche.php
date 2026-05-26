@@ -53,28 +53,39 @@ if ($hasInput) {
         $params[':titel'] = '%' . $fTitel . '%';
     }
     if ($fAutor !== '') {
-        $wheres[] = '(p.autoren_text LIKE :autor1 COLLATE NOCASE
-                    OR p.hauptautor LIKE :autor2 COLLATE NOCASE
-                    OR EXISTS (SELECT 1 FROM paper_autoren pa
-                               JOIN autoren a ON a.id = pa.autor_id
-                               WHERE pa.paper_id = p.id
-                               AND (a.nachname LIKE :autor3 COLLATE NOCASE
-                                 OR a.vorname  LIKE :autor4 COLLATE NOCASE)))';
+        $aNorm = normalizeForAliasMatch($fAutor);
+        $wheres[] = '(
+            EXISTS (SELECT 1 FROM paper_autoren pa
+                    JOIN autor_aliase al ON al.autor_id = pa.autor_id
+                    WHERE pa.paper_id = p.id AND al.alias_norm LIKE :anorm)
+            OR p.hauptautor   LIKE :autor2 COLLATE NOCASE
+            OR p.autoren_text LIKE :autor1 COLLATE NOCASE
+        )';
         $likeAutor = '%' . $fAutor . '%';
+        $params[':anorm']  = '%' . $aNorm . '%';
         $params[':autor1'] = $likeAutor;
         $params[':autor2'] = $likeAutor;
-        $params[':autor3'] = $likeAutor;
-        $params[':autor4'] = $likeAutor;
     }
     if ($fInst !== '') {
-        $wheres[] = '(p.affiliationen LIKE :inst1 COLLATE NOCASE
-                    OR EXISTS (SELECT 1 FROM paper_autoren pa
-                               JOIN autoren a ON a.id = pa.autor_id
-                               WHERE pa.paper_id = p.id
-                               AND a.affiliation LIKE :inst2 COLLATE NOCASE))';
+        $iNorm = normalizeForAliasMatch($fInst);
+        $wheres[] = '(
+            p.affiliationen LIKE :inst1 COLLATE NOCASE
+            OR EXISTS (SELECT 1 FROM paper_autoren pa
+                       JOIN autor_institutionen ai ON ai.autor_id = pa.autor_id
+                       JOIN institutionen i ON i.id = ai.institut_id
+                       LEFT JOIN institut_aliase ia ON ia.institut_id = i.id
+                       WHERE pa.paper_id = p.id
+                         AND (   i.name_de LIKE :inst2 COLLATE NOCASE
+                              OR i.name_en LIKE :inst3 COLLATE NOCASE
+                              OR i.kuerzel LIKE :inst4 COLLATE NOCASE
+                              OR ia.alias_norm LIKE :inorm))
+        )';
         $likeInst = '%' . $fInst . '%';
         $params[':inst1'] = $likeInst;
         $params[':inst2'] = $likeInst;
+        $params[':inst3'] = $likeInst;
+        $params[':inst4'] = $likeInst;
+        $params[':inorm'] = '%' . $iNorm . '%';
     }
     if ($fAbs !== '') {
         $wheres[] = 'p.abstract_text LIKE :abs COLLATE NOCASE';
@@ -144,19 +155,19 @@ if ($hasInput) {
     // --- Autoren-Treffer-Sektion: nur wenn Autor- oder Allg.-Query gesetzt ---
     $authorQuery = $fAutor !== '' ? $fAutor : $q;
     if ($authorQuery !== '' && mb_strlen($authorQuery) >= 2) {
+        $aNorm = normalizeForAliasMatch($authorQuery);
         $stmtA = $db->prepare("
             SELECT a.id, a.vorname, a.nachname, COUNT(DISTINCT pa.paper_id) AS paper_count
             FROM autoren a
             JOIN paper_autoren pa ON pa.autor_id = a.id
-            WHERE a.nachname LIKE :q1 COLLATE NOCASE
-               OR a.vorname  LIKE :q2 COLLATE NOCASE
+            WHERE EXISTS (SELECT 1 FROM autor_aliase al
+                          WHERE al.autor_id = a.id AND al.alias_norm LIKE :anorm)
             GROUP BY a.id
             HAVING paper_count > 0
             ORDER BY paper_count DESC, a.nachname COLLATE NOCASE
             LIMIT 10
         ");
-        $like = '%' . $authorQuery . '%';
-        $stmtA->execute([':q1' => $like, ':q2' => $like]);
+        $stmtA->execute([':anorm' => '%' . $aNorm . '%']);
         $authorMatches = $stmtA->fetchAll();
     }
 }
