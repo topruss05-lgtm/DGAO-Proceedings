@@ -13,11 +13,26 @@ define('BASE_URL', 'https://dgao-proceedings.de');
 define('DB_PATH', __DIR__ . '/data/proceedings.db');
 define('PDF_BASE_URL', '/download');
 
-// Admin-Zugangsdaten aus database/.env laden. .env ist via .gitignore vom
-// Repo ausgeschlossen — neue Deployments koennen .env.example als Vorlage
-// kopieren und einen eigenen Hash setzen.
-$envPath = __DIR__ . '/../database/.env';
-$envData = is_file($envPath) ? parse_ini_file($envPath, false, INI_SCANNER_RAW) : [];
+// Admin-Zugangsdaten aus .env laden. Reihenfolge: Project-Root .env (von Ploi
+// via "Edit environment" verwaltet), Fallback database/.env (Legacy/lokal).
+// Beide Pfade liegen ausserhalb des Webroots (public/) — kein HTTP-Zugriff.
+$envCandidates = [
+    __DIR__ . '/../.env',
+    __DIR__ . '/../database/.env',
+];
+$envData = [];
+foreach ($envCandidates as $envPath) {
+    if (is_file($envPath)) {
+        $envData = parse_ini_file($envPath, false, INI_SCANNER_RAW) ?: [];
+        break;
+    }
+}
 
 define('ADMIN_USER',          $envData['ADMIN_USER']          ?? '');
 define('ADMIN_PASSWORD_HASH', $envData['ADMIN_PASSWORD_HASH'] ?? '');
+
+// Production-Sanity: bei leerem Hash hat das Login keine Chance — frueh und
+// laut im PHP-Error-Log loggen, damit "Ungueltiger Login" nicht silent failt.
+if (ADMIN_PASSWORD_HASH === '') {
+    error_log('DGaO-Proceedings: ADMIN_PASSWORD_HASH ist leer — .env fehlt oder ist unvollstaendig.');
+}
