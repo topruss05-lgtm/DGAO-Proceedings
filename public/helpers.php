@@ -590,6 +590,32 @@ function getActiveNews(int $limit = 3): array
     return $stmt->fetchAll();
 }
 
+/**
+ * Action-Label fuer den CTA-Pill auf der Home-News-Row. Aus link_url
+ * abgeleitet — zeigt dem User auf einen Blick, wohin der Klick geht
+ * (Pendant zum Count-Pill auf /archiv).
+ */
+function newsCtaLabel(?string $url): string
+{
+    if (!$url) return '';
+    $isEn = currentLang() === 'en';
+
+    if (str_contains($url, '/einreichen')) {
+        return $isEn ? 'Submit' : 'Einreichen';
+    }
+    if (preg_match('#^/archiv/\d+#', $url) || str_starts_with($url, '/archiv')) {
+        return $isEn ? 'Papers' : 'Beiträge';
+    }
+    if (str_contains($url, '/jahrestagung')) {
+        return $isEn ? 'Conference' : 'Programm';
+    }
+    if (str_starts_with($url, 'http')) {
+        $host = parse_url($url, PHP_URL_HOST) ?: '';
+        return $host !== '' ? preg_replace('/^www\./', '', $host) : ($isEn ? 'More' : 'Mehr');
+    }
+    return $isEn ? 'More' : 'Mehr';
+}
+
 function getSiteStats(): array
 {
     $db = getDb();

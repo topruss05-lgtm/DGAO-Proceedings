@@ -366,10 +366,11 @@
 }
 
 /* --- NEWS — hairline-Liste analog .v4-archive-list ---
-   Jedes News-Item ist eine flache Row mit dem gleichen Hover-Vokabular
-   wie auf /archiv: accent-pale Bg + 3px Accent-Stripe links. Kein
-   Datum, kein Category-Eyebrow — Title und Body reichen, der Rest ist
-   Noise. Auf Desktop 2-spaltig (Platz nutzen), Mobile 1-spaltig. */
+   Selbes Hover-Vokabular wie auf /archiv: accent-pale Bg + 3px
+   Accent-Stripe links + Action-Pill rechts der beim Hover fuellt.
+   Der Pill ist das sichtbare "klick mich"-Signal — User sieht auf
+   einen Blick wohin der Klick geht ("Einreichen", "Programm",
+   "Beitraege"). Kein Datum, kein Eyebrow, keine extra Animation. */
 .v4-news {
     background: var(--white);
     padding: 2.75rem 0 2.5rem;
@@ -396,16 +397,21 @@
     min-width: 0;
 }
 
-/* Row als Hover-Target — selber Aufbau wie .v4-archive-item: 3px
-   transparente Border-Left, accent-pale Bg + accent Stripe beim
-   Hover. Whole row klickbar (Link wrappt Inhalt), kein extra CTA. */
+/* Row als Hover-Target — flex mit Content links und CTA-Pill rechts. */
 .v4-news-row {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
     padding: 1.1rem 1rem 1.2rem;
     border-left: 3px solid transparent;
     color: var(--text);
     text-decoration: none;
     transition: background 0.22s var(--ease), border-left-color 0.22s var(--ease);
+}
+
+.v4-news-content {
+    flex: 1;
+    min-width: 0;
 }
 
 a.v4-news-row:hover {
@@ -419,8 +425,7 @@ a.v4-news-row:hover .v4-news-title {
     color: var(--accent);
 }
 
-/* Static (kein link_url) — kein Hover-Effekt, gleiche Optik aber
-   nicht interaktiv. */
+/* Static (kein link_url) — kein Hover-Effekt, kein Pill. */
 .v4-news-row--static {
     cursor: default;
 }
@@ -432,7 +437,7 @@ a.v4-news-row:hover .v4-news-title {
     color: var(--text);
     letter-spacing: -0.005em;
     line-height: 1.35;
-    margin: 0 0 0.4rem;
+    margin: 0 0 0.35rem;
     transition: color 0.18s var(--ease);
 }
 
@@ -445,12 +450,56 @@ a.v4-news-row:hover .v4-news-title {
     max-width: 58ch;
 }
 
+/* Action-Pill — exakt analog zu .v4-archive-badge (Count-Pill auf
+   /archiv): accent-pale Default, fuellt beim Hover auf accent. Mono
+   Font + uppercase letter-spacing macht es als Call-to-Action lesbar
+   ohne lautes Button-Statement. */
+.v4-news-cta {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-pale);
+    border-radius: 20px;
+    padding: 0.32rem 0.85rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.v4-news-cta-arrow {
+    display: inline-block;
+    font-size: 0.92em;
+    line-height: 1;
+    transition: transform 0.22s var(--ease);
+}
+
+a.v4-news-row:hover .v4-news-cta {
+    background: var(--accent);
+    color: #ffffff;
+}
+
+a.v4-news-row:hover .v4-news-cta-arrow {
+    transform: translateX(2px);
+}
+
 @media (max-width: 767.98px) {
     .v4-news-list {
         grid-template-columns: 1fr;
         column-gap: 0;
     }
-    .v4-news-row { padding: 1rem 0.85rem 1.1rem; }
+    /* Mobile: CTA-Pill unter den Content statt nebenan — auf schmalen
+       Viewports wuerde der nebenan-Pill den Titel zu sehr quetschen. */
+    .v4-news-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.7rem;
+        padding: 1rem 0.85rem 1.1rem;
+    }
     .v4-news-title { font-size: 1rem; }
     .v4-news-text { font-size: 0.86rem; }
 }

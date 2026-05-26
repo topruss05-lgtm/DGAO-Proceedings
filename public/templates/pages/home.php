@@ -125,6 +125,7 @@ $mScene = dgao_compute_optics([
                 <?php foreach ($newsItems as $i => $n):
                     $hasLink = !empty($n['link_url']);
                     $isExt   = $hasLink && str_starts_with($n['link_url'], 'http');
+                    $cta     = $hasLink ? newsCtaLabel($n['link_url']) : '';
                 ?>
                     <li class="v4-news-item v4-reveal v4-rd<?= $i + 1 ?>">
                         <?php if ($hasLink): ?>
@@ -132,9 +133,14 @@ $mScene = dgao_compute_optics([
                         <?php else: ?>
                         <div class="v4-news-row v4-news-row--static">
                         <?php endif; ?>
-                            <h3 class="v4-news-title"><?= e($n['title']) ?></h3>
-                            <?php if (!empty($n['body'])): ?>
-                                <p class="v4-news-text"><?= e($n['body']) ?></p>
+                            <div class="v4-news-content">
+                                <h3 class="v4-news-title"><?= e($n['title']) ?></h3>
+                                <?php if (!empty($n['body'])): ?>
+                                    <p class="v4-news-text"><?= e($n['body']) ?></p>
+                                <?php endif; ?>
+                            </div>
+                            <?php if ($hasLink): ?>
+                                <span class="v4-news-cta"><?= e($cta) ?><span class="v4-news-cta-arrow" aria-hidden="true"><?= $isExt ? '↗' : '→' ?></span></span>
                             <?php endif; ?>
                         <?= $hasLink ? '</a>' : '</div>' ?>
                     </li>
