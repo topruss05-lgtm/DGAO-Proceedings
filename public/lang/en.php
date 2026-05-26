@@ -39,13 +39,6 @@ return [
     'home.section_archive'     => 'Archive',
     'home.section_news'          => 'News',
 
-    'home.news.0_date'           => '7 May 2026',
-    'home.news.0_title'          => '127th Annual Conference: submission closed',
-    'home.news.0_text'           => 'The abstract submission deadline for HAW Hamburg has passed &ndash; thank you for the many contributions. The conference program and registration page will be online from the end of February.',
-
-    'home.news.1_date'           => '12 November 2025',
-    'home.news.1_title'          => 'Proceedings of the 126th Annual Conference (Stuttgart) online',
-    'home.news.1_text'           => 'All contributions of the 126th DGaO Annual Conference at the University of Stuttgart are now freely available.',
     'home.conf_127_btn'          => 'Go to Annual Conference &rarr;',
     'home.conf_126_btn'          => 'View Proceedings &rarr;',
     'home.tagung_suffix'       => 'Conference',

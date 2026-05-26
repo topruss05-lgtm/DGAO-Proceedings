@@ -525,9 +525,50 @@ function getCurrentVorlagenTagung(): ?array
 }
 
 /**
+ * Self-Heal: stellt sicher, dass die Auto-News fuer aktuelle/kommende
+ * Tagungen in der DB existieren. Wichtig fuer frisch deployte
+ * Installationen (Production), wo die news-Tabelle leer ist obwohl
+ * tagungen mit vorlage_phase_aktiv=1 oder kommendem Datum existieren.
+ *
+ * Idempotent: die news_events-Trigger nutzen UPSERT mit unique-Index,
+ * mehrfacher Aufruf erzeugt keine Duplikate.
+ *
+ * Wird auf der Home aufgerufen vor getActiveNews(). Memoized pro
+ * Request via static-Flag — kostet effektiv nur einen Query + ggf.
+ * ein paar UPSERTs auf den ersten Hit nach Deploy.
+ */
+function bootstrapAutoNewsForCurrentTagungen(): void
+{
+    static $done = false;
+    if ($done) return;
+    $done = true;
+
+    require_once __DIR__ . '/admin/news_events.php';
+
+    $db           = getDb();
+    $sixtyDaysAgo = date('Y-m-d', strtotime('-60 days'));
+
+    $stmt = $db->prepare("
+        SELECT *
+        FROM tagungen
+        WHERE vorlage_phase_aktiv = 1
+           OR (datum_von IS NOT NULL AND datum_von >= :cutoff)
+    ");
+    $stmt->execute([':cutoff' => $sixtyDaysAgo]);
+
+    foreach ($stmt as $tagung) {
+        try {
+            newsOnTagungSaved($tagung, $tagung);
+        } catch (Throwable $e) {
+            // Fehler nicht weiterwerfen — News-Seed darf die Home nicht killen.
+            error_log('bootstrapAutoNews: ' . $e->getMessage());
+        }
+    }
+}
+
+/**
  * Aktive News-Items in der aktuellen Sprache, sortiert nach Pin (sort_weight)
- * + display_date DESC. Liefert leere Liste, wenn die news-Tabelle leer ist —
- * Home faellt dann auf die Lang-Key-Fallbacks zurueck.
+ * + display_date DESC.
  *
  * @return list<array{id:int, source:string, display_date:string,
  *                    title:string, body:string, link_url:?string}>

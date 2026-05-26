@@ -114,7 +114,12 @@ $mScene = dgao_compute_optics([
         <h2 class="v4-section-title v4-reveal" id="news-heading"><?= t('home.section_news') ?></h2>
         <hr class="v4-section-bar v4-reveal">
 
-        <?php $newsItems = getActiveNews(3); ?>
+        <?php
+        // Self-Heal: News fuer aktuelle/kommende Tagungen seeden, falls
+        // die DB noch nichts hat (frischer Deploy). Idempotent.
+        bootstrapAutoNewsForCurrentTagungen();
+        $newsItems = getActiveNews(3);
+        ?>
         <?php if (!empty($newsItems)): ?>
             <ol class="v4-news-list">
                 <?php foreach ($newsItems as $i => $n): ?>
@@ -134,20 +139,6 @@ $mScene = dgao_compute_optics([
                         <?php endif; ?>
                     </li>
                 <?php endforeach; ?>
-            </ol>
-        <?php else: ?>
-            <!-- Fallback solange news-Tabelle leer ist: bisherige hardcoded Lang-Items. -->
-            <ol class="v4-news-list">
-                <li class="v4-news-item v4-reveal v4-rd1">
-                    <time class="v4-news-date"><?= t('home.news.0_date') ?></time>
-                    <h3 class="v4-news-title"><?= t('home.news.0_title') ?></h3>
-                    <p class="v4-news-text"><?= t('home.news.0_text') ?></p>
-                </li>
-                <li class="v4-news-item v4-reveal v4-rd2">
-                    <time class="v4-news-date"><?= t('home.news.1_date') ?></time>
-                    <h3 class="v4-news-title"><?= t('home.news.1_title') ?></h3>
-                    <p class="v4-news-text"><?= t('home.news.1_text') ?></p>
-                </li>
             </ol>
         <?php endif; ?>
     </div>

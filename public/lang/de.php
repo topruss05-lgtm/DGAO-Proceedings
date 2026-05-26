@@ -39,13 +39,6 @@ return [
     'home.section_current'     => 'Aktuelle &amp; Letzte Tagung',
     'home.section_archive'     => 'Archiv',
 
-    'home.news.0_date'         => '7. Mai 2026',
-    'home.news.0_title'        => 'Beitragsanmeldung 127. Jahrestagung geschlossen',
-    'home.news.0_text'         => 'Die Frist zur Einreichung von Abstracts f&uuml;r die HAW Hamburg ist abgelaufen &ndash; vielen Dank f&uuml;r die zahlreichen Beitr&auml;ge. Tagungsprogramm und Anmeldeseite werden ab Ende Februar online verf&uuml;gbar sein.',
-
-    'home.news.1_date'         => '12. November 2025',
-    'home.news.1_title'        => 'Proceedings der 126. Jahrestagung Stuttgart online',
-    'home.news.1_text'         => 'Alle Beitr&auml;ge der 126. DGaO-Jahrestagung an der Universit&auml;t Stuttgart sind jetzt frei zug&auml;nglich.',
     'home.conf_127_btn'          => 'Zur Jahrestagung &rarr;',
     'home.conf_126_btn'          => 'Zu den Beitr&auml;gen &rarr;',
     'home.tagung_suffix'       => 'Tagung',
