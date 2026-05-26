@@ -55,12 +55,13 @@ CREATE TABLE IF NOT EXISTS 'papers_fts_data'(id INTEGER PRIMARY KEY, block BLOB)
 CREATE TABLE IF NOT EXISTS 'papers_fts_idx'(segid, term, pgno, PRIMARY KEY(segid, term)) WITHOUT ROWID;
 CREATE TABLE IF NOT EXISTS 'papers_fts_docsize'(id INTEGER PRIMARY KEY, sz BLOB);
 CREATE TABLE IF NOT EXISTS 'papers_fts_config'(k PRIMARY KEY, v) WITHOUT ROWID;
-CREATE TABLE IF NOT EXISTS "autoren" (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            vorname TEXT NOT NULL DEFAULT '',
-            nachname TEXT NOT NULL, affiliation TEXT NOT NULL DEFAULT '',
-            UNIQUE(nachname, vorname)
-        );
+CREATE TABLE autoren (
+    id INTEGER PRIMARY KEY,
+    vorname TEXT NOT NULL DEFAULT '',
+    nachname TEXT NOT NULL,
+    affiliation TEXT NOT NULL DEFAULT '',
+    orcid_id TEXT
+);
 CREATE INDEX idx_autoren_nachname ON autoren(nachname);
 CREATE TABLE submissions (
     token TEXT PRIMARY KEY,
@@ -134,7 +135,62 @@ CREATE UNIQUE INDEX idx_news_auto_unique
     WHERE source = 'auto';
 CREATE INDEX idx_news_active_date ON news(is_active, display_date DESC);
 
+-- Autoren-Alias-System: Normalisierte Suchaliase pro Autor.
+-- Ermoeglicht Merge-Erkennung und fuzzy Autorsuche.
+CREATE TABLE autor_aliase (
+    id           INTEGER PRIMARY KEY AUTOINCREMENT,
+    autor_id     INTEGER NOT NULL REFERENCES autoren(id) ON DELETE CASCADE,
+    alias_text   TEXT NOT NULL,
+    alias_norm   TEXT NOT NULL,
+    created_at   TEXT NOT NULL DEFAULT (datetime('now')),
+    UNIQUE (autor_id, alias_norm)
+);
+CREATE INDEX idx_autor_aliase_norm  ON autor_aliase(alias_norm);
+CREATE INDEX idx_autor_aliase_autor ON autor_aliase(autor_id);
+
+-- Institutionen-Stammdaten.
+CREATE TABLE institutionen (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    name_de         TEXT NOT NULL,
+    name_en         TEXT NOT NULL DEFAULT '',
+    kuerzel         TEXT,
+    universitaet    TEXT,
+    ort             TEXT,
+    land            TEXT DEFAULT 'DE',
+    ror_id          TEXT,
+    created_at      TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX idx_institutionen_kuerzel ON institutionen(kuerzel);
+
+-- Aliase fuer Institutionen (Schreibvarianten, Kuerzel).
+CREATE TABLE institut_aliase (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    institut_id     INTEGER NOT NULL REFERENCES institutionen(id) ON DELETE CASCADE,
+    alias_text      TEXT NOT NULL,
+    alias_norm      TEXT NOT NULL,
+    created_at      TEXT NOT NULL DEFAULT (datetime('now')),
+    UNIQUE (institut_id, alias_norm)
+);
+CREATE INDEX idx_institut_aliase_norm ON institut_aliase(alias_norm);
+CREATE INDEX idx_institut_aliase_inst ON institut_aliase(institut_id);
+
+-- N:M-Verknuepfung Autor ↔ Institution.
+CREATE TABLE autor_institutionen (
+    autor_id        INTEGER NOT NULL REFERENCES autoren(id) ON DELETE CASCADE,
+    institut_id     INTEGER NOT NULL REFERENCES institutionen(id) ON DELETE CASCADE,
+    ist_aktuell     INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (autor_id, institut_id)
+);
+CREATE INDEX idx_autor_inst_aktuell ON autor_institutionen(autor_id, ist_aktuell);
+
+-- Redirect-Tabelle fuer zusammengefuehrte Autoren-IDs.
+CREATE TABLE autor_id_redirects (
+    alte_id   INTEGER PRIMARY KEY,
+    neue_id   INTEGER NOT NULL REFERENCES autoren(id) ON DELETE CASCADE,
+    merged_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 -- Aktueller Schema-Stand. Muss mit DB_SCHEMA_VERSION in public/db.php
 -- synchron sein. Bei neuem Deploy spielt bootstrapDb() dieses Schema
 -- inkl. user_version → runMigrations() greift dann fast-path.
-PRAGMA user_version = 7;
+PRAGMA user_version = 8;

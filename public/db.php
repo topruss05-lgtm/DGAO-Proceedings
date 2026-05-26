@@ -3,8 +3,9 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/helpers.php';
 
-const DB_SCHEMA_VERSION = 7;
+const DB_SCHEMA_VERSION = 8;
 
 function getDb(): PDO
 {
@@ -184,6 +185,140 @@ function runMigrations(PDO $db): void
     $newsColumns = $db->query('PRAGMA table_info(news)')->fetchAll(PDO::FETCH_COLUMN, 1);
     if (!in_array('manual_override', $newsColumns, true)) {
         $db->exec('ALTER TABLE news ADD COLUMN manual_override INTEGER NOT NULL DEFAULT 0');
+    }
+
+    // v8: Autoren-Alias-System + Institutionen-Verwaltung.
+    // Gate: ueberspringen, falls autor_aliase bereits existiert (Idempotenz).
+    $hasAutorAliase = (int) $db->query("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='autor_aliase'")->fetchColumn();
+    if (!$hasAutorAliase) {
+        // Foreign keys muessen VOR der Transaktion deaktiviert werden, da
+        // PRAGMA foreign_keys innerhalb einer Transaktion ignoriert wird.
+        // Wir re-enablen sie nach dem Commit. (SQLite-Doku: "This pragma is
+        // a no-op within a transaction".)
+        $db->exec('PRAGMA foreign_keys = OFF');
+        try {
+            $db->beginTransaction();
+
+            // --- a) Neue Tabellen anlegen ---
+            $db->exec("CREATE TABLE autor_aliase (
+                id           INTEGER PRIMARY KEY AUTOINCREMENT,
+                autor_id     INTEGER NOT NULL REFERENCES autoren(id) ON DELETE CASCADE,
+                alias_text   TEXT NOT NULL,
+                alias_norm   TEXT NOT NULL,
+                created_at   TEXT NOT NULL DEFAULT (datetime('now')),
+                UNIQUE (autor_id, alias_norm)
+            )");
+            $db->exec('CREATE INDEX idx_autor_aliase_norm  ON autor_aliase(alias_norm)');
+            $db->exec('CREATE INDEX idx_autor_aliase_autor ON autor_aliase(autor_id)');
+
+            $db->exec("CREATE TABLE institutionen (
+                id              INTEGER PRIMARY KEY AUTOINCREMENT,
+                name_de         TEXT NOT NULL,
+                name_en         TEXT NOT NULL DEFAULT '',
+                kuerzel         TEXT,
+                universitaet    TEXT,
+                ort             TEXT,
+                land            TEXT DEFAULT 'DE',
+                ror_id          TEXT,
+                created_at      TEXT NOT NULL DEFAULT (datetime('now'))
+            )");
+            $db->exec('CREATE INDEX idx_institutionen_kuerzel ON institutionen(kuerzel)');
+
+            $db->exec("CREATE TABLE institut_aliase (
+                id              INTEGER PRIMARY KEY AUTOINCREMENT,
+                institut_id     INTEGER NOT NULL REFERENCES institutionen(id) ON DELETE CASCADE,
+                alias_text      TEXT NOT NULL,
+                alias_norm      TEXT NOT NULL,
+                created_at      TEXT NOT NULL DEFAULT (datetime('now')),
+                UNIQUE (institut_id, alias_norm)
+            )");
+            $db->exec('CREATE INDEX idx_institut_aliase_norm ON institut_aliase(alias_norm)');
+            $db->exec('CREATE INDEX idx_institut_aliase_inst ON institut_aliase(institut_id)');
+
+            $db->exec("CREATE TABLE autor_institutionen (
+                autor_id        INTEGER NOT NULL REFERENCES autoren(id) ON DELETE CASCADE,
+                institut_id     INTEGER NOT NULL REFERENCES institutionen(id) ON DELETE CASCADE,
+                ist_aktuell     INTEGER NOT NULL DEFAULT 0,
+                PRIMARY KEY (autor_id, institut_id)
+            )");
+            $db->exec('CREATE INDEX idx_autor_inst_aktuell ON autor_institutionen(autor_id, ist_aktuell)');
+
+            $db->exec("CREATE TABLE autor_id_redirects (
+                alte_id   INTEGER PRIMARY KEY,
+                neue_id   INTEGER NOT NULL REFERENCES autoren(id) ON DELETE CASCADE,
+                merged_at TEXT NOT NULL DEFAULT (datetime('now'))
+            )");
+
+            // --- b) autoren-Tabelle neu bauen ---
+            // SQLite unterstuetzt kein DROP CONSTRAINT — Rebuild noetig,
+            // um UNIQUE(nachname, vorname) zu entfernen und orcid_id hinzuzufuegen.
+            // Footnote-Marker werden gleichzeitig aus Namen entfernt.
+            // FK-Checks sind waehrend des Rebuilds off (s.o.).
+            $db->exec("CREATE TABLE autoren_new (
+                id INTEGER PRIMARY KEY,
+                vorname TEXT NOT NULL DEFAULT '',
+                nachname TEXT NOT NULL,
+                affiliation TEXT NOT NULL DEFAULT '',
+                orcid_id TEXT
+            )");
+            $db->exec("INSERT INTO autoren_new (id, vorname, nachname, affiliation)
+                SELECT
+                    id,
+                    TRIM(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(vorname,  '*',''),'†',''),'‡',''),'§',''),'#',''),'^','')),
+                    TRIM(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(nachname, '*',''),'†',''),'‡',''),'§',''),'#',''),'^','')),
+                    affiliation
+                FROM autoren");
+            $db->exec('DROP TABLE autoren');
+            $db->exec('ALTER TABLE autoren_new RENAME TO autoren');
+            $db->exec('CREATE INDEX idx_autoren_nachname ON autoren(nachname)');
+
+            // --- c) Initiale Autoren-Aliase befuellen ---
+            $autoren = $db->query('SELECT id, vorname, nachname FROM autoren')->fetchAll(PDO::FETCH_ASSOC);
+            $stmtAlias = $db->prepare('INSERT OR IGNORE INTO autor_aliase (autor_id, alias_text, alias_norm) VALUES (?, ?, ?)');
+            foreach ($autoren as $row) {
+                $text = trim($row['vorname'] . ' ' . $row['nachname']);
+                $norm = normalizeForAliasMatch($text);
+                if ($norm !== '') {
+                    $stmtAlias->execute([$row['id'], $text, $norm]);
+                }
+            }
+
+            // --- d) Initiale Institutionen aus autoren.affiliation ---
+            $db->exec("INSERT INTO institutionen (name_de)
+                SELECT DISTINCT affiliation FROM autoren
+                WHERE affiliation IS NOT NULL AND affiliation != ''");
+
+            // --- e) Institut-Aliase befuellen ---
+            $institutionen = $db->query('SELECT id, name_de FROM institutionen')->fetchAll(PDO::FETCH_ASSOC);
+            $stmtInstAlias = $db->prepare('INSERT OR IGNORE INTO institut_aliase (institut_id, alias_text, alias_norm) VALUES (?, ?, ?)');
+            foreach ($institutionen as $inst) {
+                $norm = normalizeForAliasMatch($inst['name_de']);
+                if ($norm !== '') {
+                    $stmtInstAlias->execute([$inst['id'], $inst['name_de'], $norm]);
+                }
+            }
+
+            // --- f) autor_institutionen befuellen ---
+            $db->exec("INSERT INTO autor_institutionen (autor_id, institut_id, ist_aktuell)
+                SELECT a.id, i.id, 0
+                FROM autoren a
+                JOIN institutionen i ON i.name_de = a.affiliation
+                WHERE a.affiliation != ''");
+
+            // Autoren mit genau einer Institution als 'aktuell' markieren
+            $db->exec("UPDATE autor_institutionen SET ist_aktuell = 1
+                WHERE autor_id IN (
+                    SELECT autor_id FROM autor_institutionen
+                    GROUP BY autor_id HAVING COUNT(*) = 1
+                )");
+
+            $db->commit();
+        } catch (Throwable $e) {
+            $db->rollBack();
+            $db->exec('PRAGMA foreign_keys = ON');
+            throw $e;
+        }
+        $db->exec('PRAGMA foreign_keys = ON');
     }
 
     $db->exec('PRAGMA user_version = ' . DB_SCHEMA_VERSION);
