@@ -1153,11 +1153,10 @@ h3, .h3 {
     border-left: 3px solid transparent;
     border-radius: 0;
     list-style: none;
-    display: grid;
-    grid-template-columns: auto 1fr auto auto;
+    display: flex;
     align-items: center;
-    column-gap: 0.85rem;
-    row-gap: 0.15rem;
+    justify-content: space-between;
+    gap: 1rem;
     margin-bottom: 0;
     transition: background 0.22s var(--ease), border-left-color 0.22s var(--ease);
 }
@@ -1180,20 +1179,6 @@ h3, .h3 {
     display: none;
 }
 
-.archiv-session__summary::before {
-    content: "▸";
-    display: inline-block;
-    font-size: 0.78rem;
-    line-height: 1;
-    color: var(--accent);
-    width: 0.85rem;
-    transition: transform 0.22s var(--ease);
-}
-
-.archiv-session[open] > .archiv-session__summary::before {
-    transform: rotate(90deg);
-}
-
 .archiv-session__title {
     font-family: var(--font-display);
     font-weight: 600;
@@ -1202,20 +1187,7 @@ h3, .h3 {
     letter-spacing: -0.005em;
     line-height: 1.3;
     min-width: 0;
-}
-
-.archiv-session__meta {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    white-space: nowrap;
-    font-variant-numeric: tabular-nums;
-}
-
-.archiv-session__meta:empty {
-    display: none;
+    flex: 1;
 }
 
 /* Count-Pill — exakt analog zu .v4-archive-badge */
@@ -1235,30 +1207,6 @@ h3, .h3 {
 .archiv-session__summary:hover .archiv-session__count {
     background: var(--accent);
     color: var(--white);
-}
-
-/* Mobile: Meta unter den Titel, Count bleibt rechts neben dem Chevron-
-   Title-Block. */
-@media (max-width: 575.98px) {
-    .archiv-session__summary {
-        grid-template-columns: auto 1fr auto;
-        column-gap: 0.7rem;
-    }
-    .archiv-session__title {
-        grid-column: 2;
-        grid-row: 1;
-    }
-    .archiv-session__meta {
-        grid-column: 2;
-        grid-row: 2;
-        justify-self: start;
-        white-space: normal;
-    }
-    .archiv-session__count {
-        grid-column: 3;
-        grid-row: 1 / span 2;
-        align-self: center;
-    }
 }
 
 /* Paper-Grid: 2 Spalten ab md, 1 Spalte mobil. Sitzt auf warm-paper
