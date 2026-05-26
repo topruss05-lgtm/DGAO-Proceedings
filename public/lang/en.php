@@ -35,12 +35,9 @@ return [
     'home.stat.authors'        => 'Authors',
     'home.search_placeholder'  => 'Title, author or keyword&hellip;',
     'home.search_btn'          => 'Search',
-    'home.section_current'     => 'Current &amp; Latest Conference',
     'home.section_archive'     => 'Archive',
-    'home.section_news'          => 'News',
+    'home.section_news'          => 'Latest Announcements',
 
-    'home.conf_127_btn'          => 'Go to Annual Conference &rarr;',
-    'home.conf_126_btn'          => 'View Proceedings &rarr;',
     'home.tagung_suffix'       => 'Conference',
     'home.show_all'            => 'Show all conferences &rarr;',
 

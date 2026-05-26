@@ -35,12 +35,9 @@ return [
     'home.stat.authors'        => 'Autoren',
     'home.search_placeholder'  => 'Titel, Autor oder Stichwort&hellip;',
     'home.search_btn'          => 'Suchen',
-    'home.section_news'        => 'Neuigkeiten',
-    'home.section_current'     => 'Aktuelle &amp; Letzte Tagung',
+    'home.section_news'        => 'Aktuelle Meldungen',
     'home.section_archive'     => 'Archiv',
 
-    'home.conf_127_btn'          => 'Zur Jahrestagung &rarr;',
-    'home.conf_126_btn'          => 'Zu den Beitr&auml;gen &rarr;',
     'home.tagung_suffix'       => 'Tagung',
     'home.show_all'            => 'Alle Tagungen anzeigen &rarr;',
 

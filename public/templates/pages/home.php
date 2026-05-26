@@ -150,50 +150,6 @@ $mScene = dgao_compute_optics([
     </div>
 </section>
 
-<!-- 3. CURRENT CONFERENCES -->
-<section class="v4-conferences">
-    <div class="v4-section-inner">
-        <h2 class="v4-section-title v4-reveal"><?= t('home.section_current') ?></h2>
-        <hr class="v4-section-bar v4-reveal">
-
-        <div class="v4-conf-grid">
-            <div class="v4-reveal v4-rd1">
-                <article class="v4-conf-card">
-                    <a href="https://dgao.de/jahrestagung/" target="_blank" rel="noopener"
-                       class="v4-conf-img-link"
-                       aria-label="127. Jahrestagung der DGaO an der HAW Hamburg">
-                        <img src="/assets/images/haw-hamburg-2026.png"
-                             alt="127. Jahrestagung der DGaO &ndash; HAW Hamburg, 26.&ndash;30. Mai 2026"
-                             class="v4-conf-img">
-                    </a>
-                    <div class="v4-conf-body">
-                        <a href="https://dgao.de/jahrestagung/" target="_blank" rel="noopener"
-                           class="v4-conf-btn v4-conf-btn--haw">
-                            <?= t('home.conf_127_btn') ?>
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="v4-reveal v4-rd2">
-                <article class="v4-conf-card">
-                    <a href="/archiv/126" class="v4-conf-img-link"
-                       aria-label="126. Jahrestagung der DGaO, Uni Stuttgart 2025 &mdash; Archiv">
-                        <img src="/assets/images/dgao-stuttgart-2025.png"
-                             alt="126. Jahrestagung der DGaO &ndash; Uni Stuttgart, 10.&ndash;14. Juni 2025"
-                             class="v4-conf-img">
-                    </a>
-                    <div class="v4-conf-body">
-                        <a href="/archiv/126" class="v4-conf-btn">
-                            <?= t('home.conf_126_btn') ?>
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- 3. ARCHIVE -->
 <section class="v4-archive">
     <div class="v4-section-inner">

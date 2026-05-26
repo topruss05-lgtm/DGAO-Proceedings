@@ -504,102 +504,8 @@ a.v4-news-row:hover .v4-news-cta-arrow {
     .v4-news-text { font-size: 0.86rem; }
 }
 
-.v4-conferences {
-    background: var(--paper);
-    padding: 3.25rem 0 3.5rem;
-    border-bottom: 1px solid var(--border-light);
-}
-
-/* Nur das Card-Grid bleibt schmaler als die 1280er Section-Breite —
-   die zwei Tagungsbilder + Buttons würden sonst zu wuchtig wirken.
-   Section-Title "Aktuelle und letzte Tagung" + die Hairline-Bar sitzen
-   weiterhin auf dem regulären 1280-Anker, identisch zu den anderen
-   Section-Headern auf der Home. */
-.v4-conf-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 1.5rem;
-    max-width: 1080px;
-    margin: 0 auto;
-}
-
-.v4-conf-grid > * { min-width: 0; }
-
-.v4-conf-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    min-width: 0;
-    transition: box-shadow 0.25s var(--ease),
-                transform 0.25s var(--ease);
-}
-
-.v4-conf-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-1px);
-}
-
-/* Bild ist auf jeder Viewport-Größe der Haupt-Klick-Target. Auf Mobile
-   verschwindet zusätzlich der Button-Block, das Bild bleibt das einzige
-   Tap-Element. */
-.v4-conf-img-link {
-    display: block;
-    line-height: 0;
-    overflow: hidden;
-    border-bottom: 1px solid var(--border-light);
-    transition: opacity 0.22s var(--ease);
-}
-.v4-conf-img-link:hover { opacity: 0.92; }
-.v4-conf-img-link:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: -2px;
-}
-
-.v4-conf-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.4s var(--ease);
-}
-.v4-conf-card:hover .v4-conf-img { transform: scale(1.01); }
-
-.v4-conf-body { padding: 1.25rem 1.5rem 1.5rem; }
-
-.v4-conf-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    font-family: var(--font-display);
-    font-size: 0.86rem;
-    font-weight: 600;
-    color: #fff;
-    background: var(--accent);
-    border: none;
-    border-radius: 6px;
-    padding: 0.55rem 1.1rem;
-    text-decoration: none;
-    transition: background 0.18s var(--ease),
-                transform 0.18s var(--ease);
-}
-.v4-conf-btn:hover {
-    background: var(--accent-light);
-    color: #fff;
-    text-decoration: none;
-    transform: translateY(-1px);
-}
-
-/* Blau aus dem Tagungs-Keyvisual (#295CA1) — passt visuell zum Bild,
-   das wir vom Orga-Team bekommen haben. */
-.v4-conf-btn--haw {
-    background: #295CA1;
-}
-.v4-conf-btn--haw:hover {
-    background: #1F4A87;
-}
-
 .v4-archive {
-    background: var(--white);
+    background: var(--paper);
     padding: 3.25rem 0 3.5rem;
     border-bottom: 1px solid var(--border-light);
 }
@@ -648,12 +554,7 @@ a.v4-news-row:hover .v4-news-cta-arrow {
 }
 
 @media (max-width: 767.98px) {
-    .v4-conf-grid { grid-template-columns: 1fr; gap: 1.25rem; }
     .v4-trust { grid-template-columns: 1fr; gap: 1.25rem; }
-    /* Auf Mobile sind die Bilder allein das Klick-Target — Button-Block
-       weg, Bild übernimmt komplett (Stacked-Look bleibt sauber). */
-    .v4-conf-body { display: none; }
-    .v4-conf-img-link { border-bottom: 0; }
 }
 
 /* --- Reduced motion --- */
