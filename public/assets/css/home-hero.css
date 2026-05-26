@@ -433,18 +433,17 @@
     border-bottom: 1px solid var(--border-light);
 }
 
-/* Diese Section darf bewusst schmaler bleiben als die übrigen 1280er
-   Sections — die Tagungsbilder mit Button-Body würden bei voller
-   Breite zu wuchtig wirken. Section-BG (paper-tinted) ist trotzdem
-   full-bleed, nur der Card-Container ist zentral schmaler. */
-.v4-conferences .v4-section-inner {
-    max-width: 1080px;
-}
-
+/* Nur das Card-Grid bleibt schmaler als die 1280er Section-Breite —
+   die zwei Tagungsbilder + Buttons würden sonst zu wuchtig wirken.
+   Section-Title "Aktuelle und letzte Tagung" + die Hairline-Bar sitzen
+   weiterhin auf dem regulären 1280-Anker, identisch zu den anderen
+   Section-Headern auf der Home. */
 .v4-conf-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 1.5rem;
+    max-width: 1080px;
+    margin: 0 auto;
 }
 
 .v4-conf-grid > * { min-width: 0; }
