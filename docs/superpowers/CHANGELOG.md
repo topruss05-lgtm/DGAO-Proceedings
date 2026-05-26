@@ -28,3 +28,13 @@ Review der 19 Phase-3-Subagent-Merges mit Konfidenz 0.90-0.92 (Opus 4.7):
   - **Beckmann** (cluster_0017): C. Beckmann (id 8324, Laser-Laboratorium Göttingen e.V.) ≠ C. M. Beckmann (id 9046, Institut für Nanophotonik Göttingen e.V.) — zwei verschiedene Forschungseinrichtungen in derselben Stadt. 1 Paper auf id 8324 zurück.
 - Live-DB nach Unmerge: 4548 Autoren (4546 + 2), 631 Redirects (633 - 2)
 - Backup: database/backups/proceedings_pre_unmerge_*.db
+
+## 2026-05-26 (later): Beckmann re-merged nach Web-Recherche
+
+Sonnet-Subagent mit Web-Recherche bestätigte (Konfidenz 0.97): C. Beckmann
+(Laser-Laboratorium Göttingen) und C. M. Beckmann (IFNANO Göttingen) sind
+**Clemens M. Beckmann**. LLG-Jahresbericht 2018 listet ihn als Mitarbeiter,
+Publikationen unter beiden Schreibweisen mit identischen Co-Autoren.
+IFNANO ging 2018/2020 aus LLG hervor, gleiche Adresse.
+Re-Merge: 9046 (C.M. Beckmann) ist Anchor, 4 Papers, beide Institute
+verknüpft. Live-DB: 4547 Autoren, 632 Redirects.
