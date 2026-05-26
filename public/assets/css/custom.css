@@ -148,8 +148,16 @@ h1, h2, h3, h4, h5, h6,
    LAYOUT
    ============================ */
 
-.container-narrow {
+/* Page-Content-Wrapper: exakt dasselbe Schema wie .site-header__inner /
+   .site-footer__inner, damit Brand, Active-Underline, H1 und Listen-
+   Ränder bei jeder Viewport-Breite sauber übereinander abschließen.
+   Bewusst KEIN Bootstrap .container — dessen responsive max-widths
+   (720/960/1140) brachen die Alignment mit dem konstant-1140-Header. */
+.site-content__inner {
     max-width: 1140px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
 

@@ -77,7 +77,7 @@
         <?php if (!empty($fullWidthLayout)): ?>
             <?= $pageContent ?>
         <?php else: ?>
-            <div class="container container-narrow py-4">
+            <div class="site-content__inner py-4">
                 <?= $pageContent ?>
             </div>
         <?php endif; ?>
