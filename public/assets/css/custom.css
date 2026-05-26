@@ -908,7 +908,7 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
     font-family: var(--font-mono);
     font-size: 0.7rem;
     font-weight: 600;
-    color: var(--accent);
+    color: var(--text);
     letter-spacing: 0.18em;
     text-transform: uppercase;
     margin-bottom: 0.6rem;
@@ -1727,7 +1727,7 @@ h3, .h3 {
     font-family: var(--font-mono);
     font-size: 0.66rem;
     font-weight: 600;
-    color: var(--accent);
+    color: var(--text);
     letter-spacing: 0.18em;
     text-transform: uppercase;
     margin-bottom: 0.45rem;
