@@ -337,7 +337,57 @@ function groupPapersForArchiveDetail(array $papers): array
     // Anzeige-Reihenfolge: sortiert nach 'sortkey' (Primary + Secondary).
     uasort($groups, fn($a, $b) => $a['sortkey'] <=> $b['sortkey']);
 
-    return array_values($groups);
+    // Zweiter Pass: Sessions mit identischem Titel+Datum+Saal mergen.
+    // Booklet-Slots, die im Programm durch eine Pause/anderen Block geteilt
+    // sind (z.B. das Ehrensymposium auf Tagung 127, das vor und nach der
+    // Kaffeepause stattfindet), sind im Importer korrekt als zwei sessions-
+    // Zeilen mit unterschiedlichem zeit_von erfasst — fuer den Leser aber
+    // EIN Programmpunkt. Frueheste zeit_von gewinnt, Papers werden
+    // zusammengefuehrt und chronologisch sortiert.
+    $merged = [];
+    $mergeIndex = [];
+    foreach ($groups as $g) {
+        if ($g['type'] !== 'session') {
+            $merged[] = $g;
+            continue;
+        }
+        $mergeKey = 'session_' . md5(
+            ($g['titel'] ?? '') . '|' . ($g['datum'] ?? '') . '|' . ($g['saal'] ?? '')
+        );
+        if (!isset($mergeIndex[$mergeKey])) {
+            $g['key'] = $mergeKey;
+            $merged[] = $g;
+            $mergeIndex[$mergeKey] = count($merged) - 1;
+            continue;
+        }
+        $idx = $mergeIndex[$mergeKey];
+        $merged[$idx]['papers'] = array_merge($merged[$idx]['papers'], $g['papers']);
+        if (
+            !empty($g['zeit_von']) &&
+            (empty($merged[$idx]['zeit_von']) || $g['zeit_von'] < $merged[$idx]['zeit_von'])
+        ) {
+            $merged[$idx]['zeit_von'] = $g['zeit_von'];
+        }
+    }
+
+    // Papers innerhalb gemergeter Sessions nach Uhrzeit sortieren (Code als
+    // Tiebreaker), damit S1..S6 in lesbarer Reihenfolge erscheinen.
+    foreach ($merged as &$g) {
+        if ($g['type'] !== 'session' || count($g['papers']) < 2) {
+            continue;
+        }
+        usort($g['papers'], function ($a, $b) {
+            $za = (string)($a['zeit'] ?? '');
+            $zb = (string)($b['zeit'] ?? '');
+            if ($za !== '' && $zb !== '' && $za !== $zb) {
+                return strcmp($za, $zb);
+            }
+            return strcmp((string)($a['code'] ?? ''), (string)($b['code'] ?? ''));
+        });
+    }
+    unset($g);
+
+    return $merged;
 }
 
 /**
