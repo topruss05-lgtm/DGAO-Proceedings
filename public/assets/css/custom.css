@@ -317,6 +317,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .site-nav2__link {
+    position: relative;
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
@@ -325,17 +326,34 @@ h1, h2, h3, h4, h5, h6,
     font-weight: 500;
     color: var(--text);
     text-decoration: none;
-    padding: 1.05rem 1.4rem;
-    border-bottom: 3px solid transparent;
+    padding: 1.05rem 0.7rem;
     margin-bottom: -1px;
-    transition: color 0.18s var(--ease),
-                border-color 0.18s var(--ease);
+    transition: color 0.18s var(--ease);
 }
 
-.site-nav2__link:first-child { padding-left: 0; }
+/* Underline als pseudo-element: läuft exakt von Text-Anfang bis
+   Text-Ende (left/right matchen das Padding), NICHT über die volle
+   Padding-Box wie das alte border-bottom. So passt der Strich bei
+   kurzen wie langen Labels identisch zum Text. */
+.site-nav2__link::after {
+    content: "";
+    position: absolute;
+    left: 0.7rem;
+    right: 0.7rem;
+    bottom: 0;
+    height: 3px;
+    background: transparent;
+    transition: background-color 0.18s var(--ease);
+    pointer-events: none;
+}
 
+/* Erster Link sitzt bündig mit dem Brand links — kein Left-Padding,
+   Underline beginnt entsprechend bei 0. */
 .site-nav2__list > li:first-child .site-nav2__link {
     padding-left: 0;
+}
+.site-nav2__list > li:first-child .site-nav2__link::after {
+    left: 0;
 }
 
 .site-nav2__link .bi {
@@ -346,7 +364,9 @@ h1, h2, h3, h4, h5, h6,
 .site-nav2__link:hover {
     color: var(--accent);
     text-decoration: none;
-    border-bottom-color: var(--accent-muted);
+}
+.site-nav2__link:hover::after {
+    background: var(--accent-muted);
 }
 
 .site-nav2__link:hover .bi { opacity: 1; }
@@ -354,7 +374,9 @@ h1, h2, h3, h4, h5, h6,
 .site-nav2__link.is-active {
     color: var(--accent);
     font-weight: 600;
-    border-bottom-color: var(--accent);
+}
+.site-nav2__link.is-active::after {
+    background: var(--accent);
 }
 
 /* Mobile toggle — borderless, größerer Touch-Target, mittig sitzendes Icon.
@@ -440,6 +462,9 @@ h1, h2, h3, h4, h5, h6,
         width: 100%;
     }
     .site-nav2__link.is-active { border-bottom-color: var(--accent); }
+    /* Pseudo-Underline ist Desktop-only — auf Mobile ist die border-bottom
+       des Links selbst die Row-Trennlinie. */
+    .site-nav2__link::after { display: none; }
 }
 
 
@@ -484,11 +509,15 @@ body[data-page="home"] .site-nav2__link {
 }
 body[data-page="home"] .site-nav2__link:hover {
     color: #ffffff;
-    border-bottom-color: rgba(255,255,255,0.4);
+}
+body[data-page="home"] .site-nav2__link:hover::after {
+    background: rgba(255,255,255,0.4);
 }
 body[data-page="home"] .site-nav2__link.is-active {
     color: #ffffff;
-    border-bottom-color: #ffffff;
+}
+body[data-page="home"] .site-nav2__link.is-active::after {
+    background: #ffffff;
 }
 body[data-page="home"] .site-nav2__toggle {
     color: #ffffff;
