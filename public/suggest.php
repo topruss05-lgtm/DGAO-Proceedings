@@ -38,34 +38,62 @@ $like = '%' . $q . '%';
 // Stripping helper for display labels (Sternchen-Markers raus).
 $strip = static fn(?string $s): string => trim(preg_replace('/\*+/', '', (string)$s));
 
-// --- Authors (Name ODER Affiliation): Personen-Treffer mit Affiliation-Match
-//     liefern oft den passenden Hit, wenn der User z.B. "Fraunhofer" eintippt.
+// --- Authors via alias_norm (matches Schreibvarianten, ß/ss, diacritics)
+//     Plus institution-substring match (kuerzel, name_de, name_en, alias_norm)
+//     so "Fraunhofer" finds all Fraunhofer-affiliated authors.
+$qNorm   = normalizeForAliasMatch($q);
+$lang    = $_SESSION['lang'] ?? 'de';
+$instCol = $lang === 'en' ? 'i.name_en' : 'i.name_de';
+
 $stmtA = $db->prepare("
-    SELECT a.id, a.vorname, a.nachname, a.affiliation,
+    SELECT a.id, a.vorname, a.nachname,
+           (SELECT COALESCE(NULLIF($instCol, ''), i.name_de)
+            FROM autor_institutionen ai
+            JOIN institutionen i ON i.id = ai.institut_id
+            WHERE ai.autor_id = a.id AND ai.ist_aktuell = 1
+            LIMIT 1) AS aff,
            COUNT(DISTINCT pa.paper_id) AS papers
     FROM autoren a
     JOIN paper_autoren pa ON pa.autor_id = a.id
-    WHERE a.nachname    LIKE :q1 COLLATE NOCASE
-       OR a.vorname     LIKE :q2 COLLATE NOCASE
-       OR a.affiliation LIKE :q3 COLLATE NOCASE
+    WHERE EXISTS (
+            SELECT 1 FROM autor_aliase al
+            WHERE al.autor_id = a.id AND al.alias_norm LIKE :qnorm
+          )
+       OR EXISTS (
+            SELECT 1 FROM autor_institutionen ai
+            JOIN institutionen i ON i.id = ai.institut_id
+            LEFT JOIN institut_aliase ia ON ia.institut_id = i.id
+            WHERE ai.autor_id = a.id
+              AND (   i.name_de LIKE :q   COLLATE NOCASE
+                   OR i.name_en LIKE :q2  COLLATE NOCASE
+                   OR i.kuerzel LIKE :q3  COLLATE NOCASE
+                   OR ia.alias_norm LIKE :qnorm2)
+          )
     GROUP BY a.id
     HAVING papers > 0
     ORDER BY papers DESC, a.nachname COLLATE NOCASE
     LIMIT 5
 ");
-$stmtA->execute([':q1' => $like, ':q2' => $like, ':q3' => $like]);
+$stmtA->execute([
+    ':qnorm'  => '%' . $qNorm . '%',
+    ':qnorm2' => '%' . $qNorm . '%',
+    ':q'      => '%' . $q . '%',
+    ':q2'     => '%' . $q . '%',
+    ':q3'     => '%' . $q . '%',
+]);
+
 $authors = [];
 foreach ($stmtA as $row) {
-    $name = $strip($row['nachname']);
+    $name = trim((string) $row['nachname']);
     if ($row['vorname'] !== '' && $row['vorname'] !== null) {
-        $name .= ', ' . $strip($row['vorname']);
+        $name .= ', ' . trim((string) $row['vorname']);
     }
     $authors[] = [
-        'id'          => (int)$row['id'],
+        'id'          => (int) $row['id'],
         'name'        => $name,
-        'affiliation' => $strip($row['affiliation'] ?? ''),
-        'papers'      => (int)$row['papers'],
-        'url'         => '/autor/' . (int)$row['id'],
+        'affiliation' => (string) ($row['aff'] ?? ''),
+        'papers'      => (int) $row['papers'],
+        'url'         => '/autor/' . (int) $row['id'],
     ];
 }
 
