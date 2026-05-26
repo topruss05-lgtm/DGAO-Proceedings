@@ -6,11 +6,18 @@ $search = trim($_GET['q'] ?? '');
 $currentPage = max(1, (int)($_GET['page'] ?? 1));
 $perPage = 100;
 
-// Zählen
+// Zählen — gleiche Such-Logik wie unten (alias_text + institutionen.name_de)
 if (!empty($search)) {
-    $countStmt = $db->prepare('SELECT COUNT(*) FROM autoren WHERE nachname LIKE ? OR vorname LIKE ? OR affiliation LIKE ?');
+    $countStmt = $db->prepare('
+        SELECT COUNT(*) FROM autoren a
+        WHERE a.nachname LIKE ? OR a.vorname LIKE ?
+           OR EXISTS (SELECT 1 FROM autor_aliase al WHERE al.autor_id = a.id AND al.alias_text LIKE ?)
+           OR EXISTS (SELECT 1 FROM autor_institutionen ai2
+                      JOIN institutionen i2 ON i2.id = ai2.institut_id
+                      WHERE ai2.autor_id = a.id AND i2.name_de LIKE ?)
+    ');
     $searchParam = '%' . $search . '%';
-    $countStmt->execute([$searchParam, $searchParam, $searchParam]);
+    $countStmt->execute([$searchParam, $searchParam, $searchParam, $searchParam]);
 } else {
     $countStmt = $db->query('SELECT COUNT(*) FROM autoren');
 }
