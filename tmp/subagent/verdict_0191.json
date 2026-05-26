@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[1082], [9062]],
-  "reason": "Verschiedene Initialen (A. vs. S.) und unterschiedliche Affiliationen (SmarAct GmbH vs. Universität Bremen CBIB) sowie disjunkte Themen (Vibrometrie/Polierprozess vs. Sauerstoffsensorik)."
-}

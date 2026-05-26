@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[9401], [9922]],
-  "reason": "Verschiedene Initialen (M. vs. A.) und unterschiedliche Affiliationen (Sony Stuttgart vs. Fraunhofer IOF Jena) sowie disjunkte Themen (hyperspektrale Bildgebung vs. topologieoptimierte Gehäuse)."
-}

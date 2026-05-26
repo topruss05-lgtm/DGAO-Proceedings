@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[666], [11980]],
-  "reason": "W. Michaelis (PTB Braunschweig, Gitterkalibrierung/Mikroskopie) und D. Michaelis (Fraunhofer IOF Jena, OLED-Analyse/Mikrolinsen) haben unterschiedliche Vornamen-Initialen und disjunkte Institutionen sowie Themengebiete."
-}

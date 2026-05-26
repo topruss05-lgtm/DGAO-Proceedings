@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.97,
-  "groups": [[78], [172], [1134], [1363], [1951], [2976], [3097], [3806], [5658], [6400], [6659], [7006], [9332], [9424]],
-  "reason": "14 Kandidaten mit 12 verschiedenen Initialen (M., E., R., J., I., O., L., F., M.A., C., W., K., S., T.) und vollständig disjunkten Affiliationen; keine zwei Einträge weisen auf dieselbe Person hin."
-}

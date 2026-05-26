@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[1777], [5597], [12222]],
-  "reason": "H. Strauß (Erlangen, Mathematik/3D-Rekonstruktion), C. Strauss (Neurochirurgie Halle, medizinischer 3D-Sensor) und A. Strauß (IPHT Jena/Tübingen, Elastografie/Glasfasern) haben unterschiedliche Initialen, Affiliationen und Themen; ß/ss-Varianz irrelevant da verschiedene Vornamen."
-}

@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.85,
-  "groups": [[3694], [5534]],
-  "reason": "J. Weiss (IBM Zürich, Photodetektor) und R. Weiß (TU Ilmenau, Profilometrie) haben unterschiedliche Initialen, Affiliationen und Themen; zudem Weiss vs. Weiß ist kein ß/ss-Alias sondern verschiedene Vornamen – zwei verschiedene Personen."
-}

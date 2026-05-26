@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[3702], [6612], [8215], [9793], [10629], [11924]],
-  "reason": "Sechs verschiedene Vornamen-Initialen (R., M., Ch., S., J., K.) mit völlig unterschiedlichen Affiliationen und Themengebieten (Ilmenau, MPL Erlangen, TU Darmstadt, FotoFinder, SCHOTT, unbekannt) – eindeutig verschiedene Personen."
-}

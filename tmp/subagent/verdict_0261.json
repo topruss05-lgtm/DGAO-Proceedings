@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[25], [2189], [3553]],
-  "reason": "T. Maier (Uni Erlangen, 3D-Metrologie), U. Maier (Uni Heidelberg, Gradientenmessung) und B. Maier (Uni Münster, molekulare Motoren) haben unterschiedliche Vornamen-Initialen und disjunkte Institutionen."
-}

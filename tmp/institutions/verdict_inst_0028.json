@@ -1,7 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [],
-  "canonical": [],
-  "reason": "Der Cluster enthält zwei verschiedene Lehrstühle der Universität Erlangen-Nürnberg (FAU): den Lehrstuhl für Multimediakommunikation und Signalverarbeitung (ids 90/489) und den Lehrstuhl für Mustererkennung im Institut für Informatik (id 367). Dies sind eigenständige Lehreinheiten."
-}

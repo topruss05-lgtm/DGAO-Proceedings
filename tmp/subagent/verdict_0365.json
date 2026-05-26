@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.92,
-  "groups": [[1243], [1502], [1882], [2007], [4608], [5805]],
-  "reason": "Sechs Seifert-Kandidaten mit verschiedenen Initialen (L., U., M., B.U., K., S.) und disjunkten Affiliationen; B.U. Seifert (TU Ilmenau) und U. Seifert (Qimonda) könnten theoretisch verwandt sein, aber B.U. vs. U. sind unterschiedliche Personen."
-}

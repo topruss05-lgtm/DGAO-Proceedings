@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[2690], [4456], [5752], [7441], [8460], [9930], [11412], [12202]],
-  "reason": "Alle acht Wang-Einträge haben unterschiedliche Vornamen-Initialen (Y., J., Z., S., W., H., T., N.) und verschiedene Affiliationen; Z. Wang und W. Wang sind beide an der FSU Jena (ACO-Gruppe) aber mit verschiedenen Initialen eindeutig verschiedene Personen; J. Wang (Northwestern) und H. Wang (Northwestern) sowie T. Wang (ETH Zürich) sind Kollaborationspartner, aber separate Personen."
-}

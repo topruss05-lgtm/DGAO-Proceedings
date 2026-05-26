@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[5276], [9102]],
-  "reason": "Verschiedene Initialen (A. vs. F.) und unterschiedliche Affiliationen (Hochschule Aalen vs. TH Wildau) sowie disjunkte Forschungsthemen (Mikronadeln/Polymerisation vs. Siliziumstrukturen/Optoelektronik)."
-}

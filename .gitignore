@@ -20,3 +20,4 @@ database/backups/
 *.out
 *.bak
 docs/*.log
+tmp/

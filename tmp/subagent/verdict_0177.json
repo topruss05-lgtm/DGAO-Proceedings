@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.97,
-  "groups": [[39], [8743]],
-  "reason": "Verschiedene Initialen (J. vs. D.) und vollständig verschiedene Affiliationen (FernUniversität Hagen Mikro-/Nanophotonik vs. TH Wildau) sowie disjunkte Themen (Fourier-Optik/KI vs. Spiegelsysteme)."
-}

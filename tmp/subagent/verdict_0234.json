@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.93,
-  "groups": [[1316], [1612], [6454]],
-  "reason": "Drei verschiedene Personen: M. Lang (DKFZ Heidelberg, 4Pi-Mikroskopie), N. Lang (INP Greifswald, IR-Spektroskopie) und W. Lang (Uni Bremen, Freiformoptik/Deflektometrie) haben unterschiedliche Initialen, Affiliations und Themen."
-}

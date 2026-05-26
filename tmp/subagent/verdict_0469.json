@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[1102], [2440], [4274], [7571], [8168], [10535], [12624]],
-  "reason": "Sieben verschiedene Vornamen-Initialen (F., R., J., T., A., M., C.) mit unterschiedlichen Affiliationen und Themenfeldern (Endoskopie, THz, Lithografie, Deflektometrie, Holografie, Robotik) – ausnahmslos verschiedene Personen."
-}

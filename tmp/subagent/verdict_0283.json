@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.93,
-  "groups": [[5798, 5799], [7033]],
-  "reason": "J. Novák und P. Novák (beide Czech Technical University Prague, gleiche Papers) sind zwei verschiedene Personen, die häufig gemeinsam publizieren – unterschiedliche Vornamen-Initialen. T. Novak (HS Aalen, Flüssiglinsen) ist eine weitere separate Person mit anderer Institution und ohne Diakritika."
-}

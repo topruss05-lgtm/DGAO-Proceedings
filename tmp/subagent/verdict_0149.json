@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[175], [3276]],
-  "reason": "Verschiedene Initialen (H. vs. U.) und vollständig unterschiedliche Affiliationen (Universität Rostock vs. Osram GmbH) sowie Themen (Wellenleiter/Kameraobjektiv vs. LED-Kameralicht)."
-}

@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.92,
-  "groups": [[1854], [2324], [7193], [7825], [11950]],
-  "reason": "Fünf Schröder-Einträge mit verschiedenen Initialen (K., H., U.-Ch., S.N., S.); S.N. Schröder (Fraunhofer IOF) und S. Schröder (RWTH Aachen) könnten theoretisch dieselbe Person sein, aber verschiedene Affiliationen und unterschiedliche Namensvollformen machen separate Behandlung sicherer."
-}

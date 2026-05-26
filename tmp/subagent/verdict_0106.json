@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.92,
-  "groups": [[1741], [1761], [5045], [6004], [8548, 12602]],
-  "reason": "L., K., D., T. Friedrich sind klar verschiedene Personen. Dr. P. Friedrich (8548, MPE Garching) und P. Friedrich (12602, MPE Garching) sind dieselbe Person – gleiche Affiliation, gleiches Themengebiet (Röntgenteleskope)."
-}

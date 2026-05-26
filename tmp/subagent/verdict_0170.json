@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.93,
-  "groups": [[1303, 8868], [1417], [1784], [6434, 8892], [12066], [12142]],
-  "reason": "Großer Cluster mit 8 Einträgen und 6 klar verschiedenen Initialen (L.H./L., M., C., G.-A./G., H.-D., D., K.); mögliche Merge-Gruppen: L.H. Hoffmann und L. Hoffmann (beide Messtechnik/PTB-Nähe, aber verschiedene Affiliationen) sowie G.-A. und G. Hoffmann (beide Leibniz Uni Hannover, gleiche Themen optische Wellenleiter) — letztere sind sehr wahrscheinlich dieselbe Person."
-}

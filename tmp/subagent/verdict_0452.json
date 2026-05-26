@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.92,
-  "groups": [[96, 9528], [6300]],
-  "reason": "S. Wolff (ID 96) und F. Wolff (ID 9528) sind beide bei SCHOTT AG tätig und könnten verschiedene Personen sein (unterschiedliche Initialen); E. K. Wolff (Uni Witten/Herdecke, Proteinphotonic) ist eindeutig eine andere Person. S. Wolff und F. Wolff bleiben getrennt da Vorname-Initialen verschieden."
-}

@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[2775], [3078]],
-  "reason": "Verschiedene Initialen (M. vs. S.B.) und vollständig verschiedene Affiliationen (Sagentia Cambridge vs. University of Minnesota) sowie disjunkte Themen (Faserspektroskopie vs. Thin Sheet Laser Imaging)."
-}

@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.93,
-  "groups": [[3508], [4351], [4714], [5012], [5066], [5931], [11899], [11991]],
-  "reason": "Acht verschiedene Personen mit dem Nachnamen Klein: alle haben unterschiedliche Vornamen-Initialen und vollständig disjunkte Affiliations sowie Themengebiete (UV-Fasern, Photonik, Holographie, Spektroskopie, PTB-Metrologie, Medizin, Meta-Optik, Laserdesign)."
-}

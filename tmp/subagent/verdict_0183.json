@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[5014], [6575]],
-  "reason": "Verschiedene Initialen (S. vs. N.) und unterschiedliche Affiliationen (PTB Braunschweig vs. keine Angabe) sowie disjunkte Themen (Gasanalyse-Zelle vs. Glasfaser für cochleäre Stimulation)."
-}

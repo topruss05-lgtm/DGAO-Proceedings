@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[2309], [4280]],
-  "reason": "Verschiedene Initialen (F. vs. A.) und verschiedene Affiliationen (IPHT Jena vs. PTB) sowie disjunkte Themen (Spannungsmessung Faser-Preformen vs. Autokollimator-Winkelmessung)."
-}

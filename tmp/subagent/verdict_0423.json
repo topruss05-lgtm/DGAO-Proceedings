@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[2159], [3374], [7326], [10178], [12706]],
-  "reason": "M. M. Vogel (IFSW Stuttgart, Resonanzgitter), M. Vogel (Uni Erlangen, Structured Illumination), U. Vogel (Fraunhofer FEP, OLED), C. Vogel (Fraunhofer IFF Magdeburg, Cobotik) und W. Vogel (Uni Stuttgart, Mikrofluidik-Fluoreszenz) haben alle unterschiedliche Initialen/Vornamen, Affiliationen und Themen. M. M. Vogel vs. M. Vogel: unterschiedliche Institute (Stuttgart vs. Erlangen) und unterschiedliche Themen."
-}

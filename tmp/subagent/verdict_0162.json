@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[2294], [9115]],
-  "reason": "Verschiedene Initialen (H. vs. M.) und unterschiedliche Affiliationen (ISAS Dortmund vs. TH Wildau) sowie disjunkte Themen (Raman-Spektroskopie vs. Polyurethanharze/LED-Linsen)."
-}

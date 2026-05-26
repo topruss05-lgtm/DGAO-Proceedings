@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.92,
-  "groups": [[37], [116], [258], [450], [628], [1305, 1306], [2035], [3760], [4430], [5024, 11870], [5067], [6336], [6351], [6901], [7229], [8800], [10864]],
-  "reason": "17 verschiedene Personen mit Nachnamen Müller; alle haben unterschiedliche Vornamen-Initialen und verschiedene Institutionen. Ausnahmen: U. C. Müller und M. S. Müller (IDs 1305/1306) sind ko-Autoren von TU München mit verwandten Themen aber unterschiedlichen Initialen – getrennte Personen. A. Müller (BIAS Bremen, ID 5024) und A. F. Müller (BIAS Bremen, ID 11870) sind sehr wahrscheinlich dieselbe Person (gleiche Institution, gleiche Themen: MArS-Interferometrie)."
-}

@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[926], [7074], [11379], [12070]],
-  "reason": "Vier Kandidaten mit verschiedenen Initialen (I., H., G., A.) und disjunkten Affiliationen (Erlangen, TU Dresden, PTB Braunschweig, Universität Stuttgart); keine Überschneidung."
-}

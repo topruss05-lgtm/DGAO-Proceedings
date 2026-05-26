@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[7842], [12090]],
-  "reason": "Verschiedene Initialen (M. vs. J.) und unterschiedliche Affiliationen (Carl Zeiss AG Oberkochen vs. Fraunhofer IOF Jena) sowie disjunkte Themen (3D-Messpunktwolken vs. Multiapertur-Kameradesign)."
-}

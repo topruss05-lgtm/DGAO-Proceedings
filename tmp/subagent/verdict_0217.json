@@ -1,6 +1,0 @@
-{
-  "verdict": "keep_separate",
-  "confidence": 0.95,
-  "groups": [[2065], [3928], [4281], [9301]],
-  "reason": "Vier verschiedene Personen: H. Krause (Uni Kassel, Laserresonator), O. Krause (Fraunhofer IWS, Laser), M. Krause (PTB, Autokollimator-Winkelmessung) und C. Krause (BIAS Bremen) haben unterschiedliche Initialen, Affiliations und Themen."
-}
