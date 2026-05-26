@@ -92,9 +92,16 @@ Beide Endpoints sind reine `LIKE %q% COLLATE NOCASE` auf den Rohstrings. Konsequ
 ```sql
 -- ── Autoren (Identity) ──────────────────────────────────────────────
 -- Bestehende autoren-Tabelle behält Spalten: id, vorname, nachname.
+-- vorname = Initiale(n) (z.B. "C.", "Ch.", "H.-P."), nicht ausgeschrieben.
+-- Die bestehende UNIQUE(nachname, vorname)-Constraint wird entfernt:
+-- die `id` ist der eindeutige Identitätsanker; zwei verschiedene Personen
+-- mit identischer Schreibung (z.B. zwei "M. Müller") sind dann legitime
+-- separate Records mit verschiedenen Aliasen, Instituten und Papers.
 -- Bestehende Spalte `affiliation` wird in Phase 4 entfernt (überflüssig,
 -- ersetzt durch autor_institutionen-Verknüpfung).
-ALTER TABLE autoren ADD COLUMN orcid_id TEXT;  -- nullable, NULL für jetzt
+-- SQLite kann UNIQUE-Constraints nicht direkt droppen → Tabelle wird in
+-- Phase 1 via Rebuild (CREATE neue, INSERT SELECT, DROP alte, RENAME) neu
+-- aufgebaut, gleichzeitig wird orcid_id ergänzt.
 
 -- ── Schreibvarianten (Aliase) ───────────────────────────────────────
 CREATE TABLE autor_aliase (

@@ -332,9 +332,9 @@ Alle weiteren Schreibvarianten aus den PDFs werden separat in
 \toprule
 \tabhead{Spalte} & \tabhead{Typ} & \tabhead{Pflicht} & \tabhead{Bedeutung} \\
 \midrule
-\texttt{id}        & Ganzzahl & ja, Primärschlüssel & Eindeutige interne Kennung der Person. \\
-\texttt{vorname}   & Text     & ja, gemeinsam mit \texttt{nachname} eindeutig & Vorname oder Initialen in offizieller Schreibweise. \\
-\texttt{nachname}  & Text     & ja, gemeinsam mit \texttt{vorname} eindeutig & Nachname in offizieller Schreibweise. \\
+\texttt{id}        & Ganzzahl & ja, Primärschlüssel & Eindeutige interne Kennung der Person. Diese Kennung — nicht der Name — identifiziert die Person eindeutig. \\
+\texttt{vorname}   & Text     & ja & Initiale(n) des Vornamens (z.\,B.~\textit{C.}, \textit{Ch.}, \textit{H.-P.}). Der ausgeschriebene Vorname wird nicht gepflegt. \\
+\texttt{nachname}  & Text     & ja & Nachname in offizieller Schreibweise. \\
 \texttt{orcid\_id} & Text     & nein & ORCID-Kennung der Person (optional, derzeit nicht gepflegt). \\
 \bottomrule
 \end{tabularx}
@@ -345,6 +345,14 @@ genau eine Zeile in dieser Tabelle, mit der Schreibweise, die für die
 Anzeige verwendet wird (z.\,B.~\textit{C.~Pruß}). Fußnoten-Sterne aus den
 PDFs sowie alternative Schreibweisen werden nicht hier, sondern in
 \texttt{autor\_aliase} gespeichert.
+
+\smallskip
+\textbf{Was, wenn zwei Personen wirklich den gleichen Namen haben?}
+Das ist erlaubt. Wenn es zwei verschiedene Forscher mit der gleichen
+Schreibung gibt (z.\,B.~zwei \textit{M.~Müller}), erhalten sie zwei
+separate Zeilen mit unterschiedlichen Kennungen, jeweils mit ihren
+eigenen Beiträgen, Schreibvarianten und Instituten. Die Kennung
+\texttt{id} ist die eindeutige Identität, nicht der Name.
 \end{hinweis}
 
 % ------------- autor_aliase -------------
