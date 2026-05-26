@@ -95,3 +95,22 @@ Live-DB final:
 - 4635 Autor-Aliase, 1889 Institut-Aliase
 - 186 Institute mit name_en, 159 mit ROR-ID
 - 476 Queue-Einträge approved, 2 pending (komplexe Sonderfälle)
+
+## 2026-05-26 (absolute final): 2 Edge Cases gelöst
+
+**M./A. Breitbarth:** Subagent-Web-Recherche bestätigte mit 0.88 Konfidenz, dass "Andreas Breitbarth" der einzige bekannte Breitbarth am Fraunhofer IOF ist (ResearchGate: Group Leader Imaging & Sensing). Das "M." im Paper 108-a9 (DGaO 2007) war ein OCR-/Transkriptionsfehler — gleiche Co-Autoren (Kühmstedt, Bräuer-Burchardt, Notni), gleiches Thema (Streifenprojektion). Merged.
+
+**FAU/IOIP Mega-Cluster:** 38 IDs in 8 Sub-Gruppen manuell aufgelöst:
+- G1 IOIP (25 IDs → 1, ROR 00f7hpc57)
+- G2 MPRG (6 IDs → 1, historische Max-Planck-Forschungsgruppe am IOIP 2003-2009 — separat von G1 IOIP und G3 MPL)
+- G3 MPL eigenständig (1 ID, ROR 020as7681) — bleibt
+- G4 FAU general (2 IDs → 1, ROR 00f7hpc57)
+- G5 FAPS (2 IDs → 1)
+- G6 ECAP (1 ID) — bleibt
+- G7 Epilepsiezentrum (2 IDs → 1)
+- G8 Mustererkennung (1 ID) — bleibt
+
+Live-DB:
+- 4515 Autoren (Start 5184, -669, -13%)
+- 1411 Institutionen (Start 1973, -562, -28%)
+- Queue: 0 pending, 478 approved (100%)
