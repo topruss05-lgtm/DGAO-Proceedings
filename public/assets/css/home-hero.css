@@ -8,8 +8,6 @@
    step with the SVG glass shape (stage uses aspect-ratio).
    ============================================= */
 
-body { counter-reset: v4-section; }
-
 .hero {
     position: relative;
     background: #050811;
@@ -347,45 +345,23 @@ body { counter-reset: v4-section; }
     padding: 0 1.5rem;
 }
 
-/* Editorial section heading — § NN Eyebrow (mono, accent) über dem
-   Heading, voll-breite Hairline darunter mit dezentem Akzent-Leader.
-   Ersetzt den alten, asymmetrischen 56-px-Stripe. Counter läuft über
-   alle .v4-section-title hinweg via body { counter-reset } unten. */
 .v4-section-title {
-    counter-increment: v4-section;
     font-family: var(--font-display);
     font-size: 1.35rem;
     font-weight: 700;
     color: var(--text);
     letter-spacing: -0.015em;
-    margin: 0 0 0.45rem;
-}
-.v4-section-title::before {
-    content: "§ " counter(v4-section, decimal-leading-zero);
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 500;
-    color: var(--accent);
-    letter-spacing: 0.14em;
-    line-height: 1;
-    margin-bottom: 0.55rem;
+    margin: 0 0 0.3rem;
 }
 
 .v4-section-bar {
     display: block;
-    height: 1px;
-    width: 100%;
+    height: 3px;
+    width: 56px;
     border: none;
-    border-radius: 0;
-    background: linear-gradient(
-        to right,
-        var(--accent)        0,
-        var(--accent)        32px,
-        var(--border-light) 32px,
-        var(--border-light) 100%
-    );
-    margin: 0 0 2rem;
+    border-radius: 2px;
+    background: var(--accent);
+    margin: 0 0 1.75rem;
     opacity: 1;
 }
 

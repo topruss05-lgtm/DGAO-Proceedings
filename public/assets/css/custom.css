@@ -584,7 +584,6 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
 .paper-card {
     background: var(--white);
     border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
     border-radius: var(--radius);
     padding: 1.25rem 1.5rem;
     transition: box-shadow 0.25s var(--ease),
@@ -594,7 +593,7 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
 
 .paper-card:hover {
     box-shadow: var(--shadow-md);
-    border-left-color: var(--accent-light);
+    border-color: var(--accent-muted);
     transform: translateY(-1px);
 }
 
@@ -811,7 +810,6 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
 .article-detail {
     background: var(--white);
     border: 1px solid var(--border-light);
-    border-left: 4px solid var(--accent);
     border-radius: var(--radius);
     padding: 2.5rem;
 }
@@ -835,12 +833,22 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
 }
 
 .article-detail .abstract-block {
-    border-left: 3px solid var(--accent-muted);
-    padding-left: 1.5rem;
+    padding-left: 0;
     color: var(--text-mid);
     font-family: var(--font-body);
     line-height: 1.75;
     max-width: 68ch;
+}
+.article-detail .abstract-block::before {
+    content: "Abstract";
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
 }
 
 .article-detail .abstract-block p {
@@ -1083,7 +1091,6 @@ a.accent-link:hover {
 
     .article-detail {
         padding: 1.25rem;
-        border-left-width: 3px;
     }
 
     .paper-card {
@@ -1130,9 +1137,8 @@ h3, .h3 {
 
 .archiv-session__summary {
     cursor: pointer;
-    padding: 0.65rem 0.75rem;
+    padding: 0.65rem 0.85rem;
     background: rgba(15, 23, 42, 0.035);
-    border-left: 3px solid var(--accent, #b42e42);
     border-radius: 4px;
     list-style: none;
     display: flex;
@@ -1398,16 +1404,27 @@ h3, .h3 {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0.85rem 1rem;
+    padding: 1rem 1.15rem;
     border-radius: 6px;
     margin-top: 0.5rem;
     background: rgba(15, 23, 42, 0.03);
-    border-left: 3px solid var(--accent, #b42e42);
+    border: 1px solid rgba(15, 23, 42, 0.08);
 }
 
-.einreichen-status--closed {
-    border-left-color: rgba(15, 23, 42, 0.25);
-    background: rgba(15, 23, 42, 0.02);
+.einreichen-status h2::before {
+    content: "Status";
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+}
+
+.einreichen-status--closed h2::before {
+    color: var(--text-muted);
 }
 
 .einreichen-status__main {
@@ -1513,15 +1530,25 @@ h3, .h3 {
     color: var(--text-muted, #6b7280);
 }
 
-/* Aktions-Box für Schritt 2: dezent eingerahmt, akzent-Border-Left
-   wie bei der Status-Box oben — visuell konsistent. */
+/* Aktions-Box für Schritt 2: dezent eingerahmt, Eyebrow-Label statt
+   border-left-Stripe — visuell konsistent mit der Status-Box oben. */
 .einreichen-mailbox {
     border: 1px solid rgba(15, 23, 42, 0.08);
-    border-left: 3px solid var(--accent, #b42e42);
     background: rgba(15, 23, 42, 0.02);
-    padding: 0.95rem 1.15rem;
+    padding: 1rem 1.15rem;
     border-radius: 4px;
     max-width: 520px;
+}
+.einreichen-mailbox::before {
+    content: "Einreichen an";
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 0.45rem;
 }
 
 .einreichen-mailbox__addr {
@@ -1652,18 +1679,20 @@ h3, .h3 {
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
-    padding: 0.5rem 0.75rem;
+    padding: 0.55rem 0.85rem;
     border: 1px solid rgba(15, 23, 42, 0.1);
-    border-left: 3px solid var(--accent, #b42e42);
     border-radius: 4px;
     text-decoration: none;
     color: inherit;
     background: #fff;
-    transition: background-color 0.15s ease, transform 0.15s ease;
+    transition: background-color 0.15s ease,
+                border-color 0.15s ease,
+                transform 0.15s ease;
 }
 
 .suche-author-card:hover {
     background: rgba(180, 46, 66, 0.04);
+    border-color: var(--accent-muted);
     transform: translateY(-1px);
 }
 
