@@ -432,34 +432,50 @@ h1, h2, h3, h4, h5, h6,
        treffen. ISSN-Row leicht über Touch-Min damit das Logo Luft hat,
        Nav-Row exakt 44 px = Hamburger sitzt bündig drin. */
     .site-header__top .site-header__inner { min-height: 46px; }
+    .site-nav2 { position: relative; }   /* Anker für absolutes Menü */
     .site-nav2__inner { min-height: 44px; }
+    /* Hamburger rechts (margin-left: auto) für Rechtshänder-Daumen-
+       Reichweite. */
     .site-nav2__toggle {
         display: inline-flex;
-        margin: 0;
+        margin: 0 0 0 auto;
         min-height: 38px;
         min-width: 38px;
         padding: 0.4rem 0.4rem;
     }
-    /* Menue oeffnet quasi instant: kurzer 120ms-Fade reicht, damit es
-       nicht abrupt "popt", aber keine sichtbare Animations-Kurve.
-       Akademische Sites bevorzugen funktional vor verspielt. */
+    /* Menue absolut positioniert als Overlay unter der Navbar — NICHT
+       im Flow. Damit gibt es keinen Layout-Shift beim Öffnen (vorher
+       sichtbarer Flicker, weil die Page beim Aufklappen nach unten
+       geschoben wurde). Page-Inhalt bleibt stehen, Menü zieht sich
+       smooth darüber. */
     .site-nav2__list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--border-light);
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
         flex-direction: column;
-        flex-basis: 100%;
+        flex-basis: auto;
         max-height: 0;
         overflow: hidden;
         opacity: 0;
-        transition: max-height 0.12s linear, opacity 0.12s linear;
+        transition: max-height 0.18s var(--ease), opacity 0.18s var(--ease);
+        z-index: 100;
     }
     .site-nav2__list.is-open {
-        max-height: 320px;
+        max-height: 360px;
         opacity: 1;
     }
     .site-nav2__link {
-        padding: 0.85rem 0;
+        padding: 0.85rem 1.5rem;
         border-bottom: 1px solid var(--border-light);
         margin-bottom: 0;
         width: 100%;
+    }
+    .site-nav2__list > li:first-child .site-nav2__link {
+        padding-left: 1.5rem;   /* Override Desktop-Regel padding-left:0 */
     }
     .site-nav2__link.is-active { border-bottom-color: var(--accent); }
     /* Pseudo-Underline ist Desktop-only — auf Mobile ist die border-bottom
@@ -530,6 +546,13 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
 }
 
 @media (max-width: 767.98px) {
+    /* Overlay-Menue auf der Home muss den dunklen Header-Ton übernehmen,
+       sonst hätte das Mobile-Menue weissen Bg auf schwarzem Header. */
+    body[data-page="home"] .site-nav2__list {
+        background: #050811;
+        border-bottom-color: rgba(255,255,255,0.12);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
     body[data-page="home"] .site-nav2__link {
         border-bottom-color: rgba(255,255,255,0.08);
     }
@@ -1306,6 +1329,18 @@ h3, .h3 {
 /* mb-3 von <a> entfernen — Grid-Gap regelt die Abstände */
 .archiv-session__papers .archiv-item > a.d-block {
     margin-bottom: 0 !important;
+}
+
+/* CSS-Grid-Items haben default min-width: auto — das erlaubt den Inhalt
+   (insbesondere .card-authors mit text-truncate / white-space: nowrap)
+   die Grid-Cell breiter zu sprengen als die verfügbare Spalte. Auf
+   Mobile führte das zu horizontalem Overflow / Scroll. min-width: 0
+   zwingt die Cell auf die Spaltenbreite und text-truncate funktioniert
+   wie erwartet (ellipsis statt Overflow). */
+.archiv-session__papers > .archiv-item,
+.archiv-session__papers .paper-card,
+.archiv-session__papers .paper-card .card-authors {
+    min-width: 0;
 }
 
 /* Kompaktere Paper-Karten im Session-Kontext: weniger Padding,

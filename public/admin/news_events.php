@@ -82,8 +82,61 @@ function newsOnTagungSaved(?array $old, array $new): void
     $newPhase = (int) ($new['vorlage_phase_aktiv'] ?? 0);
     $oldFrist = (string) ($old['einreichungsfrist'] ?? '');
     $newFrist = (string) ($new['einreichungsfrist'] ?? '');
+    $datumVon = (string) ($new['datum_von'] ?? '');
+    $datumBis = (string) ($new['datum_bis'] ?? '');
 
     $today = date('Y-m-d');
+
+    // --- Save the date / Tagung läuft (datum_von gesetzt + im Fenster) ---
+    // Auto-Trigger 'tagung_dates' für Tagungen, die noch nicht stattgefunden
+    // haben oder gerade laufen / vor maximal 60 Tagen waren. Damit ist die
+    // aktuelle Tagung auch dann als News auf der Home sichtbar, wenn
+    // submission_open schon vorbei ist oder noch nicht angefangen hat.
+    // Alte Tagungen (Vergangenheit > 60 Tage) lösen das NICHT aus, damit
+    // ein Bulk-Edit alter Tagungen keine News-Flut produziert.
+    if ($datumVon !== '' && $ort !== '' && $jahr > 0) {
+        $sixtyDaysAgo = date('Y-m-d', strtotime('-60 days'));
+        $isCurrentOrFuture = $datumVon >= $sixtyDaysAgo;
+
+        if ($isCurrentOrFuture) {
+            $dateRange = formatDateLong($datumVon);
+            if ($datumBis !== '' && $datumBis !== $datumVon) {
+                $dateRange .= ' – ' . formatDateLong($datumBis);
+            }
+
+            $isPast = $datumBis !== ''
+                ? ($datumBis < $today)
+                : ($datumVon < $today);
+            $isRunning = $datumVon <= $today &&
+                         ($datumBis === '' || $datumBis >= $today);
+
+            if ($isRunning) {
+                $titleDe = "{$tagung}. Jahrestagung der DGaO läuft: {$ort}, {$dateRange}";
+                $titleEn = "{$tagung}. Annual Conference in progress: {$ort}, {$dateRange}";
+            } elseif ($isPast) {
+                $titleDe = "{$tagung}. Jahrestagung der DGaO abgeschlossen: {$ort}, {$dateRange}";
+                $titleEn = "{$tagung}. Annual Conference concluded: {$ort}, {$dateRange}";
+            } else {
+                $titleDe = "Save the date — {$tagung}. Jahrestagung: {$ort}, {$dateRange}";
+                $titleEn = "Save the date — {$tagung}. Annual Conference: {$ort}, {$dateRange}";
+            }
+
+            newsUpsertAuto('tagung_dates', $tagung, [
+                'display_date' => $today,
+                'title_de' => $titleDe,
+                'title_en' => $titleEn,
+                'body_de'  => "Die {$tagung}. DGaO-Jahrestagung findet vom {$dateRange} in {$ort} statt.",
+                'body_en'  => "The {$tagung}. DGaO Annual Conference takes place {$dateRange} in {$ort}.",
+                'link_url' => '/archiv/' . $tagung,
+            ]);
+        } else {
+            // Tagung liegt > 60 Tage zurück → ggf. existierendes Item deaktivieren
+            newsDeactivateAuto('tagung_dates', $tagung);
+        }
+    } elseif ($datumVon === '') {
+        // Datum wurde entfernt → Item deaktivieren
+        newsDeactivateAuto('tagung_dates', $tagung);
+    }
 
     // --- Manuskripteinreichung offen (mit Frist im Body, sofern gesetzt) ---
     // Wir triggern IDEMPOTENT bei jedem Save mit newPhase=1 (nicht nur 0->1),

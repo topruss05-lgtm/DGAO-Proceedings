@@ -185,7 +185,7 @@ $tagungenAll    = getAllTagungenForFilter();
                        aria-controls="suche-q-listbox"
                        aria-activedescendant=""
                        placeholder="<?= e(t('suche.placeholder')) ?>"
-                       autocomplete="off" spellcheck="false" autofocus>
+                       autocomplete="off" spellcheck="false">
                 <button type="button"
                         id="suche-q-clear"
                         class="suche-combobox__clear"
