@@ -1317,6 +1317,19 @@ h3, .h3 {
     height: 100%;
     display: flex;
     flex-direction: column;
+    transition: background 0.22s var(--ease),
+                box-shadow 0.22s var(--ease);
+}
+
+/* Hover-Vokabular an die Session-Header-Hover angeglichen: gleicher
+   accent-pale Bg + 3px Accent-Stripe links (via inset-shadow, damit
+   kein Layout-Jump). Kein Drop-Shadow, kein Lift — flach wie die
+   Sessions. */
+.archiv-session__papers .paper-card:hover {
+    background: var(--accent-pale);
+    border-color: var(--border);
+    box-shadow: inset 3px 0 0 var(--accent);
+    transform: none;
 }
 
 .archiv-session__papers .paper-card .card-eyebrow {
