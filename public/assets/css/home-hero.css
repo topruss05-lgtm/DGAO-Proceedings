@@ -382,6 +382,13 @@
     border-top: 1px solid var(--border);
 }
 
+/* Bei ungerader News-Anzahl spannt das letzte Item über beide Spalten —
+   sonst bleibt rechts ein halb leerer Slot stehen (gleiche Logik wie
+   beim v4-archive-list-Grid). */
+.v4-news-list > li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+}
+
 .v4-news-item {
     padding: 1.05rem 0 1.1rem;
     border-bottom: 1px solid var(--border-light);

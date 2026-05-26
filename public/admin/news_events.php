@@ -85,26 +85,38 @@ function newsOnTagungSaved(?array $old, array $new): void
 
     $today = date('Y-m-d');
 
-    // --- Manuskripteinreichung offen ---
+    // --- Manuskripteinreichung offen (mit Frist im Body, sofern gesetzt) ---
     // Wir triggern IDEMPOTENT bei jedem Save mit newPhase=1 (nicht nur 0->1),
     // damit ein Admin auch durch erneutes Speichern einer bereits offenen
     // Tagung die fehlende News nachholen kann. UPSERT mit unique-Index
     // verhindert Duplikate; vorhandene werden nur refresht und reaktiviert.
+    //
+    // Die Frist (einreichungsfrist) wird direkt in den submission_open-Body
+    // hineingeschrieben — KEIN separater deadline_set-Eintrag mehr, weil
+    // beide den gleichen Call-to-Action (/einreichen) hatten und auf Home
+    // doppelt erschienen.
     if ($newPhase === 1) {
+        $fristNice = $newFrist !== '' ? formatDateLong($newFrist) : '';
+        $fristDe   = $fristNice !== '' ? " Einreichungsfrist: {$fristNice}." : '';
+        $fristEn   = $fristNice !== '' ? " Submission deadline: {$fristNice}." : '';
+
         newsUpsertAuto('submission_open', $tagung, [
             'display_date' => $today,
             'title_de' => "Manuskripteinreichung für die {$tagung}. Jahrestagung offen",
             'title_en' => "Submission open for the {$tagung}. Annual Conference",
             'body_de'  => "Die Manuskript-Vorlagen für die {$tagung}. DGaO-Jahrestagung"
                         . ($ort !== '' ? " ({$ort}, {$jahr})" : " ({$jahr})")
-                        . " stehen bereit. Bitte das fertige PDF an die DGaO senden.",
+                        . " stehen bereit.{$fristDe} Bitte das fertige PDF an die DGaO senden.",
             'body_en'  => "The manuscript templates for the {$tagung}. DGaO Annual Conference"
                         . ($ort !== '' ? " ({$ort}, {$jahr})" : " ({$jahr})")
-                        . " are available. Submit your final PDF to the DGaO.",
+                        . " are available.{$fristEn} Submit your final PDF to the DGaO.",
             'link_url' => '/einreichen',
         ]);
         // submission_closed der gleichen Tagung deaktivieren falls vorhanden
         newsDeactivateAuto('submission_closed', $tagung);
+        // Alte deadline_set-Items (vor der Konsolidierung) deaktivieren —
+        // jede Tagung hat jetzt nur noch das submission_open-Item.
+        newsDeactivateAuto('deadline_set', $tagung);
     }
 
     // --- Beitragsanmeldung geschlossen (1 -> 0, echte Transition!) ---
@@ -126,24 +138,6 @@ function newsOnTagungSaved(?array $old, array $new): void
                         . " has passed. Contributions will appear in the proceedings shortly.",
             'link_url' => '/archiv/' . $tagung,
         ]);
-    }
-
-    // --- Einreichungsfrist gesetzt (idempotent bei Phase offen) ---
-    if ($newPhase === 1 && $newFrist !== '') {
-        $fristNice = formatDateLong($newFrist);
-        newsUpsertAuto('deadline_set', $tagung, [
-            'display_date' => $today,
-            'title_de' => "Einreichungsfrist für die {$tagung}. Jahrestagung: {$fristNice}",
-            'title_en' => "Submission deadline for the {$tagung}. Annual Conference: {$fristNice}",
-            'body_de'  => "Manuskripte für die {$tagung}. DGaO-Jahrestagung können bis {$fristNice} eingereicht werden.",
-            'body_en'  => "Manuscripts for the {$tagung}. DGaO Annual Conference may be submitted until {$fristNice}.",
-            'link_url' => '/einreichen',
-        ]);
-    }
-
-    // --- Einreichungsfrist entfernt oder Phase geschlossen → deadline_set raus ---
-    if (($oldFrist !== '' && $newFrist === '') || $newPhase === 0) {
-        newsDeactivateAuto('deadline_set', $tagung);
     }
 }
 
