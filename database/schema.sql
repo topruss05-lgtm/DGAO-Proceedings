@@ -59,7 +59,6 @@ CREATE TABLE autoren (
     id INTEGER PRIMARY KEY,
     vorname TEXT NOT NULL DEFAULT '',
     nachname TEXT NOT NULL,
-    affiliation TEXT NOT NULL DEFAULT '',
     orcid_id TEXT
 );
 CREATE INDEX idx_autoren_nachname ON autoren(nachname);
