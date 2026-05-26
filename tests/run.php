@@ -7,7 +7,12 @@ $files = glob(__DIR__ . '/test_*.php') ?: [];
 
 foreach ($files as $file) {
     echo '→ ' . basename($file) . "\n";
-    require $file;
+    try {
+        require $file;
+    } catch (Throwable $e) {
+        $GLOBALS['__tests']['fail']++;
+        $GLOBALS['__tests']['failures'][] = 'FAIL [' . basename($file) . ']: ' . $e->getMessage();
+    }
 }
 
 $pass     = $GLOBALS['__tests']['pass'];

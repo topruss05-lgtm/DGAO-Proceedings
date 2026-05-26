@@ -53,17 +53,19 @@ function assert_count(int $expected, array $arr, string $msg = ''): void
 
 function with_test_db(callable $fn): void
 {
-    $backup = __DIR__ . '/../database/backups/proceedings_pre_migration_2026-05-26.db';
-
-    if (!file_exists($backup)) {
+    $backups = glob(__DIR__ . '/../database/backups/proceedings_pre_migration_*.db') ?: [];
+    if (empty($backups)) {
         throw new RuntimeException(
-            'Test-DB-Backup nicht gefunden: ' . $backup .
-            ' — bitte sicherstellen, dass proceedings_pre_migration_2026-05-26.db vorhanden ist.'
+            'Kein Pre-Migration-Backup gefunden in database/backups/proceedings_pre_migration_*.db'
         );
     }
+    sort($backups);
+    $backup = end($backups);
 
-    $tmpBase = tempnam(sys_get_temp_dir(), 'dgao_test_') . '.db';
-    copy($backup, $tmpBase);
+    $tmpBase = sys_get_temp_dir() . '/dgao_test_' . bin2hex(random_bytes(8)) . '.db';
+    if (!copy($backup, $tmpBase)) {
+        throw new RuntimeException("Backup-Kopie fehlgeschlagen: $backup → $tmpBase");
+    }
 
     $pdo = new PDO('sqlite:' . $tmpBase, options: [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
