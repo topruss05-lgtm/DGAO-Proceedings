@@ -196,7 +196,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .site-header__inner {
-    max-width: 1140px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 1.5rem;
     display: flex;
@@ -528,7 +528,7 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
 }
 
 .site-footer__inner {
-    max-width: 1140px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 1.5rem;
     display: flex;
