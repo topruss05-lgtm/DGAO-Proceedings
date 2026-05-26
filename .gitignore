@@ -13,3 +13,10 @@ public/data/uploads/
 public/data/*.log
 DGaO_Logo.jpg
 database/backups/
+
+# LaTeX auxiliary files
+*.aux
+*.toc
+*.out
+*.bak
+docs/*.log

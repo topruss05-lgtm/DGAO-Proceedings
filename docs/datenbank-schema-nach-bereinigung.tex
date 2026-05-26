@@ -1,0 +1,614 @@
+\documentclass[11pt,a4paper,parskip=half-]{scrartcl}
+
+% ---------- Encoding & Sprache ----------
+\usepackage{polyglossia}
+\setdefaultlanguage{german}
+
+% ---------- Fonts (macOS-System) ----------
+\usepackage{fontspec}
+\setmainfont{Charter}[
+  Numbers = OldStyle,
+  Ligatures = TeX
+]
+\setsansfont{Avenir Next}[
+  Scale = 0.92
+]
+\setmonofont{Menlo}[Scale = 0.78]
+
+% ---------- Layout ----------
+\usepackage[a4paper,margin=2.4cm,top=2.8cm,bottom=2.8cm]{geometry}
+\usepackage{microtype}
+\linespread{1.18}
+\setlength{\parindent}{0pt}
+
+% ---------- Tabellen ----------
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{makecell}
+\renewcommand{\arraystretch}{1.25}
+
+% Schmale Body-Spalten, lange Text-Spalten
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% ---------- Farben ----------
+\usepackage{xcolor}
+\definecolor{accent}{HTML}{1F3A5F}     % gedämpftes Blau
+\definecolor{accent2}{HTML}{8C2D2D}    % gedämpftes Rot
+\definecolor{rulecolor}{HTML}{B0B5BB}
+\definecolor{headbg}{HTML}{F2F4F7}
+\definecolor{notebg}{HTML}{FBF7EE}
+\definecolor{noteborder}{HTML}{D4B872}
+\definecolor{newtag}{HTML}{2E6F40}
+\definecolor{changedtag}{HTML}{B36B00}
+\definecolor{tabletitlebg}{HTML}{1F3A5F}
+
+% ---------- Kopf / Fuß ----------
+\usepackage{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearpairofpagestyles
+\setkomafont{pagehead}{\sffamily\small\color{accent}}
+\setkomafont{pagefoot}{\sffamily\footnotesize\color{accent}}
+\ohead{Datenbankstruktur \textbar{} DGaO-Proceedings}
+\ofoot*{\thepage}
+\ifoot*{Stand: 26.\,Mai 2026}
+
+% ---------- Section-Stil ----------
+\usepackage[explicit]{titlesec}
+\titleformat{\section}
+  {\sffamily\Large\bfseries\color{accent}}
+  {\thesection}{0.8em}{#1}
+  [\vspace{-0.3em}{\color{rulecolor}\rule{\linewidth}{0.4pt}}]
+\titleformat{\subsection}
+  {\sffamily\large\bfseries\color{accent}}
+  {}{0pt}{#1}
+\titleformat{\subsubsection}
+  {\sffamily\normalsize\bfseries\color{accent2}}
+  {}{0pt}{#1}
+\titlespacing*{\section}{0pt}{1.6em}{0.8em}
+\titlespacing*{\subsection}{0pt}{1.4em}{0.5em}
+
+% ---------- Hyperlinks (Inhaltsverz.) ----------
+\usepackage[hidelinks,bookmarks=true,bookmarksopen=true,
+            pdftitle={Datenbankstruktur DGaO-Proceedings},
+            pdfauthor={Tobias Pruß}]{hyperref}
+
+% ---------- Eigene Box für Hinweise ----------
+\usepackage[breakable,skins]{tcolorbox}
+\newtcolorbox{hinweis}{
+  enhanced,
+  colback=notebg,
+  colframe=noteborder,
+  boxrule=0.6pt,
+  arc=2pt,
+  left=10pt, right=10pt, top=6pt, bottom=6pt,
+  breakable,
+  before skip=8pt, after skip=10pt
+}
+
+% ---------- Tabellen-Kopf-Stil ----------
+\newcommand{\tabhead}[1]{\textsf{\textbf{\small\color{accent}#1}}}
+
+% ---------- Tag-Boxen (Neu/Geändert/Unverändert) ----------
+\newcommand{\tagneu}{\colorbox{newtag!15}{\textcolor{newtag}{\sffamily\footnotesize\bfseries\,NEU\,}}}
+\newcommand{\taggeandert}{\colorbox{changedtag!15}{\textcolor{changedtag}{\sffamily\footnotesize\bfseries\,GEÄNDERT\,}}}
+\newcommand{\tagunv}{\textcolor{gray}{\sffamily\footnotesize\,unverändert\,}}
+
+% ---------- Tabellen-Titelband ----------
+\newcommand{\tabletitle}[2]{%
+  \par\vspace{1.1em}%
+  \noindent%
+  \begin{tcolorbox}[
+    enhanced,
+    colback=tabletitlebg,
+    colframe=tabletitlebg,
+    arc=2pt,
+    boxrule=0pt,
+    left=10pt, right=10pt, top=4pt, bottom=4pt,
+    before skip=0pt, after skip=6pt
+  ]
+    {\sffamily\large\bfseries\color{white}\texttt{#1}}\hfill{#2}
+  \end{tcolorbox}%
+  \par\nobreak%
+}
+
+% ============================================================
+\begin{document}
+
+% ---------- Titelseite ----------
+\begin{titlepage}
+  \centering
+  \vspace*{2.5cm}
+  {\sffamily\Huge\bfseries\color{accent} Datenbankstruktur\par}
+  \vspace{0.4cm}
+  {\sffamily\Large DGaO-Proceedings\par}
+  \vspace{1.6cm}
+  {\color{rulecolor}\rule{0.45\linewidth}{0.6pt}\par}
+  \vspace{0.6cm}
+  {\sffamily\large Schema nach der Konsolidierung\\[0.15cm]
+   \normalsize von Autoren- und Institutionsdaten\par}
+  \vspace{0.6cm}
+  {\color{rulecolor}\rule{0.45\linewidth}{0.6pt}\par}
+  \vfill
+  \begin{tabular}{rl}
+    \sffamily Erstellt von & Tobias Pruß \\
+    \sffamily Stand        & 26.\,Mai 2026 \\
+    \sffamily Status       & Entwurf zur Abstimmung \\
+  \end{tabular}
+  \vspace{1.5cm}
+\end{titlepage}
+
+% ---------- Inhalt ----------
+\tableofcontents
+\vspace{1.2em}
+
+% ============================================================
+\section{Überblick}
+
+Dieses Dokument beschreibt die geplante Struktur der Datenbank,
+die hinter der Webseite \emph{dgao-proceedings.de} steht. Es richtet sich an
+Personen, die die Inhalte der Webseite pflegen oder weitergeben, und nicht
+an Programmiererinnen oder Programmierer; technische Bezeichnungen werden
+nur dort verwendet, wo sie wirklich nötig sind.
+
+Die hier gezeigte Struktur ist der \textbf{geplante Endzustand}, nachdem die
+seit 2004 angesammelten Schreibvarianten von Autorennamen und Instituten
+zusammengeführt wurden. Sie weicht in mehreren Punkten von der heutigen
+Datenbank ab, daher kennzeichnet jede Tabelle ihren Status:
+
+\smallskip
+\begin{tabular}{ll}
+  \tagneu       & Tabelle existiert heute nicht und wird neu angelegt. \\
+  \taggeandert  & Tabelle existiert, bekommt aber zusätzliche oder veränderte Felder. \\
+  \tagunv       & Tabelle bleibt vollständig wie heute. \\
+\end{tabular}
+
+\subsection*{Wozu die Konsolidierung dient}
+
+In den heutigen Daten gibt es dasselbe Institut in bis zu 16 verschiedenen
+Schreibweisen, und dieselbe Person taucht oft unter mehreren Einträgen auf
+(z.\,B.~\textit{C.~Pruß}, \textit{C.~Pruss}, \textit{Ch.~Pruß},
+\textit{C.~Pruß*}). Das hat zwei Folgen:
+
+\begin{itemize}\setlength{\itemsep}{2pt}
+  \item Die \textbf{Suche auf der Webseite findet zu wenig}, weil sie
+        Schreibvarianten nicht erkennt.
+  \item Die Anzeige eines Autorenprofils zeigt nur die Beiträge, die
+        unter exakt einer Schreibweise eingetragen wurden.
+\end{itemize}
+
+Die neue Struktur löst beide Probleme, ohne die Inhalte der bereits
+veröffentlichten PDFs zu verändern: Die PDFs bleiben unangetastet,
+die Datenbank pflegt jedoch zusätzlich eine saubere, einheitliche Sicht
+auf Personen und Institute.
+
+\subsection*{Wie die Tabellen zusammenhängen}
+
+\begin{description}\setlength{\itemsep}{4pt}
+  \item[Stammdaten der Tagungen] In \texttt{tagungen} ist jede DGaO-Tagung
+        mit Nummer, Jahr und Ort hinterlegt. Die einzelnen Sitzungen
+        (Vormittag-Block~A, Postersession, \dots) liegen in
+        \texttt{sessions}.
+  \item[Beiträge] Jeder Konferenzbeitrag (Vortrag oder Poster) ist eine
+        Zeile in \texttt{papers}. Die Verknüpfung zu seinen Autorinnen und
+        Autoren steht in \texttt{paper\_autoren}, die zu Stichwörtern in
+        \texttt{paper\_keywords}.
+  \item[Personen und Institute (neu)] Eine Person hat genau eine Zeile in
+        \texttt{autoren} mit der offiziellen Schreibweise des Namens. Alle
+        in den PDFs vorkommenden Schreibvarianten dieser Person stehen in
+        \texttt{autor\_aliase}. Genauso hat ein Institut genau eine Zeile
+        in \texttt{institutionen} und alle PDF-Schreibvarianten in
+        \texttt{institut\_aliase}. Welche Person zu welchem Institut
+        gehört (aktuell oder früher), regelt
+        \texttt{autor\_institutionen}.
+  \item[Weiteres] \texttt{news} steuert die Neuigkeiten auf der Startseite,
+        \texttt{submissions} verwaltet die Einreichungen für neue Beiträge,
+        \texttt{admin\_login\_attempts} dient der Sicherheit beim
+        Administratorlogin.
+\end{description}
+
+\clearpage
+
+% ============================================================
+\section{Stammdaten der Tagungen}
+% ============================================================
+
+% ------------- tagungen -------------
+\tabletitle{tagungen}{\tagunv}
+
+\textit{Alle DGaO-Tagungen seit 2004, je eine Zeile pro Tagung.}
+
+\begin{tabularx}{\linewidth}{L{3.6cm} L{1.9cm} L{3.0cm} X}
+\toprule
+\tabhead{Spalte} & \tabhead{Typ} & \tabhead{Pflicht} & \tabhead{Bedeutung} \\
+\midrule
+\texttt{nummer}              & Ganzzahl & ja, Primärschlüssel & Fortlaufende Tagungsnummer (z.\,B.~125 für die DGaO~2024). \\
+\texttt{jahr}                & Ganzzahl & ja & Jahr der Tagung. \\
+\texttt{ort}                 & Text     & nein & Veranstaltungsort. \\
+\texttt{datum\_von}          & Text     & nein & Erster Tagungstag. \\
+\texttt{datum\_bis}          & Text     & nein & Letzter Tagungstag. \\
+\texttt{vorlage\_phase\_aktiv} & Ganzzahl (0/1) & ja & Steuert, ob die Einreichungsphase aktiv ist. \\
+\texttt{einreichungsfrist}   & Text     & nein & Letztes Datum für Einreichungen. \\
+\bottomrule
+\end{tabularx}
+
+% ------------- sessions -------------
+\tabletitle{sessions}{\tagunv}
+
+\textit{Die einzelnen Sitzungsblöcke einer Tagung (z.\,B.~Block~A, Postersession).
+Eine Sitzung ohne zugeordneten Beitrag wird nicht gespeichert.}
+
+\begin{tabularx}{\linewidth}{L{3.6cm} L{1.9cm} L{3.0cm} X}
+\toprule
+\tabhead{Spalte} & \tabhead{Typ} & \tabhead{Pflicht} & \tabhead{Bedeutung} \\
+\midrule
+\texttt{id}              & Ganzzahl & ja, Primärschlüssel & Eindeutige interne Kennung der Sitzung. \\
+\texttt{tagung\_nummer}  & Ganzzahl & ja, verweist auf \texttt{tagungen} & Zu welcher Tagung gehört die Sitzung. \\
+\texttt{titel}           & Text     & ja & Titel der Sitzung (z.\,B.~\textit{Holografie I}). \\
+\texttt{saal}            & Text     & nein & Saalbezeichnung (z.\,B.~\textit{A}). \\
+\texttt{sortorder}       & Ganzzahl & ja & Reihenfolge im Programm. \\
+\texttt{datum}           & Text     & nein & Datum der Sitzung. \\
+\texttt{zeit\_von}       & Text     & nein & Beginn (Uhrzeit). \\
+\texttt{zeit\_bis}       & Text     & nein & Ende (Uhrzeit). \\
+\bottomrule
+\end{tabularx}
+
+% ============================================================
+\section{Beiträge}
+% ============================================================
+
+% ------------- papers -------------
+\tabletitle{papers}{\tagunv}
+
+\textit{Ein Konferenzbeitrag pro Zeile (Vortrag oder Poster).
+Die hier gespeicherten Texte stammen direkt aus den PDFs und werden nicht
+verändert.}
+
+\begin{tabularx}{\linewidth}{L{3.6cm} L{1.9cm} L{3.0cm} X}
+\toprule
+\tabhead{Spalte} & \tabhead{Typ} & \tabhead{Pflicht} & \tabhead{Bedeutung} \\
+\midrule
+\texttt{id}               & Text     & ja, Primärschlüssel & Eindeutige Kennung des Beitrags. \\
+\texttt{tagung\_nummer}   & Ganzzahl & ja, verweist auf \texttt{tagungen} & Zu welcher Tagung gehört der Beitrag. \\
+\texttt{code}             & Text     & ja & Programmcode (z.\,B.~\textit{A1}, \textit{P12}). \\
+\texttt{typ}              & Text     & ja & Beitragstyp (z.\,B.~\textit{Vortrag}, \textit{Poster}). \\
+\texttt{titel}            & Text     & ja & Titel des Beitrags. \\
+\texttt{autoren\_text}    & Text     & ja & Autorenliste, exakt wie im PDF gedruckt. \\
+\texttt{hauptautor}       & Text     & nein & Name des Hauptautors als Anzeigetext. \\
+\texttt{abstract\_text}   & Text     & nein & Kurzfassung. \\
+\texttt{zeit}             & Text     & nein & Vortragszeit (falls hinterlegt). \\
+\texttt{raum}             & Text     & nein & Raum im Tagungsprogramm. \\
+\texttt{datum}            & Text     & nein & Datum des Beitrags. \\
+\texttt{affiliationen}    & Text     & nein & Institutsangaben, exakt wie im PDF gedruckt. \\
+\texttt{kontakt\_email}   & Text     & nein & Kontakt-E-Mail-Adresse (sofern angegeben). \\
+\texttt{pdf\_dateiname}   & Text     & nein & Dateiname des PDFs auf dem Server. \\
+\texttt{hat\_pdf}         & Ganzzahl (0/1) & ja & Kennzeichen, ob ein PDF hinterlegt ist. \\
+\texttt{alte\_abstract\_id} & Ganzzahl & nein & Bezug zur alten Datenstruktur (nur historisch). \\
+\texttt{session\_id}      & Ganzzahl & nein, verweist auf \texttt{sessions} & Zugehörige Sitzung im Programm. \\
+\bottomrule
+\end{tabularx}
+
+\begin{hinweis}
+Die Felder \texttt{autoren\_text} und \texttt{affiliationen} enthalten die
+Rohtexte aus den PDFs und bleiben unverändert. Die strukturierten,
+bereinigten Informationen pflegt die Datenbank parallel über die Tabellen
+\texttt{autoren}, \texttt{autor\_aliase}, \texttt{institutionen} und
+\texttt{institut\_aliase}.
+\end{hinweis}
+
+% ------------- paper_autoren -------------
+\tabletitle{paper\_autoren}{\tagunv}
+
+\textit{Verknüpfung zwischen Beiträgen und Autoren. Eine Zeile pro
+Autorenrolle eines Beitrags.}
+
+\begin{tabularx}{\linewidth}{L{3.6cm} L{1.9cm} L{3.0cm} X}
+\toprule
+\tabhead{Spalte} & \tabhead{Typ} & \tabhead{Pflicht} & \tabhead{Bedeutung} \\
+\midrule
+\texttt{paper\_id}       & Text     & ja, Primärschlüssel (gemeinsam) & Verweis auf den Beitrag in \texttt{papers}. \\
+\texttt{autor\_id}       & Ganzzahl & ja, Primärschlüssel (gemeinsam) & Verweis auf die Person in \texttt{autoren}. \\
+\texttt{position}        & Ganzzahl & ja & Reihenfolge der Autorin oder des Autors. \\
+\texttt{ist\_hauptautor} & Ganzzahl (0/1) & nein & Kennzeichen für Hauptautorenrolle. \\
+\bottomrule
+\end{tabularx}
+
+\clearpage
+
+% ============================================================
+\section{Personen und Institute}
+% ============================================================
+
+% ------------- autoren -------------
+\tabletitle{autoren}{\taggeandert}
+
+\textit{Eine Zeile pro Person mit der offiziellen Schreibweise des Namens.
+Alle weiteren Schreibvarianten aus den PDFs werden separat in
+\texttt{autor\_aliase} geführt.}
+
+\begin{tabularx}{\linewidth}{L{3.6cm} L{1.9cm} L{3.0cm} X}
+\toprule
+\tabhead{Spalte} & \tabhead{Typ} & \tabhead{Pflicht} & \tabhead{Bedeutung} \\
+\midrule
+\texttt{id}        & Ganzzahl & ja, Primärschlüssel & Eindeutige interne Kennung der Person. \\
+\texttt{vorname}   & Text     & ja, gemeinsam mit \texttt{nachname} eindeutig & Vorname oder Initialen in offizieller Schreibweise. \\
+\texttt{nachname}  & Text     & ja, gemeinsam mit \texttt{vorname} eindeutig & Nachname in offizieller Schreibweise. \\
+\texttt{orcid\_id} & Text     & nein & ORCID-Kennung der Person (optional, derzeit nicht gepflegt). \\
+\bottomrule
+\end{tabularx}
+
+\begin{hinweis}
+\textbf{Was bedeutet „offizielle Schreibweise"?} Eine Person hat
+genau eine Zeile in dieser Tabelle, mit der Schreibweise, die für die
+Anzeige verwendet wird (z.\,B.~\textit{C.~Pruß}). Fußnoten-Sterne aus den
+PDFs sowie alternative Schreibweisen werden nicht hier, sondern in
+\texttt{autor\_aliase} gespeichert.
+\end{hinweis}
+
+% ------------- autor_aliase -------------
+\tabletitle{autor\_aliase}{\tagneu}
+
+\textit{Alle Schreibvarianten eines Namens, mit denen eine Person je in
+einem PDF aufgetreten ist. Erlaubt es der Suche, eine Person unabhängig
+von der konkreten Schreibweise zu finden.}
+
+\begin{tabularx}{\linewidth}{L{3.6cm} L{1.9cm} L{3.0cm} X}
+\toprule
+\tabhead{Spalte} & \tabhead{Typ} & \tabhead{Pflicht} & \tabhead{Bedeutung} \\
+\midrule
+\texttt{id}          & Ganzzahl & ja, Primärschlüssel & Eindeutige Kennung des Alias-Eintrags. \\
+\texttt{autor\_id}   & Ganzzahl & ja, verweist auf \texttt{autoren} & Zu welcher Person gehört die Schreibvariante. \\
+\texttt{alias\_text} & Text     & ja & Schreibvariante so, wie sie im PDF stand (ohne Fußnoten-Sterne). \\
+\texttt{alias\_norm} & Text     & ja, gemeinsam mit \texttt{autor\_id} eindeutig & Vereinheitlichte Form für die Suche (Kleinschreibung, ohne Sonderzeichen). \\
+\texttt{created\_at} & Text     & ja & Zeitpunkt, zu dem die Variante angelegt wurde. \\
+\bottomrule
+\end{tabularx}
+
+\begin{hinweis}
+\textbf{Beispiel.} Die Person \textit{C.~Pruß} hat in Wirklichkeit unter
+fünf verschiedenen Schreibweisen publiziert. Nach der Konsolidierung gibt
+es eine Zeile in \texttt{autoren} und mehrere Zeilen in
+\texttt{autor\_aliase}, eine pro Schreibvariante. Die Suche findet die
+Person unabhängig davon, welche Schreibweise eingegeben wird.
+\end{hinweis}
+
+% ------------- institutionen -------------
+\tabletitle{institutionen}{\tagneu}
+
+\textit{Eine Zeile pro Institut mit der offiziellen deutschen und
+englischen Bezeichnung, dem Kürzel und der zugehörigen Hochschule oder
+Forschungseinrichtung.}
+
+\begin{tabularx}{\linewidth}{L{3.6cm} L{1.9cm} L{3.0cm} X}
+\toprule
+\tabhead{Spalte} & \tabhead{Typ} & \tabhead{Pflicht} & \tabhead{Bedeutung} \\
+\midrule
+\texttt{id}            & Ganzzahl & ja, Primärschlüssel & Eindeutige interne Kennung des Instituts. \\
+\texttt{name\_de}      & Text     & ja & Offizielle deutsche Bezeichnung. \\
+\texttt{name\_en}      & Text     & nein & Offizielle englische Bezeichnung. Bei leerem Wert wird die deutsche Bezeichnung angezeigt. \\
+\texttt{kuerzel}       & Text     & nein & Übliche Abkürzung (z.\,B.~\textit{ITO}, \textit{PTB}). \\
+\texttt{universitaet}  & Text     & nein & Übergeordnete Hochschule oder Einrichtung (z.\,B.~\textit{Universität Stuttgart}). \\
+\texttt{ort}           & Text     & nein & Sitz des Instituts. \\
+\texttt{land}          & Text     & ja, Vorgabe \textit{DE} & ISO-Länderkürzel. \\
+\texttt{ror\_id}       & Text     & nein & Kennung im internationalen ROR-Register (optional). \\
+\texttt{created\_at}   & Text     & ja & Zeitpunkt der Anlage. \\
+\bottomrule
+\end{tabularx}
+
+% ------------- institut_aliase -------------
+\tabletitle{institut\_aliase}{\tagneu}
+
+\textit{Alle Schreibvarianten eines Instituts, mit denen es je in einem PDF
+aufgetreten ist.}
+
+\begin{tabularx}{\linewidth}{L{3.6cm} L{1.9cm} L{3.0cm} X}
+\toprule
+\tabhead{Spalte} & \tabhead{Typ} & \tabhead{Pflicht} & \tabhead{Bedeutung} \\
+\midrule
+\texttt{id}             & Ganzzahl & ja, Primärschlüssel & Eindeutige Kennung des Alias-Eintrags. \\
+\texttt{institut\_id}   & Ganzzahl & ja, verweist auf \texttt{institutionen} & Zu welchem Institut gehört die Schreibvariante. \\
+\texttt{alias\_text}    & Text     & ja & Schreibvariante so, wie sie im PDF stand. \\
+\texttt{alias\_norm}    & Text     & ja, gemeinsam mit \texttt{institut\_id} eindeutig & Vereinheitlichte Form für die Suche. \\
+\texttt{created\_at}    & Text     & ja & Zeitpunkt der Anlage. \\
+\bottomrule
+\end{tabularx}
+
+% ------------- autor_institutionen -------------
+\tabletitle{autor\_institutionen}{\tagneu}
+
+\textit{Verknüpfung zwischen Personen und Instituten. Eine Zeile pro
+Personen-Institut-Beziehung. Eine Person kann zu mehreren Instituten
+gehört haben; genau eines davon ist als „aktuell" markiert.}
+
+\begin{tabularx}{\linewidth}{L{3.6cm} L{1.9cm} L{3.0cm} X}
+\toprule
+\tabhead{Spalte} & \tabhead{Typ} & \tabhead{Pflicht} & \tabhead{Bedeutung} \\
+\midrule
+\texttt{autor\_id}    & Ganzzahl & ja, Primärschlüssel (gemeinsam) & Verweis auf die Person in \texttt{autoren}. \\
+\texttt{institut\_id} & Ganzzahl & ja, Primärschlüssel (gemeinsam) & Verweis auf das Institut in \texttt{institutionen}. \\
+\texttt{ist\_aktuell} & Ganzzahl (0/1) & ja, Vorgabe~\texttt{0} & Kennzeichen, ob es sich um das aktuelle Institut der Person handelt. \\
+\bottomrule
+\end{tabularx}
+
+\begin{hinweis}
+\textbf{Wie wird das aktuelle Institut bestimmt?} Die Datenbank betrachtet
+das Institut, das in der zeitlich jüngsten Tagung mit einem Beitrag dieser
+Person verknüpft war, automatisch als das aktuelle. Alle weiteren
+Institute werden als frühere Zugehörigkeiten geführt.
+\end{hinweis}
+
+% ------------- autor_id_redirects -------------
+\tabletitle{autor\_id\_redirects}{\tagneu}
+
+\textit{Hilfstabelle: Wenn mehrere Datensätze zur selben Person
+zusammengeführt werden, merkt sich die Datenbank hier, dass die alten
+Kennungen auf die neue Kennung verweisen. Damit bleiben bereits extern
+verlinkte Autorenseiten erreichbar.}
+
+\begin{tabularx}{\linewidth}{L{3.6cm} L{1.9cm} L{3.0cm} X}
+\toprule
+\tabhead{Spalte} & \tabhead{Typ} & \tabhead{Pflicht} & \tabhead{Bedeutung} \\
+\midrule
+\texttt{alte\_id}    & Ganzzahl & ja, Primärschlüssel & Frühere Kennung der Person (vor der Zusammenführung). \\
+\texttt{neue\_id}    & Ganzzahl & ja, verweist auf \texttt{autoren} & Aktuelle, gültige Kennung. \\
+\texttt{merged\_at}  & Text     & ja & Zeitpunkt der Zusammenführung. \\
+\bottomrule
+\end{tabularx}
+
+\clearpage
+
+% ============================================================
+\section{Stichwörter}
+% ============================================================
+
+% ------------- keywords -------------
+\tabletitle{keywords}{\tagunv}
+
+\textit{Liste der Stichwörter, mit denen Beiträge versehen sind.}
+
+\begin{tabularx}{\linewidth}{L{3.6cm} L{1.9cm} L{3.0cm} X}
+\toprule
+\tabhead{Spalte} & \tabhead{Typ} & \tabhead{Pflicht} & \tabhead{Bedeutung} \\
+\midrule
+\texttt{id}      & Ganzzahl & ja, Primärschlüssel & Eindeutige interne Kennung. \\
+\texttt{keyword} & Text     & ja, eindeutig & Das Stichwort selbst. \\
+\bottomrule
+\end{tabularx}
+
+% ------------- paper_keywords -------------
+\tabletitle{paper\_keywords}{\tagunv}
+
+\textit{Verknüpfung zwischen Beiträgen und Stichwörtern.}
+
+\begin{tabularx}{\linewidth}{L{3.6cm} L{1.9cm} L{3.0cm} X}
+\toprule
+\tabhead{Spalte} & \tabhead{Typ} & \tabhead{Pflicht} & \tabhead{Bedeutung} \\
+\midrule
+\texttt{paper\_id}    & Text     & ja, Primärschlüssel (gemeinsam) & Verweis auf den Beitrag. \\
+\texttt{keyword\_id}  & Ganzzahl & ja, Primärschlüssel (gemeinsam) & Verweis auf das Stichwort. \\
+\bottomrule
+\end{tabularx}
+
+% ============================================================
+\section{Redaktionelle Inhalte}
+% ============================================================
+
+% ------------- news -------------
+\tabletitle{news}{\tagunv}
+
+\textit{Neuigkeiten auf der Startseite. Manche werden automatisch erzeugt
+(z.\,B.~bei Beginn einer Einreichungsphase), andere pflegt die
+Administration manuell.}
+
+\begin{tabularx}{\linewidth}{L{3.6cm} L{1.9cm} L{3.0cm} X}
+\toprule
+\tabhead{Spalte} & \tabhead{Typ} & \tabhead{Pflicht} & \tabhead{Bedeutung} \\
+\midrule
+\texttt{id}              & Ganzzahl & ja, Primärschlüssel & Eindeutige Kennung. \\
+\texttt{source}          & Text     & ja & \textit{auto} oder \textit{manual}. \\
+\texttt{trigger\_key}    & Text     & nein & Auslöser für automatische Neuigkeiten. \\
+\texttt{tagung\_nummer}  & Ganzzahl & nein, verweist auf \texttt{tagungen} & Zugehörige Tagung (falls vorhanden). \\
+\texttt{display\_date}   & Text     & ja & Auf der Startseite angezeigtes Datum. \\
+\texttt{title\_de}       & Text     & ja & Deutscher Titel. \\
+\texttt{title\_en}       & Text     & ja & Englischer Titel. \\
+\texttt{body\_de}        & Text     & ja & Deutscher Fließtext. \\
+\texttt{body\_en}        & Text     & ja & Englischer Fließtext. \\
+\texttt{link\_url}       & Text     & nein & Zielseite des Eintrags. \\
+\texttt{is\_active}      & Ganzzahl (0/1) & ja & Kennzeichen, ob die Neuigkeit sichtbar ist. \\
+\texttt{sort\_weight}    & Ganzzahl & ja & Sortiergewicht (höhere Werte = oben gepinnt). \\
+\texttt{created\_at}     & Text     & ja & Zeitpunkt der Anlage. \\
+\texttt{updated\_at}     & Text     & ja & Zeitpunkt der letzten Änderung. \\
+\bottomrule
+\end{tabularx}
+
+% ============================================================
+\section{Einreichungen und Sicherheit}
+% ============================================================
+
+% ------------- submissions -------------
+\tabletitle{submissions}{\tagunv}
+
+\textit{Verwaltet die Einreichungen von Manuskripten für eine
+Tagung. Jede Einreichung hat ein eindeutiges Token (Link für die
+Einreichende oder den Einreichenden) und einen Status.}
+
+\begin{tabularx}{\linewidth}{L{3.6cm} L{1.9cm} L{3.0cm} X}
+\toprule
+\tabhead{Spalte} & \tabhead{Typ} & \tabhead{Pflicht} & \tabhead{Bedeutung} \\
+\midrule
+\texttt{token}              & Text     & ja, Primärschlüssel & Geheimer Zugangsschlüssel für die Einreichende oder den Einreichenden. \\
+\texttt{paper\_id}          & Text     & ja, verweist auf \texttt{papers} & Zugehöriger Beitrag. \\
+\texttt{status}             & Text     & ja, Vorgabe~\textit{pending} & \textit{pending}, \textit{approved}, \textit{rejected} oder \textit{expired}. \\
+\texttt{uploader\_email}    & Text     & ja & E-Mail-Adresse der einreichenden Person. \\
+\texttt{filename\_original} & Text     & nein & Ursprünglicher Dateiname. \\
+\texttt{filename\_stored}   & Text     & nein & Dateiname im Speicher. \\
+\texttt{file\_size}         & Ganzzahl & nein & Dateigröße in Bytes. \\
+\texttt{requested\_at}      & Text     & ja & Zeitpunkt der Anforderung. \\
+\texttt{uploaded\_at}       & Text     & nein & Zeitpunkt des Hochladens. \\
+\texttt{decided\_at}        & Text     & nein & Zeitpunkt der Entscheidung. \\
+\texttt{decided\_by}        & Text     & nein & Wer die Entscheidung getroffen hat. \\
+\texttt{reviewer\_note}     & Text     & nein & Notiz der prüfenden Person. \\
+\texttt{expires\_at}        & Text     & ja & Ablaufdatum des Tokens. \\
+\bottomrule
+\end{tabularx}
+
+% ------------- admin_login_attempts -------------
+\tabletitle{admin\_login\_attempts}{\tagunv}
+
+\textit{Protokoll der Anmeldeversuche im Administrationsbereich,
+ausschließlich zur Begrenzung von missbräuchlichen Login-Versuchen.}
+
+\begin{tabularx}{\linewidth}{L{3.6cm} L{1.9cm} L{3.0cm} X}
+\toprule
+\tabhead{Spalte} & \tabhead{Typ} & \tabhead{Pflicht} & \tabhead{Bedeutung} \\
+\midrule
+\texttt{id}  & Ganzzahl & ja, Primärschlüssel & Laufende Nummer. \\
+\texttt{ip}  & Text     & ja & IP-Adresse, von der der Versuch ausging. \\
+\texttt{ts}  & Ganzzahl & ja & Zeitstempel des Versuchs. \\
+\bottomrule
+\end{tabularx}
+
+\clearpage
+
+% ============================================================
+\section{Zusammenfassung der Änderungen}
+% ============================================================
+
+Die folgende Übersicht zeigt, was sich gegenüber der heutigen Datenbank
+ändert.
+
+\begin{tabularx}{\linewidth}{L{4.6cm} L{2.6cm} X}
+\toprule
+\tabhead{Tabelle} & \tabhead{Status} & \tabhead{Was ändert sich} \\
+\midrule
+\texttt{tagungen}                & \tagunv      & keine Änderung \\
+\texttt{sessions}                & \tagunv      & keine Änderung \\
+\texttt{papers}                  & \tagunv      & keine Änderung \\
+\texttt{paper\_autoren}          & \tagunv      & keine Änderung \\
+\texttt{autoren}                 & \taggeandert & Spalte für ORCID-Kennung ergänzt; alte Spalte \texttt{affiliation} entfällt (wird durch \texttt{autor\_institutionen} ersetzt). \\
+\texttt{autor\_aliase}           & \tagneu      & speichert alle Schreibvarianten eines Namens \\
+\texttt{institutionen}           & \tagneu      & einheitliche Institutsdaten in Deutsch und Englisch \\
+\texttt{institut\_aliase}        & \tagneu      & speichert alle Schreibvarianten eines Instituts \\
+\texttt{autor\_institutionen}    & \tagneu      & verknüpft Personen mit aktuellen und früheren Instituten \\
+\texttt{autor\_id\_redirects}    & \tagneu      & bewahrt extern verlinkte alte Autoren-Adressen \\
+\texttt{keywords}                & \tagunv      & keine Änderung \\
+\texttt{paper\_keywords}         & \tagunv      & keine Änderung \\
+\texttt{news}                    & \tagunv      & keine Änderung \\
+\texttt{submissions}             & \tagunv      & keine Änderung \\
+\texttt{admin\_login\_attempts}  & \tagunv      & keine Änderung \\
+\bottomrule
+\end{tabularx}
+
+\vspace{1.2em}
+
+\begin{hinweis}
+\textbf{Was bleibt unverändert?} Die hochgeladenen PDFs werden in keinem
+Schritt verändert. Auch die Felder \texttt{autoren\_text} und
+\texttt{affiliationen} in \texttt{papers}, die die Originaltexte aus den
+PDFs enthalten, bleiben so wie sie sind. Die Konsolidierung findet
+ausschließlich in der dahinter liegenden Datenbank statt.
+\end{hinweis}
+
+\end{document}
