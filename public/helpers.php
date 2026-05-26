@@ -169,11 +169,37 @@ function sanitizeFtsQuery(string $q): ?string
 
 /**
  * Normalisiert einen Autoren-/Affiliations-String fuer den Alias-Index-Vergleich.
- * Entfernt Funooten-Marker, wandelt Umlaute und sonstige Diakritika nach ASCII,
- * entfernt Satzzeichen und Whitespace — so dass z.B.:
+ *
+ * Gibt ausschließlich lowercase ASCII-Alphanumerika ([a-z0-9]) zurück — keine anderen
+ * Zeichen, kein Whitespace, keine Satzzeichen. Leerer Input liefert ''.
+ *
+ * Eigenschaften:
+ *  - Rückgabe: nur [a-z0-9]* — garantiert rein-ASCII, keine anderen Zeichen.
+ *  - Locale-unabhängig; Transliterierung nicht-lateinischer Skripte ist ICU-versionsabhängig
+ *    (z.B. Pinyin für Chinesisch: '李' → 'li', Kyrillisch: 'Иванов' → 'ivanov').
+ *  - Deterministisch auf einem System mit fixer ICU-Version.
+ *  - Fußnoten-Marker (*, †, ‡, §, #, ^) werden entfernt.
+ *  - Apostrophe (gerade ' U+0027, geschwungen ' U+2018, ' U+2019) werden entfernt.
+ *    Hinweis: ICU wandelt geschwungene Apostrophe in Schritt 4 zu geradem ' um,
+ *    daher muss Schritt 6 das gerade ' explizit entfernen.
+ *  - Alle Dash-Varianten (Bindestrich, En-Dash, Em-Dash) werden entfernt.
+ *  - Alle Whitespace-Typen (ASCII-Space, NBSP U+00A0, Narrow-NBSP U+202F,
+ *    ZWSP U+200B) werden entfernt — Unicode-Spaces via Schritt 5 (Safety-Net),
+ *    ASCII-Space via Schritt 6.
+ *  - Diakritika und Combining-Marks werden durch NFD-Zerlegung via ICU entfernt.
+ *  - NFD-Eingabe (z.B. 'Mu\u{0308}ller') und NFC-Eingabe ('Müller') liefern
+ *    dasselbe Ergebnis.
+ *  - HTML-Entities (z.B. '&uuml;') werden NICHT dekodiert — das muss der Aufrufer
+ *    tun. '&' und ';' werden von Schritt 6 als Nicht-Alphanumerika entfernt, die
+ *    dazwischenliegenden Buchstaben bleiben: 'Mu&uuml;ller' → 'muuumlller'.
+ *
+ * Beispiele:
  *   'C. Pruß'                    -> 'cpruss'
  *   'Müller, H.-P.'              -> 'mullerhp'
  *   'Institut für Optik, Uni UL' -> 'institutfuroptikuniul'
+ *   'O'Brien'                    -> 'obrien'
+ *   'Иванов'                     -> 'ivanov'
+ *   '李'                         -> 'li'
  *   ''                           -> ''
  */
 function normalizeForAliasMatch(string $s): string
@@ -185,13 +211,21 @@ function normalizeForAliasMatch(string $s): string
     // 3. ß -> ss (vor der ICU-Transliterierung, die ß -> s kuerzt).
     $s = str_replace('ß', 'ss', $s);
     // 4. Diakritika -> ASCII (ü -> u, ö -> o, etc.).
+    //    ICU wandelt dabei auch geschwungene Apostrophe (U+2018, U+2019) in
+    //    geraden Apostroph (U+0027) um — dieser wird in Schritt 6 entfernt.
+    //    Unicode-Whitespace (NBSP, Narrow-NBSP, ZWSP) überlebt ICU und wird
+    //    in Schritt 5 entfernt, da nicht im Bereich \x20-\x7E.
     $result = transliterator_transliterate('Any-Latin; Latin-ASCII; [:Nonspacing Mark:] Remove; Lower()', $s);
     $s = ($result !== false && $result !== null) ? $result : $s;
-    // Safety net: strip any non-ASCII that slipped through (rare scripts, broken encodings).
+    // 5. Safety-Net: alle verbleibenden Nicht-ASCII-Bytes entfernen
+    //    (seltene Skripte ohne ICU-Transliteration, kaputte Encodings,
+    //    Unicode-Whitespace wie NBSP/Narrow-NBSP/ZWSP).
     $s = preg_replace('/[^\x20-\x7E]+/', '', $s);
-    // 5. Punkte, Spaces, Kommas, Bindestriche entfernen.
-    $s = preg_replace('/[\.\s,\-]+/u', '', $s);
-    // 6. Trim (sicherheitshalber).
+    // 6. Alle verbleibenden Nicht-Alphanumerika entfernen:
+    //    Punkte, Spaces, Kommas, Bindestriche, Apostrophe (gerade und geschwungen
+    //    — nach ICU als gerader ' vorliegend), sonstige ASCII-Satzzeichen.
+    $s = preg_replace("/[^a-z0-9]+/", '', $s);
+    // 7. Trim (sicherheitshalber, sollte nach Schritt 6 leer sein wenn nötig).
     return trim($s);
 }
 
