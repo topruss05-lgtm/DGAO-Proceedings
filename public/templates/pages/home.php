@@ -8,7 +8,7 @@ $fullWidthLayout = true;
 $extraHead = '<link rel="stylesheet" href="/assets/css/home-hero.css?v=' . @filemtime(__DIR__ . '/../../assets/css/home-hero.css') . '">';
 
 $tagungen = getAllTagungen();
-$recent   = array_slice($tagungen, 0, 5);
+$recent   = array_slice($tagungen, 0, 6);
 $stats    = getSiteStats();
 
 $nf = currentLang() === 'en'
