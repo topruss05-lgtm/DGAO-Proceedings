@@ -1024,10 +1024,6 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
    LINKS
    ============================ */
 
-a.text-decoration-none:hover {
-    text-decoration: underline !important;
-}
-
 a.accent-link {
     color: var(--accent);
     text-decoration: underline;
