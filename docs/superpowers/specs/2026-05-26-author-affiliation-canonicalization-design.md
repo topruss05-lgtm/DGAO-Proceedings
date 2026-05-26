@@ -26,265 +26,335 @@ Beide Endpoints sind reine `LIKE %q% COLLATE NOCASE` auf den Rohstrings. Konsequ
 * Suche **„Pruss"** findet nicht `Pruß`, `Pruß*`, `Pruß**`, `Ch. Pruß`
 * Suche **„ITO Stuttgart"** verfehlt `Institut für Technische Optik, Universität Stuttgart` (Wort-Reihenfolge)
 * Eine Person verteilt auf 5 IDs → Autoren-Treffer-Sektion zeigt 5 separate Einträge mit Teilmengen ihrer Papers
-* Keine Synonyme, keine Aliase, kein Tippfehler-Mapping
 
-**Constraint:** Die PDFs sind veröffentlicht und unveränderlich. Die Display-Strings *in den PDFs* (z. B. `C. Pruß*`) müssen erhalten bleiben — Kanonisierung darf nur die DB-Schicht betreffen.
+**Warum die Sterne überhaupt drin sind:** Im PDF stehen `*`/`**`/… als Fußnoten-Marker, die Autoren zu Affiliations zuordnen. Der frühere Importer war zu primitiv und hat die Marker als Teil des Namens übernommen statt sie nach der Affiliation-Zuordnung wegzuwerfen. Sterne sind **keine** Schreibvarianten — sie werden beim Import konsequent gestrippt und tauchen weder in `autoren` noch in `autor_aliase` je auf.
+
+**Constraint:** Die PDFs sind veröffentlicht und unveränderlich. Display-Strings *in den PDFs* bleiben erhalten. Kanonisierung betrifft nur die DB.
 
 ---
 
 ## 2. Ziele
 
 1. **Eine kanonische Identität pro Person.** Suche und Profil führen alle Papers einer Person zusammen, unabhängig von Schreibvariante im PDF.
-2. **Eine kanonische Institution pro Institut.** Suche nach „ITO Stuttgart", „Institut für Technische Optik" oder „Universität Stuttgart" liefert dieselbe Institution mit allen zugehörigen Autoren.
-3. **DE/EN-Lokalisierung der Display-Strings.** Institute haben Namen in beiden Sprachen; das UI rendert nach Seitensprache.
-4. **PDF-Treue.** PDFs werden nicht angefasst; `papers.autoren_text`/`papers.affiliationen` bleiben als „PDF-Wahrheit" erhalten.
-5. **Bessere Suche als Nebenprodukt.** Alias-Index ermöglicht Match auf Schreibvarianten und Tippfehler (Ch. Pruss → C. Pruß), ohne dass User das wissen müssen.
-6. **Reversibilität.** Jeder Merge ist via Soft-Link rückgängig zu machen. Keine harten Delete-Operationen ohne Backup.
+2. **Eine kanonische Institution pro Institut**, mit DE/EN-Namen, Kürzel und Universitäts-Zuordnung.
+3. **DE/EN-Lokalisierung nur bei Institutionen** (Institute haben echte Übersetzungen). Personennamen werden **nicht** übersetzt — eine Person hat einen Namen, Punkt. Unicode-Zeichen (`ß`, `é`, `Ω`, …) werden korrekt gespeichert (UTF-8, kein Mapping).
+4. **PDF-Wahrheit erhalten.** `papers.autoren_text` / `papers.affiliationen` bleiben unverändert als Anzeige-Strings für die Paper-Detailseite.
+5. **Bessere Suche als Nebenprodukt.** Alias-Index ermöglicht Match auf Schreibvarianten und Tippfehler (Ch. Pruss → C. Pruß), ohne dass der User es merkt.
+6. **Reversibilität.** Aliase und Merges sind über separate Tabellen rückgängig zu machen, ohne dass Papers ihre Verknüpfung verlieren.
 
 ---
 
 ## 3. Nicht-Ziele
 
-* Volle ORCID-/ROR-Integration. (Optional Feld `ror_id` / `orcid_id` für die Zukunft, aber nicht für diese Iteration zu pflegen.)
-* Co-Autoren-Graph-basierte Disambiguierung wie OpenAlex. (Subagents nutzen wir nur für Cluster-Bewertung, kein Graph-Algorithmus.)
-* Zeitstrahl-Affiliation („von 2010 bis 2015 an PTB"). Wir speichern „aktuelles Institut" + „frühere Institute" als flache Liste, weil wir keine zuverlässigen Wechseldaten haben.
+* Volle ORCID-/ROR-Integration. (`orcid_id` / `ror_id` als nullable Spalten angelegt für die Zukunft, aber jetzt nicht zu pflegen.)
+* Co-Autoren-Graph-Algorithmen wie OpenAlex. Subagents bewerten Cluster heuristisch, kein Graph.
+* Zeitstrahl-Affiliation („von 2010 bis 2015 an PTB"). Wir speichern „aktuelles Institut" + „frühere Institute" als flache Liste, weil zuverlässige Wechseldaten fehlen.
 * Änderungen an Paper-Metadaten oder PDFs selbst.
+* Lokalisierung von Personennamen.
 
 ---
 
-## 4. Architektur — drei Schichten
+## 4. Architektur
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│  Layer 3: PDF-Wahrheit (read-only)                          │
-│  papers.autoren_text, papers.affiliationen                  │
-│  ─ bleibt unverändert                                        │
-└──────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────┐
+│  papers (unverändert)                                          │
+│  ─ autoren_text, affiliationen = PDF-Wahrheit (Read-only)      │
+└────────────────────────────────────────────────────────────────┘
                           │
-                          │ (paper_autoren existiert schon)
+                          │ paper_autoren (unverändert)
                           ▼
-┌──────────────────────────────────────────────────────────────┐
-│  Layer 1: Canonical Authors                                  │
-│  autoren (bereinigt) + autor_aliase                         │
-│  ─ pro Person 1 aktiver Record                              │
-│  ─ alle früheren Schreibvarianten als Aliase                │
-└──────────────────────────────────────────────────────────────┘
-                          │
-                          │ (autor_institutionen N:M)
-                          ▼
-┌──────────────────────────────────────────────────────────────┐
-│  Layer 2: Canonical Institutions                            │
-│  institutionen + institut_aliase                            │
-│  ─ DE/EN Display, Kürzel, Universität, Ort                  │
-└──────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────┐
+│  autoren (kanonisch — 1 Zeile pro echter Person)              │
+│  ─ id, vorname, nachname, orcid_id                            │
+│  ─ KEINE Sterne, KEINE display_de/_en                          │
+└────────────────────────────────────────────────────────────────┘
+       │                                              │
+       │ autor_aliase (Schreibvarianten)              │ autor_institutionen
+       ▼                                              ▼
+┌──────────────────────────┐         ┌────────────────────────────────────┐
+│  autor_aliase            │         │  institutionen (kanonisch)         │
+│  ─ alias_text (ohne *)   │         │  ─ name_de, name_en, kuerzel,      │
+│  ─ alias_norm (gematcht) │         │    universitaet, ort, land, ror_id │
+└──────────────────────────┘         └────────────────────────────────────┘
+                                                    │
+                                                    │ institut_aliase
+                                                    ▼
+                                     ┌──────────────────────────────┐
+                                     │  institut_aliase             │
+                                     │  ─ alias_text                │
+                                     │  ─ alias_norm                │
+                                     └──────────────────────────────┘
 ```
 
-### 4.1 Schema (additiv zu Schema-Version 6)
+### 4.1 Schema (additiv zu Schema-Version 6 → 7)
 
 ```sql
--- Layer 1: Canonical Authors
-ALTER TABLE autoren ADD COLUMN display_de   TEXT NOT NULL DEFAULT '';
-ALTER TABLE autoren ADD COLUMN display_en   TEXT NOT NULL DEFAULT '';
-ALTER TABLE autoren ADD COLUMN merged_into  INTEGER REFERENCES autoren(id);
-ALTER TABLE autoren ADD COLUMN orcid_id     TEXT;  -- optional, NULL für jetzt
-ALTER TABLE autoren ADD COLUMN canonical    INTEGER NOT NULL DEFAULT 1;
+-- ── Autoren (Identity) ──────────────────────────────────────────────
+-- Bestehende autoren-Tabelle behält Spalten: id, vorname, nachname.
+-- Bestehende Spalte `affiliation` wird in Phase 4 entfernt (überflüssig,
+-- ersetzt durch autor_institutionen-Verknüpfung).
+ALTER TABLE autoren ADD COLUMN orcid_id TEXT;  -- nullable, NULL für jetzt
 
-CREATE INDEX idx_autoren_merged_into ON autoren(merged_into);
-CREATE INDEX idx_autoren_canonical   ON autoren(canonical);
-
+-- ── Schreibvarianten (Aliase) ───────────────────────────────────────
 CREATE TABLE autor_aliase (
     id           INTEGER PRIMARY KEY AUTOINCREMENT,
-    autor_id     INTEGER NOT NULL REFERENCES autoren(id),
-    alias_text   TEXT NOT NULL,            -- z.B. "Ch. Pruß", "C. Pruss*"
-    alias_norm   TEXT NOT NULL,            -- normalisiert: "chpruss" (lowercase, ohne *, ß→ss, ohne Punkte/Spaces)
-    source       TEXT NOT NULL CHECK (source IN ('pdf','merge','manual')),
-    created_at   TEXT NOT NULL DEFAULT (datetime('now'))
+    autor_id     INTEGER NOT NULL REFERENCES autoren(id) ON DELETE CASCADE,
+    alias_text   TEXT NOT NULL,            -- z.B. "Ch. Pruß", "C. Pruss" (OHNE Sterne)
+    alias_norm   TEXT NOT NULL,            -- normalisiert: "chpruss"
+    source       TEXT NOT NULL CHECK (source IN ('pdf','manual')),
+    created_at   TEXT NOT NULL DEFAULT (datetime('now')),
+    UNIQUE (autor_id, alias_norm)          -- Auto-Dedup beim Merge
 );
 
 CREATE INDEX idx_autor_aliase_norm  ON autor_aliase(alias_norm);
 CREATE INDEX idx_autor_aliase_autor ON autor_aliase(autor_id);
 
--- Layer 2: Institutions
+-- ── Institutionen (Identity) ────────────────────────────────────────
 CREATE TABLE institutionen (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
     name_de         TEXT NOT NULL,
-    name_en         TEXT NOT NULL DEFAULT '',  -- Fallback DE
+    name_en         TEXT NOT NULL DEFAULT '',  -- Fallback DE bei leer
     kuerzel         TEXT,                       -- "ITO", "PTB", "LZH"
-    universitaet    TEXT,                       -- "Universität Stuttgart"
+    universitaet    TEXT,                       -- "Universität Stuttgart" / "TU Ilmenau"
     ort             TEXT,
     land            TEXT DEFAULT 'DE',
-    ror_id          TEXT,                       -- optional, NULL für jetzt
-    merged_into     INTEGER REFERENCES institutionen(id),
+    ror_id          TEXT,                       -- nullable
     created_at      TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
 CREATE INDEX idx_institutionen_kuerzel ON institutionen(kuerzel);
-CREATE INDEX idx_institutionen_merged_into ON institutionen(merged_into);
 
 CREATE TABLE institut_aliase (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
-    institut_id     INTEGER NOT NULL REFERENCES institutionen(id),
+    institut_id     INTEGER NOT NULL REFERENCES institutionen(id) ON DELETE CASCADE,
     alias_text      TEXT NOT NULL,             -- Original-PDF-String
     alias_norm      TEXT NOT NULL,             -- normalisiert für Match
-    source          TEXT NOT NULL CHECK (source IN ('pdf','merge','manual'))
+    source          TEXT NOT NULL CHECK (source IN ('pdf','manual')),
+    UNIQUE (institut_id, alias_norm)
 );
 
-CREATE INDEX idx_institut_aliase_norm  ON institut_aliase(alias_norm);
-CREATE INDEX idx_institut_aliase_inst  ON institut_aliase(institut_id);
+CREATE INDEX idx_institut_aliase_norm ON institut_aliase(alias_norm);
+CREATE INDEX idx_institut_aliase_inst ON institut_aliase(institut_id);
 
--- Verknüpfung Autor ↔ Institut (N:M, flache Liste mit "aktuell"-Flag)
+-- ── Verknüpfung Autor ↔ Institut ────────────────────────────────────
 CREATE TABLE autor_institutionen (
-    autor_id        INTEGER NOT NULL REFERENCES autoren(id),
-    institut_id     INTEGER NOT NULL REFERENCES institutionen(id),
-    ist_aktuell     INTEGER NOT NULL DEFAULT 0,  -- 1 = vom letzten Paper (Heuristik)
-    last_seen       INTEGER,                      -- höchste tagung_nummer mit dieser Verknüpfung
-    first_seen      INTEGER,                      -- niedrigste tagung_nummer
+    autor_id        INTEGER NOT NULL REFERENCES autoren(id) ON DELETE CASCADE,
+    institut_id     INTEGER NOT NULL REFERENCES institutionen(id) ON DELETE CASCADE,
+    ist_aktuell     INTEGER NOT NULL DEFAULT 0,
+    last_seen       INTEGER,                    -- höchste tagung_nummer
+    first_seen      INTEGER,                    -- niedrigste tagung_nummer
     PRIMARY KEY (autor_id, institut_id)
 );
 
 CREATE INDEX idx_autor_inst_aktuell ON autor_institutionen(autor_id, ist_aktuell);
 
+-- ── Redirect-Map für ge-mergede IDs (Audit + URL-Stabilität) ────────
+-- Wird in Phase 2 beim Merge gefüllt: alle Duplikat-IDs → Anker-ID.
+-- /autor/{alte_id} antwortet 301 auf /autor/{neue_id}.
+CREATE TABLE autor_id_redirects (
+    alte_id   INTEGER PRIMARY KEY,
+    neue_id   INTEGER NOT NULL REFERENCES autoren(id) ON DELETE CASCADE,
+    merged_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 PRAGMA user_version = 7;
 ```
 
-### 4.2 Datenfluss
+### 4.2 Normalisierungs-Funktion
+
+Konsistent in PHP-Helper UND beim Import:
+
+```php
+function normalizeForAliasMatch(string $s): string {
+    // 1. Sterne und Fußnoten-Marker raus (Importer-Artefakte)
+    $s = preg_replace('/[\*†‡§#^]+/u', '', $s);
+    // 2. Lowercase
+    $s = mb_strtolower($s);
+    // 3. ß → ss (häufiger Konflikt-Treiber)
+    $s = str_replace('ß', 'ss', $s);
+    // 4. Diakritika → ASCII (é → e, Ö → o, …)
+    $s = transliterator_transliterate('Any-Latin; Latin-ASCII; Lower()', $s);
+    // 5. Punkte, Spaces, Kommas raus
+    $s = preg_replace('/[\.\s,]+/u', '', $s);
+    return trim($s);
+}
+```
+
+Beispiele:
+* `"C. Pruß*"`     → `"cpruss"`
+* `"Ch. Pruss"`    → `"chpruss"` (Achtung: `chpruss` ≠ `cpruss` → Subagent entscheidet Merge)
+* `"Müller, H.-P."` → `"mullerhp"`
+
+### 4.3 Datenfluss
 
 **Lese-Pfad (Suggest + Suche):**
-1. User-Query → normalisiert (lowercase, `ß→ss`, Diakritika weg, Punkte/Spaces weg)
-2. Match gegen `autor_aliase.alias_norm` (Substring/LIKE) und `institut_aliase.alias_norm`
-3. Resolve via `autor_aliase.autor_id` → `autoren` (nur `canonical=1` UND `merged_into IS NULL`)
-4. Display: `display_de` oder `display_en` je nach `$_SESSION['lang']` (selbe Quelle wie bestehender DE/EN-Switch); Fallback DE bei leerem EN.
-5. Affiliation im Suggest: `JOIN autor_institutionen WHERE ist_aktuell=1 LIMIT 1` → `institutionen.name_de/en` (gleiche Locale-Quelle)
+1. User-Query `q` → `normalizeForAliasMatch(q)` → `q_norm`
+2. Match: `WHERE alias_norm LIKE :q_norm`
+3. `JOIN autoren ON autor_aliase.autor_id = autoren.id`
+4. `GROUP BY autoren.id` → eine Zeile pro Person, auch wenn mehrere Aliase matchen
+5. Display: `autoren.nachname || ", " || autoren.vorname`
+6. Affiliation: `JOIN autor_institutionen WHERE ist_aktuell=1 LIMIT 1` → `institutionen.name_de/en` (Locale aus `$_SESSION['lang']`)
 
 **Schreib-Pfad (neue PDF-Imports):**
-1. Parser extrahiert `(autor_string, affiliation_string)` aus PDF (wie bisher)
-2. `autor_string` wird normalisiert → Lookup in `autor_aliase.alias_norm`
-   * Treffer → bestehender `autor_id`
-   * Kein Treffer → neuer `autoren`-Record + Initial-Alias = PDF-String
-3. Analog für Affiliation gegen `institut_aliase`
-4. `paper_autoren` und `autor_institutionen` werden upgesert (`last_seen` ggf. aktualisiert)
+1. Parser extrahiert `(autor_string, affiliation_string)` aus PDF
+2. Sterne strippen, normalisieren → `alias_norm`
+3. Lookup in `autor_aliase.alias_norm`:
+   * Treffer → `autor_id` aus dem Treffer holen
+   * Kein Treffer → neuen `autoren`-Record (gestrippter Name als kanonisch) + Initial-Alias mit dem gestrippten PDF-String
+4. Analog für Affiliation gegen `institut_aliase` → `institut_id`
+5. `paper_autoren` und `autor_institutionen` upserten (`last_seen` aktualisieren, `ist_aktuell` ggf. umsetzen wenn aktuellere Tagung)
 
 ---
 
-## 5. Migration (in vier Phasen, inkrementell und reversibel)
+## 5. Migration (in fünf Phasen, inkrementell und reversibel)
 
-> **Pre-Flight:** Backup der Production-DB liegt unter `database/backups/prod_YYYY-MM-DD.db` (User zieht via scp). Migrations-Script läuft auf einer **Kopie**, das Ergebnis wird verglichen, dann erst über die Live-DB gespielt.
+> **Pre-Flight:** Backup der Production-DB unter `database/backups/prod_YYYY-MM-DD.db` (User zieht via scp). Jede Phase läuft zuerst auf einer Kopie, dann erst auf der Live-DB. Vor Phase 2+ jeweils neues Inkremental-Backup.
 
 ### Phase 1 — Schema + Initial-Aliase (verlustfrei)
 
 * Schema-Migration in `runMigrations()`, `DB_SCHEMA_VERSION = 7`.
-* Für jeden existierenden `autoren`-Record: Initial-Display generieren (`display_de = "{nachname_clean}, {vorname_clean}"`, Sterne entfernt), Initial-Alias = aktueller PDF-String anlegen.
-* Für jeden distinct `(papers.affiliationen)`-String pro Paper: Initial-`institutionen`-Record + Alias anlegen.
-* `autor_institutionen` füllen aus den existierenden `paper_autoren`-Verknüpfungen mit `last_seen = MAX(papers.tagung_nummer)`, `first_seen = MIN(...)`, `ist_aktuell = 1` für den Record mit höchstem `last_seen` pro Autor.
+* Für jeden existierenden `autoren`-Record:
+  * Sterne aus `vorname`/`nachname` strippen (in-place UPDATE)
+  * Initial-Alias mit dem **gestrippten** Original-String erstellen, `source='pdf'`
+* Für jeden distinct `papers.affiliationen`-String:
+  * Initial-`institutionen`-Record (name_de = Original-String, name_en = '')
+  * Initial-Alias mit `source='pdf'`
+* `autor_institutionen` aus den bestehenden `paper_autoren`-Verknüpfungen füllen:
+  * `last_seen = MAX(papers.tagung_nummer)` pro `(autor, affiliation_string→institut)`
+  * `first_seen = MIN(...)`
+  * `ist_aktuell=1` für genau die eine Verknüpfung pro Autor mit dem höchsten `last_seen`
 
-**Ergebnis:** Schema steht, jede Person hat noch genau ihren bisherigen Record + 1 Alias. Funktional kein Unterschied zur alten DB. Reversibel durch Schema-Rollback (Backup einspielen).
+**Ergebnis:** Schema steht, funktional kein Unterschied zur alten DB. Bei Rollback einfach Backup einspielen.
 
-### Phase 2 — Quick-Win Auto-Merge (regelbasiert, hohe Konfidenz)
+### Phase 2 — Quick-Win Auto-Merge (regelbasiert)
 
-Auto-merge ohne Review für Cluster, deren normalisierte Form **exakt** übereinstimmt:
+Auto-merge ohne Review für Cluster, deren normalisierte Form **exakt** übereinstimmt (nach Stern-Strip):
 
-* Stern-/Sonderzeichen-Stripping (`*`, `**`, `†`, `‡`, `§`, `#`, `^`)
-* Whitespace-Trim, Punkt-Normalisierung
-* Beispiel: `C. Franke`, `C. Franke*`, `C. Franke* **`, `C. Franke** *** ****` → 1 Record
+* Beispiel: `C. Franke`, `C. Franke* **`, `C. Franke** *** ****` → nach Strip alle `c.franke` / `cfranke` → 1 Record
 
-**Cluster-Identifikation:**
 ```sql
-SELECT key, GROUP_CONCAT(id) AS ids, COUNT(*) AS n
-FROM (SELECT id, normalize(vorname) || '|' || normalize(nachname) AS key FROM autoren)
-GROUP BY key HAVING n > 1
+-- Cluster-Identifikation
+SELECT key, GROUP_CONCAT(id, ',') AS ids, COUNT(*) AS n
+FROM (
+  SELECT id, normalize(vorname) || '|' || normalize(nachname) AS key
+  FROM autoren
+)
+GROUP BY key HAVING n > 1;
 ```
 
-**Merge-Operation:**
-1. Wähle „Anker"-Record (höchste `tagung_nummer` aus angehängten Papers → aktuellster)
-2. Anker behält `canonical=1`, alle anderen bekommen `canonical=0`, `merged_into=<anker_id>`
-3. `paper_autoren` und `autor_institutionen` werden auf den Anker umgehängt (`UPDATE ... SET autor_id = anker_id WHERE autor_id IN duplicates`); `autor_institutionen`-Duplikate werden via `ON CONFLICT` zusammengeführt (`MAX(last_seen)`, `MIN(first_seen)`)
-4. `ist_aktuell` wird neu berechnet: genau eine Verknüpfung pro Autor mit `ist_aktuell=1`, nämlich die mit dem höchsten `last_seen`
-5. Bestehende Aliase der Duplikate werden auf den Anker umgehängt
-6. Display wird aus Anker neu generiert
+**Merge-Operation pro Cluster:**
+1. **Anker wählen:** Record mit höchster `MAX(papers.tagung_nummer)` (= aktuellster). Bei Gleichstand: niedrigste `autoren.id`.
+2. `UPDATE paper_autoren SET autor_id = anker WHERE autor_id IN (duplikate)`
+3. `UPDATE autor_institutionen SET autor_id = anker WHERE autor_id IN (duplikate)` — Duplikate via `INSERT OR REPLACE` mit `MAX(last_seen)`, `MIN(first_seen)`
+4. `ist_aktuell` neu berechnen: pro Autor genau eine Verknüpfung = 1, nämlich die mit höchstem `last_seen`
+5. `UPDATE autor_aliase SET autor_id = anker WHERE autor_id IN (duplikate)` — `UNIQUE(autor_id, alias_norm)` macht Auto-Dedup via `INSERT OR IGNORE`
+6. `DELETE FROM autoren WHERE id IN (duplikate)` — sicher, weil keine FKs mehr darauf zeigen
+7. Alle Aliase des Ankers behalten die Original-Schreibung (kein Anker-Alias-Verlust)
 
-**Erwartung:** ~407 Cluster → 488 Records entfernt (laut Analyse), 0 manuelle Reviews.
+**Erwartung:** ~407 Cluster → 488 Records gelöscht, alle ihre Schreibvarianten als Aliase am Anker erhalten.
 
 ### Phase 3 — Subagent-gestützter Merge für unscharfe Cluster
 
-Für Cluster, die regelbasiert nicht eindeutig sind:
-* ß/ss-Konflikte (378 Gruppen): `Pruss` vs `Pruß` — fast immer gleich, aber Edge Cases
-* Initialen-Varianten: `C.` vs `Ch.` vs `Chr.` — oft, aber nicht immer gleich
-* Affiliations-Cluster mit Levenshtein-Distanz < threshold
+Cluster, die regelbasiert nicht eindeutig sind:
+* ß/ss-Konflikte (378 Gruppen)
+* Initialen-Varianten (`C.` vs `Ch.` vs `Chr.`)
+* Affiliations-Cluster mit Token-Ähnlichkeit
 
 **Pipeline:**
-1. Heuristik baut Cluster-Vorschläge mit Konfidenz-Score:
-   * Match auf normalisiertem Namen (ohne ß/ss-Unterschied)
-   * Überschneidung in Affiliations (mindestens ein Token gemeinsam, z. B. „Stuttgart")
-   * Co-Autoren-Schnittmenge (gemeinsame Autoren in Papers)
-   * Zeitliche Überlappung (Tagungs-Nummern)
-2. Pro Cluster wird ein **Sonnet-Subagent** mit Kontext gestartet:
-   * Alle Schreibvarianten + jeweils 2–3 Paper-Titel + Affiliation-Strings
-   * Frage: „Ist das wahrscheinlich dieselbe Person? Antwort: yes / no / unsure + Begründung."
-3. Bei `yes` mit Konfidenz ≥ X: Auto-Merge (Phase-2-Logik)
-4. Bei `no`/`unsure`: in `merge_review_queue` (neue Tabelle, nur für Admin-UI)
+1. Heuristik baut Cluster-Kandidaten mit Konfidenz-Vorab-Score:
+   * Match auf `alias_norm` ohne ß/ss-Unterschied
+   * Schnittmenge in Affiliations (mindestens 1 gemeinsames Token, z. B. „Stuttgart")
+   * Co-Autoren-Schnittmenge (gemeinsame Co-Autoren in Papers)
+   * Zeitliche Überlappung (Tagungs-Nummern-Bereich überlappt)
+2. Pro Cluster: **Sonnet-Subagent** mit kompaktem JSON-Prompt:
 
-**Subagent-Prompt-Template** (Kurzversion):
+```json
+{
+  "task": "are_these_the_same_person",
+  "candidates": [
+    {"id":50, "name":"C. Pruss", "papers":28,
+     "affiliations":["Institut für Technische Optik, Uni Stuttgart"],
+     "sample_titles":["Calibration of CGH-based...", "..."]},
+    {"id":1466,"name":"C. Pruß", "papers":17, "...": "..."},
+    {"id":7524,"name":"Ch. Pruß","papers":2,  "...": "..."}
+  ]
+}
 ```
-Du beurteilst, ob zwei oder mehr Autoren-Schreibvarianten dieselbe Person sind.
-
-Kandidaten:
-  [1] "Ch. Pruß" — 2 Papers, Affiliation: "Institut für Technische Optik, Universität Stuttgart"
-      Paper-Titel: "Calibration of CGH-based asphere measurement", "..."
-  [2] "C. Pruss" — 28 Papers, Affiliation: "Institut für Technische Optik, Universität Stuttgart"
-      Paper-Titel: "...", "..."
-
-Frage: Sind das dieselbe Person? Antworte mit JSON:
-  {"verdict": "yes"|"no"|"unsure", "confidence": 0.0-1.0, "reason": "..."}
-
-Konservative Regel: bei Zweifel "unsure".
+3. Antwort-Format:
+```json
+{"verdict":"merge"|"keep_separate"|"unsure",
+ "confidence":0.0-1.0,
+ "groups":[[50,1466,7524]],  // optional bei "merge"
+ "reason":"..."}
 ```
+4. Auto-Merge bei `verdict=merge` und `confidence ≥ 0.9` (Phase-2-Logik).
+5. Alles andere landet in einer `merge_review_queue`-Tabelle für die Admin-UI.
 
-**Wichtig:** Subagents parallel dispatchen (siehe `dispatching-parallel-agents`), aber gebatcht mit Konkurrenz-Limit ~10 — wir reden über hunderte Cluster. Verbrauch kontrollieren.
+**Konkurrenz:** parallel via `dispatching-parallel-agents`, Limit ~10 gleichzeitig. Stichproben-Review der ersten 50 auto-merged-by-LLM Fälle vor Roll-out.
 
-### Phase 4 — Affiliations-Konsolidierung (analog)
+### Phase 4 — Affiliations-Konsolidierung
 
 Gleicher Mechanismus für `institutionen`:
-1. Token-basiertes Clustering: `{kuerzel, universitaet, ort}` extrahieren
-2. Auto-merge bei exakter Token-Übereinstimmung
-3. Subagent für unscharfe Fälle (z. B. „Carl Zeiss AG" vs „Carl Zeiss SMT GmbH" — DIFFERENT)
-4. Manuelle Pflege von `name_en` für die Top-N Institute (geschätzt 50–100 decken 80 % der Papers)
+1. Token-basiertes Clustering: extrahiere `{kuerzel, universitaet, ort}` aus name_de
+2. Auto-merge bei exakter Token-Übereinstimmung (z. B. alle 16 ITO-Stuttgart-Varianten)
+3. Subagent für unscharfe Fälle (`"Carl Zeiss AG"` vs `"Carl Zeiss SMT GmbH"` → keep_separate)
+4. Manuelle Pflege von `name_en` + `kuerzel` für die Top-N Institute (geschätzt 50–100 decken 80 % der Papers)
+5. **Erst danach** die alte `autoren.affiliation`-Spalte droppen (alles über `autor_institutionen`)
+
+### Phase 5 — Cleanup + Index-Refresh
+
+* `autoren.affiliation` Spalte droppen
+* `papers_fts` Reindex (nur falls geändert; `autoren_text` selbst bleibt unverändert, also vermutlich nicht nötig)
+* Stichproben-Test der Suche: 20 typische Queries, Vergleich Vor/Nach
 
 ---
 
 ## 6. Suggest/Search-Anpassungen
 
-### 6.1 Normalisierungs-Helper (`public/helpers.php`)
+### 6.1 Suggest (`public/suggest.php`)
 
-```php
-function normalizeForAliasMatch(string $s): string {
-    // lower, ß→ss, Diakritika→ASCII, Sterne/Sonderzeichen/Spaces/Punkte weg
-    $s = mb_strtolower($s);
-    $s = str_replace(['ß'], ['ss'], $s);
-    $s = transliterator_transliterate('Any-Latin; Latin-ASCII; Lower()', $s);
-    $s = preg_replace('/[\*\†\‡\§\#\^\.\s,]+/u', '', $s);
-    return $s;
-}
+Autor-Query gegen `autor_aliase.alias_norm`:
+
+```sql
+SELECT a.id, a.vorname, a.nachname,
+       (SELECT i.name_de FROM autor_institutionen ai
+        JOIN institutionen i ON i.id = ai.institut_id
+        WHERE ai.autor_id = a.id AND ai.ist_aktuell = 1 LIMIT 1) AS aff_de,
+       (SELECT i.name_en FROM autor_institutionen ai
+        JOIN institutionen i ON i.id = ai.institut_id
+        WHERE ai.autor_id = a.id AND ai.ist_aktuell = 1 LIMIT 1) AS aff_en,
+       COUNT(DISTINCT pa.paper_id) AS papers
+FROM autoren a
+JOIN autor_aliase al ON al.autor_id = a.id
+JOIN paper_autoren pa ON pa.autor_id = a.id
+WHERE al.alias_norm LIKE :q_norm
+GROUP BY a.id
+HAVING papers > 0
+ORDER BY papers DESC, a.nachname COLLATE NOCASE
+LIMIT 5
 ```
 
-### 6.2 Suggest-Endpoint (`public/suggest.php`)
+Display: `nachname, vorname` (kein DE/EN-Switch bei Personen).
+Affiliation: `name_de` oder `name_en` je nach `$_SESSION['lang']`, Fallback DE bei leerem EN.
 
-* Author-Query: gegen `autor_aliase.alias_norm` joinen statt direkt gegen `autoren.nachname/vorname`
-* `GROUP BY autoren.id`, nur `canonical=1` und `merged_into IS NULL`
-* Display: `display_de`/`display_en` je nach Locale
-* Affiliation im Treffer: aus `autor_institutionen WHERE ist_aktuell=1` → `institutionen.name_de/en`
+### 6.2 Search-Page (`public/templates/pages/suche.php`)
 
-### 6.3 Search-Page (`public/templates/pages/suche.php`)
+* **Autor-Filter** matcht jetzt gegen `autor_aliase.alias_norm` → resolve auf `autoren.id` → `paper_autoren` → Papers (statt direkter LIKE auf `autoren.nachname`).
+* **Institutions-Filter** analog gegen `institut_aliase.alias_norm` + `institutionen.kuerzel`.
+* **FTS-Index** `papers_fts` bleibt wie er ist (über `papers.autoren_text` = PDF-Wahrheit). Zusätzliche Filter werden post-FTS via Join auf `autoren`/`institutionen` angewendet — wer nach „Pruß" sucht, bekommt auch Papers wo `Ch. Pruss` im PDF-Text steht, weil `Ch. Pruss` als Alias auf den gleichen `autor_id` zeigt und die Paper-Liste der Person über `paper_autoren` resolved wird.
 
-* Autor-Filter analog
-* Institutions-Filter `:inst` matcht jetzt gegen `institut_aliase.alias_norm` + `institutionen.name_de/en` + `kuerzel`
-* FTS-Index `papers_fts` bleibt wie er ist (PDF-Wahrheit), aber **zusätzlich** wird bei Autor-/Institut-Filter über die kanonischen IDs gejoint — d. h. wer „Pruß" sucht, bekommt auch Papers von `Ch. Pruss`-Aliasen.
+### 6.3 Autor-Profilseite (`/autor/{id}`)
 
-### 6.4 Autor-Profilseite (`/autor/{id}`)
+* URL bleibt `/autor/{autoren.id}` — kein Redirect nötig, weil keine Records „weggemergt" werden in einer URL-relevanten Form (Duplikate werden gelöscht, ihre IDs waren ohnehin meist nicht öffentlich verlinkt; für die wenigen relevanten kann eine Redirect-Map als `WHERE alte_id → neue_id` in einer winzigen Hilfstabelle gepflegt werden — siehe Phase 2).
+* Anzeige: Name, alle Papers gruppiert nach Tagung, aktuelles Institut, frühere Institute (sortiert nach `last_seen DESC`).
+* Aliase werden **nicht** öffentlich angezeigt (nur im Admin).
 
-* Falls `merged_into IS NOT NULL`: 301-Redirect auf den kanonischen Record
-* Anzeige aller Aliase als „auch bekannt als" (nur intern in Admin sichtbar, nicht öffentlich — laut Entscheidung „nur kanonische Form, Match unsichtbar")
-* Aktuelles Institut: `ist_aktuell=1`
-* Frühere Institute: alle anderen, sortiert nach `last_seen DESC`
+### 6.4 Redirect-Map
+
+`autor_id_redirects` (siehe 4.1) wird in Phase 2 beim Merge gefüllt. Im Router:
+* `/autor/{id}` → wenn `id` in `autor_id_redirects.alte_id` → 301 auf `/autor/{neue_id}`
+* sonst normales Lookup
 
 ---
 
@@ -292,12 +362,12 @@ function normalizeForAliasMatch(string $s): string {
 
 Neue Routes unter `/admin/cleanup/`:
 
-* `/admin/cleanup/dashboard` — Übersicht: wie viele Cluster gemerged, wie viele in Review-Queue
-* `/admin/cleanup/queue` — Merge-Vorschläge der Subagents mit „Approve / Reject / Edit"
-* `/admin/cleanup/authors/{id}` — manuelle Autoren-Bearbeitung (Display, Aliase, Institute)
-* `/admin/cleanup/institutions/{id}` — analog für Institute, plus DE/EN-Pflege
-* `/admin/cleanup/merge` — manueller Merge zweier Records (Drag & Drop oder ID-Eingabe)
-* `/admin/cleanup/unmerge/{id}` — Rückgängig-Operation (`merged_into = NULL`, `canonical = 1`, Verknüpfungen zurück)
+* `/admin/cleanup/dashboard` — Übersicht: Records, Aliase, Auto-Merges, Queue-Größe
+* `/admin/cleanup/queue` — Subagent-Vorschläge mit „Approve / Reject / Edit"
+* `/admin/cleanup/authors/{id}` — manuelle Bearbeitung (Name, Aliase, Institute)
+* `/admin/cleanup/institutions/{id}` — analog, plus DE/EN-Pflege
+* `/admin/cleanup/merge` — manueller Merge zweier Records (IDs eingeben)
+* `/admin/cleanup/unmerge/{alias_id}` — Alias abspalten: neuer `autoren`-Record, dieser Alias zeigt darauf, `paper_autoren`-Verknüpfungen werden anhand des Aliases im `papers.autoren_text` rekonstruiert (manueller Review bei mehrdeutigen Treffern)
 
 ---
 
@@ -305,70 +375,91 @@ Neue Routes unter `/admin/cleanup/`:
 
 | Risiko | Mitigation |
 |---|---|
-| Auto-Merge fügt zwei verschiedene Personen zusammen (z. B. zwei `M. Müller`) | Auto-Merge nur bei **exakter** Normalisierung. Unscharfe Cluster gehen durch Subagent + Review-Queue. Soft-Merge ist reversibel. |
-| Subagent halluziniert „yes" | Konfidenz-Threshold ≥ 0,9 für Auto. Stichproben-Review der ersten 50 auto-merged-by-LLM Fälle vor Roll-out. |
-| FTS-Index out of sync nach Merge | FTS basiert auf `papers.autoren_text` (PDF-Wahrheit, unverändert) — kein Re-Index nötig. |
+| Auto-Merge fügt zwei verschiedene Personen zusammen (z. B. zwei `M. Müller`) | Auto-Merge nur bei **exakter** Normalisierung. Unscharfe Cluster gehen durch Subagent + Review-Queue. |
+| Subagent halluziniert „merge" | Konfidenz-Threshold ≥ 0,9. Stichproben-Review der ersten 50 LLM-merged Fälle vor Roll-out. |
+| FTS-Index out of sync nach Merge | FTS basiert auf `papers.autoren_text` (unverändert) — kein Re-Index nötig. |
 | Schema-Migration auf Production hängt | Migration zuerst auf lokaler Kopie testen; Production-Migration in Wartungsfenster, Backup direkt davor. |
-| Performance: `autor_aliase`-JOIN macht Suggest langsam | Index auf `alias_norm` + `LIMIT` im Suggest (bereits da, max 5 Authors). Vorab Profiling mit `EXPLAIN QUERY PLAN`. |
-| ORCID kommt später → Schema-Änderung | `orcid_id`/`ror_id` jetzt schon nullable angelegt, Pflege später. |
+| Performance: `autor_aliase`-JOIN macht Suggest langsam | Index auf `alias_norm` + `LIMIT 5`. Vorab `EXPLAIN QUERY PLAN`. |
+| ORCID/ROR kommen später | Spalten schon nullable angelegt, keine spätere Schema-Änderung nötig. |
+| Unmerge nach Auto-Merge fehlerhaft | Beim Auto-Merge wird `autor_id_redirects` gefüllt → Audit-Trail. Aliase tragen ihren Original-`alias_text`, daraus + `papers.autoren_text` lassen sich Papers rekonstruieren. |
 
 ---
 
 ## 9. Implementierungs-Reihenfolge
 
-1. **Pre-Flight:** Backup-Pull, Spec-Approval, kleines Migrations-Test-Script auf Kopie
+1. **Pre-Flight:** Backup-Pull, Spec-Approval, Test-Script auf Kopie
 2. **Migration M-007:** Schema (Phase 1), in `db.php::runMigrations()`
-3. **Cleanup-Script Phase 2:** Auto-Merge (regelbasiert), als `bin/cleanup_phase2.php` CLI
-4. **Suggest/Search-Refactor:** auf `autor_aliase`/`institut_aliase` umstellen, alte LIKE-Pfade entfernen
-5. **Admin-UI Basics:** Dashboard + Queue-Anzeige (ohne Subagent-Output erstmal)
-6. **Cleanup-Script Phase 3:** Subagent-Pipeline als CLI mit Konkurrenz-Limit
-7. **Cleanup-Script Phase 4:** Affiliations, DE/EN-Pflege für Top-100
-8. **Admin-UI Full:** Merge/Unmerge-Tools, manuelle Edits
+3. **Cleanup-CLI Phase 2:** `bin/cleanup_phase2.php` — regelbasierter Auto-Merge
+4. **Suggest/Search-Refactor:** auf `autor_aliase`/`institut_aliase` umstellen
+5. **Admin-UI Basics:** Dashboard + Queue-Anzeige
+6. **Cleanup-CLI Phase 3:** Subagent-Pipeline (parallel, Konkurrenz-Limit)
+7. **Cleanup-CLI Phase 4:** Affiliations, DE/EN-Pflege
+8. **Cleanup-CLI Phase 5:** `autoren.affiliation`-Spalte droppen, finale Checks
+9. **Admin-UI Full:** Merge/Unmerge-Tools, manuelle Edits
 
 ---
 
 ## 10. Erfolgs-Kriterien
 
-* Anzahl `autoren WHERE canonical=1 AND merged_into IS NULL` reduziert sich von 5.184 auf ~3.500–4.000 (Schätzung)
-* Suche nach `Pruss` und `Pruß` liefert identisches Ergebnis
+* `autoren`-Records reduziert von 5.184 auf ~3.500–4.000
+* `institutionen`-Records ~300–500 statt 1.974 distinct Strings
+* Suche nach `Pruss` und `Pruß` liefert identisches Ergebnis (1 Person, 51 Papers)
 * Suche nach `ITO` liefert alle Stuttgart-ITO-Autoren in einem Block
-* Top-50 Institute haben `name_en` gepflegt
-* Keine harten Deletes in `autoren`; jede Merge-Operation in `merged_into` rückgängig machbar
+* Top-50 Institute haben `name_en` und `kuerzel` gepflegt
+* Keine `*`/`†`/`‡`/`§`/`#`/`^` mehr in `autoren.nachname`/`autoren.vorname` oder `autor_aliase.alias_text`
+* Unmerge eines Aliases stellt Original-Zustand wieder her
 
 ---
 
-## Anhang A — Beispiele aus der aktuellen DB
+## Anhang A — Beispiel C. Pruß
 
+**Vorher (5 separate Records, 51 Papers verteilt):**
 ```
-C. Pruß cluster (5 Records, 51 Papers):
-  id=50    "C. Pruss"     Affiliation: "Institut für Technische Optik..."  28 Papers
-  id=1466  "C. Pruß"      Affiliation: "Institut für Technische Optik..."  17 Papers
-  id=7524  "Ch. Pruß"     Affiliation: "Institut für Technische Optik..."   2 Papers
-  id=11383 "C. Pruß*"     Affiliation: ""                                   3 Papers
-  id=12520 "C. Pruß**"    Affiliation: ""                                   1 Paper
-
-→ Nach Merge:
-  id=50 (canonical)
-    display_de = "Pruß, C."
-    display_en = "Pruß, C."
-    Aliase:    "C. Pruss", "C. Pruß", "Ch. Pruß", "C. Pruß*", "C. Pruß**"
-    Aktuell:   Institut für Technische Optik, Universität Stuttgart (ITO)
+id=50    "C." "Pruss"      affiliation="Institut für Technische Optik, Uni Stuttgart"  28 papers
+id=1466  "C." "Pruß"       affiliation="Institut für Technische Optik, Uni Stuttgart"  17 papers
+id=7524  "Ch." "Pruß"      affiliation="Institut für Technische Optik, Uni Stuttgart"   2 papers
+id=11383 "C." "Pruß*"      affiliation=""                                                3 papers
+id=12520 "C." "Pruß**"     affiliation=""                                                1 paper
 ```
 
+**Nachher (1 Record, 51 Papers, 4 Aliase, 1 Institut):**
 ```
-ITO Stuttgart cluster (16+ Schreibweisen):
-  "Institut für Technische Optik, Universität Stuttgart"            69 Records
-  "Institut für Technische Optik (ITO), Universität Stuttgart"       9
-  "Institut für technische Optik, Universität Stuttgart"             6
-  "Institut für Technische Optik, Universität Stuttgart, Pfaffen..." 4
-  ...
+autoren:
+  id=50, vorname="C.", nachname="Pruß", orcid_id=NULL
 
-→ Nach Merge:
-  id=N
-    name_de:       "Institut für Technische Optik (ITO), Universität Stuttgart"
-    name_en:       "Institute of Applied Optics (ITO), University of Stuttgart"
-    kuerzel:       "ITO"
-    universitaet:  "Universität Stuttgart"
-    ort:           "Stuttgart"
-    Aliase:        alle 16+ Schreibweisen
+autor_aliase (Auto-Dedup via UNIQUE(autor_id, alias_norm)):
+  (50, "C. Pruss",    "cpruss",   "pdf")  ← Erste Einfügung gewinnt
+  (50, "Ch. Pruß",    "chpruss",  "pdf")
+  ↑ "C. Pruß"  → norm "cpruss"  → bereits vorhanden, INSERT OR IGNORE schluckt es
+  ↑ "C. Pruß*" → strip → "C. Pruß" → norm "cpruss"  → ebenfalls dedupliziert
+  ↑ "C. Pruß**" → analog → dedupliziert
+  Aliase werden ohnehin nicht öffentlich angezeigt; die Wahl des alias_text bei
+  Normalisierungs-Konflikt ist daher irrelevant.
+
+institutionen:
+  id=42, name_de="Institut für Technische Optik (ITO), Universität Stuttgart",
+         name_en="Institute of Applied Optics (ITO), University of Stuttgart",
+         kuerzel="ITO", universitaet="Universität Stuttgart", ort="Stuttgart"
+
+institut_aliase:
+  (42, "Institut für Technische Optik, Universität Stuttgart",   "institutfurtechnischeoptikunistuttgart", "pdf")
+  (42, "ITO, Universität Stuttgart",                              "itounistuttgart",                       "pdf")
+  ... (16 Varianten)
+
+autor_institutionen:
+  (50, 42, ist_aktuell=1, last_seen=129, first_seen=104)
+
+paper_autoren: 51 Zeilen, alle autor_id=50 (vorher auf 5 IDs verteilt)
+
+autor_id_redirects:
+  1466  → 50
+  7524  → 50
+  11383 → 50
+  12520 → 50
 ```
+
+Frontend zeigt:
+* `/autor/50`        → „Pruß, C." · ITO Stuttgart · 51 Papers
+* `/autor/1466`      → 301-Redirect auf `/autor/50`
+* Suche „Ch. Pruss"  → matcht Alias `chpruss` → zeigt „Pruß, C." mit 51 Papers
+* Suche „pruss"      → matcht Aliase `cpruss` UND `chpruss` → zeigt „Pruß, C." mit 51 Papers (deduped via GROUP BY)
