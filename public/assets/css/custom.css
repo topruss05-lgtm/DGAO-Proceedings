@@ -1130,23 +1130,53 @@ h3, .h3 {
    ARCHIV-DETAIL — Sessions als <details>
    ============================ */
 
+/* Session als Programme-Heft-Block: zusammenhängender Container, der seine
+   Papers optisch bündelt. Schmaler Border, dezenter Open-State, kein
+   farbiger Stripe (siehe Editorial-Look-Refactor). */
 .archiv-session {
-    margin-bottom: 1.5rem;
-    border: none;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius);
+    background: var(--white);
+    overflow: hidden;
+    transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
 }
 
+.archiv-session:hover {
+    border-color: var(--border);
+}
+
+.archiv-session[open] {
+    background: var(--paper);
+    border-color: var(--border);
+}
+
+/* Header-Bar: Grid mit Chevron · Titel · Meta (rechtsbündig).
+   Mono-Meta für Programm-Heft-Anmutung; tabular-nums damit Uhrzeiten
+   und Saal-Codes nicht springen. */
 .archiv-session__summary {
     cursor: pointer;
-    padding: 0.65rem 0.85rem;
-    background: rgba(15, 23, 42, 0.035);
-    border-radius: 4px;
+    padding: 0.7rem 1rem;
+    background: transparent;
+    border-radius: 0;
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.5rem 1rem;
-    margin-bottom: 0.75rem;
-    transition: background-color 0.15s ease;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 0.85rem;
+    row-gap: 0.2rem;
+    margin-bottom: 0;
+    border-bottom: 1px solid transparent;
+    transition: background-color 0.18s var(--ease), border-color 0.18s var(--ease);
+}
+
+.archiv-session[open] > .archiv-session__summary {
+    border-bottom-color: var(--border-light);
+    background: rgba(15, 23, 42, 0.018);
+}
+
+.archiv-session__summary:hover {
+    background: rgba(15, 23, 42, 0.028);
 }
 
 .archiv-session__summary::-webkit-details-marker {
@@ -1156,32 +1186,118 @@ h3, .h3 {
 .archiv-session__summary::before {
     content: "▸";
     display: inline-block;
-    font-size: 0.85em;
-    color: var(--accent, #b42e42);
-    width: 1em;
-    transition: transform 0.15s ease;
+    font-size: 0.78rem;
+    line-height: 1;
+    color: var(--accent);
+    width: 0.85rem;
+    transition: transform 0.22s var(--ease);
 }
 
 .archiv-session[open] > .archiv-session__summary::before {
     transform: rotate(90deg);
 }
 
-.archiv-session__summary:hover {
-    background: rgba(15, 23, 42, 0.06);
-}
-
 .archiv-session__title {
+    font-family: var(--font-display);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.98rem;
+    color: var(--text);
+    letter-spacing: -0.005em;
+    line-height: 1.3;
+    min-width: 0;
 }
 
 .archiv-session__meta {
-    font-size: 0.82rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    justify-self: end;
+    font-variant-numeric: tabular-nums;
 }
 
-.archiv-session__papers {
-    padding-left: 1.25rem;
+@media (max-width: 575.98px) {
+    .archiv-session__summary {
+        grid-template-columns: auto 1fr;
+        row-gap: 0.25rem;
+    }
+    .archiv-session__meta {
+        grid-column: 2 / -1;
+        justify-self: start;
+        white-space: normal;
+    }
 }
+
+/* Paper-Grid: 2 Spalten ab md, 1 Spalte mobil — eliminiert die
+   "viel Platz für wenig Inhalt"-Optik im Single-Column-Flow. */
+.archiv-session__papers {
+    padding: 0.7rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+}
+
+@media (max-width: 767.98px) {
+    .archiv-session__papers {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 0.6rem;
+    }
+}
+
+/* mb-3 von <a> entfernen — Grid-Gap regelt die Abstände */
+.archiv-session__papers .archiv-item > a.d-block {
+    margin-bottom: 0 !important;
+}
+
+/* Kompaktere Paper-Karten im Session-Kontext: weniger Padding,
+   gleichmäßige Höhen (height:100% + flex), straffere Typo. */
+.archiv-session__papers .paper-card {
+    padding: 0.8rem 0.95rem;
+    border-radius: var(--radius-sm);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.archiv-session__papers .paper-card .card-eyebrow {
+    margin-bottom: 0.3rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+}
+
+.archiv-session__papers .paper-card .card-title {
+    font-size: 0.96rem;
+    line-height: 1.32;
+    margin-bottom: 0.3rem;
+}
+
+.archiv-session__papers .paper-card .card-authors {
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.archiv-session__papers .paper-card .card-footer-bar {
+    margin-top: auto;
+    padding-top: 0.5rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* Im dichten Grid ist der farbige Typ-Badge im Footer redundant zur
+   Eyebrow ("EU.1 · Vortrag") — Badge ausblenden, PDF & Zeit bleiben. */
+.archiv-session__papers .paper-card .card-footer-bar > .badge-hauptvortrag,
+.archiv-session__papers .paper-card .card-footer-bar > .badge-sondervortrag,
+.archiv-session__papers .paper-card .card-footer-bar > .badge-poster,
+.archiv-session__papers .paper-card .card-footer-bar > .badge-vortrag {
+    display: none;
+}
+
+/* Wenn nur der (versteckte) Typ-Badge im Footer wäre, wäre der Footer
+   leer. Solange kein PDF/keine Zeit da ist, blendet das PHP-Template
+   den Footer bereits aus — keine zusätzliche Regel nötig. */
 
 #archiv-empty {
     margin-top: 1rem;
