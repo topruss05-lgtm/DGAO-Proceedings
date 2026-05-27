@@ -34,14 +34,43 @@ Beide Stränge schöpfen aus denselben vier Quellen, in dieser Reihenfolge:
 - **Multi-Affil-Marker:** in `papers.autoren_text` nur für 2024-2025 erhalten (Stern). 2004-2023: Superscript-Ziffern beim Import verloren → **nur aus PDF rekonstruierbar**.
 - **OpenAlex:** liefert `affiliations[]` mit `years` (historisch + parallel), `last_known_institutions`, `display_name_alternatives`, ORCID, `raw_affiliation_strings` aus Works.
 
-## Strang A — Vorname-Pipeline
+## Strang A — Vollständige Namens-Auflösung
 
-Pro Autor mit Initial-Vorname, gestuft (Abbruch beim ersten sicheren Treffer):
+Pro Autor wird ermittelt: kanonischer **Vorname** (vollständigster verifizierter Rufname), **Nachname**, **ORCID**, und **alle Schreibvarianten als Aliase**.
 
-1. **PDF-Extraktion:** In den Paper-PDFs des Autors nach `<Initial>. <Nachname>` → vollem `<Vorname> <Nachname>` suchen. Mehrere Papers als Mehrfachbeleg. Bei Konsens → übernehmen (`quelle='pdf'`).
-2. **OpenAlex:** Author-Search + affiliation-gefilterte Suche (siehe Pipeline unten). Eindeutiger Kandidat mit Vorname → übernehmen (`quelle='openalex'`), ORCID gleich mit speichern.
-3. **LLM-Richter:** Für Verpasste die strukturierte OpenAlex-Evidenz (Kandidaten, Affils, ORCID, raw_strings) einem Sonnet-Subagent vorlegen → Urteil mit Konfidenz. Nur Konfidenz ≥ 0.9 schreiben.
-4. **Unauflösbar:** leer lassen, in Review-Queue.
+### Namensformen in der DB (Stand 2026-05-27)
+
+- 4221 Autoren mit einer Initiale (`C.`)
+- 266 mit mehreren Initialen (`C. A.` — Mittelinitialen, z. B. `H. J. Tiziani`)
+- 28 mit vollem Vornamen
+- **ORCID: 0 von 4515 befüllt** → wird in dieser Phase befüllt
+
+### Behandlung von Mittelinitialen (`H. J. Tiziani`)
+
+- `vorname` = Rufname (`Hans`) → Anzeige "Hans Tiziani"
+- Mittelname/-initiale (`J.` / `Joachim`) landet in den **Aliasen**, nicht im Hauptfeld
+- alle Kombinationen als Aliase → Suche findet den Autor unter jeder Schreibweise
+
+### Auflösungs-Pipeline pro Autor (gestuft, Abbruch beim ersten sicheren Treffer)
+
+1. **PDF-Extraktion:** In den Paper-PDFs des Autors via Positions-Brücke (siehe Strang B) den vollen Namen lesen (`Hans J. Tiziani`). Mehrere Papers als Mehrfachbeleg, bei Konsens → `quelle='pdf'`.
+2. **OpenAlex:** Author-Search + affiliation-gefilterte Suche (Pipeline unten). Eindeutiger Kandidat → Vorname + **ORCID** + alle `display_name_alternatives` übernehmen (`quelle='openalex'`).
+3. **ORCID:** `personal-details` für offiziellen given/family name als Verifikation.
+4. **LLM-Richter:** Für Verpasste die strukturierte OpenAlex-Evidenz (Kandidaten, Affils, ORCID, raw_strings) einem Sonnet-Subagent vorlegen → Urteil mit Konfidenz. Nur Konfidenz ≥ 0.9 schreiben.
+5. **Unauflösbar:** Vorname bleibt Initiale, in Review-Queue. **Kein Raten** (`C.` wird nie zu `Christian`, ohne Beleg für genau diesen Autor).
+
+### Alias-Generierung
+
+Pro Autor alle plausiblen Schreibweisen als `autor_aliase`: voller Name, Initial-Formen, "Nachname, Vorname", mit/ohne Mittelinitiale — plus alle real beobachteten aus PDF/OpenAlex. Macht die Suche robust.
+
+### ORCID-basierte & Vollname-basierte Merges
+
+Nach der Namens-Auflösung können bisher getrennte Duplikate zusammengeführt werden:
+
+1. **Gleiche ORCID → sicher mergen** (deterministisch, 0 Fehler). Löst genau die Fälle, die bisher als `C. Müller` / `Christian Müller` / `C. A. Müller` getrennt standen.
+2. **Ohne ORCID:** gleicher voller Vorname + Nachname + Affiliation-Überlappung → Merge-Kandidat. Bei Eindeutigkeit mergen, sonst Review-Queue.
+
+Merge nutzt die bestehende `mergeAuthorCluster`-Logik (PK-Konflikt-Deduplizierung).
 
 ### OpenAlex-Auflösungs-Pipeline (implementiert in `bin/openalex_test.py`, Hit 9/15 = 60 %, 0 Fehler)
 
@@ -58,55 +87,77 @@ Pro Autor mit Initial-Vorname, gestuft (Abbruch beim ersten sicheren Treffer):
 - Diakritik aus Beleg übernehmen (André, nicht Andre).
 - Mehrteilige Vornamen erlaubt (Fortunato Tito, Daniele Eugenio).
 
-## Strang B — Zeitliche/mehrfache Affiliations
+## Strang B — Affiliation pro (Paper, Autor)
 
-### Schema-Änderung (additiv, bricht nichts)
+### Datenmodell
 
-`autor_institutionen` wird um Zeit- und Quell-Information erweitert:
+Source of Truth ist die Affiliation eines Autors **in einem konkreten Paper** — nicht statisch pro Autor. Neue Tabelle:
 
 ```sql
-ALTER TABLE autor_institutionen ADD COLUMN jahr_von  INTEGER;   -- NULL erlaubt
-ALTER TABLE autor_institutionen ADD COLUMN jahr_bis  INTEGER;   -- NULL erlaubt
-ALTER TABLE autor_institutionen ADD COLUMN quelle    TEXT;      -- 'dgao_paper'|'openalex'|'orcid'|'anker'
--- ist_aktuell bleibt (rückwärtskompatibel)
--- PRIMARY KEY (autor_id, institut_id) bleibt: mehrere Institute pro Autor möglich
+CREATE TABLE paper_autor_institutionen (
+    paper_id   TEXT    NOT NULL REFERENCES papers(id) ON DELETE CASCADE,
+    autor_id   INTEGER NOT NULL REFERENCES autoren(id) ON DELETE CASCADE,
+    institut_id INTEGER NOT NULL REFERENCES institutionen(id) ON DELETE CASCADE,
+    quelle     TEXT,   -- 'pdf'|'single_affil'|'anker'|'openalex'
+    PRIMARY KEY (paper_id, autor_id, institut_id)
+);
 ```
 
-Mehrere parallele Affiliations = mehrere Zeilen mit überlappenden `[jahr_von, jahr_bis]`. Mehrere `ist_aktuell=1` sind zulässig.
+`PRIMARY KEY (paper_id, autor_id, institut_id)` erlaubt **mehrere Institute pro Autor pro Paper** — deckt parallele Affiliations ab (realer Fall 2024: `J. Stollenwerk* ***` → TOS RWTH **und** Fraunhofer ILT). Jahre kommen automatisch über `papers → tagungen.jahr`; kein `jahr_von/jahr_bis` nötig.
+
+`autor_institutionen` wird damit **abgeleitet** (Cache/View). Die `jahr_von/jahr_bis`-Idee aus früheren Entwürfen entfällt.
+
+### Positions-Brücke (löst Henne-Ei beim Parsen)
+
+Die Autor→Paper-Zuordnung existiert bereits in `paper_autoren` (`position`). Beim PDF-Parsen wird **nicht** über Namens-Alias gesucht, sondern über die Position gematcht:
+
+```
+paper_autoren: Paper P, position 3 → autor_id 850 (kanonisch)
+PDF P:         3. Name "Klaus Mantel**" → Marker ** = Max Planck
+  ⇒ autor_id 850 hatte in P: Vorname "Klaus", Affil = Max Planck
+```
+
+**Sicherheits-Check:** Nachname an PDF-Position N muss == Nachname an `paper_autoren`-Position N. Bei Mismatch (Reihenfolge/Anzahl weicht ab) → Eintrag überspringen, nicht raten. Alias wird nur als Nebenprodukt gelernt, nie zum Finden benutzt.
+
+### Affil-String → kanonisches Institut
+
+Affil-Text aus Abstract/PDF → über `institut_aliase` (normalisiert) auf kanonische `institutionen`. Neue Schreibweise → als `institut_alias` ergänzen. Kein Match → Fuzzy/ROR oder Review (betrifft Institute, die bereits weitgehend kanonisiert sind: 984 Stück).
 
 ### Befüllung (gestuft, deterministisch zuerst)
 
-1. **Single-Affil-Papers:** Alle Autoren des Papers → dessen eine Affiliation, `jahr_von=jahr_bis=Tagungsjahr`, `quelle='dgao_paper'`. Über mehrere Papers zu `MIN/MAX`-Spanne aggregiert.
-2. **Multi-Affil-Papers mit PDF:** PDF parsen, Superscript-Marker (`*`/`**`/Ziffern via Layout) → exakte Autor→Affil-Zuordnung, `quelle='dgao_paper'`.
-3. **Single-Affil-Anker:** Multi-Affil-Autoren, deren Affiliation aus Solo-Papers bekannt ist → übernehmen, `quelle='anker'`.
-4. **OpenAlex:** `affiliations[]` mit `years` für gematchte Autoren als Ergänzung/Lückenfüller, `quelle='openalex'`.
-5. **Rest:** Autor→alle-Affils-des-Papers (unscharf), explizit `quelle='unscharf'` markiert — oder leer, je nach finaler Entscheidung Multi-Affil-Tiefe.
+1. **Single-Affil-Papers (6778 Verknüpfungen):** alle Autoren → die eine Affiliation, `quelle='single_affil'`.
+2. **Multi-Affil-Papers mit lesbarem PDF:** Marker (`*`/`**`, Ziffern via Layout) → exakte Zuordnung über Positions-Brücke, `quelle='pdf'`.
+3. **Single-Affil-Anker:** Multi-Affil-Autoren, deren Affiliation aus ihren Solo-Papers bekannt ist, `quelle='anker'`.
+4. **OpenAlex authorships:** wo DGaO-Paper in OpenAlex, `quelle='openalex'`.
+5. **Rest:** keine Zeile (ehrlich leer) — kein Raten.
 
 ### Lücken-Prinzip
 
-**Nicht über Lücken interpolieren.** Jede Affiliation ist an konkret belegte Jahre gebunden (DGaO-Paper-Jahr oder OpenAlex-`years`). Zwischen Publikationen wird keine Zugehörigkeit angenommen. Für ein Proceedings-Archiv ist die Publikations-Affiliation die maßgebliche Information; OpenAlex füllt kontinuierliche Spannen wo verfügbar.
+**Nicht über Lücken interpolieren.** Jede Zeile ist an ein konkretes Paper (mit Jahr) gebunden. Wo Zuordnung unsicher → keine Zeile. Für ein Proceedings-Archiv ist die Publikations-Affiliation die maßgebliche Information.
 
 ### Ableitung für die Anwendung
 
-- **Aktuelle Affiliation:** höchstes `jahr_bis` (bzw. `ist_aktuell=1`).
-- **Historie:** alle Zeilen nach `jahr_von` sortiert.
-- **Parallele:** mehrere Zeilen mit überlappenden Jahren.
+- **Alle Affiliations eines Autors:** `DISTINCT institut` über seine `paper_autor_institutionen` + `MIN/MAX(tagungen.jahr)`.
+- **Aktuelle Affiliation:** Institut aus dem neuesten Paper.
+- **Affil zu einem Paper:** direkt.
 - Frontend/Queries, die `LIMIT 1` annehmen, müssen auf Mehrfach-Darstellung umgestellt werden.
 
-## Offene Entscheidung
+## Entschieden
 
-- **Multi-Affil-Tiefe:** Wie weit bei den ~4740 verlorenen Zuordnungen gehen (Anker+OpenAlex / + PDF-Parsing / + LLM). Vom User zu bestätigen. PDF-Parsing der Marker ist deterministisch und löst zugleich Strang A — daher hohe Priorität.
+- **Multi-Affil-Tiefe:** PDF-Parsing der Marker als Stufe 1 (deterministisch, löst zugleich Strang A), dann Anker + OpenAlex. Rest bleibt leer (kein Raten).
+- **Affil-Modell:** `paper_autor_institutionen` statt `jahr_von/jahr_bis`.
 
 ## Komponenten / Dateien
 
 | Datei | Verantwortung |
 |-------|---------------|
-| `bin/pdf_extract.py` (neu) | Paper-PDF → (Autor, voller Vorname, Affil-Marker-Zuordnung); Lesbarkeits-Check |
-| `bin/openalex_resolve.py` (aus `openalex_test.py`) | OpenAlex-Auflösung Vorname + Affil-Historie |
+| `bin/pdf_extract.py` (neu) | Paper-PDF → (Position, voller Name, Affil-Marker-Zuordnung); Lesbarkeits-Check |
+| `bin/openalex_resolve.py` (aus `openalex_test.py`) | OpenAlex: Vorname + alle Namensvarianten + ORCID + Affil-Historie |
 | `bin/openalex_evidence.py` (vorhanden) | strukturierte Evidenz für LLM-Richter |
-| `bin/fill_vornamen.py` (neu) | Strang-A-Orchestrierung (PDF→OpenAlex→LLM), schreibt `autoren.vorname` + Audit |
-| `bin/fill_affiliations.py` (neu) | Strang-B-Orchestrierung, Schema-Migration + Befüllung |
-| `public/db.php` | Schema-Migration v9 (autor_institutionen-Spalten) |
+| `bin/fill_vornamen.py` (neu) | Strang-A: Namens-Auflösung (PDF→OpenAlex→ORCID→LLM), schreibt `vorname`/`orcid_id` + Aliase + Audit |
+| `bin/merge_by_orcid.py` (neu) | ORCID- & Vollname-basierte Merges via `mergeAuthorCluster` |
+| `bin/fill_affiliations.py` (neu) | Strang-B: `paper_autor_institutionen` befüllen (PDF/Single/Anker/OpenAlex) |
+| `public/db.php` | Schema-Migration v9 (`paper_autor_institutionen`) |
 | Frontend-Templates | Mehrfach-Affil-Darstellung statt LIMIT 1 |
 
 ## Testbarkeit
