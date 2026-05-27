@@ -131,3 +131,29 @@ Live-DB:
   - `https://dgao.tpapps.de/api/suggest?q=Pruss` → `Pruß, C., ITO, 51 Papers` ✅
   - `https://dgao.tpapps.de/api/suggest?q=Pruß` → identisches Ergebnis ✅
   - `https://dgao.tpapps.de/autor/50` → 301 Redirect auf `/autor/1466` ✅
+
+## 2026-05-27: Vollständiger Institut-Audit via ROR-API
+
+User: "Alle Affiliations prüfen, alle Felder offiziell sauber ausfüllen, Cross-Cluster-Duplikate finden."
+
+**12 parallele Sonnet-Subagents v2** (inkrementelles Schreiben, idempotent via institut_audit_log):
+- 1411 Institute durch ROR-API Audit
+- 475 mit offiziellem ROR-Match aktualisiert (name_de/name_en/kuerzel/universitaet/ort/land/ror_id)
+- 460 ohne klaren ROR-Match (private Firmen, Sub-Departments, Lehrstühle ohne eigenen ROR)
+- 418 Cross-Cluster-Duplikate identifiziert (z.B. HS Pforzheim doppelt, Uni Bonn doppelt, TU Ilmenau doppelt)
+- ~150 False-Positive-Matches manuell von Subagents revertiert
+
+**Cross-Cluster-Dedup mit Path-Following:**
+- Ketten- und Zyklus-Auflösung (z.B. A→B→C → A direkt nach C)
+- 413 Institute final gemergt (5 wegen Zyklus geskipt)
+- 0 Fehler
+
+**Live-DB final:**
+- 4515 Autoren (Start 5184, -669, -13%)
+- **998 Institutionen** (Start 1973, -975, -49%!)
+- 503 mit ROR-ID (vorher 0)
+- 387 mit name_en (vorher 0)
+- 290 mit Kürzel (vorher 0)
+
+Production deployed: alle Pages 200, https://dgao.tpapps.de.
+Backup: database/backups/proceedings_pre_inst_dedup_*.db
