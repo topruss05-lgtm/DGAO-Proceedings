@@ -164,20 +164,34 @@ def match_or_create_institut(con, affil_text: str, alias_lookup: dict,
     if raw_norm in alias_lookup:
         return alias_lookup[raw_norm]
 
-    # Priorität 3: Substring-Match (vorsichtig: cleaned muss "groß genug" sein)
-    # Match wenn EIN existierender Alias VOLLSTÄNDIG in cleaned vorkommt UND
-    # mind. 10 chars lang ist (signifikant). Vermeidet "Jena" -> falsches Match.
-    if clean_norm and len(clean_norm) >= 10:
+    # Priorität 3: Substring-Match — sehr konservativ.
+    # Nur wenn cleaned EXAKT als alias-norm in der DB ist ODER alias-norm
+    # in cleaned vorkommt UND mindestens 80% der cleaned-Tokens deckt.
+    # Vermeidet "Lehrstuhl A Universität X" -> "Universität X" Mismatch.
+    if clean_norm and len(clean_norm) >= 12:
+        clean_tokens = set(clean_norm.split())
         best_match = None
-        best_len = 0
+        best_score = 0
         for k, iid in alias_lookup.items():
-            if len(k) >= 10 and (k in clean_norm or clean_norm in k):
-                # Längste Übereinstimmung gewinnt
-                overlap = min(len(k), len(clean_norm))
-                if overlap > best_len:
-                    best_match, best_len = iid, overlap
+            if len(k) < 12:
+                continue
+            k_tokens = set(k.split())
+            if not k_tokens:
+                continue
+            # alias_norm muss MAJORITY ueberschneidung mit cleaned haben
+            overlap = clean_tokens & k_tokens
+            min_size = min(len(clean_tokens), len(k_tokens))
+            if min_size == 0:
+                continue
+            score = len(overlap) / min_size
+            # echte Identifikation: >=85% Token-Overlap
+            if score >= 0.85 and len(overlap) >= 2:
+                # Wenn cleaned strikt KEIN Substring von k oder umgekehrt,
+                # vermeide Sub-Institut-Mismatches.
+                if k in clean_norm or clean_norm in k:
+                    if score > best_score:
+                        best_match, best_score = iid, score
         if best_match:
-            # Auch raw als Alias registrieren
             if not dry_run and raw_norm not in alias_lookup:
                 try:
                     con.execute("INSERT INTO institut_aliase (institut_id, alias_text, alias_norm) VALUES (?,?,?)",
