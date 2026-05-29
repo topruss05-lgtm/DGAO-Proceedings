@@ -12,15 +12,8 @@ if ($neue !== false) {
     exit;
 }
 
-$lang    = $_SESSION['lang'] ?? 'de';
-$instCol = $lang === 'en' ? 'i.name_en' : 'i.name_de';
 $stmt = $db->prepare("
-    SELECT a.id, a.vorname, a.nachname,
-           (SELECT COALESCE(NULLIF($instCol, ''), i.name_de)
-            FROM autor_institutionen ai
-            JOIN institutionen i ON i.id = ai.institut_id
-            WHERE ai.autor_id = a.id AND ai.ist_aktuell = 1
-            LIMIT 1) AS affiliation
+    SELECT a.id, a.vorname, a.nachname, a.anzeige_name, a.orcid_id
     FROM autoren a
     WHERE a.id = ?
 ");
@@ -32,7 +25,8 @@ if (!$autor) {
     require __DIR__ . '/404.php';
     return;
 }
-$autorName = trim($autor['vorname'] . ' ' . $autor['nachname']);
+$autorName = formatAutorName($autor);
+$autorAffils = getAutorAffiliations((int)$autor['id']);
 
 $stmt = $db->prepare('
     SELECT p.id, p.tagung_nummer, p.code, p.typ, p.titel, p.autoren_text,
@@ -60,9 +54,26 @@ $metaTags = [
     </ol>
 </nav>
 
-<h1 class="h3 mb-1"><?= e($autorName) ?></h1>
-<?php if (!empty($autor['affiliation'])): ?>
-<p class="text-muted mb-1"><i class="bi bi-building"></i> <?= e($autor['affiliation']) ?></p>
+<h1 class="h3 mb-1"><?= e($autorName) ?>
+<?php if (!empty($autor['orcid_id'])): ?>
+    <a href="<?= e($autor['orcid_id']) ?>" target="_blank" rel="noopener" class="ms-2 small badge bg-success-subtle text-success-emphasis" title="ORCID">
+        ORCID
+    </a>
+<?php endif; ?>
+</h1>
+<?php if ($autorAffils): ?>
+    <div class="text-muted mb-1">
+    <?php foreach ($autorAffils as $i => $af):
+        $jahre = '';
+        if (!empty($af['jahr_von']) && !empty($af['jahr_bis'])) {
+            $jahre = $af['jahr_von'] === $af['jahr_bis']
+                ? ' <small>(' . (int)$af['jahr_von'] . ')</small>'
+                : ' <small>(' . (int)$af['jahr_von'] . '–' . (int)$af['jahr_bis'] . ')</small>';
+        }
+    ?>
+        <div><i class="bi bi-building"></i> <?= e($af['name']) ?><?= $jahre ?></div>
+    <?php endforeach; ?>
+    </div>
 <?php endif; ?>
 <p class="text-muted mb-4"><?= count($papers) ?> <?= count($papers) === 1 ? t('autor.beitrag_singular') : t('autor.beitrag_plural') ?></p>
 

@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dbw->prepare('DELETE FROM autoren WHERE id = ?')->execute([$autorId]);
         $dbw->commit();
 
-        setFlash('success', "Autor \"" . trim($autor['vorname'] . ' ' . $autor['nachname']) . "\" gelöscht.");
+        setFlash('success', "Autor \"" . formatAutorName($autor) . "\" gelöscht.");
     } catch (Throwable $e) {
         $dbw->rollBack();
         error_log('autor_delete error: ' . $e);
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h5 class="card-title text-danger">
             <i class="bi bi-exclamation-triangle"></i> Autor wirklich löschen?
         </h5>
-        <p><strong><?= e(trim($autor['vorname'] . ' ' . $autor['nachname'])) ?></strong></p>
+        <p><strong><?= e(formatAutorName($autor)) ?></strong></p>
         <?php if ($paperCount > 0): ?>
         <p class="text-warning">
             <i class="bi bi-exclamation-triangle"></i>

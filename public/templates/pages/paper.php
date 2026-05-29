@@ -28,24 +28,28 @@ $stmt = $db->prepare('
 $stmt->execute([$id]);
 $keywords = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-// Authors — affiliation aus autor_institutionen (aktuelle) lokalisiert via Seitensprache
-$lang    = $_SESSION['lang'] ?? 'de';
-$instCol = $lang === 'en' ? 'i.name_en' : 'i.name_de';
-$stmt = $db->prepare("
-    SELECT a.id, a.vorname, a.nachname,
-           (SELECT COALESCE(NULLIF($instCol, ''), i.name_de)
-            FROM autor_institutionen ai
-            JOIN institutionen i ON i.id = ai.institut_id
-            WHERE ai.autor_id = a.id AND ai.ist_aktuell = 1
-            LIMIT 1) AS affiliation,
-           pa.position, pa.ist_hauptautor
-    FROM autoren a
-    JOIN paper_autoren pa ON pa.autor_id = a.id
-    WHERE pa.paper_id = ?
-    ORDER BY pa.position
-");
-$stmt->execute([$id]);
-$autoren = $stmt->fetchAll();
+// Authors — Affiliation pro (paper, autor) aus paper_autor_institutionen,
+// mit Legacy-Fallback auf autor_institutionen (aktuelle) für nicht-migrierte
+// Autoren-/Paper-Verknüpfungen.
+$autoren = getPaperAutorenWithAffils($id);
+$lang    = currentLang() === 'en' ? 'en' : 'de';
+$instCol = $lang === 'en' ? "COALESCE(NULLIF(i.name_en,''), i.name_de)" : 'i.name_de';
+// Pro Autor: erste Affil als "affiliation"-Backwards-Kompat-Feld setzen
+foreach ($autoren as &$_a) {
+    $_a['affiliation'] = !empty($_a['affils']) ? $_a['affils'][0]['name'] : null;
+    if (!$_a['affiliation']) {
+        // Legacy-Fallback
+        $fallback = $db->prepare("
+            SELECT $instCol AS name
+            FROM autor_institutionen ai JOIN institutionen i ON i.id = ai.institut_id
+            WHERE ai.autor_id = ? ORDER BY ai.ist_aktuell DESC LIMIT 1
+        ");
+        $fallback->execute([$_a['autor_id']]);
+        $_a['affiliation'] = $fallback->fetchColumn() ?: null;
+    }
+    $_a['id'] = $_a['autor_id']; // bewahre alten Key für Template-Rückwärtskompat
+}
+unset($_a);
 
 // Page title and SEO
 $year = $paper['datum'] ? substr($paper['datum'], 0, 4) : (string)$paper['jahr'];
@@ -134,7 +138,7 @@ $pdfRelUrl = pdfUrl($paper);
     <div class="mb-3">
         <?php foreach ($autoren as $a): ?>
             <a href="/autor/<?= $a['id'] ?>" class="accent-link me-2"<?php if (!empty($a['affiliation'])): ?> title="<?= e($a['affiliation']) ?>"<?php endif; ?>>
-                <?= e(trim($a['vorname'] . ' ' . $a['nachname'])) ?><?php if ($a['ist_hauptautor']): ?> <i class="bi bi-star-fill text-warning small"></i><?php endif; ?>
+                <?= e($a['name']) ?><?php if ($a['ist_hauptautor']): ?> <i class="bi bi-star-fill text-warning small"></i><?php endif; ?>
             </a>
         <?php endforeach; ?>
     </div>

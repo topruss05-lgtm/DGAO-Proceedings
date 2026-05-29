@@ -4,14 +4,26 @@ $canonicalUrl = canonicalUrl('/autoren');
 
 $db   = getDb();
 $lang = $_SESSION['lang'] ?? 'de';
-$instCol = $lang === 'en' ? 'i.name_en' : 'i.name_de';
+$instCol = $lang === 'en' ? "COALESCE(NULLIF(i.name_en,''), i.name_de)" : 'i.name_de';
+// aktuelle Affiliation = aus dem jüngsten Paper über paper_autor_institutionen
+// (mit Legacy-Fallback auf autor_institutionen für noch nicht migrierte Einträge)
 $autoren = $db->query("
-    SELECT a.id, a.vorname, a.nachname,
-           (SELECT COALESCE(NULLIF($instCol, ''), i.name_de)
-            FROM autor_institutionen ai
-            JOIN institutionen i ON i.id = ai.institut_id
-            WHERE ai.autor_id = a.id AND ai.ist_aktuell = 1
-            LIMIT 1) AS affiliation,
+    SELECT a.id, a.vorname, a.nachname, a.anzeige_name, a.orcid_id,
+           COALESCE(
+             (SELECT $instCol
+              FROM paper_autor_institutionen pai
+              JOIN institutionen i ON i.id = pai.institut_id
+              JOIN papers p ON p.id = pai.paper_id
+              JOIN tagungen t ON t.nummer = p.tagung_nummer
+              WHERE pai.autor_id = a.id
+              ORDER BY t.jahr DESC, pai.created_at DESC
+              LIMIT 1),
+             (SELECT $instCol
+              FROM autor_institutionen ai
+              JOIN institutionen i ON i.id = ai.institut_id
+              WHERE ai.autor_id = a.id
+              ORDER BY ai.ist_aktuell DESC LIMIT 1)
+           ) AS affiliation,
            COUNT(pa.paper_id) AS paper_count
     FROM autoren a
     JOIN paper_autoren pa ON pa.autor_id = a.id
@@ -37,7 +49,7 @@ ksort($grouped, SORT_LOCALE_STRING);
         <?php foreach ($authors as $a): ?>
         <div class="col-sm-6 col-lg-4">
             <a href="/autor/<?= $a['id'] ?>" class="accent-link d-block py-1"<?php if (!empty($a['affiliation'])): ?> title="<?= e($a['affiliation']) ?>"<?php endif; ?>>
-                <?= e(trim($a['vorname'] . ' ' . $a['nachname'])) ?>
+                <?= e(formatAutorName($a)) ?>
                 <small class="text-muted">(<?= $a['paper_count'] ?>)</small>
             </a>
         </div>

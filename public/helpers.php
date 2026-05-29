@@ -690,3 +690,223 @@ function getSiteStats(): array
     $autoren  = (int) $db->query('SELECT COUNT(*) FROM autoren')->fetchColumn();
     return compact('papers', 'tagungen', 'autoren');
 }
+
+// ===========================================================================
+// v9: Zentrale Helper für Namens-Anzeige + paper_autor_institutionen
+// ===========================================================================
+
+/**
+ * Vollständiger Autorname für Anzeige.
+ * Priorität: anzeige_name (ORCID credit-name) > vorname + nachname.
+ * Footnote-Marker werden entfernt.
+ *
+ * @param array{vorname?:string, nachname?:string, anzeige_name?:?string} $row
+ */
+function formatAutorName(array $row): string
+{
+    $anzeige = trim((string)($row['anzeige_name'] ?? ''));
+    if ($anzeige !== '') {
+        return trim(preg_replace('/\*+/', '', $anzeige));
+    }
+    $vor  = trim(preg_replace('/\*+/', '', (string)($row['vorname']  ?? '')));
+    $nach = trim(preg_replace('/\*+/', '', (string)($row['nachname'] ?? '')));
+    return trim($vor . ($vor !== '' && $nach !== '' ? ' ' : '') . $nach);
+}
+
+/**
+ * "Nachname, Vorname" für Listen-Sortierung (z.B. Autorenseite).
+ *
+ * @param array{vorname?:string, nachname?:string, anzeige_name?:?string} $row
+ */
+function formatAutorNameNachLast(array $row): string
+{
+    $anzeige = trim((string)($row['anzeige_name'] ?? ''));
+    $nach = trim(preg_replace('/\*+/', '', (string)($row['nachname'] ?? '')));
+    if ($anzeige !== '') {
+        return $nach !== '' ? $nach : $anzeige;
+    }
+    $vor  = trim(preg_replace('/\*+/', '', (string)($row['vorname']  ?? '')));
+    if ($nach === '') return $vor;
+    return $vor === '' ? $nach : $nach . ', ' . $vor;
+}
+
+/**
+ * Alle Affiliations eines Autors (über paper_autor_institutionen abgeleitet),
+ * aggregiert mit Min/Max-Jahr aus papers/tagungen, sortiert nach jüngstem
+ * Auftreten zuerst.
+ *
+ * Fallback: wenn paper_autor_institutionen leer für diesen Autor, nutze
+ * autor_institutionen (Legacy/uncovered Autoren).
+ *
+ * @return list<array{institut_id:int, name:string, jahr_von:int, jahr_bis:int, n_papers:int, ist_aktuell:bool}>
+ */
+function getAutorAffiliations(int $autorId): array
+{
+    $lang    = currentLang() === 'en' ? 'en' : 'de';
+    $instCol = $lang === 'en' ? "COALESCE(NULLIF(i.name_en,''), i.name_de)" : 'i.name_de';
+    $db = getDb();
+
+    $stmt = $db->prepare("
+        SELECT pai.institut_id,
+               $instCol AS name,
+               MIN(t.jahr) AS jahr_von,
+               MAX(t.jahr) AS jahr_bis,
+               COUNT(DISTINCT pai.paper_id) AS n_papers
+        FROM paper_autor_institutionen pai
+        JOIN papers p ON p.id = pai.paper_id
+        JOIN tagungen t ON t.nummer = p.tagung_nummer
+        JOIN institutionen i ON i.id = pai.institut_id
+        WHERE pai.autor_id = ?
+        GROUP BY pai.institut_id
+        ORDER BY jahr_bis DESC, n_papers DESC, name COLLATE NOCASE
+    ");
+    $stmt->execute([$autorId]);
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    if (!$rows) {
+        // Legacy-Fallback: autor_institutionen (binaeres ist_aktuell)
+        $stmt = $db->prepare("
+            SELECT ai.institut_id,
+                   $instCol AS name,
+                   NULL AS jahr_von, NULL AS jahr_bis,
+                   0 AS n_papers,
+                   ai.ist_aktuell
+            FROM autor_institutionen ai
+            JOIN institutionen i ON i.id = ai.institut_id
+            WHERE ai.autor_id = ?
+            ORDER BY ai.ist_aktuell DESC, name COLLATE NOCASE
+        ");
+        $stmt->execute([$autorId]);
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($rows as &$r) {
+            $r['ist_aktuell'] = (bool)($r['ist_aktuell'] ?? false);
+        }
+        unset($r);
+        return $rows;
+    }
+
+    // jüngste(s) Institut(e) als "ist_aktuell" markieren
+    $maxYear = 0;
+    foreach ($rows as $r) $maxYear = max($maxYear, (int)$r['jahr_bis']);
+    foreach ($rows as &$r) {
+        $r['ist_aktuell'] = ((int)$r['jahr_bis'] === $maxYear);
+    }
+    unset($r);
+    return $rows;
+}
+
+/**
+ * Pro Paper die Autoren in Position-Reihenfolge mit jeweils ihren Affils
+ * im Kontext dieses Papers. Schlüssel: autor_id.
+ *
+ * @return list<array{
+ *     autor_id:int, position:int, ist_hauptautor:bool,
+ *     vorname:string, nachname:string, anzeige_name:?string, orcid_id:?string,
+ *     name:string, affils:list<array{institut_id:int,name:string}>
+ * }>
+ */
+function getPaperAutorenWithAffils(string $paperId): array
+{
+    $lang    = currentLang() === 'en' ? 'en' : 'de';
+    $instCol = $lang === 'en' ? "COALESCE(NULLIF(i.name_en,''), i.name_de)" : 'i.name_de';
+    $db = getDb();
+
+    $stmt = $db->prepare("
+        SELECT pa.autor_id, pa.position, pa.ist_hauptautor,
+               a.vorname, a.nachname, a.anzeige_name, a.orcid_id
+        FROM paper_autoren pa
+        JOIN autoren a ON a.id = pa.autor_id
+        WHERE pa.paper_id = ?
+        ORDER BY pa.position
+    ");
+    $stmt->execute([$paperId]);
+    $autoren = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (!$autoren) return [];
+
+    // Affils pro (Paper, Autor) — bevorzugt aus paper_autor_institutionen
+    $affStmt = $db->prepare("
+        SELECT pai.autor_id, pai.institut_id, $instCol AS name
+        FROM paper_autor_institutionen pai
+        JOIN institutionen i ON i.id = pai.institut_id
+        WHERE pai.paper_id = ?
+        ORDER BY name COLLATE NOCASE
+    ");
+    $affStmt->execute([$paperId]);
+    $affsByAutor = [];
+    foreach ($affStmt as $r) {
+        $affsByAutor[(int)$r['autor_id']][] = [
+            'institut_id' => (int)$r['institut_id'],
+            'name'        => (string)$r['name'],
+        ];
+    }
+
+    $out = [];
+    foreach ($autoren as $row) {
+        $aid = (int)$row['autor_id'];
+        $out[] = [
+            'autor_id'      => $aid,
+            'position'      => (int)$row['position'],
+            'ist_hauptautor'=> (bool)$row['ist_hauptautor'],
+            'vorname'       => (string)$row['vorname'],
+            'nachname'      => (string)$row['nachname'],
+            'anzeige_name'  => $row['anzeige_name'] ?? null,
+            'orcid_id'      => $row['orcid_id'] ?? null,
+            'name'          => formatAutorName($row),
+            'affils'        => $affsByAutor[$aid] ?? [],
+        ];
+    }
+    return $out;
+}
+
+/**
+ * Eindeutige Affil-Liste eines Papers (Reihenfolge nach Position der ersten
+ * Erwähnung). Für Anzeige "Affiliations" als zusammengefasste Liste.
+ *
+ * @return list<array{institut_id:int, name:string, autor_ids:list<int>}>
+ */
+function getPaperAffiliations(string $paperId): array
+{
+    $lang    = currentLang() === 'en' ? 'en' : 'de';
+    $instCol = $lang === 'en' ? "COALESCE(NULLIF(i.name_en,''), i.name_de)" : 'i.name_de';
+    $stmt = getDb()->prepare("
+        SELECT pai.institut_id, $instCol AS name, pai.autor_id, pa.position
+        FROM paper_autor_institutionen pai
+        JOIN institutionen i ON i.id = pai.institut_id
+        JOIN paper_autoren pa ON pa.paper_id = pai.paper_id AND pa.autor_id = pai.autor_id
+        WHERE pai.paper_id = ?
+        ORDER BY pa.position
+    ");
+    $stmt->execute([$paperId]);
+    $by = [];
+    foreach ($stmt as $r) {
+        $iid = (int)$r['institut_id'];
+        if (!isset($by[$iid])) {
+            $by[$iid] = [
+                'institut_id' => $iid,
+                'name'        => (string)$r['name'],
+                'autor_ids'   => [],
+            ];
+        }
+        $by[$iid]['autor_ids'][] = (int)$r['autor_id'];
+    }
+    return array_values($by);
+}
+
+/**
+ * ASCII-normalisierte Suche-Input-Vorbereitung: ß->ss, Diakritik weg, lower.
+ * Spiegel der normalizeForAliasMatch-Logik, nutzt aber dieselbe ICU-Variante.
+ */
+function normalizeSearchInput(string $q): string
+{
+    $q = str_replace(['ß','ẞ'], ['ss','SS'], $q);
+    if (class_exists(\Transliterator::class)) {
+        $tr = \Transliterator::create('Any-Latin; Latin-ASCII; NFKD; [:Nonspacing Mark:] Remove; Lower()');
+        if ($tr) {
+            $folded = $tr->transliterate($q);
+            if ($folded !== false) $q = $folded;
+        }
+    } else {
+        $q = mb_strtolower($q, 'UTF-8');
+    }
+    return trim(preg_replace('/\s+/', ' ', $q));
+}

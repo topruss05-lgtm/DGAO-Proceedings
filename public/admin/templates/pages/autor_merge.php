@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $dbw->prepare('DELETE FROM autoren WHERE id = ?')->execute([$sourceId]);
             $dbw->commit();
 
-            setFlash('success', "Autor \"" . trim($source['vorname'] . ' ' . $source['nachname']) . "\" in \"" . trim($target['vorname'] . ' ' . $target['nachname']) . "\" zusammengeführt.");
+            setFlash('success', "Autor \"" . formatAutorName($source) . "\" in \"" . formatAutorName($target) . "\" zusammengeführt.");
             header('Location: /admin/autoren');
             exit;
         } catch (Throwable $e) {
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Alle Autoren für Dropdowns
 $allAutoren = $db->query('
-    SELECT a.id, a.vorname, a.nachname, COUNT(pa.paper_id) as paper_count
+    SELECT a.id, a.vorname, a.nachname, a.anzeige_name, COUNT(pa.paper_id) as paper_count
     FROM autoren a
     LEFT JOIN paper_autoren pa ON pa.autor_id = a.id
     GROUP BY a.id
@@ -101,7 +101,7 @@ $allAutoren = $db->query('
                     <select class="form-select" id="source_id" name="source_id" required>
                         <option value="">-- auswählen --</option>
                         <?php foreach ($allAutoren as $a): ?>
-                        <option value="<?= $a['id'] ?>"><?= e(trim($a['vorname'] . ' ' . $a['nachname'])) ?> (<?= $a['paper_count'] ?> Papers)</option>
+                        <option value="<?= $a['id'] ?>"><?= e(formatAutorName($a)) ?> (<?= $a['paper_count'] ?> Papers)</option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -113,7 +113,7 @@ $allAutoren = $db->query('
                     <select class="form-select" id="target_id" name="target_id" required>
                         <option value="">-- auswählen --</option>
                         <?php foreach ($allAutoren as $a): ?>
-                        <option value="<?= $a['id'] ?>"><?= e(trim($a['vorname'] . ' ' . $a['nachname'])) ?> (<?= $a['paper_count'] ?> Papers)</option>
+                        <option value="<?= $a['id'] ?>"><?= e(formatAutorName($a)) ?> (<?= $a['paper_count'] ?> Papers)</option>
                         <?php endforeach; ?>
                     </select>
                 </div>

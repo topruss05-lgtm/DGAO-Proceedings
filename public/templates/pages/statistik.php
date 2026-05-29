@@ -11,7 +11,7 @@ $instCol = $lang === 'en' ? 'i.name_en' : 'i.name_de';
 
 // --- Query 1: Publications per author (ranked) — affiliation aus autor_institutionen
 $autorStats = $db->query("
-    SELECT a.id, a.vorname, a.nachname,
+    SELECT a.id, a.vorname, a.nachname, a.anzeige_name,
            (SELECT COALESCE(NULLIF($instCol, ''), i.name_de)
             FROM autor_institutionen ai
             JOIN institutionen i ON i.id = ai.institut_id
@@ -30,7 +30,7 @@ $autorJahrData = [];
 if (!empty($topAutorIds)) {
     $placeholders = implode(',', array_fill(0, count($topAutorIds), '?'));
     $stmt = $db->prepare("
-        SELECT a.id, a.vorname, a.nachname,
+        SELECT a.id, a.vorname, a.nachname, a.anzeige_name,
                (SELECT COALESCE(NULLIF($instCol, ''), i.name_de)
                 FROM autor_institutionen ai
                 JOIN institutionen i ON i.id = ai.institut_id
@@ -90,7 +90,7 @@ foreach ($autorJahrData as $row) {
     $key = $row['id'];
     if (!isset($autorSeries[$key])) {
         $autorSeries[$key] = [
-            'label' => trim($row['vorname'] . ' ' . $row['nachname']),
+            'label' => formatAutorName($row),
             'affiliation' => $row['affiliation'],
             'data' => [],
         ];
@@ -132,7 +132,7 @@ $showLimit = 50;
                         <td class="text-muted"><?= $i + 1 ?></td>
                         <td>
                             <a href="/autor/<?= $a['id'] ?>" class="accent-link">
-                                <?= e(trim($a['vorname'] . ' ' . $a['nachname'])) ?>
+                                <?= e(formatAutorName($a)) ?>
                             </a>
                         </td>
                         <td class="text-muted small"><?= e($a['affiliation']) ?></td>

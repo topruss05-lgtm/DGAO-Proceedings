@@ -157,7 +157,7 @@ if ($hasInput) {
     if ($authorQuery !== '' && mb_strlen($authorQuery) >= 2) {
         $aNorm = normalizeForAliasMatch($authorQuery);
         $stmtA = $db->prepare("
-            SELECT a.id, a.vorname, a.nachname, COUNT(DISTINCT pa.paper_id) AS paper_count
+            SELECT a.id, a.vorname, a.nachname, a.anzeige_name, COUNT(DISTINCT pa.paper_id) AS paper_count
             FROM autoren a
             JOIN paper_autoren pa ON pa.autor_id = a.id
             WHERE EXISTS (SELECT 1 FROM autor_aliase al
@@ -315,8 +315,7 @@ $tagungenAll    = getAllTagungenForFilter();
         </h2>
         <div class="suche-author-cards">
             <?php foreach ($authorMatches as $a):
-                $name = trim(preg_replace('/\*+/', '', (string)$a['nachname']));
-                if (!empty($a['vorname'])) $name .= ', ' . trim(preg_replace('/\*+/', '', (string)$a['vorname']));
+                $name = formatAutorNameNachLast($a);
             ?>
             <a href="/autor/<?= (int)$a['id'] ?>" class="suche-author-card">
                 <span class="suche-author-card__name"><?= e($name) ?></span>

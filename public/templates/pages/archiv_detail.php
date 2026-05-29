@@ -15,20 +15,32 @@ if (!$tagung) {
 $papers  = getPapersByTagung((int) $nummer);
 $groups  = groupPapersForArchiveDetail($papers);
 
-// Affiliations pro Paper für Filter — aus autor_institutionen → institutionen
-// (alle Verknüpfungen pro Autor, nicht nur ist_aktuell, damit der Filter
-// historisch korrekt funktioniert).
+// Affiliations pro Paper für Filter — bevorzugt aus paper_autor_institutionen
+// (paper-spezifische Zuordnung, historisch korrekt). Legacy-Fallback auf
+// autor_institutionen für Papers ohne Strang-B-Daten.
 $affilByPaperId = [];
 $affilStmt = $db->prepare('
-    SELECT pa.paper_id, GROUP_CONCAT(i.name_de, " | ") AS affils
+    SELECT pai.paper_id, GROUP_CONCAT(DISTINCT i.name_de) AS affils
+    FROM paper_autor_institutionen pai
+    JOIN institutionen i ON i.id = pai.institut_id
+    WHERE pai.paper_id IN (SELECT id FROM papers WHERE tagung_nummer = ?)
+    GROUP BY pai.paper_id
+');
+$affilStmt->execute([$nummer]);
+foreach ($affilStmt as $row) {
+    $affilByPaperId[$row['paper_id']] = (string)($row['affils'] ?? '');
+}
+$legacyStmt = $db->prepare('
+    SELECT pa.paper_id, GROUP_CONCAT(DISTINCT i.name_de) AS affils
     FROM paper_autoren pa
     JOIN autor_institutionen ai ON ai.autor_id = pa.autor_id
     JOIN institutionen i ON i.id = ai.institut_id
     WHERE pa.paper_id IN (SELECT id FROM papers WHERE tagung_nummer = ?)
+      AND pa.paper_id NOT IN (SELECT DISTINCT paper_id FROM paper_autor_institutionen)
     GROUP BY pa.paper_id
 ');
-$affilStmt->execute([$nummer]);
-foreach ($affilStmt as $row) {
+$legacyStmt->execute([$nummer]);
+foreach ($legacyStmt as $row) {
     $affilByPaperId[$row['paper_id']] = (string)($row['affils'] ?? '');
 }
 
