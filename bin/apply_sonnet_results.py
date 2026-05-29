@@ -73,7 +73,10 @@ def main():
         )
     """)
 
-    files = sorted(glob.glob(str(ROOT / "bin/.cache/borderline_batch_*_result.json")))
+    files = sorted(set(
+        glob.glob(str(ROOT / "bin/.cache/borderline_batch_*_result.json")) +
+        glob.glob(str(ROOT / "bin/.cache/borderline_wave*_batch_*_result.json"))
+    ))
     print(f"Sonnet-Result-Dateien: {len(files)}")
 
     all_results = []
