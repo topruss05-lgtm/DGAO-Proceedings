@@ -746,6 +746,9 @@ function getAutorAffiliations(int $autorId): array
     $instCol = $lang === 'en' ? "COALESCE(NULLIF(i.name_en,''), i.name_de)" : 'i.name_de';
     $db = getDb();
 
+    // Bevorzugt SICHERE Quellen (pdf/single_affil/anker/openalex/orcid).
+    // Unscharfe Eintraege nur wenn keine sicheren vorhanden sind — sonst
+    // ueberfluten sie die Anzeige bei Autoren mit vielen Multi-Affil-Papers.
     $stmt = $db->prepare("
         SELECT pai.institut_id,
                $instCol AS name,
@@ -757,11 +760,32 @@ function getAutorAffiliations(int $autorId): array
         JOIN tagungen t ON t.nummer = p.tagung_nummer
         JOIN institutionen i ON i.id = pai.institut_id
         WHERE pai.autor_id = ?
+          AND pai.quelle IN ('pdf','single_affil','anker','openalex','orcid')
         GROUP BY pai.institut_id
         ORDER BY jahr_bis DESC, n_papers DESC, name COLLATE NOCASE
     ");
     $stmt->execute([$autorId]);
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (!$rows) {
+        // Fallback auf unscharfe Einträge
+        $stmt = $db->prepare("
+            SELECT pai.institut_id,
+                   $instCol AS name,
+                   MIN(t.jahr) AS jahr_von,
+                   MAX(t.jahr) AS jahr_bis,
+                   COUNT(DISTINCT pai.paper_id) AS n_papers
+            FROM paper_autor_institutionen pai
+            JOIN papers p ON p.id = pai.paper_id
+            JOIN tagungen t ON t.nummer = p.tagung_nummer
+            JOIN institutionen i ON i.id = pai.institut_id
+            WHERE pai.autor_id = ?
+            GROUP BY pai.institut_id
+            ORDER BY jahr_bis DESC, n_papers DESC, name COLLATE NOCASE
+            LIMIT 5
+        ");
+        $stmt->execute([$autorId]);
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     if (!$rows) {
         // Legacy-Fallback: autor_institutionen (binaeres ist_aktuell)
