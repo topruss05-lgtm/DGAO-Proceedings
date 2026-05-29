@@ -1,7 +1,7 @@
 # Vorname-Vervollständigung & zeitliche Affiliation-Modellierung — Design
 
 **Datum:** 2026-05-27
-**Status:** Entwurf zur Review
+**Status:** Final (review-approved)
 **Vorgänger-Spec:** [2026-05-26-author-affiliation-canonicalization-design.md](2026-05-26-author-affiliation-canonicalization-design.md) (3-Schichten-Modell, abgeschlossen)
 
 ## Ziel
@@ -45,11 +45,32 @@ Pro Autor wird ermittelt: kanonischer **Vorname** (vollständigster verifizierte
 - 28 mit vollem Vornamen
 - **ORCID: 0 von 4515 befüllt** → wird in dieser Phase befüllt
 
-### Behandlung von Mittelinitialen (`H. J. Tiziani`)
+### Namens-Modell (1:1 ORCID-konform)
 
-- `vorname` = Rufname (`Hans`) → Anzeige "Hans Tiziani"
-- Mittelname/-initiale (`J.` / `Joachim`) landet in den **Aliasen**, nicht im Hauptfeld
-- alle Kombinationen als Aliase → Suche findet den Autor unter jeder Schreibweise
+```sql
+autoren:
+  vorname       TEXT    -- given-names: alle Vornamen zusammen ("Wolfgang", "Hans Joachim", "Fortunato Tito")
+  nachname      TEXT    -- family-name
+  anzeige_name  TEXT    -- credit-name aus ORCID, NULL wenn nicht gesetzt
+  orcid_id      TEXT    -- existiert bereits
+```
+
+**Pro Autor bleibt die Form stabil** (Wolfgang ist immer "Wolfgang", nie "W."), **zwischen Autoren wechselt sie** je nach Selbstdarstellung — genauso wie ORCID es macht. Mittelnamen, falls vorhanden, stehen **im `vorname`-Feld** zusammen mit dem Rufnamen ("Hans Joachim"), nicht separat.
+
+**Anzeige überall:** `COALESCE(anzeige_name, vorname || ' ' || nachname)`. `anzeige_name` wird realistisch nur bei ~2 % der Autoren befüllt sein (ORCID `credit-name` ist meist leer), bleibt aber das korrekte Feld für die seltenen Fälle wie "Sofia Maria Hernandez Garcia".
+
+### Quellen-Priorität für die kanonische Form
+
+| Wenn vorhanden | Quelle | Schreibt in |
+|---|---|---|
+| ORCID `credit-name` | offiziell | `anzeige_name` |
+| ORCID `given-names` | offiziell vom Autor gepflegt | `vorname` |
+| ORCID `family-name` | offiziell | `nachname` (bestätigt) |
+| PDF (Mehrheits-Form über die Papers) | Original-Veröffentlichung | `vorname` (wenn kein ORCID) |
+| OpenAlex `display_name` | Sekundär | `vorname` (Fallback) |
+| Nichts davon belegbar | — | `vorname` bleibt Initiale, Review-Queue |
+
+Alle anderen Schreibweisen (PDF-Varianten, OpenAlex `display_name_alternatives`, ORCID `other-names`) → `autor_aliase`.
 
 ### Auflösungs-Pipeline pro Autor (gestuft, Abbruch beim ersten sicheren Treffer)
 
@@ -88,6 +109,36 @@ Merge nutzt die bestehende `mergeAuthorCluster`-Logik (PK-Konflikt-Deduplizierun
 - Mehrteilige Vornamen erlaubt (Fortunato Tito, Daniele Eugenio).
 
 ## Strang B — Affiliation pro (Paper, Autor)
+
+### Institutionen-Schema-Erweiterung (ROR-konform)
+
+Vergleich mit ROR v2 als Goldstandard zeigt drei lohnende Verbesserungen am bestehenden `institutionen`-Schema:
+
+**A) Sauberer Parent/Child statt String-Verweis:**
+
+Aktuell `universitaet TEXT` mit Inhalt wie `"Karlsruhe Institute of Technology"` — keine echte Verknüpfung. ROR modelliert das als FK-Beziehung (`relationships[type=parent]`). Migration:
+
+```sql
+ALTER TABLE institutionen ADD COLUMN parent_id INTEGER REFERENCES institutionen(id);
+-- Migration: für jeden Eintrag mit universitaet != '' → matche auf institutionen.id (über Aliase/Name) → parent_id setzen
+-- universitaet-Spalte bleibt zunächst (Rückwärtskompatibilität), wird in Phase 2 entfernt
+```
+
+Vorteil: KIT einmal gepflegt (Adresse, ROR, Homepage), Sub-Institute (KIT IPQ, KIT IMT) erben über die FK. Aggregation "alle Autoren des KIT" = ein JOIN.
+
+**B) Drei ROR-Felder ergänzen:**
+
+```sql
+ALTER TABLE institutionen ADD COLUMN typ          TEXT;   -- 'education'|'company'|'government'|'healthcare'|'nonprofit'|'facility'|'funder'|'archive'|'other'
+ALTER TABLE institutionen ADD COLUMN homepage_url TEXT;
+ALTER TABLE institutionen ADD COLUMN wikidata_id  TEXT;   -- für Cross-Linking (Wikipedia-Snippet, etc.)
+```
+
+**C) Bewusst skippen** (für ein Proceedings-Archiv unnötig): `status`, `koordinaten` (lat/lon), `domains[]`, `gegruendet`, weitere external_ids (GRID/ISNI/FundRef — Wikidata reicht als Cross-Link).
+
+### Befüllung aus ROR-API (deterministisch, kein Token)
+
+Für die 521 Institute mit `ror_id`: ein API-Call pro Institut liefert `types`, `links[type=website]`, `external_ids.wikidata`, `relationships[type=parent]` — alle vier neuen Felder gleichzeitig. Für die übrigen 463 ohne ROR-ID: erst ROR-Suche zur Auflösung, dann gleicher Lauf.
 
 ### Datenmodell
 
@@ -144,8 +195,10 @@ Affil-Text aus Abstract/PDF → über `institut_aliase` (normalisiert) auf kanon
 
 ## Entschieden
 
-- **Multi-Affil-Tiefe:** PDF-Parsing der Marker als Stufe 1 (deterministisch, löst zugleich Strang A), dann Anker + OpenAlex. Rest bleibt leer (kein Raten).
-- **Affil-Modell:** `paper_autor_institutionen` statt `jahr_von/jahr_bis`.
+- **Affil-Modell:** `paper_autor_institutionen` (Affil pro Paper-Autor) statt `jahr_von/jahr_bis`. Mehrere parallele Affiliations = mehrere Zeilen pro (Paper, Autor).
+- **Namens-Modell:** 1:1 ORCID-konform. `vorname` enthält alle Vornamen zusammen (inkl. Mittelnamen). `anzeige_name` für ORCID `credit-name`. Mittelnamen nicht separat.
+- **Institutionen-Schema:** ROR-konform erweitert — `parent_id` (FK statt String), `typ`, `homepage_url`, `wikidata_id`. Skippen: status, koordinaten, domains, gegruendet, weitere external_ids.
+- **Multi-Affil-Tiefe:** PDF-Parsing der Marker als Stufe 1 (deterministisch, löst zugleich Strang A), dann Single-Affil + Anker + OpenAlex. Rest bleibt leer — kein Raten.
 
 ## Komponenten / Dateien
 
@@ -154,11 +207,12 @@ Affil-Text aus Abstract/PDF → über `institut_aliase` (normalisiert) auf kanon
 | `bin/pdf_extract.py` (neu) | Paper-PDF → (Position, voller Name, Affil-Marker-Zuordnung); Lesbarkeits-Check |
 | `bin/openalex_resolve.py` (aus `openalex_test.py`) | OpenAlex: Vorname + alle Namensvarianten + ORCID + Affil-Historie |
 | `bin/openalex_evidence.py` (vorhanden) | strukturierte Evidenz für LLM-Richter |
-| `bin/fill_vornamen.py` (neu) | Strang-A: Namens-Auflösung (PDF→OpenAlex→ORCID→LLM), schreibt `vorname`/`orcid_id` + Aliase + Audit |
+| `bin/fill_vornamen.py` (neu) | Strang-A: Namens-Auflösung (PDF→OpenAlex→ORCID→LLM), schreibt `vorname`/`anzeige_name`/`orcid_id` + Aliase + Audit |
+| `bin/ror_enrich.py` (neu) | Institutionen-Anreicherung aus ROR-API: `parent_id`, `typ`, `homepage_url`, `wikidata_id` |
 | `bin/merge_by_orcid.py` (neu) | ORCID- & Vollname-basierte Merges via `mergeAuthorCluster` |
 | `bin/fill_affiliations.py` (neu) | Strang-B: `paper_autor_institutionen` befüllen (PDF/Single/Anker/OpenAlex) |
-| `public/db.php` | Schema-Migration v9 (`paper_autor_institutionen`) |
-| Frontend-Templates | Mehrfach-Affil-Darstellung statt LIMIT 1 |
+| `public/db.php` | Schema-Migration v9 (autoren: `anzeige_name`; institutionen: `parent_id`/`typ`/`homepage_url`/`wikidata_id`; neue Tabelle `paper_autor_institutionen`) |
+| Frontend-Templates | Mehrfach-Affil-Darstellung statt LIMIT 1; `COALESCE(anzeige_name, vorname \|\| ' ' \|\| nachname)` |
 
 ## Testbarkeit
 
