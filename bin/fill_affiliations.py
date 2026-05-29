@@ -249,7 +249,7 @@ def main():
     import argparse
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true")
-    ap.add_argument("--stage", choices=["single", "pdf", "anker", "all"], default="all")
+    ap.add_argument("--stage", choices=["single", "pdf", "anker", "unscharf", "all"], default="all")
     args = ap.parse_args()
 
     con = sqlite3.connect(DB)
@@ -262,7 +262,7 @@ def main():
     print(f"  pdf_index:    {len(pdf_index)} Papers")
 
     stats = {"stage1_single": 0, "stage2_pdf": 0, "stage3_anker": 0,
-             "instituts_neu": 0, "skipped_kein_match": 0}
+             "stage4_unscharf": 0, "instituts_neu": 0, "skipped_kein_match": 0}
 
     # Audit-Tabelle
     con.execute("""
@@ -348,30 +348,64 @@ def main():
     # ============== STUFE 3: Single-Affil-Anker ==============
     if args.stage in ("anker", "all"):
         print("\n[Stufe 3] Single-Affil-Anker für ungelöste Multi-Affil...")
-        # Für jeden Autor: hat er in seinen Single-Affil-Papers (Stufe 1)
-        # eindeutige Affiliation? Dann übertragen auf alle seine Multi-Affil-Papers
-        # wo noch nichts gesetzt ist.
-        anker = {}  # autor_id -> set(institut_id)
-        for r in con.execute("""
-            SELECT autor_id, institut_id FROM paper_autor_institut_audit_v9
-            WHERE quelle='single_affil'
-        """):
-            anker.setdefault(r["autor_id"], set()).add(r["institut_id"])
-        # Nur eindeutige Anker (genau 1 Institution aus Solo-Belegen)
-        unique_anker = {a: list(s)[0] for a, s in anker.items() if len(s) == 1}
-        # Multi-Affil-Papers ohne PDF-Marker-Treffer
+        # Pro Autor: hat er aus paper_autor_institutionen (single_affil-Quelle)
+        # eindeutig EINE Institution? Wenn ja -> übertragen auf alle seine Papers
+        # wo er noch KEINEN Eintrag hat.
+        # Bug-Fix: direkt aus paper_autor_institutionen (nicht aus dem Audit),
+        # da die Audit-Tabelle nicht zuverlässig ist beim Re-Run.
         rows = con.execute("""
-            SELECT p.id AS paper_id, pa.autor_id
-            FROM papers p JOIN paper_autoren pa ON pa.paper_id = p.id
-            WHERE p.id NOT IN (
-                SELECT DISTINCT paper_id FROM paper_autor_institut_audit_v9
-                WHERE autor_id=pa.autor_id
-            )
+            SELECT autor_id, institut_id, COUNT(DISTINCT paper_id) AS n_papers
+            FROM paper_autor_institutionen WHERE quelle='single_affil'
+            GROUP BY autor_id, institut_id
         """).fetchall()
+        autor_to_instits = defaultdict(set)
         for r in rows:
+            autor_to_instits[r["autor_id"]].add(r["institut_id"])
+        unique_anker = {a: list(s)[0] for a, s in autor_to_instits.items() if len(s) == 1}
+        print(f"  Eindeutige Anker: {len(unique_anker)} Autoren")
+        # Finde alle (paper_id, autor_id) Verknüpfungen wo es noch keinen pai-Eintrag gibt
+        missing = con.execute("""
+            SELECT pa.paper_id, pa.autor_id
+            FROM paper_autoren pa
+            LEFT JOIN paper_autor_institutionen pai
+              ON pai.paper_id = pa.paper_id AND pai.autor_id = pa.autor_id
+            WHERE pai.paper_id IS NULL
+        """).fetchall()
+        print(f"  Missing-Verknüpfungen: {len(missing)}")
+        for r in missing:
             iid = unique_anker.get(r["autor_id"])
             if iid and insert_paif(r["paper_id"], r["autor_id"], iid, "anker"):
                 stats["stage3_anker"] += 1
+
+    # ============== STUFE 4: Unscharf — alle Autoren -> alle Paper-Affils ==============
+    if args.stage in ("unscharf", "all"):
+        print("\n[Stufe 4] Unscharf: alle Autoren ungelöster Papers -> alle Affils des Papers...")
+        # Multi-Affil-Papers (oder mit Roh-Affil) ohne pai-Eintrag pro Autor
+        missing = con.execute("""
+            SELECT pa.paper_id, pa.autor_id, p.affiliationen
+            FROM paper_autoren pa
+            JOIN papers p ON p.id = pa.paper_id
+            LEFT JOIN paper_autor_institutionen pai
+              ON pai.paper_id = pa.paper_id AND pai.autor_id = pa.autor_id
+            WHERE pai.paper_id IS NULL
+              AND p.affiliationen IS NOT NULL AND trim(p.affiliationen) != ''
+        """).fetchall()
+        print(f"  Unscharf-Kandidaten: {len(missing)} (paper,autor)-Verknüpfungen")
+        # Cache pro Paper -> Liste der gematchten institut_ids
+        paper_affil_cache = {}
+        for r in missing:
+            pid = r["paper_id"]
+            if pid not in paper_affil_cache:
+                inst_ids = []
+                for part in split_multi_affils(r["affiliationen"]):
+                    iid = match_or_create_institut(con, part, alias_lookup,
+                                                    dry_run=not args.apply)
+                    if iid:
+                        inst_ids.append(iid)
+                paper_affil_cache[pid] = list(dict.fromkeys(inst_ids))  # dedupe, keep order
+            for iid in paper_affil_cache[pid]:
+                if insert_paif(pid, r["autor_id"], iid, "unscharf"):
+                    stats["stage4_unscharf"] += 1
 
     if args.apply:
         con.commit()
