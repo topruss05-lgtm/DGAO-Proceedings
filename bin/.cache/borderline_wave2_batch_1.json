@@ -1,0 +1,162 @@
+[
+  {
+    "id": 4042,
+    "init": "J.",
+    "nachname": "Franke",
+    "aff": "Lehrstuhl für Fertigungsautomatisierung und Produktionssystematik (FAPS), Friedrich-Alexander-Universität Erlangen-Nürnberg",
+    "n_papers": 7,
+    "sample_titles": "Rechnergestütztes Design und geometriebasierte Simulation 3D || Innovative Produktionsverfahren zur drucktechnischen Herstel || Design and simulation rules for printed optical waveguides w || Combination of Flexographic and Aerosol Jet Printing for Int || Asymmetric optical bus couplers with Aerosol Jet printed pol || Beeinflussung der optischen Eigenschaften von Polymer Optisc || Herausforderungen bei der Simulation von Polymer Optischen W"
+  },
+  {
+    "id": 6239,
+    "init": "Á.",
+    "nachname": "Barroso",
+    "aff": "University of Münster",
+    "n_papers": 7,
+    "sample_titles": "Optische Manipulation in der modernen Mikroskopie – wie holo || Optical control of zeolite-L-nanocontainer-based waveguides  || Trapping and manipulation of nano-structured micro particles || Bestimmung der Brechungsindexdispersion und Glaukom-bedingte || Charakterisierung und Kompensation von wellenlängenabhängige || Bestimmung der Brechungsindexdispersion und Glaukom-bedingte || Charakterisierung und Kompensation von wellenlängenabhängige"
+  },
+  {
+    "id": 6447,
+    "init": "J.",
+    "nachname": "Neumann",
+    "aff": "Schiefer und Co., Ellmenreichstraße 24, 20099 Hamburg, Germany;",
+    "n_papers": 7,
+    "sample_titles": "Novel Optical Fiber Couplers || Bearbeitung polymeroptischer Fasern mittels Strahlungserhitz || Charakterisierung der optischen Dämpfung in passiven und akt || Entwicklung eines Herstellungsprozesses von faserbasierten E || Nd2O3-Nanopartikel-Dispersionslaser im sichtbaren Spektralbe || Multiphysics simulation strategy for the optimization of las || Qualitative und quantitative Prüfung von ungleichmäßig galva"
+  },
+  {
+    "id": 6448,
+    "init": "D.",
+    "nachname": "Kracht",
+    "aff": "Laser Zentrum Hannover",
+    "n_papers": 7,
+    "sample_titles": "Novel Optical Fiber Couplers || Bestimmung optischer Eigenschaften von Werkstoffen zur Herst || Bearbeitung polymeroptischer Fasern mittels Strahlungserhitz || Charakterisierung der optischen Dämpfung in passiven und akt || Entwicklung eines Herstellungsprozesses von faserbasierten E || Nd2O3-Nanopartikel-Dispersionslaser im sichtbaren Spektralbe || Multiphysics simulation strategy for the optimization of las"
+  },
+  {
+    "id": 6451,
+    "init": "D.",
+    "nachname": "Hilbig",
+    "aff": "Hochschule Bremen",
+    "n_papers": 7,
+    "sample_titles": "Designing a Secondary Optical Freeform Lens for Signal Light || Experimental ray tracing for characterization of optical com || Characterization of progressive addition lenses by measureme || Application of radial basis functions for the surface recons || Determination of the paraxial focal length according to its  || Freeform surface measurement as an example for the advantage || Hochpräzise Messung flacher spiegelnder Freiform-Oberflächen"
+  },
+  {
+    "id": 6489,
+    "init": "A.",
+    "nachname": "Tausendfreund",
+    "aff": "Bremer Institut für angewandte Strahltechnik",
+    "n_papers": 7,
+    "sample_titles": "Optimized Parametric Optical Surface Characterization Proces || Messbarkeitsgrenzen der Speckle-Fotografie bei In-Prozess-Ve || Modellunterstützte Messmethode für periodische Sub-Wellenlän || Speckle-Oberflächenmesstechnik unter Einsatz adaptiver Optik || Indirekte optische Geometriemessung mittels fluoreszierender || Hochauflösende indirekte optische Geometriemessung unter der || Vibrationskompensation bei der Weißlichtinterferometrie – ei"
+  },
+  {
+    "id": 7139,
+    "init": "R.",
+    "nachname": "Bierl",
+    "aff": "OTH Regensburg",
+    "n_papers": 7,
+    "sample_titles": "Miniaturisiertes Sensorsystem zur Oberflächenplasmonenresona || Einbindung eines 2D-Photodetektors in einen hochintegrierten || Miniaturisierte Sensoren basierend auf Oberflächenplasmonenr || Entwicklung eines Echzeit-Schädlingsmonitoringsystems auf Ba || Miniaturisierte Sensoren basierend auf Oberflächenplasmonenr || Bestimmung von Brechungsindex und Dicke dünner Schichten mit || 3D druckbare optomechanische Komponenten als günstige Altern"
+  },
+  {
+    "id": 7352,
+    "init": "D.",
+    "nachname": "Fischer",
+    "aff": "alfavision GmbH & Co. KG",
+    "n_papers": 7,
+    "sample_titles": "Phase-retrieval Algorithmen zur Wellenfrontanalyse || Maskenlose Lithographie für die dreidimensionale Mikrostrukt || Der Lau-Effekt in der lithographischen Mikro-Nanostrukturier || Optimierung der Projektionsqualität für SLM-basierte hologra || Subwellenlängenstrukturierte Gitter mit kontrollierbaren Beu || Mikrostrukturierung auf nicht-planen Oberflächen durch SLM-b || Using a white noise reference object to determine the depth "
+  },
+  {
+    "id": 7370,
+    "init": "L.",
+    "nachname": "Fu",
+    "aff": "Institut für Technische Optik (ITO)",
+    "n_papers": 7,
+    "sample_titles": "Sub-lambda Polarisationsformer für Hochleistungslaser || A cascaded plasmonic superlens for far-field imaging with ma || Rigorous speckle simulator for large area rough surfaces usi || Rigorous speckle simulator for large area rough penetrable s || Rigorous modelling of scattered light from large area 3D sur || Rigorous Modeling of Sensor Responses in Confocal Microscopy || Comparison of a rigorous confocal microscope model with real"
+  },
+  {
+    "id": 8529,
+    "init": "R.",
+    "nachname": "Förg",
+    "aff": "Technische Hochschule Deggendorf",
+    "n_papers": 7,
+    "sample_titles": "Mikro-Heißprägen von MEMS Substraten aus Glas am Beispiel CM || Licht-unterstütztes Aushärten von CFK-Bauteilen in Werkzeuge || Präzisionsbiegen von Dünnglas für Röntgenteleskopspiegel || Entwicklung einer wasserdichten LED Flächenleuchte mit direk || Design and manufacturing of improved optical systems for sur || Design of an eye-safe passively Q-switched microchip laser f || Improvement of polishing properties of different mirror mate"
+  },
+  {
+    "id": 9528,
+    "init": "F.",
+    "nachname": "Wolff",
+    "aff": "SCHOTT AG",
+    "n_papers": 7,
+    "sample_titles": "Innovative Optische Gläser || Innovative Optische Gläser unterstützen Hollywoods filmische || Optical Materials beyond Glass || Optisches Glas - Materialspezifikation 3.0 || Material Compliance 2020 – Fokus Optisches Glas || Material Compliance 2021 – Fokus Optisches Glas || Schutzscheiben im optischen Pfad von LIDAR Systemen"
+  },
+  {
+    "id": 9688,
+    "init": "N.",
+    "nachname": "Lukin",
+    "aff": "Institut für Biomedizinische Technik",
+    "n_papers": 7,
+    "sample_titles": "Integrierte optische Bauelemente für die Wellenleiterkopplun || Spatio-temporales Reservoir Computing am Beispiel von Bewegu || Herstellung und Design holographisch-optischer Bauelemente f || Strahlformer für die holographische Belichtung || Hologramme zum Einsatz in Reservoir Computing Systemen || SLM-basierte Intra-cavity-Strahlformung eines Titan-Saphir-R || Strukturierung von Lithiumniobat für mikrooptische Anwendung"
+  },
+  {
+    "id": 12092,
+    "init": "R.",
+    "nachname": "Leitel",
+    "aff": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik",
+    "n_papers": 7,
+    "sample_titles": "Automotive Beleuchtung mit mikrooptischen Mehrkanaloptiken || Ultrakompakte Snapshot Multispektralkamera mittels Mikroopti || Ultrakompakte Snapshot Multispektralkamera mittels Mikroopti || Design of irregular microlens array for the switchable adapt || Ultrakompakte Snapshot Multimodal-Kamera mittels mikrooptisc || Projection of arbitrary far-field patterns using tailored mi || Design und Realisierung einer kompakten katadioptrischen Mul"
+  },
+  {
+    "id": 12503,
+    "init": "T.",
+    "nachname": "Handte",
+    "aff": "Institut für Biomedizinische Technik",
+    "n_papers": 7,
+    "sample_titles": "Photoakustischer Sensor zur Detektion strahlungsinduzierter  || Photoakustischer Sensor zur Detektion strahlungsinduzierter  || Herstellung von Mikro- und Nanostrukturen auf gekrümmten Obe || 2.5D+ etching of silicon oxide and nitride for optical and p || Simulation und Entwicklung eines optischen Taupunktsensors || Diffraktive optische Elemente mit anpassbarem Brechungsindex || Chromatische Eigenschaften tief geätzter DOEs in hochbrechen"
+  },
+  {
+    "id": 12555,
+    "init": "D.",
+    "nachname": "Flamm",
+    "aff": "TRUMPF Laser- und Systemtechnik SE",
+    "n_papers": 7,
+    "sample_titles": "Field reconstruction by modal decomposition in passive optic || Measuring laser beam quality using spatial light modulators || Complete Optical Field Reconstruction Using Computer Generat || Modal decomposition of laser beams for wavefront reconstruct || Generation of arbitrary optical fields using a spatial light || Streulichtarme holografische Blaze-Gitter für den EUV-Bereic || Extreme Parallelisierung erschließen: 1 kW Ultrakurzpulsbear"
+  },
+  {
+    "id": 10,
+    "init": "M.",
+    "nachname": "Lano",
+    "aff": "Lehrstuhl für Fertigungsautomatisierung und Produktionssystematik (FAPS), Friedrich-Alexander-Universität Erlangen-Nürnberg",
+    "n_papers": 6,
+    "sample_titles": "Eigenschaften und Grenzen von Homogenisatoren aus Mikrolinse || Kombination von wellenoptischer Berechnung und Raytracing zu || Simulation von Systemen mit kohärenter Strahlung mittels Kom || Theoretische Betrachtungen und Vergleich von diffraktiven un || Wave-optical simulation of a complex micro-optical system in || Computer generiertes Hologramm als punktsymmetrische Streupl"
+  },
+  {
+    "id": 21,
+    "init": "S.",
+    "nachname": "Gliech",
+    "aff": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik",
+    "n_papers": 6,
+    "sample_titles": "Hochauflösende Streulichtanalyse an optischen Komponenten im || Sensitive und flexible Streulichtmesstechnik für den tiefen  || Streulichtverfahren zur Inspektion ultra-präzisionsbearbeite || Streulichtmesstechnik für 193 nm und 13,5 nm || Streulichtmesssystem ALBATROSS || Makyoh-Imaging zur Charakterisierung reflektierender Oberflä"
+  },
+  {
+    "id": 327,
+    "init": "E.-B.",
+    "nachname": "Kley",
+    "aff": "FSU Jena",
+    "n_papers": 6,
+    "sample_titles": "Optische Response von periodischen 1D und 2D metallischen Su || Combination of binary and analog lithography to fabricate ef || Development of a large blazed transmission grating by binary || Mikrostrukturierte Photodioden mit Wellenlängen- und Richtun || High efficient transmission- and reflection gratings for fem || Effiziente Strukturierungsmethoden für deterministische nano"
+  },
+  {
+    "id": 469,
+    "init": "H.",
+    "nachname": "Kasprzak",
+    "aff": "Institute of Physics",
+    "n_papers": 6,
+    "sample_titles": "Optical properties of refractive media of the eye || The influence of the IOP on the geometrical and biomechanica || The method of measurement and analyse of the pupil response  || Numerical modeling of imaging of the eye pupil through the c || Imaging polarimetry with carrier frequency for the linearly  || Novel eye schematic model and its application in radial grad"
+  },
+  {
+    "id": 527,
+    "init": "J.",
+    "nachname": "Bähr",
+    "aff": "Deutsches Elektronen-Synchrotron DESY",
+    "n_papers": 6,
+    "sample_titles": "Refractive beam-shaping element fabricated by silver-sodium  || RaySense: Ein neuartiges strahlenoptisches Verfahren zur abs || Einsatz von RaySense in der Qualitätssicherung || Vermessung spiegelnder Freiformflächen im industriellen Umfe || Konzepte zur Echtzeit-Vermessung spiegelnder Freiformflächen || Compact PMD measurement and PSF reconstruction for large mir"
+  }
+]

@@ -1,0 +1,138 @@
+[
+  {
+    "id": 11869,
+    "init": "N.",
+    "nachname": "Mitura",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 3,
+    "sample_titles": "The influence of wave vector error on surface form reconstru || Der Einfluss der Wellenvektorunsicherheit auf die Rekonstruk || Multiple Aperture Shear Interferometry (MArS) and the influe"
+  },
+  {
+    "id": 11956,
+    "init": "M.",
+    "nachname": "Helgert",
+    "aff": "Carl Zeiss Jena GmbH",
+    "n_papers": 3,
+    "sample_titles": "Nichtinvasive Bestimmung der Profilgeometrie von diffraktive || Angepasste Interferenzgitter für spektroskopische und Laser- || Hochauflösende EUV-Gitter durch 2D-Phasenkorrektur in der Li"
+  },
+  {
+    "id": 11992,
+    "init": "M.",
+    "nachname": "Traub",
+    "aff": "Fraunhofer Institute of Laser Technology ILT, Steinbachstr. 15",
+    "n_papers": 3,
+    "sample_titles": "Teilautomatisiertes Optikdesign und Datenkette für eine lase || Optik-Design für eine skalierbare Anordnung optischer Pinzet || Strahlformung für die Laser-Diode-Floating-Zone-Kristallzuch"
+  },
+  {
+    "id": 12049,
+    "init": "D.",
+    "nachname": "Stefanidi",
+    "aff": "Canadian Standards Association",
+    "n_papers": 3,
+    "sample_titles": "Design of irregular microlens array for the switchable adapt || Compact optical system for projection of dynamic safety patt || Efficient LED beam shaping with maskless irregular fly’s eye"
+  },
+  {
+    "id": 12090,
+    "init": "J.",
+    "nachname": "Karl",
+    "aff": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik",
+    "n_papers": 3,
+    "sample_titles": "Design und Toleranzierung einer 1 MP multispektralen Snapsho || Design und Realisierung einer kompakten Multi-Apertur-ToF-We || Design und Realisierung einer kompakten katadioptrischen Mul"
+  },
+  {
+    "id": 12193,
+    "init": "M. T.",
+    "nachname": "Larson",
+    "aff": "University of Cincinnati",
+    "n_papers": 3,
+    "sample_titles": "Optical Elements for Photonic Integrated Circuits based on N || Enhancing Plasmon-Exciton Interaction: Gold Nanotriangle Arr || Optimizing Lasing Thresholds: Exploring the Impact of Pitch "
+  },
+  {
+    "id": 12289,
+    "init": "M.",
+    "nachname": "Falkner",
+    "aff": "Center of Optical Technology, FH Aalen",
+    "n_papers": 3,
+    "sample_titles": "Potentials and Challenges of Optics Manufacturing with Xolog || Potentials and challenges of integrated optical deformation  || Robust Design for 3D-Printed Optomechanical Systems"
+  },
+  {
+    "id": 12293,
+    "init": "S.",
+    "nachname": "Teves",
+    "aff": null,
+    "n_papers": 3,
+    "sample_titles": "Potentials and Challenges of Generative Design for Additivel || Potentials and Challenges of Optics Manufacturing with Xolog || Robust Design for 3D-Printed Optomechanical Systems"
+  },
+  {
+    "id": 12322,
+    "init": "J.",
+    "nachname": "Haueisen",
+    "aff": "Institut für Biomedizinische Technik",
+    "n_papers": 3,
+    "sample_titles": "Farbstimulator für die elektrophysiologische Diagnostik am A || Spektralbereichsbasierte refraktive Kurzkohärenzinterferomet || Depth Cue Recovery in Digital Optical Visualization Systems"
+  },
+  {
+    "id": 12357,
+    "init": "T.",
+    "nachname": "Greiner",
+    "aff": "Pforzheim University of Applied Sciences",
+    "n_papers": 3,
+    "sample_titles": "Photonische Technologien in der Fakultät Technik || An Efficient FPGA Hardware Architecture for Plenoptic 3D Ima || Intraoperative Perfusionsbildgebung mit hyperspektralen Lich"
+  },
+  {
+    "id": 12497,
+    "init": "H.",
+    "nachname": "Lochbihler",
+    "aff": "G+D Currency Technology GmbH, München",
+    "n_papers": 3,
+    "sample_titles": "Halbdurchlässige resonante Aluminiumgitter zur strukturellen || Herausforderungen bei der numerischen Simulation optischer E || Simulation von Strukturfarben basierend auf metallischen Git"
+  },
+  {
+    "id": 12529,
+    "init": "",
+    "nachname": "M.",
+    "aff": null,
+    "n_papers": 3,
+    "sample_titles": "Highly tolerant, high-efficiency pulse compressor gratings f || Eine vielseitige Laserplattform - kombinierte Emission von C || Methode für Direct Laser Interference Patterning auf große F"
+  },
+  {
+    "id": 12648,
+    "init": "P.",
+    "nachname": "Schneider",
+    "aff": "Carl Zeiss Microscopy GmbH",
+    "n_papers": 3,
+    "sample_titles": "Machine learning based optimization with applications in opt || Light scattering off semi-infinite structures || Implementierung der Auswertealgorithmen für ein neuartiges m"
+  },
+  {
+    "id": 12669,
+    "init": "J.",
+    "nachname": "Bliedtner",
+    "aff": "Ernst-Abbe-Hochschule Jena",
+    "n_papers": 3,
+    "sample_titles": "Herstellung optischer Freiformbauteile – Vorstellung einer n || Abtragsfreie Oberflächenstrukturierung silikatischer Gläser  || Kratzerheilung mit CO2-Laser auf Quarzglas für die Reparatur"
+  },
+  {
+    "id": 12670,
+    "init": "O.",
+    "nachname": "Fähnle",
+    "aff": "Vrana GmbH (Germany)",
+    "n_papers": 3,
+    "sample_titles": "Die Nutzung des Twymaneffektes in der Dünnschichttechnologie || Faustformel zur Prognose der Materialabtragsraten beim Polie || Kratzerheilung mit CO2-Laser auf Quarzglas für die Reparatur"
+  },
+  {
+    "id": 12716,
+    "init": "R.",
+    "nachname": "Römer",
+    "aff": "Institut für Bioprozess- und Analysenmesstechnik",
+    "n_papers": 3,
+    "sample_titles": "Optimierung der Abbildungseigenschaften eines Lichtschichtmi || Optimierte Lichtschichtmikroskopie durch adaptive Korrektur  || Fluoreszenzlebenszeitmessungen in einem Lichtschicht-Fluores"
+  },
+  {
+    "id": 12878,
+    "init": "C.",
+    "nachname": "Heyl",
+    "aff": null,
+    "n_papers": 3,
+    "sample_titles": "Interferometrisches Messsystem zur Visualisierung von Ultras || Interferometrische Ermittlung der schalldruckinduzierten Bre || Kontaktlose Manipulation von Laserstrahlen mittels luftbasie"
+  }
+]

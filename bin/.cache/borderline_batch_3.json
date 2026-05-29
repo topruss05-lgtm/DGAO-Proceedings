@@ -1,0 +1,162 @@
+[
+  {
+    "id": 584,
+    "init": "J.",
+    "nachname": "Bauer",
+    "aff": "Technische Hochschule Wildau",
+    "n_papers": 10,
+    "sample_titles": "Pattern recognition of thermovision images for biometrics || Pattern recognition of laser transillumination images for diagnosis of finger jo || Fiber-optic interference fringe projection for 3D measurement || Imaging systems based on four-spherical-mirror design || Asymmetrische Polymer-Linsen für Beleuchtungssysteme || Neuartige UV-transparente 2-Komponenten-Polyurethanharze für Chip-on-Board-LED-M || Obstruktionsfreies Optikdesign basierend auf vier sphärischen Spiegeln || Bestimmung der optischen Konstanten und Streueigenschaften von transparenten Kun || Neuartige UV-transparente 2-Komponenten-Polyurethanharze für Chip-on-Board-LED-M || Messverfahren zur Kontrolle tiefer Siliziumstrukturen für die 3D-Chip-Integratio"
+  },
+  {
+    "id": 935,
+    "init": "M.",
+    "nachname": "Duparré",
+    "aff": "Institute of Applied Optics, Abbe Center of Photonics, Friedrich Schiller University Jena",
+    "n_papers": 10,
+    "sample_titles": "Bestimmung der Abbildungsleistung von CCD/CMOS-Sensoren für digitale Consumer-Ka || Bestimmung der Abbildungsleistung von Sensoren für digitale SLRs mittels Fourier || Ein effizientes Verfahren zur Bewertung von Zoom-Objektiven für digitale SLR-Kam || Laser beam characterization by means of modal decomposition versus M2 method || Field reconstruction by modal decomposition in passive optical fibers used for b || Measuring laser beam quality using spatial light modulators || Complete Optical Field Reconstruction Using Computer Generated Holograms || Modal decomposition of laser beams for wavefront reconstruction || Generation of arbitrary optical fields using a spatial light modulator || Determination of the mutual modal degree of coherence for optical fiber modes"
+  },
+  {
+    "id": 973,
+    "init": "H.",
+    "nachname": "Schimmel",
+    "aff": "5microns GmbH",
+    "n_papers": 10,
+    "sample_titles": "Simulation der Feldverteilung von ultrakurzen Pulsen in fokalen Regionen || Das Konzept der Propagationsoperatoren in der Optikmodellierung || Modellierung partiell kohärenter Strahlung am Beispiel von LEDs || Optimierung, Herstellung und Toleranzanalyse von Refraktiven Strahlformungssyste || Fast and Accurate Free Space Propagation Based on Automatic Operator Selection || Design of Refractive, High-NA, Freeform Beam Shaping Systems || Partial Coherent Simulation of Homogenization Systems using Micro Lens Arrays || A New Fully Vectorial Geometrical Optics Propagation Using Localized Grid-To-Gri || Modeling and Design of Grating Cell Diffusers for Display and Lighting Applicati || Modeling Light Fields on Tilted Planes for Tolerancing and Reflective Components"
+  },
+  {
+    "id": 1296,
+    "init": "R.",
+    "nachname": "Parkin",
+    "aff": "Loughborough University",
+    "n_papers": 10,
+    "sample_titles": "Herstellung Diffraktiv Optischer Elemente mittels Nahfeldlithografie || Konstruktion und Fertigung eines DLBA (Diode Laser Beam Assembly) unter besonder || Charakterisierung von Laserstrahlfoki mittels SNOM-Faserspitzen || Formerkennung von Kleinstpartikeln (1µm - 3µm) mittels digitaler Bildverarbeitun || Miniaturisierung einer Anlage zur Untersuchung von Feinstaubteilchen kleiner PM  || Implementierung einer \"Tripple-Wavelength\" Laserdiode in ein Lithografiesystem u || Application of inline digital holographic techniques to detect size, distributio || Layout and optical simulation of a confocal lithography setup enhanced with a so || Structuring of technical surfaces to achieve a self - cleaning effect || Improving the lateral resolution in case of structuring technical surfaces by ap"
+  },
+  {
+    "id": 1307,
+    "init": "A. W.",
+    "nachname": "Koch",
+    "aff": "Lehrstuhl für Messsystem- und Sensortechnik, Technische Universität München",
+    "n_papers": 10,
+    "sample_titles": "Hochfrequente spektrale Auswertung von Faser Bragg Gittern zur dynamischen Struk || Messsystem zum experimentellen Nachweis der Polarisationsmodenkopplung in schubv || Femtosekundenlaser-basierte Frequenzkämme für optische Atomuhren || Kombinierte Ebenheits- und Rauheitsmessung mittels Speckle-Interferometrie || Design and Concept of Fiber-Optical and I²C Hybrid Sensor Bus System for Telecom || Querlastempfindlichkeit von Faser-Bragg-Gitter-Sensoren || Evaluierung von Bildauswertungsalgorithmen für Untersuchungen an viskosen fluore || Modellierung von Referenzwellen zur lokalen Desensibilisierung in der Speckle-In || ATR-Messsystem zur Fluidanalyse mit statischen Fourier-Transformations-Infrarots || Statisches Fourier-Transformations-Spektrometer für den mittleren Infrarotbereic"
+  },
+  {
+    "id": 1417,
+    "init": "M.",
+    "nachname": "Hoffmann",
+    "aff": "IGES Institut",
+    "n_papers": 10,
+    "sample_titles": "Photolackprozessierung zur Herstellung analoger beugungsoptischer Phasengitter || Simulation der Photoresistprozessierung zur Herstellung beugungsoptischer Elemen || Spektrale Charakterisierung mikro- und nanostrukturierter optischer Bauelemente || Vergrößerung der Auflösung von Compound Eye Kameras durch individuell verstimmba || Scannende Compound-Kamera zur hochauflösenden 3D-Objektabtastung || 3D Scanning system based on tunable cylindrical lenses || Integrated Hybrid GRIN Lenses || Scannend abbildendes Mikrosystem auf Basis durchstimmbarer Elemente aus Aluminiu || Adaptive micro-eye based on tunable micro-optical components || Aktive Beeinflussung des Brechungsindex der Luft für optische Präzisionssysteme"
+  },
+  {
+    "id": 1917,
+    "init": "V.",
+    "nachname": "Nercissian",
+    "aff": "Friedrich-Alexander-Universität Erlangen-Nürnberg",
+    "n_papers": 10,
+    "sample_titles": "Wellenfrontmessung mit Shearing-Interferometrie bei simultaner Erfassung beider  || Simultaneous lateral shearing-interferometry || Diffraktives 2D-Shearing-Interferometer mit partieller räumlicher Kohärenz || Stitching errors in diffractive nulltest elements || Phase measurement of a spatially varying polarization distribution || Comparison of phase unwrapping algorithms applied to singular phase fields || Reduktion von Phasensingularitäten bei lateraler Shearing-Speckle-Interferometri || Simultane Vermessung der Phase und der räumlich variierenden linearen Polarisati || Reduktion der Residuenanzahl bei lateraler Speckle-Shearing-Interferometrie: Sim || Reduktion von Phasensingularitäten in der Speckle-Interferometrie"
+  },
+  {
+    "id": 2136,
+    "init": "E.",
+    "nachname": "Tolstik",
+    "aff": "Leibniz Institute of Photonic Technology",
+    "n_papers": 10,
+    "sample_titles": "Photopolymer für Head-Up-Displays || Einfluss der nichtlokalen Antwort auf die Schreibzeit der Hologramme in Photopol || New photosensitive polymers based on MMA+PQ || Self-trapping of laser beams in polymeric layers || (1+1)D selbstinduzierte Wellenleiter in Photopolymeren auf der Basis von Plexigl || Einfluss von Temperaturänderung auf die Erzeugung selbstinduzierten (1+1)D-Welle || Diffractive Optical Elements in Polymeric Media Based on Polymethylmethacrylate  || Formierung selbstinduzierter 3D-Wellenleiter in lichtabsorbierenden photorefrakt || OPTICAL POLYMER WAVEGUIDE WITH TUNABLE POLARIZATION MODE DISPERSION || Volume transmission and reflection holograms in the high-concentrated composite "
+  },
+  {
+    "id": 5482,
+    "init": "F.",
+    "nachname": "Loosen",
+    "aff": "Friedrich-Alexander-Universität Erlangen-Nürnberg",
+    "n_papers": 10,
+    "sample_titles": "Telezentrischer Linienscanner auf Basis eines Ringflächenspiegels zur Oberfläche || Simulation der Vorläuferpulse bei Fokussierung ultrakurzer optischer Laserpulse || Simulations of the secondary maxima of highly focused ultrashort optical pulses  || A telecentric line scanning system: requirements in the macroscopic and microsco || Design and simulation rules for printed optical waveguides with implemented scat || Spatiales Heterodyn-Spektrometer zur Temperaturmessung in der mittleren Atmosphä || Effiziente Berechnung der Impulsantwort zeitabhängiger Signale in gedruckten Pol || Design und Herstellung eines CGH-basierten Modalen Wellenfrontsensors || Anwendung von Beam-Propagation-Method und Wave-Propagation-Method zur Simulation || Simulationen zur Erfassung der Güte gedruckter Polymer Optischer Wellenleiter (P"
+  },
+  {
+    "id": 7657,
+    "init": "L.",
+    "nachname": "Lenk",
+    "aff": "Institut für Biomedizinische Technik",
+    "n_papers": 10,
+    "sample_titles": "Zoomoptiken mit \"verstimmbarer Optik\" und linearer Verschiebung der Einzelmodule || Zoomsysteme mit ausschließlich linearen Steuerkurven auf Basis von Alvarez-Lohma || Mehrlagige diffraktive Alvarez-Lohmann Linsen für polychromatische Anwendungen || Chromatisch-konfokale Sensorik für die simultane Abstands- und Neigungsmessung || Startsysteme für Zoomobjektive mit verstimmbarer Optik || Design eines Zoomobjektivs mit verstimmbarer Linse für ein Projektionsobjektiv || Effizienzachromatisierung diffraktiver optischer Elemente über mehrlagige Strukt || Design Methodik für Zoomobjektive mit verstimmbaren Linsen || Diffraktive Alvarez-Lohmann Linsen für die Aberrationskorrektur verstimmbarer Me || Optik Design für Phase Retrieval mit verstimmbaren Linsen"
+  },
+  {
+    "id": 8202,
+    "init": "A.",
+    "nachname": "Behrens",
+    "aff": "Technische Universität Ilmenau",
+    "n_papers": 10,
+    "sample_titles": "Untersuchung deformierter optischer Mikrokavitäten anhand des abgestrahlten Fern || Lichtausbreitung in Ensembles von Mikroresonatoren || Subwellenlängenstrukturierte Gitter mit kontrollierbaren Beugungseffizienzen || Untersuchung optisch aktiver Beschichtungen für optischen Mikrokavitäten || Optimierte Plasmaätzverfahren für die Fabrikation von Whispering Gallery Mode Re || Generation of multiple focal spots with tunable axial distribution || Integration von DOEs in Whispering Gallery Resonatoren zur optimierten Lichteink || Charakterisierungsmethoden zur Untersuchung neuartiger Koppelelemente für optisc || Deformed 2.5D whispering gallery resonators – simulation analysis of mode distri || 2.5D+ etching of silicon oxide and nitride for optical and photonic systems"
+  },
+  {
+    "id": 12307,
+    "init": "H.",
+    "nachname": "Giessen",
+    "aff": "University of Stuttgart",
+    "n_papers": 10,
+    "sample_titles": "Three-dimensional metallic metamaterials: coupling matters || Schwärzen von 3D-gedruckten Mikrooptiken mittels Inkjet-Verfahren || Micro-optical systems for quantum technologies with laser-trapped neutral atoms  || 3D-gedrucktes Miniaturspektrometer für das sichtbare Spektrum mit einer Größe vo || 3D-gedruckte Freiformobjektive und Weitwinkelkameras mit einem extrem flachen Fo || Magnetisch aktuierbare 3D-gedruckte mikrooptische Elemente || Minimalinvasiver Bio 3D-Druck mittels endoskopischer Zwei-Photonen-Lithographie || Verfahren zum Schutz von Objektiven für neue Fotolacke in der hochauflösenden Zw || 3D-Druck von farbigen Mikrooptiken || Zweiphotonenlithographie mit einer optischen Singlemode-Faser"
+  },
+  {
+    "id": 12499,
+    "init": "J.",
+    "nachname": "Wüster",
+    "aff": "Institut für Biomedizinische Technik",
+    "n_papers": 10,
+    "sample_titles": "Experimental light-sheet microscopy for the comparison of different methods of s || Polarisationsabhängiges Funktionsmultiplexen an DOEs mit Subwellenlängenstruktur || Hybride Phasengitter mit Subwellenlängenstrukturen als Polarisationsstrahlteiler || Subwellenlängenstrukturierte Gitter mit kontrollierbaren Beugungseffizienzen || Ellipsometrie zur Charakterisierung optischer Beugungsgitter mit hohem Aspektver || Vergleich verschiedener Ansätze zur zerstörungsfreien optischen Charakterisierun || Designstrategien für polarisationsschaltbare binäre und mehrstufige subwellenlän || Berechnung und experimentelle Umsetzung von computergenerierten Mehrebenen-Holog || Diffraktive optische Elemente mit anpassbarem Brechungsindex in amorphem Siliziu || Chromatische Eigenschaften tief geätzter DOEs in hochbrechendem amorphem Siliziu"
+  },
+  {
+    "id": 122,
+    "init": "S.",
+    "nachname": "Lichtenberg",
+    "aff": "Photonik Zentrum Hessen in Wetzlar AG",
+    "n_papers": 9,
+    "sample_titles": "Adaptives holographisches Interferometer basierend auf dynamischen Reflektionsho || In-situ Kontrolle optischer Filter durch phasenverschobene Gitter || Analyse und Design der Transferfunktion von optischen Filtern || Verbesserung der Auflösung eines adaptiven photorefraktiven Interferometers || Spectral Bragg filter with a synthesized transfer function || Gas refractive index measurements using dynamic phase-shift keyed gratings || Coupled-wave theory of reflective phase-shift keyed Bragg grating || Ortsaufgelöste Untersuchung von Volumenhologrammen in photorefraktiven Kristalle || Elektrisch abstimmbare Filter und Schalter für die faseroptische Sensorik und Na"
+  },
+  {
+    "id": 453,
+    "init": "Udo",
+    "nachname": "Trutschel",
+    "aff": "Circadian; Stoneham, MA 02180, USA",
+    "n_papers": 9,
+    "sample_titles": "Neuroinformatische Bestimmung optischer Konstanten dünner Schichten aus Reflexio || Plasmonic Field Excitations in metal-clad Fiber Geometries || Anwendung von Neuronalen Netzen zur Charakterisierung optischer Schichtsysteme || Evaneszente Optik zur Untersuchung des Quellverhaltens stimuli-sensitiver „intel || Modellierungstool für zylindersymmetrische photonische Strukturen || Design Software für planare und zylindersymmetrische optische Systeme || SENSITIVITY ANALYSIS OF COUPLED PLASMON FIBER MODE PROPAGATION FOR EVANESCENT-WA || DIRECTIONAL COUPLING INSIDE A STEP-INDEX MULTI-LAYER FIBER || Modern Lightening affects the human Circadian System"
+  },
+  {
+    "id": 1085,
+    "init": "A.",
+    "nachname": "Heisterkamp",
+    "aff": "Institut für Quantenoptik, Gottfried Wilhelm Leibniz Univers",
+    "n_papers": 9,
+    "sample_titles": "Combined multiphoton imaging and cell surgery by femtosecond laser pulses || Two photon optogenetic stimulation of human induced pluripotent stem cells deriv || Mechanisms for the light-cell interface in optical cell stimulation || Macrobending losses of glass fibers for optical cochlear stimulation || SLOT: Computed Tomography with laser light for volumetric microscopy of mesoscop || Laser based cell manipulation with nanoparticles and optogenetics || Optogenetic tools for the development of a biohybrid pacemaker || Optogenetische Zellstimulation mittels strukturierter holographischer Beleuchtun || Development of an optogenetic triggered biohybrid cochlea implant"
+  },
+  {
+    "id": 1183,
+    "init": "F.",
+    "nachname": "Buchmüller",
+    "aff": "Jade Hochschule",
+    "n_papers": 9,
+    "sample_titles": "Entwicklung eines neuartigen Strahlteilers für Hochleistungslaser || Herstellung Diffraktiv Optischer Elemente mittels Nahfeldlithografie || Optimierung eines Laser Pattern Generators zur Erzeugung mehrstufiger Diffraktiv || Diffraktiv optische Elemente aus BK7 mit Hilfe thermischen Ionenaustausches || Automatisierte 3D-Formvermessung mit optischen Sensoren || Charakterisierung von Laserstrahlfoki mittels SNOM-Faserspitzen || DOE-Strahlteiler zum kontinuierlichen Messen der Leistung von Hochleistungs-Lase || Formerkennung von Kleinstpartikeln (1µm - 3µm) mittels digitaler Bildverarbeitun || Miniaturisierung einer Anlage zur Untersuchung von Feinstaubteilchen kleiner PM "
+  },
+  {
+    "id": 1389,
+    "init": "A.",
+    "nachname": "Tolstik",
+    "aff": "Belarussische Staatliche Universität Minsk",
+    "n_papers": 9,
+    "sample_titles": "Holographische Volumenphasengitter in einem glasähnlichen Polymermaterial || Untersuchungen zur photoinduzierten Absorption in einem BTO Kristall || Photoinduced absorption in photorefractive crystals as result of long-living ene || Experimentelle und theoretische Analyse der Steuerung des photochromen Effekts i || Photoinduzierte Absorption in einem Bi12TiO20 -Kristall durch cw-Laserstrahlung  || Multi-photon processes in photorefractive Bi12TiO20 crystals || Formierung selbstinduzierter 3D-Wellenleiter in lichtabsorbierenden photorefrakt || OPTICAL POLYMER WAVEGUIDE WITH TUNABLE POLARIZATION MODE DISPERSION || Volume transmission and reflection holograms in the high-concentrated composite "
+  },
+  {
+    "id": 2161,
+    "init": "T.",
+    "nachname": "Graf",
+    "aff": "Institut für Strahlwerkzeuge (IFSW), Universität Stuttgart",
+    "n_papers": 9,
+    "sample_titles": "Low-loss resonant grating mirrors for polarization shaping in high power solid-s || Interferenzlithografische Herstellung von rotationssymmetrischen Sub-Lambda-Gitt || Short Coherence Length Interferometer for the Measurement of the Absolute Fiber  || Modellierung thermomechanisch aktuierter, deformierbarer Spiegel für adaptive Op || Sub-lambda Polarisationsformer für Hochleistungslaser || Application of Grating waveguide structures in high-power thin-disk lasers: requ || Highly tolerant, high-efficiency pulse compressor gratings for high-power lasers || Eine vielseitige Laserplattform - kombinierte Emission von CW und ultraschnell g || Methode für Direct Laser Interference Patterning auf große Flächen mit hohen Rat"
+  },
+  {
+    "id": 2280,
+    "init": "T.",
+    "nachname": "Herffurth",
+    "aff": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik",
+    "n_papers": 9,
+    "sample_titles": "Streulicht- und Reflexionsmesstechnik für 13,5 nm || EUV scattering measurements of optical components || Bewertung der Poliergüte schwer zugänglicher Oberflächen durch Streulichtmethode || Kompakter streulichtbasierter Rauheitssensor || Optical scattering - from simple models to complex applications || Defect assessment of optical surfaces using the light scatter sensor HOROS || Streulichtbasierte Detektion von Subsurface Damage in geschliffenen und polierte || Compact and fast sensor systems for light scattering analysis of optical compone || Streulichtanalyse hochqualitativer Optikkomponenten"
+  }
+]

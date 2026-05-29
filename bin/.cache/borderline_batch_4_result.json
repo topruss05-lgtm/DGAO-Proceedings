@@ -1,0 +1,142 @@
+[
+  {
+    "id": 5260,
+    "vorname": "Christian",
+    "orcid": "0000-0003-2690-0691",
+    "confidence": 0.99,
+    "reason": "KIT IPQ Webseite (ipq.kit.edu/team_Koos.php) bestätigt Prof. Dr. Christian Koos am Institut für Photonik und Quantenelektronik; ORCID via Google-Scholar/ORCID-Treffer; Themen (Silicon Photonics, Frequenzkämme) exakt passend."
+  },
+  {
+    "id": 5505,
+    "vorname": "Ulrike",
+    "orcid": "0000-0003-0532-1519",
+    "confidence": 0.99,
+    "reason": "IMTEK Freiburg, Professur für Mikroaktorik (Gisela-und-Erwin-Sick-Professur) bestätigt; ORCID-Treffer im ORCID-Index. Themen (Adaptive Optik, MR-kompatible Linsen) exakt passend."
+  },
+  {
+    "id": 6788,
+    "vorname": "Sigurd",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "TH Wildau Staff-Seite (th-wildau.de/staff/sigurd-schrader/) und ResearchGate bestätigen Prof. Dr. Sigurd Schrader, Leiter AG Photonik/Laser-/Plasmatechnologien an TH Wildau. Themen (Polyurethanharze, Optische Through-Silicon Waveguides, Silizium-Photonik) passen. ORCID nicht eindeutig gefunden."
+  },
+  {
+    "id": 7019,
+    "vorname": "Dirk",
+    "orcid": "0000-0002-1624-2106",
+    "confidence": 0.98,
+    "reason": "BIMAQ Uni Bremen (bimaq.de/de/das-bimaq/mitarbeiter/stoebener-dirk/) bestätigt Dr.-Ing. Dirk Stöbener. Themen (Speckle-Korrelation, Weißlicht-Interferometrie, Rauheit) passend. ORCID aus Publikationsmetadaten."
+  },
+  {
+    "id": 8132,
+    "vorname": "Udo",
+    "orcid": "0000-0001-6313-7475",
+    "confidence": 0.98,
+    "reason": "FHGR Personenseite und Google-Sites-Profil bestätigen Dr. Udo J. Birk, Institut für Photonics und Robotik, FH Graubünden Chur. SPIE-Paper 2018 zu User-position aware adaptive display passt zum Sample-Titel. ORCID-Profil direkt verifiziert (orcid.org/0000-0001-6313-7475)."
+  },
+  {
+    "id": 9926,
+    "vorname": "Ulrike",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "SPIE Women in Optics 2025, ulrikeboehm.org und ResearchGate bestätigen Dr. Ulrike Boehm, Optical Scientist bei Carl Zeiss AG, Corporate Research; seit Juni 2024 DGaO-Vorstandsmitglied. Themen (Karriereperspektiven, Equity in Optics, iPALM Super-Resolution) passen exakt. ORCID nicht eindeutig öffentlich."
+  },
+  {
+    "id": 11304,
+    "vorname": "Eva",
+    "orcid": null,
+    "confidence": 1.0,
+    "reason": "Bereits voller Vorname im Input. TH Aschaffenburg-Personenseite (th-ab.de) und ResearchGate bestätigen Dr. Eva Stanik. Themen (Polydopamin-Ellipsometrie, Röntgen-Museum) passen. ORCID nicht eindeutig auffindbar."
+  },
+  {
+    "id": 36,
+    "vorname": "Bernd",
+    "orcid": null,
+    "confidence": 0.92,
+    "reason": "Dr. Bernd Dörband ist bekannter Interferometrie-Experte (Carl Zeiss Halbleiterfertigung), Lehrbeauftragter an Hochschule Aalen Fakultät Optik und Mechatronik. Themen (interferometrische Wellenlängenmodulation, Passemessfehler, Trägerfrequenz) passend zur Person."
+  },
+  {
+    "id": 170,
+    "vorname": "Cord",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "DGaO-Proceedings 2006 (dgao-proceedings.de/download/107/107_b20.pdf) listet Dr. Cord Brüggemann, FISBA OPTIK AG St. Gallen, mit FAC-Lens/Diode-Laser-Themen — passt zu allen Sample-Titeln (Venus Express Kamera, Fast-Axis-Kollimation, Twyman-Effekt)."
+  },
+  {
+    "id": 386,
+    "vorname": "Guido",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Semantic Scholar / ScienceDirect: Guido Bischoff, Laboratory of Biophysics, University of Münster, co-author auf 'Modular optical topometric sensor for 3D acquisition of human body surfaces' (Med. Eng. & Physics 2008). Themen (topometrisches Messsystem, CCD-Kameras, Farbreproduktion, Gesichtsoberflächen) passen exakt."
+  },
+  {
+    "id": 751,
+    "vorname": "Bernhard",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "MPI für Polymerforschung Mainz, AG Bonn (mpip-mainz.mpg.de/groups/bonn/members/projectleaders/menges_bernhard) bestätigt Projektleiter Bernhard Menges. Seine eigene EWO-Seite (mpip-mainz.mpg.de/~menges/EWO.html) thematisiert Evanescent Wave Optics, exakt passend zu allen Sample-Titeln (SPR, evaneszente Optik, Plasmon)."
+  },
+  {
+    "id": 1006,
+    "vorname": "Ondřej",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "Applied Optics Paper 2008 / 2012 'White-light interferometry on rough surfaces' nennt Ondřej Hýbl (auch als O. Hýbl), Institut für Optik, Information und Photonik, Universität Erlangen-Nürnberg, mit Pavlíček/Häusler. Themen (Weißlichtinterferometrie auf rauen Oberflächen, Information Efficient WLI) passen exakt."
+  },
+  {
+    "id": 1834,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.3,
+    "reason": "Initial 'S.' + Nachname Ernst + Jade Hochschule konnte nicht eindeutig aufgelöst werden. Trotz mehrerer Suchen (Sebastian/Stefan/Stephan Ernst Jade) kein Person mit passendem Profil bestätigt. DGaO-Proceedings-Such-Endpoint nicht zugänglich. Lieber NULL als falsch."
+  },
+  {
+    "id": 1894,
+    "vorname": "Daniel",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "ResearchGate (Daniel Pätz, TU Ilmenau) sowie OPG/Optica 'Imaging Systems with Aspherically Tunable Micro-optical Elements' (2013) listen Daniel Pätz, TU Ilmenau, Optical Engineering Group (Sinzinger). Sample-Titel (Compound Eye, Wave-front Coding, tunable Linsen) passen. Achtung: aff im Input ist 'Institut für Biomedizinische Technik' — Pätz ist eigentlich Institut für Technische Optik / Optical Engineering Group; Affiliation könnte daher abweichend sein, Themen aber sehr stimmig."
+  },
+  {
+    "id": 3037,
+    "vorname": "Christina",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "AG Denz Uni Münster (uni-muenster.de/Physik.AP/Denz/Organisation/christina_alpmann.shtml) bestätigt Christina Alpmann, Institut für Angewandte Physik. Themen (Ince-Gauß-Strahlen, holographische optische Pinzetten, Nanocontainer, Vektorielle Polarisation) passen exakt zu ihrer Forschung mit Woerdemann/Esseling/Denz."
+  },
+  {
+    "id": 3724,
+    "vorname": "Jan",
+    "orcid": null,
+    "confidence": 1.0,
+    "reason": "Vorname schon im Input. Fraunhofer IOSB Karlsruhe (sciprofiles.com/profile/1511809) bestätigt Dr. Jan Burke, Leiter Image-based Measurement Techniques. Themen (Deflektometrie, Streifenreflexion, spiegelnde Oberflächen) passen exakt. ORCID nicht eindeutig gefunden (sciprofiles-Treffer mit 0000-0002-0608-4765 ist Alexey Pak)."
+  },
+  {
+    "id": 6452,
+    "vorname": "Friedrich",
+    "orcid": "0000-0001-7005-2429",
+    "confidence": 0.97,
+    "reason": "HSB Hochschule Bremen Personenseite (hs-bremen.de/person/fleischm/) bestätigt Prof. Dr.-Ing. Friedrich Fleischmann. Themen (Freeform LED Signal Lighting, Experimental Ray Tracing, Deflektometrie) passen. ORCID aus Web-Suche."
+  },
+  {
+    "id": 6453,
+    "vorname": "Thomas",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "Hochschule Bremen Co-Autor bei allen Fleischmann-Papern (JSSS 2021, SPIE 2017/2019). Thomas Henning ist als T. Henning, Hochschule Bremen, in mehreren freeform/experimental-ray-tracing-Publikationen mit Fleischmann/Hilbig gelistet. ORCID 0000-0001-7005-2429 aus Web-Suche, aber das gleiche wie Fleischmanns ORCID — daher als ORCID null gesetzt, weil Suchresultat unzuverlässig."
+  },
+  {
+    "id": 6546,
+    "vorname": "Tammo",
+    "orcid": "0000-0003-3512-9544",
+    "confidence": 0.95,
+    "reason": "LZH-Profilseite (lzh.de/en/profile/tammo-ripken) bestätigt Dr. rer. nat. Tammo Ripken, ehem. Head of Industrial and Biomedical Optics Department, Laser Zentrum Hannover. Themen (Optogenetik, fs-Lasersurgery, Optical Cochlear Stimulation, SLOT-CT) passen. ORCID aus Publikations-Metadaten."
+  },
+  {
+    "id": 6784,
+    "vorname": "Patrick",
+    "orcid": "0000-0002-3689-5737",
+    "confidence": 0.98,
+    "reason": "TH Wildau Joint Lab IHP Wildau / sciprofiles.com bestätigen Dr. Patrick Steglich, IHP Frankfurt(Oder) und TH Wildau. Themen (Silizium-photonische Biosensoren, monolithisch integrierte Mikrofluidik, Optical Through-Silicon Waveguides) passen exakt. ORCID via Web-Suche."
+  }
+]

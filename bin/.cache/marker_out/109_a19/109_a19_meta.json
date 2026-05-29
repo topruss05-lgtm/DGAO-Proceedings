@@ -1,0 +1,168 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Untersuchungen der Wellenfrontaberrationen des Auges mit einem adaptiven\nEchtzeitphoropter im Vergleich zu einem kommerziellen Aberrometer",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          77.67402648925781,
+          69.4814453125
+        ],
+        [
+          517.0320434570312,
+          69.4814453125
+        ],
+        [
+          517.0320434570312,
+          93.9677734375
+        ],
+        [
+          77.67402648925781,
+          93.9677734375
+        ]
+      ]
+    },
+    {
+      "title": "1 Einleitung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          57.827022552490234,
+          249.96875
+        ],
+        [
+          121.4906005859375,
+          249.96875
+        ],
+        [
+          121.4906005859375,
+          261.510498046875
+        ],
+        [
+          57.827022552490234,
+          261.510498046875
+        ]
+      ]
+    },
+    {
+      "title": "2 Grundlagen",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          57.827022552490234,
+          583.4282836914062
+        ],
+        [
+          129.24180603027344,
+          583.4282836914062
+        ],
+        [
+          129.24180603027344,
+          593.3912658691406
+        ],
+        [
+          57.827022552490234,
+          593.3912658691406
+        ]
+      ]
+    },
+    {
+      "title": "2.1 Shack-Hartmann-Wellenfrontsensor",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          57.62109375,
+          600.6650390625
+        ],
+        [
+          240.37890625,
+          600.6650390625
+        ],
+        [
+          240.37890625,
+          613.0270385742188
+        ],
+        [
+          57.62109375,
+          613.0270385742188
+        ]
+      ]
+    },
+    {
+      "title": "2.2 Aufbau des adaptiven Echtzeitphoropters",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          306.73046875,
+          508.5712890625
+        ],
+        [
+          514.0005493164062,
+          508.5712890625
+        ],
+        [
+          514.0005493164062,
+          519.5722045898438
+        ],
+        [
+          306.73046875,
+          519.5722045898438
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          150
+        ],
+        [
+          "Line",
+          80
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/109_a19"
+}

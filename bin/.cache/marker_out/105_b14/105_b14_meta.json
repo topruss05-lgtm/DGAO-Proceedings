@@ -1,0 +1,168 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Wellen- und strahlenoptische Simulation von Wabenkondensoren",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          110.27999877929688,
+          69.468505859375
+        ],
+        [
+          488.3518371582031,
+          69.468505859375
+        ],
+        [
+          488.3518371582031,
+          81.468505859375
+        ],
+        [
+          110.27999877929688,
+          81.468505859375
+        ]
+      ]
+    },
+    {
+      "title": "Norbert Lindlein",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          262.0556640625,
+          99.9052734375
+        ],
+        [
+          335.7427978515625,
+          99.9052734375
+        ],
+        [
+          335.7427978515625,
+          110.97412109375
+        ],
+        [
+          262.0556640625,
+          110.97412109375
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.55810546875,
+          276.6923828125
+        ],
+        [
+          124.1243667602539,
+          276.6923828125
+        ],
+        [
+          124.1243667602539,
+          287.01348876953125
+        ],
+        [
+          59.55810546875,
+          287.01348876953125
+        ]
+      ]
+    },
+    {
+      "title": "2 Strahlenoptische Simulation",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.39599609375,
+          674.6741638183594
+        ],
+        [
+          205.92005920410156,
+          674.6741638183594
+        ],
+        [
+          205.92005920410156,
+          685.3583984375
+        ],
+        [
+          58.39599609375,
+          685.3583984375
+        ]
+      ]
+    },
+    {
+      "title": "3 Wellenoptische Simulation",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          308.5400390625,
+          643.2337799072266
+        ],
+        [
+          447.5234375,
+          643.2337799072266
+        ],
+        [
+          447.5234375,
+          653.2537689208984
+        ],
+        [
+          308.5400390625,
+          653.2537689208984
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          157
+        ],
+        [
+          "Line",
+          84
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_b14"
+}

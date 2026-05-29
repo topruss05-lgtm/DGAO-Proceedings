@@ -1,0 +1,142 @@
+[
+  {
+    "id": 3867,
+    "vorname": "Michael",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Michael Hornung, project manager at SUSS MicroTec Lithography GmbH Garching, co-author on Mask Aligner Lithography papers (AMALITH, Advanced mask aligner lithography). Matches initial M., affiliation (SUSS) and all three sample titles."
+  },
+  {
+    "id": 3885,
+    "vorname": "Adrian",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "Adrian Lorenz, physicist at Leibniz-IPHT Jena (Faserforschung und -technologie / Spezialfaseroptik). Diploma thesis on fiber mode stability at FSU Jena, works on optical special fibers. Matches initial A., affiliation, and topic (Spezialfasern/Hohlkernfasern)."
+  },
+  {
+    "id": 3931,
+    "vorname": "Andreas",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Prof. Dr. Andreas Ettemeyer, Prorektor and head of aF&E at NTB Interstaatliche Hochschule Buchs (now OST), PhD on holography at MPA Stuttgart. Direct match for initial A., affiliation and topic (Digital Holographic Microscopy, bonding modeling, optical fiber probe)."
+  },
+  {
+    "id": 4062,
+    "vorname": "Arianna",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Arianna Bramati, Optical Engineer at SUSS MicroOptics SA Neuchâtel/Hauterive since 2010. M.Sc. Physics Engineering Politecnico Milano. Works on Mask Aligner proximity lithography, MO Exposure Optics, AMALITH. Direct match for all fields."
+  },
+  {
+    "id": 4097,
+    "vorname": "Roman",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "Roman Krobot at Institute of Optics, Information and Photonics, FAU Erlangen-Nürnberg, co-author with Faber/Olesch/Häusler on 'Deflectometry challenges interferometry' (2012). Matches initial R., Erlangen affiliation and deflectometric mirror topic. Note: DB-affiliation says FAPS but actual institute is LTI/Optik – institute mismatch within FAU likely irrelevant."
+  },
+  {
+    "id": 4102,
+    "vorname": "Friedrich",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "Friedrich Stinzing, scientist at ECAP (Erlangen Centre for Astroparticle Physics), FAU Erlangen since 1991. Co-author on 'Deflectometric measurement of large mirrors' (2014) for CTA mirror tiles. Matches initial F., FAU Erlangen, deflectometric mirror metrology for telescopes."
+  },
+  {
+    "id": 4200,
+    "vorname": "Jan",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "Jan Matrisch, TH Köln (Institute of Applied Optics and Electronics), co-author with Stefan Altmeyer on 'Quantitative Phasenrekonstruktion in Echtzeit unter Verwendung der Intensitäts-Transport-Gleichung' (DGaO 2011) and holographic multiplexing papers. Topic match exact. NOTE: DB-affiliation 'Jena/Abbe Center' appears incorrect — actual affiliation is TH Köln."
+  },
+  {
+    "id": 4212,
+    "vorname": "Reinhard",
+    "orcid": null,
+    "confidence": 0.98,
+    "reason": "Dr. Reinhard Voelkel (Völkel), Founder/CEO of SUSS MicroOptics SA Neuchâtel, EPIC CEO Award 2022, SPIE Fellow. Author of 150+ publications on micro-optics, mask aligner lithography, AMALITH. Direct match."
+  },
+  {
+    "id": 4248,
+    "vorname": "Martin",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Martin Bischoff at Qioptiq Photonics GmbH Göttingen (martin.bischoff@qioptiq.de), co-author on 'Mixed oxide coatings for optics' (Applied Optics 2011) and 'Postdeposition treatment of IBS coatings for UV applications' (2014). Direct match for initial M., affiliation, and DUV/metal-oxide-coatings topic."
+  },
+  {
+    "id": 4251,
+    "vorname": "Stefan",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Stefan Mewes, co-author with Martin Bischoff on 'Mixed oxide coatings for optics' (Applied Optics 2011) – same Qioptiq group, same DUV/coatings topic. Direct match."
+  },
+  {
+    "id": 4345,
+    "vorname": "Raimund",
+    "orcid": "0000-0003-3752-2382",
+    "confidence": 0.97,
+    "reason": "Dr.-Ing. Dipl.-Phys. Raimund Schlüßler at TU Dresden Biotechnology Center (BIOTEC). Multiple Brillouin microscopy papers (zebrafish spinal cord, axolotl regeneration, etc.). ORCID confirmed via ResearchGate profile. Direct match."
+  },
+  {
+    "id": 4406,
+    "vorname": "Christian",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "Christian Stegmann, Director Astroparticle Physics at DESY Zeuthen since 2011/2019, Prof. Astroparticle Physics Uni Potsdam, co-initiator of CTA. Works on Cherenkov telescope mirror development which matches deflectometric mirror sample titles. Helmholtz Alliance for Astroparticle Physics affiliation matches."
+  },
+  {
+    "id": 4432,
+    "vorname": "Johannes",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "Johannes Endres at PTB (later Georg-Simon-Ohm University Nürnberg), co-author with Bodermann/Wurm on scatterometry papers ('Numerical investigations of the influence of different commonly applied approximations in scatterometry' SPIE 8789, DUV scatterometry papers). Direct topic and affiliation match."
+  },
+  {
+    "id": 4620,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.3,
+    "reason": "Ambiguous: sample titles span two distinct research areas – 'Medical Applications enabled by motion-robust optical 3D s...' and 'Sparse Active Triangulation Grids for Respiratory Motion' clearly point to Sebastian Bauer (FAU Erlangen Pattern Recognition Lab, Flying Triangulation), but 'Bürgerwissenschaftsprojekt Nachtlicht-BüHNE' is a different research domain (GFZ/DLR citizen science on light pollution). DB-affiliation 'Department of Commerce' is implausible/garbled. Likely merged record of two different S. Bauer authors – cannot resolve safely."
+  },
+  {
+    "id": 4786,
+    "vorname": "André",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "André Edelmann at FernUniversität Hagen, Lehrgebiet Mikro- und Nanophotonik (andre.edelmann@fernuni-hagen.de). Published on 'Coupling of terahertz radiation to metallic wire using end-fire technique' (Electronics Letters 2013), matches Terahertz/Hohlleiter sample titles. Direct match."
+  },
+  {
+    "id": 4791,
+    "vorname": "Gufran Sayeed",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Prof. Gufran Sayeed Khan at IIT Delhi (Optics and Photonics Centre / SENSE). PhD in optical engineering from Erlangen (ultra-precision aspheric optics testing). Direct match for initials 'G. S.', affiliation IIT Delhi, and topics (polishing, Talbot interferometry, illumination)."
+  },
+  {
+    "id": 4807,
+    "vorname": "Stefan",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "Stefan Altmeyer, Prof. Dr. at TH Köln Institute of Applied Optics and Electronics, co-author with Jan Matrisch on holography/Phasenrekonstruktion papers (JOSA A 2016, Applied Optics 2018, DGaO 2011). Topic match exact (Phasenrekonstruktion, Multiplexing von Transmissionshologrammen). NOTE: DB-affiliation 'Jena/Abbe Center' appears incorrect — actual affiliation is TH Köln."
+  },
+  {
+    "id": 4884,
+    "vorname": "Saulius",
+    "orcid": "0000-0002-1869-6398",
+    "confidence": 0.97,
+    "reason": "Dr. Saulius Nevas at PTB Braunschweig (Spektroradiometrie 4.11), saulius.nevas@ptb.de. Coordinator of Newstand project, multiple radiometric/photometric calibration papers including PQED characterisation. ORCID confirmed. Direct match."
+  },
+  {
+    "id": 4894,
+    "vorname": "Stefan",
+    "orcid": null,
+    "confidence": 0.7,
+    "reason": "Stefan Pendsa listed as researcher at PTB (German National Metrology Institute) on ResearchGate, co-author of 'Laser-DSR: Hochgenaue spektrale Kalibrierung von Empfängern mit Hilfe von Laserstrahlung' (DGaO 2013) – exact title match with sample. Affiliation PTB and DSR topic match exactly. First name 'Stefan' from ResearchGate profile and ROsearch hits; moderate confidence as not independently re-verified."
+  },
+  {
+    "id": 4930,
+    "vorname": "Torsten",
+    "orcid": null,
+    "confidence": 0.92,
+    "reason": "Torsten Mai at PTB Braunschweig, co-author (with Bartl, Bettin, Krystek, Nicolaus, Peter) on Avogadro sphere interferometer / kilogram redefinition work. Author on 'Optical simulation of the new PTB sphere interferometer' (Metrologia 2017) and 'Aufbau und Simulation des Kugelinterferometers II der PTB'. Direct match for initial T., PTB affiliation and sphere interferometer topic."
+  }
+]

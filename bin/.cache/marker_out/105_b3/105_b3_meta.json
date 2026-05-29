@@ -1,0 +1,188 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Optimierung der Freistrahl\u00fcbertragung in der Mikrooptik",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          185.84382871536525,
+          68.6591796875
+        ],
+        [
+          409.15617128463475,
+          68.6591796875
+        ],
+        [
+          409.15617128463475,
+          100.7275390625
+        ],
+        [
+          185.84382871536525,
+          100.7275390625
+        ]
+      ]
+    },
+    {
+      "title": "mailto:brenner@uni-mannheim.de",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          221.0642317380353,
+          167.3310546875
+        ],
+        [
+          374.68513853904284,
+          167.3310546875
+        ],
+        [
+          374.68513853904284,
+          177.69723953695458
+        ],
+        [
+          221.0642317380353,
+          177.69723953695458
+        ]
+      ]
+    },
+    {
+      "title": "1 Motivation",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.45088161209068,
+          313.283203125
+        ],
+        [
+          118.40050377833754,
+          313.283203125
+        ],
+        [
+          118.40050377833754,
+          323.1540516473731
+        ],
+        [
+          58.45088161209068,
+          323.1540516473731
+        ]
+      ]
+    },
+    {
+      "title": "2 Skalierungsinvariante Darstellung von Gau\u00dfstrahlen",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.10546875,
+          417.2998046875
+        ],
+        [
+          287.00881612090683,
+          417.2998046875
+        ],
+        [
+          287.00881612090683,
+          438.61976847729295
+        ],
+        [
+          58.10546875,
+          438.61976847729295
+        ]
+      ]
+    },
+    {
+      "title": "3 Optimierung der Gau\u00dfbreite",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          308.7405541561713,
+          583.326803205699
+        ],
+        [
+          454.11838790931995,
+          583.326803205699
+        ],
+        [
+          454.11838790931995,
+          593.2646484375
+        ],
+        [
+          308.7405541561713,
+          593.2646484375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          74
+        ],
+        [
+          "Span",
+          44
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_b3"
+}

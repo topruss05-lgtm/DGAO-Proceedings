@@ -1,0 +1,162 @@
+[
+  {
+    "id": 4994,
+    "init": "S.",
+    "nachname": "Winter",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 3,
+    "sample_titles": "Umwandlung gepulster Laserstrahlung in kontinuierliche Strah || Laser-DSR: Hochgenaue spektrale Kalibrierung von Empfängern  || Analyse der variierenden Einstrahlungsbedingungen auf Outdoo"
+  },
+  {
+    "id": 4995,
+    "init": "T.",
+    "nachname": "Fey",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 3,
+    "sample_titles": "Umwandlung gepulster Laserstrahlung in kontinuierliche Strah || Laser-DSR: Hochgenaue spektrale Kalibrierung von Empfängern  || Analyse der variierenden Einstrahlungsbedingungen auf Outdoo"
+  },
+  {
+    "id": 4996,
+    "init": "I.",
+    "nachname": "Kröger",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 3,
+    "sample_titles": "Umwandlung gepulster Laserstrahlung in kontinuierliche Strah || Laser-DSR: Hochgenaue spektrale Kalibrierung von Empfängern  || Analyse der variierenden Einstrahlungsbedingungen auf Outdoo"
+  },
+  {
+    "id": 5074,
+    "init": "M.",
+    "nachname": "López",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 3,
+    "sample_titles": "Spatial-angular luminance distribution measurement of phosph || Calibration of Si-SPAD detectors using the double attenuator || Characterisation of nitrogen-vacancy based single-photon sou"
+  },
+  {
+    "id": 5089,
+    "init": "S.",
+    "nachname": "Burger",
+    "aff": "Carl Zeiss Microscopy GmbH",
+    "n_papers": 3,
+    "sample_titles": "Untersuchungen zum Einfluss verwendeter Näherungen in der Sc || Machine learning based optimization with applications in opt || Light scattering off semi-infinite structures"
+  },
+  {
+    "id": 5306,
+    "init": "H.",
+    "nachname": "Lietz",
+    "aff": "Hochschule Ravensburg-Weingarten",
+    "n_papers": 3,
+    "sample_titles": "Entwicklung einer polychromatischen Beleuchtungseinheit für  || Resolution enhancement of large pixel PMD sensors || Optimized deep learning algorithms for application with data"
+  },
+  {
+    "id": 5308,
+    "init": "J.",
+    "nachname": "Eberhardt",
+    "aff": "Hochschule Ravensburg-Weingarten",
+    "n_papers": 3,
+    "sample_titles": "Entwicklung einer polychromatischen Beleuchtungseinheit für  || Resolution enhancement of large pixel PMD sensors || Optimized deep learning algorithms for application with data"
+  },
+  {
+    "id": 5332,
+    "init": "S.",
+    "nachname": "Kroesen",
+    "aff": "Nonlinear Photonics Group, Institut für Angewandte Physik, Universität Münster",
+    "n_papers": 3,
+    "sample_titles": "Direktes Laserstrahlschreiben zur Erzeugung von organischen  || Integration funktionaler optischer Elemente in Lithiumniobat || Integrated opto-microfluidics platforms in lithium niobate c"
+  },
+  {
+    "id": 5457,
+    "init": "M.",
+    "nachname": "Fox",
+    "aff": "ELOVIS GmbH",
+    "n_papers": 3,
+    "sample_titles": "Multi-length Fiber Delay Line for the Wind Turbine Pitch Con || Vergleich mechanisch robuster Scannerkonzepte mit großer Emp || Calculation of Backscatter Coefficients for Lidar systems by"
+  },
+  {
+    "id": 5509,
+    "init": "M.",
+    "nachname": "Musigmann",
+    "aff": "Lehrgebiet Mikro- und Nanophotonik",
+    "n_papers": 3,
+    "sample_titles": "Diffraktiv-refraktive Dispersionskompensation bei der Ausbre || Third-order effects in the generation of femtosecond vortex  || Diffractive-refractive spatio-temporal shaping of ultrashort"
+  },
+  {
+    "id": 5584,
+    "init": "L.",
+    "nachname": "Wagner",
+    "aff": "Optocraft GmbH, Am Weichselgarten 7, 91058 Erlangen, Germany",
+    "n_papers": 3,
+    "sample_titles": "Aufbau einer stabilisierten Fabry-Pérot-Kavität für die Homo || Hochgenaue und rückgeführte Charakterisierung von Wellenfron || Charakterisierung von Wellenfrontsensoren mittels sphärische"
+  },
+  {
+    "id": 5658,
+    "init": "M. A.",
+    "nachname": "Schmidt",
+    "aff": "Leibniz-Institut für Photonische Technologien",
+    "n_papers": 3,
+    "sample_titles": "Herstellung und Charakterisierung von Metalldraht-Arrays in  || Preparation Technique of Antiresonant Hollow Core Microstruc || Square and hexagonal shaped hollow-core optical fibers – Nov"
+  },
+  {
+    "id": 5673,
+    "init": "J.",
+    "nachname": "Becker",
+    "aff": "Lehrstuhl für Mikroaktorik, Institut für Mikrosystemtechnik (IMTEK), Universität Freiburg",
+    "n_papers": 3,
+    "sample_titles": "Frequenzmultiplex-Verfahren für zukünftige optische Zugangsn || Space-variant polarization conversion with hollow waveguide  || A novel fabrication method of micro Bragg Grating optical se"
+  },
+  {
+    "id": 5719,
+    "init": "J.",
+    "nachname": "Ferrari",
+    "aff": "Universidad de la República Montevideo*, Univ.Frankfurt(Main)**, Xavier Univ. Cincinnati",
+    "n_papers": 3,
+    "sample_titles": "A Historic Experiment to Demonstrate the Gouy-Phase || Huygens’ Elementary Waves, Caustics, and their Relevance for || A Measurement of the Gouy Phase after a Slit"
+  },
+  {
+    "id": 5738,
+    "init": "M.",
+    "nachname": "Jahny",
+    "aff": "Carl Zeiss Jena GmbH",
+    "n_papers": 3,
+    "sample_titles": "Differential ray tracing for exact radiometric calculations || Differential Raytracing for Single and Mutiple Scattering Si || Quantitative Analyse von Falschlicht -- Methoden zur Redukti"
+  },
+  {
+    "id": 5743,
+    "init": "L.",
+    "nachname": "Chvátal",
+    "aff": "Institut für wissenschaftliche Instrumente der Tschechischen Akademie der Wissenschaften, Brno",
+    "n_papers": 3,
+    "sample_titles": "Sorting of micrometer-sized dielectric objects by optical fo || Colloidal optical waveguides structured by light || Optically bound matter in a tractor beam"
+  },
+  {
+    "id": 5759,
+    "init": "J.",
+    "nachname": "Schuppich",
+    "aff": "Fachhochschule Südwestfalen",
+    "n_papers": 3,
+    "sample_titles": "High-precision optical step detection || Photometrische Fernfeldmessungen an lumineszierenden Gläsern || Lumineszierende Glaskeramiken als streuende Lichtkonverter f"
+  },
+  {
+    "id": 5769,
+    "init": "J.",
+    "nachname": "Kaňka",
+    "aff": "Institut für wissenschaftliche Instrumente der Tschechischen Akademie der Wissenschaften, Brno",
+    "n_papers": 3,
+    "sample_titles": "Raman spectroscopy for reproducible bacterial and yeast biof || Raman-tweezers in microfluidic system for analysis and sorti || Colloidal optical waveguides structured by light"
+  },
+  {
+    "id": 5829,
+    "init": "H.",
+    "nachname": "Forrer",
+    "aff": "FISBA AG",
+    "n_papers": 3,
+    "sample_titles": "Diffractive Optical Elements (DOEs): potential and limitatio || Polka Dot Beamsplitters in Optical Imaging Systems || 8K-Endoskopie: Motivation, Herausforderungen, Optik Design"
+  },
+  {
+    "id": 5840,
+    "init": "J.-P.",
+    "nachname": "Delville",
+    "aff": "Université de Bordeaux",
+    "n_papers": 3,
+    "sample_titles": "Convection flows driven by laser heating of a liquid layer:  || Optofluidic synthesis of metal/semiconductor Janus nanoparti || Fluorescence Thermometry and Particle Image Velocimetry for "
+  }
+]

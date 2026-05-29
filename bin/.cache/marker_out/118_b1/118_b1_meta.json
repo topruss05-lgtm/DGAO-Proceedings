@@ -1,0 +1,146 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Speckle Reduction I: There is no free lunch",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          174.02734375,
+          69.0703125
+        ],
+        [
+          420.7368469238281,
+          69.0703125
+        ],
+        [
+          420.7368469238281,
+          81.87261962890625
+        ],
+        [
+          174.02734375,
+          81.87261962890625
+        ]
+      ]
+    },
+    {
+      "title": "mailto: gerd.haeusler@fau.de",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          231.357421875,
+          152.94140625
+        ],
+        [
+          363.2865295410156,
+          152.94140625
+        ],
+        [
+          363.2865295410156,
+          163.2398681640625
+        ],
+        [
+          231.357421875,
+          163.2398681640625
+        ]
+      ]
+    },
+    {
+      "title": "1 Coherence, Speckle and Information theory",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.203125,
+          239.6904296875
+        ],
+        [
+          274.5803527832031,
+          239.6904296875
+        ],
+        [
+          274.5803527832031,
+          250.3798828125
+        ],
+        [
+          58.203125,
+          250.3798828125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          280
+        ],
+        [
+          "Line",
+          77
+        ],
+        [
+          "TableCell",
+          15
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/118_b1"
+}

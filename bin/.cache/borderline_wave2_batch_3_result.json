@@ -1,0 +1,142 @@
+[
+  {
+    "id": 6416,
+    "vorname": "Yannick",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Hochschule Aalen Profilseite https://www.hs-aalen.de/de/users/14917 nennt Yannick Bauckhage, Master Photonics, am ZOT, mit Forschung zu 3D-gedruckter Mikrostereolithografie / Mikrolinsen. ResearchGate https://www.researchgate.net/profile/Yannick-Bauckhage bestätigt Y. Bauckhage = Yannick Bauckhage, Faculty of Optics and Mechatronics, HS Aalen. DGaO-Proceedings (Y. Bauckhage, A. Heinrich) bestätigen die Co-Autorenschaft mit Andreas Heinrich (Hochschule Aalen) bei 3D-Druck-Optik-Papern. Kein ORCID auf orcid.org für Yannick Bauckhage gefunden."
+  },
+  {
+    "id": 6547,
+    "vorname": "Dag",
+    "orcid": "0000-0003-3506-1762",
+    "confidence": 0.99,
+    "reason": "ORCID 0000-0003-3506-1762 listet Dag Heinemann mit Affiliationen Leibniz Universität Hannover (Professor) und Laser Zentrum Hannover (Group Leader Biophotonics). LZH Pressemitteilung https://www.lzh.de/en/news/2020/lzh-group-head-appointed-professor und HOT-Profil https://www.hot.uni-hannover.de/de/heinemann/ identifizieren Dag Heinemann als Leiter der Biophotonik-Gruppe am LZH, mit Forschung zu Optogenetik / optisches Cochlea-Implantat (passt zu sample_titles)."
+  },
+  {
+    "id": 7105,
+    "vorname": "Friedhelm",
+    "orcid": "0000-0003-2400-6506",
+    "confidence": 0.99,
+    "reason": "ORCID 0000-0003-2400-6506 direkt von ORCID-API bestätigt: Friedhelm Olschewski. Affiliation Bergische Universität Wuppertal / Institut für Atmosphären- und Umweltforschung, mit Publikationen zu spatial heterodyne spectrometer (passt 1:1 zu sample_titles). Co-Autorenschaft mit M. Kaufmann in zahlreichen DGaO-Papers (Y118-Y120) bestätigt."
+  },
+  {
+    "id": 7106,
+    "vorname": "Martin",
+    "orcid": "0000-0002-1761-6325",
+    "confidence": 0.95,
+    "reason": "Aus ORCID expanded-search Liste der Martin Kaufmanns: Kandidat 0000-0002-1761-6325 hat Publikationsliste mit 'Thermally stable monolithic Doppler asymmetric spatial heterodyne interferometer' (2020), 'On the assembly and calibration of a spatial heterodyne interferometer for limb sounding' (2019), AtmoLITE 2020 - exakt das Forschungsgebiet der DGaO-Papers zu Heterodyn-Spektrometer für mittlere Atmosphäre (Forschungszentrum Jülich IEK-7). Co-Autorenschaft mit F. Olschewski in DGaO-Proceedings bestätigt die Identität."
+  },
+  {
+    "id": 7455,
+    "vorname": "Matthias",
+    "orcid": "0000-0003-1324-1615",
+    "confidence": 0.97,
+    "reason": "ORCID 0000-0003-1324-1615 listet Matthias Wapler mit Werken 'Self-Sensing of a Magnetically Actuated Prism' (2023), 'A Miniaturized Piezo Stack Impact Actuation Mechanism' (2023), 'Barium Strontium Titanate' (2025) - alle im piezo-adaptive Optik Bereich. IMTEK Freiburg Profilseite https://www.imtek.de/laboratories/microactuators/staff/personal_en/wapler_en bestätigt Dr. Matthias Wapler, Laboratory for Microactuators, University of Freiburg, adaptive Linsen/Prismen via piezo - identisch mit DGaO-Themen (M.C. Wapler in Y118-Y122 Papers)."
+  },
+  {
+    "id": 7523,
+    "vorname": "Florian",
+    "orcid": "0009-0008-9434-2218",
+    "confidence": 0.99,
+    "reason": "ORCID 0009-0008-9434-2218 listet Florian Rothermel mit Werken 'Magnetically actuatable 3D-printed endoscopic microsystems' (2025), 'Fabrication and Characterization of a Magnetic 3D-printed Microactuator' (2024), 'Low background fluorescence 3D-printed micro-lens' (2025) - identisch mit DGaO-Sample 'Magnetisch aktuierbare 3D-gedruckte mikrooptische Elemente'. ITO Stuttgart Forschungsgruppe 3MS https://www.ito.uni-stuttgart.de/forschung/gruppe-3ms/ bestätigt F. Rothermel = Florian Rothermel."
+  },
+  {
+    "id": 7550,
+    "vorname": "Carsten",
+    "orcid": "0000-0002-4842-1774",
+    "confidence": 0.98,
+    "reason": "ITO Stuttgart Profil https://www.ito.uni-stuttgart.de/institut/team/Reichert-00003/ und https://www.ito.uni-stuttgart.de/en/institute/team/Reichert-00003/ nennen 'Carsten C. Reichert, M.Sc.', wissenschaftlicher Mitarbeiter ITO, Leiter des BMBF-BaKaRoS-Projekts (Smartphone-Mikroskop, Open-Source-Optik-Baukästen) - exakt sample_titles. ITO-Nachricht 2015 zu Photonik Science Slam bestätigt Carsten Reichert. ORCID 0000-0002-4842-1774 ist der einzige Carsten Reichert in ORCID."
+  },
+  {
+    "id": 7568,
+    "vorname": "Harald",
+    "orcid": "0000-0001-7318-673X",
+    "confidence": 0.98,
+    "reason": "Profilbroschüre https://wjx.seu.edu.cn/_upload/article/files/cd/81/.../...pdf und Google Scholar https://scholar.google.de/citations?user=E6ZP_zYAAAAJ bestätigen Prof. Dr.-Ing. Dipl.-Phys. Harald Riegel als Head of LaserApplicationCenter (LAZ), Hochschule Aalen, harald.riegel@hs-aalen.de. Laserstrahlpolieren von additiv gefertigten Metalloberflächen / Laserbearbeitung (Wiley Materialwissenschaft 2021) deckt sample_titles. ORCID 0000-0001-7318-673X ist der einzige Harald Riegel in ORCID."
+  },
+  {
+    "id": 7912,
+    "vorname": "Veronika",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "ResearchGate https://www.researchgate.net/profile/Veronika-Stehlikova-2 zeigt Veronika Stehlíková, PhD Student / M.Eng., Czech Technical University in Prague, Department of Radio Engineering. Sie ist Co-Autorin auf SPIE-Paper 'Lobster eye type X-ray telescope with chromium-iridium coated tri-layer mirrors' (11776, 2021) und arbeitet mit T. Döhring (Aschaffenburg) zusammen - exakt das Cluster der DGaO-Papers (Y119, Y121, Y122 mit T. Döhring, V. Burwitz, R. Hudec). Die Affiliation 'Max Planck Institute for Extraterrestrial Physics' ist eine Forschungskooperation für Röntgenoptik. Vorname Veronika sicher. Kein ORCID für Veronika Stehlíková auf orcid.org gefunden."
+  },
+  {
+    "id": 8204,
+    "vorname": "Martina",
+    "orcid": "0000-0003-0596-6982",
+    "confidence": 0.99,
+    "reason": "ORCID 0000-0003-0596-6982 listet Martina Hentschel mit Affiliation TU Chemnitz (Prof. Dr.). ResearchGate https://www.researchgate.net/profile/Martina-Hentschel, AcademiaNet https://www.academia-net.org/profil/prof-dr-martina-hentschel/1133776 und TU Chemnitz https://www.tu-chemnitz.de/physik/TPKDS/documents/TrackRecord_2020.pdf bestätigen Prof. Dr. Martina Hentschel, Institut für Physik, TU Chemnitz, Forschung zu deformierten optischen Mikrokavitäten und Flüstergalerieresonatoren - exakt sample_titles."
+  },
+  {
+    "id": 9102,
+    "vorname": "Friedhelm",
+    "orcid": null,
+    "confidence": 0.93,
+    "reason": "TH Wildau Profilseite https://www.th-wildau.de/personen/friedhelm-heinrich bestätigt Dr.-Ing. Friedhelm Heinrich, TH Wildau, friedhelm.heinrich@th-wildau.de, Dünnschichttechnologien, PlasmOs-Projekt. ResearchGate https://www.researchgate.net/profile/Friedhelm-Heinrich bestätigt F. Heinrich = Friedhelm Heinrich. Er ist Co-Autor des Optical Materials Express 2020 Papers 'Novel UV-transparent 2-component polyurethane resin for chip-on-board LED micro lenses' (mit Steglich, Schrader, Bauer) - exakt sample_titles. DGaO-Co-Autorenpattern J. Bauer / P. Steglich / S. Schrader / M. Gutke deckt mehrere Jahre. Kein expliziter ORCID auf orcid.org gefunden (ORCID-Suche 'Friedhelm Heinrich' liefert keinen Treffer)."
+  },
+  {
+    "id": 9760,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.4,
+    "reason": "DGaO-Programm (Y123, Y124, Y125) bestätigt W. Spiller als Co-Autor mit J. Jahns und S. Helfert am Lehrgebiet Mikro- und Nanophotonik (FernUni Hagen), Forschung zu dielektrischen Dipolresonatoren / Metaatomen / Nanowirbeln. Vorname-Initial 'W.' aber kein expliziter Vollname in offiziellen Quellen auffindbar - Wolfgang Spiller liefert keine ORCID-Treffer mit Hagen-Affiliation, keine FernUni-Profilseite (Lehrgebiet seit 2019 abgewickelt), keine eindeutige Person via Web-Recherche identifizierbar. Risiko falsche Auflösung > 30%, daher vorname=null gesetzt."
+  },
+  {
+    "id": 10440,
+    "vorname": "Anne",
+    "orcid": "0000-0003-0075-3371",
+    "confidence": 0.99,
+    "reason": "Hochschule Aalen Profil https://www.hs-aalen.de/de/users/25345 bestätigt Prof. Dr. Anne Harth, Professur Optical Engineering / Applied Photonics, ZOT, Forschungsgruppe 'Light-Matter Interaction', Attosekunden-Pulse / XUV-Laser. ResearchGate https://www.researchgate.net/profile/Anne-Harth und PQE Stuttgart Talk 2024 bestätigen Anne Harth. Sample-Title 'Attosecond light-matter interaction' deckt sich exakt. ORCID 0000-0003-0075-3371 ist der einzige Anne Harth Eintrag in ORCID."
+  },
+  {
+    "id": 11297,
+    "vorname": "Christian",
+    "orcid": "0000-0002-0326-7232",
+    "confidence": 0.92,
+    "reason": "ORCID 0000-0002-0326-7232 listet Christian Franke (Friedrich Schiller University Jena, Assistant Prof.) mit Publikation 'Applying telecentric stereo 3D-measurement to small Lepidopterans – bridging the macro and micro scale' (2025) - identisch mit sample_titles ('Telezentrisches Stereo-3D-Messsystem für biologische Proben'). FSU Jena Profil https://www.physik.uni-jena.de/en/8630/jun-prof-dr-christian-franke und https://www.researchgate.net/profile/Christian-Franke-3 bestätigen Forschungsgruppe zu Speckle-strukturierter Beleuchtung / Stereophotogrammetrie. DGaO Y122/Y124/Y125 (A.W. Stark, R. Kowarschik, C. Franke) deckt Co-Autoren-Cluster FSU Jena. Affiliation 'Canadian Standards Association' in der DB ist offensichtlich fehlerhaft / Datenmüll - die Forschungsthematik (Strukturierte Beleuchtung 3D, Stereophotogrammetrie, BaKaRoS-Kreis) passt exakt zur Jena-Gruppe."
+  },
+  {
+    "id": 11322,
+    "vorname": "Anja",
+    "orcid": "0009-0000-6201-0122",
+    "confidence": 0.97,
+    "reason": "ORCID 0009-0000-6201-0122 listet Anja Bartelmei mit Affiliation Technische Universität Ilmenau. LinkedIn https://www.linkedin.com/in/anja-bartelmei-a3bab820b/ und TU Ilmenau Mitarbeiterseite bestätigen M.Sc. Anja Bartelmei, wissenschaftliche Mitarbeiterin Ilmenau School of Green Electronics seit 10/2024, Master-Arbeit zu spatio-temporalem Reservoir Computing (Bewegungserkennung). DGaO Y124/Y125 listet sie als A.Bartelmei mit Co-Autoren N. Lukin / S. Sinzinger (TU Ilmenau Technische Optik) und R. Brüning / E. Beckert (Quantenpunktlaser) - exakt sample_titles. Affiliation 'Institut für Biomedizinische Technik' in DB ist falsch, korrekt ist TU Ilmenau / Fachgebiet Technische Optik."
+  },
+  {
+    "id": 12089,
+    "vorname": "Martin",
+    "orcid": "0009-0009-0678-4348",
+    "confidence": 0.99,
+    "reason": "ORCID 0009-0009-0678-4348 listet Martin Hubold mit Affiliation Fraunhofer Institute for Applied Optics and Precision Engineering (Research Associate), Publikationen 'System calibration and characterization of an ultra-compact multispectral snapshot imaging' (2019), 'Multi-aperture system approach for snapshot multispectral imaging' (2021), 'Design and realization of a compact catadioptric multichannel camera' (2025) - exakt sample_titles. LinkedIn https://www.linkedin.com/in/martin-hubold-570747287/ bestätigt Jena."
+  },
+  {
+    "id": 12645,
+    "vorname": "Jan",
+    "orcid": "0000-0001-9985-1419",
+    "confidence": 0.98,
+    "reason": "ORCID 0000-0001-9985-1419 listet Jan Krüger mit Affiliation Physikalisch-Technische Bundesanstalt. ResearchGate https://www.researchgate.net/profile/Jan-Krueger-13 und PTB-Veröffentlichungen bestätigen Jan Krüger an PTB, Forschung zu UV-Mikroskop am Nanometer-Comparator, modellbasierte optische Messungen (2024 IOP Meas. Sci. Technol.) - deckt sample_titles. Vorname war bereits in DB 'Jan' (init = 'Jan'), wurde verifiziert."
+  },
+  {
+    "id": 6,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.5,
+    "reason": "DGaO-Paper-Themen (computergenerierte Holografie, Mehrstufen-Hologramme, Autofokus-Messsystem, Optoelektronischer Sensor) deuten auf einen älteren Wissenschaftler an der Jade Hochschule / FH Wilhelmshaven hin (vermutlich Prof. an FB Ingenieurwissenschaften, evtl. emeritiert). Aktuelle Team-Listen der Jade Hochschule (Technische Optik, Mechatronik) zeigen kein 'Miesner'. Keine eindeutige Identifikation via Web möglich; weder Wikipedia-Artikel noch institutionelles Profil auffindbar. Vermutung 'Jürgen Miesner' nicht belastbar verifiziert - daher null gesetzt."
+  },
+  {
+    "id": 33,
+    "vorname": "Norbert",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Cylex-Branchenverzeichnis Wetzlar http://www.cylex-branchenbuch-wetzlar.de/firma-home/dr--norbert-lauinger-8178063.html, http://www.lauinger-web.de/Curriculum.html ('Author Curriculum Vitae - The Human Eye: an intelligent optical sensor') und CompanyHouse-Profil bestätigen Dr. Norbert Lauinger, eigenes Institut für Optosensorik in Wetzlar seit 1978, Forschung zu Gitter-optischen Korrelatoren / Netzhaut als Phasengitter / Sehzelle - exakt sample_titles (Lichtbeugung im Raumgitter der Netzhaut). Buch 'The Human Eye - an intelligent optical sensor' (PubMed PMID 1957590 '3D grating optics of human vision'). Es existiert ein ORCID 0000-0001-7979-4154 unter dem Namen 'Norbert Lauinger', aber ohne Werke/Affiliation - nicht verifizierbar als gleicher Person, daher orcid=null."
+  },
+  {
+    "id": 37,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.55,
+    "reason": "DGaO-Programm (Y119) bestätigt H. Müller am 'Lehrgebiet Mikro- und Nanophotonik' (FernUni Hagen) als Co-Autor mit J. Jahns - Paper 'Realisierung eines mehrkanaligen Drehübertragers mit Hilfe von Axicons' (genau ein sample_title). Weitere DGaO-Papers (Y118 'H. Müller, M. Eggert, C. Gutsmuths, S. Oertel': 3-c fiber laser based sensor for wind vector measurements) deuten auf andere Affiliation hin - möglicherweise sind hier mehrere 'H. Müller' im Cluster vermischt (Cluster-Qualität der DB-Affiliation 'Mikro- und Nanophotonik' deckt nur Hagen ab). Für Hagen-H.-Müller (Doktorand / Mitarbeiter bei Jahns) keine konkrete Vornamen-Identifikation per Web möglich; FernUni-Lehrgebiet seit 2019 abgewickelt, keine archivierten Personenseiten erreichbar. Vorname unsicher - null."
+  }
+]

@@ -1,0 +1,122 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Direkte Messung der Volumenabsorption hochtransparenter optischer Materialien mittels \nlaserinduzierter Teststrahlablenkung (LID)",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          62.46001434326172,
+          69.408447265625
+        ],
+        [
+          536.0807495117188,
+          69.408447265625
+        ],
+        [
+          536.0807495117188,
+          95.2083740234375
+        ],
+        [
+          62.46001434326172,
+          95.2083740234375
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.267578125,
+          254.79412841796875
+        ],
+        [
+          124.1223373413086,
+          254.79412841796875
+        ],
+        [
+          124.1223373413086,
+          264.81414794921875
+        ],
+        [
+          59.267578125,
+          264.81414794921875
+        ]
+      ]
+    },
+    {
+      "title": "2 Messprinzip und Kalibrierung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.97705078125,
+          411.5439453125
+        ],
+        [
+          211.2967529296875,
+          411.5439453125
+        ],
+        [
+          211.2967529296875,
+          421.5942077636719
+        ],
+        [
+          58.97705078125,
+          421.5942077636719
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          197
+        ],
+        [
+          "Line",
+          87
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_b22"
+}

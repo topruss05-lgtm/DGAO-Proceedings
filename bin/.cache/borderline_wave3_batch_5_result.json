@@ -1,0 +1,142 @@
+[
+  {
+    "id": 5846,
+    "vorname": "Piotr",
+    "orcid": null,
+    "confidence": 0.72,
+    "reason": "Piotr Sakowicz (LinkedIn) ist Optical Engineer for Stray Light bei OHB SE. Sample-Titel 'Quantitative Analyse von Falschlicht -- Methoden zur Reduktion' und 'Modeling of light scattering from optical surfaces' decken sich exakt mit seinem Spezialgebiet Streulicht/Falschlicht. 'Free-form Fresnel Structures for Beam Shaping' passt zu seinem Optikdesign-Hintergrund. Affiliation 'Carl Zeiss Jena' wahrscheinlich frühere Station; einziger plausibler P. Sakowicz in deutscher Optikbranche. ORCID nicht öffentlich gefunden."
+  },
+  {
+    "id": 5954,
+    "vorname": "Michael",
+    "orcid": "0000-0001-9246-3931",
+    "confidence": 0.97,
+    "reason": "Michael Esseling, PhD 2014 bei Cornelia Denz (Nonlinear Photonics Group, Inst. of Applied Physics, Universität Münster). Springer Theses 'Photorefractive Optoelectronic Tweezers and Their Applications'. Sample-Titel zu Manipulation von Mikropartikeln und integrierter Opto-Mikrofluidik in Lithiumniobat decken sich exakt mit seiner Doktorarbeit und Folgepublikationen (z.B. Optofluidic droplet router 2015). ORCID 0000-0001-9246-3931 aus Suche zugeordnet, aber nicht 100% bestätigt — daher Bestätigung über Namens-/Topic-Match."
+  },
+  {
+    "id": 6337,
+    "vorname": "Holger",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Prof. Dr. Holger Reinecke war 2004-2014 Inhaber des Lehrstuhls für Prozesstechnologie am IMTEK Freiburg (DB-Affiliation: 'Lehrstuhl für Mikroaktorik, Institut für Mikrosystemtechnik IMTEK, Universität Freiburg' — auch wenn 'Mikroaktorik' nicht 100% mit 'Prozesstechnologie' deckt, ist er der IMTEK-Institutsleiter und einziger publizierender H. Reinecke am IMTEK). Sample-Titel 'Reactive lamination via photoreactive polymers' und 'polymer waveguides' decken sich exakt mit seinen IMTEK-Publikationen (SPIE Optical Engineering 2016 zu PMMA-COP-Lamination)."
+  },
+  {
+    "id": 6342,
+    "vorname": "Christian",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Christian Schelske als Co-Autor auf 'Inline detection of defects on free formed metal pressings using a single shot inverse fringe projection approach' (Strohmeier, Ludwig, Buchner, Schelske, Faber 2016), Affiliation BMW Group Dingolfing bestätigt. Sample-Titel zu inverse Streifenprojektion an Pressteilen decken sich exakt."
+  },
+  {
+    "id": 6468,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.2,
+    "reason": "Die drei Sample-Titel ('Microscope Projection Photolithography', 'Ultrafast Plasmon-Polariton Logic Gates', 'Laser transfer of silicon nanoparticles') sind drei sehr verschiedene Themen aus drei Forschungslinien am LZH/Leibniz Hannover. Hauptautoren der entsprechenden Originalpapers sind Zheng/Birr/Zywietz/Reinhardt/Roth (Photolithographie), Birr/Zywietz/Chhantyal/Chichkov/Reinhardt (Plasmon-Polariton), Zywietz/Chichkov (Si-Nanopartikel) — KEIN Fischer als Hauptautor gefunden. T. Fischer könnte ein Co-Autor auf DGaO-Beiträgen oder ein bisher nicht identifizierter LZH-Mitarbeiter sein. Lieber nichts als falsch."
+  },
+  {
+    "id": 6559,
+    "vorname": "Patrick",
+    "orcid": "0000-0002-9258-5901",
+    "confidence": 0.95,
+    "reason": "Dr. Patrick Heeger promovierte am Institut für Quantenoptik (AG Heisterkamp) der LUH Hannover sowie am Niedersächsischen Zentrum für Biomedizintechnik. Dissertation 'Establishment of a test system for an optogenetic biohybrid cochlear implant'. Sample-Titel ('biohybrid cochlea implant', 'optogenetic triggered', 'light-cell interface' / Laser-basierte Zellmanipulation) decken sich exakt. ORCID 0000-0002-9258-5901 in Translational Biophotonics 2021 als Co-Autor angegeben. Affiliation in DB ist null — passt zu seinem Wechsel in die Industrie (Maiwald Patentanwälte)."
+  },
+  {
+    "id": 6578,
+    "vorname": "Alexander",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "Alexander Krüger ist am LZH (Laser Zentrum Hannover) tätig, Co-Autor auf 'Optoacoustic effect is responsible for laser-induced cochlear responses' (Sci. Reports 2016) und auf 'Nanosecond laser pulse stimulation of the inner ear' (PLoS ONE 2012). Sample-Titel zu optical cochlear stimulation, fs-Laser-Oberflächenbearbeitung und adaptiver Optik/OCT decken sich exakt mit seinem Forschungsprofil. ORCID nicht eindeutig gefunden."
+  },
+  {
+    "id": 6598,
+    "vorname": "Martin",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Martin Teich, ehemals TU Dresden (MST, Czarske-Gruppe; jetzt Application Engineer/Physicist Dr. rer. nat.). Sample-Titel zu Spiral Phase Mask / helical wavefronts / 3D-Imaging mit adaptiver Optik decken sich exakt mit Sturm/Teich/Büttner/Czarske 'Spiral phase mask 3D-imaging with adaptive optical image correction' (DGaO 2017 Dresden) und PubMed 27906309 (Spiral phase mask shadow-imaging)."
+  },
+  {
+    "id": 6638,
+    "vorname": "Roberto",
+    "orcid": "0000-0001-8210-6658",
+    "confidence": 0.97,
+    "reason": "Roberto Alves Braga Jr., Department of Engineering (DEG), Universidade Federal de Lavras (UFLA), Brasilien. Bekannt für Biospeckle/Dynamic Laser Speckle. Sample-Titel decken sich exakt: 'Dynamic laser speckle', 'phase-shifting fringes', 'Optical mouse sensor for mechanical damages' (Biosystems Engineering 2003). ORCID 0000-0001-8210-6658 aus ORCID-Suchergebnis (allerdings nicht via direktem Fetch verifiziert) — daher leicht reduzierte Confidence."
+  },
+  {
+    "id": 7049,
+    "vorname": "Benedikt",
+    "orcid": null,
+    "confidence": 0.93,
+    "reason": "Benedikt Krug, TU Dresden, Laboratory of Measurement and Sensor System Technique (Czarske-Gruppe) und BIOLAS. Hans-Pundt-Preis 2018 (VDE Dresden) für Diplomarbeit zu Brillouin-Elastographie. Sample-Titel zu wavefront correction, spontaneous/stimulated Brillouin scattering und impulsiver stimulierter Brillouin-Streuung decken sich exakt (z.B. Krug, Koukourakis, Czarske 'Impulsive stimulated Brillouin microscopy for non-contact, fast mechanical investigations of hydrogels', Optics Express 2019)."
+  },
+  {
+    "id": 7095,
+    "vorname": "Rainer",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "Prof. Dr.-Ing. Rainer Tutsch, Institut für Produktionsmesstechnik (IPROM), TU Braunschweig (NICHT PTB — die DB-Affiliation 'PTB Braunschweig' ist mit hoher Wahrscheinlichkeit falsch; IPROM ist sein eigenes Institut). Sample-Titel decken sich exakt: Defekterkennung an spiegelnden/transparenten Oberflächen (teme 2017/2018, Petz/Fischer/Tutsch), Photogrammetrische Bestimmung der Brechungseigenschaften (Forum Bildverarbeitung 2018), Scanstrategien Asphären. Forschungsschwerpunkt optische 3D-Messtechnik passt."
+  },
+  {
+    "id": 7142,
+    "vorname": "Rüdiger",
+    "orcid": null,
+    "confidence": 0.96,
+    "reason": "Rüdiger Beermann, Dr.-Ing., Institut für Mess- und Regelungstechnik (IMR), Leibniz Universität Hannover. Promotion zu 3D-Geometriemessung an heißen Bauteilen via Streifenprojektion. Sample-Titel decken sich exakt: 'Simulation of light deflection due to inhomogeneous refractive', '3D Geometry of Hot Specimens in Rough Vacuum' (DGaO 2017 Dresden, Beermann/Quentin/Pösch/Kästner/Reithmeier), Zwei-Kamera/Zwei-Projektor-Streifenprojektion."
+  },
+  {
+    "id": 7143,
+    "vorname": "Lorenz",
+    "orcid": null,
+    "confidence": 0.96,
+    "reason": "Lorenz Quentin, PhD am IMR (Institut für Mess- und Regelungstechnik), Leibniz Universität Hannover. Dissertation zu 'Light Deflection Effect in Optical Geometry Measurement of Hot-Forged Components' (SFB 1153). Sample-Titel identisch zu Beermann (id 7142) — sind Co-Autoren auf denselben Papers (Beermann/Quentin/Pösch/Kästner/Reithmeier, DGaO 2017)."
+  },
+  {
+    "id": 7150,
+    "vorname": "Andreas",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Prof. Dr. rer. nat. Andreas H. Foitzik, Professor für Mikrosystemtechnik/MEMS an der TH Wildau. Forscht u.a. zu Hardware for Life Science, biomimetischen Devices, ESPI-basiertem Cytotoxizitäts-Monitoring. Sample-Titel zu 'Interferometric monitoring of cytotoxic reactions on benign [cells]', 'magnetic induced deformation on HeLa cells', 'galvanisch beschichtete[r] [Objekte]' decken sich mit Foitzik-Labs Forschungsprofil und seiner früheren ESPI-Arbeit. Email andreas.foitzik@th-wildau.de."
+  },
+  {
+    "id": 7178,
+    "vorname": "Peter",
+    "orcid": null,
+    "confidence": 0.96,
+    "reason": "Dr. Peter W. Nolte, Wissenschaftler am Fraunhofer Anwendungszentrum für Anorganische Leuchtstoffe in Soest (Branch Lab des Fraunhofer IMWS). Leiter des Teams 'Reliability of Phosphors'. M.Sc. Physik Uni Paderborn 2007, vorher MLU Halle-Wittenberg. Sample-Titel zu photometrischen Fernfeldmessungen, lumineszierenden Glaskeramiken als Lichtkonverter, Lichtkonversion/Farbmischung decken sich exakt mit seinem Forschungsgebiet."
+  },
+  {
+    "id": 7217,
+    "vorname": "Jochen",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Prof. Dr. Jochen Guck, ehemals BIOTEC TU Dresden (jetzt MPL Erlangen), bekannter Biophysiker. Sample-Titel zu Confocal Brillouin microscopy, spontaneous/stimulated Brillouin scattering und impulsive stimulierte Brillouin-Streuung decken sich exakt mit Guck/Czarske-Kollaboration zu Brillouin-Mikroskopie (z.B. Schlüßler/Möllmert/Abuhattum/Guck/Czarske). DB-Affiliation 'TU Dresden' passt zur damaligen Position."
+  },
+  {
+    "id": 7222,
+    "vorname": "Jonas",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "Jonas Kanngiesser/Kanngießer promovierte am Hannoverschen Zentrum für Optische Technologien (HOT) bei Prof. Bernhard Roth (LUH/PhoenixD) zu 'Wavefront shaping approaches for spectral domain optical coherence tomography'. Sample-Titel zu Focusing Light through Turbid Media, OCT-guided wavefront shaping, fast wavefront manipulation for OCT signal enhancement decken sich exakt. DB-Affiliation 'Leibniz-Institut für Photonische Technologien' (Leibniz-IPHT Jena) ist allerdings auffällig — er ist primär in Hannover (HOT) tätig. Möglicherweise Kollaboration oder Affiliation-Fehler. Vorname Jonas mit hoher Konfidenz, ORCID nicht gefunden."
+  },
+  {
+    "id": 7227,
+    "vorname": "Patrick",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "Patrick Bohnert, wissenschaftlicher Mitarbeiter am Fachbereich SciTec der Ernst-Abbe-Hochschule Jena. Patrick.Bohnert@eah-jena.de. Co-Autor auf 'Compact, astigmatism corrected cross-grating spectrometer' (EPJ Web of Conferences/EOSAM 2020). Sample-Titel zu 'Konzeptvergleich verschiedener kompakter Kreuzgitter-Spektrometer' und 'telezentrische Ringfoki' passen zur EAH-Jena-Forschung (Brunner-Gruppe Präzisionssysteme)."
+  },
+  {
+    "id": 7314,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.4,
+    "reason": "Initial 'Ch.' und Sample-Titel 'Vermessung konvexer, rauer Asphären mittels Interferometrie' passen zu Christine Kellermann (Co-Autorin Schwider/Kellermann/Lindlein/Rothau/Mantel, 'Grazing incidence interferometry for rough convex aspherics' arXiv:1612.08046). ABER: Christine Kellermann ist am Institut für Optik, Information und Photonik (IOIP) der FAU Erlangen — NICHT am FAPS (Lehrstuhl für Fertigungsautomatisierung und Produktionssystematik), wie in der DB angegeben. Affiliation-Mismatch zu groß, um eindeutig 'Christine' zu bestätigen — möglicherweise eine andere Person (z.B. Christian/Christoph) am FAPS, oder DB-Affiliation ist fehlerhaft. Lieber nichts als falsch."
+  },
+  {
+    "id": 7378,
+    "vorname": "Jean Pierre",
+    "orcid": null,
+    "confidence": 0.55,
+    "reason": "Initial 'J. P.' und Sample-Titel zu Beam Shaping, Laser Welding und 'Optimized beam shaping for high power laser welding applications' decken sich exakt mit Prof. Jean Pierre Bergmann (Fachgebiet Fertigungstechnik, TU Ilmenau, ehem. JENOPTIK). ABER: DB-Affiliation 'Institut für Biomedizinische Technik' passt NICHT zu Bergmann (TU Ilmenau, kein BMT-Institut). Möglicherweise DB-Affiliation-Fehler — Topic+Initials sehr stark, daher konservative mittlere Konfidenz. ORCID nicht zugewiesen wegen Affiliation-Konflikt."
+  }
+]

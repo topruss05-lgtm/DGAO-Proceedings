@@ -1,0 +1,168 @@
+{
+  "table_of_contents": [
+    {
+      "title": "XUV-Optik, Messung mit der Nano-Optik-Messmaschine - NOM - bei BESSY",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          82.509765625,
+          69.0703125
+        ],
+        [
+          512.490234375,
+          69.0703125
+        ],
+        [
+          512.490234375,
+          81.34844970703125
+        ],
+        [
+          82.509765625,
+          81.34844970703125
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.52000045776367,
+          258.32281494140625
+        ],
+        [
+          121.4404296875,
+          258.32281494140625
+        ],
+        [
+          121.4404296875,
+          268.2828369140625
+        ],
+        [
+          59.52000045776367,
+          268.2828369140625
+        ]
+      ]
+    },
+    {
+      "title": "2 Messgenauigkeiten",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          57.81494140625,
+          607.2431640625
+        ],
+        [
+          162.81414794921875,
+          607.2431640625
+        ],
+        [
+          162.81414794921875,
+          617.4828186035156
+        ],
+        [
+          57.81494140625,
+          617.4828186035156
+        ]
+      ]
+    },
+    {
+      "title": "3 Drei-D-Messergebnisdarstellung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          307.958984375,
+          333.32281494140625
+        ],
+        [
+          473.97943115234375,
+          333.32281494140625
+        ],
+        [
+          473.97943115234375,
+          343.70703125
+        ],
+        [
+          307.958984375,
+          343.70703125
+        ]
+      ]
+    },
+    {
+      "title": "4 Reproduzierbarkeit der Messungen",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          307.958984375,
+          705.9150390625
+        ],
+        [
+          487.2879943847656,
+          705.9150390625
+        ],
+        [
+          487.2879943847656,
+          716.3628234863281
+        ],
+        [
+          307.958984375,
+          716.3628234863281
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          138
+        ],
+        [
+          "Line",
+          77
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_a11"
+}

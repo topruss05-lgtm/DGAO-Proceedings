@@ -1,0 +1,122 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Rundum 3-D-Bilder: Wie l\u00f6st man das Puzzle?",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          165.61083123425692,
+          68.22974176313446
+        ],
+        [
+          430.1385390428212,
+          68.22974176313446
+        ],
+        [
+          430.1385390428212,
+          78.115234375
+        ],
+        [
+          165.61083123425692,
+          78.115234375
+        ]
+      ]
+    },
+    {
+      "title": "1 Problemstellung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.45088161209068,
+          297.66015625
+        ],
+        [
+          147.62594458438286,
+          297.66015625
+        ],
+        [
+          147.62594458438286,
+          307.52734375
+        ],
+        [
+          58.45088161209068,
+          307.52734375
+        ]
+      ]
+    },
+    {
+      "title": "2 Methoden",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.45088161209068,
+          679.2983081032947
+        ],
+        [
+          116.90176322418137,
+          679.2983081032947
+        ],
+        [
+          116.90176322418137,
+          688.6474609375
+        ],
+        [
+          58.45088161209068,
+          688.6474609375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          125
+        ],
+        [
+          "Span",
+          63
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_a5"
+}

@@ -1,0 +1,162 @@
+[
+  {
+    "id": 9946,
+    "init": "V.",
+    "nachname": "Burgarth",
+    "aff": "alfavision GmbH & Co. KG",
+    "n_papers": 3,
+    "sample_titles": "Scalable Fizeau Interferometer || Using a white noise reference object to determine the depth  || Evaluation of the scalable interferometer „Mickey 350“"
+  },
+  {
+    "id": 10384,
+    "init": "L.",
+    "nachname": "Fütterer",
+    "aff": "Leibniz University Hannover",
+    "n_papers": 3,
+    "sample_titles": "Brechungsindexverteilung von Mosquito-Lichtwellenleitern || Optische Simulation von Mikrolinsen-Arrays für die Fluoresze || Precise integration of flexo-printed optical waveguides into"
+  },
+  {
+    "id": 10401,
+    "init": "K.",
+    "nachname": "Doth",
+    "aff": "Institut für Technische Optik (ITO)",
+    "n_papers": 3,
+    "sample_titles": "Miniaturisierte Holografische Doppelfalle zum optischen Einf || 3D-printed micro optics applied for the Life Sciences || 3D-printed micro-optical systems: Functional toolbox and fib"
+  },
+  {
+    "id": 10466,
+    "init": "C.",
+    "nachname": "Link",
+    "aff": "Vision Cooperative Research Centre",
+    "n_papers": 3,
+    "sample_titles": "Auflösungs- und Schärfentiefe-Erweiterung telezentrischer Ob || Geometry measurements with image processing and forward proj || Objektseitige und bildseitige Telezentrie – Wann ist die Kan"
+  },
+  {
+    "id": 10632,
+    "init": "H.",
+    "nachname": "Kaufmann",
+    "aff": "SCHOTT AG",
+    "n_papers": 3,
+    "sample_titles": "Messung des spannungsoptischen Koeffizienten von optischem G || New results on the temperature coefficient of the refractive || Eigenschaften von optischen Gläsern für Laseranwendungen"
+  },
+  {
+    "id": 10739,
+    "init": "Jan",
+    "nachname": "Pregler",
+    "aff": "Aschaffenburg University of Applied Sciences",
+    "n_papers": 3,
+    "sample_titles": "Forschung zu Strahlenschäden mit dem Stratosphärenballon-Exp || Ein Besucherexperiment zur astronomischen Röntgenoptik für d || Strahlungsmessungen beim Erstflug des Stratosphärenballon-Ex"
+  },
+  {
+    "id": 11070,
+    "init": "C.",
+    "nachname": "Karapatzakis",
+    "aff": "Fakultät Optik und Mechatronik",
+    "n_papers": 3,
+    "sample_titles": "Parameterfindung für die Stempelherstellung von komplexen Ge || Reale und virtuelle Geometrieanalyse von 2PP-Polymer-Mikrona || Untersuchung zur Imprintcharakteristik von 2PP-gedruckten St"
+  },
+  {
+    "id": 11240,
+    "init": "P. C.",
+    "nachname": "Schindler",
+    "aff": "Institut für Photonik und Quantenelektronik",
+    "n_papers": 3,
+    "sample_titles": "Kerr-Frequenzkämme und deren Stabilisierung für die Terabit- || Frequenzmultiplex-Verfahren für zukünftige optische Zugangsn || Silicon Photonics, Hybrid Integration, and Frequency Combs: "
+  },
+  {
+    "id": 11266,
+    "init": "C.",
+    "nachname": "Wittemann",
+    "aff": "Fakultät Optik und Mechatronik",
+    "n_papers": 3,
+    "sample_titles": "Parameterfindung für die Stempelherstellung von komplexen Ge || Reale und virtuelle Geometrieanalyse von 2PP-Polymer-Mikrona || Mikronadelarrays zur Medikamentenabgabe und optischen Konzen"
+  },
+  {
+    "id": 11282,
+    "init": "N.",
+    "nachname": "Borchers",
+    "aff": null,
+    "n_papers": 3,
+    "sample_titles": "Miniaturisierte optische 3D-Messtechnik für industrielle Bau || Speckle-basierter relativer 6DOF Sensor || Speckle-basierte Wellenlängenmessungen"
+  },
+  {
+    "id": 11284,
+    "init": "U.",
+    "nachname": "Vogl",
+    "aff": "Carl Zeiss AG",
+    "n_papers": 3,
+    "sample_titles": "Qualifizierung und Kompensierung transienter thermischer Las || Speckle-basierter relativer 6DOF Sensor || Speckle-basierte Wellenlängenmessungen"
+  },
+  {
+    "id": 11294,
+    "init": "M.",
+    "nachname": "Guo",
+    "aff": "Canadian Standards Association",
+    "n_papers": 3,
+    "sample_titles": "Democratizing 3D Measurements in the Life Science – DIY & lo || Telezentrisches Stereo-3D-Messsystem für biologische Proben  || Vergleichende stereophotogrammetrische 3D-Messung im sichtba"
+  },
+  {
+    "id": 11296,
+    "init": "G.",
+    "nachname": "Brehm",
+    "aff": "Erni Elektroapparate GmbH",
+    "n_papers": 3,
+    "sample_titles": "Telezentrisches Stereo-3D-Messsystem für biologische Proben  || Hunting the picometer - Most accurate mirrors of the world t || Vergleichende stereophotogrammetrische 3D-Messung im sichtba"
+  },
+  {
+    "id": 11380,
+    "init": "M.",
+    "nachname": "Meyer",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 3,
+    "sample_titles": "Funktionsprüfung von Stereomikroskopobjektiven bei mehreren  || Änderungen optischer Eigenschaften organischer Leuchtdioden  || Optimierung der absoluten Formmessung in der Tilted Wave Int"
+  },
+  {
+    "id": 11387,
+    "init": "Y.",
+    "nachname": "Schrödel",
+    "aff": null,
+    "n_papers": 3,
+    "sample_titles": "Interferometrisches Messsystem zur Visualisierung von Ultras || Interferometrische Ermittlung der schalldruckinduzierten Bre || Kontaktlose Manipulation von Laserstrahlen mittels luftbasie"
+  },
+  {
+    "id": 11389,
+    "init": "S.",
+    "nachname": "Soennecken",
+    "aff": "U.S. Army Center of Military History",
+    "n_papers": 3,
+    "sample_titles": "Interferometrisches Messsystem zur Visualisierung von Ultras || Interferometrische Ermittlung der schalldruckinduzierten Bre || Kontaktlose Manipulation von Laserstrahlen mittels luftbasie"
+  },
+  {
+    "id": 11390,
+    "init": "M.",
+    "nachname": "Kupnik",
+    "aff": "U.S. Army Center of Military History",
+    "n_papers": 3,
+    "sample_titles": "Interferometrisches Messsystem zur Visualisierung von Ultras || Interferometrische Ermittlung der schalldruckinduzierten Bre || Kontaktlose Manipulation von Laserstrahlen mittels luftbasie"
+  },
+  {
+    "id": 11430,
+    "init": "H.",
+    "nachname": "Wagner",
+    "aff": "Canadian Standards Association",
+    "n_papers": 3,
+    "sample_titles": "3-D measurement of human face by stereophotogrammetry || Optimierung eines korrelationsbasiereten Verfahrens der Ster || Antireflektive Strukturen zur Effizienzsteigerung optischer "
+  },
+  {
+    "id": 11492,
+    "init": "E.",
+    "nachname": "Köthe",
+    "aff": "Institut für Biomedizinische Technik",
+    "n_papers": 3,
+    "sample_titles": "Entwicklung eines Systems mit integrierter spektraler hologr || Simulationssoftware für holografisch-optische Wellenleitersy || Holografischer Hyperspektraldetektor – Vergleich von Simulat"
+  },
+  {
+    "id": 11493,
+    "init": "P.",
+    "nachname": "Vojtisek",
+    "aff": "Carl Zeiss Jena GmbH",
+    "n_papers": 3,
+    "sample_titles": "Entwicklung eines Systems mit integrierter spektraler hologr || Simulationssoftware für holografisch-optische Wellenleitersy || Holografischer Hyperspektraldetektor – Vergleich von Simulat"
+  }
+]

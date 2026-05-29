@@ -1,0 +1,142 @@
+[
+  {
+    "id": 11914,
+    "vorname": "Michael",
+    "orcid": "0000-0002-9278-8207",
+    "confidence": 0.95,
+    "reason": "Jun.-Prof. Dr. Michael Heymann, Institut für Biomaterialien und biomolekulare Systeme, Univ. Stuttgart; PI auf endoscopic two-photon 3D printing (Nature Comm Eng 2025; Light: Adv Manufacturing 2025 mit Toulouse, Wende, Doth); ORCID bestätigt via Stuttgart-Profil (uni-stuttgart.de Heymann-00001, srcsb.uni-stuttgart.de). Themen 'Bio 3D-Druck', 'endoskopische Zwei-Photonen-Lithographie' passen exakt."
+  },
+  {
+    "id": 15,
+    "vorname": "Matthias",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Dipl.-Ing. (FH) Matthias Heinze, Fraunhofer IOF Jena, bestätigt via Fraunhofer Publica (publica.fraunhofer.de, Scopus ID 9844935300) und Pressemitteilungen zum Joseph-von-Fraunhofer-Preis 2022 (3D-Positionskontrolle in Strahlentherapie). Themen Phasogrammetrie/Fringe-Projection/Unterwasser-3D matchen. Kein ORCID auf Fraunhofer-Profil."
+  },
+  {
+    "id": 30,
+    "vorname": "Thomas",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Dr. Thomas Kinder, F&E Optische Messtechnik, TEM Messtechnik GmbH Hannover; LinkedIn + ResearchGate + RocketReach bestätigen Namen + Affiliation; PhD 2004 Uni Greifswald. Forschungsthemen Interferometer/DFB-Laser/Längenkomparator passen exakt."
+  },
+  {
+    "id": 51,
+    "vorname": "Hans",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "Prof. Dr. Hans J. Tiziani, Leiter ITO Stuttgart 1978-2002 (in offiziellen ITO-Quellen meist 'Hans J. Tiziani' bzw. 'Hans Tiziani'). Bestätigt via ITO-Stuttgart Historie, docplayer 50-Jahre-ITO, ResearchGate, Tagblatt Berneck. Themen Speckle/Holographie/Surface Metrology passen. Mittlerer Name 'J.' nicht eindeutig (vermutlich 'Joachim'); daher konservativ nur 'Hans'."
+  },
+  {
+    "id": 106,
+    "vorname": "Axel",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Dr. Axel Engel, Senior Manager, SCHOTT AG Mainz, Physical Analytics; ResearchGate-Profil und SPIE-Publikationen 2004/2015/2017 zu Fluoreszenz / Quanteneffizienz von SCHOTT Optical Glass matchen exakt mit DB-Titeln. Affiliation D-55122 Mainz bestätigt."
+  },
+  {
+    "id": 196,
+    "vorname": "Klaus",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "Prof. Dr. Klaus Hinsch (auch 'Klaus D. Hinsch'), Carl von Ossietzky Univ. Oldenburg, Arbeitsgruppe Kohärente Optik; SPIE-Profil 'Klaus D. Hinsch', DFG-GEPRIS (Person 1102988) listet als 'Klaus Hinsch'; Uni-Oldenburg Pressedienst 2006 'Klaus Hinsch im Ruhestand'. Mittelname 'D.' wahrscheinlich 'Dieter' aber nicht eindeutig belegt. Themen Holographie/ESPI/Speckle passen exakt."
+  },
+  {
+    "id": 228,
+    "vorname": "Aiko",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "Aiko K. Ruprecht, ursprünglich ITO Univ. Stuttgart (Dissertation/SPIE 2004/2005 zu chromatisch-konfokalen Mikro-Distanzsensoren mit Wiesendanger/Tiziani), jetzt Trioptics GmbH Wedel (LinkedIn, Justia Patents, SID 2024); Themen 'Konfokaler Sensor Einschweißtiefe Keyhole', 'Diffractive Elements for Chromatic Confocal Sensors', 'Autokollimator' passen exakt zu Trioptics-Produktlinie."
+  },
+  {
+    "id": 606,
+    "vorname": "Johannes",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Dr. Johannes Pfund, Mitgründer und Geschäftsführer Optocraft GmbH Erlangen (Impressum optocraft.de, IHK-Gründerpreis 2006, LinkedIn, SPIE-Profil); Optocraft am Weichselgarten 7, 91058 Erlangen bestätigt. Themen Shack-Hartmann-Wellenfrontsensorik / Mikrooptik-Testing passen exakt."
+  },
+  {
+    "id": 607,
+    "vorname": "Mathias",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Prof. Dr. Mathias Beyerlein, Mitgründer Optocraft GmbH (2001, mit Pfund/Lindlein/Schwider, Promotion FAU Erlangen-Nürnberg); seit 2014 Professor an TH Lübeck im Fachbereich Angewandte Naturwissenschaften (Augenoptik/Optische Messtechnik/Optisches Design); th-luebeck.de Personenseite bestätigt. Trajektorie erklärt sowohl Optocraft-Themen als auch spätere Lübeck-Themen (spatio-spektrale Bildgebung, katadioptrische Snapshot)."
+  },
+  {
+    "id": 678,
+    "vorname": "Thomas",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Dr. Thomas Müller-Wirts, Geschäftsführer/CEO TEM Messtechnik GmbH Hannover (gegründet 1988, GmbH ab 1998); tem-messtechnik.de Team-/Impressum-Seiten, idw-online (Garagenfirma zur HighTech-Villa), photonicnet.de. Doktorvater Prof. Welling (Laser Zentrum Hannover). Themen Modengekoppelter Laser/Linewidth/Frequenzregelung/THz passen."
+  },
+  {
+    "id": 714,
+    "vorname": "Renhu",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "Renhu Shi, Erfinder auf zahlreichen Carl Zeiss MicroImaging Patenten zu Mikroskopobjektiven (US7672057, US7643216, US20060087745, Justia-Inventor-Profil); Themen 'Design aspects of planapochromatically corrected microscope objectives', 'Zoomobjectives for Microscope', 'asphärische Koeffizienten bei Optimierung mikroskopischer Objektive' passen exakt zu Zeiss-Objektivdesign."
+  },
+  {
+    "id": 759,
+    "vorname": "Zoltan",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Zoltan Böröcz, Laboratory of Biophysics, Univ. Münster, bestätigt als Co-Autor in PubMed 17691861 (Bischoff, Böröcz, Proll, Kleinheinz, von Bally, Dirksen 2007, 'Modular optical topometric sensor for 3D acquisition of human body surfaces'). Themen 'topometrisches Messsystem', 'Farbreproduktion', 'Gesichtsoberfläche' passen exakt zu dieser Münster-Biophysik-Gruppe."
+  },
+  {
+    "id": 1028,
+    "vorname": "Reinhard",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Dr. Reinhard Völkel, CEO SUSS MicroOptics SA, Neuchâtel/Schweiz; PhD 1994 FAU Erlangen-Nürnberg, danach Postdoc IMT Neuchâtel; Google Scholar, ResearchGate, AMIRES-Testimonial, neuchateleconomie.ch, EPIC Photonics. Themen Mikro-Optik/Mask Aligner Lithography/MO Exposure Optics/Wafer-Scale-Manufacturing passen exakt."
+  },
+  {
+    "id": 1078,
+    "vorname": "Mario",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Dr. Mario Kanka, Leibniz-Institut für Photonische Technologien (IPHT) Jena; Optics Letters Publikationen 2014/2015 zu lensless inline holographic microscopy; Uni-Jena Pressemitteilung zu Forschungspreis (mit Riesenberg/Grjasnow) für miniaturisiertes lens-freies 3D-Mikroskop. Themen passen exakt zu DB-Titeln (Lensless inline microscope, computational micro-imaging, synthetic apertures)."
+  },
+  {
+    "id": 1435,
+    "vorname": "Susanne",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "Susanne Zwick — Trajektorie: ursprünglich ITO Univ. Stuttgart (mit Reicherter, Haist, Kohler, Tiziani, Osten — Applied Optics 2006 'Fast digital hologram generation and adaptive force measurement in LCD-based holographic tweezers'); später Fraunhofer IOF Jena (Applied Optics 2013 'Phase-shifting fringe projection system based on tailored free-form mirror' mit Heist, Steinkopf, Kühmstedt, Notni — WebFetch opg.optica.org bestätigt 'Susanne Zwick' explizit als Vorname). DB-Affiliation 'Fraunhofer IOF' matcht spätere Phase. DGaO-Themen (Holographic Tweezers ITO + Phase-shifting Freeform IOF) decken beide Phasen ab."
+  },
+  {
+    "id": 1471,
+    "vorname": "Andreas",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "Andreas Oeder — ResearchGate-Profil (Andreas-Oeder-2), Academia.edu (independent.academia.edu/AOeder); Promotion/Dissertation zu integrierten optischen Pinzetten-Systemen; jetzt Manager Strategy and Processes Schaeffler Technologies AG Herzogenaurach. PubMed 19547414 'Tuneable planar integrated optical systems' (Oeder et al. 2007) matcht 'planar integrierte Freiraum-optische Systeme'. Themen Mikrooptik/Mikrofluidik/Optische Pinzetten passen, aber DB-Affiliation 'IGES Institut' nicht direkt bestätigt — möglicherweise frühere/zwischenzeitliche Institution."
+  },
+  {
+    "id": 1573,
+    "vorname": "Frank",
+    "orcid": "0000-0002-4043-6314",
+    "confidence": 0.97,
+    "reason": "Dr. Frank Frost, Head of Division 'Ion Beam Assisted Patterning and Smoothing', Leibniz-Institut für Oberflächentechnik (IOM) Leipzig; iom-leipzig.de Personenseite, ResearchGate-Profil. ORCID 0000-0002-4043-6314 bestätigt. Themen Ionenstrahlätzen, holografische Blaze-Gitter, EUV/XUV-Gitter passen exakt."
+  },
+  {
+    "id": 2016,
+    "vorname": "Wilhelm",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Prof. Dr. rer. nat. Wilhelm Stork, Wissenschaftlicher Direktor 'Medical Information Technology' FZI Forschungszentrum Informatik Karlsruhe (seit 2002), zugleich Prof. Mikrosystemtechnik/Optik am ITIV/KIT (seit 2008); fzi.de/team/wilhelm-stork, itiv.kit.edu, ResearchGate, Google Scholar. Promotion FAU Erlangen Angewandte Optik. Themen Lidar/Doppler/Funduspulsation/Mie-Streuung passen."
+  },
+  {
+    "id": 2171,
+    "vorname": "Stefan",
+    "orcid": "0000-0003-3121-336X",
+    "confidence": 0.97,
+    "reason": "PD Dr.-Ing. Stefan F. Helfert, FernUniversität in Hagen, Lehrgebiet Allgemeine und Theoretische Elektrotechnik / Chair of Micro- and Nanophotonics; fernuni-hagen.de Personenseite, DFG-GEPRIS (Person 1494304). ORCID 0000-0003-3121-336X bestätigt. Themen Wellenleitersimulation/Method of Lines/Polarisationskonverter/MoL-BPM passen exakt."
+  },
+  {
+    "id": 2698,
+    "vorname": "Markus",
+    "orcid": null,
+    "confidence": 0.75,
+    "reason": "Markus Auer — Promotion Uni Heidelberg/Mannheim mit Karl-Heinz Brenner (heiDOK Dissertation 'Numerical treatment of localized fields in rigorous diffraction theory'); JEOS-RP 2011 'Enhancement of Photodetector Responsivity in Standard SOI CMOS Processes' (Auer & Brenner, Affiliation Univ. Heidelberg, 68131 Mannheim). DGaO-Themen RCWA/Photodetektor/lokale Absorption matchen exakt diese Heidelberg-Arbeit. DB-Affiliation 'Pforzheim University of Applied Sciences' nicht direkt bestätigt — möglicherweise spätere Position oder Datenbank-Diskrepanz. Confidence reduziert, da Pforzheim-Verbindung unklar."
+  }
+]

@@ -1,0 +1,157 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Aktualisierung einer OTF-Me\u00dfanlage, \ndaraus resultierende universelle Ergebnis-Analyse",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          152.8173828125,
+          69.468505859375
+        ],
+        [
+          445.320068359375,
+          69.468505859375
+        ],
+        [
+          445.320068359375,
+          101.26849365234375
+        ],
+        [
+          152.8173828125,
+          101.26849365234375
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.55810546875,
+          260.2470703125
+        ],
+        [
+          124.12322235107422,
+          260.2470703125
+        ],
+        [
+          124.12322235107422,
+          270.81365966796875
+        ],
+        [
+          59.55810546875,
+          270.81365966796875
+        ]
+      ]
+    },
+    {
+      "title": "2 Modernisierung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.6865234375,
+          478.9697265625
+        ],
+        [
+          145.77044677734375,
+          478.9697265625
+        ],
+        [
+          145.77044677734375,
+          490.29278564453125
+        ],
+        [
+          58.6865234375,
+          490.29278564453125
+        ]
+      ]
+    },
+    {
+      "title": "3 Automatisierung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          309.0,
+          260.79412841796875
+        ],
+        [
+          399.6379089355469,
+          260.79412841796875
+        ],
+        [
+          399.6379089355469,
+          270.9365234375
+        ],
+        [
+          309.0,
+          270.9365234375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          155
+        ],
+        [
+          "Line",
+          75
+        ],
+        [
+          "TableCell",
+          19
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_b5"
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "id": 584,
+    "vorname": "Joachim",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Dr.-Ing. Joachim Max Bauer, TH Wildau, Institute of Photonics, Laser and Plasma Technology. Bestätigt über TH-Wildau-Profil (https://www.th-wildau.de/personen/joachim-bauer), Photonik-Masterprogramm-Dozent, SPIE-Profil und ResearchGate. Themen (Optik, Halbleiter, dünne Schichten, 3D-Chip-Integration, Polyurethan-LED, Beleuchtung) passen exakt."
+  },
+  {
+    "id": 935,
+    "vorname": "Michael",
+    "orcid": "0000-0003-1460-9602",
+    "confidence": 0.98,
+    "reason": "Dr. Michael Duparré, Institute of Applied Optics, FSU Jena bzw. Leibniz-IPHT Jena. ORCID 0000-0003-1460-9602 belegt über sciprofiles und orcid.org. Themen (modal decomposition, laser beam quality, fiber modes, spatial light modulators) sind sein zentrales Forschungsfeld."
+  },
+  {
+    "id": 973,
+    "vorname": "Hagen",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "Hagen Schimmel, bekannt aus LightTrans/Wyrowski-Group Jena, Co-Autor von Wyrowski und Matsushima zu 'fast calculation method for optical diffraction on tilted planes' (JOSA A 2003) und 'Simulation of multibeam imaging' (JOSAB 2007). Themen (Propagationsoperatoren, partiell kohärente Simulation, freeform beam shaping, grid-to-grid, tilted planes) entsprechen exakt seinen LightTrans/VirtualLab-Publikationen. 5microns GmbH ist plausibel als spätere/parallele Affiliation, jedoch nicht direkt verifiziert — daher conf 0.85."
+  },
+  {
+    "id": 1296,
+    "vorname": "Robert",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Prof. Robert M. Parkin, ehemals Head of Wolfson School of Mechanical & Manufacturing Engineering, Loughborough University; Mechatronics Research Centre. Quellen: ResearchGate-Profil, WTU Network, ICOM-2003-Proceedings. Themen (Mikrooptik, Lithografie, Partikelmessung in Zusammenarbeit mit deutschen Optik-Gruppen) passen zu Mechatronics-Forschung."
+  },
+  {
+    "id": 1307,
+    "vorname": "Alexander",
+    "orcid": null,
+    "confidence": 0.98,
+    "reason": "Prof. Dr.-Ing. Alexander W. Koch (Alexander Walter Koch), Lehrstuhl für Messsystem- und Sensortechnik, TU München. Bestätigt über TUM-Webseite (https://www.professoren.tum.de/en/koch-alexander), seit 1998 Ordinarius. Themen (FBG, Speckle-Interferometrie, FT-IR-Spektrometer, Polarisationsmodenkopplung) entsprechen seinem Lehrstuhl exakt."
+  },
+  {
+    "id": 1417,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.3,
+    "reason": "Affiliation 'IGES Institut' (Berliner Gesundheitsökonomie-Institut?) passt nicht zu Optik-Themen. Themen (Compound-Eye-Kameras, Photoresist, beugungsoptische Phasengitter, durchstimmbare Mikrolinsen) deuten stark auf Martin Hoffmann (ehemals Uni Freiburg/IMTEK, dann TU Ilmenau Mikromechanische Systeme, jetzt Ruhr-Uni Bochum) hin; jedoch keine direkte Verknüpfung zu 'IGES' belegbar. Affiliation könnte fehlerhaft sein, daher kein Eintrag. Conf zu niedrig für definitive Zuordnung."
+  },
+  {
+    "id": 1917,
+    "vorname": "Vanusch",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Vanusch Stepan Nercissian, Promotion 2017 am Lehrstuhl für Optik (Lindlein/ODEM-Gruppe), FAU Erlangen-Nürnberg, Thema 'Partiell kohärente Beleuchtung in der lateralen Shearing-Interferometrie' (OPUS-FAU docID 9858). Themen (Shearing-Interferometrie, Phasensingularitäten, Speckle-Interferometrie, Polarisationsmessung) passen exakt."
+  },
+  {
+    "id": 2136,
+    "vorname": "Elen",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Dipl.-Phys./Dr. rer. nat. Elen Tolstik, Promotion in Jena (Leibniz-IPHT/FSU), Photopolymer-Forschung an PQ/PMMA-Systemen, später ISAS Dortmund. Quellen: ResearchGate, ISAS-Profil (https://www.isas.de/das-institut/personen/1453-elen-tolstik), Uni Jena Physik-Seite. Themen (PQ/PMMA-Photopolymer, Head-up-Display-Hologramme, selbstinduzierte Wellenleiter) entsprechen ihrer Dissertation und gemeinsamen Publikationen mit A. Tolstik."
+  },
+  {
+    "id": 5482,
+    "vorname": "Florian",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Florian Loosen, Promotion 17.06.2019 am Lehrstuhl für Optik FAU, OPTAVER-Forschergruppe (DFG FOR 1660). Dissertation 'Design und Simulation unkonventioneller optischer Systeme'. Quellen: archiv.optik.nat.fau.de, OPTAVER-News, FAU CRIS. Themen (POW polymer optical waveguides, ultrashort pulses, beam propagation/wave propagation, CGH, spatial heterodyne) passen exakt zu seinen Publikationen."
+  },
+  {
+    "id": 7657,
+    "vorname": "Leonhard",
+    "orcid": null,
+    "confidence": 0.92,
+    "reason": "Dr.-Ing. Leonhard Lenk, Optical Engineering Group (FG Technische Optik) TU Ilmenau (Sinzinger-Gruppe), former staff. Publikationen 'Design method for zoom systems based on tunable lenses' (OE 2022, Lenk/Sinzinger), 'Multi-layer diffractive Alvarez-Lohmann lenses for polychromatic applications' (Lenk/Grewe/Sinzinger), 'Diffractive Alvarez-Lohmann lenses for correcting aberrations of tunable membrane lenses' (OE 2023). DB-Affiliation 'Institut für Biomedizinische Technik' ist vermutlich Cluster-Fehler — Themen (verstimmbare Linsen, Alvarez-Lohmann, Zoomobjektive, Phase Retrieval, chromatisch-konfokal) entsprechen TU Ilmenau Technische Optik zu 100%."
+  },
+  {
+    "id": 8202,
+    "vorname": "Arne",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Dr.-Ing. Arne Behrens, TU Ilmenau, Optical Engineering Group / Institut für Mikro- und Nanotechnologien, Promotion 17.10.2023 'Plasma based 2.5D+ micro and nanostructuring for Whispering Gallery Mode Resonators', Silicon Science Award 2025. Themen (deformierte Mikrokavitäten, WGM-Resonatoren, Subwellenlängengitter, 2.5D-Ätzen SiO2/Si3N4) entsprechen exakt seiner Dissertation."
+  },
+  {
+    "id": 12307,
+    "vorname": "Harald",
+    "orcid": "0000-0002-4270-3850",
+    "confidence": 0.98,
+    "reason": "Prof. Dr. Harald Giessen, Lehrstuhl für Ultraschnelle Nanooptik, 4. Physikalisches Institut, Universität Stuttgart, seit 2005. ORCID 0000-0002-4270-3850. Quellen: pi4.uni-stuttgart.de, MPQ. Robert-Wichard-Pohl-Preis 2024 für 3D-gedruckte Mikrooptik. Themen (3D-Druck Mikrooptik, Zwei-Photonen-Lithographie, Mikrospektrometer, Metamaterialien) sind seine zentralen Arbeitsgebiete."
+  },
+  {
+    "id": 12499,
+    "vorname": "Julian",
+    "orcid": null,
+    "confidence": 0.92,
+    "reason": "M.Sc. Julian Wüster, FG Technische Optik TU Ilmenau (Sinzinger-Gruppe), former staff (julian.wuester@tu-ilmenau.de). Publikationen: 'Nano-imprinted subwavelength gratings as polarizing beamsplitters' (Wüster/Bourgin/Feßer/Behrens/Sinzinger, JEOS 2021), 'Resonant diffraction gratings with polarization-dependent efficiencies' (EOSAM 2020), 'Amorphous silicon carbide for microstructured optics' (2025). DB-Affiliation 'Institut für Biomedizinische Technik' ist Cluster-Fehler — Themen (DOE-Subwellenlängengitter, Polarisationsstrahlteiler, hybride Phasengitter, a-Si DOEs) sind exakt seine TU-Ilmenau-Forschung."
+  },
+  {
+    "id": 122,
+    "vorname": "Stefan",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "Stefan Lichtenberg, Co-Autor mit T. Tschudi (TU Darmstadt) bei Publikationen zu adaptiver holographischer Interferometrie und photorefraktiven Bragg-Filtern (z.B. 'A dynamic wavelength Bragg-filter with an on-line controllable transfer function', 'Spectral Bragg filter with a synthesized transfer function'). Themen (Bragg-Filter, photorefraktive Kristalle, adaptive Interferometrie, abstimmbare Filter) entsprechen seinen Publikationen exakt. Wetzlar/Photonik Zentrum Hessen als spätere Affiliation plausibel (Industrieumzug nach Promotion in Darmstadt), aber nicht direkt belegt — daher conf 0.85."
+  },
+  {
+    "id": 453,
+    "vorname": "Udo",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Udo Trutschel, Circadian Technologies Inc., Stoneham MA. Vorname war bereits in Eingabe. Diplom in theoretischer Physik FSU Jena, Promotion in angewandter Physik TU Ilmenau, seit 1995 bei Circadian. Themen (neuronale Netze für optische Konstanten, Plasmon-Faser-Geometrien, zylindersymmetrische photonische Strukturen, circadian system) passen exakt — die optischen Arbeiten stammen aus seiner Zeit in Deutschland, die Circadian-Arbeit aus US-Phase."
+  },
+  {
+    "id": 1085,
+    "vorname": "Alexander",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Prof. Dr. Alexander Heisterkamp, Institut für Quantenoptik, Leibniz Universität Hannover; auch NIFE, LZH und Exzellenzcluster PhoenixD. Biophotonics-Gruppe. Quellen: iqo.uni-hannover.de, ResearchGate. Themen (Femtosekunden-Laser-Zellchirurgie, Optogenetik, Multiphotonen-Imaging, Cochlea-Implantate, Laser-Zellmanipulation) entsprechen seiner Biophotonics-Forschungsgruppe exakt."
+  },
+  {
+    "id": 1183,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.3,
+    "reason": "Keine eindeutige Identifikation für 'F. Buchmüller' an der Jade Hochschule gefunden. Themen (DOE für Hochleistungslaser, Ionenaustausch in BK7, SNOM, Partikel-Bildverarbeitung) deuten auf eine Kooperation mit dem Loughborough/Parkin- und Wildau-Cluster hin, aber Vorname konnte nicht zuverlässig ermittelt werden. Conf zu niedrig."
+  },
+  {
+    "id": 1389,
+    "vorname": "Alexei",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Prof. Alexei L. Tolstik (auch transkribiert Alexej/Alexey/Aliaksei), Head of Department of Laser Physics and Spectroscopy, Belarusian State University, Minsk. Quellen: physics.bsu.by, ResearchGate. Themen (Volumenphasengitter in glasähnlichen Polymeren, photoinduzierte Absorption in BTO/Bi12TiO20-Kristallen, photochromer Effekt, Multi-Photonen-Prozesse in photorefraktiven Kristallen) entsprechen exakt seinen Forschungsgebieten. Gemeinsame Publikationen mit E. Tolstik (id 2136)."
+  },
+  {
+    "id": 2161,
+    "vorname": "Thomas",
+    "orcid": null,
+    "confidence": 0.98,
+    "reason": "Prof. Dr. phil. nat. Thomas Graf, Direktor des Institut für Strahlwerkzeuge (IFSW), Universität Stuttgart seit Juni 2004. Quellen: ifsw.uni-stuttgart.de, uni-stuttgart.de Pressestelle. Themen (Thin-Disk-Laser, Hochleistungslaser, Gitter-Wellenleiter-Strukturen, Pulskompressor-Gitter, DLIP) sind die Kernforschungsgebiete des IFSW unter seiner Leitung."
+  },
+  {
+    "id": 2280,
+    "vorname": "Tobias",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Dr. Tobias Herffurth, Fraunhofer-Institut für Angewandte Optik und Feinmechanik (IOF) Jena, Surface and Thin Film Characterization Group seit 2006, Physik-Diplom FSU Jena 2008. Quellen: SPIE-Profil, sciprofiles, IOF-Webseite. Themen (Streulicht- und Reflexionsmesstechnik, EUV scattering, HOROS Sensor, Subsurface Damage, Optikkomponenten-Streulichtanalyse) entsprechen exakt seinem Arbeitsgebiet bei Fraunhofer IOF."
+  }
+]

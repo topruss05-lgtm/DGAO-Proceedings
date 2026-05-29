@@ -1,0 +1,130 @@
+{
+  "table_of_contents": [
+    {
+      "title": "UV-Laserablation von Quarzglas zur Herstellung diffraktiver optischer Elemente",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          69.69143576826197,
+          69.72929652715939
+        ],
+        [
+          527.5566750629723,
+          69.72929652715939
+        ],
+        [
+          527.5566750629723,
+          81.404296875
+        ],
+        [
+          69.69143576826197,
+          81.404296875
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.45088161209068,
+          245.92698130008904
+        ],
+        [
+          121.39798488664988,
+          245.92698130008904
+        ],
+        [
+          121.39798488664988,
+          256.546875
+        ],
+        [
+          58.45088161209068,
+          256.546875
+        ]
+      ]
+    },
+    {
+      "title": "2 UV-Ablation von Quarzglas",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.45088161209068,
+          598.3223508459483
+        ],
+        [
+          198.5831234256927,
+          598.3223508459483
+        ],
+        [
+          198.5831234256927,
+          609.7099609375
+        ],
+        [
+          58.45088161209068,
+          609.7099609375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          96
+        ],
+        [
+          "Span",
+          21
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Figure",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_b32"
+}

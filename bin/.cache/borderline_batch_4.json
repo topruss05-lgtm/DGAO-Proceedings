@@ -1,0 +1,162 @@
+[
+  {
+    "id": 5260,
+    "init": "C.",
+    "nachname": "Koos",
+    "aff": "Institut für Photonik und Quantenelektronik",
+    "n_papers": 9,
+    "sample_titles": "Silicon Photonics, Hybrid Integration, and Frequency Combs: Technologies for Ter || Fast high-precision distance measurements with electro-optic frequency combs || Kerr-Frequenzkämme und deren Stabilisierung für die Terabit-Kommunikation || Lasing goblet resonators – active microstructures for integrated biosensors || Polarization-Sensitive Optical Coherence Tomography for Characterization of Size || Silicon-Organic Hybrid (SOH) Devices for Applications in Optical Communications, || Frequenzmultiplex-Verfahren für zukünftige optische Zugangsnetzwerke || High-precision laser ranging for industrial metrology with dual-color electro-op || 3D Nano-Printing in Integrated Optics: From Laboratory Experiments to Industrial"
+  },
+  {
+    "id": 5505,
+    "init": "U.",
+    "nachname": "Wallrabe",
+    "aff": "Professur für Mikrooptik (Gisela-und-Erwin-Sick-Professur), Institut für Mikrosystemtechnik (IMTEK), Universität Freiburg",
+    "n_papers": 9,
+    "sample_titles": "Adaptive Optik für die Interferometrie und konfokale Mikroskopie || Das Auge als Vorbild - Kombination aus variabler Optik und Kippbewegungen zur St || Nicht-sphärische adaptive Optik für die Lebenswissenschaften || Adaptive piezogetriebene Hochgeschwindigkeits-Linse mit asphärischer Korrektur || Simultane Kernspin- und optische Mikroskopie mit adaptiven Linsen || Tiefenkontrollierbare Bessel-Strahlen für quasi-nichtinvasive optogenetische Sti || Confocal microscopy employing pressure controlled adaptive lenses || Adaptive optical elements & Machine Learning - The road to smart microscopy || Adaptiver Achromat zur Korrektur chromatischer Aberrationen"
+  },
+  {
+    "id": 6788,
+    "init": "S.",
+    "nachname": "Schrader",
+    "aff": "Technische Hochschule Wildau",
+    "n_papers": 9,
+    "sample_titles": "Fiber-optic interference fringe projection for 3D measurement || Imaging systems based on four-spherical-mirror design || Asymmetrische Polymer-Linsen für Beleuchtungssysteme || Neuartige UV-transparente 2-Komponenten-Polyurethanharze für Chip-on-Board-LED-M || Obstruktionsfreies Optikdesign basierend auf vier sphärischen Spiegeln || Bestimmung der optischen Konstanten und Streueigenschaften von transparenten Kun || Neuartige UV-transparente 2-Komponenten-Polyurethanharze für Chip-on-Board-LED-M || Messverfahren zur Kontrolle tiefer Siliziumstrukturen für die 3D-Chip-Integratio || Optical Through-Silicon Waveguides for 3D-Chip-Interconnections"
+  },
+  {
+    "id": 7019,
+    "init": "D.",
+    "nachname": "Stöbener",
+    "aff": "University of Bremen",
+    "n_papers": 9,
+    "sample_titles": "Messbarkeitsgrenzen der Speckle-Fotografie bei In-Prozess-Verformungsmessungen h || Modellunterstützte Messmethode für periodische Sub-Wellenlängen-Nanostrukturen || Topografiemessung gekrümmter Oberflächen mittels lateral scannender Weißlichtint || Robuste polychromatische Speckle-Rauheitsmessungen durch implizite Korrektion de || Digitale Speckle-Korrelation zur Vorschubbestimmung bei der lateral scannenden W || Speckle-Oberflächenmesstechnik unter Einsatz adaptiver Optiken || Digitale Speckle-Korrelation zur Vorschubbestimmung bei der lateral scannenden W || Scatterometry-based assessment of defective nanograss surfaces - a virtual exper || Direkte optische Messung von Cornea-Deformationen mit Laserlinientriangulation"
+  },
+  {
+    "id": 8132,
+    "init": "U.",
+    "nachname": "Birk",
+    "aff": "University of Applied Sciences of the Grisons",
+    "n_papers": 9,
+    "sample_titles": "Benutzerpositionsabhängige adaptive Anzeige von 3D-Daten ohne zusätzliche stereo || Holzwerkstoffklassifizierung mit Machine Vision unter Verwendung einer Acht-Kana || Bildverarbeitung und Maschinelles Sehen für Studierende der Ingenieurwissenschaf || Superauflösende Mikroskopie mit sehr großem Arbeitsabstand durch verteilte Apert || Didaktische und experimentelle Konzepte für Hands-on Machine Vision Experimente  || M.I.A.U. (Machine Integrated Authentication Unit): Intelligente Katzenidentifika || Automatisierte Detektion von Wolframwendeln zur Entnahme aus Petrischalen || Studierendenprojekt: Optisches Messsystem zur Optimierung des Lauftrainings von  || Erzählungen als treibende Kraft in der Photonik-Ausbildung: Einblicke und Anwend"
+  },
+  {
+    "id": 9926,
+    "init": "U.",
+    "nachname": "Boehm",
+    "aff": "Carl Zeiss AG",
+    "n_papers": 9,
+    "sample_titles": "Equity in the optics and photonics workplace || Navigating a career in optics and photonics || Podiumsdiskussion: Karriereperspektiven in der Optik und Photonik || Podiumsdiskussion: Karriereperspektiven in der Optik und Photonik || Podiumsdiskussion: Karriereperspektiven in der Optik und Photonik || Podiumsdiskussion: Karriereperspektiven in der Optik und Photonik || Podiumsdiskussion: Karriereperspektiven in der Optik und Photonik || Super-Resolution Insights into Cellular Architecture: The Role of iPALM in Under || Podiumsdiskussion Karriereperspektiven in der Optik und Photonik"
+  },
+  {
+    "id": 11304,
+    "init": "Eva",
+    "nachname": "Stanik",
+    "aff": "Aschaffenburg University of Applied Sciences",
+    "n_papers": 9,
+    "sample_titles": "Unsichtbares erkunden - Experimente im Museumslabor des Deutschen Röntgen-Museum || Hommage auf einen bedeutenden Wissenschaftler - das Deutsche Röntgen-Museum || Ellipsometrische Charakterisierung von Polydopamin für funktionelle technische S || Forschung zu Strahlenschäden mit dem Stratosphärenballon-Experiment ASTRABAX || Ein Besucherexperiment zur astronomischen Röntgenoptik für das Deutsche Röntgen- || Optik-Simulation für die Energiewende am Beispiel eines industriellen Infrarot-H || Infrared heating for a sustainable powder coating technology || Historische Röntgenbilder in das UNESCO-Weltdokumentenerbe aufgenommen || Verknüpfte optische und thermische Simulationen von Infrarot-Heizöfen für Pulver"
+  },
+  {
+    "id": 36,
+    "init": "B.",
+    "nachname": "Dörband",
+    "aff": "Fakultät Optik und Mechatronik",
+    "n_papers": 8,
+    "sample_titles": "Störreflexunterdrückung durch Modulation der Laserwellenlänge bei der interferom || Ernst Abbe – Innovator of Applied Optics and Social Reformer || Die Höhen-Transfer-Funktion (HTF) zur Charakterisierung der lateralen Auflösung  || Interferogrammanalyse mit Trägerfrequenzverfahren und hoher lateraler Auflösung || Passe- und Rauheitsprüftechnik: Welche Sensorik ist die richtige? || Minimierung chromatischer Passemessfehler bei kurzkohärenter Interferometrie || The Look of Optical Elements in Realistic Environment || Von Einsteins Relativitätstheorie zur modernen Halbleiterproduktion"
+  },
+  {
+    "id": 170,
+    "init": "C.",
+    "nachname": "Brüggemann",
+    "aff": "FISBA AG, St. Gallen",
+    "n_papers": 8,
+    "sample_titles": "Optische Prüfung der Venus Express Camera für Venus Express || Measuring the bending of diode laser bars || Zur Vermessung von Fast-Axis-Kollimationslinsen || Interferometrische Prüfung von Umlenkprismen || Interferometric characterisation of laser induced thermal lenses in optical mate || Measurement of Off-Axis Parabolic Prisms || Die Nutzung des Twymaneffektes in der Dünnschichttechnologie || Adjusting the focus position of fiber collimators"
+  },
+  {
+    "id": 386,
+    "init": "G.",
+    "nachname": "Bischoff",
+    "aff": "University of Münster",
+    "n_papers": 8,
+    "sample_titles": "Charakterisierung und Vergleich von Firewire-basierten Farb-CCD-Kamerasystemen f || A Mobile True Color Topometric Sensor for Medical and Art Conservation Applicati || Optimierung der Farbreproduktion eines 3D-Koordinatenmessystems || Ein topometrisches Messsystem zur Erfassung von Formänderungen der Gesichtsoberf || Charakterisierung & Optimierung der Farbreproduktion eines topometrischen Messsy || Optimierung des Kalibrierungs- und Messvorgangs eines topometrischen 3D-Messsyst || 3D-Formerfassung mittels Korrelation projizierter Specklemuster || Charakterisierung und Optimierung der Messgenauigkeit eines topometrischen 3D-Me"
+  },
+  {
+    "id": 751,
+    "init": "B.",
+    "nachname": "Menges",
+    "aff": "Max-Planck-Institut für Polymerforschung",
+    "n_papers": 8,
+    "sample_titles": "Thermo-optical detection of surface plasmon resonance || Anwendung von Neuronalen Netzen zur Charakterisierung optischer Schichtsysteme || Evaneszente Optik zur Untersuchung des Quellverhaltens stimuli-sensitiver „intel || Anisotrope Charakterisierung der Glastemperatur an Polymerfilmen mittels optisch || SENSITIVITY ANALYSIS OF COUPLED PLASMON FIBER MODE PROPAGATION FOR EVANESCENT-WA || DEVELOPMENT OF AN OPTICAL BIOSENSOR DEVICE BASED ON GRATING ASSISTED GUIDED HYBR || Study of graphene-like layer deposition at interfaces || Evanescent wave optics to study diffusion in polymers at interfaces"
+  },
+  {
+    "id": 1006,
+    "init": "O.",
+    "nachname": "Hybl",
+    "aff": "Friedrich-Alexander-Universität Erlangen-Nürnberg",
+    "n_papers": 8,
+    "sample_titles": "Messunsicherheit bei Weißlichtinterferometrie auf rauen Oberflächen || Full 3D acquisition of cylinders and cones within a few seconds || Schnellere Weisslichtinterferometrie durch Unterabtastung || Microdeflectometry: SEM-like quantitative 3D images with nanometer height sensit || Information Efficient White-Light Interferometry || \"Flying Triangulation\" - a new optical 3D sensor enabling the acquisition of sur || Ultrafast 4-Megapixel White-Light-Interferometry || A 3D-Sensor for intraoral metrology"
+  },
+  {
+    "id": 1834,
+    "init": "S.",
+    "nachname": "Ernst",
+    "aff": "Jade Hochschule",
+    "n_papers": 8,
+    "sample_titles": "DOE-Strahlteiler zum kontinuierlichen Messen der Leistung von Hochleistungs-Lase || Formerkennung von Kleinstpartikeln (1µm - 3µm) mittels digitaler Bildverarbeitun || Miniaturisierung einer Anlage zur Untersuchung von Feinstaubteilchen kleiner PM  || Implementierung einer \"Tripple-Wavelength\" Laserdiode in ein Lithografiesystem u || Application of inline digital holographic techniques to detect size, distributio || Layout and optical simulation of a confocal lithography setup enhanced with a so || Structuring of technical surfaces to achieve a self - cleaning effect || Improving the lateral resolution in case of structuring technical surfaces by ap"
+  },
+  {
+    "id": 1894,
+    "init": "D.",
+    "nachname": "Pätz",
+    "aff": "Institut für Biomedizinische Technik",
+    "n_papers": 8,
+    "sample_titles": "\"Computational Imaging\" zur Optimierung optischer Abbildungssysteme || Wave-front Coding for increased depth of field of optical systems || Vergrößerung der Auflösung von Compound Eye Kameras durch individuell verstimmba || Scannende Compound-Kamera zur hochauflösenden 3D-Objektabtastung || 3D Scanning system based on tunable cylindrical lenses || Scannend abbildendes Mikrosystem auf Basis durchstimmbarer Elemente aus Aluminiu || Adaptive micro-eye based on tunable micro-optical components || Phase-retrieval Algorithmen zur Wellenfrontanalyse"
+  },
+  {
+    "id": 3037,
+    "init": "C.",
+    "nachname": "Alpmann",
+    "aff": "University of Münster",
+    "n_papers": 8,
+    "sample_titles": "Self pumped phase conjugation of angular momentum carrying light beams || Optische Mikromanipulation in maßgeschneiderten Ince Gauß Strahlen || Holographisch optische Pinzetten zur Anordnung und Organisation von Nanocontaine || Optische Manipulation in der modernen Mikroskopie – wie holographische Verfahren || Polyelectrolyte multilayer core-shell particles in holographic optical tweezers || Optical control of zeolite-L-nanocontainer-based waveguides and sensors || Holographic approach for the investigation of singular optics – from phase to po || Vectorial flower gardens and wind roses -- tailoring the polarization of light"
+  },
+  {
+    "id": 3724,
+    "init": "Jan",
+    "nachname": "Burke",
+    "aff": "Fraunhofer Institute of Optronics, System Technologies and Image Exploitation",
+    "n_papers": 8,
+    "sample_titles": "Absolut-Abstandsreferenz für die Streifenreflexionstechnik zur Verringerung syst || Highly accurate surface reconstruction for deflectometry || Simulationsstudien für Deflektometriesysteme || Simulation of deformation measurements with deflectometry || Mustererzeugung zum Phasenschieben durch Rotation für die Deflektometrie Creatin || Suppression of contrast-related artefacts in phase-measuring structured light te || Kamera-Kalibrierung für optische Messaufgaben mit erweiterter Berechnung und Bew || Schachbrett Muster Kamera-Kalibrierung mit Machine Learning Methode"
+  },
+  {
+    "id": 6452,
+    "init": "F.",
+    "nachname": "Fleischmann",
+    "aff": "Hochschule Bremen",
+    "n_papers": 8,
+    "sample_titles": "Designing a Secondary Optical Freeform Lens for Signal Lighting || Experimental ray tracing for characterization of optical components || Characterization of progressive addition lenses by measurement of the modulation || Application of radial basis functions for the surface reconstruction using defle || Determination of the paraxial focal length according to its definition by the Ge || Light beam-shaping using a secondary refractive lens-array for signal lighting a || Freeform surface measurement as an example for the advantages of the use of data || Hochpräzise Messung flacher spiegelnder Freiform-Oberflächen mit Experimental Ra"
+  },
+  {
+    "id": 6453,
+    "init": "T.",
+    "nachname": "Henning",
+    "aff": "Hochschule Bremen",
+    "n_papers": 8,
+    "sample_titles": "Designing a Secondary Optical Freeform Lens for Signal Lighting || Experimental ray tracing for characterization of optical components || Characterization of progressive addition lenses by measurement of the modulation || Application of radial basis functions for the surface reconstruction using defle || Determination of the paraxial focal length according to its definition by the Ge || Light beam-shaping using a secondary refractive lens-array for signal lighting a || Freeform surface measurement as an example for the advantages of the use of data || Hochpräzise Messung flacher spiegelnder Freiform-Oberflächen mit Experimental Ra"
+  },
+  {
+    "id": 6546,
+    "init": "T.",
+    "nachname": "Ripken",
+    "aff": "Laser Zentrum Hannover",
+    "n_papers": 8,
+    "sample_titles": "Two photon optogenetic stimulation of human induced pluripotent stem cells deriv || Mechanisms for the light-cell interface in optical cell stimulation || Macrobending losses of glass fibers for optical cochlear stimulation || Adaptive optics assisted and optical coherence tomography guided fs-laser surger || SLOT: Computed Tomography with laser light for volumetric microscopy of mesoscop || Surface analysis of femtosecond laser processed materials by using different int || Laser based cell manipulation with nanoparticles and optogenetics || Optogenetic tools for the development of a biohybrid pacemaker"
+  },
+  {
+    "id": 6784,
+    "init": "P.",
+    "nachname": "Steglich",
+    "aff": "Technische Hochschule Wildau",
+    "n_papers": 8,
+    "sample_titles": "Fiber-optic interference fringe projection for 3D measurement || Asymmetrische Polymer-Linsen für Beleuchtungssysteme || Neuartige UV-transparente 2-Komponenten-Polyurethanharze für Chip-on-Board-LED-M || Bestimmung der optischen Konstanten und Streueigenschaften von transparenten Kun || Neuartige UV-transparente 2-Komponenten-Polyurethanharze für Chip-on-Board-LED-M || Messverfahren zur Kontrolle tiefer Siliziumstrukturen für die 3D-Chip-Integratio || Optical Through-Silicon Waveguides for 3D-Chip-Interconnections || Silizium-photonische Biosensoren mit monolithisch integrierter Mikrofluidik"
+  }
+]

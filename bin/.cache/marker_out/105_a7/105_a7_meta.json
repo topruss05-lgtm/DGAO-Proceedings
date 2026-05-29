@@ -1,0 +1,203 @@
+{
+  "table_of_contents": [
+    {
+      "title": "St\u00f6rreflexunterdr\u00fcckung durch Modulation der Laserwellenl\u00e4nge bei der interferometrischen Vermessung der Oberfl\u00e4chen von transparenten Planparallelplatten",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          82.5,
+          64.96875
+        ],
+        [
+          528.75,
+          64.96875
+        ],
+        [
+          528.75,
+          89.71875
+        ],
+        [
+          82.5,
+          89.71875
+        ]
+      ]
+    },
+    {
+      "title": "mailto:s.schulte@smt.zeiss.com",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          237.75,
+          145.5
+        ],
+        [
+          375.0,
+          145.5
+        ],
+        [
+          375.0,
+          154.5
+        ],
+        [
+          237.75,
+          154.5
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          80.982421875,
+          255.0
+        ],
+        [
+          141.75,
+          255.0
+        ],
+        [
+          141.75,
+          264.515625
+        ],
+        [
+          80.982421875,
+          264.515625
+        ]
+      ]
+    },
+    {
+      "title": "2 Bestimmung des spektralen Verlaufs",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          80.0859375,
+          667.08984375
+        ],
+        [
+          255.75,
+          667.08984375
+        ],
+        [
+          255.75,
+          677.25
+        ],
+        [
+          80.0859375,
+          677.25
+        ]
+      ]
+    },
+    {
+      "title": "3 Bestimmung der ECDL-Ansteuerfunktion",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          315.0,
+          329.25
+        ],
+        [
+          510.0,
+          329.25
+        ],
+        [
+          510.0,
+          338.765625
+        ],
+        [
+          315.0,
+          338.765625
+        ]
+      ]
+    },
+    {
+      "title": "4 Beispiele f\u00fcr geeignete Koh\u00e4renzfunktionen",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          315.0,
+          492.75
+        ],
+        [
+          522.75,
+          492.75
+        ],
+        [
+          522.75,
+          502.34765625
+        ],
+        [
+          315.0,
+          502.34765625
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          108
+        ],
+        [
+          "Span",
+          33
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Equation",
+          5
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_a7"
+}

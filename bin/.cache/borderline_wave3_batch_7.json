@@ -1,0 +1,162 @@
+[
+  {
+    "id": 8442,
+    "init": "J.",
+    "nachname": "Reck",
+    "aff": "Anatech",
+    "n_papers": 3,
+    "sample_titles": "A new method to derive best-fit parameters and their uncerta || Analysis of ellipsometric layer thickness measurements apply || Messverfahren zur Kontrolle tiefer Siliziumstrukturen für di"
+  },
+  {
+    "id": 8575,
+    "init": "M.",
+    "nachname": "Lotzgeselle",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 3,
+    "sample_titles": "VCSEL mit verteilter Rückkopplung in einer gechirpten Dünnsc || Four-dimensional calibration of a Multiple Aperture Shear-In || Iterative Bestimmung der Form von Asphären mittels Scher-Int"
+  },
+  {
+    "id": 8584,
+    "init": "M.",
+    "nachname": "Möckel",
+    "aff": "TH Aschaffenburg",
+    "n_papers": 3,
+    "sample_titles": "Einzelphotonenquellen – Schlüsselkomponenten für die Quanten || CNN-basierte Pulverbettbeobachtung und Fehlerdetektion für d || Volumetrische Analyse optischer Signale für das selektive La"
+  },
+  {
+    "id": 8589,
+    "init": "A.",
+    "nachname": "Klehr",
+    "aff": "Ferdinand-Braun-Institut",
+    "n_papers": 3,
+    "sample_titles": "Nanometric control of an ultrafast passively mode-locked qua || Phase noise reduction of passively mode-locked quantum-well  || Experimental studies of modal gain, absorption and dispersio"
+  },
+  {
+    "id": 8590,
+    "init": "A.",
+    "nachname": "Knigge",
+    "aff": "Ferdinand-Braun-Institut",
+    "n_papers": 3,
+    "sample_titles": "Nanometric control of an ultrafast passively mode-locked qua || Phase noise reduction of passively mode-locked quantum-well  || Experimental studies of modal gain, absorption and dispersio"
+  },
+  {
+    "id": 8616,
+    "init": "Ch.",
+    "nachname": "Cremer",
+    "aff": "Institut für Pharmazie und Molekulare Biotechnologie (IPMB), Universität Heidelberg",
+    "n_papers": 3,
+    "sample_titles": "Nanometry of Bio-Molecular Complexes using PSF Reconstructio || Axial Tomography in Single Cell Fluorescence Microscopy || Superauflösende Mikroskopie mit sehr großem Arbeitsabstand d"
+  },
+  {
+    "id": 8656,
+    "init": "J.",
+    "nachname": "Kiefer",
+    "aff": "University of Bremen",
+    "n_papers": 3,
+    "sample_titles": "Entwicklung einer spektroskopischen Messmethode zur Analyse  || Raman-Spektroskopie mit Multilinienlichtquellen || Correction of distorted ATR infrared spectra"
+  },
+  {
+    "id": 8692,
+    "init": "C.",
+    "nachname": "Husemann",
+    "aff": "Carl Zeiss AG, Jena",
+    "n_papers": 3,
+    "sample_titles": "Computational Imaging Applications: Techniques, Challenges,  || Computational Imaging Applications: Techniques, Challenges a || Improving optical metrology by subpixel reference imaging si"
+  },
+  {
+    "id": 8728,
+    "init": "V.",
+    "nachname": "Hagemann",
+    "aff": "SCHOTT AG",
+    "n_papers": 3,
+    "sample_titles": "Optische Materialien für die Digitale Projektion || Static ceramic converters for laser pumped phosphor light so || Modeling of ceramic phosphor assemblies for high luminance s"
+  },
+  {
+    "id": 8789,
+    "init": "T.",
+    "nachname": "Milde",
+    "aff": "Carl Zeiss AG",
+    "n_papers": 3,
+    "sample_titles": "Process monitoring and inspection in metal additive manufact || Optical quality assurance in the textile industry: determina || Process monitoring and inspection in metal additive manufact"
+  },
+  {
+    "id": 8806,
+    "init": "L.",
+    "nachname": "Dittrich",
+    "aff": "5microns GmbH",
+    "n_papers": 3,
+    "sample_titles": "Photoakustischer Sensor zur Detektion strahlungsinduzierter  || Photoakustischer Sensor zur Detektion strahlungsinduzierter  || Simulation und Entwicklung eines optischen Taupunktsensors"
+  },
+  {
+    "id": 8807,
+    "init": "B.",
+    "nachname": "Goj",
+    "aff": "5microns GmbH",
+    "n_papers": 3,
+    "sample_titles": "Photoakustischer Sensor zur Detektion strahlungsinduzierter  || Photoakustischer Sensor zur Detektion strahlungsinduzierter  || Simulation und Entwicklung eines optischen Taupunktsensors"
+  },
+  {
+    "id": 9098,
+    "init": "M.",
+    "nachname": "Gruenefeld",
+    "aff": "EPIGAP Optronic GmbH, Köpenicker Str. 325, Hs. 40, 12555 Berlin, Germany",
+    "n_papers": 3,
+    "sample_titles": "Asymmetrische Polymer-Linsen für Beleuchtungssysteme || Neuartige UV-transparente 2-Komponenten-Polyurethanharze für || Neuartige UV-transparente 2-Komponenten-Polyurethanharze für"
+  },
+  {
+    "id": 9099,
+    "init": "M.",
+    "nachname": "Gamp",
+    "aff": "EPIGAP Optronic GmbH, Köpenicker Str. 325, Hs. 40, 12555 Berlin, Germany",
+    "n_papers": 3,
+    "sample_titles": "Asymmetrische Polymer-Linsen für Beleuchtungssysteme || Neuartige UV-transparente 2-Komponenten-Polyurethanharze für || Neuartige UV-transparente 2-Komponenten-Polyurethanharze für"
+  },
+  {
+    "id": 9115,
+    "init": "M.",
+    "nachname": "Herzog",
+    "aff": "Technische Hochschule Wildau",
+    "n_papers": 3,
+    "sample_titles": "Neuartige UV-transparente 2-Komponenten-Polyurethanharze für || Bestimmung der optischen Konstanten und Streueigenschaften v || Neuartige UV-transparente 2-Komponenten-Polyurethanharze für"
+  },
+  {
+    "id": 9336,
+    "init": "M.",
+    "nachname": "Hanft",
+    "aff": "Carl Zeiss AG",
+    "n_papers": 3,
+    "sample_titles": "Integrated structured illumination concepts by complex optic || Wirksamkeit der asphärischen Koeffizienten bei der Optimieru || Sondertechnologien in optischen Systemen (Welcher Schlüssel "
+  },
+  {
+    "id": 9545,
+    "init": "K. S.",
+    "nachname": "Drese",
+    "aff": "Institut für Sensor- und Aktortechnik, Hochschule für angewandte Wissenschaften Coburg",
+    "n_papers": 3,
+    "sample_titles": "Vollflächige interferometrische Methoden zur schnellen und r || Aufbau eines Seitenband-Interferometers zur Charakterisierun || Phasenmodulierte Seitenband-Holografie für die flächige Mess"
+  },
+  {
+    "id": 9628,
+    "init": "H.",
+    "nachname": "Schmalfuss",
+    "aff": "Staatliche Hochschule für Gestaltung Karlsruhe",
+    "n_papers": 3,
+    "sample_titles": "Einfaches Verfahren zur Bestimmung der realen Abbildungsfunk || Praxisorientierte MTF-Messung an Objektiven nach ISO12233 || Hyperspektral-Kameraobjektiv für die medizinische Hautunters"
+  },
+  {
+    "id": 9699,
+    "init": "S.",
+    "nachname": "Gharbi Ghebjagh",
+    "aff": "Institut für Biomedizinische Technik",
+    "n_papers": 3,
+    "sample_titles": "Generation of coaxial arrays of petal-like beams and ring la || Durchflussbasierte multi-Lichtschicht-Fluoreszenz-Mikroskopi || Rekonstruktion von 3D-Abbildungen in der Lichtschicht-Fluore"
+  },
+  {
+    "id": 9817,
+    "init": "M.",
+    "nachname": "Jagodzinski",
+    "aff": "Humboldt-Universität Berlin",
+    "n_papers": 3,
+    "sample_titles": "Ein Einblick in die Herausforderungen und Potenziale der Bea || KI-gestützte Qualitätsprüfung von optischen Systemen || Eigenschaften und Optimierung der Herstellung von gekrümmten"
+  }
+]

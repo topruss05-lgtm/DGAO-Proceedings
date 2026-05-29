@@ -1,0 +1,162 @@
+[
+  {
+    "id": 2807,
+    "init": "J.",
+    "nachname": "Bühl",
+    "aff": "Institute of Applied Optics, Abbe Center of Photonics, Friedrich Schiller University Jena",
+    "n_papers": 5,
+    "sample_titles": "Dynamic holographic interferometry with digital holography || The creation of colored holograms in digital holography || Reduction of speckles in digital holography || Mikroskopie mit synthetischer Apertur || 3D-Rekonstruktion makroskopischer Objekte mittels digitaler "
+  },
+  {
+    "id": 3036,
+    "init": "M.",
+    "nachname": "Woerdemann",
+    "aff": "University of Münster",
+    "n_papers": 5,
+    "sample_titles": "Self pumped phase conjugation of angular momentum carrying l || Optische Doppel-Pinzette mit phasenkonjugierten Strahlen || Anordnung molekularer Nanomotoren auf Oberflächen mit Hilfe  || Optische Mikromanipulation in maßgeschneiderten Ince Gauß St || Holographisch optische Pinzetten zur Anordnung und Organisat"
+  },
+  {
+    "id": 3296,
+    "init": "K.",
+    "nachname": "Frey",
+    "aff": "Ernst-Abbe-Hochschule Jena",
+    "n_papers": 5,
+    "sample_titles": "Multimediaprojektionssystem mit OLED-Mikrodisplays || Optische Äquivalent-Modelle für das menschliche Auge hinsich || Topographical Measurements of micro-structured, flexible and || Einfluss der humanen Foveaform auf die optische Abbildung || Simulation zum Akkommodationsmechanismus des Goldfischauges"
+  },
+  {
+    "id": 3348,
+    "init": "M. C.",
+    "nachname": "Seraphim",
+    "aff": "Lehrstuhl für Fertigungsautomatisierung und Produktionssystematik (FAPS), Friedrich-Alexander-Universität Erlangen-Nürnberg",
+    "n_papers": 5,
+    "sample_titles": "Algorithmic Elimination of Parasitic Reflections in Deflecto || UV-Deflectometry: No parasitic reflections || Tuning Structured Illumination Microscopy (SIM) for the Insp || Information efficient and accurate Structured Illumination M || New Holistic Self-Calibration Method for Deflectometric Sens"
+  },
+  {
+    "id": 3368,
+    "init": "H.",
+    "nachname": "Schweitzer",
+    "aff": "Docter Optics SE, Neustadt an der Orla",
+    "n_papers": 5,
+    "sample_titles": "Quasi-analytische Beachtung der Materialdispersion bei der P || Effizientes Design und Modellierung von Gitterzellen-Diffuso || Parametrische Optimierung refraktiver Strahlformungssysteme  || Nutzung von Fresnellinsen in hochauflösenden abbildenden Pix || Kompakte Tageslicht-Laser-Projektionssysteme für autonome Fa"
+  },
+  {
+    "id": 3470,
+    "init": "A.",
+    "nachname": "Brahm",
+    "aff": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik",
+    "n_papers": 5,
+    "sample_titles": "Räumliche Identifikation chemischer Substanzen durch THz-Tom || THz System mit 128 Kanal Linienemitter und -detektor || Interferometrie mit ultrakurzen Terahertz-Pulsen || GOBO-Projektion für schnelle IR-3D-Messtechnik || Optische 3D-Vermessung von Glas und transparenten Kunststoff"
+  },
+  {
+    "id": 3793,
+    "init": "B. N.",
+    "nachname": "Chichkov",
+    "aff": "Laser Zentrum Hannover",
+    "n_papers": 5,
+    "sample_titles": "Fourier-Scatterometrie zur Charakterisierung von sub-lambda  || Laser-active polymer materials for waveguide fabrication || 3D nanolithography with ultrashort laser pulses || Ultrafast Surface Plasmon-Polariton Logic Gates And Half-Add || Ultra-short pulse laser surface microstructuring for biomedi"
+  },
+  {
+    "id": 4015,
+    "init": "Tim",
+    "nachname": "Stenau",
+    "aff": "Chair of Optoelectronics, Institute of Computer Engineering (ZITI), Universität Heidelberg",
+    "n_papers": 5,
+    "sample_titles": "Analyse eines neuen Systemkonzepts zur parallel scannenden M || Analyse der Designparameter von binären diffraktiven Mikroli || Wellenoptische Refokussierung von Lichtfeldern || High parallel scanning microscope with an aberration free di || Light concentration efficiency of diffractive lenses with ov"
+  },
+  {
+    "id": 4832,
+    "init": "A.",
+    "nachname": "Sperling",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 5,
+    "sample_titles": "Candela: Entwicklungen und Perspektiven in der Photometrie || Kalibrierung photometrischer und radiometrischer Empfänger m || Herausforderungen bei der optischen Charakterisierung Anorga || Spatial-angular luminance distribution measurement of phosph || Änderungen optischer Eigenschaften organischer Leuchtdioden "
+  },
+  {
+    "id": 5040,
+    "init": "R.",
+    "nachname": "Schödel",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 5,
+    "sample_titles": "Eine Probenumgebung für präzise interferometrische Messungen || Beidseitig antastendes Interferometer zur Längenmessung von  || Beidseitig optisch antastendes Interferometer zur Längenmess || Doppelendinterferometrie zur Kalibrierung von Referenzkugeln || Weiterentwicklung des Doppelendinterferometers für die Kalib"
+  },
+  {
+    "id": 5429,
+    "init": "P.",
+    "nachname": "Lehmann",
+    "aff": "University of Kassel",
+    "n_papers": 5,
+    "sample_titles": "Stitching streifenförmiger Subaperturen zur Formmessung || Calibration strategies for a new fast line-based form measur || Error analysis of an interferometric line-based form measuri || Konzept zur interferometrischen Formmessung mit einer nachge || Untersuchung von kohärenzscannenden Interferometern mit inte"
+  },
+  {
+    "id": 5504,
+    "init": "M.",
+    "nachname": "Stürmer",
+    "aff": "University of Freiburg",
+    "n_papers": 5,
+    "sample_titles": "Adaptive Optik für die Interferometrie und konfokale Mikrosk || Das Auge als Vorbild - Kombination aus variabler Optik und K || Nicht-sphärische adaptive Optik für die Lebenswissenschaften || Adaptive piezogetriebene Hochgeschwindigkeits-Linse mit asph || Confocal microscopy employing pressure controlled adaptive l"
+  },
+  {
+    "id": 5744,
+    "init": "P.",
+    "nachname": "Zemánek",
+    "aff": "Institut für wissenschaftliche Instrumente der Tschechischen Akademie der Wissenschaften, Brno",
+    "n_papers": 5,
+    "sample_titles": "Sorting of micrometer-sized dielectric objects by optical fo || Raman spectroscopy for reproducible bacterial and yeast biof || Raman-tweezers in microfluidic system for analysis and sorti || Colloidal optical waveguides structured by light || Optically bound matter in a tractor beam"
+  },
+  {
+    "id": 6025,
+    "init": "E.",
+    "nachname": "Oesterschulze",
+    "aff": "Technische Universität Kaiserslautern",
+    "n_papers": 5,
+    "sample_titles": "Adaptive micro-eye based on tunable micro-optical components || Aktive elektrochrome Iriden für die Anwendung in integrierte || Steuerbare Verlaufsfilter mit vollständiger räumlicher Kontr || Aktiv steuerbare, elektrochrome Blende zur Raumfrequenz-Filt || Elektrochromer Verlaufsfilter mit adaptivem räumlichen Absor"
+  },
+  {
+    "id": 6371,
+    "init": "U.",
+    "nachname": "Zywietz",
+    "aff": "Laser Zentrum Hannover",
+    "n_papers": 5,
+    "sample_titles": "Polymer-based Ring Resonators for Sensing Applications || Microscope Projection Photolithography for functional optica || Ultrafast Surface Plasmon-Polariton Logic Gates And Half-Add || Polymer based arrayed waveguide grating spectrometer || Laser transfer of silicon nanoparticles with optical magneti"
+  },
+  {
+    "id": 6517,
+    "init": "D.",
+    "nachname": "Ristau",
+    "aff": "Laser Zentrum Hannover",
+    "n_papers": 5,
+    "sample_titles": "Transparent composite coatings with adapted mechanical stres || Bestimmung optischer Eigenschaften von Werkstoffen zur Herst || Bearbeitung polymeroptischer Fasern mittels Strahlungserhitz || Charakterisierung der optischen Dämpfung in passiven und akt || Nd2O3-Nanopartikel-Dispersionslaser im sichtbaren Spektralbe"
+  },
+  {
+    "id": 6533,
+    "init": "D.",
+    "nachname": "Haufe",
+    "aff": "Technische Universität Dresden",
+    "n_papers": 5,
+    "sample_titles": "Prospects of multimode fibers and digital phase conjugation  || Adaptive measurement systems using digital optical technolog || Bildgebende Laser-Vibrometrie mittels Hochgeschwindigkeitska || Guiding light through scattering objects using optical wavef || Numerische Simulation der digitalen optischen Phasenkonjugat"
+  },
+  {
+    "id": 6560,
+    "init": "N.",
+    "nachname": "Tinne",
+    "aff": "Laser Zentrum Hannover",
+    "n_papers": 5,
+    "sample_titles": "Mechanisms for the light-cell interface in optical cell stim || Bearbeitung polymeroptischer Fasern mittels Strahlungserhitz || Charakterisierung der optischen Dämpfung in passiven und akt || Nd2O3-Nanopartikel-Dispersionslaser im sichtbaren Spektralbe || Multiphysics simulation strategy for the optimization of las"
+  },
+  {
+    "id": 6785,
+    "init": "C.",
+    "nachname": "Villringer",
+    "aff": "Technische Hochschule Wildau",
+    "n_papers": 5,
+    "sample_titles": "Fiber-optic interference fringe projection for 3D measuremen || Imaging systems based on four-spherical-mirror design || Obstruktionsfreies Optikdesign basierend auf vier sphärische || Messverfahren zur Kontrolle tiefer Siliziumstrukturen für di || Optical Through-Silicon Waveguides for 3D-Chip-Interconnecti"
+  },
+  {
+    "id": 6956,
+    "init": "A.",
+    "nachname": "Straub",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 5,
+    "sample_titles": "Optical form measurements with a scanning point sensor in nu || Rekonstruktionsalgorithmen zur genaueren Bestimmung der 3D-T || Four-dimensional calibration of a Multiple Aperture Shear-In || Simulation einer hochgenauen optischen Formmessung an Freifo || Iterative Bestimmung der Form von Asphären mittels Scher-Int"
+  }
+]

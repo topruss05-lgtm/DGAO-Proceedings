@@ -1,0 +1,162 @@
+[
+  {
+    "id": 3867,
+    "init": "M.",
+    "nachname": "Hornung",
+    "aff": "Suss Microoptics (Switzerland)",
+    "n_papers": 3,
+    "sample_titles": "Optimierung des Beleuchtungssystem eines Mask Aligners (MO E || Modellierung und Simulation bei Mask Aligner Lithographie (S || MO Exposure Optics: Pushing Limits of Shadow Printing Lithog"
+  },
+  {
+    "id": 3885,
+    "init": "A.",
+    "nachname": "Lorenz",
+    "aff": "Leibniz-Institut für Photonische Technologien",
+    "n_papers": 3,
+    "sample_titles": "Design von Hochleistungstransportfasern mit wenigen Moden || Herstellung Mikrostrukturierter Hohlkernfasern für spektrosk || Entwicklung optischer Spezialfasern für breitbandige Laserli"
+  },
+  {
+    "id": 3931,
+    "init": "A.",
+    "nachname": "Ettemeyer",
+    "aff": "Interstate University of Applied Sciences of Technology Buchs",
+    "n_papers": 3,
+    "sample_titles": "Enlarging the Application Range of Digital Holographic Micro || Modeling and experimental verification of bonding parameters || Ein Modell zur Erhöhung des Eindeutigkeitsbereichs von optis"
+  },
+  {
+    "id": 4062,
+    "init": "A.",
+    "nachname": "Bramati",
+    "aff": "Suss Microoptics (Switzerland)",
+    "n_papers": 3,
+    "sample_titles": "Modellierung und Simulation bei Mask Aligner Lithographie (S || AMALITH: Advanced Mask Aligner Lithography || MO Exposure Optics: Pushing Limits of Shadow Printing Lithog"
+  },
+  {
+    "id": 4097,
+    "init": "R.",
+    "nachname": "Krobot",
+    "aff": "Lehrstuhl für Fertigungsautomatisierung und Produktionssystematik (FAPS), Friedrich-Alexander-Universität Erlangen-Nürnberg",
+    "n_papers": 3,
+    "sample_titles": "Deflectometric Measurement of 10,000 Telescope Mirror Tiles || Compact PMD measurement and PSF reconstruction for large mir || Kill two birds with one stone - measure shape and reflectivi"
+  },
+  {
+    "id": 4102,
+    "init": "F.",
+    "nachname": "Stinzing",
+    "aff": "Lehrstuhl für Fertigungsautomatisierung und Produktionssystematik (FAPS), Friedrich-Alexander-Universität Erlangen-Nürnberg",
+    "n_papers": 3,
+    "sample_titles": "Deflectometric Measurement of 10,000 Telescope Mirror Tiles || Compact PMD measurement and PSF reconstruction for large mir || Kill two birds with one stone - measure shape and reflectivi"
+  },
+  {
+    "id": 4200,
+    "init": "J.",
+    "nachname": "Matrisch",
+    "aff": "Institute of Applied Optics, Abbe Center of Photonics, Friedrich Schiller University Jena",
+    "n_papers": 3,
+    "sample_titles": "Quantitative Phasenrekonstruktion in Echtzeit unter Verwendu || Multiplexing von Transmissionshologrammen in Fotopolymer || Interferenzkontrastreduzierung für simultanes, holografische"
+  },
+  {
+    "id": 4212,
+    "init": "R.",
+    "nachname": "Voelkel",
+    "aff": "Suss Microoptics (Switzerland)",
+    "n_papers": 3,
+    "sample_titles": "Optical Lithography - Key Enabling Technology for our Modern || AMALITH: Advanced Mask Aligner Lithography || MO Exposure Optics: Pushing Limits of Shadow Printing Lithog"
+  },
+  {
+    "id": 4248,
+    "init": "M.",
+    "nachname": "Bischoff",
+    "aff": "Qioptiq Photonics GmbH & Co. KG.",
+    "n_papers": 3,
+    "sample_titles": "Metal oxide thin films for precision optics in the DUV spect || Stray light minimised optical coatings and their application || Design und Herstellung von \"perfekten\" breitbandigen polaris"
+  },
+  {
+    "id": 4251,
+    "init": "S.",
+    "nachname": "Mewes",
+    "aff": "Qioptiq Photonics GmbH & Co. KG.",
+    "n_papers": 3,
+    "sample_titles": "Metal oxide thin films for precision optics in the DUV spect || Stray light minimised optical coatings and their application || Design und Herstellung von \"perfekten\" breitbandigen polaris"
+  },
+  {
+    "id": 4345,
+    "init": "R.",
+    "nachname": "Schlüßler",
+    "aff": "Technische Universität Dresden",
+    "n_papers": 3,
+    "sample_titles": "Application of a Fabry-Pérot-Interferometer for multi-point  || Confocal Brillouin microscopy for the contactless mechanical || Spontaneous and Stimulated Brillouin Scattering for Biomedic"
+  },
+  {
+    "id": 4406,
+    "init": "C.",
+    "nachname": "Stegmann",
+    "aff": "Helmholtz Alliance for Astroparticle Physics",
+    "n_papers": 3,
+    "sample_titles": "Deflectometric Measurement of 10,000 Telescope Mirror Tiles || Compact PMD measurement and PSF reconstruction for large mir || Kill two birds with one stone - measure shape and reflectivi"
+  },
+  {
+    "id": 4432,
+    "init": "J.",
+    "nachname": "Endres",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 3,
+    "sample_titles": "Towards traceability in scatterometric-optical dimensional m || Untersuchungen zum Einfluss verwendeter Näherungen in der Sc || Anwendung der DUV Scatterometrie für die Rekonstruktion der "
+  },
+  {
+    "id": 4620,
+    "init": "S.",
+    "nachname": "Bauer",
+    "aff": "Department of Commerce",
+    "n_papers": 3,
+    "sample_titles": "Medical Applications enabled by a motion-robust optical 3D s || Sparse Active Triangulation Grids for Respiratory Motion Man || Das Bürgerwissenschaftsprojekt Nachtlicht-BüHNE untersucht Q"
+  },
+  {
+    "id": 4786,
+    "init": "A.",
+    "nachname": "Edelmann",
+    "aff": "Lehrgebiet Mikro- und Nanophotonik",
+    "n_papers": 3,
+    "sample_titles": "Ankopplung von Terahertz-Strahlung an einen metallischen Dra || Erzeugung eines komplexen Wellenfeldes zur Ankopplung von TH || Fabrication of subwavelength-structured hollow waveguide arr"
+  },
+  {
+    "id": 4791,
+    "init": "G. S.",
+    "nachname": "Khan",
+    "aff": "Indian Institute of Technology Delhi",
+    "n_papers": 3,
+    "sample_titles": "Design Considerations of Polishing Lap for Computer-Controll || Design and evaluation of illumination system for pocket proj || Subaperture wavefront measurement using Talbot interferometr"
+  },
+  {
+    "id": 4807,
+    "init": "S.",
+    "nachname": "Altmeyer",
+    "aff": "Institute of Applied Optics, Abbe Center of Photonics, Friedrich Schiller University Jena",
+    "n_papers": 3,
+    "sample_titles": "Quantitative Phasenrekonstruktion in Echtzeit unter Verwendu || Multiplexing von Transmissionshologrammen in Fotopolymer || Interferenzkontrastreduzierung für simultanes, holografische"
+  },
+  {
+    "id": 4884,
+    "init": "S.",
+    "nachname": "Nevas",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 3,
+    "sample_titles": "Kalibrierung photometrischer und radiometrischer Empfänger m || Realisierung und Weitergabe der Einheit spektraler Bestrahlu || Characterisation of a Predictable Quantum Efficient Detector"
+  },
+  {
+    "id": 4894,
+    "init": "S.",
+    "nachname": "Pendsa",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 3,
+    "sample_titles": "Herausforderungen bei der optischen Charakterisierung Anorga || Laser-DSR: Hochgenaue spektrale Kalibrierung von Empfängern  || Änderungen optischer Eigenschaften organischer Leuchtdioden "
+  },
+  {
+    "id": 4930,
+    "init": "T.",
+    "nachname": "Mai",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 3,
+    "sample_titles": "Das neue Kugelinterferometer zur Durchmesserbestimmung der S || Second, improved sphere interferometer of PTB || Simulative determination of the wavefront uncertainty of PTB"
+  }
+]

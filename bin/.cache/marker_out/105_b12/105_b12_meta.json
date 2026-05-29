@@ -1,0 +1,168 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Active glass selection and chromatic correction using individual glass maps",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          76.69921875,
+          69.468505859375
+        ],
+        [
+          519.0071411132812,
+          69.468505859375
+        ],
+        [
+          519.0071411132812,
+          81.468505859375
+        ],
+        [
+          76.69921875,
+          81.468505859375
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.58007049560547,
+          298.8935546875
+        ],
+        [
+          129.03070068359375,
+          298.8935546875
+        ],
+        [
+          129.03070068359375,
+          309.513427734375
+        ],
+        [
+          59.58007049560547,
+          309.513427734375
+        ]
+      ]
+    },
+    {
+      "title": "4 Individual parameter axis",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          307.08740234375,
+          352.3408203125
+        ],
+        [
+          440.185791015625,
+          352.3408203125
+        ],
+        [
+          440.185791015625,
+          362.7928161621094
+        ],
+        [
+          307.08740234375,
+          362.7928161621094
+        ]
+      ]
+    },
+    {
+      "title": "2 Wavelength selection",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.39599609375,
+          554.6181640625
+        ],
+        [
+          172.9804229736328,
+          554.6181640625
+        ],
+        [
+          172.9804229736328,
+          565.533447265625
+        ],
+        [
+          58.39599609375,
+          565.533447265625
+        ]
+      ]
+    },
+    {
+      "title": "3 Colour coding",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.97705078125,
+          682.8916015625
+        ],
+        [
+          138.49456787109375,
+          682.8916015625
+        ],
+        [
+          138.49456787109375,
+          693.0329437255859
+        ],
+        [
+          58.97705078125,
+          693.0329437255859
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          154
+        ],
+        [
+          "Line",
+          65
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_b12"
+}

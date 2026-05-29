@@ -1,0 +1,162 @@
+[
+  {
+    "id": 5846,
+    "init": "P.",
+    "nachname": "Sakowicz",
+    "aff": "Carl Zeiss Jena GmbH",
+    "n_papers": 3,
+    "sample_titles": "Free-form Fresnel Structures for Beam Shaping || Modeling of light scattering from optical surfaces || Quantitative Analyse von Falschlicht -- Methoden zur Redukti"
+  },
+  {
+    "id": 5954,
+    "init": "M.",
+    "nachname": "Esseling",
+    "aff": "University of Münster",
+    "n_papers": 3,
+    "sample_titles": "Depth Resolution of Dynamic Phase Contrast Microscopy || 'In situ - Manipulation' von Mikropartikeln durch eine nicht || Integrated opto-microfluidics platforms in lithium niobate c"
+  },
+  {
+    "id": 6337,
+    "init": "H.",
+    "nachname": "Reinecke",
+    "aff": "Lehrstuhl für Mikroaktorik, Institut für Mikrosystemtechnik (IMTEK), Universität Freiburg",
+    "n_papers": 3,
+    "sample_titles": "Reactive lamination via photoreactive polymers || Reactive lamination of thermoplastic materials with thermose || Rapid prototyping of polymer waveguides by contour shaping"
+  },
+  {
+    "id": 6342,
+    "init": "C.",
+    "nachname": "Schelske",
+    "aff": "BMW Group Dingolfing",
+    "n_papers": 3,
+    "sample_titles": "Inline detection of defects on free formed metal pressings u || Linienintegration eines Single-Shot-3D-Sensors in einer Saug || Optimierte Erzeugung eines inversen Streifenmusters für die "
+  },
+  {
+    "id": 6468,
+    "init": "T.",
+    "nachname": "Fischer",
+    "aff": "Laser Zentrum Hannover",
+    "n_papers": 3,
+    "sample_titles": "Microscope Projection Photolithography for functional optica || Ultrafast Surface Plasmon-Polariton Logic Gates And Half-Add || Laser transfer of silicon nanoparticles with optical magneti"
+  },
+  {
+    "id": 6559,
+    "init": "P.",
+    "nachname": "Heeger",
+    "aff": null,
+    "n_papers": 3,
+    "sample_titles": "Mechanisms for the light-cell interface in optical cell stim || Laser based cell manipulation with nanoparticles and optogen || Development of an optogenetic triggered biohybrid cochlea im"
+  },
+  {
+    "id": 6578,
+    "init": "A.",
+    "nachname": "Krüger",
+    "aff": "Laser Zentrum Hannover",
+    "n_papers": 3,
+    "sample_titles": "Macrobending losses of glass fibers for optical cochlear sti || Adaptive optics assisted and optical coherence tomography gu || Surface analysis of femtosecond laser processed materials by"
+  },
+  {
+    "id": 6598,
+    "init": "M.",
+    "nachname": "Teich",
+    "aff": "Technische Universität Dresden",
+    "n_papers": 3,
+    "sample_titles": "Depth resolution by means of helical wavefronts for particle || Iterative Aberrationskorrektur für abbildungsbasierte optisc || Spiral phase mask 3D-imaging with adaptive optical image cor"
+  },
+  {
+    "id": 6638,
+    "init": "R. A.",
+    "nachname": "Braga",
+    "aff": "Universidade Federal de Lavras",
+    "n_papers": 3,
+    "sample_titles": "Light intensity dependence during dynamic laser speckle meas || Digital generation of phase-shifting fringes to provide an a || Optical mouse sensor used to predict mechanical damages in t"
+  },
+  {
+    "id": 7049,
+    "init": "B.",
+    "nachname": "Krug",
+    "aff": "Technische Universität Dresden",
+    "n_papers": 3,
+    "sample_titles": "Wavefront correction using spatially distributed guide stars || Spontaneous and Stimulated Brillouin Scattering for Biomedic || Impulsive stimulierte Brillouin-Streuung zur Erfassung von m"
+  },
+  {
+    "id": 7095,
+    "init": "R.",
+    "nachname": "Tutsch",
+    "aff": "PTB Braunschweig",
+    "n_papers": 3,
+    "sample_titles": "Defekterkennung an spiegelnden und transparenten Oberflächen || Photogrammetrische Bestimmung der Brechungseigenschaften von || Ermittlung optimierter Scanstrategien bei der Messung von As"
+  },
+  {
+    "id": 7142,
+    "init": "R.",
+    "nachname": "Beermann",
+    "aff": "Institut für Mess- und Regelungstechnik, Universität Hannove",
+    "n_papers": 3,
+    "sample_titles": "SIMULATION OF LIGHT DEFLECTION DUE TO AN INHOMOGENEOUS REFRA || 3d Geometry Measurement of Hot Specimens in Rough Vacuum || Ein Zwei-Kamera Zwei-Projektor Streifenprojektionssystem zur"
+  },
+  {
+    "id": 7143,
+    "init": "L.",
+    "nachname": "Quentin",
+    "aff": "Institut für Mess- und Regelungstechnik, Universität Hannove",
+    "n_papers": 3,
+    "sample_titles": "SIMULATION OF LIGHT DEFLECTION DUE TO AN INHOMOGENEOUS REFRA || 3d Geometry Measurement of Hot Specimens in Rough Vacuum || Ein Zwei-Kamera Zwei-Projektor Streifenprojektionssystem zur"
+  },
+  {
+    "id": 7150,
+    "init": "A. H.",
+    "nachname": "Foitzik",
+    "aff": "Technische Hochschule Wildau",
+    "n_papers": 3,
+    "sample_titles": "Interferometric monitoring of cytotoxic reactions on benign  || Validation of magnetic induced deformation on HeLa cells by  || Qualitative und quantitative Prüfung von ungleichmäßig galva"
+  },
+  {
+    "id": 7178,
+    "init": "P. W.",
+    "nachname": "Nolte",
+    "aff": "Fraunhofer Institute for Microstructure of Materials and Systems",
+    "n_papers": 3,
+    "sample_titles": "Photometrische Fernfeldmessungen an lumineszierenden Gläsern || Lumineszierende Glaskeramiken als streuende Lichtkonverter f || Lichtkonversion und Farbmischung mit lumineszierenden Lichts"
+  },
+  {
+    "id": 7217,
+    "init": "J.",
+    "nachname": "Guck",
+    "aff": "Technische Universität Dresden",
+    "n_papers": 3,
+    "sample_titles": "Confocal Brillouin microscopy for the contactless mechanical || Spontaneous and Stimulated Brillouin Scattering for Biomedic || Impulsive stimulierte Brillouin-Streuung zur Erfassung von m"
+  },
+  {
+    "id": 7222,
+    "init": "J.",
+    "nachname": "Kanngießer",
+    "aff": "Leibniz-Institut für Photonische Technologien",
+    "n_papers": 3,
+    "sample_titles": "Focusing Light through Turbid Media: Methods and Imaging App || OCT-guided wavefront shaping for non-invasive depth-selectiv || Fast wavefront manipulation for OCT signal enhancement"
+  },
+  {
+    "id": 7227,
+    "init": "P.",
+    "nachname": "Bohnert",
+    "aff": "Ernst-Abbe-Hochschule Jena",
+    "n_papers": 3,
+    "sample_titles": "Erzeugung telezentrischer Ringfoki mit variablem Durchmesser || Konzeptvergleich verschiedener kompakter Kreuzgitter-Spektro || Konzeptvergleich verschiedener kompakter Kreuzgitter-Spektro"
+  },
+  {
+    "id": 7314,
+    "init": "Ch.",
+    "nachname": "Kellermann",
+    "aff": "Lehrstuhl für Fertigungsautomatisierung und Produktionssystematik (FAPS), Friedrich-Alexander-Universität Erlangen-Nürnberg",
+    "n_papers": 3,
+    "sample_titles": "Theoretical description of a method for simultaneous measure || Experimental results of the simultaneous measurement of spat || Vermessung konvexer, rauer Asphären mittels Interferometrie "
+  },
+  {
+    "id": 7378,
+    "init": "J. P.",
+    "nachname": "Bergmann",
+    "aff": "Institut für Biomedizinische Technik",
+    "n_papers": 3,
+    "sample_titles": "Efficient generation of nearly arbitrary intensity profiles  || Optimized beam shaping for high power laser welding applicat || Design eines optischen Systems zur Untersuchung der optimale"
+  }
+]

@@ -1,0 +1,21 @@
+  ...50 verarbeitet
+  ...100 verarbeitet
+  ...150 verarbeitet
+  ...200 verarbeitet
+  ...250 verarbeitet
+  ...300 verarbeitet
+    HTTP-Fehler: HTTP Error 404: Not Found
+  ...350 verarbeitet
+  ...400 verarbeitet
+  ...450 verarbeitet
+  ...500 verarbeitet
+Verarbeite 524 Institute...
+
+--- ROR-Anreicherung fertig ---
+  hatte_ror           524
+  gefunden            0
+  nicht_gefunden      0
+  ror_to_fields       523
+  aliases_neu         1422
+  acronyms_neu        297
+  parent_set          142

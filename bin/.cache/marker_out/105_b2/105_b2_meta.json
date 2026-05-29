@@ -1,0 +1,122 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Eigenschaften und Grenzen von Homogenisatoren aus Mikrolinsenarrays",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          88.19999694824219,
+          69.0703125
+        ],
+        [
+          510.31439208984375,
+          69.0703125
+        ],
+        [
+          510.31439208984375,
+          81.468505859375
+        ],
+        [
+          88.19999694824219,
+          81.468505859375
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.580841064453125,
+          235.16796875
+        ],
+        [
+          124.12467193603516,
+          235.16796875
+        ],
+        [
+          124.12467193603516,
+          245.5537109375
+        ],
+        [
+          59.580841064453125,
+          245.5537109375
+        ]
+      ]
+    },
+    {
+      "title": "2 Aufbau der Homogenisatoren",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.10546875,
+          644.9720001220703
+        ],
+        [
+          211.3357391357422,
+          644.9720001220703
+        ],
+        [
+          211.3357391357422,
+          655.7568359375
+        ],
+        [
+          58.10546875,
+          655.7568359375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          135
+        ],
+        [
+          "Line",
+          81
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PictureGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_b2"
+}

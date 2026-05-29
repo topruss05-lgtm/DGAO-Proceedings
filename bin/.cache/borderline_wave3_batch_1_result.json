@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1161,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.5,
+    "reason": "Mehrere Quellen (ResearchGate, AMETEK/Luphos paper) referenzieren ihn nur als 'Mr. T. May' bzw. 'T. May, AMETEK GmbH BU Taylor Hobson/Luphos'. Patent DE102008033942 (Luphos MWLI) listet als Erfinder Nicolaus, Petter, Tschudi - aber keinen May. Voller Vorname (Tobias/Thomas/Torsten?) ist über Web-Recherche nicht eindeutig verifizierbar. https://opg.optica.org/oe/fulltext.cfm?uri=oe-26-3-3443"
+  },
+  {
+    "id": 1229,
+    "vorname": "Marcel",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "Marcel Teschke (Dr.-Ing.) ist Autor von 'Modified phase contrast for recording of holographic optical elements' mit Stefan Sinzinger, Affiliation TU Ilmenau (Technische Optik). DB-Affiliation 'Institut für Biomedizinische Technik' passt nicht eindeutig - möglicherweise Datenfehler oder anderer Teschke. Da Marcel Teschke jedoch genau zu allen drei sample_titles passt (CGH, Phasenkontrastverfahren, diffraktive Bauelemente), confidence hoch. Quellen: https://www.researchgate.net/scientific-contributions/Christian-Remmersmann-28888249, TU Ilmenau Publikationsliste"
+  },
+  {
+    "id": 1266,
+    "vorname": "Francisco",
+    "orcid": null,
+    "confidence": 0.7,
+    "reason": "F. Gascón am Departamento de Física Aplicada II, ETS Arquitectura, Universidad de Sevilla, Autor von 'A simple method to simulate diffraction and speckle patterns with a PC' (mit Salazar). Vorname 'Francisco' ist gebräuchlichste spanische Erweiterung, in einigen seiner ResearchGate-Publikationen auch als 'Francisco Gascón' aufgeführt. Confidence mittel da nicht 100% verifiziert. Quelle: https://www.researchgate.net/publication/229393288"
+  },
+  {
+    "id": 1311,
+    "vorname": "Andreas",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Andreas Voigt, TU Dresden, Laboratory for Measurement and Sensor System Techniques (MST), Czarske-Gruppe. Co-Autor mit Büttner, Bayer, Shirai, Czarske auf Laser-Doppler-Profilsensor/Feldsensor Publikationen (Applied Optics 2008, tm 2007). Passt exakt auf alle sample_titles. Quellen: https://opg.optica.org/ao/abstract.cfm?uri=ao-47-27-5028, https://link.springer.com/chapter/10.1007/978-3-642-01106-1_3"
+  },
+  {
+    "id": 1362,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.3,
+    "reason": "Cluster scheint zwei Personen zu mischen: (a) Markus Tiemann (Dipl.-Phys., TU Darmstadt, später Berlin) hat zu photorefraktiven räumlichen Solitonen publiziert -> passt zu 'Informationstransfer durch optische räumliche Solitonen'. (b) Markus Tiemann bei Rodenstock GmbH hat zu '3D measurement with active triangulation for spectacle lens' publiziert -> passt zu '3D vision system for measuring the individual'. DB-Affiliation 'CID GmbH' passt zu keinem von beiden eindeutig. Da unsicher welche Person bzw. ob Merge falsch, vorname=null. Quellen: SPIE 9528, docplayer.org/128341451"
+  },
+  {
+    "id": 1421,
+    "vorname": "Christian",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Christian Laubis, PTB Berlin, Email christian.laubis@ptb.de, Autor zahlreicher Publikationen zur EUV-Scatterometrie/EUV-Reflektometrie an BESSY II. Exakte Themenübereinstimmung. Quellen: https://www.ptb.de/cms/en/ptb/fachabteilungen/abt8/fb-84/ag-841/euv-84.html, https://arxiv.org/pdf/1011.2665"
+  },
+  {
+    "id": 1551,
+    "vorname": "Andreas",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "Andreas Nickel, Leibniz Institute of Surface Engineering (IOM) Leipzig, Physical Department. Arbeitet an ion beam figuring und Oberflächenmesstechnik für X-ray optics. ResearchGate-Profil bestätigt Affiliation und Forschungsthema. Passt exakt auf 'Deterministische Ionenstrahlkorrektur von Oberflächenformfehlern' und 'Deterministische Formgebung kleinformatiger Präzisionsoptiken'. Quelle: https://www.researchgate.net/profile/Andreas-Nickel"
+  },
+  {
+    "id": 1564,
+    "vorname": "Thomas",
+    "orcid": "0000-0002-3666-2415",
+    "confidence": 0.95,
+    "reason": "Thomas Arnold (Prof. Dr. rer. nat.), Head of Department 'Ultra-precision Surfaces' at Leibniz IOM Leipzig sowie Professur an TU Dresden (Chair of Ultra-precision Surface Machining using Ions and Plasmas). Autor zahlreicher Plasma Jet Machining Publikationen. DB-Affiliation 'Institut für Technische Optik (ITO)' wahrscheinlich falsch zugeordnet (Sample-Title 'Plasma Jet Machining' und 'Deterministische Formgebung' passen exakt zu IOM/TU-Dresden-Arnold). Quellen: https://tu-dresden.de/ing/maschinenwesen/if/das-institut/professoren/lebenslauf_arnold, https://www.researchgate.net/profile/Thomas-Arnold-13"
+  },
+  {
+    "id": 1606,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.2,
+    "reason": "DB-Affiliation 'Canadian Standards Association' ist offensichtlich falsch (Themen sind LCoS-Phasenmodulator, Echtzeitphoropter, Aberrationskorrektur des Auges - klassische Adaptive-Optik/Augenheilkunde). Suche nach 'Krauel' in DGaO-Archiven 2008-2025 lieferte keine eindeutigen Treffer. Marcus Krauel (Evident, Physiker mit Optical Engineering Hintergrund) ist möglich, aber keine direkte Publikationsverlinkung gefunden. Vorname nicht sicher verifizierbar."
+  },
+  {
+    "id": 1636,
+    "vorname": "Martin",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "Martin Peschka, Carl Zeiss AG Oberkochen, R&D. Co-Autor des Buchkapitels 'Off-axis freeform optical design for large curved field of view imaging' im Handbook of Optical Systems (Aberration Theory). Affiliation Carl Zeiss bestätigt. Themen Zoomsysteme/Tolerierung/ForTune passen zu Optikdesign-Tätigkeit bei Zeiss SMT. Quellen: https://www.researchgate.net/profile/Martin-Peschka, https://www.researchgate.net/scientific-contributions/Martin-Peschka-2126188111"
+  },
+  {
+    "id": 1678,
+    "vorname": "Christian",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Christian Remmersmann, Center for Biomedical Optics and Photonics, University of Münster (Westfälische Wilhelms-Universität). Autor von 'Phase noise optimization in temporal phase-shifting digital holography with partial coherence light sources and its application in quantitative cell imaging' (Applied Optics 48, 2009). Exakte Themen- und Affiliationsübereinstimmung. Quellen: https://opg.optica.org/ao/abstract.cfm?uri=ao-48-8-1463, https://www.researchgate.net/scientific-contributions/Christian-Remmersmann-28888249"
+  },
+  {
+    "id": 1746,
+    "vorname": "Jens",
+    "orcid": null,
+    "confidence": 0.98,
+    "reason": "Dr. Jens Flügge, Head of Department 5.2 Dimensionelle Nanometrologie an der PTB Braunschweig. Co-Autor von Weichert/Flügge/Köning/Köchert 'Design des Verschiebeinterferometers zur Bestimmung der Gitterkonstante von Silizium mit einer relativen Unsicherheit von 3·10⁻⁹' (2013) - exakte Titel-Übereinstimmung mit sample. Quellen: https://www.ptb.de, https://igsm.tu-bs.de/user/jfluegge"
+  },
+  {
+    "id": 1772,
+    "vorname": "Knut",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Knut Kröger, wissenschaftlicher Mitarbeiter Abteilung Magnetische und Optische Systeme bei INNOVENT e.V. Jena. Erfinder des Patents DE102007043937 (Innovent eV) zur Bestimmung der Dicke und des Brechungsindex optisch transparenter Schichten - exakte Themenübereinstimmung mit sample_titles (Schichtdickenbestimmung, Reflexionsgradmessung). Quellen: https://patents.google.com/patent/DE102007043937B4/en, INNOVENT Publikationsliste"
+  },
+  {
+    "id": 1958,
+    "vorname": "Michael",
+    "orcid": null,
+    "confidence": 0.6,
+    "reason": "Michael Schulte am BIAS (Bremer Institut für angewandte Strahltechnik) ist co-Autor von 'Sichtstrahlkalibrierung für optisch abbildende Systeme' (DGaO Proceedings 109_a10, mit Li, Bothe, von Kopylow, Köpp, Jüptner) - exakte Titel-Übereinstimmung. Allerdings auch ein Michael Schulte am TU Dortmund existiert in BIAS-Kontext. Vorname 'Michael' wahrscheinlich aber nicht 100% verifiziert. Quelle: https://www.dgao-proceedings.de/download/109/109_a10.pdf"
+  },
+  {
+    "id": 2006,
+    "vorname": "Dietmar",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "Dipl.-Ing. Dietmar Link, Institute of Biomedical Engineering and Informatics (BMTI), TU Ilmenau - arbeitet seit 2007 als wissenschaftlicher Mitarbeiter in der ophthalmologischen Forschungsgruppe (Klee/Haueisen). Publikationen zu Funduskamera (LED-Illumination, transscleral, Tier-Funduskamera) und elektrophysiologische Augenstimulation. DB-Affiliation 'IGES Institut' ist falsch - korrekt wäre TU Ilmenau / BMTI. Themen passen exakt. Quellen: https://www.tu-ilmenau.de/.../dipl-ing-dietmar-link-academic-staff, https://scholar.google.de/citations?user=RgT5koIAAAAJ"
+  },
+  {
+    "id": 2160,
+    "vorname": "Andreas",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Andreas Voss, Institut für Strahlwerkzeuge (IFSW), Universität Stuttgart. Diplom Physik 1988 Dortmund, PhD 2002 Stuttgart. Seit 2005 zurück am IFSW, verantwortlich für Forschung an Thin-Disk/Fiber Lasers und Laser Optics. Co-Autor zahlreicher Publikationen mit Abdou Ahmed, Graf zu resonant grating mirrors und Yb:YAG thin-disk lasers - exakte Themenübereinstimmung mit sample_title 'Low-loss resonant grating mirrors for polarization shaping'. Quellen: https://opg.optica.org/oe/fulltext.cfm?uri=oe-19-6-5093, ResearchGate"
+  },
+  {
+    "id": 2339,
+    "vorname": "Andreas",
+    "orcid": null,
+    "confidence": 0.8,
+    "reason": "Andreas Gebhardt, Fraunhofer Institute for Applied Optics and Precision Engineering (IOF) Jena. Forscht in Ultrapräzisionsbearbeitung (Diamond Turning), Freeform/Aspheren-Fertigung. Co-Autor von 'anamorphic imaging snap-together freeform telescope' und 'measuring position and figure deviation of freeform mirrors with CGH'. Sample-Titles über GRIN microoptics und Asphäre-Justierfehler passen zu seinem Profil. Themen 'Photonische Kristallfasern' passen weniger gut, aber IOF arbeitet auch dort. Quelle: https://www.researchgate.net/profile/A-Gebhardt"
+  },
+  {
+    "id": 2419,
+    "vorname": "Hartmut",
+    "orcid": "0000-0003-3980-0964",
+    "confidence": 0.98,
+    "reason": "Prof. Dr. Hartmut G. Roskos, Physikalisches Institut, Goethe-Universität Frankfurt (Ultrakurzzeitspektroskopie und Terahertz-Physik). Co-Autor 'Terahertz profilometry at 600 GHz with 0.5 μm depth resolution' (Optics Express 2008) - exakte Titel-Übereinstimmung. DB-Affiliation 'IGES Institut' ist falsch - korrekt ist Goethe-Universität Frankfurt. Init H. G. (zwei Initialen) bestätigt Hartmut G. Quellen: https://www.goethe-university-frankfurt.de/67996582, https://www.osapublishing.org/oe/abstract.cfm?uri=oe-16-15-11289"
+  },
+  {
+    "id": 2528,
+    "vorname": "Gerald",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "Gerald Franz, Robert Bosch GmbH Stuttgart, ResearchGate-Profil bestätigt Affiliation. DGaO Proceedings 115_a13 'Einfluss der Gouy-Phase auf die Ergebnisse von längenmessenden...' passt exakt zum sample_title. Themen 'optical form measurement', 'Color Corrected Optics for Multi-Wavelength White Light Interferometry' passen zu Bosch-Forschung. Quellen: https://www.researchgate.net/profile/Gerald-Franz, https://www.dgao-proceedings.de/download/115/115_a13.pdf"
+  },
+  {
+    "id": 2596,
+    "vorname": "Giuseppe",
+    "orcid": null,
+    "confidence": 0.98,
+    "reason": "Dr. Giuseppe Coppola, Senior Research Scientist am CNR Institute for Microelectronics and Microsystems (IMM), via P. Castellino 111, 80131 Naples, Italy. Leiter des optoelektronischen Labors seit 2004. Erstautor von 'Silicon resonant cavity enhanced photodetector based on the internal photoemission effect at 1.55μm' (Applied Physics Letters 92, 2008) - exakte Übereinstimmung mit sample_title. Auch Forschung zu DNA hybridization detection und sperm morphological analysis mit digitaler Holographie. Quellen: https://pubs.aip.org/aip/apl/article-abstract/92/25/251104, https://it.linkedin.com/in/giuseppe-coppola-761b196"
+  }
+]

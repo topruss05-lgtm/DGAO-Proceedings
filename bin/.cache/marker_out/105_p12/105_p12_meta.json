@@ -1,0 +1,195 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Solitonen\u00e4hnliche Strukturen in einem photorefraktiven Bi<sub>12</sub>TiO<sub>20</sub>-Kristall",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          89.1750629722922,
+          68.6591796875
+        ],
+        [
+          506.5743073047859,
+          68.6591796875
+        ],
+        [
+          506.5743073047859,
+          80.9931640625
+        ],
+        [
+          89.1750629722922,
+          80.9931640625
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.45088161209068,
+          257.9234194122885
+        ],
+        [
+          121.4404296875,
+          257.9234194122885
+        ],
+        [
+          121.4404296875,
+          268.05859375
+        ],
+        [
+          58.45088161209068,
+          268.05859375
+        ]
+      ]
+    },
+    {
+      "title": "2 Theoretische Grundlagen",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.45088161209068,
+          453.6153161175423
+        ],
+        [
+          190.34005037783376,
+          453.6153161175423
+        ],
+        [
+          190.34005037783376,
+          464.9912109375
+        ],
+        [
+          58.45088161209068,
+          464.9912109375
+        ]
+      ]
+    },
+    {
+      "title": "3 Experiment",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          307.66845703125,
+          383.8860195903829
+        ],
+        [
+          373.93576826196477,
+          383.8860195903829
+        ],
+        [
+          373.93576826196477,
+          394.2763671875
+        ],
+        [
+          307.66845703125,
+          394.2763671875
+        ]
+      ]
+    },
+    {
+      "title": "4 Ergebnisse und Diskussion",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          306.50634765625,
+          691.2947462154942
+        ],
+        [
+          449.6221662468514,
+          691.2947462154942
+        ],
+        [
+          449.6221662468514,
+          701.8037109375
+        ],
+        [
+          306.50634765625,
+          701.8037109375
+        ]
+      ]
+    },
+    {
+      "title": "4.1 Zirkulare Polarisation",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          306.796875,
+          708.5396260017809
+        ],
+        [
+          420.39672544080605,
+          708.5396260017809
+        ],
+        [
+          420.39672544080605,
+          718.2490234375
+        ],
+        [
+          306.796875,
+          718.2490234375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Span",
+          110
+        ],
+        [
+          "Line",
+          93
+        ],
+        [
+          "Text",
+          15
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_p12"
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "id": 45,
+    "vorname": "Thomas",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Prof. Dr. Thomas Hellmuth, Hochschule Aalen, Fakultät Optik und Mechatronik / Zentrum für Optische Technologien (ZOT). Themen (focus invariant optical systems, wavefront coding, Phasenplatten, kohärente Interferometrie / Schärfentiefe) decken sample_titles vollständig ab. Publikation 'Simulation of focus invariant optical systems' (SPIE Proc. 5249, 2004, T. Hellmuth & S. Rathgeb) und 'Variable phaseplates for focus invariant optical systems' (SPIE 5962). Quellen: hs-aalen.de/de/users/61, ResearchGate-Profil Thomas Hellmuth (Hochschule Aalen, Faculty of Optics and Mechatronics)."
+  },
+  {
+    "id": 130,
+    "vorname": "Adolf",
+    "orcid": null,
+    "confidence": 0.98,
+    "reason": "Prof. Dr. Adolf W. Lohmann (1926–2013), Inhaber des Lehrstuhls Angewandte Optik Univ. Erlangen-Nürnberg 1973–1992, danach Emeritus mit Sitz am LMS (Lehrstuhl für Multimediakommunikation und Signalverarbeitung), Cauerstr. 7, 91058 Erlangen — exakt die DGaO-Affiliation. Pionier von Talbot-/Montgomery-Selbstabbildung, Fresnel-/Fourier-Optik, computergenerierten Hologrammen — deckt alle sample_titles. Initialen A. W. eindeutig. Quellen: optica.org/History/Biographies (Adolf W. Lohmann), SPIE Obituary 12-18-2013, Wikipedia."
+  },
+  {
+    "id": 141,
+    "vorname": "Andreas",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "A. Wuttig am Leibniz-IPHT Jena, Arbeitsgruppe um Rainer Riesenberg / Mario Kanka (lensless inline holographic micro-imaging, pinhole-arrays, spectral chips). Co-Autor von M. Kanka, A. Wuttig, C. Graulig, R. Riesenberg ('Fast exact scalar propagation for an in-line holographic microscopy', Opt. Lett. 34, 1162, 2009). Identifiziert als Andreas Wuttig (heute Codion Optics GmbH, ex-IPHT). Quellen: opg.optica.org/ol/abstract.cfm?uri=ol-34-8-1162, LinkedIn Andreas Wuttig (Codion Optics, vorher IPHT Jena). Confidence < 0.9 weil Vorname nicht direkt aus Papier extrahierbar, sondern über Co-Autoren-Cluster / LinkedIn ermittelt."
+  },
+  {
+    "id": 258,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.2,
+    "reason": "J. Müller an TU Dresden ist mit gegebenen Daten nicht eindeutig auflösbar — Themen (radial polarisierte Laserquelle, OCT Mittelohr, Polarisation, Laser-Phosphor) deuten auf mehrere unterschiedliche Forschungsgruppen (Med. Physik OCT; Laserphysik). 'J. Müller' ist extrem häufiger Name in DE. Mindestens zwei Kandidaten (Jörg / Jens / Joachim Müller, TUD Med. Phys. vs. Laser/Optik); keine Quelle erlaubt eine sichere Zuordnung Vorname↔ID 258. Bewusst null."
+  },
+  {
+    "id": 285,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.3,
+    "reason": "K. Pismennaya, Mitautorin in A. Matusevich, K. Pismennaya, V. Matusevich, A. Kiessling, R. Kowarschik 'Photorefractive properties of a SBN crystal' (PEMD 2005, 262), Friedrich-Schiller-Univ. Jena, Institute of Applied Optics. Vorname expandiert weder im Paper noch in den gefundenen Quellen (nur 'K.'). Kandidaten Kateryna/Katerina/Kseniya/Ksenia plausibel (ukrainisch/russisch), aber keine eindeutige Quelle. DB-Aff 'Canadian Standards Association' ist offensichtlich Daten-Fehler (war Jena!) — Aufmerksamkeit. Bewusst null."
+  },
+  {
+    "id": 334,
+    "vorname": "Jürgen",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Dr. Juergen (Jürgen) Lamprecht, Senior Scientist Optocraft GmbH, Erlangen — SPIE-Profil spie.org/profile/Jurgen.Lamprecht-24038 listet OPTOCRAFT als Affiliation. Arbeitsthemen (Interferometrie, diffraktive Nullelemente, Wellenfront, Justage und Prüfung von Optiksystemen) und Aff 'Optocraft GmbH, Am Weichselgarten 7, 91058 Erlangen' decken sample_titles + Init 'J.' eindeutig ab. Quellen: SPIE-Profil; J. Lamprecht als Koautor in Optikprüfung-refraktiver-Mikrolinsen (tm 11/2002)."
+  },
+  {
+    "id": 345,
+    "vorname": "Christoph",
+    "orcid": null,
+    "confidence": 0.92,
+    "reason": "Prof. Dr. Christoph Thoma, ab 1995 Professor für Technische Optik / Physik an Hochschule Emden-Leer (zur fraglichen Zeit FHOOW = Fachhochschule Oldenburg/Ostfriesland/Wilhelmshaven), Spezialgebiete Optik & Lasertechnik (DOEs, CGH, Hochleistungsstrahlteiler). Aff 'FHOOW Standort Emden; Loughborough University' passt zur Sabbatical-/Kooperationsaktivität. Quelle: newsroom.jade-hs.de — Verabschiedung in den Ruhestand 'Prof. Dr. Christoph Thoma' (Physiker, Optik & Lasertechnik, seit 1995 an HS Emden)."
+  },
+  {
+    "id": 395,
+    "vorname": "Ulrich",
+    "orcid": null,
+    "confidence": 0.78,
+    "reason": "Ulrich Berg bei Optocraft GmbH, Erlangen — LinkedIn-Profil 'Ulrich Berg – Optocraft GmbH' bestätigt Beschäftigung. Autor DGaO-Proc. 2004 'Partielle Kohärenz beim Shack-Hartmann Test' (P40), Optocraft-Themen (Shack-Hartmann, Wellenfront-Charakterisierung) passen exakt. Quelle: linkedin.com/in/ulrich-berg-22b53788 + DGaO-Archiv 105/p40. Confidence < 0.9, weil das DGaO-PDF die Vornamen-Auflösung nicht direkt zeigt; LinkedIn-Match ist starkes aber alleiniges Indiz."
+  },
+  {
+    "id": 605,
+    "vorname": "Ralf",
+    "orcid": null,
+    "confidence": 0.96,
+    "reason": "Dr. Ralf Dorn, Optocraft GmbH, Erlangen. Bekannt durch Dissertation zu vektoriellem Fokussierung (Phys. Inst. Univ. Erlangen-Nürnberg unter G. Leuchs), wechselte zu Optocraft für Wellenfront-/DOE-basierte Test-Equipment-Entwicklung. Themen (DOE-basierter Ansatz, Wellenfront, Mikrooptik-Prüfung, Justage) decken sample_titles. Aff stimmt exakt. Quelle: Laser Focus World Reprint 2016 (Optocraft Wavefront Sensing, Autoren J. Pfund, M. Beyerlein, R. Dorn) und Optocraft Webseite."
+  },
+  {
+    "id": 794,
+    "vorname": "André",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "André Bösel, Univ. Greifswald (Institut für Physik), Dissertation 2009 'Untersuchungen zur Frequenzdurchstimmung eines Diodenlasers mit externem Resonator basierend auf dem akusto-optischen Effekt' (epub.ub.uni-greifswald.de docId/476). Exakt die DGaO-Themen ECDL Littrow / monofrequente Durchstimmung / akusto-optische Modulatoren. Aff 'Institut für Physik' passt zu Greifswald. Quelle: OPUS Greifswald Dissertation 2009; DGaO-Proceedings 2009 A13 'Monofrequente und modensprungfreie Durchstimmung … mittels akusto-optischer Modulatoren' (Bösel, A.)."
+  },
+  {
+    "id": 931,
+    "vorname": "Mike",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Dr. Mike Woerdemann (Wördemann), Institut für Angewandte Physik, Westfälische Wilhelms-Universität Münster (AG C. Denz). PhD-Dissertation 'Structured Light Fields: Applications in Optical Trapping, Manipulation, and Organisation' (Springer Theses 2012, nominiert von Univ. Münster). Themen (holographische optische Pinzetten, Geschwindigkeitsfeldanalyse, dynamic phase contrast microscopy, photorefraktiv) decken sample_titles. Quellen: Springer Buchseite 9783642293221; uni-muenster.de/physik_ap/denz/publikationen."
+  },
+  {
+    "id": 1136,
+    "vorname": "Stefan",
+    "orcid": "https://orcid.org/0000-0002-9638-5077",
+    "confidence": 0.99,
+    "reason": "Prof. Dr. Stefan W. Hell, Direktor Max-Planck-Institut für Biophysikalische Chemie Göttingen (heute MPI für Multidisziplinäre Naturwissenschaften), Nobelpreis Chemie 2014 für STED-Mikroskopie. Erfinder von 4Pi (1990) und STED-Mikroskopie. Alle sample_titles (STED, 4Pi, Ground-State-Depletion, Sub-diffraction) sind seine Kernarbeiten. Aff exakt. ORCID aus orcid.org/0000-0002-9638-5077 (Stefan Hell). Quellen: en.wikipedia.org/wiki/Stefan_Hell, mpinat.mpg.de/644852/person, Optica/MPG Pressestellen."
+  },
+  {
+    "id": 1184,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.25,
+    "reason": "F. Ahnepohl im Umfeld FHOOW Emden / Loughborough (gleiche Aff wie ID 345 Thoma) — vermutlich Student/Wissenschaftlicher Mitarbeiter in der AG Thoma (DOE, Nahfeldlithografie, Laser Pattern Generator, 3D-Formvermessung, Hochleistungs-Strahlteiler). Keine Web-Quelle gibt den vollen Vornamen preis; auch ILO-Emden Mitarbeiterseiten zeigen niemanden namens Ahnepohl. Kandidaten F=Frank/Falk/Florian unsicher. Bewusst null."
+  },
+  {
+    "id": 1639,
+    "vorname": "Christoph",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Dr. Christoph Munkelt, Wissenschaftler Fraunhofer-Institut für Angewandte Optik und Feinmechanik IOF Jena, Abt. Imaging & Sensors, Schwerpunkt 3D-Sensorik / strukturierte Beleuchtung (Phasenkorrelation, Stereo-Streifenprojektion, Ansichtenplanung, Unterwasser-Sensoren). Joseph-von-Fraunhofer-Preis 2022 für 3D-basierte Positionskontrolle in der Radiotherapie. Aff stimmt exakt. Quellen: iof.fraunhofer.de/en/pressrelease/2022/3d-based-position-control-radiotherapy, fraunhofer.de Joseph-von-Fraunhofer-Preis 2022, publica.fraunhofer.de Munkelt Christoph."
+  },
+  {
+    "id": 1851,
+    "vorname": "Eric",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Dr. Eric Lindner, seit 2008 FBGS Technologies GmbH (heute CEO), Standort Jena, Winzerlaer Str. 2 — exakt die DGaO-Aff. Promotion am Leibniz-IPHT Jena zum Thema 'High Temperature Stable Fiber Bragg Gratings'. Forschung an Draw Tower Gratings, kurze Bragg-Wellenlängen, Saphirfasern, fs-FBG-Inscription, Strain/Temperature separation — deckt sample_titles vollständig. Quellen: fbgs.com/fbgs-appoints-fiber-optic-sensing-expert-dr-eric-lindner-as-ceo, ResearchGate Eric Lindner (IPHT)."
+  },
+  {
+    "id": 1852,
+    "vorname": "Manfred",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Dr. Manfred Rothhardt, Leibniz-Institut für Photonische Technologien (IPHT) Jena, langjähriger Senior Scientist Faserlaser / FBG-Inscription. Veröffentlichungen zu fs-FBG, Saphirfasern, Multicore-FBG, tunable Faserlaser mit FBG-Arrays, gemeinsame Publikationen mit E. Lindner (ID 1851) zu 'Faser-Bragg-Gitter für kurze Bragg-Wellenlängen' / 'Two Beam Interferometric Inscription of UV fs FBGs'. Aff stimmt. Quellen: opg.optica.org Multi-Publikationen Rothhardt M, IPHT-Webseite Ultrafast Fiber Lasers, ResearchGate Manfred Rothhardt."
+  },
+  {
+    "id": 1984,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.25,
+    "reason": "J. Schneider an RWTH Aachen ist hochambivalent — 'Schneider' ist in DE einer der häufigsten Nachnamen; an der RWTH gibt es u. a. Jan-Niklas Schneider (LLT, Lasertechnik) und Jens Schneider (IENT, Nachrichtentechnik) sowie weitere. Themen (Abbildungsleistung digitaler Kameras, Zoom-Objektive, Partikelkonzentrationsmessung, digital photonics laser material processing, Positionssensitive QC) deuten auf Lasertechnik / Photonik (vermutlich LLT/ILT), doch keine eindeutige Quelle erlaubt sichere Vorname↔ID 1984-Zuordnung. Bewusst null."
+  },
+  {
+    "id": 2109,
+    "vorname": "Oliver",
+    "orcid": "https://orcid.org/0000-0001-5193-9016",
+    "confidence": 0.97,
+    "reason": "Prof. Dr. Dr. Oliver Ambacher, 2007–2016 und 2018–2022 Direktor Fraunhofer-Institut für Angewandte Festkörperphysik IAF Freiburg (Aff exakt = 'Fraunhofer Institute for Applied Solid State Physics'). GaN-Halbleiter, Optoelektronik, Compound-Eye-Kameras, freiraumoptische Saphir/GaN-Systeme passen zu Initiale 'O.' und Themen. Heute Inhaber Gips-Schüle-Lehrstuhl für Leistungselektronik, INATECH Univ. Freiburg. ORCID 0000-0001-5193-9016 (aus INATECH-Publikationen). Quellen: iaf.fraunhofer.de Pressemitteilungen Ambacher, inatech.uni-freiburg.de."
+  },
+  {
+    "id": 2527,
+    "vorname": "Ivo",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Dr. Ivo Rendina (geb. 1960), Research Director CNR. 2002–2015 Leiter Naples Department IMM (Institute for Microelectronics and Microsystems) — exakt die DGaO-Aff. Themen Silizium-Photonik, porous silicon, Diatomen-Mikrooptik, Raman in Si-Nanokristallen passen perfekt. Seit 2019 Direktor ISASI-CNR. Quellen: isasi.cnr.it/profile/ivo.rendina, cnr.it 024 Direttore ISASI, ResearchGate Ivo Rendina (CNR IMM, 339 Publikationen)."
+  },
+  {
+    "id": 2590,
+    "vorname": "Giancarlo",
+    "orcid": "https://orcid.org/0000-0002-6081-6971",
+    "confidence": 0.98,
+    "reason": "Dr. Giancarlo C. Righini, Senior Associate Nello Carrara Institute of Applied Physics (IFAC), CNR, Sesto Fiorentino — Aff exakt. Initialen G. C. eindeutig. Über 600 Papers zu photonic glasses, integrated optics, sol-gel SiO2-SnO2-Wellenleitern, Mikroresonatoren, plasmonischen Wellenleitern, Er3+/Hf02, opals — deckt sample_titles vollständig. ORCID 0000-0002-6081-6971 (aus sciprofiles.com/profile/93237). Quellen: sciprofiles.com Profile 93237, ResearchGate Giancarlo Righini, scholar.google Giancarlo C. Righini."
+  }
+]

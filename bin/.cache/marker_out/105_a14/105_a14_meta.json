@@ -1,0 +1,122 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Messung ausgedehnter Wellenfronten mit einem Shack\u2013Hartmann Sensor",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          85.99609375,
+          68.6591796875
+        ],
+        [
+          512.1309204101562,
+          68.6591796875
+        ],
+        [
+          512.1309204101562,
+          81.72686767578125
+        ],
+        [
+          85.99609375,
+          81.72686767578125
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.51997375488281,
+          240.1015625
+        ],
+        [
+          123.85863494873047,
+          240.1015625
+        ],
+        [
+          123.85863494873047,
+          251.19000244140625
+        ],
+        [
+          59.51997375488281,
+          251.19000244140625
+        ]
+      ]
+    },
+    {
+      "title": "2 Subaperture Messung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          306.50634765625,
+          676.3134765625
+        ],
+        [
+          425.0480041503906,
+          676.3134765625
+        ],
+        [
+          425.0480041503906,
+          687.5098114013672
+        ],
+        [
+          306.50634765625,
+          687.5098114013672
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          131
+        ],
+        [
+          "Line",
+          70
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Picture",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "PictureGroup",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_a14"
+}

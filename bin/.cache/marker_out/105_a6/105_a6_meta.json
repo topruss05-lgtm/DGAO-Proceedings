@@ -1,0 +1,122 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Test eines absolutmessenden lnterferometers am 50m-L\u00e4ngenkomparator der \nPTB",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          75.24005889892578,
+          80.1708984375
+        ],
+        [
+          523.54150390625,
+          80.1708984375
+        ],
+        [
+          523.54150390625,
+          107.11138916015625
+        ],
+        [
+          75.24005889892578,
+          107.11138916015625
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.97705078125,
+          294.37109375
+        ],
+        [
+          123.85376739501953,
+          294.37109375
+        ],
+        [
+          123.85376739501953,
+          305.5654296875
+        ],
+        [
+          58.97705078125,
+          305.5654296875
+        ]
+      ]
+    },
+    {
+      "title": "2 Komparatoranordnung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.97705078125,
+          596.3114013671875
+        ],
+        [
+          179.4137725830078,
+          596.3114013671875
+        ],
+        [
+          179.4137725830078,
+          606.4208984375
+        ],
+        [
+          58.97705078125,
+          606.4208984375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          124
+        ],
+        [
+          "Line",
+          70
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_a6"
+}

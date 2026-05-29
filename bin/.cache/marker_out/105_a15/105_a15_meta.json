@@ -1,0 +1,149 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Absolute Phasenmessende Deflektometrie",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          174.31640625,
+          68.6591796875
+        ],
+        [
+          420.39672544080605,
+          68.6591796875
+        ],
+        [
+          420.39672544080605,
+          78.72662511130899
+        ],
+        [
+          174.31640625,
+          78.72662511130899
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.45088161209068,
+          234.68032056990205
+        ],
+        [
+          122.14735516372797,
+          234.68032056990205
+        ],
+        [
+          122.14735516372797,
+          245.03515625
+        ],
+        [
+          58.45088161209068,
+          245.03515625
+        ]
+      ]
+    },
+    {
+      "title": "2 Messprinzip",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.45088161209068,
+          495.4150390625
+        ],
+        [
+          127.39294710327457,
+          495.4150390625
+        ],
+        [
+          127.39294710327457,
+          505.3499554764025
+        ],
+        [
+          58.45088161209068,
+          505.3499554764025
+        ]
+      ]
+    },
+    {
+      "title": "3 Stereo-Deflektometrie",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          308.7405541561713,
+          449.1166518254675
+        ],
+        [
+          422.6448362720403,
+          449.1166518254675
+        ],
+        [
+          422.6448362720403,
+          458.4130859375
+        ],
+        [
+          308.7405541561713,
+          458.4130859375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          87
+        ],
+        [
+          "Span",
+          26
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PictureGroup",
+          2
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_a15"
+}

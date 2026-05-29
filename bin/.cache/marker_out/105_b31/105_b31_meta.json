@@ -1,0 +1,149 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Herstellung integriert-optischer Wellenleiter durch Excimer- und fs-Pulslaser f\u00fcr die interferometrische Positionsregelung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          68.1926952141058,
+          68.22974176313446
+        ],
+        [
+          527.5566750629723,
+          68.22974176313446
+        ],
+        [
+          527.5566750629723,
+          94.9716796875
+        ],
+        [
+          68.1926952141058,
+          94.9716796875
+        ]
+      ]
+    },
+    {
+      "title": "mailto:ak@lzh.de",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          258.53274559193954,
+          195.69189670525378
+        ],
+        [
+          337.2166246851385,
+          195.69189670525378
+        ],
+        [
+          337.2166246851385,
+          206.1887800534283
+        ],
+        [
+          258.53274559193954,
+          206.1887800534283
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.45088161209068,
+          325.4033837934105
+        ],
+        [
+          121.39798488664988,
+          325.4033837934105
+        ],
+        [
+          121.39798488664988,
+          335.484375
+        ],
+        [
+          58.45088161209068,
+          335.484375
+        ]
+      ]
+    },
+    {
+      "title": "2 Parameter, Simulationen",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          306.796875,
+          399.6313446126447
+        ],
+        [
+          435.38413098236776,
+          399.6313446126447
+        ],
+        [
+          435.38413098236776,
+          409.37845057880673
+        ],
+        [
+          306.796875,
+          409.37845057880673
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          113
+        ],
+        [
+          "Span",
+          38
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Equation",
+          4
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_b31"
+}

@@ -1,0 +1,191 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Thermal Management of Large Scale Optical Systems",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          144.1015625,
+          69.468505859375
+        ],
+        [
+          453.7225036621094,
+          69.468505859375
+        ],
+        [
+          453.7225036621094,
+          81.8154296875
+        ],
+        [
+          144.1015625,
+          81.8154296875
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.58001708984375,
+          246.2685546875
+        ],
+        [
+          129.02963256835938,
+          246.2685546875
+        ],
+        [
+          129.02963256835938,
+          257.01361083984375
+        ],
+        [
+          59.58001708984375,
+          257.01361083984375
+        ]
+      ]
+    },
+    {
+      "title": "2 Our Approach",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.6865234375,
+          646.7119140625
+        ],
+        [
+          137.96449279785156,
+          646.7119140625
+        ],
+        [
+          137.96449279785156,
+          658.5320281982422
+        ],
+        [
+          58.6865234375,
+          658.5320281982422
+        ]
+      ]
+    },
+    {
+      "title": "u = temperature\nR Thermal load Q\nResidual Absorption\nHeat Sink Baffles",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          317.255859375,
+          320.30743408203125
+        ],
+        [
+          524.111328125,
+          320.30743408203125
+        ],
+        [
+          524.111328125,
+          457.8019714355469
+        ],
+        [
+          317.255859375,
+          457.8019714355469
+        ]
+      ]
+    },
+    {
+      "title": "3 Results",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          307.958984375,
+          525.0166015625
+        ],
+        [
+          356.2973937988281,
+          525.0166015625
+        ],
+        [
+          356.2973937988281,
+          538.1141662597656
+        ],
+        [
+          307.958984375,
+          538.1141662597656
+        ]
+      ]
+    },
+    {
+      "title": "Reference",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          308.5400390625,
+          692.0734710693359
+        ],
+        [
+          360.1951599121094,
+          692.0734710693359
+        ],
+        [
+          360.1951599121094,
+          702.0934600830078
+        ],
+        [
+          308.5400390625,
+          702.0934600830078
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          154
+        ],
+        [
+          "Line",
+          77
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_b26"
+}

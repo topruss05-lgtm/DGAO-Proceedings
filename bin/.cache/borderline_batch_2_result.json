@@ -1,0 +1,142 @@
+[
+  {
+    "id": 12599,
+    "vorname": "René",
+    "orcid": "https://orcid.org/0000-0001-7030-039X",
+    "confidence": 0.99,
+    "reason": "Prof. RNDr. René Hudec, CSc., Czech Technical University in Prague (FEE) + Astronomical Institute Ondřejov. Themen (Lobster Eye Optics, JEUMICO, CubeSat-Röntgenteleskope, Kirkpatrick-Baez, X-ray Optics for Astrophysics) decken sample_titles vollständig ab. ORCID 0000-0001-7030-039X (sciprofiles.com/profile/2015681). Quellen: poseidon2.feld.cvut.cz/personal/hudec, fel.cvut.cz/cs/fakulta/lide/235-rene-hudec, www1.asu.cas.cz/person/hudec.html."
+  },
+  {
+    "id": 897,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.4,
+    "reason": "Zwei mögliche Kandidaten an der FSU Jena Inst. Applied Optics: (a) Vladislav Matusevich (Echtzeitphoropter, BTO/SBN-Photorefraktivität, PMMA-Photopolymer — alle decken sample_titles ab; corresponding author Vladislav.Matusevich@uni-jena.de), aber Initial 'A.' passt nicht. (b) In der Publikation 'Photorefractive properties of a SBN crystal' (PEMD-2005-262) sind 'A. Matusevich' UND 'V. Matusevich' als getrennte Co-Autoren gelistet — also existiert ein separater 'A. Matusevich' am gleichen Institut, aber sein Vorname (Alexey/Anton/?) konnte in keiner Quelle aufgelöst werden. Da unklar ob die sample_titles zu (a) oder (b) gehören, NULL. Quellen: opg.optica.org/abstract.cfm?uri=PEMD-2005-262, researchgate.net/profile/Vladislav-Matusevich, sciencedirect.com 'Photoinduced absorption in Bi12TiO20'."
+  },
+  {
+    "id": 1185,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.3,
+    "reason": "An der Jade Hochschule (Mikrofertigung/Technische Optik) konnte kein 'H. Buse' (Initial H) bestätigt werden. Bekannt sind Dipl.-Ing. Robert Buse (Initial R, nicht passend) im Bereich Mikrotechnik/Mikrofluidik sowie der separate Hinweis auf einen 'Hauke Buse' in Personen-Suchmaschinen ohne verifizierbare Verbindung zur Jade-Hochschule-Optik-Gruppe. Da die sample_titles (Hochleistungslaser-Strahlteiler, DOE, Nahfeldlithografie, Laser Pattern Generator, SNOM-Faserspitzen, Mikrooptik) auf eine etablierte Optik-Forschungsperson hindeuten, aber keine eindeutige Zuordnung möglich ist, NULL. Quellen: jade-hs.de Team-Seiten Mikrofertigung/Technische Optik."
+  },
+  {
+    "id": 12052,
+    "vorname": "Peter",
+    "orcid": null,
+    "confidence": 0.98,
+    "reason": "Dr. Peter Schreiber, Fraunhofer IOF Jena, Business Unit Micro-Optics and Nano-Optics, verantwortlich für mikrooptische Beleuchtungssysteme. Joseph-von-Fraunhofer-Preis 2016 für LED-Array-Projektor (BMW 7er Light Carpet). Themen (Array Projector, Multi-Channel Head-Up Display, Microlens Array, Mikrooptische Mehrkanaloptiken, Automotive Beleuchtung) decken sample_titles vollständig ab. Quellen: fraunhofer.de/en/press/research-news/2016/May/little-projectors, iof.fraunhofer.de/en/competences/Arrayed-projector-developments, ResearchGate Peter-Schreiber-3, SPIE Profile 18068."
+  },
+  {
+    "id": 120,
+    "vorname": "Vladimir",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "V.M. Petrov = Vladimir M. Petrov, Mitarbeit/Kooperation mit Theo Tschudi (TU Darmstadt) und PZH Wetzlar; ursprünglich A.F. Ioffe Phys.-Tech. Inst. St. Petersburg, später ITMO/PZH-affiliiert. Themen (adaptive holographic interferometry, Bragg-Filter, Lichtdruck/Casimirkraft, Lithiumniobat-Hologramme, faseroptische Sensorik) decken sample_titles vollständig ab. Schlüsselpublikationen: Petrov+Tschudi 'Optical detection of the Casimir force between macroscopic objects' (Opt Lett 31, 2006) und Petrov 'A dynamic wavelength Bragg-filter' (PEMD-2003-564). Quellen: opg.optica.org/ol/abstract.cfm?uri=ol-31-21-3167, opg.optica.org/abstract.cfm?uri=PEMD-2003-564, spie.org/profile/Vladimir.Petrov-12621."
+  },
+  {
+    "id": 1583,
+    "vorname": "Ralf",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Dr. Ralf Biertümpfel, Senior Application Manager Optical Filter Glass bei SCHOTT AG (Advanced Optics), Promotion TU Darmstadt 2001. Themen (Filterglas, Fluoreszenz, Sellmeier-Dispersion, IR-Cutoff, DOE-Strahlformung, Solarisation, Blue Glass) decken sample_titles vollständig ab. Quellen: ResearchGate Ralf-Biertuempfel, LinkedIn dr-ralf, uqgoptics.com Tutorial-Optical-Filter-Glass-Calculation 2015 (von Dr. Ralf Biertümpfel)."
+  },
+  {
+    "id": 2281,
+    "vorname": "Marcus",
+    "orcid": null,
+    "confidence": 0.98,
+    "reason": "Dr. Marcus Trost, Fraunhofer IOF Jena, Leiter Charakterisierungs-Gruppe. Promotion FSU Jena 2009 in Physik, anschließend PhD am Fraunhofer IOF zu Streulicht/Rauheit von EUV-Komponenten. Themen (EUV-Streulicht, Reflexionsmesstechnik 13,5 nm, Subsurface Damage, IR-Scattering, BSDF, schwarzes Quarzglas) decken sample_titles vollständig ab. Quellen: ResearchGate Marcus-Trost, publica.fraunhofer.de/entities/person/ea7f2e50-6473-423d-88de-fad12ba873df, fraunhofer.de/en/press/research-news/2020/june/perfect-optics-through-light-scattering."
+  },
+  {
+    "id": 2726,
+    "vorname": "Uwe",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Dr. Uwe Petzold, Head of Global Application and Metrology / Optical Glass Product Manager bei SCHOTT AG (Advanced Optics, Mainz). Themen (Brechzahlhomogenität, Schlieren, spannungsoptischer Koeffizient, dn/dT, XLD-Glas, Fluoreszenz von SCHOTT-Gläsern, Projektion) decken sample_titles vollständig ab. Quellen: ResearchGate Uwe-Petzold-2, SPIE 'The modern way of refractive index measurement of optical glass at SCHOTT' (Petzold, Jedamzik), 'SCHOTT optical glass in space' (Petzold, Jedamzik 2017)."
+  },
+  {
+    "id": 4354,
+    "vorname": "Robert",
+    "orcid": null,
+    "confidence": 0.98,
+    "reason": "Dr. Robert Kuschmierz, Gruppenleiter, ehemals Chair of Measurement and Sensor System Technique (Mess- und Prüftechnik), TU Dresden; seit 2026 Group Leader am Institute of Solid State Electronics, TUD. Promotion 2017 (Interferometrie in rauen Umgebungen, ausgezeichnet von Sick- und Werth-Stiftung). Themen (holographische Faser-Endoskopie, faseroptische Distanzsensoren, Vibrations-/Shape-Messung rotierender Objekte, Speckle-Reduktion, Neuronale Netze für Faserbündel) decken sample_titles vollständig ab. Quellen: tu-dresden.de/ing/elektrotechnik/ife/das-institut/mitarbeiter/herr_robert_kuschmierz, ResearchGate Robert-Kuschmierz, Opt. Lett. 43, 2997 (2018)."
+  },
+  {
+    "id": 5258,
+    "vorname": "Damien",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Dr. Damien P. Kelly, Forscher zu Speckle, Fresnel-Propagation, Phase Retrieval und Talbot-Imaging; mehrere Affiliationen über Karriere: UCD Dublin, TU Wien, später TU Ilmenau. Schlüsselpublikationen (Speckle in paraxialen Systemen, partially developed speckle fields, Talbot-Bilder, numerical Fresnel transform) decken sample_titles vollständig ab. TJM Design Corp. (Japan) ist plausible spätere Industrie-Affiliation, aber konnte nicht direkt verifiziert werden — daher 0.95 statt 0.99. Quellen: opg.optica.org/ol/abstract.cfm?uri=ol-32-23-3394 (Kelly et al. 'Controlling speckle'), pubmed.ncbi.nlm.nih.gov/17047714 'Paraxial speckle-based metrology systems', researchgate.net Damien-Kelly-3."
+  },
+  {
+    "id": 11382,
+    "vorname": "Christian",
+    "orcid": null,
+    "confidence": 0.96,
+    "reason": "Christian Schober, M.Sc., Institut für Technische Optik (ITO), Universität Stuttgart, AG Pruss/Osten. Themen (Tilted-Wave-Interferometer, Single-Shot-TWI, Asphären/Freiform-Formmessung, Weißlichtinterferometrie, ereignisbasierte Sensoren, 2-Photonen-Lithografie für RGB-Interferometer) decken sample_titles vollständig ab. Quellen: ito.uni-stuttgart.de/en/institute/team/Schober, Light Adv. Manuf. 3, 48 (2022) Schober et al. 'Tilted Wave Fizeau Interferometer'."
+  },
+  {
+    "id": 269,
+    "vorname": "Uwe",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Vorname war bereits 'Uwe' (kein Initial) und passt zu Dr. Uwe Lippmann, Carl Zeiss Jena GmbH bzw. Fraunhofer IOF. Themen (Kuppelprojektion, OLED-Mikrodisplays, THz-Optik, Stimulationssystem für Magnetoenzephalographie, Spiegelsysteme verkippt, Chirp-Z-Transformation) bestätigt durch ZEISS-Vortrag 'Advanced OLED microdisplays for near-to-eye applications' und ResearchGate-Profil Uwe Lippmann (Fraunhofer IOF/Carl Zeiss Jena). Quellen: zeiss.com/content/dam/Corporate/fwv/ZEISS Symposium Optics in the Digital World/abstracts/zeiss_uvo_160629.pdf, ResearchGate scientific-contributions/Uwe-Lippmann-2018163889."
+  },
+  {
+    "id": 1129,
+    "vorname": "Michael",
+    "orcid": null,
+    "confidence": 0.93,
+    "reason": "Michael Bohling, FernUniversität in Hagen, Lehrgebiet Mikro- und Nanophotonik (Jürgen-Jahns-Labor). Masterarbeit 2007 'Ultrapräzisions gefertigte Mikrooptiken für ps/fs-Puls-Anwendungen'. Themen (mikrooptischer Pulsformer für fs-Pulse, diffraktiv-refraktive Filterung, WDM-Modulator-Array, optisches Mikrosystem aus Plastik, UPM-gefertigte Strahlteiler, Talbot-Band) decken sample_titles vollständig ab. Affiliation 'Lehrgebiet Mikro- und Nanophotonik' = FernUni Hagen. Quellen: ResearchGate Michael-Bohling, fernuni-hagen.de/MNP."
+  },
+  {
+    "id": 1789,
+    "vorname": "Andreas",
+    "orcid": null,
+    "confidence": 0.93,
+    "reason": "Andreas Berger, Institut für Optik, Information und Photonik (Lehrstuhl Häusler/Faber), Friedrich-Alexander-Universität Erlangen-Nürnberg. Themen (Weißlichtinterferometrie/Unterabtastung, diffraktive Nulltests für Asphären, 2D-Shearing-Interferometer mit räumlicher Kohärenz, Polarisations-Phasenmessung, Phase Unwrapping) decken sample_titles vollständig ab. Promotion FAU 'Laterales DUV-Shearing Interferometer mit reduzierter zeitlicher und räumlicher Kohärenz' (open.fau.de). Quellen: open.fau.de/items/4632aa39-282a-4c4f-94ea-6e4d75098e7e, Appl. Opt. 50, 571 (2011) 'Diffractive simultaneous bidirectional shearing interferometry'."
+  },
+  {
+    "id": 7596,
+    "vorname": "Patrick",
+    "orcid": null,
+    "confidence": 0.9,
+    "reason": "Patrick Feßer, Technische Universität Ilmenau, Fakultät Maschinenbau, Institut für Mikro- und Nanotechnologien, Optical Engineering Group (Mikrofertigung von DOEs, Sprühbeschichtung). Themen (Lau-Effekt, hybride Phasengitter mit Subwellenlängenstrukturen, Polarisationsstrahlteiler, DOEs in Whispering-Gallery-Resonatoren, hochbrechendes amorphes Silizium, Lithiumniobat-Strukturierung) decken sample_titles vollständig ab. Affiliation 'Biomedizinische Technik' ist ungewöhnlich — TU Ilmenau hat sowohl Biomed-Technik-Studiengang als auch Optical Engineering, vermutlich Mehrfach-/Sekundär-Affiliation. Quellen: tu-ilmenau.de/en/.../optical-engineering-group/team/patrick-fesser, ResearchGate scientific-contributions/Patrick-Fesser-2036862482."
+  },
+  {
+    "id": 8823,
+    "vorname": "Goran",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Dr.-Ing. Goran Bastian Baer, Promotion 2016 ITO Stuttgart ('Ein Beitrag zur Kalibrierung von Nicht-Null-Interferometern zur Vermessung von Asphären und Freiformflächen'), Rudolf-Kingslake-Medaille, AMA Innovation Award 2014 für TWI. Später Industrie (Baer Optical Engineering, dann Quadoa Optical Systems GmbH). Themen (Tilted-Wave-Interferometer-Kalibrierung, Modellierung Wellenfront-Aberrationen, non-null metrology, Object-oriented Optical Design, CPU/GPU-Optimierung) decken sample_titles vollständig ab. JENOPTIK-Affiliation in DGaO-Datenbank vermutlich kurze Zwischenstation oder Verwechslung mit Quadoa/Baer-OE. Quellen: linkedin.com/in/goran-bastian-baer-ba22aa141, baer-oe.de/en/index, Opt. Express 22, 31200 (2014) Baer et al."
+  },
+  {
+    "id": 11870,
+    "vorname": "André",
+    "orcid": null,
+    "confidence": 0.88,
+    "reason": "André F. Müller, Bremer Institut für angewandte Strahltechnik (BIAS) bzw. Universität Bremen, AG Coherent Optics (Claas Falldorf). Masterarbeit 2019 zu Multiple Aperture Shear Interferometry (MArS). Themen (MArS, vier-dimensionale Kalibrierung Shear-Interferometer, iterative Asphären-Formmessung, Bessel-Strahlen für Optogenetik, Referenceless Phase Holography, nicht-sphärische adaptive Optik, Wellenvektor-Unsicherheit) decken sample_titles vollständig ab. Quellen: degruyter.com/document/doi/10.1515/teme-2019-0025 (Müller et al.), pubmed.ncbi.nlm.nih.gov/33182930 'MArS', bias.de/publikationen."
+  },
+  {
+    "id": 12498,
+    "vorname": "Bernd",
+    "orcid": null,
+    "confidence": 0.98,
+    "reason": "Dr.-Ing. Bernd Kleemann, Staff Scientist und Project Leader bei Carl Zeiss AG, Corporate Research & Technology, Optical Systems Simulation (Oberkochen), seit 1998. >25 Jahre Erfahrung in elektromagnetischer Simulation, Gittern und diffraktiven Strukturen. Themen (DOE-Beugungseffizienz, Echelle vs. Lamellar-Gitter für DUV-Excimer, ACES-Strukturen, blaze-Echelles in Littrow, Nanometrologie, strukturelle Färbung durch resonante Aluminiumgitter) decken sample_titles vollständig ab. Mehrere Patente WO2004025335, WO2009036941, US7262915, DE10322238 zu Blazed Diffractive Optical Elements für Carl Zeiss. Quellen: ResearchGate Bernd-Kleemann, theorg.com/org/carl-zeiss-ag/org-chart/bernd-kleemann, Opt. Lett. 37, 1002 (2012) 'Perfect blazing with echelle gratings'."
+  },
+  {
+    "id": 409,
+    "vorname": "Félix",
+    "orcid": null,
+    "confidence": 0.96,
+    "reason": "Prof. Félix Salazar (Bloise), Universidad Politécnica de Madrid, ETSI Minas y Energía, Departamento de Física Aplicada a los Recursos Naturales. Themen (Heterodyne Speckle-Interferometrie, ESPI für Aerospace, GDLC-Tröpfchen-Vermessung, Speckle-Rauheitsmessung, Phase-Shifting Interferometrie, Erosionsmessung Luftfahrt) decken sample_titles vollständig ab. Quellen: ResearchGate Felix-Salazar-2, Rev. Sci. Instrum. 89, 083701 (2018) Salazar Bloise, Opt. Express 26, 8744 (2018) 'Temporal ESPI for real-time in-plane rotation'."
+  },
+  {
+    "id": 483,
+    "vorname": "Oleg",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "O. Kashin = Oleg Kashin, Mitautor an Friedrich-Schiller-Universität Jena (Kowarschik/Matusevich/Tolstik-Gruppe) zu photorefraktiven Solitonen in SBN-Kristallen, PPLN-Wellenleitern und PMMA/PQ-Photopolymeren. Schlüsselpublikation 'The interaction of photorefractive solitons in a SBN crystal' (Kashin, Khmelnitzky et al.). Themen (1D/2D-Solitonen-Wechselwirkung in SBN, photorefraktiver Effekt in PPLN-Wellenleitern, Self-Trapping in Polymeren, Photopolymer-Hologramme) decken sample_titles vollständig ab. Affiliation 'Canadian Standards Association' in DGaO ist sehr ungewöhnlich — vermutlich spätere Industrie-Position nach FSU Jena, oder DGaO-Datenfehler. Quellen: semanticscholar.org/paper/The-interaction-of-photorefractive-solitons-in-a-Kashin-Khmelnitzky, Appl. Phys. B 'Change of refractive index in PPLN waveguides due to photorefractive effect' (Kashin et al. 2011)."
+  }
+]

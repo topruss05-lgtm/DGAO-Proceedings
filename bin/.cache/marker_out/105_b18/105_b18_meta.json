@@ -1,0 +1,157 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Homogenit\u00e4t optischer Gl\u00e4ser",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          210.69531249999997,
+          68.77752685546875
+        ],
+        [
+          382.9765625,
+          68.77752685546875
+        ],
+        [
+          382.9765625,
+          80.77752685546875
+        ],
+        [
+          210.69531249999997,
+          80.77752685546875
+        ]
+      ]
+    },
+    {
+      "title": "mailto:ralf.jedamzik@schott.com",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          224.66406249999997,
+          159.1004638671875
+        ],
+        [
+          369.61126708984375,
+          159.1004638671875
+        ],
+        [
+          369.61126708984375,
+          168.8504638671875
+        ],
+        [
+          224.66406249999997,
+          168.8504638671875
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.25,
+          288.8504638671875
+        ],
+        [
+          120.18945312499999,
+          288.8504638671875
+        ],
+        [
+          120.18945312499999,
+          298.8935546875
+        ],
+        [
+          59.25,
+          298.8935546875
+        ]
+      ]
+    },
+    {
+      "title": "2 Globale Brechzahlhomogenit\u00e4t",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.78515624999999,
+          612.1004943847656
+        ],
+        [
+          215.82766723632812,
+          612.1004943847656
+        ],
+        [
+          215.82766723632812,
+          622.8662109375
+        ],
+        [
+          58.78515624999999,
+          622.8662109375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          271
+        ],
+        [
+          "Line",
+          105
+        ],
+        [
+          "TableCell",
+          26
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_b18"
+}

@@ -1,0 +1,122 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Vakuum-UV-Spektroskopie an synthetischem Quarzglas unter UV-Pulslaserbestrahlung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          135.6360201511335,
+          69.0703125
+        ],
+        [
+          459.3639798488665,
+          69.0703125
+        ],
+        [
+          459.3639798488665,
+          100.31640625
+        ],
+        [
+          135.6360201511335,
+          100.31640625
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.45088161209068,
+          266.17097061442564
+        ],
+        [
+          122.14735516372797,
+          266.17097061442564
+        ],
+        [
+          122.14735516372797,
+          277.92578125
+        ],
+        [
+          58.45088161209068,
+          277.92578125
+        ]
+      ]
+    },
+    {
+      "title": "2 Ergebnisse",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.45088161209068,
+          432.9228515625
+        ],
+        [
+          122.89672544080605,
+          432.9228515625
+        ],
+        [
+          122.89672544080605,
+          443.11843276936776
+        ],
+        [
+          58.45088161209068,
+          443.11843276936776
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          103
+        ],
+        [
+          "Span",
+          49
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_b21"
+}

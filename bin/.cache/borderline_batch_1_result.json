@@ -1,0 +1,142 @@
+[
+  {
+    "id": 4874,
+    "vorname": "Roland",
+    "orcid": "https://orcid.org/0000-0002-3181-6323",
+    "confidence": 0.98,
+    "reason": "Prof. Dr.-Ing. Roland Lachmayer, Leibniz Universität Hannover, Institut für Produktentwicklung und Gerätebau (IPeG). Themen Automotive Lighting, LED, Additive Manufacturing, Optomechatronics decken sample_titles perfekt ab; war 2005-2007 Vorstand L-LAB Paderborn (Lichttechnik). Aff 'IGES Institut' ist abweichende DGaO-Schreibung des IPeG-Verbunds. Quellen: ipeg.uni-hannover.de, phoenixd.uni-hannover.de, ORCID 0000-0002-3181-6323."
+  },
+  {
+    "id": 6775,
+    "vorname": "Ralf",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Prof. Dr. rer. nat. Ralf B. Bergmann, seit 07/2008 Direktor BIAS Bremen (Bereich Optical Metrology and Optoelectronic Systems) + Professor für Angewandte Optik Univ. Bremen. Themen (Shear-Interferometrie, Digitalholographie, Wellenfront, Formmessung) decken sample_titles vollständig ab. Quellen: bias.de/bergmann, uni-bremen.de Pressemitteilung 2008, SPIE/ResearchGate-Profil."
+  },
+  {
+    "id": 11245,
+    "vorname": "Steffen",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Dr. Steffen Reichel, seit 2001 SCHOTT AG (Filtergläser, Imaging, Beleuchtung), seit 2013 Honorarprof. für 'Optics & Photonics' an h_da Darmstadt. Themen (Filterglas, Solarisation, Sellmeier, Fluoreszenz, BSDF) decken sample_titles perfekt ab. Quelle: SPIE-Profil, IEEE Senior Member-Biographie, h_da Profile."
+  },
+  {
+    "id": 203,
+    "vorname": "Gert",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Prof. Dr. Gert von Bally, Leiter Centrum für Biomedizinische Optik und Photonik, Universität Münster. Themen (digital holographic microscopy, Speckle-Interferometrie, biomedizinische Optik, lebende Zellen) decken sample_titles vollständig ab. Aff 'University of Münster' passt. Quellen: medizin.uni-muenster.de, J Biomed Opt Publikationen, SPIE Digital Library."
+  },
+  {
+    "id": 23,
+    "vorname": "Angela",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Dr. Angela Duparré, langjährige Leiterin der Streulicht-Charakterisierung am Fraunhofer IOF Jena. Themen (Streulicht, ARS/BRDF, EUV/DUV-Charakterisierung, ALBATROSS, PSD-Analyse) decken sample_titles perfekt ab. Aff 'Fraunhofer-Institut für Angewandte Optik und Feinmechanik' = IOF Jena. Quellen: iof.fraunhofer.de Publikationen, Optica/SPIE-Veröffentlichungen."
+  },
+  {
+    "id": 11950,
+    "vorname": "Sven",
+    "orcid": null,
+    "confidence": 0.92,
+    "reason": "Dr. rer. nat. Sven Schröder, Head of Department Surface and Thin Film Characterization am Fraunhofer IOF Jena. Sample_titles sind identisch mit Duparré-Co-Autorenschaft (Streulicht, ALBATROSS, HOROS, EUV/DUV). 'RWTH Aachen University' als aff vermutlich DGaO-Affil-Eintrag aus einer Gastwissenschafts- oder Kooperationsperiode bzw. fehlerhafte Affil-Zuordnung. Quellen: iof.fraunhofer.de, Scholar (3K6NzFcAAAAJ), ResearchGate."
+  },
+  {
+    "id": 146,
+    "vorname": "Wolfgang",
+    "orcid": null,
+    "confidence": 0.95,
+    "reason": "Prof. Dr. Wolfgang Dultz, Goethe-Universität Frankfurt am Main (Physik). Themen (Polarisation, Talbot-Effekt, Haidinger, Gouy-Phase, Quanten-Polarisationsoptik) decken sample_titles vollständig ab. Bekannt für historische Optik-Experimente und Polarisationsmesstechnik. Co-Autorenschaft mit B. Hils & H. Schmitzer bestätigt. Quellen: ResearchGate-Profil Wolfgang-Dultz-2138080777, Xavier-Univ. (Heidrun Schmitzer)."
+  },
+  {
+    "id": 147,
+    "vorname": "Bernd",
+    "orcid": null,
+    "confidence": 0.94,
+    "reason": "Bernd Hils, Goethe-Universität Frankfurt am Main, Co-Autor mit Wolfgang Dultz. Themen (Terahertz, Polarisation, Quantenoptik, Twisted Slits) identisch mit Dultz-Gruppe. Quellen: ResearchGate-Profil Bernd-Hils, arbeitsgruppe Ultrakurzzeitspektroskopie und Terahertz-Physik Uni Frankfurt."
+  },
+  {
+    "id": 8,
+    "vorname": null,
+    "orcid": null,
+    "confidence": 0.4,
+    "reason": "H. Kreitlow, Jade Hochschule (Vorgänger FH Wilhelmshaven), Holographie/diffraktive Optik/Laserstrahlfokus. Co-Autorenschaft mit W. Jüptner (BIAS) in den 1970er Jahren belegt. Kein Web-Treffer für vollen Vornamen (Hartmut, Heinz-Detlef, Hubert geprüft - keine Bestätigung). Person ist nicht mehr in aktueller Fakultätsliste; pensioniert/historisch. Lieber kein Update als Falschzuweisung."
+  },
+  {
+    "id": 1343,
+    "vorname": "Meike",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "Dr.-Ing. Meike Hofmann, TU Ilmenau, Fachgebiet Technische Optik (Sinzinger-Gruppe). Promotion 2013 zu opto-fluidischen Mikrosystemen für Partikelanalyse (Talbot-Interferometrie, planar-integriert). Postdoc IMTEK Freiburg (Microoptik), seit 2017 wieder TU Ilmenau, Forschung Lichtschichtmikroskopie. Themen (Talbot, Mikrofluidik, planar-integrierte Systeme, Lichtschicht-Fluoreszenz, Fourier-Ptychographie) decken sample_titles vollständig ab. Aff 'Institut für Biomedizinische Technik' ist vermutlich DGaO-Eintrag aus Co-Autorenschaft mit BMT-Institut der TU Ilmenau bzw. veralteter Affil-Eintrag. Quellen: tu-ilmenau.de Profile, ResearchGate Meike-Hofmann."
+  },
+  {
+    "id": 5502,
+    "vorname": "Nektarios",
+    "orcid": null,
+    "confidence": 0.98,
+    "reason": "Dr. Nektarios Koukourakis, TU Dresden, Professur für Mess- und Prüftechnik (BioLas-Gruppe). Themen (Wellenfrontformung, adaptive Linsen, konfokale Mikroskopie, Multimode-Fasern, Brillouin) decken sample_titles vollständig ab. Aff direkt identisch. Quellen: tu-dresden.de/ing/elektrotechnik/iee/mst, ResearchGate Nektarios-Koukourakis-2."
+  },
+  {
+    "id": 2166,
+    "vorname": "Ludger",
+    "orcid": "https://orcid.org/0000-0002-7734-8895",
+    "confidence": 0.98,
+    "reason": "Prof. Dr.-Ing. Ludger Overmeyer, seit 2002 Direktor Institut für Transport- und Automatisierungstechnik (ITA), Leibniz Universität Hannover. Themen (Flexodruck optischer Wellenleiter, Mosquito-Methode, polymeroptische Sensorfolien, PhoenixD) decken sample_titles perfekt ab. Quellen: ita.uni-hannover.de, phoenixd.uni-hannover.de, ORCID."
+  },
+  {
+    "id": 73,
+    "vorname": "Ralf D.",
+    "orcid": "https://orcid.org/0000-0002-7539-4935",
+    "confidence": 0.99,
+    "reason": "Dr. Ralf D. Geckeler, PTB Braunschweig, Arbeitsgruppe Winkelmetrologie (AG 5.21). Themen (Autokollimator-Kalibrierung, Spatial Angle Autocollimator Calibrator, ESAD, Topographie/Deflektometrie) decken sample_titles vollständig ab. Vorname 'Ralf D.' bereits in init enthalten. Quellen: ptb.de/cms/ptb/fachabteilungen/abt5, ORCID-Profil."
+  },
+  {
+    "id": 454,
+    "vorname": "Uwe",
+    "orcid": null,
+    "confidence": 0.98,
+    "reason": "Prof. Dr. rer. nat. habil. Uwe Langbein (Emeritus), Hochschule RheinMain Wiesbaden, FB Ingenieurwissenschaften (Studienbereich Angewandte Physik/Medizintechnik), seit 1990 Prof. für Technische Optik. Themen (Plasmonen, evaneszente Optik, optische Schichtsysteme, Wellenleiter) decken sample_titles perfekt ab. Aff direkt identisch. Quellen: hs-rm.de/de/ing Personenseite, ResearchGate Uwe-Langbein."
+  },
+  {
+    "id": 215,
+    "vorname": "Kay",
+    "orcid": null,
+    "confidence": 0.98,
+    "reason": "Kay Schuster, Leiter AG Faseroptik / Optical Fiber Technology Group am Leibniz-IPHT Jena. Themen (Photonische Kristallfasern, Hohlkern-Fasern, Mikrostrukturierte Fasern, Yb-Faserlaser, Glasfaserspitzen) decken sample_titles vollständig ab. Vorname 'Kay' bereits in init enthalten. Quellen: leibniz-ipht.de Faseroptik, MULTIPLY-EU-Netzwerk Profil."
+  },
+  {
+    "id": 328,
+    "vorname": "Andreas",
+    "orcid": null,
+    "confidence": 0.99,
+    "reason": "Prof. Dr. Andreas Tünnermann, seit 2003 Direktor Fraunhofer IOF Jena + Direktor Institut für Angewandte Physik FSU Jena. Themen (THz, Streulicht, Mikrolinsen-Arrays, EUV, Headlight-Optik) decken sample_titles vollständig ab. Leibniz-Preis 2005, Bundesverdienstkreuz 2024. Quellen: de.wikipedia.org/wiki/Andreas_Tünnermann, iof.fraunhofer.de."
+  },
+  {
+    "id": 12373,
+    "vorname": "Bernhard",
+    "orcid": null,
+    "confidence": 0.99,
+    "reason": "Dr. Bernhard Michel, Gründer und CEO Hembach Photonik GmbH (gegr. 2011, seit 2022 Schwabach). Hauptprodukt RayJack ONE® für optische Simulation/Stray-Light-Analyse. Themen (RayJack, differential ray tracing, Streulicht, ZEMAX-Python, FDTD) decken sample_titles vollständig ab. Aff direkt identisch. Quellen: hembach-photonik.de, ResearchGate Bernhard-Michel-2, bayern-photonics.de."
+  },
+  {
+    "id": 275,
+    "vorname": "Martin",
+    "orcid": null,
+    "confidence": 0.85,
+    "reason": "Martin Amberg, Co-Autor mit Stefan Sinzinger an TU Ilmenau (Fachgebiet Technische Optik / Institut für Mikro- und Nanotechnologien). Publikationsspur 'Adaptive planar integrierte Freiraum-optische Systeme' (DGaO 2007) bestätigt Vornamen Martin. Themen (planar-integrierte Freiraumoptik, Mikrofluidik, optische Pinzetten, Freiformflächen) decken sample_titles perfekt ab. Aff 'Institut für Biomedizinische Technik' ist mutmaßlich DGaO-Affil-Eintrag aus Kooperation BMT-Institut TU Ilmenau (BMTI ist Teil der TU Ilmenau). Quellen: db-thueringen.de/receive/dbt_mods_00014653, tu-ilmenau.de Publikationen technische-optik."
+  },
+  {
+    "id": 4780,
+    "vorname": "Sergej",
+    "orcid": null,
+    "confidence": 0.97,
+    "reason": "Sergej Rothau, FAU Erlangen-Nürnberg, Institute of Optics, Information, and Photonics (Lindlein-Gruppe). Themen (Polarisation/Phasenschiebende Interferometrie, streifende Inzidenz an Asphären, Dichroismus, nanostrukturierte Polarisationselemente) decken sample_titles vollständig ab. Co-Autor: Norbert Lindlein, Klaus Mantel. Quellen: Applied Optics 2014 ao-53-14-3125, Applied Optics 2017 ao-56-5-1422, SpringerLink 978-3-642-36359-7_53."
+  },
+  {
+    "id": 5091,
+    "vorname": "Herbert",
+    "orcid": null,
+    "confidence": 0.92,
+    "reason": "Prof. Dr. Herbert Gross, seit 2012 Lehrstuhl für Theorie optischer Systeme am Institut für Angewandte Physik (IAP) FSU Jena (vorher >25 Jahre Carl Zeiss, Leiter Optical Design). Themen (Optical Design, Freiformflächen, Aberrationen 3. Ordnung, Mikroskopobjektive, Scatterometrie, Induzierte Farbfehler) decken sample_titles vollständig ab. Autor 6-bändiges 'Handbook of Optical Systems'. Aff 'Fraunhofer-Institut für Angewandte Optik und Feinmechanik' (IOF) ist DGaO-Affil aus IOF-Kooperationen (KoSimO etc.); engste Anbindung an Jena Optik-Cluster. Quellen: beutenberg.de Pressemitteilung, pro-physik.de Interview, iof.fraunhofer.de KoSimO."
+  }
+]

@@ -1,0 +1,162 @@
+[
+  {
+    "id": 6416,
+    "init": "Y.",
+    "nachname": "Bauckhage",
+    "aff": "Zentrum für Optische Technologien, Hochschule Aalen",
+    "n_papers": 6,
+    "sample_titles": "3D printed light pipes for advanced illumination || Diffractive Effects of 3D printed optical elements || Additive Fertigung von reflektiven und transparenten Optiken || Optimierung der Oberflächengüte additiv gefertigter transmit || DLP basierte Graustufenstrukturierung auf Mikrometerbasis in || Additive Fertigung optischer Komponenten"
+  },
+  {
+    "id": 6547,
+    "init": "D.",
+    "nachname": "Heinemann",
+    "aff": "Laser Zentrum Hannover",
+    "n_papers": 6,
+    "sample_titles": "Two photon optogenetic stimulation of human induced pluripot || Mechanisms for the light-cell interface in optical cell stim || Macrobending losses of glass fibers for optical cochlear sti || Laser based cell manipulation with nanoparticles and optogen || Optogenetic tools for the development of a biohybrid pacemak || Development of an optogenetic triggered biohybrid cochlea im"
+  },
+  {
+    "id": 7105,
+    "init": "F.",
+    "nachname": "Olschewski",
+    "aff": "Bergische Universität Wuppertal",
+    "n_papers": 6,
+    "sample_titles": "Spatiales Heterodyn-Spektrometer zur Temperaturmessung in de || Entwicklung eines neuen bodengebundenen Infrarotspektrometer || Messung atmosphärischer Windgeschwindigkeiten mithilfe eines || Erforschung atmosphärischer Prozesse - bodengebunden und sat || In-Orbit-Verifikation eines spatialen Heterodyn-Interferomet || Kalibrierung eines Doppler-Asymmetric Spatial-Heterodyne (DA"
+  },
+  {
+    "id": 7106,
+    "init": "M.",
+    "nachname": "Kaufmann",
+    "aff": "Institut für Energie- und Klimaforschung (IEK), Forschungszentrum Jülich",
+    "n_papers": 6,
+    "sample_titles": "Spatiales Heterodyn-Spektrometer zur Temperaturmessung in de || Entwicklung eines neuen bodengebundenen Infrarotspektrometer || Messung atmosphärischer Windgeschwindigkeiten mithilfe eines || Erforschung atmosphärischer Prozesse - bodengebunden und sat || In-Orbit-Verifikation eines spatialen Heterodyn-Interferomet || Kalibrierung eines Doppler-Asymmetric Spatial-Heterodyne (DA"
+  },
+  {
+    "id": 7455,
+    "init": "M.",
+    "nachname": "Wapler",
+    "aff": "University of Freiburg",
+    "n_papers": 6,
+    "sample_titles": "Nicht-sphärische adaptive Optik für die Lebenswissenschaften || Adaptive piezogetriebene Hochgeschwindigkeits-Linse mit asph || Simultane Kernspin- und optische Mikroskopie mit adaptiven L || Tiefenkontrollierbare Bessel-Strahlen für quasi-nichtinvasiv || Confocal microscopy employing pressure controlled adaptive l || Adaptive optical elements & Machine Learning - The road to s"
+  },
+  {
+    "id": 7523,
+    "init": "F.",
+    "nachname": "Rothermel",
+    "aff": "Institut für Technische Optik (ITO)",
+    "n_papers": 6,
+    "sample_titles": "In-Prozess Messtechnik für 3D-gedruckte Optiken || Ansatz zur Aktuierung 3D-gedruckter Mikrooptiken mittels mag || Magnetisch aktuierbare 3D-gedruckte mikrooptische Elemente || 3D-printed micro optics applied for the Life Sciences || Mikrofluidisch aktuierbare, 3D-gedruckte PDMS-Membran integr || 3D-printed micro-optical systems: Functional toolbox and fib"
+  },
+  {
+    "id": 7550,
+    "init": "C.",
+    "nachname": "Reichert",
+    "aff": "Institut für Technische Optik (ITO)",
+    "n_papers": 6,
+    "sample_titles": "An easy and cheap way to use smartphones as a microscope || Erfassung menschlicher Vitalparameter mithilfe optischer Mes || „BaKaRoS“ – ein Baukastensystem für einen niederschwelligen  || Ganzheitliche Optimierung von optischen Systemen || Entwicklung eines Algorithmus zur Ersetzung eines Optikdesig || BaKaRoS: Open Source Optik Baukästen – Nachwuchsförderung an"
+  },
+  {
+    "id": 7568,
+    "init": "H.",
+    "nachname": "Riegel",
+    "aff": "LaserApplicationCenter / Center of optical Technologies, Aalen University",
+    "n_papers": 6,
+    "sample_titles": "Prozessfenster und -strategien beim Laserstrahlpolieren von  || Licht als Werkzeug in der Materialentwicklung – Additive Fer || Laserbearbeitung von maßgeschneiderten Pulverwerkstoffen in  || Laserbearbeitung von superharten polykristallinen Diamantsch || Untersuchung des Einflusses von Grobvakuum auf das Laserschw || Laser surface structuring of additive manufactured optics"
+  },
+  {
+    "id": 7912,
+    "init": "V.",
+    "nachname": "Stehlikova",
+    "aff": "Max Planck Institute for Extraterrestrial Physics",
+    "n_papers": 6,
+    "sample_titles": "Lobster Eye Optics & Biomimetics || JEUMICO – Bayerisch-tschechische Kooperation zur Entwicklung || Lobster Eye X-ray Optics for Astrophysics: Recent Status || Präzisionsbiegen von Dünnglas für Röntgenteleskopspiegel || Development of broadband reflection coatings for future X-ra || Charakterisierung von Weitwinkel-Röntgenteleskopen in der Te"
+  },
+  {
+    "id": 8204,
+    "init": "M.",
+    "nachname": "Hentschel",
+    "aff": "Chemnitz University of Technology",
+    "n_papers": 6,
+    "sample_titles": "Untersuchung deformierter optischer Mikrokavitäten anhand de || Lichtausbreitung in Ensembles von Mikroresonatoren || Von Flüstergalerieresonatoren zu neuartigen optischen Bauele || Optische Systeme im Phasenraumbild || Von Flüstergalerieresonatoren zu neuartigen optischen Bauele || Integration von DOEs in Whispering Gallery Resonatoren zur o"
+  },
+  {
+    "id": 9102,
+    "init": "F.",
+    "nachname": "Heinrich",
+    "aff": "Technische Hochschule Wildau",
+    "n_papers": 6,
+    "sample_titles": "Asymmetrische Polymer-Linsen für Beleuchtungssysteme || Neuartige UV-transparente 2-Komponenten-Polyurethanharze für || Bestimmung der optischen Konstanten und Streueigenschaften v || Neuartige UV-transparente 2-Komponenten-Polyurethanharze für || Messverfahren zur Kontrolle tiefer Siliziumstrukturen für di || Optical Through-Silicon Waveguides for 3D-Chip-Interconnecti"
+  },
+  {
+    "id": 9760,
+    "init": "W.",
+    "nachname": "Spiller",
+    "aff": "Lehrgebiet Mikro- und Nanophotonik",
+    "n_papers": 6,
+    "sample_titles": "Räumliche und zeitliche Simulation von dielektrischen Dipolr || Dielektrische Nanowellenleiter als Metaatome für großflächig || Modellierung und Simulation von optischen Nanowirbeln || KI-basiertes Modell für die Simulation großflächiger Meta-Ob || Fourier-Optik - einmal anders (oder: Fourier Optics with a t || KI-basierte Analyse und Entwurf optischer Elemente mit zahlr"
+  },
+  {
+    "id": 10440,
+    "init": "A.",
+    "nachname": "Harth",
+    "aff": "Zentrum für Optische Technologien, Hochschule Aalen",
+    "n_papers": 6,
+    "sample_titles": "Attosecond light-matter interaction || Interferometrisches Messsystem zur Visualisierung von Ultras || Zeitaufgelöste Analyse der Brechungsindexentwicklung und Dif || Interferometrische Ermittlung der schalldruckinduzierten Bre || Kontaktlose Manipulation von Laserstrahlen mittels luftbasie || Wellen-Analogie in Optik und Akustik"
+  },
+  {
+    "id": 11297,
+    "init": "C.",
+    "nachname": "Franke",
+    "aff": "Canadian Standards Association",
+    "n_papers": 6,
+    "sample_titles": "Miniaturisierung eines speckle-basierten, monokularen 3D-Mes || Stereophotogrammetrie mit strukturierter Beleuchtung zur Ver || Democratizing 3D Measurements in the Life Science – DIY & lo || Structured Illumination in microscopy: A Leap in nanoscopic  || Telezentrisches Stereo-3D-Messsystem für biologische Proben  || Vergleichende stereophotogrammetrische 3D-Messung im sichtba"
+  },
+  {
+    "id": 11322,
+    "init": "A.",
+    "nachname": "Bartelmei",
+    "aff": "Institut für Biomedizinische Technik",
+    "n_papers": 6,
+    "sample_titles": "Spatio-temporales Reservoir Computing am Beispiel von Bewegu || Design und Toleranzierung einer 1 MP multispektralen Snapsho || Konzeption und Design einer Multiapertur 2π Panoramakamera || Entwurf einer robusten Kopplungsstrategie für einen Quantenp || Optisches Reservoir Computing zur Analyse turbulenter Konvek || Mehrstufiges Gedächtnis im optischen Reservoir Computing"
+  },
+  {
+    "id": 12089,
+    "init": "M.",
+    "nachname": "Hubold",
+    "aff": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik",
+    "n_papers": 6,
+    "sample_titles": "Ultrakompakte Snapshot Multispektralkameras basierend auf ei || Ultrakompakte Snapshot Multispektralkamera mittels Mikroopti || Ultrakompakte Snapshot Multispektralkamera mittels Mikroopti || Ultrakompakte Snapshot Multimodal-Kamera mittels mikrooptisc || Design und Toleranzierung einer 1 MP multispektralen Snapsho || Design und Realisierung einer kompakten katadioptrischen Mul"
+  },
+  {
+    "id": 12645,
+    "init": "Jan",
+    "nachname": "Krüger",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 6,
+    "sample_titles": "Charakterisierung der Transmissionsspektren von nano-struktu || Charakterisierung eines UV– Mikroskops zur hochgenauen Posit || Vergleich rigoroser Simulationstools anhand von modellbasier || Untersuchung des Schwingungseinflusses auf gemessene Punktsp || Ein in-situ Verfahren zur Bestimmung der numerischen Apertur || Implementierung der Auswertealgorithmen für ein neuartiges m"
+  },
+  {
+    "id": 6,
+    "init": "J.",
+    "nachname": "Miesner",
+    "aff": "Jade Hochschule",
+    "n_papers": 5,
+    "sample_titles": "Automatisiertes Autofokus-Messsystem zur Oberflächen-Qualitä || Optoelektronischer Sensor zur automatisierten Verfolgung von || Computergenerierte Holografie: Optimierung der Qualität von  || Herstellung synthetischer Mehrstufen-Hologramme mittels eine || Anwendungen der Digitalen Holografie mit Unterstützung eines"
+  },
+  {
+    "id": 33,
+    "init": "N.",
+    "nachname": "Lauinger",
+    "aff": "Institut für Optosensorik, Wetzlar",
+    "n_papers": 5,
+    "sample_titles": "Farbige Schatten: Berechnungen des diffraktiv-optischen Korr || A spectral filter analyzer for Bragg grating based strain an || Lichtbeugung im Raumgitter der Netzhaut des Auges und Interf || Die Optik sollte erklären können, weshalb ‚Nahstress‘ im Seh || Das Gehirn entwickelt vor der Geburt das Auge und in der Net"
+  },
+  {
+    "id": 37,
+    "init": "H.",
+    "nachname": "Müller",
+    "aff": "Lehrgebiet Mikro- und Nanophotonik",
+    "n_papers": 5,
+    "sample_titles": "Störreflexunterdrückung durch Modulation der Laserwellenläng || Ernst Abbe – Innovator of Applied Optics and Social Reformer || Hochauflösender Laser-Doppler-Profilsensor zur Durchflussmes || 3-c fiber laser based sensor for highly resolved wind vector || Realisierung eines mehrkanaligen Drehübertragers mit Hilfe v"
+  }
+]

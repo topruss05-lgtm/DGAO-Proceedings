@@ -1,0 +1,145 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Optische Charakterisierung und Eigenschaften aktiver und passiver Photonischer \nKristallfasern (PCFs)",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          63.900001525878906,
+          69.468505859375
+        ],
+        [
+          534.7007446289062,
+          69.468505859375
+        ],
+        [
+          534.7007446289062,
+          95.26849365234375
+        ],
+        [
+          63.900001525878906,
+          95.26849365234375
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.580596923828125,
+          312.8720703125
+        ],
+        [
+          124.12442779541016,
+          312.8720703125
+        ],
+        [
+          124.12442779541016,
+          323.853515625
+        ],
+        [
+          59.580596923828125,
+          323.853515625
+        ]
+      ]
+    },
+    {
+      "title": "2 Faserherstellung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          308.5400390625,
+          313.83331298828125
+        ],
+        [
+          400.7099304199219,
+          313.83331298828125
+        ],
+        [
+          400.7099304199219,
+          323.85333251953125
+        ],
+        [
+          308.5400390625,
+          323.85333251953125
+        ]
+      ]
+    },
+    {
+      "title": "3 Charakterisierung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          308.83056640625,
+          675.7544860839844
+        ],
+        [
+          405.748291015625,
+          675.7544860839844
+        ],
+        [
+          405.748291015625,
+          685.7744750976562
+        ],
+        [
+          308.83056640625,
+          685.7744750976562
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          102
+        ],
+        [
+          "Line",
+          57
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PictureGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_b34"
+}

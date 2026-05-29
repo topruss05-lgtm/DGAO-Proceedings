@@ -1,0 +1,162 @@
+[
+  {
+    "id": 12599,
+    "init": "R.",
+    "nachname": "Hudec",
+    "aff": "Czech Technical University in Prague",
+    "n_papers": 14,
+    "sample_titles": "Lobster Eye Optics & Biomimetics || JEUMICO – Bayerisch-tschechische Kooperation zur Entwicklung von Röntgenteleskop || Colors of the universe – market study on optical filters for professional astron || Kirkpatrick Baez X-ray Optics for Astrophysics: Recent Status || Lobster Eye X-ray Optics for Astrophysics: Recent Status || X/EUV and UV optics for miniature cubesats payloads || CubeSat mission for the observation of meteoroid impacts on Moon || Technologies, challenges and opportunities for optical CubeSat payloads || CubeSat mission for the observation of meteoroid impacts on Moon || Charakterisierung von Weitwinkel-Röntgenteleskopen in der Testanlage PANTER || Röntgenteleskop-Funktionstests durch Beobachtung astronomischer Objekte am sicht || Effective areas of astronomical X-ray telescopes for CubeSats and rocket experim || Space Telescopes based on Satellite Tandem Flights || Novel X-ray optics developed within the AHEAD2020 project"
+  },
+  {
+    "id": 897,
+    "init": "A.",
+    "nachname": "Matusevich",
+    "aff": "Institute of Applied Optics, Abbe Center of Photonics, Friedrich Schiller University Jena",
+    "n_papers": 13,
+    "sample_titles": "Einsatz eines LCoS Phasenmodulators zur Wellenfrontkorrektur in einem adaptiven  || Korrektur der Abbildungsfehler des Auges in Echtzeit mit einem adaptiven, magnet || Adaptiver Echtzeitphoropter || Untersuchungen der Wellenfrontaberrationen des Auges mit einem adaptiven Echtzei || Adapitve optical system to test the visual performance of the human eye || Photorefractive properties of a SBN crystal || Wechselwirkung eines holographischen Gitters und eines photorefraktiven Solitons || Untersuchungen zur photoinduzierten Absorption in einem BTO Kristall || Photoinduced absorption in photorefractive crystals as result of long-living ene || Holographic volume absorption grating in glass-like polymer recording material || Experimentelle und theoretische Analyse der Steuerung des photochromen Effekts i || Photoinduzierte Absorption in einem Bi12TiO20 -Kristall durch cw-Laserstrahlung  || Multi-photon processes in photorefractive Bi12TiO20 crystals"
+  },
+  {
+    "id": 1185,
+    "init": "H.",
+    "nachname": "Buse",
+    "aff": "Jade Hochschule",
+    "n_papers": 13,
+    "sample_titles": "Entwicklung eines neuartigen Strahlteilers für Hochleistungslaser || Herstellung Diffraktiv Optischer Elemente mittels Nahfeldlithografie || Optimierung eines Laser Pattern Generators zur Erzeugung mehrstufiger Diffraktiv || Automatisierte 3D-Formvermessung mit optischen Sensoren || Charakterisierung von Laserstrahlfoki mittels SNOM-Faserspitzen || DOE-Strahlteiler zum kontinuierlichen Messen der Leistung von Hochleistungs-Lase || Formerkennung von Kleinstpartikeln (1µm - 3µm) mittels digitaler Bildverarbeitun || Miniaturisierung einer Anlage zur Untersuchung von Feinstaubteilchen kleiner PM  || Implementierung einer \"Tripple-Wavelength\" Laserdiode in ein Lithografiesystem u || Application of inline digital holographic techniques to detect size, distributio || Layout and optical simulation of a confocal lithography setup enhanced with a so || Structuring of technical surfaces to achieve a self - cleaning effect || Improving the lateral resolution in case of structuring technical surfaces by ap"
+  },
+  {
+    "id": 12052,
+    "init": "P.",
+    "nachname": "Schreiber",
+    "aff": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik",
+    "n_papers": 13,
+    "sample_titles": "Hochgenaue Positionsbestimmung und Farbsehen mit ultra-flachen, künstlichen Face || Optimierung, Herstellung und Toleranzanalyse von Refraktiven Strahlformungssyste || The array projector: Breaking Scheimpflug´s rule || Multi-channel head-up display || Automotive Beleuchtung mit mikrooptischen Mehrkanaloptiken || Design of irregular microlens array for the switchable adaptive headlight high b || Design von irregulären Wabenkondensoren zur Erzeugung von gezielten Intensitätsv || Design and realisation of micro-optic lightfield displays || Projection of arbitrary far-field patterns using tailored microlens apertures || Compact optical system for projection of dynamic safety patterns in cobot worksp || Dynamic, laterally multiplexed, wide angle holographic projection || Kompakte Tageslicht-Laser-Projektionssysteme für autonome Fahrzeuge basierend au || Efficient LED beam shaping with maskless irregular fly’s eye condenser, its real"
+  },
+  {
+    "id": 120,
+    "init": "V. M.",
+    "nachname": "Petrov",
+    "aff": "Photonik Zentrum Hessen in Wetzlar AG",
+    "n_papers": 12,
+    "sample_titles": "Adaptives holographisches Interferometer basierend auf dynamischen Reflektionsho || In-situ Kontrolle optischer Filter durch phasenverschobene Gitter || Elektrisch schaltbare holografische Linsen in Lithium Niobat || Analyse und Design der Transferfunktion von optischen Filtern || Verbesserung der Auflösung eines adaptiven photorefraktiven Interferometers || Spectral Bragg filter with a synthesized transfer function || Gas refractive index measurements using dynamic phase-shift keyed gratings || Measuring the pressure of light with an adaptive holographic interferometer || Coupled-wave theory of reflective phase-shift keyed Bragg grating || Nano-optische Mechanik: Vom Lichtdruck zur Casimirkraft || Super-breitband Photodetektor basierend auf Lichtdruck || Elektrisch abstimmbare Filter und Schalter für die faseroptische Sensorik und Na"
+  },
+  {
+    "id": 1583,
+    "init": "R.",
+    "nachname": "Biertümpfel",
+    "aff": "SCHOTT AG",
+    "n_papers": 12,
+    "sample_titles": "Diffraktive optische Elemente hergestellt durch Präzisionsblankpressen in optisc || Glass Diffractive Optical Beam Shaper For Laser Applications || Micro optical glass lens array for LED light collimation || Precise measurement of internal transmittance of high absorbing filter glass || Solarization of Optical Filter Glass || Inner quality of blue glass IR cut filter and use of blue glass lens || Neue IR-Kurzpassfiltergläser für bildgebende Sensoren || Sellmeier representation of the dispersion of longpass optical filter glasses || Fluorescence of optical filter glass: characterization and measurement results || Latest results on fluorescence in optical filter glass || Schutzscheiben im optischen Pfad von LIDAR Systemen || Einstufung der Feuchtekorrosion empfindlicher Gläser"
+  },
+  {
+    "id": 2281,
+    "init": "M.",
+    "nachname": "Trost",
+    "aff": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik",
+    "n_papers": 12,
+    "sample_titles": "Streulicht- und Reflexionsmesstechnik für 13,5 nm || EUV scattering measurements of optical components || Bewertung der Poliergüte schwer zugänglicher Oberflächen durch Streulichtmethode || Optical scattering - from simple models to complex applications || Streulichtmessung optischer Komponenten im infraroten Spektralbereich || Streulichtbasierte Detektion von Subsurface Damage in geschliffenen und polierte || Multi-wavelength table top light scattering metrology || Streulichtanalyse hochqualitativer Optikkomponenten || Streulichtbasierte Detektion pathogener Keime || General surface definition for describing figure and finish errors || Schwarzes und weißes Quarzglas: Hochabsorbierendes und diffus reflektierendes Si || Bridging the gap between figure and finish errors"
+  },
+  {
+    "id": 2726,
+    "init": "U.",
+    "nachname": "Petzold",
+    "aff": "SCHOTT AG",
+    "n_papers": 12,
+    "sample_titles": "Glass Diffractive Optical Beam Shaper For Laser Applications || SCHOTT XLD glasses with excellent processability and tightest tolerances for col || Effects of striae in optical glass on optical systems – first results || Die Quanteneffizienz der Fluoreszenz von optischen Gläsern von SCHOTT || Ein Vorschlag zur objektiven Schlieren-Messtechnik in optischem Glas: erste Erge || Brechzahlhomogenität von optischen Glas: von Presslingen bis Meter großen Linsen || Optische Materialien für die Digitale Projektion || Optische Materialien für Digitale Projektion || Eine Reise von der Vergangenheit in die Zukunft der Produktion von optischem Gla || Messung des spannungsoptischen Koeffizienten von optischem Glas: Neue Daten über || New results on the temperature coefficient of the refractive index for various o || Eigenschaften von optischen Gläsern für Laseranwendungen"
+  },
+  {
+    "id": 4354,
+    "init": "R.",
+    "nachname": "Kuschmierz",
+    "aff": "Professur für Mess- und Prüftechnik, Technische Universität Dresden",
+    "n_papers": 12,
+    "sample_titles": "Vibration measurements of rotating objects by a novel interferometric technique || Shape measurements of rotating objects using mutually tilted interference fringe || Miniaturized non-incremental fiber-optic distance sensor using diffractive optic || Positions- und Geschwindigkeitsmessung bewegter, rauer Oberflächen bei schrägen  || Dynamic deformation measurements at translucent high speed rotors || Camera-based speckle noise reduction for interferometric non-incremental shape m || Pixelation-free light pattern generation through multi-core fibers using digital || Eigenkalibrierung holographischer Endoskope für die Biophotonik || Beugungsgitterbasierte Schädigungs-, Eigenfrequenz- und Eigenformmessung an schn || Endoskopische Pinzette unter Nutzung von digitaler Optik || Linsenlose Real-Time-Faserbündel-Endoskopie mittels digitaler optischer Phasenko || Neuronale Netze für holografische Faserbündel Endoskopie"
+  },
+  {
+    "id": 5258,
+    "init": "D.",
+    "nachname": "Kelly",
+    "aff": "TJM Design Corp. (Japan)",
+    "n_papers": 12,
+    "sample_titles": "Talbot images formed with an arbitrary incidence wave || Numerical propagation algorithms and phase retrieval techniques || Two-step phase-shift-interferometry with arbitrary reference waves || Laser light interaction in a strongly scattering turbid medium: theory and exper || Lateral speckle size in phase retrieval systems || Paraxial light distribution in the focal region of a lens: a comparison of sever || Partially developed speckle fields applied for photoresist characterization || Discrete numerical implementation of the Fresnel transform in Cartesian and cyli || Systematic and numerical errors in the propagation of digital speckle fields || Numerical Models for Speckle Fields || Aliasing-free speckle propagation: Critical sampling rules. || Fourier optics analysis of scattering from an optically rough surface"
+  },
+  {
+    "id": 11382,
+    "init": "C.",
+    "nachname": "Schober",
+    "aff": "Institut für Technische Optik (ITO)",
+    "n_papers": 12,
+    "sample_titles": "Kamerabasierte Messung durch gekrümmte Grenzflächen mit variabler Messebene und  || Sensordesign für die NPMM-200 am Beispiel eines Weisslichtsensors || Integriertes Messkonzept zur Registrierung von Weißlichtinterferometriesignalen  || Aufbau zur Charakterisierung der temperaturabhängigen Fokusverschiebung von Mikr || Bildbasierte Abstandsrekonstruktion mittels holographisch vervielfältigter Doppe || Kurzkohärente Oberflächenmessung unter Verwendung von ereignisbasierten Sensoren || Single-Shot Interferometrie fernab der Nulltest-Messung || Neue Designmöglichkeiten durch Zweiphotonenlithographie für ein RGB-Interferomet || Single-Shot Tilted-Wave-Interferometer || Absolute Form-Interferometrie für Asphären und Freiformflächen mit einem Tilted- || Portable Messeinrichtung für historische, achromatische Objektive || Optimierung der absoluten Formmessung in der Tilted Wave Interferometrie"
+  },
+  {
+    "id": 269,
+    "init": "Uwe",
+    "nachname": "Lippmann",
+    "aff": "Carl Zeiss Jena GmbH",
+    "n_papers": 11,
+    "sample_titles": "Realisierung eines Kuppelprojektionssystems || Ultrakompakte Projektionsköpfe für die optische Messtechnik auf der Basis von OL || Aspekte zum Design von THz-Optik || Visuelles Stimulationssystem mit OLED-Mikrodisplays zur Verwendung in einem Magn || Visuelles Stimulationssystem für den Einsatz in der Magnetoenzephalographie || Design und Entwicklung eines hochauflösenden Mikroobjektives für Werkzeugvermess || Multimediaprojektionssystem mit OLED-Mikrodisplays || Bestimmung des Justierfehlers asphärischer Linsen mittels Distanzmessung || In-Situ-Messung kleiner, schneller Partikel im Weltraum || Berechnung von Abbildungsfehlern 3. Ordnung für Spiegelsysteme mit verkippten un || Vorteile der Chirp-Z-Transformation gegenüber der FFT am Beispiel der Berechnung"
+  },
+  {
+    "id": 1129,
+    "init": "M.",
+    "nachname": "Bohling",
+    "aff": "Lehrgebiet Mikro- und Nanophotonik",
+    "n_papers": 11,
+    "sample_titles": "Diffraktiv-refraktive Filterung von kurzen optischen Pulsen || Mikrooptische Realisation eines Pulsformers für Femtosekundenpuls-Anwendungen || Optisches Mikrosystem zur Signalverteilung aus Plastik || Integrierter mikrooptischer Pulsformer für fs-Anwendungen || Freiraum-optisches WDM-Übertragungssystem mit MQW-Modulator-Array || Achromatic optical collector for a micro-integrated plasma emission-spectro-scop || Spanende Fertigung mikrooptischer Komponenten mit einer parallelkinematischen La || Herstellung eines optischen Sensorkopfes zur Gasanalyse mittels spanender, ablat || Charakterisierung eines UPM-gefertigten 1x4 Strahlteilersystems mit Hilfe von Ra || Anwendung eines Mikroretroreflektor-Arrays zum Aufbau eines variablen optischen  || Talbot-Band-Experiment - revisited"
+  },
+  {
+    "id": 1789,
+    "init": "A.",
+    "nachname": "Berger",
+    "aff": "Friedrich-Alexander-Universität Erlangen-Nürnberg",
+    "n_papers": 11,
+    "sample_titles": "Schnellere Weisslichtinterferometrie durch Unterabtastung || Information Efficient White-Light Interferometry || Transmissive absolute testing of aspherics using diffractive nulls || Diffraktives 2D-Shearing-Interferometer mit partieller räumlicher Kohärenz || Stitching errors in diffractive nulltest elements || Phase measurement of a spatially varying polarization distribution || Comparison of phase unwrapping algorithms applied to singular phase fields || Absolutverfahren zum Nulltest asphärischer Linsen im Durchlicht || Reduktion von Phasensingularitäten bei lateraler Shearing-Speckle-Interferometri || Simultane Vermessung der Phase und der räumlich variierenden linearen Polarisati || Strukturierungsfehler diffraktiv optischer Elemente"
+  },
+  {
+    "id": 7596,
+    "init": "P.",
+    "nachname": "Feßer",
+    "aff": "Institut für Biomedizinische Technik",
+    "n_papers": 11,
+    "sample_titles": "Optimized beam shaping for high power laser welding applications || Der Lau-Effekt in der lithographischen Mikro-Nanostrukturierung || Hybride Phasengitter mit Subwellenlängenstrukturen als Polarisationsstrahlteiler || Subwellenlängenstrukturierte Gitter mit kontrollierbaren Beugungseffizienzen || Einfluss der Rotation der Gitter auf den Lau-Effekt || Optimierte Plasmaätzverfahren für die Fabrikation von Whispering Gallery Mode Re || Effizienzachromatisierung diffraktiver optischer Elemente über mehrlagige Strukt || Generation of multiple focal spots with tunable axial distribution || Integration von DOEs in Whispering Gallery Resonatoren zur optimierten Lichteink || Chromatische Eigenschaften tief geätzter DOEs in hochbrechendem amorphem Siliziu || Strukturierung von Lithiumniobat für mikrooptische Anwendungen"
+  },
+  {
+    "id": 8823,
+    "init": "G. B.",
+    "nachname": "Baer",
+    "aff": "JENOPTIK Optical Systems GmbH",
+    "n_papers": 11,
+    "sample_titles": "Uncertainty estimation in a non-null metrology system || Freiformmessungen an einem Tilted-Wave-Interferometer || Elimination of alignment errors in an interferometric measurement || Modellierung von Wellenfront-Aberrationen: Fitfehler und Retrace-Fehler || Calibration of interferometric non-null test setups || Model-based calibration of an adaptive interferometric setup || Object-oriented optical design || One sequence is not enough || Vergleich und Optimierung von CPU- und GPU-basierten Berechnungen für typische F || Streamlining the workflow of optical and mechanical design || Methods for the accurate modeling of birefringent optical elements and thin film"
+  },
+  {
+    "id": 11870,
+    "init": "A. F.",
+    "nachname": "Müller",
+    "aff": "Bremer Institut für angewandte Strahltechnik",
+    "n_papers": 11,
+    "sample_titles": "Study of graphene-like layer deposition at interfaces || Kalibrierung der optischen Achsen eines Bildderotators mittels Bildverarbeitung  || Nicht-sphärische adaptive Optik für die Lebenswissenschaften || Tiefenkontrollierbare Bessel-Strahlen für quasi-nichtinvasive optogenetische Sti || Lens inspection using Multiple Aperture Shear Interferometry: Comparison to Wave || Four-dimensional calibration of a Multiple Aperture Shear-Interferometer || Iterative Bestimmung der Form von Asphären mittels Scher-Interferometrie und inv || Referenceless phase holography for displaying 3D scenes captured by digital holo || Möglichkeiten und Grenzen der Multiple Aperture Shear-Interferometry (MArS) || Der Einfluss der Wellenvektorunsicherheit auf die Rekonstruktion der Oberflächen || Multiple Aperture Shear Interferometry (MArS) and the influence of spatial light"
+  },
+  {
+    "id": 12498,
+    "init": "B.",
+    "nachname": "Kleemann",
+    "aff": "Carl Zeiss AG",
+    "n_papers": 11,
+    "sample_titles": "High efficiency reflective binary diffractive optical elements: finite conductiv || Einfluss von Fertigungsfehlern diamantgedrehter DOEs auf die Beugungseffizienz a || Echelles vs. lamellar ridge gratings for lline narrowing of DUV excimer lasers || Eigenschaften von geblazten Area-Coded Effective Medium Structures (ACES) || Design Konzepte für breitbandige hoch effiziente DOEs || Abschätzung des DOE Streulichtanteils mit skalaren Formeln und deren Gültigkeits || Perfect blazing with echelle gratings in Littrow mount || Nanometrology of molded sub-µm structures by means of light scattering || Halbdurchlässige resonante Aluminiumgitter zur strukturellen Färbung der Transmi || Herausforderungen bei der numerischen Simulation optischer Eigenschaften von Str || Simulation von Strukturfarben basierend auf metallischen Gittern mit trapez­förm"
+  },
+  {
+    "id": 409,
+    "init": "F.",
+    "nachname": "Salazar",
+    "aff": "Departamento de Física Aplicada, ETS de Minas (ETSIMinas), Universidad Politécnica de Madrid",
+    "n_papers": 10,
+    "sample_titles": "Determination of δ-damping by heterodyne speckle interferometry || Measurement of the variation of Young modulus on internal stress in ferromagneti || Speckle Simulation von non-Gaussian rauen Oberflächen || Simulation von Speckle-Mustern im Nahfeld || ESPI for Aerospace and Aeronautics Applications || Einfluss des Speckledurchmessers in der Rauheitsmessung mittels Speckle Interfer || Siize measurements of liquid crrystal micro-droplets of a GDLC device by light s || Einfluss der Justierung der Laserstrahlen bei der ASK Methode || Messung der elastischen Eigenschaften dünner Platten mittels Phase-Shifting Inte || Messung der Erosion an Luftfahrtmaterialien durch Speckle-Analyse"
+  },
+  {
+    "id": 483,
+    "init": "O.",
+    "nachname": "Kashin",
+    "aff": "Canadian Standards Association",
+    "n_papers": 10,
+    "sample_titles": "1D beam self-trapping in a SBN crystal || 2D-Interaction of photorefractive solitons in a SBN crystal || Einfluss des piezoelektrischen Effekts auf die (2+1)D-Laserstrahlausbreitung in  || Selbstwechselwirkung von Laserstrahlen in einem kubischen photorefraktiven Krist || Einfluss der nichtlokalen Antwort auf die Schreibzeit der Hologramme in Photopol || Self-trapping of laser beams in polymeric layers || Experimental investigations of the photorefractive damage in pure PPLN waveguide || Einfluss des photorefraktiven Effekts auf die Erzeugung der zweiten Harmonischen || (1+1)D selbstinduzierte Wellenleiter in Photopolymeren auf der Basis von Plexigl || Einfluss von Temperaturänderung auf die Erzeugung selbstinduzierten (1+1)D-Welle"
+  }
+]

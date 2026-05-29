@@ -1,0 +1,53 @@
+{"paper_id": "118-b1", "ok": true, "authors": [{"name_pdf": "Gerd Häusler", "autor_id": 11400, "markers": ["*"]}, {"name_pdf": "Florian Dötzer", "autor_id": 6990, "markers": ["*"]}, {"name_pdf": "Klaus Mantel", "autor_id": 414, "markers": ["**"]}], "affils": [{"marker": "*", "text": "Institute of Optics, Information and Photonics, University of Erlangen-Nuremberg"}, {"marker": "**", "text": "Max Planck Institute for the Science of Light, Erlangen"}], "error": null}
+{"paper_id": "109-a19", "ok": true, "authors": [{"name_pdf": "H. Babovsky", "autor_id": 1605, "markers": []}, {"name_pdf": "J. Nagadowska", "autor_id": 2023, "markers": []}, {"name_pdf": "A. Matusevich", "autor_id": 897, "markers": []}, {"name_pdf": "A. Kießling", "autor_id": 286, "markers": []}, {"name_pdf": "R. Kowarschik", "autor_id": 12081, "markers": []}], "affils": [{"marker": "*", "text": "Institut für Angewandte Optik der Friedrich-Schiller-Universität Jena"}], "error": null}
+{"paper_id": "113-a23", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a10", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a11", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a12", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a14", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a15", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a16", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a18", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a19", "ok": true, "authors": [{"name_pdf": "N. Kerwien", "autor_id": 101, "markers": []}, {"name_pdf": "J. Kauffmann", "autor_id": 102, "markers": []}, {"name_pdf": "S. Meining", "autor_id": 103, "markers": []}, {"name_pdf": "W. Osten", "autor_id": 52, "markers": []}, {"name_pdf": "H. Tiziani", "autor_id": 51, "markers": []}], "affils": [{"marker": "*", "text": "Institut für Technische Optik, Universität Stuttgart"}], "error": null}
+{"paper_id": "118-b1", "ok": true, "md_len": 4241}
+{"paper_id": "109-a19", "ok": true, "md_len": 3813}
+{"paper_id": "105-a20", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "110-b25", "ok": false, "error": "no pdf"}
+{"paper_id": "116-p24", "ok": true, "md_len": 3650}
+{"paper_id": "105-a21", "ok": false, "authors": [], "affils": [], "error": "marker failed"}
+{"paper_id": "124-p12", "ok": true, "md_len": 3396}
+{"paper_id": "105-a22", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a23", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a26", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a29", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a30", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a32", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a34", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a5", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a6", "ok": true, "authors": [{"name_pdf": "TEM Messtechnik GmbH", "autor_id": null, "markers": []}, {"name_pdf": "Großer Hillen 38, 30559 Hannover Physikalisch-Technische Bundesanstalt", "autor_id": null, "markers": []}, {"name_pdf": "Braunschweig", "autor_id": null, "markers": []}], "affils": [{"marker": "*", "text": "Institut für Physik, Universität Greifswald"}], "error": null}
+{"paper_id": "105-a7", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-a9", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-b12", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-b14", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-b17", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-b18", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-b2", "ok": true, "authors": [{"name_pdf": "Irina Harder", "autor_id": 9, "markers": []}, {"name_pdf": "Maik Lano", "autor_id": 10, "markers": []}, {"name_pdf": "Norbert Lindlein", "autor_id": 11, "markers": []}, {"name_pdf": "Johannes Schwider", "autor_id": 12, "markers": []}], "affils": [{"marker": "*", "text": "Institut für Optik, Information und Photonik, Universität Erlangen-Nürnberg, Erlangen"}], "error": null}
+{"paper_id": "105-b20", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-b21", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-b22", "ok": true, "authors": [{"name_pdf": "Christian Mühlig", "autor_id": 131, "markers": []}, {"name_pdf": "Siegfried Kufert", "autor_id": 132, "markers": []}, {"name_pdf": "Wolfgang Triebel", "autor_id": 127, "markers": []}], "affils": [{"marker": "*", "text": "Institut für Physikalische Hochtechnologie, Jena"}], "error": null}
+{"paper_id": "105-b24", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-b26", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-b3", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-b31", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-b32", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-b34", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-b36", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-b5", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-b8", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-b9", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-h5", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-h6", "ok": true, "authors": [{"name_pdf": "W.Dultz", "autor_id": 146, "markers": []}, {"name_pdf": "B.Hils", "autor_id": 147, "markers": []}, {"name_pdf": "E.Frins", "autor_id": 148, "markers": ["*"]}, {"name_pdf": "H.Schmitzer Physikalisches Institut der Universität,60054 Frankfurt(Main)", "autor_id": null, "markers": []}], "affils": [{"marker": "*", "text": "Universität Montevideo, **Xavier-University Cincinnati"}], "error": null}
+{"paper_id": "105-h7", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-h8", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-p11", "ok": false, "authors": [], "affils": [], "error": null}
+{"paper_id": "105-p12", "ok": false, "authors": [], "affils": [], "error": null}

@@ -1,0 +1,126 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Visualisierung des akustischen Nahfeldes von Luftschallwandlern mit der \nelektronischen Specklemuster Interferometrie (ESPI)",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          87.60000610351562,
+          69.46856689453125
+        ],
+        [
+          511.0572204589844,
+          69.46856689453125
+        ],
+        [
+          511.0572204589844,
+          95.2684326171875
+        ],
+        [
+          87.60000610351562,
+          95.2684326171875
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.267578125,
+          260.2470703125
+        ],
+        [
+          124.12259674072266,
+          260.2470703125
+        ],
+        [
+          124.12259674072266,
+          270.8138427734375
+        ],
+        [
+          59.267578125,
+          270.8138427734375
+        ]
+      ]
+    },
+    {
+      "title": "2 Das verwendete Messverfahren",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.6865234375,
+          462.5244140625
+        ],
+        [
+          220.16603088378906,
+          462.5244140625
+        ],
+        [
+          220.16603088378906,
+          472.8338317871094
+        ],
+        [
+          58.6865234375,
+          472.8338317871094
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          188
+        ],
+        [
+          "Line",
+          97
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_a32"
+}

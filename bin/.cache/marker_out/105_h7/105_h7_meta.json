@@ -1,0 +1,168 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Trends in der automobilen Frontbeleuchtung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          167.34375,
+          69.0703125
+        ],
+        [
+          425.6520080566406,
+          69.0703125
+        ],
+        [
+          425.6520080566406,
+          81.65557861328125
+        ],
+        [
+          167.34375,
+          81.65557861328125
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.51997375488281,
+          240.1015625
+        ],
+        [
+          121.02615356445312,
+          240.1015625
+        ],
+        [
+          121.02615356445312,
+          251.1378173828125
+        ],
+        [
+          59.51997375488281,
+          251.1378173828125
+        ]
+      ]
+    },
+    {
+      "title": "2 Simulationswerkzeuge",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.267578125,
+          577.6416015625
+        ],
+        [
+          176.640625,
+          577.6416015625
+        ],
+        [
+          176.640625,
+          588.0977020263672
+        ],
+        [
+          59.267578125,
+          588.0977020263672
+        ]
+      ]
+    },
+    {
+      "title": "3 Aktuelle Entwicklungen und Trends",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          308.5400390625,
+          436.2119140625
+        ],
+        [
+          486.6797180175781,
+          436.2119140625
+        ],
+        [
+          486.6797180175781,
+          448.0577087402344
+        ],
+        [
+          308.5400390625,
+          448.0577087402344
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Adaptives Licht und Aktives Licht",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          309.0,
+          455.60076904296875
+        ],
+        [
+          471.81640625,
+          455.60076904296875
+        ],
+        [
+          471.81640625,
+          465.5607604980469
+        ],
+        [
+          309.0,
+          465.5607604980469
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          115
+        ],
+        [
+          "Line",
+          62
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PictureGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_h7"
+}

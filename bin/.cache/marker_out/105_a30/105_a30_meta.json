@@ -1,0 +1,153 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Nutzung der Lichtleittechnik in Kfz-Beleuchtungsfunktionen",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          125.5078125,
+          68.6591796875
+        ],
+        [
+          468.6119689941406,
+          68.6591796875
+        ],
+        [
+          468.6119689941406,
+          81.65557861328125
+        ],
+        [
+          125.5078125,
+          81.65557861328125
+        ]
+      ]
+    },
+    {
+      "title": "mailto:christian.lueder@hella.com",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          222.72000122070312,
+          140.607421875
+        ],
+        [
+          372.69769287109375,
+          140.607421875
+        ],
+        [
+          372.69769287109375,
+          151.64080810546875
+        ],
+        [
+          222.72000122070312,
+          151.64080810546875
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.519989013671875,
+          258.19140625
+        ],
+        [
+          121.02618408203125,
+          258.19140625
+        ],
+        [
+          121.02618408203125,
+          268.657958984375
+        ],
+        [
+          59.519989013671875,
+          268.657958984375
+        ]
+      ]
+    },
+    {
+      "title": "2 Anwendungen",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          307.3779296875,
+          320.68359375
+        ],
+        [
+          385.97418212890625,
+          320.68359375
+        ],
+        [
+          385.97418212890625,
+          332.1376953125
+        ],
+        [
+          307.3779296875,
+          332.1376953125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          117
+        ],
+        [
+          "Line",
+          58
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Picture",
+          4
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PictureGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_a30"
+}

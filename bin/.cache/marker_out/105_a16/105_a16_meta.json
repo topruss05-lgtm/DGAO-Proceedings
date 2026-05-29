@@ -1,0 +1,122 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Richtungscodierte Deflektometrie (RCD)",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          181.8701171875,
+          69.0703125
+        ],
+        [
+          413.6523929471033,
+          69.0703125
+        ],
+        [
+          413.6523929471033,
+          80.58203125
+        ],
+        [
+          181.8701171875,
+          80.58203125
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.45088161209068,
+          239.17898486197683
+        ],
+        [
+          122.14735516372797,
+          239.17898486197683
+        ],
+        [
+          122.14735516372797,
+          250.42564559216385
+        ],
+        [
+          58.45088161209068,
+          250.42564559216385
+        ]
+      ]
+    },
+    {
+      "title": "2 Das Prinzip",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.45088161209068,
+          573.94140625
+        ],
+        [
+          122.89672544080605,
+          573.94140625
+        ],
+        [
+          122.89672544080605,
+          584.826357969724
+        ],
+        [
+          58.45088161209068,
+          584.826357969724
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          79
+        ],
+        [
+          "Span",
+          34
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Figure",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "FigureGroup",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_a16"
+}

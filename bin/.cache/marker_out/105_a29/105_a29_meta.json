@@ -1,0 +1,122 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Lichtgestaltung im Fahrzeug-Innenraum",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          182.451171875,
+          69.0703125
+        ],
+        [
+          412.0680236816406,
+          69.0703125
+        ],
+        [
+          412.0680236816406,
+          81.65557861328125
+        ],
+        [
+          182.451171875,
+          81.65557861328125
+        ]
+      ]
+    },
+    {
+      "title": "1 Motivation",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.51988220214844,
+          251.2021484375
+        ],
+        [
+          117.9541015625,
+          251.2021484375
+        ],
+        [
+          117.9541015625,
+          262.05780029296875
+        ],
+        [
+          59.51988220214844,
+          262.05780029296875
+        ]
+      ]
+    },
+    {
+      "title": "2 Beispiele heutiger Innenlichtl\u00f6sungen",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          306.796875,
+          540.0977172851562
+        ],
+        [
+          497.7552490234375,
+          540.0977172851562
+        ],
+        [
+          497.7552490234375,
+          550.5068359375
+        ],
+        [
+          306.796875,
+          550.5068359375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          167
+        ],
+        [
+          "Line",
+          95
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_a29"
+}

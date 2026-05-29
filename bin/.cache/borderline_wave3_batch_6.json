@@ -1,0 +1,162 @@
+[
+  {
+    "id": 7392,
+    "init": "M. S.",
+    "nachname": "Khan",
+    "aff": "Center of Optical Technology, FH Aalen",
+    "n_papers": 3,
+    "sample_titles": "Diffractive optical elements: A novel concept for automotive || Laser based projection system for traffic collision preventi || Low cost fabrication of polymer based optical devices"
+  },
+  {
+    "id": 7474,
+    "init": "L.",
+    "nachname": "Kirsten",
+    "aff": "Technische Universität Dresden",
+    "n_papers": 3,
+    "sample_titles": "Polarization sensitive optical coherence tomography using a  || Imaging of the human middle ear by endoscopic optical cohere || Erweiterte morphologische und funktionelle Diagnostik am hum"
+  },
+  {
+    "id": 7529,
+    "init": "E.",
+    "nachname": "Scharf",
+    "aff": "Technische Universität Dresden",
+    "n_papers": 3,
+    "sample_titles": "Eigenkalibrierung holographischer Endoskope für die Biophoto || Endoskopische Pinzette unter Nutzung von digitaler Optik || Linsenlose Real-Time-Faserbündel-Endoskopie mittels digitale"
+  },
+  {
+    "id": 7594,
+    "init": "Y.",
+    "nachname": "Bourgin",
+    "aff": "Institut für Biomedizinische Technik",
+    "n_papers": 3,
+    "sample_titles": "Optimized beam shaping for high power laser welding applicat || Der Lau-Effekt in der lithographischen Mikro-Nanostrukturier || Hybride Phasengitter mit Subwellenlängenstrukturen als Polar"
+  },
+  {
+    "id": 7643,
+    "init": "K.",
+    "nachname": "Rifai",
+    "aff": null,
+    "n_papers": 3,
+    "sample_titles": "Novel optical technologies to assist the visually impaired || Experimental evaluation of spectacle-induced ocular protecti || Habituation to progressive additional lenses – a neuronal pr"
+  },
+  {
+    "id": 7761,
+    "init": "H.",
+    "nachname": "Herrmann",
+    "aff": "Universität Paderborn",
+    "n_papers": 3,
+    "sample_titles": "Integrated devices for quantum communication systems || Fabrication of periodically poled low-loss rubidium exchange || Highly efficient frequency converter in spatially single mod"
+  },
+  {
+    "id": 7766,
+    "init": "R.",
+    "nachname": "Ricken",
+    "aff": "Universität Paderborn",
+    "n_papers": 3,
+    "sample_titles": "Integrated devices for quantum communication systems || Highly efficient frequency converter in spatially single mod || Optimization of corrugation-free Rb-exchanged waveguide in p"
+  },
+  {
+    "id": 7777,
+    "init": "V.",
+    "nachname": "Bagusat",
+    "aff": "Ernst-Abbe-Hochschule Jena",
+    "n_papers": 3,
+    "sample_titles": "Optikdesign für ein kompaktes Echelle - Spektrometer mit ein || Konzeptvergleich verschiedener kompakter Kreuzgitter-Spektro || Konzeptvergleich verschiedener kompakter Kreuzgitter-Spektro"
+  },
+  {
+    "id": 7861,
+    "init": "M.",
+    "nachname": "Fischedick",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 3,
+    "sample_titles": "Beidseitig optisch antastendes Interferometer zur Längenmess || Simulation eines beidseitig antastenden Interferometers mit  || Längenmessungen in einseitig und beidseitig optisch antasten"
+  },
+  {
+    "id": 7899,
+    "init": "S.",
+    "nachname": "Lotz",
+    "aff": "Institut für Technische Optik (ITO)",
+    "n_papers": 3,
+    "sample_titles": "„BaKaRoS“ – ein Baukastensystem für einen niederschwelligen  || Mobiles Photoniklab für Open Innovation und Nachwuchsförderu || BaKaRoS: Open Source Optik Baukästen – Nachwuchsförderung an"
+  },
+  {
+    "id": 7905,
+    "init": "L.",
+    "nachname": "Pina",
+    "aff": "Czech Technical University in Prague",
+    "n_papers": 3,
+    "sample_titles": "Kirkpatrick Baez X-ray Optics for Astrophysics: Recent Statu || Lobster Eye X-ray Optics for Astrophysics: Recent Status || X/EUV and UV optics for miniature cubesats payloads"
+  },
+  {
+    "id": 7987,
+    "init": "M.",
+    "nachname": "Santandrea",
+    "aff": "Universität Paderborn",
+    "n_papers": 3,
+    "sample_titles": "Fabrication of periodically poled low-loss rubidium exchange || Highly efficient frequency converter in spatially single mod || Optimization of corrugation-free Rb-exchanged waveguide in p"
+  },
+  {
+    "id": 7988,
+    "init": "L.",
+    "nachname": "Padberg",
+    "aff": "Universität Paderborn",
+    "n_papers": 3,
+    "sample_titles": "Fabrication of periodically poled low-loss rubidium exchange || Highly efficient frequency converter in spatially single mod || Optimization of corrugation-free Rb-exchanged waveguide in p"
+  },
+  {
+    "id": 8111,
+    "init": "B.",
+    "nachname": "Jähne",
+    "aff": "Institut für Umweltphysik, Universität Heidelberg",
+    "n_papers": 3,
+    "sample_titles": "Photonik trifft Bildverarbeitung – Zum Nutzen offener Standa || Performance Characterization of Modern Image Sensors and Cam || Fluorescence Imaging of Air-Sea Gas Exchange using Methoxybe"
+  },
+  {
+    "id": 8179,
+    "init": "Y.",
+    "nachname": "Zhang",
+    "aff": "Carl Zeiss AG",
+    "n_papers": 3,
+    "sample_titles": "Musterprojektion im kurzwelligen Infrarot (SWIR): augensiche || History and New Insights: Design of Microscope Objectives || History and New Insights: Design of Microscope Objectives"
+  },
+  {
+    "id": 8272,
+    "init": "S.",
+    "nachname": "Amann",
+    "aff": "Institut für Technische Optik (ITO)",
+    "n_papers": 3,
+    "sample_titles": "Charakterisierung von Homogenisierkomponenten für die satell || Hyperspektrale Bildgebung mit Hilfe eines Computed Tomograph || Multi Aperture Computed Tomography Imaging Spectrometer"
+  },
+  {
+    "id": 8319,
+    "init": "U. D.",
+    "nachname": "Zeitner",
+    "aff": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik",
+    "n_papers": 3,
+    "sample_titles": "Development of a large blazed transmission grating by binary || Modellierung und Simulation bei Mask Aligner Lithographie (S || Si-microstructures for back-illuminated Ge-on-Si photodetect"
+  },
+  {
+    "id": 8390,
+    "init": "H.-D.",
+    "nachname": "Bauer",
+    "aff": "Institut für Mikrotechnologien, Hochschule RheinMain",
+    "n_papers": 3,
+    "sample_titles": "Charakterisierung von mikrostrukturiertem Silizium, hergeste || Optische Eigenschaften von FOTURAN®II während UV-Belichtung  || Parallele FTIR-ATR-Spektroskopie und Gravimetrie zur in-situ"
+  },
+  {
+    "id": 8416,
+    "init": "J.",
+    "nachname": "Pribosek",
+    "aff": "University of Ljubljana, Faculty of Mechanical Engineering",
+    "n_papers": 3,
+    "sample_titles": "Topography inspection by aperture coding confocal sensors || Computational imaging using low-order unimorph deformable mi || Chromatisch-konfokale Sensorik für die simultane Abstands- u"
+  },
+  {
+    "id": 8423,
+    "init": "D.",
+    "nachname": "Geyer",
+    "aff": "Darmstadt University of Applied Sciences",
+    "n_papers": 3,
+    "sample_titles": "Hochtemperatur Raman-Spektren von gasförmigen Kohlenwasserst || Optische Messmethoden für die Material- und Prozesstechnik || Optische Analyseverfahren für den Einsatz in der Prozesstech"
+  }
+]

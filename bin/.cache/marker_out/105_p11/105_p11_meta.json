@@ -1,0 +1,145 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Spektroskopische Untersuchungen an Photonischen Kristallfasern unter sensori-\nschen Anwendungsaspekten",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          63.916015625,
+          68.6591796875
+        ],
+        [
+          531.083984375,
+          68.6591796875
+        ],
+        [
+          531.083984375,
+          95.1087646484375
+        ],
+        [
+          63.916015625,
+          95.1087646484375
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.52185821533203,
+          271.34765625
+        ],
+        [
+          123.86046600341797,
+          271.34765625
+        ],
+        [
+          123.86046600341797,
+          282.042236328125
+        ],
+        [
+          59.52185821533203,
+          282.042236328125
+        ]
+      ]
+    },
+    {
+      "title": "2 Experimenteller Teil",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.6865234375,
+          455.9462890625
+        ],
+        [
+          165.21937561035156,
+          455.9462890625
+        ],
+        [
+          165.21937561035156,
+          467.0801696777344
+        ],
+        [
+          58.6865234375,
+          467.0801696777344
+        ]
+      ]
+    },
+    {
+      "title": "3 Ergebnisse und Diskussion",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          307.08740234375,
+          404.9231262207031
+        ],
+        [
+          450.7555847167969,
+          404.9231262207031
+        ],
+        [
+          450.7555847167969,
+          414.88311767578125
+        ],
+        [
+          307.08740234375,
+          414.88311767578125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          167
+        ],
+        [
+          "Line",
+          89
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_p11"
+}

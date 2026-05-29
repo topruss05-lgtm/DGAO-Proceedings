@@ -1,0 +1,122 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Einsatz des LACS-Verfahrens f\u00fcr Sph\u00e4rizit\u00e4tsmessungen",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          134.5800018310547,
+          69.46881103515625
+        ],
+        [
+          460.5888366699219,
+          69.46881103515625
+        ],
+        [
+          460.5888366699219,
+          81.46881103515625
+        ],
+        [
+          134.5800018310547,
+          81.46881103515625
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.580078125,
+          288.5147705078125
+        ],
+        [
+          121.33935546875,
+          288.5147705078125
+        ],
+        [
+          121.33935546875,
+          299.3046875
+        ],
+        [
+          59.580078125,
+          299.3046875
+        ]
+      ]
+    },
+    {
+      "title": "2 Messaufbau",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          308.99993896484375,
+          288.51275634765625
+        ],
+        [
+          375.17303466796875,
+          288.51275634765625
+        ],
+        [
+          375.17303466796875,
+          298.53277587890625
+        ],
+        [
+          308.99993896484375,
+          298.53277587890625
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          126
+        ],
+        [
+          "Line",
+          74
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_a12"
+}

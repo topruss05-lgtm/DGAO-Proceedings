@@ -1,0 +1,218 @@
+{
+  "table_of_contents": [
+    {
+      "title": "EUV-Lithographie- eine Herausforderung f\u00fcr die interferometrische Messtechnik",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          89.6484375,
+          65.25
+        ],
+        [
+          522.0,
+          65.25
+        ],
+        [
+          522.0,
+          75.41015625
+        ],
+        [
+          89.6484375,
+          75.41015625
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          81.0,
+          204.0
+        ],
+        [
+          141.0,
+          204.0
+        ],
+        [
+          141.0,
+          213.46875
+        ],
+        [
+          81.0,
+          213.46875
+        ]
+      ]
+    },
+    {
+      "title": "2 Anforderungen",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          81.0,
+          536.25
+        ],
+        [
+          158.25,
+          536.25
+        ],
+        [
+          158.25,
+          545.66015625
+        ],
+        [
+          81.0,
+          545.66015625
+        ]
+      ]
+    },
+    {
+      "title": "3 Fehler bei der interferometrischen Asph\u00e4ren-\nMessung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          315.0,
+          209.6015625
+        ],
+        [
+          530.25,
+          209.6015625
+        ],
+        [
+          530.25,
+          229.7109375
+        ],
+        [
+          315.0,
+          229.7109375
+        ]
+      ]
+    },
+    {
+      "title": "3.1 statistische Fehler",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          314.3671875,
+          568.08984375
+        ],
+        [
+          415.5,
+          568.08984375
+        ],
+        [
+          415.5,
+          577.5
+        ],
+        [
+          314.3671875,
+          577.5
+        ]
+      ]
+    },
+    {
+      "title": "3.1.1 Reproduzierbarkeit",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          315.0,
+          586.5
+        ],
+        [
+          426.75,
+          586.5
+        ],
+        [
+          426.75,
+          595.16015625
+        ],
+        [
+          315.0,
+          595.16015625
+        ]
+      ]
+    },
+    {
+      "title": "3.1.2 Wiederholbarkeit",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          315.0,
+          704.21484375
+        ],
+        [
+          417.0,
+          704.21484375
+        ],
+        [
+          417.0,
+          712.72265625
+        ],
+        [
+          315.0,
+          712.72265625
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          101
+        ],
+        [
+          "Span",
+          34
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          7
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PictureGroup",
+          2
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_a10"
+}

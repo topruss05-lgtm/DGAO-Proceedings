@@ -1,0 +1,162 @@
+[
+  {
+    "id": 923,
+    "init": "P.",
+    "nachname": "Karbe",
+    "aff": "Leica Camera AG",
+    "n_papers": 6,
+    "sample_titles": "Bildgestaltung - auch eine Frage des Sensorformats || Paraxiale Ansätze für optische Systeme unter Berücksichtigun || Digitalfotografie im professionellen Einsatz - Höchste Anfor || CSC (Compact System Camera ) – Die Verbindung zwischen Tradi || Die Geschichte der Leica Apo Photo-Objektive || Geschichte & Entwicklung von asphärischen Linsen bei der Lei"
+  },
+  {
+    "id": 933,
+    "init": "F.",
+    "nachname": "Holtmann",
+    "aff": "University of Münster",
+    "n_papers": 6,
+    "sample_titles": "Bestimmung von Geschwindigkeitsfeldern in Strömungen durch A || Strömungsanalyse von Gasmischsystemen durch photorefraktive  || Nichtlinear optische Geschwindigkeitsfeldanalyse vom mikrosk || Echtzeitdetektion von Mischvorgängen in Fluiden durch phasen || Stereoskopische dynamische Phasenkontrastmikroskopie zur Unt || Depth Resolution of Dynamic Phase Contrast Microscopy"
+  },
+  {
+    "id": 1096,
+    "init": "U.",
+    "nachname": "Krackhardt",
+    "aff": "Photonic Metrology GmbH & Co.KG, Walldorf",
+    "n_papers": 6,
+    "sample_titles": "RaySense: Ein neuartiges strahlenoptisches Verfahren zur abs || Einsatz von RaySense in der Qualitätssicherung || Vermessung spiegelnder Freiformflächen im industriellen Umfe || Konzepte zur Echtzeit-Vermessung spiegelnder Freiformflächen || Optische Formvermessung von Solarspiegeln || Die Lohmann’sche Erfindungsmaschine"
+  },
+  {
+    "id": 1159,
+    "init": "D.",
+    "nachname": "Tierney",
+    "aff": "Xavier University",
+    "n_papers": 6,
+    "sample_titles": "Helikale Bakterien als optisch angetriebene Microrotoren || Perception of Haidinger’s Brushes and Macular Degeneration || Optical trapping of Magnetic Helical Bacteria || Beugungsexperimente an helikalen und sinusoidalen Strukturen || Investigating the transfer of orbital angular momentum of li || Scratch Holograms - the only genuine White Light Holograms"
+  },
+  {
+    "id": 1290,
+    "init": "E.",
+    "nachname": "Geist",
+    "aff": "Lehrstuhl für Fertigungsautomatisierung und Produktionssystematik (FAPS), Friedrich-Alexander-Universität Erlangen-Nürnberg",
+    "n_papers": 6,
+    "sample_titles": "Quasi-absolute interferometric test for Toroidal surfaces by || Interferometrischer Quasiabsoluttest von Asphären unter Zuhi || Quasi-absolute testing of aspherics using dual-wavefront dif || Drei-Stellungstest für Asphären: Steigerung der Genauigkeit || Absoluttest von rotationssymmetrischen Asphären mittels radi || Kalibrierverfahren von Sphären bei partieller Kohärenz"
+  },
+  {
+    "id": 1422,
+    "init": "F.",
+    "nachname": "Scholze",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 6,
+    "sample_titles": "Untersuchungen zur Eignung der EUV-Scatterometrie zur quanti || Towards traceability in scatterometric-optical dimensional m || Streulichtarme holografische Blaze-Gitter für den EUV-Bereic || Blazed XUV Gratings with a Very Low Level of Stray Light || Präzise optische Konstanten: Die europäische OCDB || Entwicklungen und Herausforderungen in der EUV und X-ray nan"
+  },
+  {
+    "id": 1552,
+    "init": "A.",
+    "nachname": "Schindler",
+    "aff": "Leibniz Institute of Surface Engineering",
+    "n_papers": 6,
+    "sample_titles": "Deterministische Ionenstrahlkorrektur von Oberflächenformfeh || One-step fabrication of refractive and diffractive microopti || Deterministische Formgebung kleinformatiger Präzisionsoptike || Sub-Nanometer-RMS Rauheit von Einkorn-diamantgedrehten Metal || Fabrication of resonant grating pulse compression element wi || Imaging gratings with modulated blaze realized by a combinat"
+  },
+  {
+    "id": 1575,
+    "init": "R.",
+    "nachname": "Fechner",
+    "aff": "Leibniz Institute of Surface Engineering",
+    "n_papers": 6,
+    "sample_titles": "Sub-Nanometer-RMS Rauheit von Einkorn-diamantgedrehten Metal || Fabrication of resonant grating pulse compression element wi || Imaging gratings with modulated blaze realized by a combinat || Streulichtarme holografische Blaze-Gitter für den EUV-Bereic || Blazed XUV Gratings with a Very Low Level of Stray Light || Ion beam etching process simulation for the pattern transfer"
+  },
+  {
+    "id": 1865,
+    "init": "S.",
+    "nachname": "Leopold",
+    "aff": "Institut für Biomedizinische Technik",
+    "n_papers": 6,
+    "sample_titles": "Spektrale Charakterisierung mikro- und nanostrukturierter op || Vergrößerung der Auflösung von Compound Eye Kameras durch in || Scannende Compound-Kamera zur hochauflösenden 3D-Objektabtas || 3D Scanning system based on tunable cylindrical lenses || Scannend abbildendes Mikrosystem auf Basis durchstimmbarer E || Adaptive micro-eye based on tunable micro-optical components"
+  },
+  {
+    "id": 1951,
+    "init": "I.",
+    "nachname": "Schmidt",
+    "aff": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik",
+    "n_papers": 6,
+    "sample_titles": "Kabelloser, handgeführter 3D-Scanner mit WLAN || Der Einsatz von Infrarot- bis Röntgenstrahlung zur optischen || Geschwindigkeitsoptimierung eines hochauflösenden, maschinen || 3D-Schneidkantenvermessung von Präzisionsschneidwerkzeugen || Combined optical sensor for simultaneously measuring roughne || GOBO-Projektion für schnelle IR-3D-Messtechnik"
+  },
+  {
+    "id": 2035,
+    "init": "R.",
+    "nachname": "Müller",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 6,
+    "sample_titles": "Design und Bewertung eines THz Time Domain Imaging Systems || Streulichtbasierte Partikelkonzentrationsmessung auf der Gru || High efficient transmission- and reflection gratings for fem || Integrated optical microsystem based on Talbot interferometr || Integriertes optofluidisches Mikrosystem zur Überwachung der || Determination of the spectral refractive index (RI) and part"
+  },
+  {
+    "id": 2058,
+    "init": "Ron",
+    "nachname": "Spittel",
+    "aff": "Leibniz-Institut für Photonische Technologien",
+    "n_papers": 6,
+    "sample_titles": "Dispersionscharakterisierung mikrostrukturierter Fasern || Properties of liquid filled photonic crystal fibers || Füllung photonischer Kristallfasern mit elektro-optischen Po || Plasmonische Effekte in metallbefüllten mikrostrukturierten  || Chromatic dispersion measurement of microstructured optical  || Herstellung und Charakterisierung von Metalldraht-Arrays in "
+  },
+  {
+    "id": 3704,
+    "init": "M.",
+    "nachname": "Will",
+    "aff": "Darmstadt University of Applied Sciences",
+    "n_papers": 6,
+    "sample_titles": "Mikrostrukturierte Photodioden mit Wellenlängen- und Richtun || FLORES - Entwicklung eines neuartigen Mikrosensors zur Fluor || Sensoren zur besimmung Absorptions- und Fluoreszenzeigenscha || Optische Messmethoden für die Material- und Prozesstechnik || Diffraktiv optische Elemente mit großer Stufenhöhe || Optische Analyseverfahren für den Einsatz in der Prozesstech"
+  },
+  {
+    "id": 3782,
+    "init": "M.",
+    "nachname": "Hauptvogel",
+    "aff": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik",
+    "n_papers": 6,
+    "sample_titles": "Table-Top Streulichtmesssystem ALBATROSS-TT || Kompakter streulichtbasierter Rauheitssensor || Optical performance and symmetry assessment of diamond cuts  || Streulichtmessung optischer Komponenten im infraroten Spektr || Streulichtbasierte Detektion von Subsurface Damage in geschl || Combined optical sensor for simultaneously measuring roughne"
+  },
+  {
+    "id": 4779,
+    "init": "N.",
+    "nachname": "Schuster",
+    "aff": "Heilbronn University",
+    "n_papers": 6,
+    "sample_titles": "Einsatz asphärischer Flächen in Objektiven für das thermisch || Konoskop-Optiken zur Vermessung von VR- und AR-Systemen mit  || Die Wirkung von Kinoform-Flächen auf Laserstrahlung || Dichromatische Einzellinsen für den VIS-Bereich || Grenzen der Farbkorrektur mittels Kinoform-Profile || Farbkorrektur mittels Kinoform-Profilen im VIS-Bereich"
+  },
+  {
+    "id": 4817,
+    "init": "D.",
+    "nachname": "Thomae",
+    "aff": "Ernst-Abbe-Hochschule Jena",
+    "n_papers": 6,
+    "sample_titles": "Modifizierte Talbot-Lithografie zur Strukturierung effizient || Optikdesign für ein kompaktes Echelle - Spektrometer mit ein || Kompaktes Kaskadenspektrometer zur Effizienzhomogenisierung  || Kompaktes Simultanspektrometer mit hoher Auflösung für einen || Konzeptvergleich verschiedener kompakter Kreuzgitter-Spektro || Konzeptvergleich verschiedener kompakter Kreuzgitter-Spektro"
+  },
+  {
+    "id": 5590,
+    "init": "M.",
+    "nachname": "Bichra",
+    "aff": "IGES Institut",
+    "n_papers": 6,
+    "sample_titles": "Vorrichtung und Verfahren zur Vermessung zumindest teilweise || Wavefront sensor based on the modified Talbot Effect || Subaperture wavefront measurement using Talbot interferometr || Einfluss der optischen Aberrationen und des Bildrauschens au || Innovative Verfahren zur Metrologie von Freiform Oberflächen || In-Line Verfahren zur Charakterisierung von Freiform Oberflä"
+  },
+  {
+    "id": 5745,
+    "init": "K.",
+    "nachname": "Philipp",
+    "aff": "Technische Universität Dresden",
+    "n_papers": 6,
+    "sample_titles": "Dynamic deformation measurements at translucent high speed r || Volumetric measurements in HiLo Microscopy based on adaptive || Application of adaptive lenses in confocal microscopy || Adaptive piezogetriebene Hochgeschwindigkeits-Linse mit asph || Confocal microscopy employing pressure controlled adaptive l || Adaptive speckle illumination microscopy"
+  },
+  {
+    "id": 6042,
+    "init": "D.",
+    "nachname": "Claus",
+    "aff": "Institut für Lasertechnologien in der Medizin und Meßtechnik an der Universität Ulm",
+    "n_papers": 6,
+    "sample_titles": "Determination of mechanical properties of soft tissue by rol || Iterative phase retrieval imaging based on alternating wavef || Hybrid optical design for a wide field chromatic confocal sc || Stable and compact VCSEL based multiple-wavelength digital h || Impact of Aberrations and roughness in chromatic confocal mi || Characterization and optical design of VCSEL diode for appli"
+  },
+  {
+    "id": 6378,
+    "init": "C.",
+    "nachname": "Backhaus",
+    "aff": "Lehrstuhl für Fertigungsautomatisierung und Produktionssystematik (FAPS), Friedrich-Alexander-Universität Erlangen-Nürnberg",
+    "n_papers": 6,
+    "sample_titles": "Design and simulation rules for printed optical waveguides w || Effiziente Berechnung der Impulsantwort zeitabhängiger Signa || Anwendung von Beam-Propagation-Method und Wave-Propagation-M || Simulationen zur Erfassung der Güte gedruckter Polymer Optis || Beeinflussung der optischen Eigenschaften von Polymer Optisc || Herausforderungen bei der Simulation von Polymer Optischen W"
+  }
+]

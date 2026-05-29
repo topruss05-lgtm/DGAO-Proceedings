@@ -1,0 +1,126 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Simulation und experimentelle Pr\u00fcfung fokusinvarianter optischer Systeme bei teilkoh\u00e4renter Abbildung und Phasenkontrast in der Mikroskopie",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          71.19017632241814,
+          69.72929652715939
+        ],
+        [
+          524.55919395466,
+          69.72929652715939
+        ],
+        [
+          524.55919395466,
+          101.9609375
+        ],
+        [
+          71.19017632241814,
+          101.9609375
+        ]
+      ]
+    },
+    {
+      "title": "1 Problemstellung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.45088161209068,
+          308.9082813891362
+        ],
+        [
+          147.62594458438286,
+          308.9082813891362
+        ],
+        [
+          147.62594458438286,
+          319.0390625
+        ],
+        [
+          58.45088161209068,
+          319.0390625
+        ]
+      ]
+    },
+    {
+      "title": "2 Methode und Ergebnisse",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          308.7405541561713,
+          296.91184327693674
+        ],
+        [
+          437.63224181360204,
+          296.91184327693674
+        ],
+        [
+          437.63224181360204,
+          307.52734375
+        ],
+        [
+          308.7405541561713,
+          307.52734375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          73
+        ],
+        [
+          "Span",
+          48
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "PictureGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_b8"
+}

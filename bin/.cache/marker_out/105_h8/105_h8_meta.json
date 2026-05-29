@@ -1,0 +1,122 @@
+{
+  "table_of_contents": [
+    {
+      "title": "W\u00e4rmebildaufnahme mit starrenden Infrarotdetektor-Matrizen",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          120.859375,
+          69.46856689453125
+        ],
+        [
+          475.9329528808594,
+          69.46856689453125
+        ],
+        [
+          475.9329528808594,
+          81.46856689453125
+        ],
+        [
+          120.859375,
+          81.46856689453125
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.267578125,
+          258.19140625
+        ],
+        [
+          124.12295532226562,
+          258.19140625
+        ],
+        [
+          124.12295532226562,
+          268.53424072265625
+        ],
+        [
+          59.267578125,
+          268.53424072265625
+        ]
+      ]
+    },
+    {
+      "title": "2 Thermographien mit IR-Detektormatrizen",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          307.958984375,
+          414.7532958984375
+        ],
+        [
+          514.60205078125,
+          414.7532958984375
+        ],
+        [
+          514.60205078125,
+          424.7733154296875
+        ],
+        [
+          307.958984375,
+          424.7733154296875
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          140
+        ],
+        [
+          "Line",
+          67
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PictureGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_h8"
+}

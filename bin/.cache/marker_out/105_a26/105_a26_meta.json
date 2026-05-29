@@ -1,0 +1,164 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Aktive Scheinwerfer zur subtraktiven Lichtverteilungserzeugung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          112.724609375,
+          68.6591796875
+        ],
+        [
+          482.275390625,
+          68.6591796875
+        ],
+        [
+          482.275390625,
+          81.65557861328125
+        ],
+        [
+          112.724609375,
+          81.65557861328125
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.267578125,
+          258.6025390625
+        ],
+        [
+          121.02635192871094,
+          258.6025390625
+        ],
+        [
+          121.02635192871094,
+          268.657958984375
+        ],
+        [
+          59.267578125,
+          268.657958984375
+        ]
+      ]
+    },
+    {
+      "title": "2 Stand der Technik",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.6865234375,
+          482.2587890625
+        ],
+        [
+          154.43226623535156,
+          482.2587890625
+        ],
+        [
+          154.43226623535156,
+          493.5384521484375
+        ],
+        [
+          58.6865234375,
+          493.5384521484375
+        ]
+      ]
+    },
+    {
+      "title": "3 Lichtfunktionen des Aktiven Scheinwerfers",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.267578125,
+          603.9541015625
+        ],
+        [
+          272.6972351074219,
+          603.9541015625
+        ],
+        [
+          272.6972351074219,
+          615.0988922119141
+        ],
+        [
+          59.267578125,
+          615.0988922119141
+        ]
+      ]
+    },
+    {
+      "title": "4 Erzeugung variabler Lichtverteilungen",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          306.796875,
+          640.0588684082031
+        ],
+        [
+          499.33935546875,
+          640.0588684082031
+        ],
+        [
+          499.33935546875,
+          650.0188751220703
+        ],
+        [
+          306.796875,
+          650.0188751220703
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          159
+        ],
+        [
+          "Line",
+          92
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_a26"
+}

@@ -1,0 +1,162 @@
+[
+  {
+    "id": 45,
+    "init": "T.",
+    "nachname": "Hellmuth",
+    "aff": "Aalen University of Applied Science",
+    "n_papers": 5,
+    "sample_titles": "Simulation und experimentelle Prüfung fokusinvarianter optis || Design eines hochauflösenden, fokusinvarianten Systems: Well || Simulation und Formprüfung von Phasenplatten für fokusinvari || Optische Abbildung mit erhöhter Schärfentiefe || 4 D Metrology of grinded surfaces based on short coherent in"
+  },
+  {
+    "id": 130,
+    "init": "A. W.",
+    "nachname": "Lohmann",
+    "aff": "Lehrstuhl für Multimediakommunikation und Signalverarbeitung, Universität Erlangen",
+    "n_papers": 5,
+    "sample_titles": "Das Montgomery-Interferometer als optisches Zeitfilter || Diffraktiv-refraktive Filterung von kurzen optischen Pulsen || Fresnel Similarity || Talbot-Bänder und Frequenzkämme || Fabry-Pérot-Resonatoren mit strukturierten Spiegeln"
+  },
+  {
+    "id": 141,
+    "init": "A.",
+    "nachname": "Wuttig",
+    "aff": "Leibniz-Institut für Photonische Technologien",
+    "n_papers": 5,
+    "sample_titles": "Empfindlichkeitserhöhung beim spektralen Monitoring durch an || Pinhole-arrays and lenseless holographic micro-imaging || Lensless coherent imaging by multi-plane interference detect || Spectral optical system with chips || Speckle imaging for surface measurement with low-cost laser "
+  },
+  {
+    "id": 258,
+    "init": "J.",
+    "nachname": "Müller",
+    "aff": "Technische Universität Dresden",
+    "n_papers": 5,
+    "sample_titles": "Eine durchstimmbare, radial polarisierte Laserquelle zur Unt || Polarization dependent light transmission through circular a || Polarisationsabhängige Transmission durch nanoskopische Löch || Imaging of the human middle ear by endoscopic optical cohere || Investigation of high radiance laser-pumped phosphor convert"
+  },
+  {
+    "id": 285,
+    "init": "K.",
+    "nachname": "Pismennaya",
+    "aff": "Canadian Standards Association",
+    "n_papers": 5,
+    "sample_titles": "Solitonenähnliche Strukturen in einem photorefraktiven Bi12T || Detektion von Dämpfen und ihrer Brechzahlen mittels photoref || 1D beam self-trapping in a SBN crystal || Photorefractive properties of a SBN crystal || Wechselwirkung eines holographischen Gitters und eines photo"
+  },
+  {
+    "id": 334,
+    "init": "J.",
+    "nachname": "Lamprecht",
+    "aff": "Optocraft GmbH, Am Weichselgarten 7, 91058 Erlangen, Germany",
+    "n_papers": 5,
+    "sample_titles": "Durchlichtprüfung diffraktiver zylindrischer Nullelemente || Kalibrierung eines Interferometers in streifender Inzidenz || Fast, comprehensive and reliable testing of micro-optical el || Nicht-Null Test in Durchlicht und Auflicht || Wellenfront geführte Justage und Prüfung von Optiksystemen m"
+  },
+  {
+    "id": 345,
+    "init": "C.",
+    "nachname": "Thoma",
+    "aff": "FHOOW Standort Emden; Loughborough University, Leicestershire (UK)",
+    "n_papers": 5,
+    "sample_titles": "Computergenerierte Holografie: Optimierung der Qualität von  || Optimieren des Beugungswirkungsgrades Diffraktiv Optischer E || Entwicklung eines neuartigen Strahlteilers für Hochleistungs || Diffraktiv optische Elemente aus BK7 mit Hilfe thermischen I || DOE-Strahlteiler zum kontinuierlichen Messen der Leistung vo"
+  },
+  {
+    "id": 395,
+    "init": "U.",
+    "nachname": "Berg",
+    "aff": "Optocraft GmbH, Am Weichselgarten 7, 91058 Erlangen, Germany",
+    "n_papers": 5,
+    "sample_titles": "Partielle Kohärenz beim Shack-Hartmann Test || Tailoring the directional characteristic of a ground glass s || DOE-basierter Ansatz zur gleichzeitigen Vermessung von Aberr || Hochgenaue und rückgeführte Charakterisierung von Wellenfron || Charakterisierung von Wellenfrontsensoren mittels sphärische"
+  },
+  {
+    "id": 605,
+    "init": "R.",
+    "nachname": "Dorn",
+    "aff": "Optocraft GmbH, Am Weichselgarten 7, 91058 Erlangen, Germany",
+    "n_papers": 5,
+    "sample_titles": "Fast, comprehensive and reliable testing of micro-optical el || Nicht-Null Test in Durchlicht und Auflicht || DOE-basierter Ansatz zur gleichzeitigen Vermessung von Aberr || Wellenfront geführte Justage und Prüfung von Optiksystemen m || Funktionsprüfung von Stereomikroskopobjektiven bei mehreren "
+  },
+  {
+    "id": 794,
+    "init": "A.",
+    "nachname": "Bösel",
+    "aff": "Institut für Physik",
+    "n_papers": 5,
+    "sample_titles": "Single-mode-frequency-tuning of an ECDL in Littrow configura || Durchstimmbarer ECDL in Littrow-Konfiguration mit thermisch  || Monofrequente und modensprungfreie Durchstimmung eines Exter || Monofrequente und modensprungfreie Durchstimmung eines Exter || Optischer Sensor zur Abstands- und Geschwindigkeitsmessung"
+  },
+  {
+    "id": 931,
+    "init": "M.",
+    "nachname": "Wördemann",
+    "aff": "University of Münster",
+    "n_papers": 5,
+    "sample_titles": "Bestimmung von Geschwindigkeitsfeldern in Strömungen durch A || Strömungsanalyse von Gasmischsystemen durch photorefraktive  || Nichtlinear optische Geschwindigkeitsfeldanalyse vom mikrosk || Depth Resolution of Dynamic Phase Contrast Microscopy || Optische Manipulation in der modernen Mikroskopie – wie holo"
+  },
+  {
+    "id": 1136,
+    "init": "S. W.",
+    "nachname": "Hell",
+    "aff": "Max-Planck-Institut für Biophysikalische Chemie",
+    "n_papers": 5,
+    "sample_titles": "STED-4Pi Microscopy || Ground-State-Depletion Fluorescence Microscopy provides subd || Side-lobe free 4Pi-Microscopy || The role of triplet state relaxation in 1- and 2-photon exci || Sub-diffraction Microscopy utilizing STED (stimulated emissi"
+  },
+  {
+    "id": 1184,
+    "init": "F.",
+    "nachname": "Ahnepohl",
+    "aff": "FHOOW Standort Emden; Loughborough University, Leicestershire (UK)",
+    "n_papers": 5,
+    "sample_titles": "Entwicklung eines neuartigen Strahlteilers für Hochleistungs || Herstellung Diffraktiv Optischer Elemente mittels Nahfeldlit || Optimierung eines Laser Pattern Generators zur Erzeugung meh || Automatisierte 3D-Formvermessung mit optischen Sensoren || DOE-Strahlteiler zum kontinuierlichen Messen der Leistung vo"
+  },
+  {
+    "id": 1639,
+    "init": "C.",
+    "nachname": "Munkelt",
+    "aff": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik",
+    "n_papers": 5,
+    "sample_titles": "3D-Formvermessung mittels Phasenkorrelationstechnik in Stere || Kabelloser, handgeführter 3D-Scanner mit WLAN || Ansichtenplanung zur 3-D Rekonstruktion unter Berücksichtigu || 3D-Sensornetzwerk mit geringer Latenz für die Echtzeit-Objek || Unterwasser-3D-Sensor mit strukturierter Beleuchtung"
+  },
+  {
+    "id": 1851,
+    "init": "E.",
+    "nachname": "Lindner",
+    "aff": "FBGS Technologies GmbH, Winzerlaer Str. 2, 07745 Jena, Germany",
+    "n_papers": 5,
+    "sample_titles": "Faser-Bragg-Gitter für kurze Bragg-Wellenlängen || Two Beam Interferometric Inscription of UV femtosecond Fiber || Erzeugung von Faser-Bragg-Gittern in Saphirfasern für die Ho || Hochtemperaturresistente Metallbeschichtungen für optische F || Novel Bragg grating fibers for strain and temperature separa"
+  },
+  {
+    "id": 1852,
+    "init": "M.",
+    "nachname": "Rothhardt",
+    "aff": "Leibniz-Institut für Photonische Technologien",
+    "n_papers": 5,
+    "sample_titles": "Faser-Bragg-Gitter für kurze Bragg-Wellenlängen || Two Beam Interferometric Inscription of UV femtosecond Fiber || Faserintegriertes Laufzeitspektrometer zur simultanen spektr || Ein faserintegriertes Konzept zur Abstimmung der Emissionswe || Novel Bragg grating fibers for strain and temperature separa"
+  },
+  {
+    "id": 1984,
+    "init": "J.",
+    "nachname": "Schneider",
+    "aff": "RWTH Aachen University",
+    "n_papers": 5,
+    "sample_titles": "Bestimmung der Abbildungsleistung von Sensoren für digitale  || Ein effizientes Verfahren zur Bewertung von Zoom-Objektiven  || Streulichtbasierte Partikelkonzentrationsmessung auf der Gru || Digital Photonics for next generation laser material process || Automated Optical Qualification Method for Position Sensitiv"
+  },
+  {
+    "id": 2109,
+    "init": "O.",
+    "nachname": "Ambacher",
+    "aff": "Fraunhofer Institute for Applied Solid State Physics",
+    "n_papers": 5,
+    "sample_titles": "Planar integrierte freiraum-optische Systeme in Saphir/GaN f || Vergrößerung der Auflösung von Compound Eye Kameras durch in || Scannende Compound-Kamera zur hochauflösenden 3D-Objektabtas || Scannend abbildendes Mikrosystem auf Basis durchstimmbarer E || Tiefenkontrollierbare Bessel-Strahlen für quasi-nichtinvasiv"
+  },
+  {
+    "id": 2527,
+    "init": "I.",
+    "nachname": "Rendina",
+    "aff": "Institute for Microelectronics and Microsystems",
+    "n_papers": 5,
+    "sample_titles": "MICROOPTICS IN CENTRIC DIATOMS || Enhanced stimulated Raman scattering in silicon nanocrystals || Large area light propagation in quasi-zero average refractiv || DNA HYBRIDIZATION DETECTION BY A NANOSTRUCTURED SILICON MICR || Silicon resonant cavity enhanced photodetector based on the "
+  },
+  {
+    "id": 2590,
+    "init": "G. C.",
+    "nachname": "Righini",
+    "aff": "Nello Carrara Institute of Applied Physics",
+    "n_papers": 5,
+    "sample_titles": "DESIGN OF ACTIVE NANOSPHERES AND PLASMON WAVEGUIDES BASED ON || Sol-Gel derived SiO2-SnO2 glass-ceramics planar waveguides || Fabrication and characterization of opals and core-shell sil || X-ray photoelectron spectroscopy of Er3+-activated SiO2-HfO2 || Enhanced Raman gain coefficients and bandwidths of sodium-ni"
+  }
+]

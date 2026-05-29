@@ -1,0 +1,134 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Sebstorganisierte Filamentierung UV-sensitiver Polymere bei partiell-koh\u00e4renter Beleuchtung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          131.318359375,
+          68.22974176313446
+        ],
+        [
+          463.86020151133505,
+          68.22974176313446
+        ],
+        [
+          463.86020151133505,
+          94.9716796875
+        ],
+        [
+          131.318359375,
+          94.9716796875
+        ]
+      ]
+    },
+    {
+      "title": "1 Einf\u00fchrung",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.45088161209068,
+          271.7587890625
+        ],
+        [
+          122.14735516372797,
+          271.7587890625
+        ],
+        [
+          122.14735516372797,
+          281.91629563668744
+        ],
+        [
+          58.45088161209068,
+          281.91629563668744
+        ]
+      ]
+    },
+    {
+      "title": "2 Stabilit\u00e4tsanalyse",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          307.2418136020151,
+          678.5485307212823
+        ],
+        [
+          402.411838790932,
+          678.5485307212823
+        ],
+        [
+          402.411838790932,
+          688.6474609375
+        ],
+        [
+          307.2418136020151,
+          688.6474609375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          100
+        ],
+        [
+          "Span",
+          40
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "PictureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/105_b24"
+}

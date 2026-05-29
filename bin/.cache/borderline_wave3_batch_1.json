@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1161,
+    "init": "T.",
+    "nachname": "May",
+    "aff": "Luphos GmbH",
+    "n_papers": 3,
+    "sample_titles": "Phasenkodierung zur Kapazitätserhöhung eines volumenholograp || Ultra-hochpräzise, kontaktlose, absolute Abstandsmessung dur || Hochgenaue Vermessung asphärischer Linsen in der Fertigungsm"
+  },
+  {
+    "id": 1229,
+    "init": "M.",
+    "nachname": "Teschke",
+    "aff": "Institut für Biomedizinische Technik",
+    "n_papers": 3,
+    "sample_titles": "Computergenerierte holographisch optische Bauelemente || Modifiziertes Phasenkontrastverfahren für die Aufnahme von h || Herstellung diffraktiver optischer Bauelemente mit beliebige"
+  },
+  {
+    "id": 1266,
+    "init": "F.",
+    "nachname": "Gascón",
+    "aff": "Departamento de Física Aplicada II. ETSArquitectura, Univers",
+    "n_papers": 3,
+    "sample_titles": "Speckle Simulation von non-Gaussian rauen Oberflächen || Simulation von Speckle-Mustern im Nahfeld || Einfluss der Justierung der Laserstrahlen bei der ASK Method"
+  },
+  {
+    "id": 1311,
+    "init": "A.",
+    "nachname": "Voigt",
+    "aff": "Technische Universität Dresden",
+    "n_papers": 3,
+    "sample_titles": "Hochauflösender Laser-Doppler-Sensor zur dreikomponentigen o || Hochauflösender Laser-Doppler-Profilsensor zur Durchflussmes || Der Laser-Doppler-Feldsensor - ein bildgebendes Messverfahre"
+  },
+  {
+    "id": 1362,
+    "init": "M.",
+    "nachname": "Tiemann",
+    "aff": "CID GmbH",
+    "n_papers": 3,
+    "sample_titles": "Informationstransfer durch optische räumliche Solitonen in e || The next generation 3D vision system for measuring the indiv || The next generation 3D vision system for measuring the indiv"
+  },
+  {
+    "id": 1421,
+    "init": "C.",
+    "nachname": "Laubis",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 3,
+    "sample_titles": "Untersuchungen zur Eignung der EUV-Scatterometrie zur quanti || Streulichtarme holografische Blaze-Gitter für den EUV-Bereic || Blazed XUV Gratings with a Very Low Level of Stray Light"
+  },
+  {
+    "id": 1551,
+    "init": "A.",
+    "nachname": "Nickel",
+    "aff": "Leibniz Institute of Surface Engineering",
+    "n_papers": 3,
+    "sample_titles": "Deterministische Ionenstrahlkorrektur von Oberflächenformfeh || Deterministische Formgebung kleinformatiger Präzisionsoptike || Blazed XUV Gratings with a Very Low Level of Stray Light"
+  },
+  {
+    "id": 1564,
+    "init": "T.",
+    "nachname": "Arnold",
+    "aff": "Institut für Technische Optik (ITO)",
+    "n_papers": 3,
+    "sample_titles": "Deterministische Formgebung kleinformatiger Präzisionsoptike || Plasma Jet Machining - Fertigung von off-axis Parabolspiegel || CGH-basierte Verbesserung der Messunsicherheit von Positions"
+  },
+  {
+    "id": 1606,
+    "init": "M.",
+    "nachname": "Krauel",
+    "aff": "Canadian Standards Association",
+    "n_papers": 3,
+    "sample_titles": "Einsatz eines LCoS Phasenmodulators zur Wellenfrontkorrektur || Korrektur der Abbildungsfehler des Auges in Echtzeit mit ein || Adaptiver Echtzeitphoropter"
+  },
+  {
+    "id": 1636,
+    "init": "M.",
+    "nachname": "Peschka",
+    "aff": "Carl Zeiss AG",
+    "n_papers": 3,
+    "sample_titles": "Simulation von Zoomsystemen mit Monte Carlo Methoden der Tol || Auswertung und Tolerierung irregulärer interferometrischer P || Optikdesign des Photomaskensystems ZEISS ForTune: Wie man be"
+  },
+  {
+    "id": 1678,
+    "init": "C.",
+    "nachname": "Remmersmann",
+    "aff": "University of Münster",
+    "n_papers": 3,
+    "sample_titles": "Anwendung zeitlicher Phasenschiebeverfahren in einem LED bas || Untersuchungen zur Digitalen Holographie mit synthetisch ver || Optimierung des Phasenrauschens in der zeitlich phasenschieb"
+  },
+  {
+    "id": 1746,
+    "init": "J.",
+    "nachname": "Flügge",
+    "aff": "Physikalisch-Technische Bundesanstalt",
+    "n_papers": 3,
+    "sample_titles": "An investigation the defocus behavior of an optical microsco || Diffraction microtomography with sample rotation : effect of || Design des Verschiebeinterferometers zur Bestimmung der Gitt"
+  },
+  {
+    "id": 1772,
+    "init": "K.",
+    "nachname": "Kröger",
+    "aff": "Innovent",
+    "n_papers": 3,
+    "sample_titles": "Schichtdickenbestimmung an dünnen, optisch transparenten Sch || Besonderheiten bei der Reflexionsgradmessung zur Schichtchar || Deflexionsmessverfahren zur schnellen Charakterisierung von "
+  },
+  {
+    "id": 1958,
+    "init": "M.",
+    "nachname": "Schulte",
+    "aff": "Bremer Institut für angewandte Strahltechnik",
+    "n_papers": 3,
+    "sample_titles": "Sichtstrahlkalibrierung für optisch abbildende Systeme || Reflektometrie - ein flexibles und robustes Messverfahren fü || Praxisgerechte Systemauslegung durch modulare analytische Me"
+  },
+  {
+    "id": 2006,
+    "init": "D.",
+    "nachname": "Link",
+    "aff": "IGES Institut",
+    "n_papers": 3,
+    "sample_titles": "Neuartiges System für die Fundusdiagnostik unter Anwendung v || Farbstimulator für die elektrophysiologische Diagnostik am A || Funduskamera zur berührungslosen Bildgebung und retinalen Ge"
+  },
+  {
+    "id": 2160,
+    "init": "A.",
+    "nachname": "Voss",
+    "aff": "Institut für Strahlwerkzeuge (IFSW), Universität Stuttgart",
+    "n_papers": 3,
+    "sample_titles": "Low-loss resonant grating mirrors for polarization shaping i || Interferenzlithografische Herstellung von rotationssymmetris || Short Coherence Length Interferometer for the Measurement of"
+  },
+  {
+    "id": 2339,
+    "init": "A.",
+    "nachname": "Gebhardt",
+    "aff": "Fraunhofer-Institut für Angewandte Optik und Feinmechanik",
+    "n_papers": 3,
+    "sample_titles": "Hoch nichtlineare Photonische Kristallfasern auf Basis optim || Optimised Glass Rod Drawing Process for Gradient-Index Micro || Bestimmung des Justierfehlers asphärischer Linsen mittels Di"
+  },
+  {
+    "id": 2419,
+    "init": "H. G.",
+    "nachname": "Roskos",
+    "aff": "IGES Institut",
+    "n_papers": 3,
+    "sample_titles": "Untersuchungen technischer Oberflächen mit Terahertz-Strahlu || Terahertz profilometry at 600 GHz with 0.5 µm depth resoluti || Active Terahertz imaging with high acquisition rates and its"
+  },
+  {
+    "id": 2528,
+    "init": "G.",
+    "nachname": "Franz",
+    "aff": "Robert Bosch GmbH",
+    "n_papers": 3,
+    "sample_titles": "Optical form measurement of optical and technical surfaces w || Color Corrected Optics for Multi-Wavelength White Light Inte || Einfluss der Gouy-Phase auf die Ergebnisse von längenmessend"
+  },
+  {
+    "id": 2596,
+    "init": "G.",
+    "nachname": "Coppola",
+    "aff": "Institute for Microelectronics and Microsystems",
+    "n_papers": 3,
+    "sample_titles": "MORPHOLOGICAL ANALYSIS OF ANIMAL SPERM BY MEANS OF A DIGITAL || DNA HYBRIDIZATION DETECTION BY A NANOSTRUCTURED SILICON MICR || Silicon resonant cavity enhanced photodetector based on the "
+  }
+]

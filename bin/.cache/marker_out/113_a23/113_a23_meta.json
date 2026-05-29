@@ -1,0 +1,145 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Highly accurate surface reconstruction for deflectometry",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          133.8671875,
+          68.6591796875
+        ],
+        [
+          462.9935607910156,
+          68.6591796875
+        ],
+        [
+          462.9935607910156,
+          81.468505859375
+        ],
+        [
+          133.8671875,
+          81.468505859375
+        ]
+      ]
+    },
+    {
+      "title": "Li@VEW-GmbH.de",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          253.474609375,
+          141.5140380859375
+        ],
+        [
+          343.824951171875,
+          141.5140380859375
+        ],
+        [
+          343.824951171875,
+          152.119140625
+        ],
+        [
+          253.474609375,
+          152.119140625
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          59.57958984375,
+          257.369140625
+        ],
+        [
+          129.03121948242188,
+          257.369140625
+        ],
+        [
+          129.03121948242188,
+          268.5335693359375
+        ],
+        [
+          59.57958984375,
+          268.5335693359375
+        ]
+      ]
+    },
+    {
+      "title": "2 Principle",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.494140625,
+          656.16796875
+        ],
+        [
+          112.97216033935547,
+          656.16796875
+        ],
+        [
+          112.97216033935547,
+          666.5119476318359
+        ],
+        [
+          58.494140625,
+          666.5119476318359
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          152
+        ],
+        [
+          "Line",
+          78
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "PictureGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/113_a23"
+}
