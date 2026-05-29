@@ -230,9 +230,32 @@ def consolidate_one(aid: int, db_vorname: str, db_nachname: str,
             out["anzeige_name"] = None
         out["reason"] = f"sources={[(s[0], s[2]) for s in sources]}, agree={agree}"
 
-    # ORCID setzen wenn aus OA-Top oder ORCID-Daten
-    if orcid_url:
-        out["orcid_id"] = orcid_url
+    # ORCID setzen NUR wenn der Top-Kandidat plausibel zur Person passt:
+    #   - Vorname-Initial konsistent ODER
+    #   - hoher Aff-Score (>= 0.7) ODER
+    #   - DB-Vorname schon voll und matcht OpenAlex/ORCID-Vorname
+    if orcid_url and oa:
+        oa_first = norm((oa.get("vorname_candidate") or "")).split()
+        oa_first_init = oa_first[0][:1] if oa_first else ""
+        db_init = init  # bereits oben berechnet
+        aff_score = oa.get("aff_score", 0)
+        db_vn_full = (db_vorname or "")
+        db_is_full = len(db_vn_full) > 3 and not db_vn_full.endswith(".")
+        ok = False
+        if db_init and oa_first_init and db_init == oa_first_init:
+            ok = True
+        elif aff_score >= 0.7:
+            ok = True
+        elif db_is_full and oa_first and norm(db_vn_full).split()[0] == oa_first[0]:
+            ok = True
+        # ORCID-Verifikation: family-name muss zum Nachnamen passen
+        if ok and orcid_data and not orcid_data.get("error") and not orcid_data.get("not_found"):
+            of = norm(orcid_data.get("family_name") or "")
+            if of and of != norm(db_nachname):
+                ok = False
+                out["reason"] += " | ORCID family-name mismatch"
+        if ok:
+            out["orcid_id"] = orcid_url
 
     return out
 
@@ -305,10 +328,18 @@ def main():
         applied = 0
         # vorname schreiben?
         if decision["new_vorname"] and decision["confidence"] >= args.min_conf:
-            # nur wenn neuer Vorname länger/vollständiger ist
-            if len(decision["new_vorname"]) > len(db_vn or "") and not (db_vn and len(db_vn) > 3):
+            new_vn = decision["new_vorname"]
+            # Encoding-/Layout-Verdacht: zu kurz, fehlende Vokale, Ersatz-Chars
+            looks_broken = (
+                len(new_vn) < 3
+                or "?" in new_vn or "�" in new_vn
+                or not re.search(r"[aeiouäöüAEIOUÄÖÜ]", new_vn)
+            )
+            # db_vn nur Initialen-Form? (enthält Punkt ODER ist <=3 Zeichen)
+            db_is_initials = bool(db_vn) and ("." in db_vn or len(db_vn) <= 3)
+            if not looks_broken and len(new_vn) > len(db_vn or "") and db_is_initials:
                 con.execute("UPDATE autoren SET vorname=? WHERE id=?",
-                            (decision["new_vorname"], aid))
+                            (new_vn, aid))
                 written_vn += 1
                 applied = 1
         # anzeige_name schreiben
