@@ -5,7 +5,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/helpers.php';
 
-const DB_SCHEMA_VERSION = 8;
+const DB_SCHEMA_VERSION = 9;
 
 function getDb(): PDO
 {
@@ -319,6 +319,48 @@ function runMigrations(PDO $db): void
             throw $e;
         }
         $db->exec('PRAGMA foreign_keys = ON');
+    }
+
+    // v9: Vollständige Namens-Auflösung + zeitliche/mehrfache Affiliations.
+    //   a) autoren.anzeige_name (ORCID credit-name; sonst NULL → Anzeige
+    //      über COALESCE(anzeige_name, vorname || ' ' || nachname))
+    //   b) institutionen: parent_id (FK statt String-universitaet),
+    //      typ, homepage_url, wikidata_id — ROR-konform
+    //   c) paper_autor_institutionen: Source of Truth pro Paper-Autor-Affil.
+    //      Mehrere Zeilen pro (paper,autor) erlauben parallele Affiliations.
+    $autorenCols     = $db->query('PRAGMA table_info(autoren)')->fetchAll(PDO::FETCH_COLUMN, 1);
+    $institutionenCols = $db->query('PRAGMA table_info(institutionen)')->fetchAll(PDO::FETCH_COLUMN, 1);
+
+    if (!in_array('anzeige_name', $autorenCols, true)) {
+        $db->exec('ALTER TABLE autoren ADD COLUMN anzeige_name TEXT');
+    }
+    if (!in_array('parent_id', $institutionenCols, true)) {
+        $db->exec('ALTER TABLE institutionen ADD COLUMN parent_id INTEGER REFERENCES institutionen(id)');
+        $db->exec('CREATE INDEX IF NOT EXISTS idx_institutionen_parent ON institutionen(parent_id)');
+    }
+    if (!in_array('typ', $institutionenCols, true)) {
+        $db->exec('ALTER TABLE institutionen ADD COLUMN typ TEXT');
+    }
+    if (!in_array('homepage_url', $institutionenCols, true)) {
+        $db->exec('ALTER TABLE institutionen ADD COLUMN homepage_url TEXT');
+    }
+    if (!in_array('wikidata_id', $institutionenCols, true)) {
+        $db->exec('ALTER TABLE institutionen ADD COLUMN wikidata_id TEXT');
+    }
+
+    $hasPaperAutorInst = (int) $db->query("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='paper_autor_institutionen'")->fetchColumn();
+    if (!$hasPaperAutorInst) {
+        $db->exec("CREATE TABLE paper_autor_institutionen (
+            paper_id    TEXT    NOT NULL REFERENCES papers(id) ON DELETE CASCADE,
+            autor_id    INTEGER NOT NULL REFERENCES autoren(id) ON DELETE CASCADE,
+            institut_id INTEGER NOT NULL REFERENCES institutionen(id) ON DELETE CASCADE,
+            quelle      TEXT,
+            created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+            PRIMARY KEY (paper_id, autor_id, institut_id)
+        )");
+        $db->exec('CREATE INDEX idx_pai_autor    ON paper_autor_institutionen(autor_id)');
+        $db->exec('CREATE INDEX idx_pai_institut ON paper_autor_institutionen(institut_id)');
+        $db->exec('CREATE INDEX idx_pai_paper    ON paper_autor_institutionen(paper_id)');
     }
 
     $db->exec('PRAGMA user_version = ' . DB_SCHEMA_VERSION);
