@@ -18,6 +18,7 @@ import sqlite3
 import sys
 import time
 import unicodedata
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -81,16 +82,40 @@ def prefix_match(a: str, b: str, n=6) -> bool:
     return len(a) >= n and len(b) >= n and a[:n] == b[:n]
 
 
+_LAST_CALL = [0.0]
+_MIN_INTERVAL = 0.15  # ~6 req/s, unter dem 10 RPS Polite-Pool-Limit
+
+
 def api_get(path: str, params: dict) -> dict:
+    # Throttle: minimaler Abstand zwischen Calls
+    now = time.time()
+    wait = _MIN_INTERVAL - (now - _LAST_CALL[0])
+    if wait > 0:
+        time.sleep(wait)
+    _LAST_CALL[0] = time.time()
+
     params = {**params, "mailto": MAILTO}
     url = f"{BASE}/{path}?" + urllib.parse.urlencode(params)
     req = urllib.request.Request(url, headers={"User-Agent": f"DGaO-cleanup ({MAILTO})"})
-    for attempt in range(3):
+    for attempt in range(5):
         try:
             with urllib.request.urlopen(req, timeout=30) as r:
                 return json.loads(r.read().decode())
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                # Rate-Limit: längere Pause + zunehmend warten
+                wait = 30 * (attempt + 1)
+                print(f"    429 Rate-Limit, warte {wait}s (Versuch {attempt+1})", file=sys.stderr)
+                time.sleep(wait)
+                continue
+            if e.code == 404:
+                return {}
+            if attempt == 4:
+                print(f"    HTTP {e.code}: {e}", file=sys.stderr)
+                return {}
+            time.sleep(2 ** attempt)
         except Exception as e:
-            if attempt == 2:
+            if attempt == 4:
                 print(f"    API-Fehler: {e}", file=sys.stderr)
                 return {}
             time.sleep(2 ** attempt)
