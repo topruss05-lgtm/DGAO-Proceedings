@@ -136,6 +136,9 @@ def main():
 
         # ORCID setzen NUR nach Family-Name-Verifikation
         if decision_orcid and not row["orcid_id"]:
+            # URL-Prefix normalisieren
+            if not decision_orcid.startswith("http"):
+                decision_orcid = "https://orcid.org/" + decision_orcid.strip()
             if verify_orcid_family(decision_orcid, row["nachname"]):
                 if args.apply:
                     con.execute("UPDATE autoren SET orcid_id=? WHERE id=?",
