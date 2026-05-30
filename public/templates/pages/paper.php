@@ -135,15 +135,47 @@ $pdfRelUrl = pdfUrl($paper);
 
     <h1 class="h4 mb-3"><?= e($paper['titel']) ?></h1>
 
-    <div class="mb-3">
-        <?php foreach ($autoren as $a): ?>
-            <a href="/autor/<?= $a['id'] ?>" class="accent-link me-2"<?php if (!empty($a['affiliation'])): ?> title="<?= e($a['affiliation']) ?>"<?php endif; ?>>
-                <?= e($a['name']) ?><?php if ($a['ist_hauptautor']): ?> <i class="bi bi-star-fill text-warning small"></i><?php endif; ?>
+    <?php
+    // Build distinct Affil-Liste mit numerischem Marker (1, 2, 3...)
+    // Pro Autor: welche Marker (Liste der distinct-Affil-Indices)
+    $affilIndex = []; // institut_id -> [index, name]
+    $orderedAffils = [];
+    foreach ($autoren as $a) {
+        foreach (($a['affils'] ?? []) as $af) {
+            if (!isset($affilIndex[$af['institut_id']])) {
+                $idx = count($affilIndex) + 1;
+                $affilIndex[$af['institut_id']] = ['idx' => $idx, 'name' => $af['name']];
+                $orderedAffils[$idx] = $af;
+            }
+        }
+    }
+    $showMarkers = count($affilIndex) > 1;
+    ?>
+
+    <div class="mb-3 paper-authors">
+        <?php foreach ($autoren as $a):
+            $markers = [];
+            foreach (($a['affils'] ?? []) as $af) {
+                $markers[] = $affilIndex[$af['institut_id']]['idx'];
+            }
+            sort($markers);
+        ?>
+            <a href="/autor/<?= $a['autor_id'] ?>" class="accent-link me-2"<?php if (!empty($a['affiliation'])): ?> title="<?= e($a['affiliation']) ?>"<?php endif; ?>>
+                <?= e($a['name']) ?><?php if ($a['ist_hauptautor']): ?> <i class="bi bi-star-fill text-warning small"></i><?php endif; ?><?php if ($showMarkers && $markers): ?><sup class="text-muted ms-1"><?= e(implode(',', $markers)) ?></sup><?php endif; ?>
             </a>
         <?php endforeach; ?>
     </div>
 
-    <?php if ($paper['affiliationen']): ?>
+    <?php if (!empty($orderedAffils)): ?>
+    <div class="text-muted small mb-3 paper-affils">
+        <?php foreach ($orderedAffils as $idx => $af): ?>
+            <div>
+                <?php if ($showMarkers): ?><sup class="me-1"><?= $idx ?></sup><?php endif; ?>
+                <?= e($af['name']) ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <?php elseif ($paper['affiliationen']): ?>
     <p class="text-muted small mb-3"><?= nl2br(e($paper['affiliationen'])) ?></p>
     <?php endif; ?>
 
