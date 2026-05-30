@@ -760,7 +760,7 @@ function getAutorAffiliations(int $autorId): array
         JOIN tagungen t ON t.nummer = p.tagung_nummer
         JOIN institutionen i ON i.id = pai.institut_id
         WHERE pai.autor_id = ?
-          AND pai.quelle IN ('nuextract','pdf','single_affil','anker','openalex','orcid','fitz_marker')
+          AND pai.quelle IN ('nuextract','pdf','single_affil','anker','openalex','orcid')
         GROUP BY pai.institut_id
         ORDER BY jahr_bis DESC, n_papers DESC, name COLLATE NOCASE
     ");
