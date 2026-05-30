@@ -5,7 +5,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/helpers.php';
 
-const DB_SCHEMA_VERSION = 9;
+const DB_SCHEMA_VERSION = 10;
 
 function getDb(): PDO
 {
@@ -361,6 +361,32 @@ function runMigrations(PDO $db): void
         $db->exec('CREATE INDEX idx_pai_autor    ON paper_autor_institutionen(autor_id)');
         $db->exec('CREATE INDEX idx_pai_institut ON paper_autor_institutionen(institut_id)');
         $db->exec('CREATE INDEX idx_pai_paper    ON paper_autor_institutionen(paper_id)');
+    }
+
+    // v10: autor_institutionen wird obsolet. paper_autor_institutionen ist Source of Truth.
+    // Drei Schritte: ai-Daten in pai migrieren -> orphan Autoren loeschen -> ai droppen.
+    $hasAi = (int) $db->query("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='autor_institutionen'")->fetchColumn();
+    if ($hasAi) {
+        // 1. Fehlende pai-Eintraege aus ai befuellen
+        $db->exec("
+            INSERT OR IGNORE INTO paper_autor_institutionen (paper_id, autor_id, institut_id, quelle)
+            SELECT pa.paper_id, pa.autor_id, ai.institut_id, 'legacy_ai'
+            FROM paper_autoren pa
+            JOIN autor_institutionen ai ON ai.autor_id = pa.autor_id
+            WHERE NOT EXISTS (
+                SELECT 1 FROM paper_autor_institutionen pai
+                WHERE pai.paper_id = pa.paper_id AND pai.autor_id = pa.autor_id
+            )
+        ");
+        // 2. Autoren ohne Paper loeschen (Invariante: jeder Autor in DB hat >=1 Paper)
+        $db->exec("
+            DELETE FROM autoren WHERE id IN (
+                SELECT a.id FROM autoren a
+                WHERE NOT EXISTS (SELECT 1 FROM paper_autoren pa WHERE pa.autor_id = a.id)
+            )
+        ");
+        // 3. ai-Tabelle endgueltig droppen
+        $db->exec('DROP TABLE autor_institutionen');
     }
 
     $db->exec('PRAGMA user_version = ' . DB_SCHEMA_VERSION);

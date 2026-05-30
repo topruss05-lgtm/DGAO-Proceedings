@@ -59,37 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             setFlash('success', 'Alias entfernt.');
             header("Location: /admin/autoren/$autorId/edit");
             exit;
-        } elseif ($action === 'add_affil') {
-            $institutId = (int)($_POST['institut_id'] ?? 0);
-            $aktuell    = isset($_POST['ist_aktuell']) ? 1 : 0;
-            if ($institutId <= 0) {
-                $errors[] = 'Bitte Institution waehlen (ID).';
-            } else {
-                $exists = $dbw->prepare('SELECT 1 FROM institutionen WHERE id=?');
-                $exists->execute([$institutId]);
-                if (!$exists->fetchColumn()) {
-                    $errors[] = "Institution #$institutId existiert nicht.";
-                } else {
-                    $dbw->prepare('INSERT OR REPLACE INTO autor_institutionen (autor_id, institut_id, ist_aktuell) VALUES (?, ?, ?)')
-                        ->execute([$autorId, $institutId, $aktuell]);
-                    setFlash('success', 'Affiliation hinzugefuegt.');
-                    header("Location: /admin/autoren/$autorId/edit");
-                    exit;
-                }
-            }
-        } elseif ($action === 'delete_affil') {
-            $institutId = (int)($_POST['institut_id'] ?? 0);
-            $dbw->prepare('DELETE FROM autor_institutionen WHERE autor_id=? AND institut_id=?')
-                ->execute([$autorId, $institutId]);
-            setFlash('success', 'Affiliation entfernt.');
-            header("Location: /admin/autoren/$autorId/edit");
-            exit;
-        } elseif ($action === 'toggle_aktuell') {
-            $institutId = (int)($_POST['institut_id'] ?? 0);
-            $dbw->prepare('UPDATE autor_institutionen SET ist_aktuell = 1 - ist_aktuell WHERE autor_id=? AND institut_id=?')
-                ->execute([$autorId, $institutId]);
-            header("Location: /admin/autoren/$autorId/edit");
-            exit;
         }
     } catch (Throwable $e) {
         error_log('autor_edit save: ' . $e);
@@ -102,22 +71,7 @@ $aliase = $db->prepare('SELECT id, alias_text, alias_norm FROM autor_aliase WHER
 $aliase->execute([$autorId]);
 $aliase = $aliase->fetchAll();
 
-// Affiliations (autor_institutionen)
-$affils = $db->prepare('
-    SELECT ai.institut_id, ai.ist_aktuell,
-           i.name_de, i.kuerzel, i.ort, i.land,
-           (SELECT COUNT(DISTINCT pai.paper_id)
-              FROM paper_autor_institutionen pai
-              WHERE pai.autor_id = ai.autor_id AND pai.institut_id = ai.institut_id) AS n_papers_pai
-    FROM autor_institutionen ai
-    JOIN institutionen i ON i.id = ai.institut_id
-    WHERE ai.autor_id = ?
-    ORDER BY ai.ist_aktuell DESC, n_papers_pai DESC, i.name_de COLLATE NOCASE
-');
-$affils->execute([$autorId]);
-$affils = $affils->fetchAll();
-
-// Pro Paper: welche Institute (paper_autor_institutionen) — read-only Anzeige
+// Pro Paper: welche Institute (paper_autor_institutionen) — Editierung via Paper-Edit
 $paperAffils = $db->prepare('
     SELECT p.id, p.code, p.tagung_nummer, p.titel,
            pai.institut_id, pai.quelle,
@@ -250,90 +204,13 @@ $paperCount = count($papersGrouped);
         </div>
     </div>
 
-    <!-- Affiliationen -->
-    <div class="col-12">
-        <div class="card">
-            <div class="card-header py-2 d-flex justify-content-between align-items-center">
-                <strong>Affiliationen (autor_institutionen)</strong>
-                <span class="text-muted small"><?= count($affils) ?> verknuepft</span>
-            </div>
-            <div class="card-body p-0">
-                <?php if (empty($affils)): ?>
-                <div class="p-3 text-muted small">Keine Affiliations verknuepft. Fuege unten eine Institution per ID hinzu (oder ueber das Frontend-OCR).</div>
-                <?php else: ?>
-                <div class="table-responsive">
-                    <table class="table table-sm mb-0 align-middle">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Institut</th>
-                                <th>Kuerzel</th>
-                                <th>Ort</th>
-                                <th>Land</th>
-                                <th class="text-center">aktuell?</th>
-                                <th class="text-end">Papers</th>
-                                <th class="text-end">Aktionen</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($affils as $af): ?>
-                            <tr>
-                                <td><code><?= (int)$af['institut_id'] ?></code></td>
-                                <td>
-                                    <a href="/admin/institute/<?= (int)$af['institut_id'] ?>/edit" class="text-decoration-none">
-                                        <?= e($af['name_de']) ?>
-                                    </a>
-                                </td>
-                                <td><?= e($af['kuerzel'] ?? '') ?></td>
-                                <td class="small text-muted"><?= e($af['ort'] ?? '') ?></td>
-                                <td class="small text-muted"><?= e($af['land'] ?? '') ?></td>
-                                <td class="text-center">
-                                    <form method="post" class="d-inline">
-                                        <?= csrfField() ?>
-                                        <input type="hidden" name="action" value="toggle_aktuell">
-                                        <input type="hidden" name="institut_id" value="<?= (int)$af['institut_id'] ?>">
-                                        <button type="submit" class="btn btn-sm btn-link p-0" title="aktuell umschalten">
-                                            <?= $af['ist_aktuell'] ? '<i class="bi bi-check-circle-fill text-success"></i>' : '<i class="bi bi-circle text-muted"></i>' ?>
-                                        </button>
-                                    </form>
-                                </td>
-                                <td class="text-end small"><?= (int)$af['n_papers_pai'] ?></td>
-                                <td class="text-end">
-                                    <form method="post" class="d-inline" onsubmit="return confirm('Verknuepfung loesen?');">
-                                        <?= csrfField() ?>
-                                        <input type="hidden" name="action" value="delete_affil">
-                                        <input type="hidden" name="institut_id" value="<?= (int)$af['institut_id'] ?>">
-                                        <button type="submit" class="btn btn-sm btn-link p-0 text-danger" title="Verknuepfung loesen"><i class="bi bi-x-lg"></i></button>
-                                    </form>
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </div>
-                <?php endif; ?>
-                <div class="border-top p-2">
-                    <form method="post" class="d-flex gap-2 align-items-center">
-                        <?= csrfField() ?>
-                        <input type="hidden" name="action" value="add_affil">
-                        <input type="number" class="form-control form-control-sm" name="institut_id"
-                               placeholder="Institut-ID" required style="max-width: 130px;">
-                        <div class="form-check form-check-inline mb-0">
-                            <input class="form-check-input" type="checkbox" id="ist_akt_new" name="ist_aktuell" value="1" checked>
-                            <label class="form-check-label small" for="ist_akt_new">aktuell</label>
-                        </div>
-                        <button type="submit" class="btn btn-sm btn-outline-primary"><i class="bi bi-plus-lg"></i> Verknuepfen</button>
-                        <span class="text-muted small ms-2">ID findest du ueber den Institut-Link in einer anderen Zeile oder ueber Paper-Affils.</span>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Pro Paper -->
     <div class="col-12">
         <div class="card">
-            <div class="card-header py-2"><strong>Pro Paper: zugeordnete Institute (paper_autor_institutionen)</strong></div>
+            <div class="card-header py-2 d-flex justify-content-between align-items-center">
+                <strong>Affiliationen pro Paper</strong>
+                <span class="text-muted small">Edit pro Paper &rarr; Pencil-Button</span>
+            </div>
             <div class="card-body p-0">
                 <?php if (empty($papersGrouped)): ?>
                 <div class="p-3 text-muted small">Keine Papers verknuepft.</div>

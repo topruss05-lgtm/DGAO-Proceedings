@@ -484,7 +484,7 @@ function getTopAuthorSuggestions(int $limit = 200): array
 
 /**
  * Top-N Institut-Namen (lokalisiert) nach Anzahl verknüpfter Autoren.
- * Verwendet die kanonische institutionen-Tabelle (Schema v8+).
+ * Aggregiert aus paper_autor_institutionen (Source of Truth seit v10).
  * @return list<string>
  */
 function getTopAffiliationSuggestions(int $limit = 100): array
@@ -493,9 +493,9 @@ function getTopAffiliationSuggestions(int $limit = 100): array
     $instCol = $lang === 'en' ? 'i.name_en' : 'i.name_de';
     $stmt = getDb()->prepare("
         SELECT COALESCE(NULLIF($instCol, ''), i.name_de) AS affiliation,
-               COUNT(DISTINCT ai.autor_id) AS n
+               COUNT(DISTINCT pai.autor_id) AS n
         FROM institutionen i
-        JOIN autor_institutionen ai ON ai.institut_id = i.id
+        JOIN paper_autor_institutionen pai ON pai.institut_id = i.id
         GROUP BY i.id
         ORDER BY n DESC, affiliation COLLATE NOCASE
         LIMIT ?
@@ -785,28 +785,6 @@ function getAutorAffiliations(int $autorId): array
         ");
         $stmt->execute([$autorId]);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    if (!$rows) {
-        // Legacy-Fallback: autor_institutionen (binaeres ist_aktuell)
-        $stmt = $db->prepare("
-            SELECT ai.institut_id,
-                   $instCol AS name,
-                   NULL AS jahr_von, NULL AS jahr_bis,
-                   0 AS n_papers,
-                   ai.ist_aktuell
-            FROM autor_institutionen ai
-            JOIN institutionen i ON i.id = ai.institut_id
-            WHERE ai.autor_id = ?
-            ORDER BY ai.ist_aktuell DESC, name COLLATE NOCASE
-        ");
-        $stmt->execute([$autorId]);
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($rows as &$r) {
-            $r['ist_aktuell'] = (bool)($r['ist_aktuell'] ?? false);
-        }
-        unset($r);
-        return $rows;
     }
 
     // jüngste(s) Institut(e) als "ist_aktuell" markieren

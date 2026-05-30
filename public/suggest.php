@@ -45,23 +45,16 @@ $qNorm   = normalizeForAliasMatch($q);
 $lang    = $_SESSION['lang'] ?? 'de';
 $instCol = $lang === 'en' ? 'i.name_en' : 'i.name_de';
 
-// Author-Match: bevorzugt aus paper_autor_institutionen (paper-spezifisch),
-// fallback auf autor_institutionen (Legacy/uncovered).
+// Author-Match: Affil aus paper_autor_institutionen (Source of Truth seit v10).
 $stmtA = $db->prepare("
     SELECT a.id, a.vorname, a.nachname, a.anzeige_name,
-           COALESCE(
-             (SELECT $instCol
+           (SELECT $instCol
               FROM paper_autor_institutionen pai
               JOIN institutionen i ON i.id = pai.institut_id
               JOIN papers p ON p.id = pai.paper_id
               JOIN tagungen t ON t.nummer = p.tagung_nummer
               WHERE pai.autor_id = a.id
-              ORDER BY t.jahr DESC LIMIT 1),
-             (SELECT COALESCE(NULLIF($instCol, ''), i.name_de)
-              FROM autor_institutionen ai
-              JOIN institutionen i ON i.id = ai.institut_id
-              WHERE ai.autor_id = a.id AND ai.ist_aktuell = 1 LIMIT 1)
-           ) AS aff,
+              ORDER BY t.jahr DESC LIMIT 1) AS aff,
            COUNT(DISTINCT pa.paper_id) AS papers
     FROM autoren a
     JOIN paper_autoren pa ON pa.autor_id = a.id
@@ -74,16 +67,6 @@ $stmtA = $db->prepare("
             JOIN institutionen i ON i.id = pai.institut_id
             LEFT JOIN institut_aliase ia ON ia.institut_id = i.id
             WHERE pai.autor_id = a.id
-              AND (   i.name_de LIKE :q   COLLATE NOCASE
-                   OR i.name_en LIKE :q2  COLLATE NOCASE
-                   OR i.kuerzel LIKE :q3  COLLATE NOCASE
-                   OR ia.alias_norm LIKE :qnorm2)
-          )
-       OR EXISTS (
-            SELECT 1 FROM autor_institutionen ai
-            JOIN institutionen i ON i.id = ai.institut_id
-            LEFT JOIN institut_aliase ia ON ia.institut_id = i.id
-            WHERE ai.autor_id = a.id
               AND (   i.name_de LIKE :q   COLLATE NOCASE
                    OR i.name_en LIKE :q2  COLLATE NOCASE
                    OR i.kuerzel LIKE :q3  COLLATE NOCASE
