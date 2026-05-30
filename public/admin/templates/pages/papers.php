@@ -21,14 +21,16 @@ if ($tagungFilter > 0) {
 }
 
 // Zentrale Such-Helper aus helpers.php
-$pag = paginate(0, $perPage, $currentPage);  // erst dummy, dann update
+// Offset MUSS aus currentPage berechnet werden — nicht aus paginate(0,...),
+// das clamped currentPage auf 1 weil total=0.
+$offset = ($currentPage - 1) * $perPage;
 $result = searchPapers([
     'q'       => $q,
     'tagung'  => $tagungFilter,
     'session' => $sessionFilter,
     'sort'    => $sort,
     'limit'   => $perPage,
-    'offset'  => $pag['offset'],
+    'offset'  => $offset,
 ]);
 $pag = paginate($result['total'], $perPage, $currentPage);
 $papers = $result['rows'];

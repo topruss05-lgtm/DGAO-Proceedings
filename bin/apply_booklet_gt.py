@@ -27,7 +27,7 @@ import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-GT_DIR = ROOT / "bin" / ".cache" / "gt"
+GT_DIR = ROOT / "data" / "booklet_gt"
 DB = ROOT / "public" / "data" / "proceedings.db"
 
 

@@ -1,0 +1,1493 @@
+{
+  "booklet": "DGaO_2022",
+  "jahr": 2022,
+  "tagung_nummer_match": 123,
+  "n_papers": 67,
+  "papers": [
+    {
+      "code": "H1",
+      "title": "Photonische Technologien in der Fakultät Technik",
+      "authors": [
+        {
+          "name": "S. Reichel",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "R. Wahl",
+          "affiliation_markers": []
+        },
+        {
+          "name": "K. Blankenbach",
+          "affiliation_markers": []
+        },
+        {
+          "name": "T. Greiner",
+          "affiliation_markers": [
+            "*"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Hochschule Pforzheim, Tiefenbronner Str. 65, D-75175 Pforzheim, Germany"
+        }
+      ],
+      "abstract": "Die Fakultät für Technik der Hochschule Pforzheim wurde 1991 gegründet. Derzeit studieren über 2.300 angehende Ingenieure in den Bereichen Informationstechnik, Maschinenbau und Wirtschaftsingenieurwesen in verschiedenen Bachelor- und Master-Programmen. Im Bereich der Photonischen Technologien wird in der Lasermaterialbearbeitung, in Elektronischen Displays und deren Messtechnik sowie LEDs, in der Bildverarbeitung, in der Strahlen- und Wellenoptik sowie in der optischen Messtechnik gelehrt und geforscht. Der Technologie-Transfer und Forschungskooperationen werden über das Institut für Smart Systems und Services (IoS3) und die Labore (Optik und Photonik, Fertigungstechnik und Lasertechnik, Bildverarbeitung und das Displaylabor – www.displaylab.org) organisiert. Neben einer kurzen Vorstellung der Fakultät für Technik werden die verschiedenen Forschungsschwerpunkte aus allen vier Laboren vorgestellt und erläutert.",
+      "email": "steffen.reichel@hs-pforzheim.de",
+      "_page": 9
+    },
+    {
+      "code": "A1",
+      "title": "Metrologie zur Identifikation und Charakterisierung von Materialdefekten an GaN- und SiC-Wafern",
+      "authors": [
+        {
+          "name": "J. Grundmann",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "B. Bodermann",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "Physikalisch-Technische Bundesanstalt (PTB), Bundesallee 100, 38116 Braunschweig, Germany"
+        }
+      ],
+      "abstract": "In der Leistungselektronik gibt es aktuell einen Übergang von Silizium- zu Halbleitermaterialien mit großer Bandlücke, wie z. B. GaN oder SiC. Diese Materialien bieten große Vorteile, da sie bei höherer Leistungsdichte, Temperatur und Spannung arbeiten können. Allerdings beeinträchtigen Materialdefekte die Langzeitstabilität der Halbleiter, die mit existierenden Methoden während des Fertigungsprozesses schwierig zu identifizieren und zu charakterisieren sind. Aus diesem Grund sollen neuartige Techniken entwickelt werden, die dies ermöglichen. Eine mögliche Technik basiert auf scatterometrischen bzw. ellipsometrischen Messungen, die optisch und zerstörungsfrei arbeiten. Damit sind Sensitivitäten bis auf wenige Nanometer möglich. GaN- und SiC-Wafer mit unterschiedlichen Defektdichten und -typen werden spektroskopisch vermessen und mittels rigorosen Finite-Elemente-Methoden analysiert. Die hier vorgestellten Ergebnisse werden mit denen herkömmlicher Wafer-Inspektions-Tools, wie z. B. Surfscan, verglichen, um die Performance der neuartigen Messmethode zu validieren. Außerdem wird diskutiert, inwiefern zur Detektion von Defekten Methoden des Machine Learnings angewendet werden können.",
+      "email": null,
+      "_page": 11
+    },
+    {
+      "code": "A2",
+      "title": "Bildbasierte Abstandsrekonstruktion mittels holographisch vervielfältigter Doppel-Helix-PSF",
+      "authors": [
+        {
+          "name": "S. Hartlieb",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "C. Schober",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "T. Haist",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "S. Reichelt",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "Institut für Technische Optik, Universität Stuttgart"
+        }
+      ],
+      "abstract": "Durch die Abbildung von Punkten im Raum auf einen Bildsensor können bei der konventionellen Abbildung die Positionen im Raum nicht rekonstruiert werden. Aus der Mikroskopie sind verschiedene Methoden bekannt, mit denen der Abstand einzelner Punktobjekte aus einem Einzelbild rekonstruiert wird. Beispiele hierfür sind Methoden basierend auf Defokus, Astigmatismus, sowie der Anwendung rotierender PSFs. Diese Verfahren funktionieren vor allem aufgrund der großen objektivseitigen numerischen Apertur (NA) vergleichsweise gut. In diesem Beitrag wird untersucht, inwieweit sich eine Einzelbild-Abstandsrekonstruktion für ein Abbildungssystem mit kleiner Apertur (NA = 0,06) und somit großem (makroskopischen) axialen Messbereich umsetzen lässt. Um trotz kleiner NA eine gute Messgenauigkeit zu erzielen, wird die Multi-Punkt-Methode mit der Anwendung einer Doppel-Helix-PSF und einer korrelationsbasierten Auswertung kombiniert. Erste Ergebnisse zeigen, dass sich die axiale Position einer Punktlichtquelle über einem axialen Messbereich von 20 mm mit einer Messunsicherheit von 8 µm detektieren lässt. Mit der Methodik lassen sich 3D Positionen sehr kostengünstig simultan für mehrere Objekte erfassen.",
+      "email": "hartlieb@ito.uni-stuttgart.de",
+      "_page": 11
+    },
+    {
+      "code": "A3",
+      "title": "Miniaturisierte optische 3D-Messtechnik für industrielle Bauteile mit beschränkter Zugänglichkeit",
+      "authors": [
+        {
+          "name": "N. Borchers",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "M. Hillenbrand",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "T. Haist",
+          "affiliation_markers": []
+        },
+        {
+          "name": "A.M. Herkommer",
+          "affiliation_markers": [
+            "*"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Institut für Technische Optik, Universität Stuttgart"
+        },
+        {
+          "marker": "**",
+          "name": "Corporate Research & Technology, Carl Zeiss AG"
+        }
+      ],
+      "abstract": "Verschiedene industriell relevante Anwendungen, wie z.B. Blisks oder Innenzahnräder, führen zu einem steigenden Bedarf für die quantitative Erfassung von Oberflächengeometrien mit beschränkter Zugänglichkeit. Gleichzeitig werden immer mehr Messaufgaben im industriellen Umfeld statt mit taktilen Koordinatenmessmaschinen, die eine gute Zugänglichkeit gewährleisten, mit auf optischen Messprinzipien beruhenden Sensoren bedingt, da diese über einen Geschwindigkeitsvorteil verfügen und flächige Messungen ermöglichen. Für die Nutzung von optisch messenden Systemen für diese Aufgaben ist daher eine Miniaturisierung der Systeme notwendig. Es wird: 1. ein Vergleich unterschiedlicher optischer Messansätze durchgeführt. 2. ein auf Streifenlichtprojektion basierender Ansatz für die quantitative Charakterisierung der Oberflächengeometrie von Blisks vorgestellt.",
+      "email": "niklas.borchers@zeiss.com",
+      "_page": 13
+    },
+    {
+      "code": "A4",
+      "title": "Unterwasser-3D-Sensor mit strukturierte Beleuchtung",
+      "authors": [
+        {
+          "name": "C. Bräuer-Burchardt",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "C. Munkelt",
+          "affiliation_markers": []
+        },
+        {
+          "name": "M. Heinze",
+          "affiliation_markers": []
+        },
+        {
+          "name": "I. Gebhardt",
+          "affiliation_markers": []
+        },
+        {
+          "name": "S. Heist",
+          "affiliation_markers": []
+        },
+        {
+          "name": "P. Kühmstedt",
+          "affiliation_markers": []
+        },
+        {
+          "name": "G. Notni",
+          "affiliation_markers": [
+            "***"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Fraunhofer Institut für Angewandte Optik und Feinmechanik IOF Jena"
+        },
+        {
+          "marker": "**",
+          "name": "Technische Universität Ilmenau"
+        }
+      ],
+      "abstract": "Dreidimensionalen Messungen kommt in vielen maritimen Anwendungen eine immer größere Bedeutung zu. Daher haben wir im Rahmen eines Verbundvorhabens einen für den Tiefseeeinsatz geeigneten Unterwasser-3D-Sensor entwickelt, der die Inspektion von Strukturen wie z. B. Rohrleitungssystemen in bis zu 1.000 m Wassertiefe ermöglicht. Mit dem für den ROV-Einsatz konzipierten Sensor können vollständige 3D-Oberflächenmodelle der zu inspizierenden Objekte generiert werden, indem während des Vorbeifahrens kontinuierlich 3D-Daten erfasst und mithilfe einer integrierten IMU in das bisherige Modell eingefügt werden. Durch den Einsatz der GOBO-Projektionstechnik mit starken LED-Lichtquellen, empfindlicher Messkameras und von Lichtwellenleiterkabeln für die Datenübertragung können bis zu 60 3D-Datensätze pro Sekunde bei Geschwindigkeiten bis zu 1 m/s erzeugt und in das Modell integriert werden. Das Messvolumen beträgt ca. 0,9 m x 0,8 m x 0,8 m bei einem Standard-Arbeitsabstand von 2 m. Die laterale Auflösung der Messpunkte im Objektraum beträgt ca. 1 mm. Der systematische Messfehler beträgt im gesamten Messvolumen weniger als 1 mm. Es werden verschiedene Messbeispiele präsentiert.",
+      "email": "christian.braeuer-burchardt@iof.fraunhofer.de",
+      "_page": 13
+    },
+    {
+      "code": "A5",
+      "title": "Rauscharmes photonisches Instrument zur Streulichtmessung",
+      "authors": [
+        {
+          "name": "S. Reichel",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "K. Blankenbach",
+          "affiliation_markers": []
+        },
+        {
+          "name": "A. Reber",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Hochschule Pforzheim, Tiefenbronner Str. 65, D-75175 Pforzheim, Germany"
+        }
+      ],
+      "abstract": "Die Streulichteigenschaften von Oberflächen und Körpern kann zum Lichtdesign für beispielsweise autonome Fahrzeuge verwendet werden. Dazu ist die Charakterisierung von Streulicht mit einem Goniophotometer notwendig. Aufgrund des kleinen Signalpegels des Streulichts muss die photometrische Erfassung und elektrische Signalaufbereitung eines Goniophotometer sehr rauscharm sein. Dies betrifft vor Allem die gleichzeitige Erfüllung mehrerer Eigenschaften: Messung im reflexionsarmen Dunkelraum, stabile Lichtquelle (Laserdiode) mit sehr konstanter Stromquelle, Einhaltung der photometrischen Grenzentfernung, geringstes Rauschen der Photodiode und ihres Signalverstärkers, „gute“ Kalibrierung der Photodiode (inklusive Verstärker) und automatische Datenakquisition. Wir stellen unsere Fortschritte unter Beachtung dieser Punkte vor, um ein rauscharmes automatisiertes photonisches Instrument zu erhalten. Neben optischen Effekten müssen auch elektronische Effekte analysiert werden. Das entwickelte Messsystem für präzise Streulichtmessungen hat einen Dynamikumfang von nahezu 10 Dekaden und weist eine Streuung der Messwerte (2 Standardabweichungen) von weniger als 0,08% um den Mittelwert auf.",
+      "email": "steffen.reichel@hs-pforzheim.de",
+      "_page": 15
+    },
+    {
+      "code": "A6",
+      "title": "Vollflächige interferometrische Methoden zur schnellen und räumlich hochauflösenden Charakterisierung akustischer Oberflächenwellen im MHz-Bereich",
+      "authors": [
+        {
+          "name": "F. Dötzer",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "M. Mannagottera",
+          "affiliation_markers": []
+        },
+        {
+          "name": "K. S. Drese",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Institut für Sensor- und Aktortechnik, Hochschule für angewandte Wissenschaften Coburg"
+        }
+      ],
+      "abstract": "Die klassische Scanning-Laser-Doppler-Vibrometrie (SLDV) ist eine der wichtigsten Methoden zur Analyse akustischer Oberflächenwellen, auf deren Grundlage am Institut für Sensor- und Aktortechnik innovative Sensorlösungen entwickelt werden. Neben den geringen Auslenkungen und hohen Frequenzen der Oberflächenwellen besteht eine besondere Herausforderung in der hohen zu erzielenden räumlichen Auflösung, welche bei punktweise rastenden Verfahren wie der SLDV zu langen Messdauern führt. Die zeitmitte-lende Interferometrie erlaubt im Gegensatz zu den meisten anderen vollflächigen Verfahren auch die geforderte Messung von Schwingungen im Megahertz-Bereich. Die notwendige Sensitivität für Auslenkungen von wenigen Nanometern kann dabei jedoch nur erreicht werden, wenn mithilfe einer Frequenzverschiebung zwischen den beiden Interferometern die durch die Objektschwingung hervorgerufenen Seitenbänder charakterisiert werden können. Vorgestellt wird eine Ergänzung des Verfahrens um eine zusätzliche Referenzmodulation im Objektarm, die eine Verbesserung der Sensitivität und Robustheit und damit auch Anwendungen im industriellen Umfeld ermöglichen soll.",
+      "email": "florian.doetzer@hs-coburg.de",
+      "_page": 15
+    },
+    {
+      "code": "B1",
+      "title": "Static ceramic converters for laser pumped phosphor light sources with white light emission",
+      "authors": [
+        {
+          "name": "V. Hagemann",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "A. Seidl",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "SCHOTT AG, Mainz"
+        }
+      ],
+      "abstract": "Laser pumped phosphor light sources are already widely used in light engines for digital projection. This etendue-limited application benefits from the high luminance that is achieved by irradiating yellow or green ceramic phosphors with blue laser light. These laser pumped phosphor light sources serve the green and red color channels of the projectors. Other etendue-limited applications such as fiber or microscope illumination require high luminance white light instead of light of a single color. Properly designed ceramic phosphors fulfill this task by direct mixing of the yellow luminescent emission with the diffusely reflected laser light on the spot. We present a range of ceramic converters with a variety of emission characteristics such as correlated color temperature or centroid wavelength, and characterize them with respect to application-related key parameters. In particular, we investigate the impact of irradiance, laser spot size, and device cooling. Generalization of the measurement data with support of numerical modeling results in a basic framework for system design that supports the selection of the best-suited converter material for a given application.",
+      "email": "volker.hagemann@schott.com",
+      "_page": 17
+    },
+    {
+      "code": "B2",
+      "title": "Modeling of ceramic phosphor assemblies for high luminance solid state lighting",
+      "authors": [
+        {
+          "name": "A. Seidl",
+          "affiliation_markers": [
+            "2"
+          ]
+        },
+        {
+          "name": "V. Hagemann",
+          "affiliation_markers": [
+            "2"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "2",
+          "name": "Schott AG, Mainz"
+        }
+      ],
+      "abstract": "Cerium doped garnet ceramics enable laser pumped phosphor light sources with luminances above 1000 cd/mm². Design and function of such light sources is based on proper absorption and conversion together with customized scatter properties of the active material. Since a minor but relevant portion of the incident blue laser light is transferred into heat, proper thermal management is also indispensable. For calculation of key features such as possible luminous flux, CCT, dissipated heat, and more, numerical modeling is used. We present a finite element model for simultaneous calculation of heat and light generation and diffusion within the phosphor, and for the heat dissipation towards the heatsink on which the active phosphor is mounted. For this, light transport is described via the delta-P1 approximation, simultaneously for the exciting blue radiation and for the converted radiation. We present examples for modeling of the phosphor assembly, enabling insights impossible for experimental approaches. In particular, we look at the mechanisms of irradiance limitation, visualizing temperature distributions within the components, and demonstrate the predictive power of the model.",
+      "email": "albrecht.seidl@schott.com",
+      "_page": 17
+    },
+    {
+      "code": "B3",
+      "title": "Schutzscheiben im optischen Pfad von LIDAR Systemen",
+      "authors": [
+        {
+          "name": "R. Biertümpfel",
+          "affiliation_markers": [
+            "SCHOTT AG"
+          ]
+        },
+        {
+          "name": "U. Brauneck",
+          "affiliation_markers": []
+        },
+        {
+          "name": "F. Wolff",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "SCHOTT AG",
+          "name": "SCHOTT AG"
+        }
+      ],
+      "abstract": "Das autonome Fahren und Fahrassistenzsysteme setzen zunehmend auf LIDAR als wesentlichen Bestandteil der Erfassung der Umgebung. Das optische System muss mit hoher Zuverlässigkeit und extremer Genauigkeit die Umgebung vermessen, um Objekte und deren Bewegung sicher zu erkennen. Daraus ergeben sich eine Reihe von spezifischen Anforderungen für die äußere Schutzscheibe des Systems: Die präzise Erkennung von Objekten und Gefahrensituationen setzt eine verzerrungsfreie optische Abbildung mit großer Reichweite voraus. Somit müssen Schutzscheiben neben einer hohen Gesamttransmission und eine geringe Wellenfrontdeformation aufweisen. Des weiteren soll eine solche Schutzscheibe auch ästhetische Ansprüche erfüllen und den mechanischen und chemischen Belastungen des Alltags standhalten. Hieraus ergeben sich erhöhte Anforderungen an Material, Fertigung und Beschichtung der Komponente, so dass ein komplexes optisches Bauteil entsteht. Der Vortrag beschreibt die besonderen Anforderungen, die sich aus dem Einsatz im automobilien Umfeld ergeben und gibt eine Empfehlung zu technisch und ökonomisch sinnvollen Spezifikationen.",
+      "email": "ralf.biertuempfel@schott.com",
+      "_page": 19
+    },
+    {
+      "code": "B4",
+      "title": "Neues vom Lichtmischstab",
+      "authors": [
+        {
+          "name": "H. Rehn",
+          "affiliation_markers": [
+            "FISBA AG",
+            "JMO GmbH"
+          ]
+        },
+        {
+          "name": "J. Muschaweck",
+          "affiliation_markers": [
+            "FISBA AG",
+            "JMO GmbH"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "FISBA AG",
+          "name": "FISBA AG"
+        },
+        {
+          "marker": "JMO GmbH",
+          "name": "JMO GmbH"
+        }
+      ],
+      "abstract": "Lichtmisch- oder Integratorstäbe werden eingesetzt, um inhomogene Lichtverteilungen zu homogenisieren. Ein prominentes Beispiel ist der nun schon traditionelle Aufbau eines DLP-Projektors. Lichtmischstäbe können aus einem Dielektrikum (optisches Glas) gefertigt sein oder aus verspiegelten Seitenflächen bestehen, sie können gerade geformt sein oder einen variable Querschnitt aufweisen. Es sind verschiedene Querschnitte denkbar, wobei nur die Rechteck- und die Sechseckform praktische Bedeutung haben. In der Bühnenbeleuchtung werden Integratorstäbe genutzt, um z.B. das Licht einer mehrfarbigen LED zu mischen. Dabei stellt es sich oft off heraus, dass trotz einer perfekten Homogenität in der Austrittsfläche des Stabes Inhomogenitäten im Zielgebiet auftreten können. Neue Untersuchungen haben gezeigt, dass an einer bestimmten Position im Inneren eines Glasstabes ein virtuelles Bild der Quelle entsteht, welches ebenso abgebildet wird wie die Austrittsfläche. Es ist bekannt, dass man die Austrittsseite von Lichtmischstäben mit einer (Feld- ?) Linse versehen kann, um die Abstrahlung des Stabes zu verändern. In unserem Beitrag untersuchen wir deren Funktion genauer.",
+      "email": "henning.rehn@fisba.com",
+      "_page": 19
+    },
+    {
+      "code": "B5",
+      "title": "Halo Measurements: OLEDs vs. FALD LCDs",
+      "authors": [
+        {
+          "name": "F. Bhatti",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "K. Blankenbach",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "Hochschule Pforzheim"
+        }
+      ],
+      "abstract": "Modern displays must have a high contrast ratio resulting in deep black. However, bright white content spreads into surrounding dark areas (this effect is called halo or Mura Hamo) thus reducing the local contrast ratio. We report on a new measurement method for comparing the impact on OLEDs and FLAD (local dimming) LCDs. The results show that the halo luminance spreads over 10 mm and more with exponential decay. The relative halo luminance is about 5x larger for a high end LCD compared to an OLED. Evaluations with subjects show that halo is significantly less noticed for positive contrast compared to negative contrast (being typical for automotive GUIs).",
+      "email": "faraz.bhatti@hs-pforzheim.de",
+      "_page": 21
+    },
+    {
+      "code": "B6",
+      "title": "Optical Performance of Exterior Displays",
+      "authors": [
+        {
+          "name": "K. Blankenbach",
+          "affiliation_markers": [
+            "2"
+          ]
+        },
+        {
+          "name": "N. Nowak",
+          "affiliation_markers": [
+            "2"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "2",
+          "name": "Hochschule Pforzheim, Display Lab, Tiefenbronner Str. 65, 75175 Pforzheim"
+        }
+      ],
+      "abstract": "Autonomous cars should communicate with other road users, such as visualizing their driving mode or recognizing a pedestrian and the car will stop. Such displays must be sunlight readable and smoothly integrated into the front and rear of a car. We prototyped a full-scale mock-up to evaluate LCDs, LEDs and e-paper regarding optical performance. RGB LED matrix, monochrome and color reflective e-paper displays were optically evaluated by ambient light set-ups incl. a sampling sphere (SCI, SCE). The color e-paper showed a small color gamut which is about 10% of newspaper printing. This display was as well-rated as being poor in color performance by subjects. LED matrix displays are most suitable and can be integrated into the radiator grille and/or use the hidden display effect. Finally, we chose an 80 cm x 40 cm RGB LED display with 128 x 64 (h x v) pixel and 6 mm pixel pitch. However, LEDs with 3 mm and 6 mm were evaluated better than 12 mm at small distances, which are not typical for exterior displays. We conducted a survey with subjects regarding content (signs, text, icons ... for various use cases). RGB colored animated icons rate best; text should be rarely used.",
+      "email": "kb@displaylabor.de",
+      "_page": 21
+    },
+    {
+      "code": "H2",
+      "title": "Grenzen und Möglichkeiten der Ellipso-Höhentopometrie",
+      "authors": [
+        {
+          "name": "K. Leonhardt",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": "Die Ellipso-Höhentopometrie misst sowohl die Oberflächenerhebungen H(x,y) als auch mit hoher Ortsauflösung die lokalen ellipsometrischen Parameter PSI(x,y) und DELTA(x,y) von strukturierten Oberflächen mit lokal veränderlichen Material und Schichteigenschaften und dazu unbekannte Oxidationen und Ablagerungen. Dies ist nicht nur wichtig zur Darstellung eines Schichtaufbaus, sondern auch weil diese in der konventionellen Interferometrie als Fehler eingehe und auch die konventionelle Ellipsometrie an rauen und feinstrukturierten Oberflächen durch Depolarisation zu Fehlmessungen kommt. Anhand von ausgearbeiteten Beispielen zeigen wir Möglichkeiten, Stand und Grenzen der EHT.",
+      "email": "klaus.e.leonhardt@t-online.de",
+      "_page": 23
+    },
+    {
+      "code": "A7",
+      "title": "Quantitative Bewertung flächenhafter Topographiemessverfahren für die Mikrogeometrie- und Rauheitsmessung technischer Oberflächen",
+      "authors": [
+        {
+          "name": "A. Oenuer",
+          "affiliation_markers": [
+            "*",
+            "**",
+            "***"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Hochschule Heilbronn"
+        },
+        {
+          "marker": "**",
+          "name": "MTU Aero Engines AG"
+        },
+        {
+          "marker": "***",
+          "name": "Hamburger Fern-Hochschule"
+        }
+      ],
+      "abstract": "Optische Topographiemessverfahren bieten einen Effizienzgewinn gegenüber den verbreiteten taktilen Profilmessverfahren. Wie aus den Ergebnissen dieser Arbeit hervorgeht, können jedoch abhängig vom Messverfahren Kenngrößen wie Ra und Rz um mehr als 100% des Messwerts variieren. Das Ziel der vorliegenden Arbeit ist es, eine standardisierte Methode zu entwickeln, um flächenhafte Topographiemessverfahren quantitativ hinsichtlich der Anwendung zu bewerten. Dieses Verfahren soll Entscheidungsträger in der Auswahl von Messverfahren unterstützen. Zur Erreichung des Forschungsziels wird eine Vorgehensweise entwickelt, um die messverfahrensbedingten Messunsicherheitsinflüsse zu quantifizieren. Das Verfahren wird angewandt auf die Messung zweier typischer Oberflächen aus dem Triebwerksbau mit einem Konfokal-, einem Fokussierungs- und einem Photometrischen-Stereo-Messverfahren. Die Daten werden im Orts- und Frequenzbereich mit den Ergebnissen einer taktilen Messung verglichen. Um den Einfluss durch verschiedene Messstellen ausschließen zu können, wird eine Methode entwickelt, wie die taktil erfassten Profile in der flächenhaften Topographie lokalisiert werden können.",
+      "email": "anil.oenuer@mtu.de",
+      "_page": 25
+    },
+    {
+      "code": "A8",
+      "title": "Kurzkohärente Oberflächenmessung unter Verwendung von ereignisbasierten Sensoren",
+      "authors": [
+        {
+          "name": "C. Schober",
+          "affiliation_markers": []
+        },
+        {
+          "name": "C. Pruss",
+          "affiliation_markers": []
+        },
+        {
+          "name": "A.M. Herkommer",
+          "affiliation_markers": []
+        },
+        {
+          "name": "S. Reichelt",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": null,
+          "name": "Institut für Technische Optik, Universität Stuttgart"
+        }
+      ],
+      "abstract": "Die scanende Kurzkohärenzinterferometrie ist ein Messverfahren zur Vermessung von komplexen Oberflächen mit Nanometerpräzifikationen. Die Interferenz findet hierbei nur im Bereich der Kohärenzlänge, typischerweise einige µm, statt. Bei großen Höhenunterschieden wird also oft nur der Hintergrund aufgenommen, was eine schlechte Ausnutzung der Sensorbandbreite zur Folge hat. Bei einem Scan ist außerdem die Framerate des verwendeten Sensors limitierend. Eine neue Lösung zur Optimierung der Bandbreite ist die Verwendung ereignisbasierter Sensoren. Diese liefern einen asynchronen Informationsstrom über die Intensitätsänderung an einzelnen Pixeln des Sensors mit einer µs Zeitauflösung ohne eine fixe Framerate. In diesem Beitrag präsentieren wir den Aufbau, die Algorithmetik und Messergebnisse verschiedener Oberflächen eines ereignisbasierten Kurzkohärenzinterferometriemesssystems (eCSI). Durch die neue Signalgenerierung lassen sich die aufgenommenen Daten um bis zu einer Größenordnung reduzieren.",
+      "email": "schober@ito.uni-stuttgart.de",
+      "_page": 25
+    },
+    {
+      "code": "A9",
+      "title": "Aktive Beeinflussung des Brechungsindex der Luft für optische Präzisionssysteme",
+      "authors": [
+        {
+          "name": "M. Hoffmann",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "I. Ortlepp",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "E. Manske",
+          "affiliation_markers": [
+            "*"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Institut für Prozessmess- und Sensortechnik, Technische Universität Ilmenau"
+        }
+      ],
+      "abstract": "Verschiedene Präzisionstechnologien erfordern die Positionierung und Vermessung von Werkstücken im Sub-Nanometer-Bereich. Um dabei die notwendige Positions- und Messunsicherheit zu erreichen, kommen zumeist hochauflösende Laserinterferometer als Messsysteme zum Einsatz. Bei einer Strahlführung unter atmosphärischen Bedingungen ist die exakte Kenntnis des Brechungsindex der Luft essentiell. Dafür werden die Umgebungsparameter permanent gemessen, daraus nach der Edlen-Formel der Brechungsindex der Luft bestimmt und rechnerisch korrigiert. Dies setzt jedoch die genaue Kenntnis der Totstrecke im Laserinterferometer voraus, was sich sehr nur aufwändig bestimmen lässt. Ähnliche Herausforderungen existieren für komplexe Optiken, für die eine rechnerische Korrektur oft nicht möglich ist. Eine zeitliche Änderung des Brechungsindex durch Schwankungen der Umweltbedingungen erhöht damit die Mess- und Positionierunsicherheit. In diesem Beitrag wird daher eine Möglichkeit vorgestellt, die Brechzahl aktiv zu beeinflussen und konstant zu halten bzw. gezielt auf einen bestimmten Wert einzustellen. Die Leistungsfähigkeit des Ansatzes wird an der Nanomess- und Positioniermaschine NPMM-200 nachgewiesen.",
+      "email": "hoffmann.maximilian@tu-ilmenau.de",
+      "_page": 27
+    },
+    {
+      "code": "A10",
+      "title": "Heterodynes Interferometer mit vier Strahlen für hochpräzise Längen- und Winkelmessung in Nanopositionier- und Nanomessmaschinen",
+      "authors": [
+        {
+          "name": "G. Straube",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "J.S. Fischer-Calderón",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "I. Ortlepp",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "R. Füll",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "E. Manske",
+          "affiliation_markers": [
+            "*"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Institut für Prozessmess- und Sensortechnik, TU Ilmenau"
+        }
+      ],
+      "abstract": "Aufgrund aktueller Entwicklung in der Halbleitertechnologie steigen die Anforderungen hinsichtlich der Dynamik der Positionierung und des Messvolumens von Nanopositionier- und Nanomessmaschinen. Ein vielversprechender Ansatz zur Lösung dieses Problems stellen Maschinen auf Basis eines im Vergleich zum herkömmlichen moving-stage-Prinzip invertierten Konzepts dar, welches jedoch weitere Herausforderungen mit sich bringt. Für die hochpräzise Positionierung des Sensorskopfes im Messraum werden drei kompakte Vierstrahlinterferometer benötigt, um alle notwendigen Translationen und Rotationen des Messkopfs sowie die Topographie des Referenzsystems bestehend aus drei großflächigen Spiegeln zu rekonstruieren. Es wird ein Heterodyne-Laserinterferometer mit konsequent getrennten Strahlengängen für die einzelnen heterodynen Frequenzen vorgestellt. Neben einem Überblick über das Design des Strahlengangs und der Funktionsweise des Interferometers werden die auf einem System-On-a-Chip mit integriertem FPGA, CPU und A/D-Wandlern implementierten Signalverarbeitungs- und Auswertealgorithmen sowie mit dem System aufgenommene Messdaten präsentiert.",
+      "email": "guido.straube@tu-ilmenau.de",
+      "_page": 27
+    },
+    {
+      "code": "B7",
+      "title": "Linsenlose Real-Time-Faserbündel-Endoskopie mittels digitaler optischer Phasenkompensation für die Biomedizin",
+      "authors": [
+        {
+          "name": "J. Dremel",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "E. Scharf",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "J. Czarske",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "R. Kuschmierz",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "Professur für Mess- und Sensorsystemtechnik, Technische Universität Dresden"
+        }
+      ],
+      "abstract": "Die Minimierung von Trauma bei chirurgischen Eingriffen erfordert minimalinvasive Methoden. Derzeitig verwendete Faserendoskope nutzen nur die vom Faserbündel übertragene Intensitätsinformation des Lichtfelds. Das führt zu einem pixelierten 2D-Bild mit einer festen Bildebene. Die Anpassung des Bildfelddurchmessers oder der lateralen Ortsauflösung erfordert den Einsatz distaler Linsen. Durch Kalibrierung und Kompensation der inhärenten Phasenstörung wird das gesamte Lichtfeld nutzbar, z.B. für linsenlose 3D-Rasterscanning-Endomikroskopie mit sendeseitiger Wellenfrontkorrektur. In diesem Beitrag stellen wir einen Aufbau mit empfangsseitiger Wellenfrontkorrektur für eine Single-Shot 2D Bildgebung vor. Hierfür wird ein Flächenlichtmodulator für die digitale optische Phasenkompensation am proximalen Faserende genutzt. Optiken am distalen Faserende werden nicht benötigt. Die Bildebene ist frei einstellbar und die Pixelanzahl nicht durch die Anzahl an Faserkernen beschränkt. So wird eine laterale Auflösung besser 1,4 µm bei einem Bildfelddurchmesser von 350 µm erreicht. Perspektivisch sollen statische DOEs für die Wellenfrontkorrektur und einen kompakten Aufbau genutzt werden.",
+      "email": "jakob.dremel@tu-dresden.de",
+      "_page": 29
+    },
+    {
+      "code": "B8",
+      "title": "Neuronale Netze für holografische Faserbündel Endoskopie",
+      "authors": [
+        {
+          "name": "S. Schwabe",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "K. Kuhl",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "J. Gürtler",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "J. Czarske",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "R. Kuschmierz",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "Professur für Mess- und Sensorsystemtechnik, TU Dresden"
+        }
+      ],
+      "abstract": "Im Bereich der Medizintechnik und der Fertigungstechnik sind für die Untersuchung von schwer zugänglichen Objekten faser-endoskopische Verfahren von großer Bedeutung. Die verfügbaren Endoskope können jedoch aufgrund der reinen Intensitäts-Bildgebung und der, durch Abbildungsoptiken limitierten, minimalen Baugröße für viele Anwendungen nicht eingesetzt werden. Beide Limitierungen können durch den Ansatz der linsenlosen, holografischen Faser-Endoskopie überwunden werden, wobei der minimale Endoskop-Durchmesser dem des Faserbündels entspricht. Die Qualität der rekonstruierten Hologramme wird durch das kohärente Faserbündel jedoch verschlechtert, weshalb eine Filterung der Daten notwendig ist. Zu diesem Zweck demonstrieren wir die Nutzung eines Enhanced Deep Super-Resolution Networks, mit welchem die Qualität der holografischen Rekonstruktion verbessert wird. Gegenüber linearen Filtermethoden kann im Mittel eine Verbesserung der strukturellen Ähnlichkeit (SSIM) um 53 % sowie eine Verbesserung des Korrelationskoeffizienten um 13 % erreicht werden. Somit kann eine signifikante Steigerung der Abbildungseigenschaften minimalinvasiver, holografischer Faser-Endoskope erreicht werden.",
+      "email": "sebastian.schwabe@mailbox.tu-dresden.de",
+      "_page": 29
+    },
+    {
+      "code": "B9",
+      "title": "Neural network based face mask detection using thermal imaging sensors",
+      "authors": [
+        {
+          "name": "C. Elwinger",
+          "affiliation_markers": []
+        },
+        {
+          "name": "P. Arnold",
+          "affiliation_markers": []
+        },
+        {
+          "name": "N. Schmitz",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": null,
+          "name": "Pforzheim University, School of Engineering, Robotics and Artificial Intelligence"
+        }
+      ],
+      "abstract": "The current COVID situation has led to various autonomous systems checking for correctly attached face masks. Camera systems which are trained on a large number of examples show an impressive performance in the recognition task. Nevertheless they require a visible image which is often a concern for data privacy issues. Therefore we are proposing a face mask detection system which is based on a thermal imaging camera in the long wave infrared spectrum from 8 to 14 micrometer. These image sensors preserve data privacy and have a moderate resolution and frame rate which is very well suited for the task. We have implemented two different approaches with a binary classifier on full images showing a single person and a face localisation system in combination with a binary classifier. The face localisation system allows the usage of the detector in multi-person scenarios as public sites. The first approach is based on a self-designed and trained convolutional neural network whereas the second approach uses a pre-trained and adapted YOLOv5s network. Both approaches have reached a high recognition accuracy on our self-created dataset and are successfully demonstrated in public environments.",
+      "email": "norbert.schmitz@hs-pforzheim.de",
+      "_page": 31
+    },
+    {
+      "code": "B10",
+      "title": "Physics informed neural networks for modeling heat transfer problems of laser processed materials by combining measurement data and physical knowledge",
+      "authors": [
+        {
+          "name": "J. Voigt",
+          "affiliation_markers": []
+        },
+        {
+          "name": "M. Moeckel",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": null,
+          "name": "Labor für Hybride Modellierung, Technische Hochschule Aschaffenburg"
+        }
+      ],
+      "abstract": "Machine learning algorithms are widely adopted in technical applications. However, they can be extended by introducing scientific knowledge in the underlying optimization problem. Physics informed neural networks (PINN) are a modelling technique combining physics and data driven approaches: ensuring consistency to physical laws and measured data. In this work, stationary and time dependent heat transfer problems for laser heated solid material are modelled by PINNs and compared with FEM solutions for two scenarios: (1) PINN exclusively trained on the underlying differential equation and conditions; (2) by integrating measured sensor data in the neural network. For the later one a higher accuracy in temperature prediction is reached. The proposed models can be integrated in monitoring systems.",
+      "email": "jorrit.voigt@th-ab.de",
+      "_page": 31
+    },
+    {
+      "code": "H3",
+      "title": "Mikrooptisch multifunktionalisiertes Smart Glass",
+      "authors": [
+        {
+          "name": "A. Grewe",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "R. Kleindienst",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "C. Erler",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "Carl Zeiss Jena GmbH, Microoptics"
+        }
+      ],
+      "abstract": "Die Mikrooptik wird sich in den kommenden Jahren in großvolumige Anwendungen weiterentwickeln. ZEISS Microoptics hat sich zum Ziel gesetzt, großflächige mikrooptisch funktionalisierte transparente Oberflächen in den Bereichen Automotive, Consumer Electronics und Hometech zu etablieren. Dadurch können neuartige Anwendungen geschaffen und bestehende revolutioniert werden. Die Vorteile der Mikrooptik werden somit einer breiten Masse zugänglich gemacht. Die Integration einer Vielzahl von Funktionen in kompakten optischen Systemen erlaubt bspw. in Mixed-/Augmented-Reality-Anwendungen einen neuen Grad der Benutzerimmersion. Gebäude- und Fahrzeugverglasungen werden genutzt, um Gesten zu erkennen, die Umgebung zu analysieren und Information zu projizieren. Die Windschutzscheibe der Zukunft wird eine Vielzahl optischer Funktionen enthalten. Durch den deutlich geringeren Bauraum mikrooptischer Systeme im Vergleich zu klassischer Optik können diese beim Design zukünftiger Fahrzeuge sowie Wohn- und Arbeitsräume neue Maßstäbe setzen. In unserem Beitrag stellen wir Anwendungen unserer Smart Glass Technologie vor und werden neuartige Ansätze zur Funktionalisierung sowie Skalierung präsentieren.",
+      "email": "adrian.grewe@zeiss.com",
+      "_page": 33
+    },
+    {
+      "code": "A11",
+      "title": "Bestimmung der besten Freiformposition sowie einer Startgeometrie der Fläche vor der Optimierung am Beispiel eines abbildenden Mehrspiegeldesigns",
+      "authors": [
+        {
+          "name": "B. Satzer",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "M. Kazimierska",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "F. R. Widiasari",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "H. Gross",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "R. Brüning",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Optisches und Mechanisches Systemdesign, Fraunhofer-Institut für Angewandte Optik und Feinmechanik IOF"
+        },
+        {
+          "marker": "**",
+          "name": "Institut für Angewandte Physik, Friedrich-Schiller-Universität Jena"
+        }
+      ],
+      "abstract": "Freiformflächen bieten in abbildenden Systemen die Möglichkeit Aberrationen zu korrigieren, die durch Asymmetrien im Systemdesign induziert werden. Dabei stellt sich die Frage, an welcher Position die Freiform am effektivsten eingesetzt werden kann. Gleichzeitig würde eine Vorabinformation zur Geometrie der Freiformfläche helfen um a) schon vor der Optimierung eine Aussage zur Komplexität der Freiform zu haben und b) die Chancen auf ein gutes Optimierungsergebnis zu erhöhen bzw. die Optimierung zu beschleunigen. Wir zeigen daher eine Methode, die gleichzeitig die beste Freiformposition bestimmt und zudem eine Startgeometrie für die Freiformfläche liefert. Die Berechnung basiert auf der Korrelation der Wellenfrontfehler aus der Austrittspupille, rückgerechnet auf die Strahl-Durchstoßpunkte in den Systemflächen. Die Ergebnisse werden anhand eines Spiegeldesigns präsentiert und durch die Gegenüberstellung zu klassischen Optimierungsergebnissen verifiziert.",
+      "email": "britta.satzer@iof.fraunhofer.de",
+      "_page": 35
+    },
+    {
+      "code": "A12",
+      "title": "Wirksamkeit der asphärischen Koeffizienten bei der Optimierung von mikroskopischen Objektiven",
+      "authors": [
+        {
+          "name": "R. Shi",
+          "affiliation_markers": []
+        },
+        {
+          "name": "M. Hanft",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": null,
+          "name": "Carl Zeiss AG, Corporate Research and Technology"
+        }
+      ],
+      "abstract": "Bei der Optimierung von mikroskopischen Objektiven mit der Asphäre wird häufig die Frage gestellt, an welcher Stelle im Objektiv lässt sich die Asphäre am effektivsten zum Einsatz kommen. Durch die Bildung vom inneren Produkt zwischen Abbildungsfehlervektor und Fehlersvariation-Vektor wird die Wirksamkeit des entsprechenden asphärischen Koeffizienten definiert und eingeführt. Anhand einiger Beispiele werden an entsprechenden Stellen der Objective die Asphärisierung vorgenommen. Die erforderliche Toleranz und somit die Fertigbarkeit der asphärischen Linse werden stetig berücksichtigt. Die Bildgüte verschiedener Systeme nach der Optimierung wird dargestellt und miteinander verglichen.",
+      "email": "renhu.shi@zeiss.com",
+      "_page": 35
+    },
+    {
+      "code": "A13",
+      "title": "Einfluss spiegelnder Planflächen auf die Abbildungsleistung optischer Systeme",
+      "authors": [
+        {
+          "name": "E. Langenbach",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "C. Rosenbach",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "FISBA AG, St. Gallen"
+        }
+      ],
+      "abstract": "Planspiegel, Reflexionsprismen und Strahlteiler falten den Strahlengang optischer Systeme, lassen aber die Abstände und Winkel zwischen den Strahlen unverändert. Die Spiegelflächen haben deshalb strahlenphysikalisch keinen Einfluss auf die Abbildungsleistung, und bei der Optikrechnung werden sie oft ignoriert. Eine wellenoptische Betrachtung zeigt aber, dass bei der Reflexion Phasenänderungen auftreten, die von der Polarisationsrichtung, der Wellenlänge und dem Einfallswinkel abhängen. Dass sich dies auf die Abbildungsleistung von Dachkantriprismen auswirkt, ist seit langem bekannt und wird durch phasenkorrigierende Beschichtungen der Spiegelflächen korrigiert. Es gibt verwandte Effekte bei Strahlteilern in Interferometern oder bei spektralen Farbteilern, die zur Reduktion des Interferenzkontrasts oder zu einem Farbquerfehler auf der optischen Achse führen. Durch geeignete Beschichtungen können diese Beeinträchtigungen vermieden werden. Die Spezifikation solcher Schichten beschränkt sich nicht auf die üblichen Reflexions- und Transmissionswerte, zusätzlich muss auch die Polarisations-, Winkel- und Wellenlängenabhängigkeit des Phasenverhaltens vorgegeben werden.",
+      "email": "eckhard.langenbach@fisba.com",
+      "_page": 37
+    },
+    {
+      "code": "A14",
+      "title": "Design of irregular microlens array for the switchable adaptive headlight high beam",
+      "authors": [
+        {
+          "name": "D. Stefanidi",
+          "affiliation_markers": [
+            "*",
+            "**"
+          ]
+        },
+        {
+          "name": "P. Schreiber",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "R. Leitel",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "R. Brünung",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "A. Tünnermann",
+          "affiliation_markers": [
+            "**"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Institute of Applied Physics, Friedrich Schiller University Jena"
+        },
+        {
+          "marker": "**",
+          "name": "Fraunhofer Institute for Applied Optics and Precision Engineering IOF"
+        }
+      ],
+      "abstract": "Today the “slit-like” shape of the car's headlamp with very small vertical size is getting more and more attractive to the customer than the traditional form-factor. Inevitably, it causes significant drop in light transmission, which may be a critical disadvantage for the future electric cars, where electrical efficiency of each unit is crucial. Beam shaping with microlens arrays is an effective solution for system miniaturization, whilst keeping its high transmission. Multichannel structure ensures more design flexibility, while intentional irregularities of the lenses' shape provide a possibility of achieving desired arbitrary symmetric or asymmetric light beam profile without absorbing masks, hence saving a lot of system transmission in a still compact size. As an example, we present a maskless design for a segmented high beam with a feature of dynamic switching of its vertical segments for the adaptation during driving, using a concept of controlled intentional “cross-talk” in between the array channels. The microlens arrays are mastered by grayscale lithography. Subsequently the masters are replicated as double-side aligned polymer-on-glass elements by UV reaction molding.",
+      "email": "dmtrii.stefanidi@iof.fraunhofer.de",
+      "_page": 37
+    },
+    {
+      "code": "A15",
+      "title": "Design von irregulären Wabenkondensoren zur Erzeugung von gezielten Intensitätsverteilungen",
+      "authors": [
+        {
+          "name": "L. M. Wilhelm",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "P. Schreiber",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "R. Brunner",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "P. Dannberg",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "R. Brüning",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "Fraunhofer Institut für angewandte Optik und Feinmechanik (IOF) Jena"
+        }
+      ],
+      "abstract": "Beim irregulären Wabenkondensor bzw. irregular Fly's Eye Condenser (IFEC) werden die Aperturen der Lensesets des Eingangsarrays in ihrer Größe und Dezentrierung, sowie die Dezentrierung der Lensesets des Ausgangsarrays in ihrer Apertur variiert. So können spezielle Intensitätsverteilungen ohne Transmissions- oder Étendueverlust z.B. für automobile und allgemeine Beleuchtung geformt werden. Designs von IFECs wurden bisher durch numerische Optimierung ermittelt. Es wurde eine Methode entwickelt, mithilfe derer Designs für eindimensionale IFECs analytisch gefunden werden können. Durch paraxiale Betrachtungen wurden die erforderlichen Randbedingungen eines IFECs ermittelt. Anhand dieser Betrachtungen können Gleichungssysteme aufgestellt und für gezielte Intensitätsverteilungen gelöst werden, um eine Vielzahl möglicher Startsysteme zu finden. Vielversprechende Systeme werden hinsichtlich Störlichtrisiko, Abbildungsleistung und Geometrie des IFECs ausgewählt. Mithilfe verbleibender Freiheitsgrade können IFECs ohne Sprünge im Höhenprofil der Linsen und mit minimaler Profiliefe designt werden. Diese paraxialen Startsysteme werden in einem Optiksimulationsprogramm verifiziert und optimiert.",
+      "email": "leo_maximilian_wilhelm@yahoo.de",
+      "_page": 39
+    },
+    {
+      "code": "B11",
+      "title": "Additive Fertigung optischer Komponenten",
+      "authors": [
+        {
+          "name": "A. Heinrich",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "M. Dohmen",
+          "affiliation_markers": []
+        },
+        {
+          "name": "M. Rank",
+          "affiliation_markers": []
+        },
+        {
+          "name": "Y. Bauchhage",
+          "affiliation_markers": []
+        },
+        {
+          "name": "C. Eder",
+          "affiliation_markers": []
+        },
+        {
+          "name": "S. Suresh-Nair",
+          "affiliation_markers": []
+        },
+        {
+          "name": "A. Sigel",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Zentrum für Optische Technologien, Hochschule Aalen"
+        },
+        {
+          "marker": "Andreas.Heinrich@hs-aalen.de",
+          "name": null
+        }
+      ],
+      "abstract": "In diesem Beitrag soll auf das Potenzial von 3D-gedruckten Optiken auf Basis konventioneller Drucksysteme eingegangen werden. Am Beispiel der Polymersynthese werden zunächst die Eigenschaften von additiv gefertigten Bauteilen diskutiert, insbesondere wird dabei die Analyse der Inhomogenität des Brechungsindexes detaillierter vorgestellt. Im Mittelpunkt des Vortrages steht die Diskussion ganz unterschiedlicher Beispiele additiv gefertigter Optiken, um die Potenziale und Grenzen der additiven Fertigung in diesem Bereich aufzuzeigen. Ausgangend von lichtleitenden Komponenten werden die Vor- und Nachteile verschiedener 3D-gedruckter Elemente wie Flüssiglinen, Freiformlinsen oder volumetrischen Displays beschrieben. Der Diskussion dieser makroskopischen optischen Elemente folgt eine Präsentation des 3D-Drucks von Mikrolinsen. Auf Basis des Inkjet-Verfahrens lassen sich sowohl sphärische als auch asphärische Mikrolinsen additiv realisieren.",
+      "email": "Andreas.Heinrich@hs-aalen.de",
+      "_page": 41
+    },
+    {
+      "code": "B12",
+      "title": "3D-gedruckte Freiformobjektive und Weitwinkelkameras mit einem extrem flachen Formfaktor",
+      "authors": [
+        {
+          "name": "A. Toulouse",
+          "affiliation_markers": [
+            "***"
+          ]
+        },
+        {
+          "name": "J. Drozella",
+          "affiliation_markers": []
+        },
+        {
+          "name": "P. Motzfeld",
+          "affiliation_markers": []
+        },
+        {
+          "name": "N. Fahrbach",
+          "affiliation_markers": []
+        },
+        {
+          "name": "V. Aslani",
+          "affiliation_markers": []
+        },
+        {
+          "name": "S. Thiele",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "H. Giessen",
+          "affiliation_markers": [
+            "***"
+          ]
+        },
+        {
+          "name": "A.M. Herkommer",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Institut für Technische Optik (ITO), Universität Stuttgart, Pfaffenwaldring 9, 70569 Stuttgart"
+        },
+        {
+          "marker": "**",
+          "name": "Printoptix GmbH, Johannesstraße 11, 70176 Stuttgart"
+        },
+        {
+          "marker": "***",
+          "name": "Physikalisches Institut, Universität Stuttgart, Pfaffenwaldring 57, 70569 Stuttgart"
+        }
+      ],
+      "abstract": "Konventionelle Weitwinkelkameras mit einem sehr großen Sichtfeld (FOV) benötigen zur Übertragung vieler Bildpunkte typischerweise ein großes Volumen bei verhältnismäßig kleiner Apertur. Die Aufteilung des FOV auf mehrere Subaperturen ermöglicht eine Realisierung von Weitwinkelkameras mit einem sehr flachen Formfaktor, wodurch neue, größenkritische Anwendungen erschlossen werden können. In diesem Beitrag werden verschiedene Konzepte für ultrakompakte, mittels Zwei-Photonen-Lithografie 3D-gedruckte Weitwinkelkameras mit einem FOV bis zu 180° x 360° vorgestellt. Ein besonderer Schwerpunkt liegt dabei auf dem Optikdesign, der mechanischen Umsetzung sowie der Vermessung und Optimierung von stark gekippten refraktiven und reflektiven Freiformflächen. Ein iterativer Korrekturmechanismus wurde entwickelt, um die Formtreue von Freiformflächen durch den Einsatz spezieller Referenzstrukturen und Sollbruchstellen zu verbessern. Schließlich werden Ansätze zur digitalen Verzerrungskorrektur und Bildstitching demonstriert und zwei Realisierungen von vollständigen Freiform-Multiapertur-Weitwinkelkameras gezeigt.",
+      "email": "andrea.toulouse@to.uni-stuttgart.de",
+      "_page": 41
+    },
+    {
+      "code": "B13",
+      "title": "Additive Fertigung eines Random Lasers",
+      "authors": [
+        {
+          "name": "M. Rosner",
+          "affiliation_markers": []
+        },
+        {
+          "name": "A. Heinrich",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": null,
+          "name": "Zentrum für Optische Technologien"
+        },
+        {
+          "marker": null,
+          "name": "Hochschule Aalen"
+        }
+      ],
+      "abstract": "Random Laser basieren auf der resonanten Mehrfachstreuung von Photonen z.B. an Nanopartikeln, wobei oberhalb einer bestimmten Anregungsschwelle eine optische Verstärkung auftreten kann. In diesem Beitrag soll die additive Fertigung eines solchen Random Lasers diskutiert werden. Die Realisierung der Proben erfolgte mittels eines digital-light-processing (DLP) Druckers. Als Material für den Random Laser wurde photosensitive Polymerharz auf Acrylatbasis verwendet. Dieses wurde zunächst mit dem Laserfarbstoff Rhodamin 6G vermengt und mit verschiedenen Nanopartikel dotiert. Nach dem 3D Druck der Proben wurden diese mit Hilfe eines frequenzverdoppelten Nd:YAG-Laser angeregt. Die unterschiedlichen Konzentrationen von Nanopartikel führten zu verschiedenen Random Laser Signalen mit niedriger Pumpenergie und schmalbandigen Lasersignal. Außerdem wurde die Photodegradation des Farbstoffes analysiert. Je photostabiler und je höher die Fluoreszenzeffizienz eines Farbstoffes ist, desto besser ist dieser als Basis für den Random Laser geeignet. Zusätzlich zeigte sich ein Einfluss der Probenform auf das emittierte Lasersignal, was diskutiert wird.",
+      "email": "Andreas.Heinrich@hs-aalen.de",
+      "_page": 43
+    },
+    {
+      "code": "B14",
+      "title": "Laser surface structuring of additive manufactured optics",
+      "authors": [
+        {
+          "name": "S. Ruck",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "A. Heinrich",
+          "affiliation_markers": []
+        },
+        {
+          "name": "D.K. Harrison",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "A. DeSilva",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "M.-J. Kleeffoot",
+          "affiliation_markers": []
+        },
+        {
+          "name": "P. Kaltenhauser",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "H. Riegel",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "LaserApplicationCenter / Center of optical Technologies, Aalen University"
+        },
+        {
+          "marker": "**",
+          "name": "School of Computing, Engineering & Built Environment, Glasgow Caledonian University"
+        }
+      ],
+      "abstract": "Additive Manufacturing technologies, also known as 3D printing, are a proven method to offer new possibilities for the production of highly complex parts. One new interesting field of application is the 3D printing of optical elements. However, the final functional optical performance, e.g. the grade of transmission or reflection of such optics, highly depends on the surface quality and structure, respectively. Therefore, in most cases a post-process treatment for the layer-wise printed optics is necessary to smoothen, shape or structure the surface to fit the final application demands. Laser surface structuring offers a highly flexible, sustainable and automatable post-processing possibility. Within this paper, we will show two different laser surface structuring technologies. Firstly, the structuring of printed polymer optics using a self-made low-cost diode laser structuring module is presented. The second methods shows direct laser structuring of printed metal optics using a modern and highly flexible ultra-short pulsed laser source. Finally, the potential of the laser induced surface structure to influence the reflection behaviour of the surface is demonstrated.",
+      "email": "simon.ruck@hs-aalen.de",
+      "_page": 43
+    },
+    {
+      "code": "B15",
+      "title": "Ortsaufgelöstes geometrie- und temperaturgeregeltes Laserauftragschweißen von hartmetallähnlichen Schichten im gescannten Breitstrahl",
+      "authors": [
+        {
+          "name": "R. Wahl",
+          "affiliation_markers": []
+        },
+        {
+          "name": "T. Cruz",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "Fakultät Technik, Labor für Lasermaterialbearbeitung, HS Pforzheim, Tiefenbronner Str. 65, 75175 Pforzheim, Germany"
+        }
+      ],
+      "abstract": "Das Laserpulverauftragschweißen LPA ist ein additives Verfahren, das seine Anwendungen im Beschichten von Randzonen hat. Es stellt eine präzise Methode dar, anwendungsspezifische Verschleißschutzschichten hoch ortsaufgelöst an die verschleißgefährdetesten Zonen zu bringen. Bei Konkurrenzverfahren hingegen, ist die Energieeinbringung nicht so zielgerichtet wie beim LPA. Dadurch kommt es häufig zu hohen Aufmischungen, Riss- und Porenbildung sowie zur Bildung spröder Phasen. Ziel des Projektes war es, das LPA wirtschaftlicher zu gestalten, ohne Einbußen in der Präzision zu haben. GTR-LAS ist eine Weiterentwicklung der Anlagentechnik und des LPA-Verfahrens. So ist die GTR-LAS-Optik mit einem mit-scanningen Temperatursensor, und lateral angebrachten Geometriesensoren ausgestattet, sodass eine ortsbezogene Temperaturregelung und Geometrierregelung ermöglicht ist. Mit dem mehrkanaligen Pulverdüsensystem, das ortsgenau Pulvermengen regeln kann, ist ein endkonturnaher Auftrag von großvolumigen, poren- und rissfreien Schichten möglich, die eine wesentlich geringere Aufmischung mit dem Substratmaterial besitzen und 8-fach schneller, als mit dem konventionellen LPA, appliziert werden können.",
+      "email": "tom.cruz@hs-pforzheim.de",
+      "_page": 45
+    },
+    {
+      "code": null,
+      "title": "Moderne Optische Messtechnik",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Lichtquellen und Displays",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Interferometrie und Oberflächenmesstechnik",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Bildverarbeitung und Maschinelles Lernen",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Optikdesign",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Additive Fertigung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Poster-Session",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Y. Zhang: History and New Insights: Design of Microscope Objectives",
+      "authors": [
+        {
+          "name": "Y. Zhang",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Chromatische Effekte: Korrektur und Anwendung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Rechnerische Korrektur von Kamerasystemen",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Optische Simulation",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Optik in der Lehre",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Networking Event: Stadtführung Bretten",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Networking - Dinner",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "D. Meschede: Von Photonen bis zum Quantencomputer, die Rolle des Lichts in der Quantentechnologie",
+      "authors": [
+        {
+          "name": "D. Meschede",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "S. Kroker: Nano meets Quantum – Nanophotonics for new regimes in quantum optical precision experiments",
+      "authors": [
+        {
+          "name": "S. Kroker",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "M. Gräfe: Perspectives of quantum imaging – from fundamentals towards biomedical application",
+      "authors": [
+        {
+          "name": "M. Gräfe",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Kaffeepause",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Kameras mit Mehrkanalbildgebung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Mikrooptik",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Mittagspause",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "DGaO-Nachwuchspreis",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Pause",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "DGaO Mitgliederversammlung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Poster/Kaffee",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Fraunhofer-Vorlesung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Transfer in die Stadt",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Gala Dinner: STEGSIEBEN (Innenstadt)",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "M. Thiel: Multiphotonen Lithografie – Eine Schlüsseltechnologie zur Fertigung von Optiken",
+      "authors": [
+        {
+          "name": "M. Thiel",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "R. Kundu: Design and realisation of micro-optic lightfield displays",
+      "authors": [
+        {
+          "name": "R. Kundu",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Kaffeepause",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Systemtoleranzen und Prüfaspekte",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Nanophotonik",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Ende der Tagung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    }
+  ]
+}

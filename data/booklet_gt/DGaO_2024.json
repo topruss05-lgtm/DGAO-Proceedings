@@ -1,0 +1,1143 @@
+{
+  "booklet": "DGaO_2024",
+  "jahr": 2024,
+  "tagung_nummer_match": 125,
+  "n_papers": 51,
+  "papers": [
+    {
+      "code": "H1",
+      "title": "Data Driven Innovation – Die Verbindung von realer und digitaler Welt in der Photonik",
+      "authors": [
+        {
+          "name": "C. Holly",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "Lehrstuhl für Technologie Optischer Systeme, RWTH Aachen University"
+        }
+      ],
+      "abstract": "Digitale Technologien und KI bedingen derzeit disruptive Veränderungen in der Wirtschaft und Forschung. Die Wertschöpfung verschiebt sich zu digitalen Services und Unternehmen erschließen KI für industrielle Lösungen - auch in der Photonik. Digitale Lösungen in Kombination mit innovativen Laserstrahlquellen, optischen Systemen, Sensoren und moderner Systemtechnik bieten einen ganzheitlichen Ansatz zur Steigerung der Produktivität, Effizienz und Qualität in der Lasermaterialbearbeitung. Welches Potenzial bietet die Verbindung von realer und digitaler Welt in der Photonik und welche Innovationen sind zu erwarten, wenn sich KI weiter so rasant entwickelt? Am Fraunhofer ILT und der RWTH Aachen University erforschen wir KI und datengetriebene Modelle für das automatisierte Optikdesign, optische neuronale Netze zur Strahlformung, Prozessüberwachung und -optimierung mittels neuronalen Netzen sowie die intelligente Versuchsplanung zur Realisierung selbstlernender Bearbeitungsanlagen. Der Beitrag gibt einen Überblick über die aktuellen Entwicklungen in Aachen und zeigt Perspektiven auf. Was wird zukünftig möglich sein, wenn sich KI weiterentwickelt und weiter Einzug in die Photonik erhält?",
+      "email": "carlo.holly@tos.rwth-aachen.de",
+      "_page": 9
+    },
+    {
+      "code": "A",
+      "title": "Compensation of higher order rotationally symmetric Zernike coefficients caused by the defocusing of spherical sections",
+      "authors": [
+        {
+          "name": "T. Kaster",
+          "affiliation_markers": [
+            "A"
+          ]
+        },
+        {
+          "name": "L. de Andrade Both",
+          "affiliation_markers": [
+            "A"
+          ]
+        },
+        {
+          "name": "L. Görßen",
+          "affiliation_markers": [
+            "A"
+          ]
+        },
+        {
+          "name": "M. Kröger",
+          "affiliation_markers": [
+            "A"
+          ]
+        },
+        {
+          "name": "J. Schneider",
+          "affiliation_markers": [
+            "A"
+          ]
+        },
+        {
+          "name": "P. Walderich",
+          "affiliation_markers": [
+            "A"
+          ]
+        },
+        {
+          "name": "P. Buske",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "M. Kratz",
+          "affiliation_markers": [
+            "***"
+          ]
+        },
+        {
+          "name": "F. Lange",
+          "affiliation_markers": [
+            "***"
+          ]
+        },
+        {
+          "name": "M. Zecherle",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "H. Schlüter",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "J. Stollenwerk",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "C. Holly",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "N. Mitura",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "A. F. Müller",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "R. B. Bergmann",
+          "affiliation_markers": [
+            "***"
+          ]
+        },
+        {
+          "name": "C. Faldorf",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "G. Ehret",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "M. Schake",
+          "affiliation_markers": [
+            "A"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "A",
+          "name": "Lehrstuhl für Lasertechnik LLT, RWTH Aachen University"
+        },
+        {
+          "marker": "*",
+          "name": "Lehrstuhl für Lasertechnik LIT, RWTH Aachen University"
+        },
+        {
+          "marker": "**",
+          "name": "Lehrstuhl für Technologie Optischer Systeme TOS, RWTH Aachen University"
+        },
+        {
+          "marker": "***",
+          "name": "Fraunhofer-Institut für Lasertechnik ILT"
+        },
+        {
+          "marker": "*",
+          "name": "Scanlab GmbH"
+        },
+        {
+          "marker": "***",
+          "name": "Fraunhofer Institut für Lasertechnik ILT"
+        },
+        {
+          "marker": "*",
+          "name": "Physikalisch-Technische Bundesanstalt (PTB), Braunschweig"
+        },
+        {
+          "marker": "**",
+          "name": "BIAS - Bremer Institut für angewandte Strahltechnik GmbH, Bremen"
+        },
+        {
+          "marker": "***",
+          "name": "University of Bremen, Faculty Physics and Electrical Engineering and MAPEX"
+        },
+        {
+          "marker": "A",
+          "name": "Physikalisch-Technische Bundesanstalt"
+        }
+      ],
+      "abstract": "The field of laser technology has reached a pivotal juncture, transitioning from a specialized tool to a widely accessible commodity, as evidenced by decreasing beam source costs and increasing component availability in a growing market. This evolution brings forth the imperative for novel system technologies that emphasize low cost, high productivity and scalable system technology. Digital Photonics addresses this by photonics-requirements-driven wholistic development of system technology. This novel system technology includes advancements in kinematic systems for scalable low-cost applications e.g. by using mobile robotics, optical system technology – e.g. cascading beam systems – to enhance precision and efficiency and sensory systems to increase accuracy such as speckle-based relative displacement sensing. Moreover, the software and system architecture landscape of laser systems need to undergo a significant transformation. Modular and flexible system design based on e.g., microservice or publisher-subscriber architecture lays the groundwork. Artificial Intelligence applications provide solutions to previously not solved problems in e.g. automated process parameter optimization. Ultra-Kurz-Puls (UKP) Bearbeitungssystemen ermöglichen hochpräzise Bearbeitungsprozesse auf mikroskopischer Ebene. Diffraktive Neuronale Netzwerke (DNN) stellen eine vielversprechende Methode dar, die Laserstrahlverteilung in solchen UKP-Bearbeitungssystemen mittels Spatial Light Modulators zu optimieren. Insbesondere in Kombination mit zusätzlicher 3D Messtechnik zur Qualitätsüberwachung ermöglichen diese das „Pulse Shaping on Demand“. Die Integration von DNNs in Bearbeitungsmaschinen ist jedoch mit einigen softwarebedingten Herausforderungen verbunden. In diesem Beitrag werden daher eine softwaretechnische Architektur und deren Integration vorgestellt, die eine modulare Integration von DNNs in Anlagensteuerungen ermöglicht. Dies eröffnet Möglichkeiten für fortgeschrittene Methoden wie z.B. „Pulse Shaping on Demand“. Besonderer Wert wird dabei auf die Verwendung stabiler und erprobter Open-Source-Systeme gelegt, um so eine breitere Anwendung und Weiterentwicklung dieser Technologie zu ermöglichen. The desired flexibility of a laser beam as a tool for materials processing as well as the steadily growing processing throughput requirements demand for advanced scanning systems. Suitable digital control concepts and corresponding scanner hardware enables new concepts of combining multiple scanners to address the challenges of digital photonic production for industrial applications. We present a control architecture for advanced optical scanning systems consisting of sequentially cascaded scanners that allow for increased scanning speeds as well as quasi-beam shaping features by ultrafast beam steering. This architecture shows potential to significantly increasing the productivity through freely programmable scan strategies that allow for new use cases in photonic production. Key to the improvements and flexibility in using advanced scanning systems are their zero-tracking-error controllers combined with a trajectory planning approach. This also facilitates the real time synchronization of diffractive and opto-mechanic scanning systems. A prototypic cascaded optical scanning system demonstrates various use cases for which reachable productivities are analyzed. Messungen mit der Multiple Aperture Shear-Interferometry (MARS) [1] beruhen auf der Bestimmung der Wellenvektoren der durch den Prüfling geformten Wellenfront in der Fokusebene. Bei bekannter Lichtquellenposition, Fokusebene und Eingangswellenfront, kann jeder Wellenvektor zu seiner Quelle zurückverfolgt und die Prüfungsoberfläche rekonstruiert werden. Die Rekonstruktion der Oberflächenform mittels eines Optimierungsprozesses wirft zwei Fragen auf: 1. Gibt es zu einer gemessenen Wellenfront eine eindeutige zugehörige Oberfläche? 2. Wie propagiert die Unsicherheit der rekonstruierten Wellenvektoren in die Unsicherheit der rekonstruierten Oberflächenform? Um diese Fragen zu klären, wird in einem theoretischen Modell die Eindeutigkeit, der durch Reflexion an verschiedenen Prüfungsoberflächen entstehenden Wellenvektorfelder, überprüft. Zur Bestimmung der Anforderungen an die Wellenvektor-Messung wird der Einfluss von Messfehlern berücksichtigt. The sphericity calibration of spherical sections at PTB involves a focus scan of the sample under test, during which the topography of the sample under test is retrieved at multiple points close to the ideal confocal position. By linear interpolation of the form of the sample under test, represented by Zernike polynomials, in the confocal position is retrieved. This is necessary, since defocusing gives rise to spherical aberrations represented by higher order, rotationally symmetric Zernike coefficients. The reason for this, is that the Zernike coefficient for defocus describes a full hemisphere above the unit circle. If spherical wavefronts with slightly different radius of curvature are compared in the same limited aperture, their difference does contain higher order rotationally symmetric Zernike terms and may not be described by pure defocus. In this article the influence of this effect on sphericity measurements of spherical sections is considered and a method is introduced to retrieve the topography of the sample under test for the condition of full compensation of the spherical wavefront part in the confocal position.",
+      "email": "thomas.kaster@lft.rwth-aachen.de",
+      "_page": 11
+    },
+    {
+      "code": "A2",
+      "title": "Kaskadiertes optisches System: rotierendes diffraktives optisches Element - Design, Evaluierung und Anwendung",
+      "authors": [
+        {
+          "name": "N. Grubert",
+          "affiliation_markers": [
+            "*",
+            "**"
+          ]
+        },
+        {
+          "name": "F. Lange",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "J. Stollenwerk",
+          "affiliation_markers": [
+            "***"
+          ]
+        },
+        {
+          "name": "C. Holly",
+          "affiliation_markers": [
+            "***"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Lehrstuhl für Technologie Optischer Systeme TOS, RWTH Aachen University"
+        },
+        {
+          "marker": "**",
+          "name": "SCANLAB GmbH"
+        },
+        {
+          "marker": "***",
+          "name": "Fraunhofer-Institut für Lasertechnik"
+        }
+      ],
+      "abstract": "Anpassbare Intensitätsverteilungen und Parallelisierung von Laserstrahlen sind für immer mehr Laseranwendungen von Interesse. Die Parallelisierung basierend auf strahlteilenden diffraktiven optischen Elementen (DOE) und einem 2D-Galvanometerscanner ist Stand der Technik. Die Verwendung eines strahlteilenden DOE mit einem 2D-Galvanometer-scanner führt zu Problemen, die überwunden werden müssen, um ein zufriedenstellendes Ergebnis zu erzielen: Eine scannerinduzierte Verzerrung und eine Verdrehung der durch das DOE erzeugten Spotmatrix tritt in der Arbeitsebene auf in Abhängigkeit vom Ablenkwinkel der Scannerspiegel. Übliche Aufbauten verwenden statische Relay-Optiken oder zusätzliche Aktuatoren zur Erhöhung der Spotpositionsgenauigkeit. In diesem Beitrag werden beiden Ansätze kombiniert in einem kaskadierten optischen System mit einem dynamisch drehbaren DOE. Die erreichbare Genauigkeit wird mit einem Simulationswerkzeug für eine typische optische Konfiguration für die Multispot-Lasermaterialbearbeitung bewertet. Darüber hinaus wird ein erster funktionsfähiger Prototyp mit einem rotierenden DOE vorgestellt.",
+      "email": "nicole.grubert@tos.rwth-aachen.de",
+      "_page": 11
+    },
+    {
+      "code": "A4",
+      "title": "Auf zwei kaskadierten Phasenmodulatoren basierendes optisches Modul für die flexible Lasermaterialbearbeitung",
+      "authors": [
+        {
+          "name": "M. Hesker",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "P. Buske",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "J. Stollenwerk",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "C. Holly",
+          "affiliation_markers": [
+            "***"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Lehrstuhl für Technologie Optischer Systeme TOS, RWTH Aachen University"
+        },
+        {
+          "marker": "**",
+          "name": "Fraunhofer-Institut für Lasertechnik ILT"
+        }
+      ],
+      "abstract": "Die Prozessanforderungen in der Lasermaterialbearbeitung nehmen im Zuge steigender Energiepreise, Umweltauflagen und dem Bedarf an Flexibilität stetig zu. Konventionell erfolgt die industrielle Umsetzung mit speziell für einen Bearbeitungsprozess optimierten optischen Systemen, sog. Bearbeitungsköpfen. In dieser Arbeit wird ein breit einsetzbares optisches System vorgestellt, das mit Hilfe von zwei kaskadierten Phasenmodulatoren (LCoS-SLM) für unterschiedlichste Ablations- und Umschmelzprozesse eingesetzt werden kann. Hierbei werden drei optische Kernprozesse in einem Optikmodul vereint: Einerseits wird durch die Berechnung von Phasenmasken mittels diffraktiven neuronalen Netzen (DNN) die Generierung beliebig komplexer Strahlprofile ermöglicht, die auf Robustheit oder Schärfeanteile optimiert sind. Bei Aufprägung linearer Phasenmasken wird eine aktive Strahlführung ermöglicht, wodurch in Kombination mit einer Fokussieroptik der Auftreffwinkel auf dem Werkstück variiert werden kann. Darüber hinaus ermöglicht die Verwendung regelmäßiger Phasenmasken durch die strahltheoretische Wirkung in Kombination mit den vorher genannten Phasenmasken die simultane Bearbeitung mit mehreren Strahlen.",
+      "email": "mario.hesker@tos.rwth-aachen.de",
+      "_page": 13
+    },
+    {
+      "code": "A6",
+      "title": "Optimizing Motion Synchronization in Digital Photonics Production: Strategies for Enhancing Efficiency and Quality in Laser Material Processing",
+      "authors": [
+        {
+          "name": "L. Both",
+          "affiliation_markers": []
+        },
+        {
+          "name": "T. Kaster",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": null,
+          "name": "Chair for Lasertechnology LLT, RWTH Aachen University"
+        }
+      ],
+      "abstract": "Digital Photonics Production (DPP) discusses the relation between costs, complexity and product improvement compared to conventional production. One interesting case study for DPP is the combination of a 2D galvanometer scanner head and XY servo stage, which stands out as a traditional method for laser material processing with solid applications. A recent approach of motion synchronization between both devices has brought a significant enhancement in the production, since it can reduce execution time and raise processing quality compared to traditional asynchronous techniques. On the other hand, splitting the motion between both devices is still a challenge. The aim of this paper is to succinctly summarize and review different strategies that can be employed to compute the trajectories for the scanner and stage. The focus of the addressed techniques is to describe methods to synchronize the motion while simultaneously considering the kinematic constraints of each device. Furthermore, this paper discusses the relation complexity and improvement of each technique in the context of DPP and finally presents the relevant requirements of trajectory planners for laser processing.",
+      "email": "lucas.de.andrade.both@lil.rwth-aachen.de",
+      "_page": 15
+    },
+    {
+      "code": "B",
+      "title": "The anycentric camera: A unifying pinhole model for ento-, hyper- and telecentric lenses using Geometric Algebra",
+      "authors": [
+        {
+          "name": "S. Hartel",
+          "affiliation_markers": [
+            "B1"
+          ]
+        },
+        {
+          "name": "C. Faber",
+          "affiliation_markers": [
+            "B1"
+          ]
+        },
+        {
+          "name": "C. Marin Tovar",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "M. Friedrichs",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "T. Grunwald",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "T. Bergs",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "M. Schossau",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "O. Hofmann",
+          "affiliation_markers": []
+        },
+        {
+          "name": "A. Bonhoff",
+          "affiliation_markers": []
+        },
+        {
+          "name": "C. Holly",
+          "affiliation_markers": []
+        },
+        {
+          "name": "J. Stollenwerk",
+          "affiliation_markers": []
+        },
+        {
+          "name": "A. Heinrich",
+          "affiliation_markers": [
+            "*"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "B1",
+          "name": "Hochschule Landshut – University of Applied Sciences"
+        },
+        {
+          "marker": "*",
+          "name": "Fraunhofer Institute for Production Technology IPT, Aachen"
+        },
+        {
+          "marker": "**",
+          "name": "Manufacturing Technology Institute MTI, RWTH Aachen University, Aachen"
+        },
+        {
+          "marker": "*",
+          "name": "Lehrstuhl für Technologie Optischer Systeme TOS, RWTH Aachen University"
+        },
+        {
+          "marker": "*",
+          "name": "Zentrum für Optische Technologien, Hochschule Aalen"
+        }
+      ],
+      "abstract": "Camera calibration is a crucial task when working with camera-based optical imaging and metrology systems. The widely used pinhole camera model has proven itself useful for this purpose, as it has a comparatively small number of parameters, yet accurately describes the desired system behavior. However, if non-entocentric lenses are to be calibrated, the pinhole model must be modified for hypercentric lenses, or it is not applicable at all for telecentric lenses. Instead, this contribution shows how the widely used pinhole camera model can be generalized for entocentric (converging chief rays), hypercentric (diverging chief rays) and telecentric (parallel chief rays) lens types by using the unifying methods of Plane-based Geometric Algebra. By mainly taking advantage of the algebra’s inherently incorporated projective geometry to describe the intrinsic camera behavior, the proposed enhanced pinhole model contains a smooth transition between perspective projection and orthographic projection, making it well suited for the optimization process during camera calibration and resulting in a more complete and more general camera model without greatly increasing its complexity. In recent years, there has been a rising demand for complexly shaped precision glass optics, in sectors like automotive, lighting and laser technology as well as renewable energies. This increase represents significant challenges to the industry due to the growing complexity of geometries and escalating production costs. Precision glass molding (PGM) has emerged as a promising solution for producing precise, and cost-effective glass optics. In this replicative manufacturing method, a glass preform is heated and deformed between a pair of mold inserts to obtain the desired lens geometry. However, the molding pair is limited to manufacturing a specific lens design under a de-fined set of molding parameters. In this study, the influence of process parameters variations, including molding force and temperature, on the lens shape was analyzed by finite element method (FEM) simulation, aiming to determine the flexibility of the PGM process and optimizing its efficiency. Die Simulation von Halbleiterlasern mit externem Feedback erlangt aufgrund ihres potenziellen Einsatzes in CV-QKD Systemen eine zentrale Bedeutung. Um diese Systeme zu miniaturisieren, kommen sogenannte photonisch integrierte Schaltkreise (engl. PICs) zum Einsatz. Wir demonstrieren multiphysikalische Simulationen eines PIC, der aus einem Verstärkungschip und einem externen Resonator zur Frequenzstabilisierung besteht. Auf Basis von eigens entwickelter Halbleiterlaser Simulations-Software wird die Lichtpropagation im Verstärkungschip und im externen Wellenleiter simuliert und die Geometrien der beiden Elemente werden hinsichtlich der Kopplungseffizienz optimiert. Zudem wird mithilfe der Time Domain Travelling Wave Methode (TDTW) die aus dem Verstärkungschip ausgekoppelte Leistung zeitabhängig bestimmt. Das Ziel der vorgestellten Arbeit besteht darin, die Leistungsverluste zwischen Verstärkungschip und externem Wellenleiter zu reduzieren. Die additive Fertigung von Polymeren erlaubt die Erstellung komplexer optischer Komponenten durch UV-Licht-ausgehärtete Polymerisierung. Dabei werden Monomere radikalisiert, um feste Polymerketten zu bilden. Der Brechungsindex eines Materials korreliert mit seiner Permittivität und wird durch Faktoren wie Elektronenstruktur und Dipoldichte beeinflusst. Entsprechend ändert sich dieser bei der Polymerisation, da sich Doppel- zu Einfachbindungen wandeln und eine Materialkompaktierung entsteht. Es ergibt sich somit eine zeitliche Variation des Brechungsindexes während der Aushärtung und ein Einfluss des Aushärtegrades auf den finalen Brechungsindex. Hier wird einerseits die orts- und zeitabhängige Entwicklung des Brechungsindexes während der Aushärtung an der Polymeroberfläche basierend auf Line Scan Focused Refractive Index Microscopy diskutiert. Die Aushärtung erfolgt dabei durch eine UV-Streifenprojektion. Dadurch kann zusätzlich über die Transmission und Beugung eines Laserstrahls durch die Probe über das Beugungsbild die zeitliche Variation des Brechungsindexes n über das Volumen bestimmt werden. Die sich ergebenden n-verteilungen werden zusätzlich über Simulationen verifiziert.",
+      "email": "simon.hartel@haw-landshut.de",
+      "_page": 17
+    },
+    {
+      "code": "B2",
+      "title": "Modellierung und Simulation von optischen Nanowirbeln",
+      "authors": [
+        {
+          "name": "W. Spiller",
+          "affiliation_markers": []
+        },
+        {
+          "name": "J. Jahns",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": null,
+          "name": "FernUniversität in Hagen"
+        }
+      ],
+      "abstract": "Dielektrische Metaoberflächen (MO) bestehen aus nanoskaligen, die Wellenfront lokal steuernden Metatomen (MA). Dabei rufen Diskontinuitäten der Dielektrika lokale Feldverwirbelungen hervor, eher als Begleiterscheinung. Optische Nanowirbel sind oft stabil, energetisch „träge“ und unterliegen eher wenig erforschten „Verhaltensregeln“. Diese können bei kurzen Pulsen und im stationären Zustand recht unterschiedlich sein. So könnte Beachtung, Beschreibung und Steuerung von Nanowirbeln ein wichtiges Mittel des MA-Designs werden. Neben herkömmlichen Beschreibungen benutzen wir die Zerlegung von komplexen Wirbeln nach spezifischen Wirbel-Moden und simulieren ihr individuelles Verhalten in Raum und Zeit. Unsere Ergebnisse deuten u.a. auf ursächliche Gemeinsamkeiten zwischen Wirbelmoden und unerwünschten Wechselwirkungen zwischen einzelnen MA, welche die Anzahl der Freiheitsgrade des Designs wesentlich mindern können. Wir streben hierbei sowohl ein physikalisches Verständnis an wie auch neue Wege der effizienten Simulation und Designs.",
+      "email": "walspill@yahoo.de",
+      "_page": 17
+    },
+    {
+      "code": "B4",
+      "title": "Thermo-optical analysis of the radial-symmetric plane-parallel plate.",
+      "authors": [
+        {
+          "name": "P. A. Lok",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "L. A. Cacace",
+          "affiliation_markers": [
+            "**"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Design for Precision Engineering, Mechanical Engineering, TU Eindhoven,"
+        },
+        {
+          "marker": "**",
+          "name": "AC Optomechanix, Eindhoven"
+        }
+      ],
+      "abstract": "Predicting aberrations due to heating of optical components often requires complex models combining optics, opto-mechanics, and thermo-mechanics. This complicates taking thermo-optical effects into account early in the design. This work is part of a project to find design rules and scaling laws to simplify conceptual choices early in the design. Aberrations are caused by thermal expansion and change of refractive index due to temperature and stress. Modelling of wavefront error requires combination of finite element methods with raytracing, including many variables for material properties, geometry, and heat transfer. Substantial complexity is the result. For a plane-parallel plate, parameter analysis is used to merge many of these variables into groups. This reduces model complexity and improves the understanding of underlying mechanisms. The thermal model is then analyzed with regular numerical solver techniques and resulting temperature fields are used to estimate wavefront error. The results agree with more complex finite element and ray-tracing methods. A future goal is to use the model as starting point for derivation of design laws for optimal thermo-optical behavior.",
+      "email": "p.a.lok@tue.nl",
+      "_page": 19
+    },
+    {
+      "code": "B6",
+      "title": "Ellipsometrische Charakterisierung von Polydopamin für funktionelle technische Schichten",
+      "authors": [
+        {
+          "name": "E. Ermilova",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "A. Hertwig",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "T. Döhring",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "E. Stanik",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "V. Cotroneo",
+          "affiliation_markers": [
+            "***"
+          ]
+        },
+        {
+          "name": "E. Gibertini",
+          "affiliation_markers": [
+            "****"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Bundesanstalt für Materialforschung und -prüfung, D-12203 Berlin"
+        },
+        {
+          "marker": "**",
+          "name": "Technische Hochschule Aschaffenburg, D-63743 Aschaffenburg"
+        },
+        {
+          "marker": "***",
+          "name": "INAF-Osservatorio Astronomico di Brera, I-23807 Merate, Italien"
+        },
+        {
+          "marker": "****",
+          "name": "Politecnico di Milano, I-20131 Milano, Italien"
+        }
+      ],
+      "abstract": "Obwohl das organische Molekül Dopamin (3,4-Dihydroxyphenethylamin) allgemein eher als „Glückshormon“ bekannt ist, sind dünne Schichten aus Polydopamin heute zunehmend auch für innovative technische Anwendungen von Interesse. Ein Beispiel sind reflexionsverstärkende Beschichtungen für astronomische Röntgenspiegel. Bei der Herstellung durch eine Tauchbeschichtung wachsen die selbstorganisierenden Polydopamin-Schichten in Einzel- oder Mehrfach-Molekülkugeln mit reproduzierbaren Dicken von wenigen Nanometern auf. Mit der Methode der spektroskopischen Ellipsometrie wurde die dielektrische Funktion von Polydopamin vom ultravioletten bis zum nahen infraroten Spektralbereich zunächst bei Modellschichten aus ausreichender Dicke vermessen. Über ein optisches Modell wurden diese Daten dann zur Bestimmung der Schichtdicken und Schichteigenschaften in Abhängigkeit von den gewählten Prozessparametern. Darüber hinaus wird ein Ausblick auf potentielle weitere technische Anwendungen des interessanten bionischen Materials Polydopamin gegeben.",
+      "email": "thorsten.doehring@th-ab.de",
+      "_page": 21
+    },
+    {
+      "code": "H2",
+      "title": "An den Grenzen der Auflösung: zwei Kugelinterferometer – ein Ergebnis?",
+      "authors": [
+        {
+          "name": "E. Kuhn",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "A. Nicolaus",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "Physikalisch-Technische Bundesanstalt (PTB)"
+        }
+      ],
+      "abstract": "Seit 2019 basiert die Definition des Kilogramms nicht mehr auf dem Urkilogramm, sondern auf der Planck-Konstanten h und dem Volumen einer Siliziumkugel. Um die erforderliche Messgenauigkeit mit einer relativen Unsicherheit von 10E-8 zu erreichen, wird eine Präzision von 0,3 nm für den Durchmesser einer 93 mm Kugel angestrebt. Für diese Messungen werden sphärische Fizeau-Interferometer eingesetzt. Zwei solcher Kugelinterferometer wurden entwickelt, die sich z.B. in den Aperturen der Fizeau-Objektive und der Anzahl der optischen Flächen unterscheiden. Diese Unterschiede haben einen Einfluss auf die Größe der Messbereiche, der Genauigkeit und Zuverlässigkeit der Messungen. Durch Vergleichsmessungen, die das absolute Volumen der Kugel durch das Zusammsetzen von Daten aus 30 verschiedenen Orientierungen bestimmen, wurde eine Übereinstimmung im Bereich von einigen 10E-9 erreicht – ein Beweis für die Präzision und Zuverlässigkeit der verwendeten Messmethoden. Die Auswirkungen der unterschiedlichen Eigenschaften der beiden Kugelinterferometer werden durch parallele Untersuchungen an identischen Messobjekten analysiert und Konsistenz und Genauigkeit der Messergebnisse weiter validiert.",
+      "email": "eva.kuhn@ptb.de",
+      "_page": 23
+    },
+    {
+      "code": "A8",
+      "title": "Single-Shot Tilted-Wave-Interferometer",
+      "authors": [
+        {
+          "name": "C. Schober",
+          "affiliation_markers": []
+        },
+        {
+          "name": "C. Prüß",
+          "affiliation_markers": []
+        },
+        {
+          "name": "S. Reichelt",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": null,
+          "name": "Institut für Technische Optik, Universität Stuttgart"
+        }
+      ],
+      "abstract": "Die schnelle, kostengünstige und flexible Vermessung von Asphären und Freiformflächen ist eine wesentliche Anforderung in der modernen Optikfertigung. Bisher kann eine vollflächige interferometrische Vermessung in einem Kamerarild über den Einsatz einer Korrekturoptik in Form eines computergenerierten Hologramms (CGH) durchgeführt werden. Dabei wird für jedes zu vermessende Oberflächenprofil ein eigenes CGH benötigt, das extra gefertigt werden muss. Die Tilted-Wave-Interferometrie (TWI) ermöglicht die flexible Vermessung komplex geformten Oberflächen ohne zusätzliche Korrekturoptik, benötigt jedoch eine Messzeit im zweistelligen Sekundenbereich. In diesem Beitrag wird ein Konzept präsentiert, mit dem die flexible Messung mit der TWI über die parallele Auswertung der Informationskanäle: Polarisation, Wellenlänge und Phase des Lichts in einem Kamerarild durchgeführt wird. Dabei wird eine Kamera verwendet, die Superpixel mit Polarisations- und Farbfiltern besitzt. Mit diesem Prinzip lassen sich Aufnahmeezeiten bei der Messung von weniger als 1 ms realisieren. Es wird die Realisierung eines Laboraufbaus vorgestellt, anhand dessen das Prinzip demonstriert werden kann.",
+      "email": "schober@ito.uni-stuttgart.de",
+      "_page": 25
+    },
+    {
+      "code": "A10",
+      "title": "Digitale holografische Vibrometrie – Auswertemethodik",
+      "authors": [
+        {
+          "name": "J. May",
+          "affiliation_markers": [
+            "A10"
+          ]
+        },
+        {
+          "name": "F. Dötzer",
+          "affiliation_markers": [
+            "A10"
+          ]
+        },
+        {
+          "name": "S. Sinzinger",
+          "affiliation_markers": [
+            "A10"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "A10",
+          "name": "Fachgebiet Technische Optik, Technische Universität Ilmenau"
+        }
+      ],
+      "abstract": "Mithilfe der digitalen holografischen Vibrometrie können mechanische Schwingungen mit Amplituden bis in den Subnanometerbereich ortsaufgelöst und schnell detektiert werden. Dazu werden die einzelnen Frequenzanteile des vom schwingenden Messobjekt reflektierten Lichts in einem interferometrischen Aufbau getrennt voneinander holografisch aufgenommen. In der zeitlichen und räumlichen Struktur der so erhaltenen Messwerte sind die Informationen über dem Schwingungszustand des Messobjektes enthalten. Die Bestimmung der Schwingungsamplitude aus den holografischen Rohdaten wird maßgeblich durch den Einfluss externer überlagerter Störvibrationen erschwert. Hinzu kommt ein stark nichtlinearer Zusammenhang zwischen Hologrammhelligkeit und korrespondierenden Schwingungsamplitude. In diesem Vortrag möchten wir anhand eines beispielhaften Messobjektes vorstellen, wie aus den Hologrammreihen die Frequenzanteile der Objektschwingung isoliert und aus ihnen auf das Schwingungsprofil zurückgerechnet werden kann. Besonderes Augenmerk soll auf der Robustheit gegenüber Störungen liegen, die durch eine zusätzliche Referenzschwingung signifikant verbessert werden kann.",
+      "email": "florian.doetzer@tu-ilmenau.de",
+      "_page": 27
+    },
+    {
+      "code": "A11",
+      "title": "Detecting objects deep within scattering media via multi-wavelength intensity interferometry",
+      "authors": [
+        {
+          "name": "C. M. Bett",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "W. Osten",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "Institut für Technische Optik, Universität Stuttgart"
+        }
+      ],
+      "abstract": "Normally, two wavefronts interfere, if they are coherent. With the help of a scattering medium, though, an interferometric signal can be artificially generated by any two wavefronts, as long as they are within the memory effect range of the medium. Here, we exploit this phenomenon to gain information about objects hidden deep within scattering media. Conventional memory effect protocols require the object to be within the memory effect range, which necessitates thin media. Moreover, they usually require the medium to interact with the far field pattern of the object. Both conditions are violated, if the object is immersed in an extended scattering medium. Here, we demonstrate that we can retrieve object information in such a scenario with the help of intensity interferometric measurements: We illuminate the scene with two wavelengths, which are within the spectral memory effect of the medium. By calculating the correlation coefficient of the resulting speckle patterns at several lateral positions, we are able to retrieve the diffraction pattern of the object in the difference wavelength and hence gain information about the object.",
+      "email": "bett@ito.uni-stuttgart.de",
+      "_page": 29
+    },
+    {
+      "code": "B7",
+      "title": "Leiterplattenintegrierte gedruckte optische Lichtwellenleiter",
+      "authors": [
+        {
+          "name": "A. Evertz",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "L. Overmeyer",
+          "affiliation_markers": [
+            "*"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Institut für Transport- und Automatisierungstechnik, Leibniz Universität Hannover"
+        }
+      ],
+      "abstract": "Zur Steigerung der Integrationsdichte und störungsfreier und galvanisch getrennten High-Speed Kommunikation auf Leiterplattenebene sind optischen Datenübertragungstechnologien unerlässlich. Um eine kosteneffiziente Produktionstechnologie für die Herstellung von elektro-optischen Leiterplatten zu etablieren, ist die additive Drucktechnik für planare optische Strukturen unabdingbar. Gegenüber dem Stand der Technik muss für die PCB-Integration auf PI Substrat unterer Mantel, Kern und oberer Mantel sequentiell drucktechnisch umgesetzt werden. Auf Basis des Flexodrucks wird eine Produktionsabfolge und Funktionsüberprüfung für gedruckte integrierte Lichtwellenleiter gezeigt. Die gemantelten Lichtwellenleiter werden exemplarisch in Leiterplatten eingebettet und ihre Funktion anhand optischer Transmissionsmessungen überprüft. Final wird ein Anwendungsszenario präsentiert, welches die weitere Produktionssystematik zur Anwendungs- und Kopplungstechnik skizziert.",
+      "email": "andreas.evertz@ita.uni-hannover.de",
+      "_page": 31
+    },
+    {
+      "code": "B8",
+      "title": "Brechungsindexverteilung von Mosquito-Lichtwellenleitern",
+      "authors": [
+        {
+          "name": "L. Fütterer",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "C. Zander",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "A. Evertz",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "G. Hohenhoff",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "P. Jäschke",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "S. Kaierle",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "L. Overmeyer",
+          "affiliation_markers": [
+            "**"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Institut für Transport- und Automatisierungstechnik, Leibniz Universität Hannover"
+        },
+        {
+          "marker": "**",
+          "name": "Laser Zentrum Hannover e.V."
+        }
+      ],
+      "abstract": "Für die qualitativ hochwertige Herstellung von optischen Wellenleitern im Single- und Multimodebereich zeigt das Mosquito-Verfahren ein großes Potenzial zur Realisierung variabler optischer Interconnects. Bei dem Nass-in-Nass-Prozess wird eine Mikrodosiemadel in zuvor aufgetragenes Mantelpolymier eingeführt und ein höherviskoses UV-Polymer als Wellenleiterkern in den Mantel appliziert. Anschließend wird die gesamte Struktur durch UV-Bestrahlung polymerisiert. In dieser Arbeit wird das Verfahren für die Anwendung in 3D-optoelektronischen Schaltungsträgern qualifiziert. Dazu wird ein experimenteller Aufbau inkl. geometrisch relevanter Prozessparameter skizziert. Durch Diffusion von Kern- und Mantelmaterial werden Gradientenindex-Lichtwellenleiter erzeugt. Daher wird insbesondere der Einfluss der UV-Aushärtung auf die optischen Eigenschaften des Lichtwellenleiters in Bezug auf das Brechungsindexprofil evaluiert. Ergebnis dieser Arbeit ist ein Prozessdesign für die Herstellung geradliniger Wellenleiter, das in weiteren Forschungsarbeiten auf 3D-gekrümmte Strukturen übertragen werden kann.",
+      "email": "laura.fuetterer@ita.uni-hannover.de",
+      "_page": 31
+    },
+    {
+      "code": "B10",
+      "title": "Elektrisch deformierte Linsen für optimierte optische Faserkopplung",
+      "authors": [
+        {
+          "name": "M. Dohmen",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "A. Heinrich",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "C. Neumann",
+          "affiliation_markers": [
+            "**"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Zentrum für Optische Technologien, Hochschule Aalen"
+        },
+        {
+          "marker": "**",
+          "name": "Lichttechnisches Institut, Karlsruher Institut für Technologie"
+        }
+      ],
+      "abstract": "Die Kopplung optischer Fasern spielt eine entscheidende Rolle z.B. in Ausrichtstationen, in denen die Koppeleffizienz stark vom Einfallswinkel beeinflusst wird. Dieser Beitrag präsentiert eine Methode zur Herstellung von auf Faseroberflächen integrierten optischen Mikrolinsen, indem ein flüssiges Polymer auf das Faseroende aufgebracht wird, mittels elektrischer Felder in eine definierte Form gebracht wird und anschließend im UV Licht ausgehärtet wird. Die Deformation des Mikrotröpfchens ist abhängig von der elektrischen Feldverteilung, sodass auf dem Faseroende unterschiedlichste Freiformflächen für die Mikrolinsen ermöglicht werden können. Die realisierten Linsen werden auf ihre Qualität und Leistung evaluiert, wobei eine 3D-Formrekonstruktion und Raytracing eingesetzt werden. Ein numerischer Ansatz zur elektrischen Feldberechnung während der Verformung wird ebenfalls vorgestellt. Die Kombination von Experiment und Modellierung zeigt die Möglichkeit zur Herstellung maßgeschneiderter optischer Fasern, außerdem gibt sie Einblicke in die Zusammenhänge zwischen optischer Leistung und elektrischer Feldcharakteristik.",
+      "email": "mike.dohmen@hs-aalen.de",
+      "_page": 33
+    },
+    {
+      "code": "B11",
+      "title": "Miniaturisierte Holografische Doppelfalle zum optischen Einfang von Mikropartikeln",
+      "authors": [
+        {
+          "name": "K. Doth",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "T. Haist",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "A. Herkommer",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "Institut für Technische Optik, Universität Stuttgart"
+        }
+      ],
+      "abstract": "Im Gesundheitswesen ist die Erkennung und Vermeidung von Pathogeninfektionen essentiell. Im Rahmen des BMBF-Projekts GeDeSens2Virus werden optische Methoden zur Pathogendetektion, sowie deren Miniaturisierung untersucht. Der miniaturisierte optische Sensor soll zusammen mit anderen Sensoren in ein Desinfektionsspendermodul integriert werden, um das Pathogenaufkommen in geschlossenen Systemen (wie z.B. Krankenhäusern) zu überwachen und gegebenenfalls präventive Maßnahmen wie zusätzliche Hygienevorschriften zu ergreifen. In diesem Beitrag wird das Konzept einer miniaturisierten 3D-gedruckten holografischen Doppelfalle vorgestellt. Die mit Zwei-Photonen-Lithografie hergestellte Mikrooptik kombiniert refraktive und diffraktive Oberflächen um mit Kombination eines Spiegels eine Doppelfalle zu generieren. Vorgestellt werden das Systemkonzept, sowie experimentelle Ergebnisse zum optischen Einfang von Mikropartikeln. Die Möglichkeit zur Integration des Systems in mikrofluidische Kanäle wird diskutiert.",
+      "email": "doth@ito.uni-stuttgart.de",
+      "_page": 35
+    },
+    {
+      "code": null,
+      "title": "Data Driven Innovation – Die Verbindung von realer und digitaler Welt in der Photonik",
+      "authors": [
+        {
+          "name": "C. Holly",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Digitale Photonische Produktion",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Modellbildung und Simulation",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "An den Grenzen der Auflösung: zwei Kugel-interferometer – ein Ergebnis?",
+      "authors": [
+        {
+          "name": "E. Kuhn",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Interferometrie",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Additiv gefertigte Optiken",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Interferometrische Sensoren",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Anwendungen der 2-Photonen-Polymerisation",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Attosecond light-matter interaction",
+      "authors": [
+        {
+          "name": "A. Harth",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Sondertechnologien in optischen Systemen (Welcher Schlüssel passt in welches Schloss?)",
+      "authors": [
+        {
+          "name": "M. Hanft",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Optik für und mit EUV",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Optikdesign",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Messung und Charakterisierung von Nanostrukturen",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Designmethoden",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Streifenprojektion",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Podiumsdiskussion: Career in Optics",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "DGaO-Nachwuchspreis",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Allstadtführung Aachen",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Ratskeller, Aachen",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Optische Sensorik in der Lasermaterialbearbeitung: Neueste Konzepte und Herausforderungen der Prozessüberwachung",
+      "authors": [
+        {
+          "name": "M. Kogel-Hollacher",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Dynamische Steuerung und automatisierte Justage von diffraktiven neuronalen Netzwerken für effektive Laserstrahlformung",
+      "authors": [
+        {
+          "name": "P. Buske",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Präzise Lasermarkierung durch synchronisierte Kaskadierung",
+      "authors": [
+        {
+          "name": "H. Schlüter",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Diffraktive Optische Elemente",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Design Optischer Systeme",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "3D-Messtechnik",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Innovative Kamerakonzepte",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "DGAO Mitgliederversammlung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Poster/Kaffee",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Fraunhofer-Vorlesung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Gala Dinner",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Von Quantensensoren zur Photovoltaik – Optische Präzisionsmesstechnik für eine digitale, sichere und nachhaltige Welt von morgen",
+      "authors": [
+        {
+          "name": "C. Denz",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "3D-Präzisionsstrukturierung von Glas durch selektives laserinduziertes Ätzen und UKP-Laserschweißen von Glas für photonische Technologien",
+      "authors": [
+        {
+          "name": "J. Gottmann",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Optische Messtechnik",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Lasermaterialbearbeitung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    }
+  ]
+}

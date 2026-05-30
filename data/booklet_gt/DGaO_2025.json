@@ -1,0 +1,824 @@
+{
+  "booklet": "DGaO_2025",
+  "jahr": 2025,
+  "tagung_nummer_match": 126,
+  "n_papers": 41,
+  "papers": [
+    {
+      "code": "H1",
+      "title": "S. Reichelt: Single-Shot Optical Metrology: Principles, Methods, and Applications",
+      "authors": [
+        {
+          "name": "S. Reichelt",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "A1-A4",
+      "title": "Speckles",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "B1-B4",
+      "title": "Optical Computing und maschinelles Lernen",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "H2",
+      "title": "H. Gross: Simulation und Tolerierung optischer Systeme mit Freiformflächen",
+      "authors": [
+        {
+          "name": "H. Gross",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "A5-A9",
+      "title": "Optikdesign",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "B5-B9",
+      "title": "Additive Fertigung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "A10-A15",
+      "title": "Visuelle Wahrnehmung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "B10-B15",
+      "title": "Medizinische Diagnostik und Überwachung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "H3",
+      "title": "C. Sheppard: Image scanning microscopy",
+      "authors": [
+        {
+          "name": "C. Sheppard",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "H4",
+      "title": "S. Hartel: From differentiable modelling to system optimization: The full journey using Geometric Algebra exemplarily applied to improve light sectioning systems",
+      "authors": [
+        {
+          "name": "S. Hartel",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "A16-A19",
+      "title": "Multiphysik- und Strahlmodellierung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "B16-B19",
+      "title": "Indirekte Formbestimmung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "A20-A23",
+      "title": "Strahlformung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "B20",
+      "title": "Podiumsdiskussion Karriereperspektiven in der Optik",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "A",
+      "title": "ISO-kompatible Modellaugen für die Charakterisierung von Intraokularlinsen mit Weißlicht",
+      "authors": [
+        {
+          "name": "S. Reichelt",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "A. Schiebelbein",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "T. Schmitt-Manderbach",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "C. Glasenapp",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "G. Pedrini",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "D. Kelly",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "H. Gross",
+          "affiliation_markers": []
+        },
+        {
+          "name": "P. Karbe",
+          "affiliation_markers": [
+            "A"
+          ]
+        },
+        {
+          "name": "A. Ruprecht",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "C. Fuchs",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "B. Stauff",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "S. Krey",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "N. Schuster",
+          "affiliation_markers": [
+            "A"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "Institut für Technische Optik, Universität Stuttgart"
+        },
+        {
+          "marker": "*",
+          "name": "Corporate Research & Technology, Carl Zeiss AG"
+        },
+        {
+          "marker": "**",
+          "name": "Institut für Technische Optik, Universität Stuttgart"
+        },
+        {
+          "marker": "*",
+          "name": "Institut für Lasertechnologien in der Medizin und Meßtechnik an der Universität Ulm"
+        },
+        {
+          "marker": null,
+          "name": "Fraunhofer Institut für Angewandte Optik und Feinmechanik IOF"
+        },
+        {
+          "marker": "A",
+          "name": "Leica Camera AG"
+        },
+        {
+          "marker": "1",
+          "name": "TRIOPTICS GmbH"
+        },
+        {
+          "marker": "A",
+          "name": "SUSTAR-OPTICS Heilbronn"
+        }
+      ],
+      "abstract": null,
+      "email": "reichelt@ito.uni-stuttgart.de",
+      "_page": 5
+    },
+    {
+      "code": "A2",
+      "title": "Spektrale Speckle-Korrelation zur flächigen Bestimmung der Oberflächennaurheit",
+      "authors": [
+        {
+          "name": "P. Laux",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "A. Schiller",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "A. Bertz",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "D. Carl",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "S. Reichelt",
+          "affiliation_markers": [
+            "**"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Fraunhofer-Institut für Physikalische Messtechnik IPM, Freiburg"
+        },
+        {
+          "marker": "**",
+          "name": "Institut für Nachhaltige Technische Systeme, Albert-Ludwigs-Universität Freiburg"
+        },
+        {
+          "marker": "***",
+          "name": "Institut für Technische Optik, Universität Stuttgart"
+        }
+      ],
+      "abstract": "Die Oberflächennaurheit ist ein entscheidendes Qualitätsmerkmal in der Blechbearbeitung. In diesem Vortrag wird die Methode der spektralen Speckle-Korrelation (SSC) vorgestellt, bei der das Speckle-Muster der Oberfläche bei unterschiedlichen Wellenlängen erfasst wird. Durch die Korrelation aufgenommenen Speckle-Bilder wird die Oberflächennaurheit bestimmt: An Oberflächen mit größerer Rauheit zeigen diese eine geringere Korrelation. Dies führt zu schnellen, flächigen und kontaktfreien Messungen. In diesem Beitrag wird erläutert, wie die Auswertefläche gewählt und störende Einflüsse der Oberfläche reduziert werden, um eine Rauheitsmessung mit möglichst hoher Ortsauflösung zu ermöglichen. Es wird gezeigt, dass der Rauheitsparameter Sq von Oberflächen im Bereich von 0,81 μm bis 2,07 μm mittels SSC mit weniger als 5 % Abweichung von Referenzwerten bestimmt werden kann. Die Ergebnisse zeigen das Potenzial der Methode für Oberflächennaurmessungen von Bereichen mit einem Durchmesser von 15 mm.",
+      "email": "patrick.laux@ipm.fraunhofer.de",
+      "_page": 11
+    },
+    {
+      "code": "A4",
+      "title": "Speckle-basierter relativer 6DOF Sensor",
+      "authors": [
+        {
+          "name": "N. Borchers",
+          "affiliation_markers": [
+            "*",
+            "**"
+          ]
+        },
+        {
+          "name": "U. Vogl",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "C. Glasenapp",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "T. Haist",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "S. Reichelt",
+          "affiliation_markers": [
+            "*"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Institut für Technische Optik, Universität Stuttgart"
+        },
+        {
+          "marker": "**",
+          "name": "Carl Zeiss AG"
+        }
+      ],
+      "abstract": "Viele verschiedene industrielle Fertigungsprozesse benötigen eine genaue Kenntnis der relativen Position zwischen Werkstück und Werkzeug in 6 Freiheitsgraden (Degrees of Freedom: DoF). Die derzeit oft hierfür eingesetzten Methoden [KMG, Laser Tracer, Laser Tracker, (Aktive) Triangulation, Kamera + CAD] haben alle bestimmte Vor- und Nachteile. Insbesondere die hochgenaue Messung der Rotationen des Werkstücks kann eine Herausforderung darstellen. Die genutzte speckle-basierte Messmethode wertet die relativen Verschiebungen des Specklemusters auf mehreren Kameras aus und berechnet anhand dieser die relative Posenänderung mit Genauigkeiten im Einstelligen Mikrometer bzw. Mikrorad Bereich. Um Messungen in dieser Genauigkeitsklasse zu ermöglichen ist eine präzise Kontrolle und Stabilität der Laserwellenlänge sowie der Geometrie und der sie beeinflussenden thermischen Belastungen des Systems notwendig. Durch die Nutzung von Kalibrierbildern mit bekannten Positionen ist eine Erweiterung der Messung auf absolute Posen möglich. Der Sensoraufbau wird zusammen mit ersten Messergebnissen vorgestellt und ein Vergleich der speckle-basierten Methode zu den genannten Alternativen gezogen.",
+      "email": "niklas.borchers@zeiss.com",
+      "_page": 13
+    },
+    {
+      "code": "B1",
+      "title": "Optisches Reservoir Computing zur Analyse turbulenter Konvektionsströme",
+      "authors": [
+        {
+          "name": "A. Bartelmei",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "J. Schumacher",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "S. Sinzinger",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "TU Ilmenau"
+        }
+      ],
+      "abstract": "Die Untersuchung turbulenter Konvektionsströme ist ein wichtiger Schritt für das Verständnis von Wärmetransport in dynamischen Systemen wie Wetter und Klima. Aufgrund der zugrundeliegenden komplexen nichtlinearen Prozesse sind die entstehenden zeitlich und räumlich chaotischen Strukturen schwer vorhersehbar. Maschinelles Lernen bietet hier vielversprechende Ansätze, die komplexen Dynamiken näher zu verstehen. Um zukünftige Strömungszustände effektiv vorhersagen zu können, ist eine Balance zwischen physikalischer Genauigkeit und rechnerischer Effizienz erforderlich. Ein Lösungsansatz ist das in dieser Arbeit vorgestellte optischen Reservoir Computing. Dieses maschinelle Lernverfahren erlaubt einen vergleichsweise geringen Trainingsaufwand, da nur die Ausgangsbeschichtung statt des gesamten neuronalen Netzes trainiert wird. Durch die optische Implementierung mit spatialtem Lichtmodulator wird zudem eine direkte und parallele Datenverarbeitung ermöglicht. Wir präsentieren den grundlegenden optischen Aufbau des Reservoir Computing Systems und erste Ergebnisse mit strömungsmechanischen Daten. Die wichtigsten Einflussparameter auf die Systemfunktionalität werden diskutiert.",
+      "email": "anja.bartelmei@tu-ilmenau.de",
+      "_page": 15
+    },
+    {
+      "code": "B2",
+      "title": "Optisches Reservoir Computing mit direkten optischen Eingabedaten",
+      "authors": [
+        {
+          "name": "M. Zier",
+          "affiliation_markers": [
+            "2"
+          ]
+        },
+        {
+          "name": "K. Lüdge",
+          "affiliation_markers": [
+            "2"
+          ]
+        },
+        {
+          "name": "L. Jaurigue",
+          "affiliation_markers": [
+            "2"
+          ]
+        },
+        {
+          "name": "S. Sinzinger",
+          "affiliation_markers": [
+            "2"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "2",
+          "name": "Technische Universität Ilmenau"
+        }
+      ],
+      "abstract": "Die Klassifizierung optischer Bild- und Videodaten z.B. mit künstlichen neuronalen Netwerken gewinnt in Zeiten zunehmender Automatisierung immer mehr an Bedeutung. Anwendungsfelder sind u.a. Handschrifterkennung, Identifikation oder Videoüberwachung. Ein viel diskutierter Ansatz des maschinellen Lernens ist dabei das Reservoir Computing. Dieser eignet sich besonders für eine optische Implementierung, da sich der Trainingsvorgang auf die Ausgangsebene des Netzwerkes beschränkt. In Kombination mit optisch aufbereiteten Eingangsdaten werden so schnelle und effiziente Computingsysteme realisiert. In einem existierenden elektrooptischen Reservoir-Computing-System auf Basis eines spatialen Lichtmodulators, werden elektronische Komponenten sukzessive durch optische Implementierungen ersetzt. Ziel ist eine rein optische, direkte und parallele Datenverarbeitung, wobei der Einfluss der Reservoir-Architektur und der optischen Systemgestaltung auf die Klassifizierungsfähigkeit analysiert werden. In diesem Beitrag werden erste Ansätze und Ergebnisse auf dem Weg zu einer rein optischen Implementierung präsentiert.",
+      "email": null,
+      "_page": 15
+    },
+    {
+      "code": "B",
+      "title": "Potentials and Challenges of Optics Manufacturing with Xology",
+      "authors": [
+        {
+          "name": "T. Meinecke",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "K. Kraidenov",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "D. Rajput",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "S. Sinzinger",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "M. Falkner",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "U. Wüllner",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "T. Biermann",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "P. Xia",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "S. Teves",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "Z. Dai",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "R. Lachmayer",
+          "affiliation_markers": [
+            "**"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "Fachgebiet Technische Optik, Technische Universität Ilmenau"
+        },
+        {
+          "marker": "*",
+          "name": "Institute of Product Development, Leibniz University Hannover"
+        },
+        {
+          "marker": "**",
+          "name": "Cluster of Excellence PhoenixD (Photonics, Optics and Engineering - Innovation Across Disciplines), Leibniz University Hannover"
+        }
+      ],
+      "abstract": "Phase Retrieval ist ein Verfahren zur Gewinnung der komplexwertigen Wellenfront eines kohärent beleuchteten Objekts aus einem Bildstapel defokussierter Intensitätsverteilungen. Ein iterativer Algorithmus berechnet aus diesen Aufnahmen eine volumetrische Wellenfeldverteilung, aus dem durch numerische Rückpropagation die Information der komplexwertigen Wellenfront ermittelt wird. Wegen des Einsatzes diskretisierender Komponenten (CCD Sensor als Abtastgitter, Rechentechnik) ist dieses Verfahren aufgrund des Abstatttheorems streng an die Parameter der Wellenlänge der Beleuchtung, der Pixelgröße der Kamera, der gewählten Entfernung der größten Defokussierung und des minimalen Strukturdetails sowie der Größe des beleuchteten Objekts gebunden und nur eingeschränkt anwendbar. Diesen Restriktionen kann durch das Einbringen eines optischen Interface begegnet werden. In diesem Beitrag stellen wir optische Konzepte, deren Funktionalität und ihre Realisierung vor. Wir präsentieren Messergebnisse und diskutieren Möglichkeiten der Bildmanipulation und -verbesserung. Xology is a volumetric additive manufacturing technique that uses two distinct wavelengths of light to create three-dimensional structures with optical quality. Unlike conventional additive manufacturing, where parts are built layer by layer, Xology forms components without a layer structure. This results in a surface roughness in the low two-digit nanometer range and isotropic material properties. Xology holds significant potential for manufacturing complex optical components, such as free-form lenses, prisms, and diffractive elements. The volumetric nature of the process also allows for significantly reduced production times compared to traditional methods. However, as a relatively new technology, challenges remain in achieving shape fidelity, spectral transmission, and material diversity. This article explores the potential of Xology for optics manufacturing, discusses its current challenges, and offers insights into future developments and solutions.",
+      "email": "thomas.meinecke@tu-ilmenau.de",
+      "_page": 17
+    },
+    {
+      "code": "B4",
+      "title": "KI-basiertes Modell für die Simulation großflächiger Meta-Oberflächen",
+      "authors": [
+        {
+          "name": "W. Spiller",
+          "affiliation_markers": [
+            "2"
+          ]
+        },
+        {
+          "name": "J. Jahns",
+          "affiliation_markers": [
+            "2"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "2",
+          "name": "Mikro- und Nanophotonik, FernUniversität Hagen"
+        }
+      ],
+      "abstract": "Für großflächige Meta-Oberflächen, bestehend aus sehr vielen Meta-Atomen mit Nanometer-Abmessungen, stellt die genaue Berechnung des erzeugten optischen Feldes eine große Herausforderung dar. Um den Rechenaufwand zu minimieren, schlagen wir ein Verfahren vor, welches aus drei Komponenten besteht: erstens, auf der individuellen Berechnung der Einzelbeiträge (Huygens-Wellen), zweitens, einer modalen Zerlegung der individuellen Felder in sog. „Wirbelmoden“ und der analytischen Formulierung der anschließenden Lichtausbreitung, schließlich drittens, der Verwendung von Verfahren der Künstlichen Intelligenz (KI), hier speziell eines Neuronalen Netzes (NN). Dies erfolgt in zwei Schritten: erstens, der vorbereitenden Berechnung und dem Training des NN für ein normiertes numerisches Modell und, zweitens, der eigentlichen Berechnung mit benutzerspezifischen Daten. Das NN wird dabei speziell zur Abstraktion und Interpolation ausgenutzt. Bei ausreichendem Training ist der Rechenaufwand im zweiten Schritt, d.h. bei der eigentlichen Simulation, verschwindend klein und i.A. sogar in Realzeit möglich.",
+      "email": "walspill@yahoo.de",
+      "_page": 17
+    },
+    {
+      "code": "A6",
+      "title": "Compact Telecentric Objectives: A systematic exploration of 'another' PNP triplet",
+      "authors": [
+        {
+          "name": "G. Raju",
+          "affiliation_markers": [
+            "A6"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "A6",
+          "name": "Hensoldt Optronics GmbH, Oberkochen"
+        }
+      ],
+      "abstract": "Cooke Triplet and its variants with a PNP power distribution and symmetry about the central stop, is a well-studied photographic objective. This paper will systematically present another special triplet form with low numerical aperture and a telecentric image, used in applications such as epifluorescence microscopy, projection optics, and semiconductor inspection applications. When used with an externally accessible stop as typical in this application area, the basic form combines a Telephoto lens (PN) with a telecentricity enforcing field lens of positive power leading to PNP power distribution. The individual groups get more complex with demanding mechanical packaging specifications. Typical designs in the visible spectrum and their limiting aberrations are presented with a design evolution approach.",
+      "email": "gokul.raju@hensoldt.net",
+      "_page": 21
+    },
+    {
+      "code": "A8",
+      "title": "New results on the temperature coefficient of the refractive index for various optical materials",
+      "authors": [
+        {
+          "name": "R. Jedamzik",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "J. Körmer",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "U. Petzold",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "H. Kaufmann",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "SCHOTT AG"
+        }
+      ],
+      "abstract": "The refractive index, a property of optical materials, fluctuates with changes in temperature. This means that any temperature variations in a lens, whether it's made from optical glass, infrared material, or even a filter, can cause changes in the refractive index. This, in turn, leads to distortions in the wavefront that are dependent on temperature in the application. However, these temperature-dependent variations in the refractive index can be offset by thermal expansion, which allows us to define what we call athermal glass behavior. A crucial element for designing athermal optics is a dependable database that contains the thermal coefficient of the refractive index for the optical materials. ISO has released two standards, ISO 6760-1 and 6760-2, which focus on measuring the temperature coefficient of the refractive index. For many years, reliable data on these temperature coefficients have been a key component of the data sheets for optical glass. More applications need broadband dn/dT evaluations up to 2325 nm. Current measurement capabilities are limited to 1060 nm wavelength. Questions arise if extrapolation of dn/dT data from 1060 nm to 2325 nm is a valid approach.",
+      "email": "ralf.jedamzik@schott.com",
+      "_page": 23
+    },
+    {
+      "code": "B6",
+      "title": "Integrated manufacturing of optical MEMS via direct laser writing",
+      "authors": [
+        {
+          "name": "A. Calikoglu",
+          "affiliation_markers": []
+        },
+        {
+          "name": "F. Lux",
+          "affiliation_markers": []
+        },
+        {
+          "name": "Ç. Ataman",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": null,
+          "name": "Department of Microsystems Engineering, University of Freiburg"
+        }
+      ],
+      "abstract": "Three-dimensional (3D) nano-printing via two-photon polymerization offers unparalleled design flexibility and precision, thereby enabling rapid prototyping of advanced micro-optical elements and systems that have found important applications in endomicroscopy and biomedical imaging. The potential of this versatile tool for monolithic manufacturing of dynamic micro-opto-electro-mechanical systems (MOEMS), however, has not yet been sufficiently explored. This approach offers unparalleled miniaturization, design flexibility, and alignment precision of micro-optics and actuators. However, the material systems available for the 3D nano-printing process are polymeric with less-than-ideal mechanical characteristics. In this paper, we discuss the monolithic manufacturing, characterization and testing of two novel functional optical microsystems, report on out investigation of the static and dynamic mechanical response of the relevant material systems to explain experimentally observed behavior.",
+      "email": "caglar.ataman@imtek.uni-freiburg.de",
+      "_page": 27
+    },
+    {
+      "code": null,
+      "title": "Networking Event: Genussvolle Entdeckungstour: Stuttgart & Weinregion",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "Networking Ausklang: Brauhaus Restaurant Trollinger - Feuersee",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": null,
+      "title": "F. Dözer: Interferometrie oder Holografie? - Unterschiede und Gemeinsamkeiten interferometrischer Methoden unter Berücksichtigung des Messobjekts und Detektors",
+      "authors": [
+        {
+          "name": "F. Dözer",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Interferometrie I",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Beleuchtungsoptik",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Interferometrie II",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Faseroptik und integrierte Optik",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Neue Bildgebungstechnologien und Spezialkameras",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Diffraktive optische Elemente",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "DGaO-Mitgliederversammlung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Poster",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Fraunhofer-Vorlesung: Peter de Groot Did I invent that? Reflections on creativity and innovation in optics",
+      "authors": [
+        {
+          "name": "Peter de Groot",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Gala Dinner",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "S. Risse: Fertigung und Charakterisierung von Metall-optiken mit Freiformflächen",
+      "authors": [
+        {
+          "name": "S. Risse",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "G. Brehm: Hunting the picometer - Most accurate mirrors of the world to continue Moore's law",
+      "authors": [
+        {
+          "name": "G. Brehm",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Lasermaterialbearbeitung und Hochleistungslaser",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Komponenten- und Systemmodellierung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    }
+  ]
+}

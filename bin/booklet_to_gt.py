@@ -28,8 +28,10 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+# bin/.cache/ ist Working-Dir des Run-Scripts (jsonl wird dorthin geschrieben),
+# data/booklet_gt/ ist persistenter, committed Output-Pfad.
 IN = ROOT / "bin" / ".cache" / "nuextract_booklets.jsonl"
-OUT_DIR = ROOT / "bin" / ".cache" / "gt"
+OUT_DIR = ROOT / "data" / "booklet_gt"
 
 # Booklet-Jahr -> Tagung-Nummer (105=2004 ... 127=2026)
 JAHR_TO_TAGUNG = {2004 + i: 105 + i + 1 for i in range(23)}  # 2004->106, 2005->107,... — aber DB hat 105=2004!

@@ -1,0 +1,798 @@
+{
+  "booklet": "DGaO_2023",
+  "jahr": 2023,
+  "tagung_nummer_match": 124,
+  "n_papers": 33,
+  "papers": [
+    {
+      "code": "H1",
+      "title": "D. Oberschmidt: Ein Einblick in die Herausforderungen und Potenziale der Bearbeitung unterschiedlicher Werkstoffe für optische Komponenten an der TU Berlin",
+      "authors": [
+        {
+          "name": "D. Oberschmidt",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "H2",
+      "title": "R. Jedamzik: Eine Reise von der Vergangenheit in die Zukunft der Produktion von optischem Glas bei SCHOTT.",
+      "authors": [
+        {
+          "name": "R. Jedamzik",
+          "affiliation_markers": []
+        },
+        {
+          "name": "U. Petzold",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": null,
+          "name": "SCHOTT AG, 55122 Mainz"
+        }
+      ],
+      "abstract": null,
+      "email": "ralf.jedamzik@schott.com",
+      "_page": 5
+    },
+    {
+      "code": "H3",
+      "title": "H. Rehn: Phasenraumdigramme in der Beleuchtungsoptik",
+      "authors": [
+        {
+          "name": "H. Rehn",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "H4",
+      "title": "B. Jähne: Performance Characterization of Modern Image Sensors and Cameras using Release 4 of the EMVA 1288 Standard",
+      "authors": [
+        {
+          "name": "B. Jähne",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "H5",
+      "title": "B. Dörband: Von Einsteins Relativitätstheorie zur modernen Halbleiterproduktion",
+      "authors": [
+        {
+          "name": "B. Dörband",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 5
+    },
+    {
+      "code": "H0104",
+      "title": "Ein Einblick in die Herausforderungen und Potenziale der Bearbeitung unterschiedlicher Werkstoffe für optische Komponenten an der TU Berlin",
+      "authors": [
+        {
+          "name": "D. Oberschmidt",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "S. Kühne",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "M. Jagodzinski",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "F. Rothermel",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "S. Thiele",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "R. Steinhoff",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "C. Jung",
+          "affiliation_markers": [
+            "***"
+          ]
+        },
+        {
+          "name": "H. Gießen",
+          "affiliation_markers": [
+            "****"
+          ]
+        },
+        {
+          "name": "A. M. Herkommer",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "C. Schober",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "L. Lausmann",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "K. Treptow",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "C. Pruss",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "S. Reichelt",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "N. Lukin",
+          "affiliation_markers": []
+        },
+        {
+          "name": "S. Sinzinger",
+          "affiliation_markers": []
+        },
+        {
+          "name": "H. Rehn",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "J. Muschaweck",
+          "affiliation_markers": [
+            "**"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Fachgebiet Mikro- und Feingeräte, Technische Universität Berlin"
+        },
+        {
+          "marker": "**",
+          "name": "Fachgebiet Nichtlineare Optik, Technische Universität Berlin"
+        },
+        {
+          "marker": "*",
+          "name": "Institut für Technische Optik, Universität Stuttgart"
+        },
+        {
+          "marker": "**",
+          "name": "Printoptix GmbH"
+        },
+        {
+          "marker": "***",
+          "name": "Mikrop AG"
+        },
+        {
+          "marker": "****",
+          "name": "4.Physikalisches Institut, Universität Stuttgart"
+        },
+        {
+          "marker": "1",
+          "name": "Institut für Technische Optik, Universität Stuttgart"
+        },
+        {
+          "marker": null,
+          "name": "TU Ilmenau, Fachgebiet Technische Optik"
+        },
+        {
+          "marker": "*",
+          "name": "FISBA AG"
+        },
+        {
+          "marker": "**",
+          "name": "JMO GmbH"
+        }
+      ],
+      "abstract": "Optische Komponenten bestehen, in Abhängigkeit von Anwendung und Einsatzbedingungen, aus unterschiedlichen Werkstoffen. Deren Bearbeitung setzt angepasste Maschinen, Werkzeuge und Technologien voraus. Durch vollständige Beachtung der sich daraus ergebenden Zusammenhänge ist es möglich, die geforderte Oberflächenqualität und Strukturgenauigkeit herzustellen. Aufgrund der gestiegenen Anforderungen, die sich aus neuen Anwendungen ergibt, sind Fortschritte in der Produktion optischer Komponenten notwendig und erkennbar. Der Einsatz immer kürzerer Wellenlängen, die Miniaturisierung von Komponenten sowie ein allseits vorhandener Kostendruck sind Basis einer Reihe von an der TU Berlin realisierten Forschungsarbeiten. Deren Ergebnisse werden zum großen Teil an industriellen Bedarfen ausgerichtet und direkt transferiert. Der Beitrag zeigt an ausgewählten Beispielen die Resultate grundlegender und entwicklungsorientierter Arbeiten. Simulation auf molekularer Ebene, Entwicklung von Materialmodellen für die oberflächennahe Bearbeitung und strukturorientierte Programmierung werden ebenso gezeigt wie Technologie- und Prozessentwicklungen und sich daraus ergebende optimierte Anlagen. Die Zwei-Photonen-Lithographie ermöglicht die Herstellung komplexer mikrooptischer Systeme für unterschiedliche Anwendungsbereiche. Ein großer Vorteil ist dabei die Flexibilität des Verfahrens in Bezug auf das bedruckbare Substrat sowie die Herstellung als monolithisches optomechanisches Design, aufgrund dessen eine Mikroassemblierung hinfällig wird. Die Implementierung aktiver mechanischer Funktionen, wie etwa Fokussierung oder Zoom durch Verschiebung von Linsenelementen stellt hierbei allerdings ein noch wenig erforschtes Teilgebiet dar. Wir stellen eine Methode zur magnetischen Aktuiierung 3D-gedruckter mikrooptischer Elemente vor. Das monolithisch druckbare Design beinhaltet zu bewegende optische Elemente, eine Rückstellmechanik (z. B. Federn und Gelenke) und ein Reservoir, welches nachträglich mit magnetisierbaren aushärtenden Gemischen befüllt wird. Durch angelegte Magnetfelder kann die fertiggestellte Struktur bewegt werden. Die dafür notwendigen Mikropulpen können z. B. durch das Umwickeln von Bieledifasern, auf welche das Optiksystem selbst direkt aufgebracht ist, realisiert werden. Somit ist eine gezielte transversale, laterale oder rotatorische Bewegung möglich. Spezialisierte Messsysteme erfordern oft maßgeschneiderte Optiksysteme. Die Zweiphotonenlithographie (TPP) hat sich hier im Bereich der mikrooptischen Systeme, die typischerweise Abmessungen von wenigen 100 µm haben, etabliert. Am Beispiel einer dreifarbigen Beleuchtungsoptik für ein neues Interferometerprinzip wird in diesem Vortrag illustriert, wie mit Hilfe der Zweiphotonenlithographie auch makroskopische Optiksysteme mit Abmessungen im Bereich von Zentimetern von der Flexibilität dieser Fertigungsmethode profitieren können. Gezeigt wird ein hexagonales Punktquellenbeleuchtungsarray, das in drei Farben leuchtet, wobei keine benachbarten Punktquellen dieselbe Wellenlänge aufweisen. Die Lösung zeigt eine hohe Gesamteffizienz, da sie ohne Farbfilterarrays auskommt. Vignetierung wird durch einen mikroprismenbasierten Feldlinsenansatz vermieden. Anwendung findet diese Beleuchtung perspektivisch in der instantanen Vermessung von Präzisionsoptiken. Holographie und die Herstellung holographisch-optischer Elemente (HOE) erweitern die Palette der Herstellungsmethoden für diffraktive optische Elemente. Im Vergleich zu der klassischen photolithographischen Herstellung bieten sie großes Potential mit Blick auf die hohen erreichbaren Aspektverhältnisse und Beugungseffizienzen sowie geringe Gitterperioden. Herausforderungen ergeben sich mit Blick auf die Vielfalt der herstellbaren Strukturen sowie der Verfügbarkeit geeigneter Materialien für die holographische Belichtung. Ein weiterer Aspekt, der in der letzten Zeit für die holographisch-optische Bauelemente immer mehr an Bedeutung gewinnt, besteht in dem sog. Multiplexing verschiedener Strukturen, die sowohl spatial als auch spektrale Parameter des einfallenden Lichts beeinflussen können. Diese Eigenschaften eröffnen den Einsatz der HOEs u.a. für optisches Computing. In diesem Beitrag präsentieren wir Beispiele für optische Belichtungsaufbauten in holographischen Photopolymeren und diskutieren Design-Ansätze von Elementen mit Hinblick auf die Anwendung für optisches Rechnen. Das Phasenraumdiagramm ist ein wichtiges Werkzeug im Beleuchtungsdesign und illustriert die Funktion vom Elementen in einem Beleuchtungssystem. Wir beginnen mit einer Einführung des Phasenraumes der Beleuchtungsoptik, seiner Darstellung im Phasenraumdiagramm und einem Vergleich zu anderen Phasen- oder Zustandsräumen der Physik. Es folgt eine Darstellung einfacher Phasenraumtransformationen wie denen für Freiraumausbreitung und ideale Linsen. Wir präsentieren eine Reihe von Beispielen aus unserer eigenen Erfahrung und aus der Literatur und beleuchten so den Nutzen der Darstellung von optischen Vorgängen und Elementen im Phasenraumdiagramm. Ein Blick in die Literatur liefert ein aus der Gruppentheorie abgeleitetes vollständiges System der Phasenraumtransformationen. Nach einem Ausflug in die Hamiltonsche Optik zeigen wir auf, wie sich Theorie und Formeln der Étendue-Welt im Phasenraumdiagramm wiederfinden. Abschließend zeigen wir eine Methode, die Leuchtdichte im Phasenraumdiagramm darzustellen und auf diese Weise auch unscharfe Lichtquellen untersuchen zu können.",
+      "email": "dirk.oberschmidt@tu-berlin.de",
+      "_page": 9
+    },
+    {
+      "code": "A2",
+      "title": "Nachbildung von Raubvogelfoveae mit 2-Photonenlithografie als Ansatz zur Realisierung von 'foveated imaging' in der Technik",
+      "authors": [
+        {
+          "name": "I. Urban",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "D. Stumpf",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "R. Brunner",
+          "affiliation_markers": [
+            "**"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Ernst-Abbe-Hochschule Jena"
+        },
+        {
+          "marker": "**",
+          "name": "Fraunhofer Institut für Angewandte Optik und Feinmechanik (IOF) Jena"
+        }
+      ],
+      "abstract": "'Foveated imaging' ist in vielen Bereichen der Bilderfassung und -verarbeitung unerlässlich, um gezielt Informationen aufzunehmen oder Datenmengen zu reduzieren. Vorge stellt wird ein Ansatz, bei dem die direkte Nachbildung von Fovea-Formen als optische Struktur direkt mit Hilfe der 2-Photonenlithografie in transparentem Polymer hergestellt und auf einen Sensor aufgebracht wird. Die Form der untersuchten Fovea-Nachbildungen als funktionsbestimmendes Element orientiert sich dabei an OCT-Aufnahmen von Raubvögelaugen. Das Gesamtsystem wird ergänzt durch eine Abbildungsoptik, die den vorderen Augenteil simuliert. Die Abbildung von Teststrukturen mit dem System zeigt die Validität des Ansatzes und ermöglicht eine Beeinflussung der Abbildungseigenschaften, insbesondere der zentralen Vergrößerung, durch Anpassung der geometrischen Parameter der Fovea-Form. Diese Alternative zu sonst üblichen Mehrkanaloptiken mit variieren den Parametern oder nachträglicher Bildverarbeitung stellt eine ideale Balance zwischen Einfachheit und optischer Performance her, die vielfältige Anwendungen in miniaturisierten Systemen ermöglicht.",
+      "email": "Daniela.Stumpf@eah-jena.de",
+      "_page": 11
+    },
+    {
+      "code": "A4",
+      "title": "Zur additiven Herstellung von mikroskaligen multiplexen volumenstreuenden Elementen",
+      "authors": [
+        {
+          "name": "J. Drozella",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "A. Toulouse",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "A. M. Herkommer",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "Institut für Technische Optik (ITO), Universität Stuttgart"
+        }
+      ],
+      "abstract": "Mit periodischen Volumenoptiken wurde gezeigt, dass es möglich ist multiplex optische Elemente herzustellen, welche in Abhängigkeit der Beleuchtungsparameter aus demselben Volumen eine unterschiedliche, gewünschte Zielverteilung erzeugen. Diese Strukturen wurden in Glassubstraten demonstriert, indem darin gezielte Verteilungen (3D-positionierte Voxel) aus Mikrobrüchen durch Laser eingebracht wurden. Es bestehen jedoch Einschränkungen der Einsetzbarkeit, da mechanische Handhabung und Halterung des Versuchsträgers nötig sind. In diesem Beitrag wird ein Ansatz vorgestellt, welcher die direkte, additive Herstellung von multiplexen volumenstreuenden Elementen durch Zwei-Photonen-Lithografie ermöglicht. Dies eröffnet Wege zur Herstellung dieser Strukturen auf verschiedensten Substraten, wie z. B. Lichtquellen, Sensoren oder optischen Fasern. Neben dem Design ist das Erreichen der notwendigen mechanischen Stabilität beim Polymerisationsprozess aus einem viskosen Photopolymer die größte Herausforderung, da die individuelle und fixe Positionierung der Verteilungsvoxel von kritischer Bedeutung sind. Prozess, Simulation und additive Herstellung von volumenstreuenden Optiken werden gezeigt.",
+      "email": "drozella@ito.uni-stuttgart.de",
+      "_page": 13
+    },
+    {
+      "code": "A6",
+      "title": "Dielektrophoretische Herstellung von Mikrolinsen",
+      "authors": [
+        {
+          "name": "M. Dohmen",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "A. Heinrich",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "C. Neumann",
+          "affiliation_markers": [
+            "**"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Zentrum für Optische Technologien, Hochschule Aalen"
+        },
+        {
+          "marker": "**",
+          "name": "Lichttechnisches Institut, Karlsruher Institut für Technologie"
+        }
+      ],
+      "abstract": "Die Anwendung von Mikrolinsen für die Beleuchtung oder Lichtformung erfordert oftmals idealerweise asphärisch geformte Mikrolinsen. Dabei wäre es zusätzlich von Vorteil, wenn die Form individuell auf den jeweiligen Anwendungsfall angepasst werden könnte. In diesem Beitrag soll die Dielektrophorese als Verfahren zur Realisierung solch individuell geformter Mikrolinsen vorgestellt werden. Dabei handelt es sich um die Manipulation bzw. Deformation von flüssigen Photopolymertropfen mittels elektrischer Felder, welche anschließend im UV-Licht ausgehärtet werden. Um dies zu untersuchen, wurde eine Versuchsumgebung bestehend aus einem elektrischen Aufbau zur Deformation des Polymertropfens und einem optischen System zur Evaluation des Polymertropfens während der Deformation realisiert. In diesem Beitrag wird sowohl der Aufbau, als auch die durchgeführten Messungen diskutiert. Im Detail wird dabei der Zusammenhang zwischen Elektrodenabstand bzw. elektrischer Feldverteilung, Stärke des elektrischen Feldes, Volumen des Polymertropfens, etc. und die daraus resultierende Deformation betrachtet. Außerdem werden unterschiedliche Materialien analysiert, um das Potential des Verfahrens aufzeigen.",
+      "email": "mike.dohmen@hs-aalen.de",
+      "_page": 15
+    },
+    {
+      "code": "H0110",
+      "title": "Spatio-temporales Reservoir Computing am Beispiel von Bewegungserkennung",
+      "authors": [
+        {
+          "name": "A. Bartelmei",
+          "affiliation_markers": []
+        },
+        {
+          "name": "N. Lukin",
+          "affiliation_markers": []
+        },
+        {
+          "name": "S. Singizer",
+          "affiliation_markers": []
+        },
+        {
+          "name": "N. Guo",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "K. Schmidt",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "N. Koukourakis",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "J. Czarske",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "J. Stockmann",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "M. Jagodzinski",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "I. Zuhdi",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "S. Kühne",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "D. Oberschmidt",
+          "affiliation_markers": [
+            "*"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": null,
+          "name": "TU Ilmenau, Fachgebiet Technische Optik"
+        },
+        {
+          "marker": "1",
+          "name": "Professur für Mess- und Sensorsystemtechnik, TU Dresden"
+        },
+        {
+          "marker": "*",
+          "name": "Fachgebiet für Mikro- und Feingeräte, Technische Universität Berlin"
+        }
+      ],
+      "abstract": "Maschinelle Lernverfahren werden in der heutigen Zeit immer wichtiger. Computer sollen in der Lage sein, Aufgaben menschennählich zu lösen. Komplexe Problemstellungen wie die Erkennung von Sprache und Bild sind dabei eine Herausforderung. Eine Lösungs-methode bietet das Konzept des Reservoir Computings. Das relativ neue Lernverfahren basiert auf einem rekurrenten Neuralen Netz, das Eingangsdaten in einem hochdimensionalen Zustandsraum abbildet. Das Netz bleibt dabei unverändert, lediglich eine Ausleseschicht wird anhand einer Datenbank trainiert. Diese Vorgehensweise erlaubt einen einfachen Umgang mit einem dem Gehirn nachempfundenen Aufbau des Netzes. Zeitabhängige Signale können verarbeitet und trainiert werden. Die vorgestellte Arbeit beschäftigt sich mit einer experimentellen Umsetzung dieses Konzepts. Dabei wird das Photonische Reservoir Computing betrachtet, wobei über den Einsatz eines optischen Aufbaus Daten schnell und energieeffizient transformiert werden können. Das trainierte Netzwerk muss im Anschluss sechs verschiedene menschliche Aktionen aus einer Videodatenbank unterscheiden. Ebenfalls wird der Aufbau am Rechner simuliert und mit den Labordaten verglichen. In fluorescence microscopy, biological samples are often labeled with multiple fluorescent structures and thus require imaging at multiple wavelengths. This may lead to chromatic aberration, resulting from the shift of the focal spots of different wavelengths and causing worsened resolution. We present a correction of chromatic aberration by using an Al-driven adaptive achromatic lens. The adaptive achromatic lens consists of two lens chambers filled with different optical oils and is sealed with deformable glass membranes. By deforming the membranes, the focal spots can be re-adjusted to correct the chromatic aberration. An optical setup based on holography and a trained Reinforcement Learning agent is used to control the adaptive achromatic lens for investigation of biological samples. In experiments, it is proven that this approach can successfully correct system and sample induced aberrations and improve the imaging quality. Any commercial achromatic doublet does only correct the chromatic aberration induced by the system. In our research, the adaptive achromatic lens can reduce an initial chromatic aberration of system and sample of more than 0.07Dpt to below 0.0001Dpt. Die Integration von KI-Systemen in industrielle Prozesse ist ein Kernthema vieler Forschungs- und Entwicklungsvorhaben der letzten Jahre. Die Chancen und Herausforderungen, die mit Lösungen des Maschinellen Lernens einhergehen, sind vielfältig. Eine wesentliche Herausforderung ist dabei stets die Bereitstellung von Daten in ausreichender Qualität und Quantität. In der Fertigung von komplexen optischen Systemen ist die Montage der einzelnen Komponenten von großer Bedeutung für die Funktion und Qualität des Produkts, da jede Abweichung der Einzelkomponente in Kombination zu einer Qualitätseinschränkung führen kann. Vorgestellt werden die Ergebnisse zur Ermittlung von Positionierungsabweichungen in Thermografiekameras durch Beurteilung der optischen Güte mittels KI- Methoden nach der Montage. Hierfür wurde die maßgeblich die Qualität beeinflussende Komponente im System identifiziert und die Auswirkung auf das optische Ergebnis analysiert. Durch Simulation von Positionsabweichungen der Kernkomponente wurden ≈5000 Datensätze für Training und Validierung eines neuronalen Netzes generiert. Die durchgeführte Studie zeigt die Potentiale aber auch bestehende praktische Grenzen der Methodik auf.",
+      "email": "bartelmei@web.de",
+      "_page": 17
+    },
+    {
+      "code": "B2",
+      "title": "Kompensation von Dezentrierung und Rotation bei der Vermessung von mittels SLM erzeugten Intensitätsverteilungen",
+      "authors": [
+        {
+          "name": "R. Kurth",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "T. König",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "J. Stollenwerk",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "C. Holly",
+          "affiliation_markers": [
+            "**"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Lehrstuhl für Technologie optischer Systeme, RWTH Aachen University"
+        },
+        {
+          "marker": "**",
+          "name": "Fraunhofer-Institut für Lasertechnik"
+        }
+      ],
+      "abstract": "Bei der Strahlformung mittels SLM ist es möglich, durch aufprägen einer Phasenmaske annähernd beliebige Intensitätsverteilungen (LDV) zu erzeugen. Dabei ist die Generierung von Phasenmasken eine nicht triviale Aufgabe, die gemäß dem Stand der Technik durch iterative Algorithmen (z.B. IFTA) erreicht wird. Diese Verfahren eignen sich, aufgrund der benötigten Iterationen, allerdings nicht für dynamische Strahlformung. Eine Möglichkeit zur Beschleunigung der Generierung von Phasenmasken bieten neuronale Netzwerke (NN). Die erfolgreiche Anwendung von NN ist dabei stark an den Trainingsprozess gebunden. Für das Training werden Trainingsdaten aus einem realen optischen System verwendet. Dabei werden für das Training nach dem Supervised Learning Datenpaare aus Phasenmaske und resultierender LDV benötigt. Durch nicht ideale Positionierung eines Detektors kann dabei eine Rotation und Dezentrierung in die aufgenommene LDV einfließen, die nicht auf die Phasenmaske zurückzuführen ist. Aus einer Referenzmessung lässt sich eine Transformationsvorschrift ableiten, um den Einfluss des Detektors zu kompensieren und den Einfluss der Phasenmaske auf die aufgenommenen LDVs differenziert zu beurteilen.",
+      "email": "robin.kurth@los.rwth-aachen.de",
+      "_page": 17
+    },
+    {
+      "code": "B4",
+      "title": "Rekonstruktion von 3D-Abbildungen in der Lichtschicht-Fluoreszenzmikroskopie mit Dekonvolutions- und Deep-Learning-Algorithmen",
+      "authors": [
+        {
+          "name": "C. Fan",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "M. Hofmann",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "S. Gharbi Ghebjagh",
+          "affiliation_markers": [
+            "1"
+          ]
+        },
+        {
+          "name": "S. Sinzinger",
+          "affiliation_markers": [
+            "1"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "1",
+          "name": "TU Ilmenau, Fachgebiet Technische Optik"
+        }
+      ],
+      "abstract": "Mit einem Lichtschicht-Fluoreszenzmikroskop (LSFM) können fluoreszierende Proben schichtweise aufgenommen und zu dreidimensionalen Bildern rekonstruiert werden. Die Proben sind in der Regel fest, z.B. in Agarose, eingebettet und werden mit Hilfe eines Piezo-Verstellstisches schrittweise durch die Lichtschicht bewegt. Im Fall einer durchflussbasierten Messung können die Proben in einem zur Lichtschicht verkippten Schlauch geführt und die Probenbewegung als Scanmechanismus ausgenutzt werden. Allerdings führt dieser Ansatz zu einer Bewegungsunschärfe und Herausforderungen bei der schnellen Rekonstruktion. In diesem Beitrag diskutieren wir, inwieweit Deep-Learning-Algorithmen mit neuronalen Netzen geeignet sind, die Qualität und Geschwindigkeit durchflussbasierter Messungen zu steigern. Dazu sollen auch alternative Maßnahmen wie Dekonvolutionsalgorithmen zum Vergleich herangezogen und Kombinationsmöglichkeiten mit anderen Algorithmen ausgelotet werden.",
+      "email": "meike.hofmann@tu-ilmenau.de",
+      "_page": 19
+    },
+    {
+      "code": "B6",
+      "title": "How to archive the visual contents of aging analog film holograms?",
+      "authors": [
+        {
+          "name": "J. Choi",
+          "affiliation_markers": [
+            "*"
+          ]
+        },
+        {
+          "name": "A. Dashpute",
+          "affiliation_markers": [
+            "**"
+          ]
+        },
+        {
+          "name": "B. Xu",
+          "affiliation_markers": [
+            "***"
+          ]
+        },
+        {
+          "name": "O. Cossart",
+          "affiliation_markers": [
+            "***"
+          ]
+        },
+        {
+          "name": "M. Walton",
+          "affiliation_markers": [
+            "****"
+          ]
+        },
+        {
+          "name": "J. Tumblin",
+          "affiliation_markers": [
+            "***"
+          ]
+        },
+        {
+          "name": "F. Willomitzer",
+          "affiliation_markers": [
+            "*"
+          ]
+        }
+      ],
+      "affiliations": [
+        {
+          "marker": "*",
+          "name": "Wyant College of Optical Sciences, University of Arizona"
+        },
+        {
+          "marker": "**",
+          "name": "Department of Electrical and Computer Engineering, Rice University"
+        },
+        {
+          "marker": "***",
+          "name": "Department of Computer Science, Northwestern University"
+        },
+        {
+          "marker": "****",
+          "name": "M+ Museum, Hong Kong"
+        }
+      ],
+      "abstract": "Even more than 70 years after the invention of holography, watching an analog film hologram still seems like pure magic. The probably most fascinating feature is the seemingly perfect reconstruction of the recorded object that can be viewed from every possible perspective. Besides its technically intriguing aspect, analog holography has also become a unique form of art over the years, and the works of \"holography artists\" can be found in major museum collections nowadays. Being \"active material,\" however, these works of art are subject to constant degradation, which raises the question on how the unique impression of watching them can be \"digitally preserved\" for future generations – ideally without capturing terabytes of data. In this contribution, we introduce a method to render the visual contents of analog film holograms from sparse image data that can be captured in seconds with off-the-shelf devices (e.g., mobile phones). Our approach is based on Neural Radiance Fields (NeRF) which is a learning-based method to generate novel views of complex volumetric scenes. We will show free-viewpoint-videos of captured holograms as well as quantitative analysis of viewpoint consistency.",
+      "email": "fwillomitzer@arizona.edu",
+      "_page": 21
+    },
+    {
+      "code": null,
+      "title": "Strukturbasierte und konfokale 3D-Messtechnik",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Optik-Design II",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Networking Event: Science Slam",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Schiffsfahrt auf der Spree inkl. Dinner",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "100 Jahre DGAO und die Technische Optik in Berlin – Ein Blick zurück",
+      "authors": [
+        {
+          "name": "G. Häusler",
+          "affiliation_markers": []
+        },
+        {
+          "name": "R. Schuhmann",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Die Geschichte der Leica Apo Photo-Objektive",
+      "authors": [
+        {
+          "name": "P. Karbe",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Looking at, and through, the earliest telescopes. What their optical and material features tell us about them and their users",
+      "authors": [
+        {
+          "name": "M. Bolt",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Nachwuchsförderung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Subwellenlängenstrukturen II",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "DGAO-Nachwuchspreis",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "DGAO Mitgliederversammlung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Poster/Kaffee",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Fraunhofer-Vorlesung",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Gala Dinner: Festzelt auf dem Campus",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Ultra-präzise optische Elemente für Synchrotron- und FEL-Anwendungen",
+      "authors": [
+        {
+          "name": "F. Siewert",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Die Herausforderungen moderner Verkehrsbeleuchtung",
+      "authors": [
+        {
+          "name": "S. Völker",
+          "affiliation_markers": []
+        }
+      ],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Lichtquellen und Beleuchtungssysteme",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Modellbildung und Simulation",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Systeme für Mensch-Maschine-Interaktion",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    },
+    {
+      "code": null,
+      "title": "Modellierung und Messung von Transferfunktionen",
+      "authors": [],
+      "affiliations": [],
+      "abstract": null,
+      "email": null,
+      "_page": 6
+    }
+  ]
+}
