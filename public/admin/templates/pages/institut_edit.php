@@ -1,16 +1,24 @@
 <?php
 $institutId = (int)($params['id'] ?? 0);
-$adminPageTitle = 'Institut bearbeiten';
+$isNew = $institutId === 0;
+$adminPageTitle = $isNew ? 'Neue Institution' : 'Institut bearbeiten';
 
 $db = getDb();
-$inst = $db->prepare('SELECT * FROM institutionen WHERE id = ?');
-$inst->execute([$institutId]);
-$inst = $inst->fetch();
-
-if (!$inst) {
-    setFlash('danger', 'Institution nicht gefunden.');
-    header('Location: /admin/autoren');
-    exit;
+if ($isNew) {
+    $inst = [
+        'id' => 0, 'name_de' => '', 'name_en' => '', 'kuerzel' => null,
+        'universitaet' => null, 'ort' => null, 'land' => null, 'ror_id' => null,
+        'wikidata_id' => null, 'homepage_url' => null, 'typ' => null, 'parent_id' => null,
+    ];
+} else {
+    $inst = $db->prepare('SELECT * FROM institutionen WHERE id = ?');
+    $inst->execute([$institutId]);
+    $inst = $inst->fetch();
+    if (!$inst) {
+        setFlash('danger', 'Institution nicht gefunden.');
+        header('Location: /admin/institute');
+        exit;
+    }
 }
 
 $errors = [];
@@ -36,9 +44,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($nameDe === '') {
                 $errors[] = 'Name (DE) erforderlich.';
-            } elseif ($parentId === $institutId) {
+            } elseif (!$isNew && $parentId === $institutId) {
                 $errors[] = 'parent_id darf nicht auf das Institut selbst zeigen.';
             } else {
+                if ($isNew) {
+                    $dbw->prepare('
+                        INSERT INTO institutionen
+                        (name_de, name_en, kuerzel, universitaet, ort, land, ror_id, wikidata_id, homepage_url, typ, parent_id)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ')->execute([
+                        $nameDe, $nameEn, $kuerzel ?: null, $uni ?: null, $ort ?: null,
+                        $land ?: null, $ror ?: null, $wiki ?: null, $hp ?: null,
+                        $typ ?: null, $parentId ?: null,
+                    ]);
+                    $newId = (int)$dbw->lastInsertId();
+                    // Hauptname als ersten Alias
+                    $norm = function_exists('normalizeForAliasMatch')
+                        ? normalizeForAliasMatch($nameDe)
+                        : mb_strtolower($nameDe);
+                    $dbw->prepare('INSERT OR IGNORE INTO institut_aliase (institut_id, alias_text, alias_norm) VALUES (?,?,?)')
+                        ->execute([$newId, $nameDe, $norm]);
+                    setFlash('success', 'Institution angelegt.');
+                    header("Location: /admin/institute/$newId/edit");
+                    exit;
+                }
                 $dbw->prepare('
                     UPDATE institutionen
                     SET name_de=?, name_en=?, kuerzel=?, universitaet=?, ort=?, land=?,
@@ -143,7 +172,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Aliase
+// Detail-Daten nur bei bestehendem Institut
+$aliase = $autoren = $papers = $subs = [];
+$nAutoren = $nPapers = 0;
+$parent = null;
+if (!$isNew) {
 $aliase = $db->prepare('SELECT id, alias_text, alias_norm FROM institut_aliase WHERE institut_id = ? ORDER BY alias_text COLLATE NOCASE');
 $aliase->execute([$institutId]);
 $aliase = $aliase->fetchAll();
@@ -188,22 +221,24 @@ if ($inst['parent_id']) {
 $subs = $db->prepare('SELECT id, name_de FROM institutionen WHERE parent_id = ? ORDER BY name_de COLLATE NOCASE');
 $subs->execute([$institutId]);
 $subs = $subs->fetchAll();
+}
 ?>
 
 <div class="d-flex justify-content-between align-items-start mb-3">
     <div>
         <nav aria-label="breadcrumb"><ol class="breadcrumb small mb-1">
-            <li class="breadcrumb-item"><a href="/admin/autoren">Autoren</a></li>
-            <li class="breadcrumb-item">Institut</li>
-            <li class="breadcrumb-item active">#<?= $institutId ?></li>
+            <li class="breadcrumb-item"><a href="/admin/institute">Affiliationen</a></li>
+            <li class="breadcrumb-item active"><?= $isNew ? 'Neu' : '#' . $institutId ?></li>
         </ol></nav>
-        <h1 class="mb-0"><?= e($inst['name_de']) ?></h1>
+        <h1 class="mb-0"><?= $isNew ? 'Neue Institution' : e($inst['name_de']) ?></h1>
+        <?php if (!$isNew): ?>
         <div class="text-muted small mt-1">
             ID <?= $institutId ?>
             &middot; <?= $nAutoren ?> Autor<?= $nAutoren === 1 ? '' : 'en' ?>
             &middot; <?= $nPapers ?> Paper<?= $nPapers === 1 ? '' : 's' ?>
             <?php if ($inst['kuerzel']): ?> &middot; <code><?= e($inst['kuerzel']) ?></code><?php endif; ?>
         </div>
+        <?php endif; ?>
     </div>
 </div>
 
@@ -286,6 +321,7 @@ $subs = $subs->fetchAll();
         </div>
     </div>
 
+    <?php if (!$isNew): ?>
     <!-- Sub-Institute + Merge -->
     <div class="col-lg-4">
         <div class="card mb-3">
@@ -407,7 +443,7 @@ $subs = $subs->fetchAll();
                                 <td><strong><?= e($p['code']) ?></strong></td>
                                 <td title="<?= e($p['titel']) ?>"><?= e(mb_strimwidth($p['titel'], 0, 80, '…')) ?></td>
                                 <td class="text-end">
-                                    <a href="/admin/papers/<?= e($p['id']) ?>/affils" class="btn btn-sm btn-outline-info" title="Autor-Affil-Editor"><i class="bi bi-diagram-3"></i></a>
+                                    <a href="/admin/papers/<?= e($p['id']) ?>/edit" class="btn btn-sm btn-outline-primary" title="Paper-Edit (inkl. Affil-Zuordnung)"><i class="bi bi-pencil"></i></a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
@@ -418,4 +454,5 @@ $subs = $subs->fetchAll();
             </div>
         </div>
     </div>
+    <?php endif; ?>
 </div>

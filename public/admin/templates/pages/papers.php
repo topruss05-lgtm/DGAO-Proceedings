@@ -124,10 +124,7 @@ $queryString = http_build_query(array_filter([
                     <td title="<?= e($p['autoren_text']) ?>"><?= e(mb_strimwidth($p['autoren_text'], 0, 35, '…')) ?></td>
                     <td><?= $p['hat_pdf'] ? '<i class="bi bi-check-circle text-success"></i>' : '<i class="bi bi-x-circle text-muted"></i>' ?></td>
                     <td class="text-end text-nowrap">
-                        <a href="/admin/papers/<?= e($p['id']) ?>/affils" class="btn btn-sm btn-outline-info" title="Autor-Affiliation-Zuordnung">
-                            <i class="bi bi-diagram-3"></i>
-                        </a>
-                        <a href="/admin/papers/<?= e($p['id']) ?>/edit" class="btn btn-sm btn-outline-primary" title="Bearbeiten">
+                        <a href="/admin/papers/<?= e($p['id']) ?>/edit" class="btn btn-sm btn-outline-primary" title="Bearbeiten (inkl. Autor-Affil-Zuordnung)">
                             <i class="bi bi-pencil"></i>
                         </a>
                         <a href="/admin/papers/<?= e($p['id']) ?>/delete" class="btn btn-sm btn-outline-danger" title="Löschen">

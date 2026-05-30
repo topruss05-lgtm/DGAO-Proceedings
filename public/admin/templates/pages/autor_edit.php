@@ -366,8 +366,8 @@ $paperCount = count($papersGrouped);
                                     <?php endforeach; endif; ?>
                                 </td>
                                 <td class="text-end">
-                                    <a href="/admin/papers/<?= e($p['id']) ?>/affils" class="btn btn-sm btn-outline-info" title="Editor">
-                                        <i class="bi bi-diagram-3"></i>
+                                    <a href="/admin/papers/<?= e($p['id']) ?>/edit" class="btn btn-sm btn-outline-primary" title="Paper-Edit (inkl. Affil-Zuordnung)">
+                                        <i class="bi bi-pencil"></i>
                                     </a>
                                 </td>
                             </tr>

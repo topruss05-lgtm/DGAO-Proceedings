@@ -109,6 +109,7 @@ function matchRoute(string $uri): array
         '/admin/tagungen'    => 'admin/tagungen',
         '/admin/papers'      => 'admin/papers',
         '/admin/autoren'     => 'admin/autoren',
+        '/admin/institute'   => 'admin/institute',
         '/admin/keywords'    => 'admin/keywords',
         '/admin/news'        => 'admin/news',
         '/admin/submissions'    => 'admin/submissions',
@@ -153,13 +154,16 @@ function matchRoute(string $uri): array
     if (preg_match('#^/admin/papers/([\w-]+)/delete$#', $path, $m)) {
         return ['page' => 'admin/paper_delete', 'params' => ['id' => $m[1]]];
     }
-    if (preg_match('#^/admin/papers/([\w-]+)/affils$#', $path, $m)) {
-        return ['page' => 'admin/paper_affils', 'params' => ['id' => $m[1]]];
-    }
 
-    // Institute CRUD (kein Sidebar-Reiter, erreichbar ueber Autor-/Paper-Edit-Verlinkungen)
+    // Institute CRUD
+    if ($path === '/admin/institute/neu') {
+        return ['page' => 'admin/institut_edit', 'params' => ['id' => null]];
+    }
     if (preg_match('#^/admin/institute/(\d+)/edit$#', $path, $m)) {
         return ['page' => 'admin/institut_edit', 'params' => ['id' => (int)$m[1]]];
+    }
+    if (preg_match('#^/admin/institute/(\d+)/delete$#', $path, $m)) {
+        return ['page' => 'admin/institut_delete', 'params' => ['id' => (int)$m[1]]];
     }
 
     // Autoren CRUD

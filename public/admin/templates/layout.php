@@ -47,6 +47,8 @@
                 <i class="bi bi-file-earmark-text"></i> Papers</a></li>
             <li><a href="/admin/autoren" class="<?= str_starts_with($page ?? '', 'admin/autor') ? 'active' : '' ?>">
                 <i class="bi bi-people"></i> Autoren</a></li>
+            <li><a href="/admin/institute" class="<?= str_starts_with($page ?? '', 'admin/institut') ? 'active' : '' ?>">
+                <i class="bi bi-building"></i> Affiliationen</a></li>
             <li><a href="/admin/keywords" class="<?= str_starts_with($page ?? '', 'admin/keyword') ? 'active' : '' ?>">
                 <i class="bi bi-tags"></i> Keywords</a></li>
             <li><a href="/admin/news" class="<?= str_starts_with($page ?? '', 'admin/news') ? 'active' : '' ?>">
