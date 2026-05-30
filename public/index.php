@@ -75,6 +75,19 @@ if ($isAdmin) {
     // Alle anderen Admin-Seiten: Login erforderlich
     requireAdmin();
 
+    // Admin-AJAX-Endpoints: JSON direkt, kein Layout
+    if (str_starts_with($page, 'admin/api_')) {
+        $apiFile = __DIR__ . '/admin/' . str_replace('admin/', '', $page) . '.php';
+        if (file_exists($apiFile)) {
+            require $apiFile;
+        } else {
+            http_response_code(404);
+            header('Content-Type: application/json');
+            echo json_encode(['error' => 'not found']);
+        }
+        exit;
+    }
+
     try {
         $adminPageTitle = 'Admin';
         ob_start();

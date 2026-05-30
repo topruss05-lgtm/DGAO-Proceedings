@@ -9,9 +9,8 @@ $db = getDb();
 $tagungen = $db->query('SELECT nummer, jahr, ort FROM tagungen ORDER BY nummer DESC')->fetchAll();
 
 $paper = null;
-$paperAutoren = [];
-$paperInsts   = [];
-$paperAssigns = [];
+$paperAutoren = [];          // pa.position, pa.autor_id, pa.ist_hauptautor, a.vorname, a.nachname
+$paperAssigns = [];          // autor_id => [ ['institut_id'=>..., 'name'=>..., 'quelle'=>...] ]
 if (!$isNew) {
     $stmt = $db->prepare('SELECT * FROM papers WHERE id = ?');
     $stmt->execute([$paperId]);
@@ -23,38 +22,37 @@ if (!$isNew) {
         exit;
     }
 
-    // Schema v11: autoren_text/hauptautor/affiliationen sind nicht mehr in papers —
-    // aus paper_autoren / paper_autor_institutionen rekonstruieren (Form-Templates lesen sie weiter)
-    $paper['autoren_text']  = buildPaperAutorenString($paperId);
-    $paper['hauptautor']    = buildPaperHauptautor($paperId);
-    $paper['affiliationen'] = buildPaperAffiliationenString($paperId);
-
     // Autoren des Papers (Position-Reihenfolge)
     $pa = $db->prepare('
-        SELECT pa.position, pa.autor_id, pa.ist_hauptautor, a.vorname, a.nachname
+        SELECT pa.position, pa.autor_id, pa.ist_hauptautor,
+               a.vorname, a.nachname, a.anzeige_name
         FROM paper_autoren pa JOIN autoren a ON a.id = pa.autor_id
         WHERE pa.paper_id = ? ORDER BY pa.position
     ');
     $pa->execute([$paperId]);
     $paperAutoren = $pa->fetchAll();
 
-    // Institute am Paper (distinct)
-    $pi = $db->prepare('
-        SELECT DISTINCT pai.institut_id, i.name_de, i.kuerzel
-        FROM paper_autor_institutionen pai JOIN institutionen i ON i.id = pai.institut_id
+    // Pro Autor: bestehende Affil-Zuordnungen (mit Institut-Name + Quelle)
+    $pas = $db->prepare('
+        SELECT pai.autor_id, pai.institut_id, pai.quelle,
+               i.name_de AS institut_name, i.kuerzel
+        FROM paper_autor_institutionen pai
+        JOIN institutionen i ON i.id = pai.institut_id
         WHERE pai.paper_id = ?
-        ORDER BY i.name_de COLLATE NOCASE
+        ORDER BY pai.autor_id, i.name_de COLLATE NOCASE
     ');
-    $pi->execute([$paperId]);
-    $paperInsts = $pi->fetchAll();
-
-    // Bestehende Zuordnungen (autor_id -> [institut_id => quelle])
-    $pas = $db->prepare('SELECT autor_id, institut_id, quelle FROM paper_autor_institutionen WHERE paper_id = ?');
     $pas->execute([$paperId]);
     foreach ($pas->fetchAll() as $r) {
-        $paperAssigns[(int)$r['autor_id']][(int)$r['institut_id']] = $r['quelle'];
+        $paperAssigns[(int)$r['autor_id']][] = [
+            'institut_id'   => (int)$r['institut_id'],
+            'name'          => (string)$r['institut_name'],
+            'kuerzel'       => (string)($r['kuerzel'] ?? ''),
+            'quelle'        => (string)($r['quelle'] ?? ''),
+        ];
     }
 }
+
+$errors = [];
 
 // POST verarbeiten
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -65,10 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'code'          => strtoupper(trim($_POST['code'] ?? '')),
         'typ'           => trim($_POST['typ'] ?? 'vortrag'),
         'titel'         => trim($_POST['titel'] ?? ''),
-        'autoren_text'  => trim($_POST['autoren_text'] ?? ''),
-        'hauptautor'    => trim($_POST['hauptautor'] ?? ''),
         'abstract_text' => trim($_POST['abstract_text'] ?? ''),
-        'affiliationen' => trim($_POST['affiliationen'] ?? ''),
         'kontakt_email' => trim($_POST['kontakt_email'] ?? ''),
         'datum'         => trim($_POST['datum'] ?? ''),
         'zeit'          => trim($_POST['zeit'] ?? ''),
@@ -77,17 +72,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'hat_pdf'       => isset($_POST['hat_pdf']) ? 1 : 0,
     ];
 
-    // Hauptautor: falls leer, erster Autor
-    if (empty($data['hauptautor']) && !empty($data['autoren_text'])) {
-        $autoren = array_map('trim', explode(',', $data['autoren_text']));
-        $data['hauptautor'] = $autoren[0] ?? '';
+    $autorIds = array_values(array_filter(array_map('intval', (array)($_POST['autor_ids'] ?? [])), fn($x) => $x > 0));
+    $hauptId  = (int)($_POST['hauptautor_id'] ?? 0);
+    if ($hauptId === 0 && !empty($autorIds)) {
+        $hauptId = $autorIds[0];
     }
 
-    $errors = [];
     if ($data['tagung_nummer'] < 1) $errors[] = 'Tagung auswählen.';
-    if (empty($data['code'])) $errors[] = 'Code erforderlich.';
-    if (empty($data['titel'])) $errors[] = 'Titel erforderlich.';
-    if (empty($data['autoren_text'])) $errors[] = 'Autoren erforderlich.';
+    if (empty($data['code']))       $errors[] = 'Code erforderlich.';
+    if (empty($data['titel']))      $errors[] = 'Titel erforderlich.';
+    if (empty($autorIds))           $errors[] = 'Mindestens ein Autor erforderlich.';
 
     if (empty($errors)) {
         $dbw = getDbAdmin();
@@ -96,7 +90,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             $newPaperId = $data['tagung_nummer'] . '-' . strtolower($data['code']);
 
-            // Falls ID sich geändert hat und es ein Edit ist: alte Verknüpfungen löschen
             if (!$isNew && $newPaperId !== $paperId) {
                 $dbw->prepare('DELETE FROM paper_autoren WHERE paper_id = ?')->execute([$paperId]);
                 $dbw->prepare('DELETE FROM papers WHERE id = ?')->execute([$paperId]);
@@ -104,14 +97,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $dbw->prepare('DELETE FROM paper_autoren WHERE paper_id = ?')->execute([$newPaperId]);
             }
 
-            // PDF-Dateiname generieren falls leer
             if (empty($data['pdf_dateiname'])) {
                 $data['pdf_dateiname'] = $data['tagung_nummer'] . '_' . strtolower($data['code']) . '.pdf';
             }
 
-            // Paper speichern (autoren_text/hauptautor/affiliationen werden NICHT mehr in papers
-            // gespeichert — Schema v11 droppt die Spalten; Werte landen via syncPaperAuthors() und
-            // paper_autor_institutionen in den normalisierten Tabellen)
             $stmt = $dbw->prepare('
                 INSERT OR REPLACE INTO papers
                 (id, tagung_nummer, code, typ, titel,
@@ -121,49 +110,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ');
             $stmt->execute([
                 $newPaperId, $data['tagung_nummer'], $data['code'], $data['typ'],
-                $data['titel'],
-                $data['abstract_text'], $data['zeit'], $data['raum'], $data['datum'],
-                $data['kontakt_email'],
+                $data['titel'], $data['abstract_text'], $data['zeit'], $data['raum'],
+                $data['datum'], $data['kontakt_email'],
                 $data['pdf_dateiname'], $data['hat_pdf'],
             ]);
 
-            syncPaperAuthors($dbw, $newPaperId, $data['autoren_text']);
+            // paper_autoren direkt aus autor_ids[] setzen (kein String-Parsing)
+            $insAut = $dbw->prepare('INSERT INTO paper_autoren (paper_id, autor_id, position, ist_hauptautor) VALUES (?,?,?,?)');
+            foreach ($autorIds as $pos => $aid) {
+                $insAut->execute([$newPaperId, $aid, $pos + 1, $aid === $hauptId ? 1 : 0]);
+            }
 
-            // Autor->Affiliation-Zuordnung speichern (nur falls submitted und nicht new)
-            $assignInput = $_POST['assign'] ?? null;
-            if (is_array($assignInput)) {
-                // Bestehende nuextract-Zuordnungen merken (haben Vorrang vor manuell)
-                $keepNuextract = $dbw->prepare("
-                    SELECT autor_id, institut_id FROM paper_autor_institutionen
-                    WHERE paper_id = ? AND quelle = 'nuextract'
-                ");
-                $keepNuextract->execute([$newPaperId]);
-                $protected = [];
-                foreach ($keepNuextract->fetchAll() as $r) {
-                    $protected[(int)$r['autor_id']][(int)$r['institut_id']] = true;
+            // Autor->Affiliation aus assign[$aid][] = [institut_ids]
+            $assignInput = $_POST['assign'] ?? [];
+            // Bestehende nuextract-Zuordnungen erhalten
+            $keepNuextract = $dbw->prepare("
+                SELECT autor_id, institut_id FROM paper_autor_institutionen
+                WHERE paper_id = ? AND quelle = 'nuextract'
+            ");
+            $keepNuextract->execute([$newPaperId]);
+            $protected = [];
+            foreach ($keepNuextract->fetchAll() as $r) {
+                $protected[(int)$r['autor_id']][(int)$r['institut_id']] = true;
+            }
+            $dbw->prepare('DELETE FROM paper_autor_institutionen WHERE paper_id = ?')
+                ->execute([$newPaperId]);
+            $insAff = $dbw->prepare("
+                INSERT OR IGNORE INTO paper_autor_institutionen
+                (paper_id, autor_id, institut_id, quelle)
+                VALUES (?, ?, ?, ?)
+            ");
+            foreach ($assignInput as $aidStr => $iids) {
+                $aid = (int)$aidStr;
+                if ($aid <= 0 || !in_array($aid, $autorIds, true)) continue;
+                if (!is_array($iids)) continue;
+                foreach ($iids as $iid) {
+                    $iid = (int)$iid;
+                    if ($iid <= 0) continue;
+                    $quelle = isset($protected[$aid][$iid]) ? 'nuextract' : 'manuell';
+                    $insAff->execute([$newPaperId, $aid, $iid, $quelle]);
                 }
-                $dbw->prepare('DELETE FROM paper_autor_institutionen WHERE paper_id = ?')
-                    ->execute([$newPaperId]);
-                $ins = $dbw->prepare("
-                    INSERT OR IGNORE INTO paper_autor_institutionen
-                    (paper_id, autor_id, institut_id, quelle)
-                    VALUES (?, ?, ?, ?)
-                ");
-                foreach ($assignInput as $aid => $iids) {
-                    $aid = (int)$aid;
-                    if (!is_array($iids)) continue;
-                    foreach ($iids as $iid) {
-                        $iid = (int)$iid;
-                        if ($iid <= 0) continue;
-                        $quelle = isset($protected[$aid][$iid]) ? 'nuextract' : 'manuell';
-                        $ins->execute([$newPaperId, $aid, $iid, $quelle]);
-                    }
-                }
-                // protected, die im Form nicht waren (z.B. Autor nicht angezeigt), zurueckschreiben
-                foreach ($protected as $aid => $iids) {
-                    foreach (array_keys($iids) as $iid) {
-                        $ins->execute([$newPaperId, $aid, $iid, 'nuextract']);
-                    }
+            }
+            // protected, die im Form nicht waren, zurueckschreiben
+            foreach ($protected as $aid => $iids) {
+                if (!in_array($aid, $autorIds, true)) continue;
+                foreach (array_keys($iids) as $iid) {
+                    $insAff->execute([$newPaperId, $aid, $iid, 'nuextract']);
                 }
             }
 
@@ -171,12 +163,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $dbw->commit();
 
             setFlash('success', $isNew ? 'Paper angelegt.' : 'Paper aktualisiert.');
-            header('Location: /admin/papers?tagung=' . $data['tagung_nummer']);
+            header('Location: /admin/papers/' . $newPaperId . '/edit');
             exit;
         } catch (Throwable $e) {
             $dbw->rollBack();
             error_log('paper_edit save error: ' . $e);
-            $errors[] = 'Speichern fehlgeschlagen — Details im Server-Log.';
+            $errors[] = 'Speichern fehlgeschlagen: ' . $e->getMessage();
         }
     }
 }
@@ -194,11 +186,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 <?php endif; ?>
 
-<div class="card">
-    <div class="card-body">
-        <form method="post">
-            <?= csrfField() ?>
+<form method="post">
+    <?= csrfField() ?>
 
+    <div class="card mb-3">
+        <div class="card-header py-2"><strong>Stammdaten</strong></div>
+        <div class="card-body">
             <div class="row g-3">
                 <div class="col-md-4">
                     <label for="tagung_nummer" class="form-label">Tagung *</label>
@@ -240,29 +233,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                            value="<?= e($data['titel'] ?? $paper['titel'] ?? '') ?>" required>
                 </div>
 
-                <div class="col-md-8">
-                    <label for="autoren_text" class="form-label">Autoren (kommasepariert) *</label>
-                    <input type="text" class="form-control" id="autoren_text" name="autoren_text"
-                           value="<?= e($data['autoren_text'] ?? $paper['autoren_text'] ?? '') ?>" required
-                           placeholder="A. Schiebelbein, T. Schmitt, C. Glasenapp">
-                </div>
-                <div class="col-md-4">
-                    <label for="hauptautor" class="form-label">Hauptautor</label>
-                    <input type="text" class="form-control" id="hauptautor" name="hauptautor"
-                           value="<?= e($data['hauptautor'] ?? $paper['hauptautor'] ?? '') ?>"
-                           placeholder="leer = erster Autor">
-                </div>
-
                 <div class="col-12">
                     <label for="abstract_text" class="form-label">Abstract</label>
                     <textarea class="form-control" id="abstract_text" name="abstract_text" rows="6"><?= e($data['abstract_text'] ?? $paper['abstract_text'] ?? '') ?></textarea>
-                </div>
-
-                <div class="col-md-12">
-                    <label for="affiliationen" class="form-label">Affiliationen</label>
-                    <div class="form-text mb-1">Nur Anzeige — pro Autor/Affil wird unten zugeordnet.</div>
-                    <input type="text" class="form-control" id="affiliationen" name="affiliationen"
-                           value="<?= e($data['affiliationen'] ?? $paper['affiliationen'] ?? '') ?>">
                 </div>
 
                 <div class="col-md-3">
@@ -295,24 +268,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
+    <div class="card mb-3">
+        <div class="card-header py-2"><strong>Autoren <span class="text-muted small">(Position = Reihenfolge im Select)</span></strong></div>
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-8">
+                    <label for="paper-autoren" class="form-label">Autoren *</label>
+                    <select id="paper-autoren" name="autor_ids[]" multiple required>
+                        <?php foreach ($paperAutoren as $pa):
+                            $aid = (int)$pa['autor_id'];
+                            $label = trim(($pa['anzeige_name'] ?: ($pa['vorname'] . ' ' . $pa['nachname'])));
+                        ?>
+                        <option value="<?= $aid ?>" selected><?= e($label) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <div class="form-text">Suche nach Vor-/Nachname oder Affiliation. Drag&Drop zum Sortieren.</div>
+                </div>
+                <div class="col-md-4">
+                    <label for="paper-hauptautor" class="form-label">Hauptautor</label>
+                    <select id="paper-hauptautor" name="hauptautor_id" class="form-select">
+                        <option value="">— erster Autor (Standard) —</option>
+                        <?php foreach ($paperAutoren as $pa):
+                            $aid = (int)$pa['autor_id'];
+                            $label = trim(($pa['anzeige_name'] ?: ($pa['vorname'] . ' ' . $pa['nachname'])));
+                        ?>
+                        <option value="<?= $aid ?>" <?= $pa['ist_hauptautor'] ? 'selected' : '' ?>><?= e($label) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <?php if (!$isNew && !empty($paperAutoren)): ?>
-            <hr class="my-4">
-            <h2 class="h6 fw-bold mb-3">Autor &harr; Affiliation-Zuordnung</h2>
-            <?php if (empty($paperInsts)): ?>
-            <div class="alert alert-light border small mb-0">
-                Noch keine Institutionen im Paper-Pool. Verknüpfe Institute zuerst über die einzelnen
-                <a href="/admin/autoren">Autoren</a>-Edits (autor_institutionen), oder die OCR-Pipeline.
-            </div>
-            <?php else: ?>
+    <?php if (!$isNew && !empty($paperAutoren)): ?>
+    <div class="card mb-3">
+        <div class="card-header py-2"><strong>Affiliationen pro Autor</strong></div>
+        <div class="card-body p-0">
             <div class="table-responsive">
                 <table class="table table-sm mb-0 align-middle">
                     <thead>
                         <tr>
-                            <th style="width: 28%">Autor</th>
-                            <th>Institute (mehrere wählbar)</th>
+                            <th style="width: 25%">Autor</th>
+                            <th>Institute (mehrere wählbar, Suche aktivieren durch Tippen)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -323,47 +323,111 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <strong><?= e($pa['nachname']) ?></strong><?= $pa['vorname'] ? ', ' . e($pa['vorname']) : '' ?>
                                 </a>
                                 <?php if ($pa['ist_hauptautor']): ?><i class="bi bi-star-fill text-warning small ms-1" title="Hauptautor"></i><?php endif; ?>
-                                <div class="text-muted" style="font-size:0.75rem">#<?= e($pa['position']) ?></div>
                             </td>
                             <td>
-                                <?php foreach ($paperInsts as $pi):
-                                    $iid = (int)$pi['institut_id'];
-                                    $checked = isset($paperAssigns[$aid][$iid]);
-                                    $quelle  = $paperAssigns[$aid][$iid] ?? null;
-                                ?>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox"
-                                           name="assign[<?= $aid ?>][]" value="<?= $iid ?>"
-                                           id="ass_<?= $aid ?>_<?= $iid ?>"
-                                           <?= $checked ? 'checked' : '' ?>>
-                                    <label class="form-check-label" for="ass_<?= $aid ?>_<?= $iid ?>">
-                                        <a href="/admin/institute/<?= $iid ?>/edit" class="text-decoration-none">
-                                            <?= e($pi['name_de']) ?>
-                                        </a>
-                                        <?php if ($pi['kuerzel']): ?><span class="text-muted small">(<?= e($pi['kuerzel']) ?>)</span><?php endif; ?>
-                                        <?php if ($quelle): ?><span class="badge bg-light text-muted ms-1" style="font-weight:400"><?= e($quelle) ?></span><?php endif; ?>
-                                    </label>
-                                </div>
-                                <?php endforeach; ?>
+                                <select name="assign[<?= $aid ?>][]" multiple class="paper-affil-select" data-autor-id="<?= $aid ?>">
+                                    <?php foreach (($paperAssigns[$aid] ?? []) as $af): ?>
+                                    <option value="<?= $af['institut_id'] ?>" selected>
+                                        <?= e($af['name']) ?><?php if ($af['kuerzel']): ?> (<?= e($af['kuerzel']) ?>)<?php endif; ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
                             </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
-            <div class="text-muted small mt-2">
+            <div class="text-muted small p-2 border-top">
                 Beim Speichern werden Zuordnungen ausser <code>nuextract</code> als <code>manuell</code> markiert.
-                Neue Institutionen hängst du über die <a href="/admin/autoren">Autor-Edit-Seite</a> an (autor_institutionen).
+                Neue Institutionen kannst du <a href="/admin/institute/neu">hier anlegen</a>.
             </div>
-            <?php endif; ?>
-            <?php endif; ?>
-
-            <div class="mt-4 d-flex gap-2">
-                <button type="submit" class="btn btn-primary">
-                    <i class="bi bi-check-lg"></i> Speichern
-                </button>
-                <a href="/admin/papers<?= $paper ? '?tagung=' . $paper['tagung_nummer'] : '' ?>" class="btn btn-outline-secondary">Abbrechen</a>
-            </div>
-        </form>
+        </div>
     </div>
-</div>
+    <?php elseif ($isNew): ?>
+    <div class="alert alert-light border small">
+        Autor↔Affiliation-Zuordnung wird verfügbar, sobald das Paper angelegt + Autoren gespeichert sind.
+    </div>
+    <?php endif; ?>
+
+    <div class="d-flex gap-2 mb-4">
+        <button type="submit" class="btn btn-primary">
+            <i class="bi bi-check-lg"></i> Speichern
+        </button>
+        <a href="/admin/papers<?= $paper ? '?tagung=' . $paper['tagung_nummer'] : '' ?>" class="btn btn-outline-secondary">Abbrechen</a>
+    </div>
+</form>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof TomSelect === 'undefined') {
+        console.warn('TomSelect not loaded');
+        return;
+    }
+
+    const autorenRender = {
+        option(item, escape) {
+            const sub = item.sublabel ? `<div class="text-muted small">${escape(item.sublabel)}</div>` : '';
+            return `<div><strong>${escape(item.label)}</strong>${sub}</div>`;
+        },
+        item(item, escape) {
+            return `<div>${escape(item.label)}</div>`;
+        },
+    };
+
+    const tsAut = new TomSelect('#paper-autoren', {
+        plugins: ['remove_button', 'drag_drop'],
+        valueField: 'id',
+        labelField: 'label',
+        searchField: ['label', 'sublabel'],
+        load(query, callback) {
+            if (!query.length || query.length < 2) return callback();
+            fetch('/admin/api/search/autoren?q=' + encodeURIComponent(query))
+                .then(r => r.json())
+                .then(callback)
+                .catch(() => callback());
+        },
+        render: autorenRender,
+        onChange: syncHauptautor,
+    });
+
+    function syncHauptautor() {
+        const sel = document.getElementById('paper-hauptautor');
+        if (!sel) return;
+        const currentVal = sel.value;
+        // Sichere DOM-API: createElement + textContent (kein innerHTML mit Fremd-Strings)
+        while (sel.firstChild) sel.removeChild(sel.firstChild);
+        const defaultOpt = document.createElement('option');
+        defaultOpt.value = '';
+        defaultOpt.textContent = '— erster Autor (Standard) —';
+        sel.appendChild(defaultOpt);
+        tsAut.items.forEach(id => {
+            const opt = tsAut.options[id];
+            const label = opt && opt.label ? String(opt.label) : String(id);
+            const el = document.createElement('option');
+            el.value = String(id);
+            el.textContent = label;
+            if (currentVal == id) el.selected = true;
+            sel.appendChild(el);
+        });
+    }
+
+    // Affil-Tom-Selects pro Autor
+    document.querySelectorAll('.paper-affil-select').forEach(sel => {
+        new TomSelect(sel, {
+            plugins: ['remove_button'],
+            valueField: 'id',
+            labelField: 'label',
+            searchField: ['label', 'sublabel'],
+            load(query, callback) {
+                if (!query.length || query.length < 2) return callback();
+                fetch('/admin/api/search/institute?q=' + encodeURIComponent(query))
+                    .then(r => r.json())
+                    .then(callback)
+                    .catch(() => callback());
+            },
+            render: autorenRender,
+        });
+    });
+});
+</script>

@@ -128,6 +128,14 @@ function matchRoute(string $uri): array
         return ['page' => 'admin/submission_preview', 'params' => ['token' => $m[1]]];
     }
 
+    // Admin AJAX (Tom-Select Combobox)
+    if ($path === '/admin/api/search/autoren') {
+        return ['page' => 'admin/api_search_autoren', 'params' => []];
+    }
+    if ($path === '/admin/api/search/institute') {
+        return ['page' => 'admin/api_search_institute', 'params' => []];
+    }
+
     if (isset($adminStaticRoutes[$path])) {
         return ['page' => $adminStaticRoutes[$path], 'params' => []];
     }

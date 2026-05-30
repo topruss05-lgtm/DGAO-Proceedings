@@ -10,6 +10,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.4.1/dist/css/tom-select.bootstrap5.min.css" rel="stylesheet"
+          integrity="sha384-PR10QlynJJq44I68Eics5tzYTr9aiwHAKwY94kff9iud469EY6iUOnpo8JRBnZYq" crossorigin="anonymous">
     <link href="/admin/assets/css/admin.css?v=<?= @filemtime(__DIR__ . '/../assets/css/admin.css') ?>" rel="stylesheet">
     <link rel="icon" type="image/jpeg" href="/assets/images/favicon-64.jpg">
 </head>
@@ -79,6 +81,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.1/dist/js/tom-select.complete.min.js"
+        integrity="sha384-U3YO9KA9gHoGO+Y5cTqEtWp5gy6hbXb3vfj0lvl+Zvt7OJLKVPf+5enfdivNC0td" crossorigin="anonymous" defer></script>
 <script src="/admin/assets/js/admin.js" defer></script>
 </body>
 </html>
