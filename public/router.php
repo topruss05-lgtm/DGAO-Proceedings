@@ -153,6 +153,9 @@ function matchRoute(string $uri): array
     if (preg_match('#^/admin/papers/([\w-]+)/delete$#', $path, $m)) {
         return ['page' => 'admin/paper_delete', 'params' => ['id' => $m[1]]];
     }
+    if (preg_match('#^/admin/papers/([\w-]+)/affils$#', $path, $m)) {
+        return ['page' => 'admin/paper_affils', 'params' => ['id' => $m[1]]];
+    }
 
     // Autoren CRUD
     if (preg_match('#^/admin/autoren/(\d+)/edit$#', $path, $m)) {
