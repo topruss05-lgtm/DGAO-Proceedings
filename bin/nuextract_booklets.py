@@ -20,9 +20,29 @@ import time
 from pathlib import Path
 
 import pypdfium2 as pdfium
+import fitz  # PyMuPDF fuer schnelle Text-Extraktion zum Pre-Filtern
 import torch
 from PIL import Image
 from transformers import AutoModelForImageTextToText, AutoProcessor
+
+# Pattern: typische Paper-Code-Markers in DGaO-Booklets ("A1", "B12", "P3", "H1", "C7", "S5")
+PAPER_CODE_RE = re.compile(r"(?m)^\s*([AHBCPS])\s*[\-:.\s]?\s*(\d{1,3})\b")
+# Plus: "Abstract" / "Affiliation" Indikatoren
+PAPER_CONTENT_HINT = re.compile(r"(?i)\b(abstract|affil|kontakt|institut|university|universit[ae]t|fraunhofer)\b")
+
+
+def page_likely_has_paper(text: str) -> bool:
+    """Heuristic: hat diese Page Paper-Inhalt?
+       JA wenn: Code-Pattern matched ODER >=2 Paper-Content-Hints + min. 200 chars Text.
+    """
+    if not text or len(text) < 100:
+        return False
+    if PAPER_CODE_RE.search(text):
+        return True
+    hints = len(PAPER_CONTENT_HINT.findall(text))
+    if hints >= 2 and len(text) > 200:
+        return True
+    return False
 
 ROOT = Path(__file__).resolve().parents[1]
 BOOKLET_DIR = ROOT / "booklets"
@@ -54,7 +74,7 @@ TEMPLATE = {
 }
 
 
-def render_page(pdf, page_idx: int, dpi: int = 130, max_side: int = 1800):
+def render_page(pdf, page_idx: int, dpi: int = 110, max_side: int = 1600):
     try:
         page = pdf[page_idx]
         bitmap = page.render(scale=dpi / 72)
@@ -132,10 +152,12 @@ def main():
     out_f = OUT.open("a")
     processed_now = 0
     skipped = 0
+    text_skipped = 0
     for bp in booklets:
         booklet_name = bp.stem
         try:
             pdf = pdfium.PdfDocument(str(bp))
+            fdoc = fitz.open(str(bp))
         except Exception as e:
             print(f"!! cannot open {bp.name}: {e}", file=sys.stderr)
             continue
@@ -148,6 +170,21 @@ def main():
             key = (booklet_name, page_idx)
             if key in done:
                 skipped += 1
+                continue
+
+            # Pre-Skip via fitz text-extract: spart 50-70% NuExtract-Calls
+            try:
+                ftext = fdoc[page_idx].get_text("text") if page_idx < len(fdoc) else ""
+            except Exception:
+                ftext = ""
+            if not page_likely_has_paper(ftext):
+                out_f.write(json.dumps({"booklet": booklet_name, "page": page_idx,
+                                        "skipped": "no_paper_signal",
+                                        "result": {"papers": []}}, ensure_ascii=False) + "\n")
+                out_f.flush()
+                text_skipped += 1
+                if page_idx % 20 == 0:
+                    print(f"  p{page_idx:03d}  skip (no signal)", flush=True)
                 continue
 
             img = render_page(pdf, page_idx)
@@ -197,7 +234,7 @@ def main():
             print(f"  p{page_idx:03d}  {elapsed:5.1f}s  papers={n_papers}", flush=True)
 
     out_f.close()
-    print(f"\nDone. processed={processed_now}, skipped(resume)={skipped}")
+    print(f"\nDone. processed={processed_now}, skipped(resume)={skipped}, skipped(no-signal)={text_skipped}")
 
 
 if __name__ == "__main__":

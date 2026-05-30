@@ -181,6 +181,20 @@ def main():
     inst_before = con.execute("SELECT COUNT(*) FROM institutionen").fetchone()[0]
     missing_papers = []
 
+    # Range-Code expandieren: "A19-A24" -> ["A19","A20","A21","A22","A23","A24"]
+    range_re = re.compile(r"^([A-Z])(\d+)\s*[-–]\s*([A-Z])?(\d+)$")
+
+    def expand_codes(raw: str) -> list[str]:
+        raw = (raw or "").strip().upper()
+        if not raw:
+            return []
+        m = range_re.match(raw)
+        if m:
+            l1, n1, l2, n2 = m.group(1), int(m.group(2)), m.group(3) or m.group(1), int(m.group(4))
+            if l1 == l2 and n1 <= n2 and n2 - n1 < 30:
+                return [f"{l1}{i}" for i in range(n1, n2 + 1)]
+        return [raw]
+
     for gt_file in sorted(gt_dir.glob("*.json")):
         gt = json.loads(gt_file.read_text(encoding="utf-8"))
         tagung_nummer = gt.get("tagung_nummer_match")
@@ -191,12 +205,27 @@ def main():
 
         for gt_paper in gt.get("papers", []):
             stats["gt_papers"] += 1
-            code = (gt_paper.get("code") or "").strip().upper()
-            if not code:
+            raw_code = (gt_paper.get("code") or "").strip().upper()
+            if not raw_code:
                 continue
             stats["gt_with_code"] += 1
 
-            # Paper-ID rekonstruieren: tagung-code (lowercase)
+            # Range-Codes wie "A19-A24" expandieren. Bei >1 Code = Session-Übersicht
+            # ohne sinnvolle Affil-Daten → nur match-count, kein Apply.
+            codes = expand_codes(raw_code)
+            if len(codes) > 1:
+                for code in codes:
+                    paper_id = f"{tagung_nummer}-{code.lower()}"
+                    row = con.execute("SELECT id FROM papers WHERE id=?", (paper_id,)).fetchone()
+                    if row:
+                        stats["matched_db_paper"] += 1
+                    else:
+                        stats["missing_db_paper"] += 1
+                        missing_papers.append(paper_id)
+                continue
+
+            # Single-Code: normaler Apply-Flow
+            code = codes[0]
             paper_id = f"{tagung_nummer}-{code.lower()}"
             row = con.execute("SELECT id FROM papers WHERE id=?", (paper_id,)).fetchone()
             if not row:
