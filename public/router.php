@@ -157,6 +157,11 @@ function matchRoute(string $uri): array
         return ['page' => 'admin/paper_affils', 'params' => ['id' => $m[1]]];
     }
 
+    // Institute CRUD (kein Sidebar-Reiter, erreichbar ueber Autor-/Paper-Edit-Verlinkungen)
+    if (preg_match('#^/admin/institute/(\d+)/edit$#', $path, $m)) {
+        return ['page' => 'admin/institut_edit', 'params' => ['id' => (int)$m[1]]];
+    }
+
     // Autoren CRUD
     if (preg_match('#^/admin/autoren/(\d+)/edit$#', $path, $m)) {
         return ['page' => 'admin/autor_edit', 'params' => ['id' => (int)$m[1]]];

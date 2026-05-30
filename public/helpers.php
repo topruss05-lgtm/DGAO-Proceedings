@@ -917,7 +917,7 @@ function getPaperAffiliations(string $paperId): array
 }
 
 /**
- * Zentrale Paper-Suche fuer Frontend (/suche) UND Admin (/admin/data/papers).
+ * Zentrale Paper-Suche fuer Frontend (/suche) UND Admin (/admin/papers).
  *
  * Eine Wahrheit, ein WHERE-Builder, ein SQL — wird ueberall wiederverwendet.
  *
