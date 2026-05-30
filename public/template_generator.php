@@ -23,11 +23,12 @@ function templateDataForPaper(array $paper): array
     // Manuskript aus dem Original-Template heraus schreiben (Beispieltext bleibt
     // erhalten), nicht eine abgeschnittene Booklet-Variante des Abstracts
     // weiterbearbeiten müssen.
+    $pid = (string)($paper['id'] ?? '');
     return [
         'year'        => $year,
         'title'       => trim($paper['titel'] ?? ''),
-        'author'      => trim($paper['autoren_text'] ?? ''),
-        'affiliation' => trim($paper['affiliationen'] ?? ''),
+        'author'      => $pid !== '' ? buildPaperAutorenString($pid) : trim($paper['autoren_text'] ?? ''),
+        'affiliation' => $pid !== '' ? buildPaperAffiliationenString($pid) : trim($paper['affiliationen'] ?? ''),
         'email'       => trim($paper['kontakt_email'] ?? ''),
         'abstract'    => '',
     ];
@@ -136,7 +137,7 @@ function generateLatexZip(array $paper, string $lang = 'german'): string
     $tex = str_replace('{{YEAR}}', $year, $tex);
 
     // Filename-stem für Datei
-    $stem = sanitizeFilename(($paper['code'] ?? 'paper') . '_' . ($paper['hauptautor'] ?? 'autor'));
+    $stem = sanitizeFilename(($paper['code'] ?? 'paper') . '_' . (buildPaperHauptautor((string)($paper['id'] ?? '')) ?: 'autor'));
 
     $zipPath = tempnam(sys_get_temp_dir(), 'dgao_latex_');
     $zip = new ZipArchive();
@@ -268,7 +269,7 @@ function generatePaperKitZip(array $paper): string
         throw new RuntimeException('ZIP konnte nicht erstellt werden.');
     }
 
-    $stem = sanitizeFilename(($paper['code'] ?? 'paper') . '_' . ($paper['hauptautor'] ?? 'autor'));
+    $stem = sanitizeFilename(($paper['code'] ?? 'paper') . '_' . (buildPaperHauptautor((string)($paper['id'] ?? '')) ?: 'autor'));
     $folder = sprintf('DGaO-Proceedings-%d_%s/', $year, $stem);
 
     // Readme + Liesmich, year-substituted
@@ -302,7 +303,7 @@ function generatePaperKitZip(array $paper): string
     $latexZipPath = generateLatexZip($paper, 'german');
     $latexZip = new ZipArchive();
     if ($latexZip->open($latexZipPath) === true) {
-        $stemLatex = sanitizeFilename(($paper['code'] ?? 'paper') . '_' . ($paper['hauptautor'] ?? 'autor'));
+        $stemLatex = sanitizeFilename(($paper['code'] ?? 'paper') . '_' . (buildPaperHauptautor((string)($paper['id'] ?? '')) ?: 'autor'));
         for ($i = 0; $i < $latexZip->numFiles; $i++) {
             $stat = $latexZip->statIndex($i);
             if ($stat === false) continue;

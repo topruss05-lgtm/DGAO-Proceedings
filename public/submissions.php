@@ -25,10 +25,14 @@ function loadSubmission(string $token): ?array
 
     $db = getDbAdmin();
     $stmt = $db->prepare(
-        'SELECT s.*, p.code, p.titel, p.tagung_nummer, p.hauptautor
+        "SELECT s.*, p.code, p.titel, p.tagung_nummer,
+                (SELECT COALESCE(NULLIF(a.anzeige_name, ''), TRIM(a.vorname || ' ' || a.nachname))
+                   FROM paper_autoren pa JOIN autoren a ON a.id = pa.autor_id
+                   WHERE pa.paper_id = p.id AND pa.ist_hauptautor = 1
+                   ORDER BY pa.position LIMIT 1) AS hauptautor
          FROM submissions s
          JOIN papers p ON p.id = s.paper_id
-         WHERE s.token = ?'
+         WHERE s.token = ?"
     );
     $stmt->execute([$token]);
     $sub = $stmt->fetch();

@@ -29,7 +29,7 @@ $autorName = formatAutorName($autor);
 $autorAffils = getAutorAffiliations((int)$autor['id']);
 
 $stmt = $db->prepare('
-    SELECT p.id, p.tagung_nummer, p.code, p.typ, p.titel, p.autoren_text,
+    SELECT p.id, p.tagung_nummer, p.code, p.typ, p.titel,
            p.hat_pdf, p.pdf_dateiname, t.jahr
     FROM papers p
     JOIN paper_autoren pa ON pa.paper_id = p.id
@@ -39,6 +39,7 @@ $stmt = $db->prepare('
 ');
 $stmt->execute([$autorId]);
 $papers = $stmt->fetchAll();
+attachPaperAutoren($papers);
 
 $pageTitle    = $autorName . ' - ' . SITE_NAME;
 $canonicalUrl = canonicalUrl('/autor/' . $autor['id']);

@@ -28,28 +28,19 @@ $stmt = $db->prepare('
 $stmt->execute([$id]);
 $keywords = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-// Authors — Affiliation pro (paper, autor) aus paper_autor_institutionen,
-// mit Legacy-Fallback auf autor_institutionen (aktuelle) für nicht-migrierte
-// Autoren-/Paper-Verknüpfungen.
+// Authors — Affiliation pro (paper, autor) aus paper_autor_institutionen
 $autoren = getPaperAutorenWithAffils($id);
-$lang    = currentLang() === 'en' ? 'en' : 'de';
-$instCol = $lang === 'en' ? "COALESCE(NULLIF(i.name_en,''), i.name_de)" : 'i.name_de';
-// Pro Autor: erste Affil als "affiliation"-Backwards-Kompat-Feld setzen
 foreach ($autoren as &$_a) {
     $_a['affiliation'] = !empty($_a['affils']) ? $_a['affils'][0]['name'] : null;
-    if (!$_a['affiliation']) {
-        // Legacy-Fallback
-        $fallback = $db->prepare("
-            SELECT $instCol AS name
-            FROM autor_institutionen ai JOIN institutionen i ON i.id = ai.institut_id
-            WHERE ai.autor_id = ? ORDER BY ai.ist_aktuell DESC LIMIT 1
-        ");
-        $fallback->execute([$_a['autor_id']]);
-        $_a['affiliation'] = $fallback->fetchColumn() ?: null;
-    }
     $_a['id'] = $_a['autor_id']; // bewahre alten Key für Template-Rückwärtskompat
 }
 unset($_a);
+
+// Read-Side Backfill: autoren_text + hauptautor + affiliationen aus paper_autoren / pai.
+// Ab Schema v11 sind die Spalten weg; Helper baut die Strings aus den Source-of-Truth-Tabellen.
+$paper['autoren_text']  = buildPaperAutorenString($id);
+$paper['hauptautor']    = buildPaperHauptautor($id);
+$paper['affiliationen'] = buildPaperAffiliationenString($id);
 
 // Page title and SEO
 $year = $paper['datum'] ? substr($paper['datum'], 0, 4) : (string)$paper['jahr'];

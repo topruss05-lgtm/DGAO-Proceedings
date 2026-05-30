@@ -38,9 +38,13 @@ if (!in_array($filter, ['pending', 'approved', 'rejected', 'expired', 'all'], tr
     $filter = 'pending';
 }
 
-$sql = 'SELECT s.*, p.code, p.titel, p.tagung_nummer, p.hauptautor
+$sql = "SELECT s.*, p.code, p.titel, p.tagung_nummer,
+               (SELECT COALESCE(NULLIF(a.anzeige_name, ''), TRIM(a.vorname || ' ' || a.nachname))
+                  FROM paper_autoren pa JOIN autoren a ON a.id = pa.autor_id
+                  WHERE pa.paper_id = p.id AND pa.ist_hauptautor = 1
+                  ORDER BY pa.position LIMIT 1) AS hauptautor
         FROM submissions s
-        JOIN papers p ON p.id = s.paper_id';
+        JOIN papers p ON p.id = s.paper_id";
 $sqlParams = [];
 if ($filter !== 'all') {
     $sql .= ' WHERE s.status = ?';
@@ -63,17 +67,21 @@ $activeCode = null;
 $papersForUpload = [];
 if ($activeTagung) {
     $st = $db->prepare(
-        'SELECT id, code, titel, hauptautor, hat_pdf
+        "SELECT id, code, titel, hat_pdf,
+                (SELECT COALESCE(NULLIF(a.anzeige_name, ''), TRIM(a.vorname || ' ' || a.nachname))
+                   FROM paper_autoren pa JOIN autoren a ON a.id = pa.autor_id
+                   WHERE pa.paper_id = papers.id AND pa.ist_hauptautor = 1
+                   ORDER BY pa.position LIMIT 1) AS hauptautor
          FROM papers WHERE tagung_nummer = ?
          ORDER BY
             CASE typ
-                WHEN \'hauptvortrag\'  THEN 1
-                WHEN \'sondervortrag\' THEN 2
-                WHEN \'vortrag\'       THEN 3
-                WHEN \'poster\'        THEN 4
+                WHEN 'hauptvortrag'  THEN 1
+                WHEN 'sondervortrag' THEN 2
+                WHEN 'vortrag'       THEN 3
+                WHEN 'poster'        THEN 4
                 ELSE 9
             END,
-            substr(code,1,1), CAST(substr(code,2) AS INTEGER)'
+            substr(code,1,1), CAST(substr(code,2) AS INTEGER)"
     );
     $st->execute([$activeTagung['nummer']]);
     $papersForUpload = $st->fetchAll();

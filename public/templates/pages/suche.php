@@ -58,30 +58,27 @@ if ($hasInput) {
             EXISTS (SELECT 1 FROM paper_autoren pa
                     JOIN autor_aliase al ON al.autor_id = pa.autor_id
                     WHERE pa.paper_id = p.id AND al.alias_norm LIKE :anorm)
-            OR p.hauptautor   LIKE :autor2 COLLATE NOCASE
-            OR p.autoren_text LIKE :autor1 COLLATE NOCASE
+            OR EXISTS (SELECT 1 FROM paper_autoren pa
+                       JOIN autoren a ON a.id = pa.autor_id
+                       WHERE pa.paper_id = p.id
+                         AND (a.vorname  || \' \' || a.nachname) LIKE :autor1 COLLATE NOCASE)
         )';
-        $likeAutor = '%' . $fAutor . '%';
         $params[':anorm']  = '%' . $aNorm . '%';
-        $params[':autor1'] = $likeAutor;
-        $params[':autor2'] = $likeAutor;
+        $params[':autor1'] = '%' . $fAutor . '%';
     }
     if ($fInst !== '') {
         $iNorm = normalizeForAliasMatch($fInst);
         $wheres[] = '(
-            p.affiliationen LIKE :inst1 COLLATE NOCASE
-            OR EXISTS (SELECT 1 FROM paper_autoren pa
-                       JOIN autor_institutionen ai ON ai.autor_id = pa.autor_id
-                       JOIN institutionen i ON i.id = ai.institut_id
+            EXISTS (SELECT 1 FROM paper_autor_institutionen pai
+                       JOIN institutionen i ON i.id = pai.institut_id
                        LEFT JOIN institut_aliase ia ON ia.institut_id = i.id
-                       WHERE pa.paper_id = p.id
+                       WHERE pai.paper_id = p.id
                          AND (   i.name_de LIKE :inst2 COLLATE NOCASE
                               OR i.name_en LIKE :inst3 COLLATE NOCASE
                               OR i.kuerzel LIKE :inst4 COLLATE NOCASE
                               OR ia.alias_norm LIKE :inorm))
         )';
         $likeInst = '%' . $fInst . '%';
-        $params[':inst1'] = $likeInst;
         $params[':inst2'] = $likeInst;
         $params[':inst3'] = $likeInst;
         $params[':inst4'] = $likeInst;
@@ -109,7 +106,7 @@ if ($hasInput) {
         // FTS-Pfad: papers_fts MATCH liefert primaere Treffer + Rank.
         // Die zusaetzlichen Filter werden via WHERE auf p (joined) angewendet.
         $sql = "
-            SELECT p.id, p.tagung_nummer, p.code, p.typ, p.titel, p.autoren_text,
+            SELECT p.id, p.tagung_nummer, p.code, p.typ, p.titel,
                    p.hat_pdf, p.pdf_dateiname
             FROM papers_fts fts
             JOIN papers p ON p.rowid = fts.rowid
@@ -121,12 +118,19 @@ if ($hasInput) {
         $params[':q'] = $sanitized;
     } else {
         // LIKE-Pfad. Wenn $q da, dann zusaetzliches OR-Filter ueber
-        // titel/autor/abstract/affiliation.
+        // titel/autoren/abstract/institute.
         if ($q !== '') {
             $wheres[] = '(p.titel LIKE :qa COLLATE NOCASE
-                       OR p.autoren_text LIKE :qb COLLATE NOCASE
                        OR p.abstract_text LIKE :qc COLLATE NOCASE
-                       OR p.affiliationen LIKE :qd COLLATE NOCASE)';
+                       OR EXISTS (SELECT 1 FROM paper_autoren pa
+                                  JOIN autoren a ON a.id = pa.autor_id
+                                  WHERE pa.paper_id = p.id
+                                    AND (a.vorname  || \' \' || a.nachname) LIKE :qb COLLATE NOCASE)
+                       OR EXISTS (SELECT 1 FROM paper_autor_institutionen pai
+                                  JOIN institutionen i ON i.id = pai.institut_id
+                                  WHERE pai.paper_id = p.id
+                                    AND (i.name_de LIKE :qd COLLATE NOCASE
+                                      OR i.name_en LIKE :qd COLLATE NOCASE)))';
             $likeQ = '%' . $q . '%';
             $params[':qa'] = $likeQ;
             $params[':qb'] = $likeQ;
@@ -134,7 +138,7 @@ if ($hasInput) {
             $params[':qd'] = $likeQ;
         }
         $sql = "
-            SELECT p.id, p.tagung_nummer, p.code, p.typ, p.titel, p.autoren_text,
+            SELECT p.id, p.tagung_nummer, p.code, p.typ, p.titel,
                    p.hat_pdf, p.pdf_dateiname
             FROM papers p
             " . (!empty($wheres) ? 'WHERE ' . implode(' AND ', $wheres) : '') . "
@@ -147,6 +151,7 @@ if ($hasInput) {
         $stmt = $db->prepare($sql);
         $stmt->execute($params);
         $results = $stmt->fetchAll();
+        attachPaperAutoren($results);
     } catch (Throwable $e) {
         error_log('Search query failed: ' . $e);
         $results = [];

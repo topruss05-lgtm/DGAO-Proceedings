@@ -276,9 +276,9 @@ function renderMetaTag(array $tag): string
 function getPapersByTagung(int $tagungNummer): array
 {
     $stmt = getDb()->prepare("
-        SELECT p.id, p.code, p.typ, p.titel, p.autoren_text, p.hauptautor,
+        SELECT p.id, p.code, p.typ, p.titel,
                p.zeit, p.raum, p.datum, p.hat_pdf, p.pdf_dateiname,
-               p.affiliationen, p.abstract_text,
+               p.abstract_text,
                p.session_id,
                s.titel       AS session_titel,
                s.saal        AS session_saal,
@@ -1046,16 +1046,16 @@ function searchPapers(array $opts): array
         $wheres[] = '(EXISTS (SELECT 1 FROM paper_autoren pa
                        JOIN autor_aliase al ON al.autor_id = pa.autor_id
                        WHERE pa.paper_id = p.id AND al.alias_norm LIKE :anorm)
-                     OR p.hauptautor LIKE :autor2 COLLATE NOCASE
-                     OR p.autoren_text LIKE :autor1 COLLATE NOCASE)';
+                     OR EXISTS (SELECT 1 FROM paper_autoren pa
+                                JOIN autoren a ON a.id = pa.autor_id
+                                WHERE pa.paper_id = p.id
+                                  AND (a.vorname || \' \' || a.nachname) LIKE :autor1 COLLATE NOCASE))';
         $params[':anorm']  = '%' . $aNorm . '%';
         $params[':autor1'] = '%' . $fAutor . '%';
-        $params[':autor2'] = '%' . $fAutor . '%';
     }
     if ($fInst !== '') {
         $iNorm = normalizeForAliasMatch($fInst);
-        $wheres[] = '(p.affiliationen LIKE :inst1 COLLATE NOCASE
-                     OR EXISTS (SELECT 1 FROM paper_autor_institutionen pai
+        $wheres[] = '(EXISTS (SELECT 1 FROM paper_autor_institutionen pai
                                 JOIN institutionen i ON i.id = pai.institut_id
                                 LEFT JOIN institut_aliase ia ON ia.institut_id = i.id
                                 WHERE pai.paper_id = p.id
@@ -1063,7 +1063,6 @@ function searchPapers(array $opts): array
                                        OR i.name_en LIKE :inst3 COLLATE NOCASE
                                        OR i.kuerzel LIKE :inst4 COLLATE NOCASE
                                        OR ia.alias_norm LIKE :inorm)))';
-        $params[':inst1'] = '%' . $fInst . '%';
         $params[':inst2'] = '%' . $fInst . '%';
         $params[':inst3'] = '%' . $fInst . '%';
         $params[':inst4'] = '%' . $fInst . '%';
@@ -1098,9 +1097,16 @@ function searchPapers(array $opts): array
     } else {
         if ($q !== '') {
             $wheres[] = '(p.titel LIKE :qa COLLATE NOCASE
-                       OR p.autoren_text LIKE :qb COLLATE NOCASE
                        OR p.abstract_text LIKE :qc COLLATE NOCASE
-                       OR p.affiliationen LIKE :qd COLLATE NOCASE)';
+                       OR EXISTS (SELECT 1 FROM paper_autoren pa
+                                  JOIN autoren a ON a.id = pa.autor_id
+                                  WHERE pa.paper_id = p.id
+                                    AND (a.vorname || \' \' || a.nachname) LIKE :qb COLLATE NOCASE)
+                       OR EXISTS (SELECT 1 FROM paper_autor_institutionen pai
+                                  JOIN institutionen i ON i.id = pai.institut_id
+                                  WHERE pai.paper_id = p.id
+                                    AND (i.name_de LIKE :qd COLLATE NOCASE
+                                      OR i.name_en LIKE :qd COLLATE NOCASE)))';
             $params[':qa'] = '%' . $q . '%';
             $params[':qb'] = '%' . $q . '%';
             $params[':qc'] = '%' . $q . '%';
@@ -1126,7 +1132,7 @@ function searchPapers(array $opts): array
         $total = 0;
     }
 
-    $selectSql = "SELECT p.id, p.tagung_nummer, p.code, p.typ, p.titel, p.autoren_text,
+    $selectSql = "SELECT p.id, p.tagung_nummer, p.code, p.typ, p.titel,
                          p.hat_pdf, p.pdf_dateiname, p.session_id, p.datum, p.zeit
                   $sql $orderBy LIMIT :limit OFFSET :offset";
     $params[':limit']  = $limit;
@@ -1139,6 +1145,7 @@ function searchPapers(array $opts): array
         }
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        attachPaperAutoren($rows);
     } catch (Throwable $e) {
         error_log('searchPapers query failed: ' . $e);
         $rows = [];

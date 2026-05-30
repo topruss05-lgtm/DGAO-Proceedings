@@ -31,12 +31,12 @@ try {
     if ($format === 'latex') {
         $latexLang = $lang === 'en' ? '' : 'german';
         $zipPath = generateLatexZip($paper, $latexLang);
-        $stem = sanitizeFilename(($paper['code'] ?? 'paper') . '_' . ($paper['hauptautor'] ?: 'autor'));
+        $stem = sanitizeFilename(($paper['code'] ?? 'paper') . '_' . (buildPaperHauptautor((string)($paper['id'] ?? '')) ?: 'autor'));
         streamDownload($zipPath, $stem . '_LaTeX.zip', 'application/zip');
     } elseif ($format === 'word') {
         $wordLang = $lang === 'en' ? 'eng' : 'deu';
         $docxPath = generateWordDocx($paper, $wordLang);
-        $stem = sanitizeFilename(($paper['code'] ?? 'paper') . '_' . ($paper['hauptautor'] ?: 'autor'));
+        $stem = sanitizeFilename(($paper['code'] ?? 'paper') . '_' . (buildPaperHauptautor((string)($paper['id'] ?? '')) ?: 'autor'));
         streamDownload(
             $docxPath,
             $stem . '_Word.docx',
@@ -45,7 +45,7 @@ try {
     } elseif ($format === 'kit') {
         $zipPath = generatePaperKitZip($paper);
         $year    = $paper['jahr'] ?: (int)date('Y');
-        $stem    = sanitizeFilename(($paper['code'] ?? 'paper') . '_' . ($paper['hauptautor'] ?: 'autor'));
+        $stem    = sanitizeFilename(($paper['code'] ?? 'paper') . '_' . (buildPaperHauptautor((string)($paper['id'] ?? '')) ?: 'autor'));
         $name    = sprintf('DGaO-Proceedings-Author-Kit-%d_%s.zip', $year, $stem);
         streamDownload($zipPath, $name, 'application/zip');
     } else {

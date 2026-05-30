@@ -96,12 +96,19 @@ foreach ($stmtA as $row) {
     ];
 }
 
-// --- Papers (Titel + Hauptautor) ---
+// --- Papers (Titel + Hauptautor aus paper_autoren) ---
 $stmtP = $db->prepare("
-    SELECT p.id, p.code, p.titel, p.hauptautor, p.tagung_nummer
+    SELECT p.id, p.code, p.titel, p.tagung_nummer,
+           (SELECT COALESCE(NULLIF(a.anzeige_name, ''), TRIM(a.vorname || ' ' || a.nachname))
+              FROM paper_autoren pa JOIN autoren a ON a.id = pa.autor_id
+              WHERE pa.paper_id = p.id AND pa.ist_hauptautor = 1
+              ORDER BY pa.position LIMIT 1) AS hauptautor
     FROM papers p
-    WHERE p.titel      LIKE :q1 COLLATE NOCASE
-       OR p.hauptautor LIKE :q2 COLLATE NOCASE
+    WHERE p.titel LIKE :q1 COLLATE NOCASE
+       OR EXISTS (SELECT 1 FROM paper_autoren pa
+                  JOIN autoren a ON a.id = pa.autor_id
+                  WHERE pa.paper_id = p.id
+                    AND (a.vorname || ' ' || a.nachname) LIKE :q2 COLLATE NOCASE)
     ORDER BY p.tagung_nummer DESC, p.code
     LIMIT 6
 ");

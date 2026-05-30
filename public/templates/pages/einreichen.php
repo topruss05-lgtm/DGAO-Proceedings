@@ -3,6 +3,7 @@ $activeTagung = getCurrentVorlagenTagung();
 $isOpen       = $activeTagung !== null;
 
 $papers = $isOpen ? getPapersByTagung((int) $activeTagung['nummer']) : [];
+attachPaperAutoren($papers);
 
 $pageTitle    = t('einreichen.page_title') . ' — ' . SITE_NAME;
 $canonicalUrl = canonicalUrl('/einreichen');

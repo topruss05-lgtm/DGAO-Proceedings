@@ -12,6 +12,7 @@ if (!$paper) {
     header('Location: /admin/papers');
     exit;
 }
+$paper['autoren_text'] = buildPaperAutorenString((string)$paper['id']);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     verifyCsrf();
