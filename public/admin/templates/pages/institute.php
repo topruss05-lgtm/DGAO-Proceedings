@@ -45,7 +45,7 @@ $pag = paginate($total, $perPage, $page);
 // Rows mit Aggregaten
 $sql = "
     SELECT i.id, i.name_de, i.kuerzel, i.ort, i.land, i.typ, i.parent_id,
-           (SELECT COUNT(DISTINCT autor_id) FROM autor_institutionen ai WHERE ai.institut_id = i.id) AS n_autoren,
+           (SELECT COUNT(DISTINCT autor_id) FROM paper_autor_institutionen pai WHERE pai.institut_id = i.id) AS n_autoren,
            (SELECT COUNT(DISTINCT paper_id) FROM paper_autor_institutionen pai WHERE pai.institut_id = i.id) AS n_papers,
            (SELECT COUNT(*) FROM institut_aliase ia WHERE ia.institut_id = i.id) AS n_aliase
     FROM institutionen i

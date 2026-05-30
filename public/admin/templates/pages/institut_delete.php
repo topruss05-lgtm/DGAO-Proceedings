@@ -13,7 +13,7 @@ if (!$inst) {
     exit;
 }
 
-$nAutoren = (int)$db->query("SELECT COUNT(*) FROM autor_institutionen WHERE institut_id = $institutId")->fetchColumn();
+$nAutoren = (int)$db->query("SELECT COUNT(DISTINCT autor_id) FROM paper_autor_institutionen WHERE institut_id = $institutId")->fetchColumn();
 $nPapers  = (int)$db->query("SELECT COUNT(DISTINCT paper_id) FROM paper_autor_institutionen WHERE institut_id = $institutId")->fetchColumn();
 $nSubs    = (int)$db->query("SELECT COUNT(*) FROM institutionen WHERE parent_id = $institutId")->fetchColumn();
 
@@ -26,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dbw->prepare('UPDATE institutionen SET parent_id = NULL WHERE parent_id = ?')->execute([$institutId]);
         // Verknuepfungen (CASCADE-Klausel im Schema, aber explizit fuer Klarheit)
         $dbw->prepare('DELETE FROM paper_autor_institutionen WHERE institut_id = ?')->execute([$institutId]);
-        $dbw->prepare('DELETE FROM autor_institutionen WHERE institut_id = ?')->execute([$institutId]);
         $dbw->prepare('DELETE FROM institut_aliase WHERE institut_id = ?')->execute([$institutId]);
         $dbw->prepare('DELETE FROM institutionen WHERE id = ?')->execute([$institutId]);
         $dbw->commit();

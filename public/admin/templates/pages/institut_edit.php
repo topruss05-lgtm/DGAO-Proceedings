@@ -125,16 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $dbw->prepare('DELETE FROM paper_autor_institutionen WHERE institut_id=?')
                             ->execute([$institutId]);
 
-                        // 2. autor_institutionen
-                        $dbw->prepare('
-                            INSERT OR IGNORE INTO autor_institutionen (autor_id, institut_id, ist_aktuell)
-                            SELECT autor_id, ?, ist_aktuell
-                            FROM autor_institutionen WHERE institut_id=?
-                        ')->execute([$targetId, $institutId]);
-                        $dbw->prepare('DELETE FROM autor_institutionen WHERE institut_id=?')
-                            ->execute([$institutId]);
-
-                        // 3. Aliase uebertragen (inkl. eigener Hauptname als Alias)
+                        // 2. Aliase uebertragen (inkl. eigener Hauptname als Alias)
                         $dbw->prepare('
                             INSERT OR IGNORE INTO institut_aliase (institut_id, alias_text, alias_norm)
                             SELECT ?, alias_text, alias_norm FROM institut_aliase WHERE institut_id=?
@@ -148,11 +139,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $dbw->prepare('DELETE FROM institut_aliase WHERE institut_id=?')
                             ->execute([$institutId]);
 
-                        // 4. Parent-Referenzen: andere Institute, die als parent das alte Institut hatten
+                        // 3. Parent-Referenzen: andere Institute, die als parent das alte Institut hatten
                         $dbw->prepare('UPDATE institutionen SET parent_id=? WHERE parent_id=?')
                             ->execute([$targetId, $institutId]);
 
-                        // 5. Altes Institut loeschen
+                        // 4. Altes Institut loeschen
                         $dbw->prepare('DELETE FROM institutionen WHERE id=?')->execute([$institutId]);
 
                         $dbw->commit();
@@ -182,18 +173,17 @@ $aliase->execute([$institutId]);
 $aliase = $aliase->fetchAll();
 
 // Statistik
-$nAutoren = (int)$db->query('SELECT COUNT(DISTINCT autor_id) FROM autor_institutionen WHERE institut_id = ' . $institutId)->fetchColumn();
+$nAutoren = (int)$db->query('SELECT COUNT(DISTINCT autor_id) FROM paper_autor_institutionen WHERE institut_id = ' . $institutId)->fetchColumn();
 $nPapers  = (int)$db->query('SELECT COUNT(DISTINCT paper_id) FROM paper_autor_institutionen WHERE institut_id = ' . $institutId)->fetchColumn();
 
 // Verknuepfte Autoren (Top 30)
 $autoren = $db->prepare('
-    SELECT a.id, a.vorname, a.nachname, ai.ist_aktuell,
-           (SELECT COUNT(DISTINCT pai.paper_id) FROM paper_autor_institutionen pai
-             WHERE pai.autor_id = a.id AND pai.institut_id = ?) AS n_papers_inst
-    FROM autor_institutionen ai
+    SELECT a.id, a.vorname, a.nachname,
+           (SELECT COUNT(DISTINCT pai2.paper_id) FROM paper_autor_institutionen pai2
+             WHERE pai2.autor_id = a.id AND pai2.institut_id = ?) AS n_papers_inst
+    FROM (SELECT DISTINCT autor_id FROM paper_autor_institutionen WHERE institut_id = ?) ai
     JOIN autoren a ON a.id = ai.autor_id
-    WHERE ai.institut_id = ?
-    ORDER BY ai.ist_aktuell DESC, n_papers_inst DESC, a.nachname COLLATE NOCASE
+    ORDER BY n_papers_inst DESC, a.nachname COLLATE NOCASE
     LIMIT 30
 ');
 $autoren->execute([$institutId, $institutId]);
@@ -409,7 +399,6 @@ $subs = $subs->fetchAll();
                     <li class="list-group-item d-flex justify-content-between align-items-center py-1 px-2">
                         <a href="/admin/autoren/<?= (int)$a['id'] ?>/edit" class="text-decoration-none">
                             <strong><?= e($a['nachname']) ?></strong><?= $a['vorname'] ? ', ' . e($a['vorname']) : '' ?>
-                            <?php if ($a['ist_aktuell']): ?><i class="bi bi-check-circle-fill text-success small ms-1" title="aktuell"></i><?php endif; ?>
                         </a>
                         <span class="text-muted small"><?= (int)$a['n_papers_inst'] ?> Papers</span>
                     </li>

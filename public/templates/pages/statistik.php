@@ -9,13 +9,16 @@ $db      = getDb();
 $lang    = $_SESSION['lang'] ?? 'de';
 $instCol = $lang === 'en' ? 'i.name_en' : 'i.name_de';
 
-// --- Query 1: Publications per author (ranked) — affiliation aus autor_institutionen
+// --- Query 1: Publications per author (ranked) — affiliation aus paper_autor_institutionen (jüngstes Paper)
 $autorStats = $db->query("
     SELECT a.id, a.vorname, a.nachname, a.anzeige_name,
            (SELECT COALESCE(NULLIF($instCol, ''), i.name_de)
-            FROM autor_institutionen ai
-            JOIN institutionen i ON i.id = ai.institut_id
-            WHERE ai.autor_id = a.id AND ai.ist_aktuell = 1
+            FROM paper_autor_institutionen pai
+            JOIN institutionen i ON i.id = pai.institut_id
+            JOIN papers p ON p.id = pai.paper_id
+            JOIN tagungen t ON t.nummer = p.tagung_nummer
+            WHERE pai.autor_id = a.id
+            ORDER BY t.jahr DESC, pai.created_at DESC
             LIMIT 1) AS affiliation,
            COUNT(pa.paper_id) AS pub_count
     FROM autoren a
@@ -32,9 +35,12 @@ if (!empty($topAutorIds)) {
     $stmt = $db->prepare("
         SELECT a.id, a.vorname, a.nachname, a.anzeige_name,
                (SELECT COALESCE(NULLIF($instCol, ''), i.name_de)
-                FROM autor_institutionen ai
-                JOIN institutionen i ON i.id = ai.institut_id
-                WHERE ai.autor_id = a.id AND ai.ist_aktuell = 1
+                FROM paper_autor_institutionen pai
+                JOIN institutionen i ON i.id = pai.institut_id
+                JOIN papers p2 ON p2.id = pai.paper_id
+                JOIN tagungen t2 ON t2.nummer = p2.tagung_nummer
+                WHERE pai.autor_id = a.id
+                ORDER BY t2.jahr DESC, pai.created_at DESC
                 LIMIT 1) AS affiliation,
                t.jahr, COUNT(*) as cnt
         FROM autoren a
@@ -49,13 +55,12 @@ if (!empty($topAutorIds)) {
     $autorJahrData = $stmt->fetchAll();
 }
 
-// --- Query 3: Publications per institution (canonical, kanonisiert) ---
+// --- Query 3: Autoren pro Institution (über paper_autor_institutionen) ---
 $affiliationStats = $db->query("
     SELECT COALESCE(NULLIF($instCol, ''), i.name_de) AS affiliation,
-           COUNT(DISTINCT pa.paper_id) AS pub_count
+           COUNT(DISTINCT pai.autor_id) AS pub_count
     FROM institutionen i
-    JOIN autor_institutionen ai ON ai.institut_id = i.id
-    JOIN paper_autoren pa ON pa.autor_id = ai.autor_id
+    JOIN paper_autor_institutionen pai ON pai.institut_id = i.id
     GROUP BY i.id
     ORDER BY pub_count DESC
 ")->fetchAll();
@@ -67,11 +72,10 @@ if (!empty($topAffiliations)) {
     $placeholders = implode(',', array_fill(0, count($topAffiliations), '?'));
     $stmt = $db->prepare("
         SELECT COALESCE(NULLIF($instCol, ''), i.name_de) AS affiliation,
-               t.jahr, COUNT(DISTINCT pa.paper_id) as cnt
+               t.jahr, COUNT(DISTINCT pai.autor_id) as cnt
         FROM institutionen i
-        JOIN autor_institutionen ai ON ai.institut_id = i.id
-        JOIN paper_autoren pa ON pa.autor_id = ai.autor_id
-        JOIN papers p ON p.id = pa.paper_id
+        JOIN paper_autor_institutionen pai ON pai.institut_id = i.id
+        JOIN papers p ON p.id = pai.paper_id
         JOIN tagungen t ON t.nummer = p.tagung_nummer
         WHERE COALESCE(NULLIF($instCol, ''), i.name_de) IN ($placeholders)
         GROUP BY i.id, t.jahr

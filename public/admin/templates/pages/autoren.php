@@ -12,9 +12,9 @@ if (!empty($search)) {
         SELECT COUNT(*) FROM autoren a
         WHERE a.nachname LIKE ? OR a.vorname LIKE ?
            OR EXISTS (SELECT 1 FROM autor_aliase al WHERE al.autor_id = a.id AND al.alias_text LIKE ?)
-           OR EXISTS (SELECT 1 FROM autor_institutionen ai2
-                      JOIN institutionen i2 ON i2.id = ai2.institut_id
-                      WHERE ai2.autor_id = a.id AND i2.name_de LIKE ?)
+           OR EXISTS (SELECT 1 FROM paper_autor_institutionen pai
+                      JOIN institutionen i2 ON i2.id = pai.institut_id
+                      WHERE pai.autor_id = a.id AND i2.name_de LIKE ?)
     ');
     $searchParam = '%' . $search . '%';
     $countStmt->execute([$searchParam, $searchParam, $searchParam, $searchParam]);
@@ -24,11 +24,13 @@ if (!empty($search)) {
 $total = (int)$countStmt->fetchColumn();
 $pag = paginate($total, $perPage, $currentPage);
 
-// Autoren laden — Affiliation via Institutionen-JOIN (aktuelle ist_aktuell=1),
+// Autoren laden — Affiliation via paper_autor_institutionen (jüngstes Paper),
 // Suche matcht auch über autor_aliase + alle verknüpften institutionen.name_de.
-$affSubq = "(SELECT i.name_de FROM autor_institutionen ai
-             JOIN institutionen i ON i.id = ai.institut_id
-             WHERE ai.autor_id = a.id AND ai.ist_aktuell = 1 LIMIT 1) AS affiliation";
+$affSubq = "(SELECT i.name_de FROM paper_autor_institutionen pai
+             JOIN institutionen i ON i.id = pai.institut_id
+             JOIN papers p ON p.id = pai.paper_id
+             WHERE pai.autor_id = a.id
+             ORDER BY p.tagung_nummer DESC, p.id DESC LIMIT 1) AS affiliation";
 if (!empty($search)) {
     $stmt = $db->prepare("
         SELECT a.id, a.vorname, a.nachname, $affSubq,
@@ -37,9 +39,9 @@ if (!empty($search)) {
         LEFT JOIN paper_autoren pa ON pa.autor_id = a.id
         WHERE a.nachname LIKE ? OR a.vorname LIKE ?
            OR EXISTS (SELECT 1 FROM autor_aliase al WHERE al.autor_id = a.id AND al.alias_text LIKE ?)
-           OR EXISTS (SELECT 1 FROM autor_institutionen ai2
-                      JOIN institutionen i2 ON i2.id = ai2.institut_id
-                      WHERE ai2.autor_id = a.id AND i2.name_de LIKE ?)
+           OR EXISTS (SELECT 1 FROM paper_autor_institutionen pai2
+                      JOIN institutionen i2 ON i2.id = pai2.institut_id
+                      WHERE pai2.autor_id = a.id AND i2.name_de LIKE ?)
         GROUP BY a.id
         ORDER BY a.nachname COLLATE NOCASE, a.vorname COLLATE NOCASE
         LIMIT ? OFFSET ?
