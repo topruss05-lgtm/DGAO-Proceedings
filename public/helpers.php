@@ -917,6 +917,161 @@ function getPaperAffiliations(string $paperId): array
 }
 
 /**
+ * Zentrale Paper-Suche fuer Frontend (/suche) UND Admin (/admin/data/papers).
+ *
+ * Eine Wahrheit, ein WHERE-Builder, ein SQL — wird ueberall wiederverwendet.
+ *
+ * @param array{
+ *   q?: string,            // Volltext (FTS oder LIKE)
+ *   titel?: string,        // Filter: titel
+ *   autor?: string,        // Filter: autor (incl. alias_norm)
+ *   institut?: string,     // Filter: institution
+ *   abstract?: string,     // Filter: abstract_text
+ *   tagung?: int,          // Filter: tagung_nummer
+ *   session?: int,         // Filter: session_id
+ *   sort?: string,         // 'relevanz'|'tagung_neu'|'tagung_alt'|'titel_az'
+ *   limit?: int,           // default 100
+ *   offset?: int,          // default 0
+ *   count_only?: bool,     // wenn true: nur Anzahl zurueck
+ * } $opts
+ *
+ * @return array{rows:list<array>, total:int, used_fts:bool}
+ */
+function searchPapers(array $opts): array
+{
+    $db = getDb();
+    $q       = trim((string)($opts['q'] ?? ''));
+    $fTitel  = trim((string)($opts['titel'] ?? ''));
+    $fAutor  = trim((string)($opts['autor'] ?? ''));
+    $fInst   = trim((string)($opts['institut'] ?? ''));
+    $fAbs    = trim((string)($opts['abstract'] ?? ''));
+    $fTagung = (int)($opts['tagung'] ?? 0);
+    $fSession= (int)($opts['session'] ?? 0);
+    $sort    = (string)($opts['sort'] ?? 'tagung_neu');
+    $limit   = max(1, (int)($opts['limit'] ?? 100));
+    $offset  = max(0, (int)($opts['offset'] ?? 0));
+    $countOnly = !empty($opts['count_only']);
+
+    $paperCodeOrderSql = "CASE substr(p.code, 1, 1)
+        WHEN 'H' THEN 1 WHEN 'A' THEN 2 WHEN 'B' THEN 3
+        WHEN 'C' THEN 4 WHEN 'P' THEN 5 WHEN 'S' THEN 6 ELSE 9 END";
+
+    $wheres = [];
+    $params = [];
+    $sanitized = $q !== '' ? sanitizeFtsQuery($q) : null;
+    $useFts    = $sanitized !== null && $sort === 'relevanz' && !$countOnly;
+
+    if ($fTitel !== '') {
+        $wheres[] = 'p.titel LIKE :titel COLLATE NOCASE';
+        $params[':titel'] = '%' . $fTitel . '%';
+    }
+    if ($fAutor !== '') {
+        $aNorm = normalizeForAliasMatch($fAutor);
+        $wheres[] = '(EXISTS (SELECT 1 FROM paper_autoren pa
+                       JOIN autor_aliase al ON al.autor_id = pa.autor_id
+                       WHERE pa.paper_id = p.id AND al.alias_norm LIKE :anorm)
+                     OR p.hauptautor LIKE :autor2 COLLATE NOCASE
+                     OR p.autoren_text LIKE :autor1 COLLATE NOCASE)';
+        $params[':anorm']  = '%' . $aNorm . '%';
+        $params[':autor1'] = '%' . $fAutor . '%';
+        $params[':autor2'] = '%' . $fAutor . '%';
+    }
+    if ($fInst !== '') {
+        $iNorm = normalizeForAliasMatch($fInst);
+        $wheres[] = '(p.affiliationen LIKE :inst1 COLLATE NOCASE
+                     OR EXISTS (SELECT 1 FROM paper_autor_institutionen pai
+                                JOIN institutionen i ON i.id = pai.institut_id
+                                LEFT JOIN institut_aliase ia ON ia.institut_id = i.id
+                                WHERE pai.paper_id = p.id
+                                  AND (   i.name_de LIKE :inst2 COLLATE NOCASE
+                                       OR i.name_en LIKE :inst3 COLLATE NOCASE
+                                       OR i.kuerzel LIKE :inst4 COLLATE NOCASE
+                                       OR ia.alias_norm LIKE :inorm)))';
+        $params[':inst1'] = '%' . $fInst . '%';
+        $params[':inst2'] = '%' . $fInst . '%';
+        $params[':inst3'] = '%' . $fInst . '%';
+        $params[':inst4'] = '%' . $fInst . '%';
+        $params[':inorm'] = '%' . $iNorm . '%';
+    }
+    if ($fAbs !== '') {
+        $wheres[] = 'p.abstract_text LIKE :abs COLLATE NOCASE';
+        $params[':abs'] = '%' . $fAbs . '%';
+    }
+    if ($fTagung > 0) {
+        $wheres[] = 'p.tagung_nummer = :tagung';
+        $params[':tagung'] = $fTagung;
+    }
+    if ($fSession > 0) {
+        $wheres[] = 'p.session_id = :session';
+        $params[':session'] = $fSession;
+    }
+
+    $orderBy = match ($sort) {
+        'tagung_neu' => "ORDER BY p.tagung_nummer DESC, $paperCodeOrderSql, CAST(substr(p.code,2) AS INTEGER)",
+        'tagung_alt' => "ORDER BY p.tagung_nummer ASC, $paperCodeOrderSql, CAST(substr(p.code,2) AS INTEGER)",
+        'titel_az'   => "ORDER BY p.titel COLLATE NOCASE",
+        'relevanz'   => 'ORDER BY rank',  // nur mit FTS-Pfad sinnvoll
+        default      => 'ORDER BY p.tagung_nummer DESC, p.code',
+    };
+
+    if ($useFts && $q !== '') {
+        $whereSql = !empty($wheres) ? 'AND ' . implode(' AND ', $wheres) : '';
+        $sql = "FROM papers_fts fts JOIN papers p ON p.rowid = fts.rowid
+                WHERE papers_fts MATCH :q $whereSql";
+        $params[':q'] = $sanitized;
+    } else {
+        if ($q !== '') {
+            $wheres[] = '(p.titel LIKE :qa COLLATE NOCASE
+                       OR p.autoren_text LIKE :qb COLLATE NOCASE
+                       OR p.abstract_text LIKE :qc COLLATE NOCASE
+                       OR p.affiliationen LIKE :qd COLLATE NOCASE)';
+            $params[':qa'] = '%' . $q . '%';
+            $params[':qb'] = '%' . $q . '%';
+            $params[':qc'] = '%' . $q . '%';
+            $params[':qd'] = '%' . $q . '%';
+        }
+        $whereSql = !empty($wheres) ? 'WHERE ' . implode(' AND ', $wheres) : '';
+        $sql = "FROM papers p $whereSql";
+    }
+
+    if ($countOnly) {
+        $stmt = $db->prepare("SELECT COUNT(*) $sql");
+        $stmt->execute($params);
+        return ['rows' => [], 'total' => (int)$stmt->fetchColumn(), 'used_fts' => $useFts];
+    }
+
+    // Count separat (für Pagination)
+    try {
+        $countStmt = $db->prepare("SELECT COUNT(*) $sql");
+        $countStmt->execute($params);
+        $total = (int)$countStmt->fetchColumn();
+    } catch (Throwable $e) {
+        error_log('searchPapers count failed: ' . $e);
+        $total = 0;
+    }
+
+    $selectSql = "SELECT p.id, p.tagung_nummer, p.code, p.typ, p.titel, p.autoren_text,
+                         p.hat_pdf, p.pdf_dateiname, p.session_id, p.datum, p.zeit
+                  $sql $orderBy LIMIT :limit OFFSET :offset";
+    $params[':limit']  = $limit;
+    $params[':offset'] = $offset;
+    try {
+        $stmt = $db->prepare($selectSql);
+        foreach ($params as $k => $v) {
+            $type = is_int($v) ? PDO::PARAM_INT : PDO::PARAM_STR;
+            $stmt->bindValue($k, $v, $type);
+        }
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Throwable $e) {
+        error_log('searchPapers query failed: ' . $e);
+        $rows = [];
+    }
+
+    return ['rows' => $rows, 'total' => $total, 'used_fts' => $useFts];
+}
+
+/**
  * ASCII-normalisierte Suche-Input-Vorbereitung: ß->ss, Diakritik weg, lower.
  * Spiegel der normalizeForAliasMatch-Logik, nutzt aber dieselbe ICU-Variante.
  */
