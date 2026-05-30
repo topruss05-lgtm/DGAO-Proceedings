@@ -32,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($ids)) {
             $ph = implode(',', array_fill(0, count($ids), '?'));
             $dbw->prepare("DELETE FROM submissions WHERE paper_id IN ($ph)")->execute($ids);
-            $dbw->prepare("DELETE FROM paper_keywords WHERE paper_id IN ($ph)")->execute($ids);
             $dbw->prepare("DELETE FROM paper_autoren WHERE paper_id IN ($ph)")->execute($ids);
         }
 
@@ -65,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <strong><?= $tagung['nummer'] ?>. DGaO-Tagung</strong> (<?= e($tagung['jahr']) ?>, <?= e($tagung['ort'] ?? 'Ort unbekannt') ?>)
         </p>
         <p>
-            Damit werden auch <strong><?= $paperCount ?> Papers</strong> und alle zugehörigen Autoren- und Keyword-Verknüpfungen gelöscht.
+            Damit werden auch <strong><?= $paperCount ?> Papers</strong> und alle zugehörigen Autoren-Verknüpfungen gelöscht.
         </p>
 
         <form method="post" class="d-flex gap-2">

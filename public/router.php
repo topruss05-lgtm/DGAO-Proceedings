@@ -110,7 +110,6 @@ function matchRoute(string $uri): array
         '/admin/papers'      => 'admin/papers',
         '/admin/autoren'     => 'admin/autoren',
         '/admin/institute'   => 'admin/institute',
-        '/admin/keywords'    => 'admin/keywords',
         '/admin/news'        => 'admin/news',
         '/admin/submissions'    => 'admin/submissions',
         '/admin/cleanup'        => 'admin/cleanup_dashboard',
@@ -175,17 +174,6 @@ function matchRoute(string $uri): array
     }
     if ($path === '/admin/autoren/merge') {
         return ['page' => 'admin/autor_merge', 'params' => []];
-    }
-
-    // Keywords CRUD
-    if (preg_match('#^/admin/keywords/(\d+)/edit$#', $path, $m)) {
-        return ['page' => 'admin/keyword_edit', 'params' => ['id' => (int)$m[1]]];
-    }
-    if (preg_match('#^/admin/keywords/(\d+)/delete$#', $path, $m)) {
-        return ['page' => 'admin/keyword_delete', 'params' => ['id' => (int)$m[1]]];
-    }
-    if ($path === '/admin/keywords/merge') {
-        return ['page' => 'admin/keyword_merge', 'params' => []];
     }
 
     // News CRUD

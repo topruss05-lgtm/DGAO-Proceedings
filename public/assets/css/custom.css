@@ -943,23 +943,6 @@ body[data-page="home"] .site-nav2__toggle:focus-visible {
     white-space: pre-line;
 }
 
-.article-detail .keyword-badge {
-    background: var(--paper);
-    color: var(--text-mid);
-    border: 1px solid var(--border);
-    font-family: var(--font-display);
-    font-size: var(--text-sm);
-    font-weight: 500;
-    transition: background 0.15s, color 0.15s;
-}
-
-.article-detail .keyword-badge:hover {
-    background: var(--accent-pale);
-    color: var(--accent);
-    border-color: var(--accent-muted);
-}
-
-
 /* ============================
    BIBTEX
    ============================ */
@@ -1800,14 +1783,6 @@ h3, .h3 {
     .einreichen-step + .einreichen-step::before {
         left: calc(1rem + 12px);
     }
-}
-
-.suche-combobox__option--keyword .suche-combobox__option-main::before {
-    content: '\f47e'; /* bi-tag */
-    font-family: 'bootstrap-icons';
-    color: var(--accent, #b42e42);
-    margin-right: 0.5rem;
-    font-size: 0.85em;
 }
 
 /* Mobile: 44px Mindesthoehe pro Listbox-Item (Apple HIG). */

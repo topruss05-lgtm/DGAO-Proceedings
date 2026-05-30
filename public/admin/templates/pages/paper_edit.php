@@ -9,7 +9,6 @@ $db = getDb();
 $tagungen = $db->query('SELECT nummer, jahr, ort FROM tagungen ORDER BY nummer DESC')->fetchAll();
 
 $paper = null;
-$paperKeywords = '';
 $paperAutoren = [];
 $paperInsts   = [];
 $paperAssigns = [];
@@ -24,15 +23,11 @@ if (!$isNew) {
         exit;
     }
 
-    // Keywords laden
-    $kwStmt = $db->prepare('
-        SELECT k.keyword FROM keywords k
-        JOIN paper_keywords pk ON pk.keyword_id = k.id
-        WHERE pk.paper_id = ?
-        ORDER BY k.keyword
-    ');
-    $kwStmt->execute([$paperId]);
-    $paperKeywords = implode(', ', array_column($kwStmt->fetchAll(), 'keyword'));
+    // Schema v11: autoren_text/hauptautor/affiliationen sind nicht mehr in papers —
+    // aus paper_autoren / paper_autor_institutionen rekonstruieren (Form-Templates lesen sie weiter)
+    $paper['autoren_text']  = buildPaperAutorenString($paperId);
+    $paper['hauptautor']    = buildPaperHauptautor($paperId);
+    $paper['affiliationen'] = buildPaperAffiliationenString($paperId);
 
     // Autoren des Papers (Position-Reihenfolge)
     $pa = $db->prepare('
@@ -73,7 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'autoren_text'  => trim($_POST['autoren_text'] ?? ''),
         'hauptautor'    => trim($_POST['hauptautor'] ?? ''),
         'abstract_text' => trim($_POST['abstract_text'] ?? ''),
-        'keywords_raw'  => trim($_POST['keywords'] ?? ''),
         'affiliationen' => trim($_POST['affiliationen'] ?? ''),
         'kontakt_email' => trim($_POST['kontakt_email'] ?? ''),
         'datum'         => trim($_POST['datum'] ?? ''),
@@ -104,11 +98,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Falls ID sich geändert hat und es ein Edit ist: alte Verknüpfungen löschen
             if (!$isNew && $newPaperId !== $paperId) {
-                $dbw->prepare('DELETE FROM paper_keywords WHERE paper_id = ?')->execute([$paperId]);
                 $dbw->prepare('DELETE FROM paper_autoren WHERE paper_id = ?')->execute([$paperId]);
                 $dbw->prepare('DELETE FROM papers WHERE id = ?')->execute([$paperId]);
             } elseif (!$isNew) {
-                $dbw->prepare('DELETE FROM paper_keywords WHERE paper_id = ?')->execute([$newPaperId]);
                 $dbw->prepare('DELETE FROM paper_autoren WHERE paper_id = ?')->execute([$newPaperId]);
             }
 
@@ -117,24 +109,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $data['pdf_dateiname'] = $data['tagung_nummer'] . '_' . strtolower($data['code']) . '.pdf';
             }
 
-            // Paper speichern
+            // Paper speichern (autoren_text/hauptautor/affiliationen werden NICHT mehr in papers
+            // gespeichert — Schema v11 droppt die Spalten; Werte landen via syncPaperAuthors() und
+            // paper_autor_institutionen in den normalisierten Tabellen)
             $stmt = $dbw->prepare('
                 INSERT OR REPLACE INTO papers
-                (id, tagung_nummer, code, typ, titel, autoren_text, hauptautor,
-                 abstract_text, zeit, raum, datum, affiliationen, kontakt_email,
+                (id, tagung_nummer, code, typ, titel,
+                 abstract_text, zeit, raum, datum, kontakt_email,
                  pdf_dateiname, hat_pdf)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ');
             $stmt->execute([
                 $newPaperId, $data['tagung_nummer'], $data['code'], $data['typ'],
-                $data['titel'], $data['autoren_text'], $data['hauptautor'],
+                $data['titel'],
                 $data['abstract_text'], $data['zeit'], $data['raum'], $data['datum'],
-                $data['affiliationen'], $data['kontakt_email'],
+                $data['kontakt_email'],
                 $data['pdf_dateiname'], $data['hat_pdf'],
             ]);
 
             syncPaperAuthors($dbw, $newPaperId, $data['autoren_text']);
-            syncPaperKeywords($dbw, $newPaperId, $data['keywords_raw']);
 
             // Autor->Affiliation-Zuordnung speichern (nur falls submitted und nicht new)
             $assignInput = $_POST['assign'] ?? null;
@@ -265,14 +258,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <textarea class="form-control" id="abstract_text" name="abstract_text" rows="6"><?= e($data['abstract_text'] ?? $paper['abstract_text'] ?? '') ?></textarea>
                 </div>
 
-                <div class="col-md-6">
-                    <label for="keywords" class="form-label">Keywords (kommasepariert)</label>
-                    <input type="text" class="form-control" id="keywords" name="keywords"
-                           value="<?= e($data['keywords_raw'] ?? $paperKeywords) ?>"
-                           placeholder="Holographie, Speckle, Auflösung">
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="affiliationen" class="form-label">Affiliationen</label>
+                    <div class="form-text mb-1">Nur Anzeige — pro Autor/Affil wird unten zugeordnet.</div>
                     <input type="text" class="form-control" id="affiliationen" name="affiliationen"
                            value="<?= e($data['affiliationen'] ?? $paper['affiliationen'] ?? '') ?>">
                 </div>

@@ -62,9 +62,10 @@ function generateBibtex(array $paper): string
     $year = $paper['datum'] ? substr($paper['datum'], 0, 4) : ($paper['jahr'] ?? '');
     $note = ($paper['typ'] === 'poster' ? t('type.poster') : t('type.vortrag')) . ' ' . $paper['code'];
 
+    $autoren = $paper['autoren_text'] ?? buildPaperAutorenString((string)$paper['id']);
     return "@inproceedings{{$key},\n"
          . "  title     = {{$paper['titel']}},\n"
-         . "  author    = {{$paper['autoren_text']}},\n"
+         . "  author    = {{$autoren}},\n"
          . "  booktitle = {DGaO-Proceedings, {$paper['tagung_nummer']}. Jahrestagung},\n"
          . "  year      = {{$year}},\n"
          . "  publisher = {" . SITE_PUBLISHER . "},\n"

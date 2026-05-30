@@ -39,12 +39,6 @@ $activeNewsCount = countActiveNews();
     </div>
     <div class="col-sm-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-value"><?= $db->query('SELECT COUNT(*) FROM keywords')->fetchColumn() ?></div>
-            <div class="stat-label">Keywords</div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-lg-3">
-        <div class="stat-card">
             <div class="stat-value"><?= $activeNewsCount ?></div>
             <div class="stat-label"><a href="/admin/news" class="text-decoration-none">News (aktiv)</a></div>
         </div>

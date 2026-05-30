@@ -34,19 +34,9 @@ CREATE TABLE paper_autoren (
       ist_hauptautor INTEGER DEFAULT 0,
       PRIMARY KEY (paper_id, autor_id)
     );
-CREATE TABLE keywords (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      keyword TEXT UNIQUE NOT NULL
-    );
-CREATE TABLE paper_keywords (
-      paper_id TEXT REFERENCES papers(id),
-      keyword_id INTEGER REFERENCES keywords(id),
-      PRIMARY KEY (paper_id, keyword_id)
-    );
 CREATE INDEX idx_papers_tagung ON papers(tagung_nummer);
 CREATE INDEX idx_papers_code ON papers(code);
 CREATE INDEX idx_paper_autoren_autor ON paper_autoren(autor_id);
-CREATE INDEX idx_paper_keywords_keyword ON paper_keywords(keyword_id);
 CREATE VIRTUAL TABLE papers_fts USING fts5(
       titel, autoren_text, abstract_text, content='papers', content_rowid='rowid'
     )
@@ -192,4 +182,4 @@ CREATE TABLE autor_id_redirects (
 -- Aktueller Schema-Stand. Muss mit DB_SCHEMA_VERSION in public/db.php
 -- synchron sein. Bei neuem Deploy spielt bootstrapDb() dieses Schema
 -- inkl. user_version → runMigrations() greift dann fast-path.
-PRAGMA user_version = 8;
+PRAGMA user_version = 11;

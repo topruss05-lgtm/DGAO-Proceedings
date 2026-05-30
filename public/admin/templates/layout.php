@@ -49,8 +49,6 @@
                 <i class="bi bi-people"></i> Autoren</a></li>
             <li><a href="/admin/institute" class="<?= str_starts_with($page ?? '', 'admin/institut') ? 'active' : '' ?>">
                 <i class="bi bi-building"></i> Affiliationen</a></li>
-            <li><a href="/admin/keywords" class="<?= str_starts_with($page ?? '', 'admin/keyword') ? 'active' : '' ?>">
-                <i class="bi bi-tags"></i> Keywords</a></li>
             <li><a href="/admin/news" class="<?= str_starts_with($page ?? '', 'admin/news') ? 'active' : '' ?>">
                 <i class="bi bi-megaphone"></i> News</a></li>
         </ul>

@@ -18,16 +18,6 @@ if (!$paper) {
     return;
 }
 
-// Keywords
-$stmt = $db->prepare('
-    SELECT k.keyword
-    FROM keywords k
-    JOIN paper_keywords pk ON pk.keyword_id = k.id
-    WHERE pk.paper_id = ?
-');
-$stmt->execute([$id]);
-$keywords = $stmt->fetchAll(PDO::FETCH_COLUMN);
-
 // Authors — Affiliation pro (paper, autor) aus paper_autor_institutionen
 $autoren = getPaperAutorenWithAffils($id);
 foreach ($autoren as &$_a) {
@@ -88,12 +78,6 @@ if ($paper['abstract_text']) {
 
 if ($pdfFullUrl) {
     $metaTags[] = ['name' => 'citation_pdf_url', 'content' => $pdfFullUrl];
-}
-
-if (!empty($keywords)) {
-    $kwString = implode(', ', $keywords);
-    $metaTags[] = ['name' => 'keywords', 'content' => $kwString];
-    $metaTags[] = ['name' => 'DC.subject', 'content' => $kwString];
 }
 
 $bibtex = generateBibtex($paper);
@@ -181,17 +165,6 @@ $pdfRelUrl = pdfUrl($paper);
     <div class="mb-4">
         <div class="abstract-block">
             <p><?= e($paper['abstract_text']) ?></p>
-        </div>
-    </div>
-    <?php endif; ?>
-
-    <?php if (!empty($keywords)): ?>
-    <div class="mb-4">
-        <h2 class="h6 fw-bold"><?= e(t('paper.keywords')) ?></h2>
-        <div class="d-flex flex-wrap gap-1">
-            <?php foreach ($keywords as $kw): ?>
-                <span class="badge keyword-badge"><?= e($kw) ?></span>
-            <?php endforeach; ?>
         </div>
     </div>
     <?php endif; ?>

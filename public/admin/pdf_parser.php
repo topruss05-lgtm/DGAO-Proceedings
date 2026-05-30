@@ -808,7 +808,6 @@ function parsePdfText(string $text, int $defaultJahr, string $datumVon = '', str
                 'autoren'       => $parsed['autoren'],
                 'hauptautor'    => '',
                 'abstract'      => $parsed['abstract'],
-                'keywords'      => '',
                 'affiliationen' => $parsed['affiliationen'],
                 'kontakt_email' => $parsed['kontakt_email'],
                 'datum'         => $datum,

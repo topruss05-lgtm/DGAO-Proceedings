@@ -269,8 +269,8 @@ function initSucheCombobox() {
 
     const lang = document.body.dataset.lang || 'de';
     const LABELS = (lang === 'en')
-        ? { authors: 'Authors', papers: 'Papers', tagungen: 'Conferences', keywords: 'Keywords', papers_count: 'papers' }
-        : { authors: 'Autor:innen', papers: 'Beiträge', tagungen: 'Tagungen', keywords: 'Stichworte', papers_count: 'Beiträge' };
+        ? { authors: 'Authors', papers: 'Papers', tagungen: 'Conferences', papers_count: 'papers' }
+        : { authors: 'Autor:innen', papers: 'Beiträge', tagungen: 'Tagungen', papers_count: 'Beiträge' };
 
     let currentOptions = [];
     let activeIdx = -1;
@@ -333,10 +333,6 @@ function initSucheCombobox() {
                 label   = item.nummer + '. Jahrestagung';
                 subText = item.jahr + (item.ort ? ' · ' + item.ort : '');
                 url     = item.url;
-            } else { // keyword
-                label   = item.keyword;
-                subText = item.papers + ' ' + LABELS.papers_count;
-                url     = item.url;
             }
 
             main.textContent = label;
@@ -368,10 +364,9 @@ function initSucheCombobox() {
         currentOptions = [];
 
         if (!data) { closeListbox(); return; }
-        // Reihenfolge: Papers (haeufigste Intention) > Authors > Keywords > Tagungen.
+        // Reihenfolge: Papers (haeufigste Intention) > Authors > Tagungen.
         appendGroup(LABELS.papers,   data.papers,   'paper');
         appendGroup(LABELS.authors,  data.authors,  'author');
-        appendGroup(LABELS.keywords, data.keywords, 'keyword');
         appendGroup(LABELS.tagungen, data.tagungen, 'tagung');
 
         if (currentOptions.length === 0) { closeListbox(); return; }

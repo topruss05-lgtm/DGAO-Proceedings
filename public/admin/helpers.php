@@ -148,8 +148,8 @@ function parseAuthorDisplayName(string $displayName): array
     ];
 }
 
-// --- Paper-Persistenz: Autoren- und Keyword-Sync ---
-// Beide Helpers werden von executeImport (CSV-Import) und paper_edit (UI) genutzt.
+// --- Paper-Persistenz: Autoren-Sync ---
+// Helper wird von executeImport (CSV-Import) und paper_edit (UI) genutzt.
 
 /**
  * Verknüpft die im autoren_text genannten Autoren mit einem Paper.
@@ -187,41 +187,6 @@ function syncPaperAuthors(PDO $db, string $paperId, string $autorenText): int
     return $linked;
 }
 
-/**
- * Verknüpft die komma-separierten Keywords mit einem Paper. Legt neue
- * keyword-Zeilen on the fly an. Caller ist fuer das vorherige Loeschen
- * alter paper_keywords-Eintraege verantwortlich.
- *
- * @return int Anzahl erfolgreich verknuepfter Keywords.
- */
-function syncPaperKeywords(PDO $db, string $paperId, string $keywordsRaw): int
-{
-    if ($keywordsRaw === '') return 0;
-
-    static $stmtInsert = null, $stmtGet = null, $stmtLink = null;
-    static $boundDb = null;
-    if ($boundDb !== $db) {
-        $stmtInsert = $db->prepare('INSERT OR IGNORE INTO keywords (keyword) VALUES (?)');
-        $stmtGet    = $db->prepare('SELECT id FROM keywords WHERE keyword = ?');
-        $stmtLink   = $db->prepare('INSERT OR REPLACE INTO paper_keywords (paper_id, keyword_id) VALUES (?, ?)');
-        $boundDb = $db;
-    }
-
-    $linked = 0;
-    $keywords = array_map('trim', explode(',', $keywordsRaw));
-    foreach ($keywords as $kw) {
-        if ($kw === '') continue;
-        $stmtInsert->execute([$kw]);
-        $stmtGet->execute([$kw]);
-        $row = $stmtGet->fetch();
-        if ($row) {
-            $stmtLink->execute([$paperId, $row['id']]);
-            $linked++;
-        }
-    }
-    return $linked;
-}
-
 // --- Import-Logik ---
 
 /**
@@ -252,7 +217,6 @@ function executeImport(int $tagungNummer, array $rows, bool $overwrite): array
 
             if (!empty($ids)) {
                 $placeholders = implode(',', array_fill(0, count($ids), '?'));
-                $db->prepare("DELETE FROM paper_keywords WHERE paper_id IN ($placeholders)")->execute($ids);
                 $db->prepare("DELETE FROM paper_autoren WHERE paper_id IN ($placeholders)")->execute($ids);
                 $db->prepare("DELETE FROM submissions WHERE paper_id IN ($placeholders)")->execute($ids);
                 $db->prepare("DELETE FROM papers WHERE tagung_nummer = ?")->execute([$tagungNummer]);
@@ -262,14 +226,13 @@ function executeImport(int $tagungNummer, array $rows, bool $overwrite): array
         // 3. Papers einfügen
         $paperCount = 0;
         $authorCount = 0;
-        $keywordCount = 0;
 
         $stmtPaper = $db->prepare('
             INSERT OR REPLACE INTO papers
-            (id, tagung_nummer, code, typ, titel, autoren_text, hauptautor,
-             abstract_text, zeit, raum, datum, affiliationen, kontakt_email,
+            (id, tagung_nummer, code, typ, titel,
+             abstract_text, zeit, raum, datum, kontakt_email,
              pdf_dateiname, hat_pdf)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ');
 
         foreach ($rows as $row) {
@@ -281,12 +244,6 @@ function executeImport(int $tagungNummer, array $rows, bool $overwrite): array
             $code = strtoupper(trim($row['code']));
             $paperId = $tagungNummer . '-' . strtolower($code);
             $autorenText = $row['autoren'] ?? '';
-            $hauptautor = $row['hauptautor'] ?? '';
-
-            if (empty($hauptautor) && !empty($autorenText)) {
-                $autoren = array_map('trim', explode(',', $autorenText));
-                $hauptautor = $autoren[0] ?? '';
-            }
 
             // PDF: Standardname generieren. hat_pdf = 1, falls die Datei
             // schon im download-Ordner liegt (typisch bei Re-Import nach
@@ -301,13 +258,10 @@ function executeImport(int $tagungNummer, array $rows, bool $overwrite): array
                 $code,
                 $validation['typ_norm'],
                 $row['titel'] ?? '',
-                $autorenText,
-                $hauptautor,
                 $row['abstract'] ?? '',
                 $row['zeit'] ?? '',
                 $row['raum'] ?? '',
                 $validation['datum'],
-                $row['affiliationen'] ?? '',
                 $row['kontakt_email'] ?? '',
                 $pdfDateiname,
                 $hatPdf,
@@ -315,7 +269,6 @@ function executeImport(int $tagungNummer, array $rows, bool $overwrite): array
             $paperCount++;
 
             $authorCount  += syncPaperAuthors($db, $paperId, $autorenText);
-            $keywordCount += syncPaperKeywords($db, $paperId, $row['keywords'] ?? '');
         }
 
         // 4. FTS-Index neu aufbauen
@@ -325,11 +278,10 @@ function executeImport(int $tagungNummer, array $rows, bool $overwrite): array
 
         return [
             'success' => true,
-            'message' => "{$paperCount} Papers importiert ({$authorCount} Autoren-Verknüpfungen, {$keywordCount} Keyword-Verknüpfungen).",
+            'message' => "{$paperCount} Papers importiert ({$authorCount} Autoren-Verknüpfungen).",
             'stats'   => [
                 'papers'   => $paperCount,
                 'authors'  => $authorCount,
-                'keywords' => $keywordCount,
             ],
         ];
     } catch (Throwable $e) {

@@ -5,7 +5,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/helpers.php';
 
-const DB_SCHEMA_VERSION = 10;
+const DB_SCHEMA_VERSION = 11;
 
 function getDb(): PDO
 {
@@ -387,6 +387,33 @@ function runMigrations(PDO $db): void
         ");
         // 3. ai-Tabelle endgueltig droppen
         $db->exec('DROP TABLE autor_institutionen');
+    }
+
+    // v11: keywords-Feature komplett entfernt. Many-to-Many-Tabellen droppen,
+    // sodass das Schema die Junction nicht mehr fuehrt. Frontend, Suggest,
+    // Admin-Pages und Importer wurden parallel um Keywords bereinigt.
+    $hasKw = (int) $db->query("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='paper_keywords'")->fetchColumn();
+    if ($hasKw) {
+        $db->exec('DROP TABLE IF EXISTS paper_keywords');
+        $db->exec('DROP TABLE IF EXISTS keywords');
+    }
+
+    // v11: papers.autoren_text + hauptautor + affiliationen sind komplett
+    // redundant zu paper_autoren / paper_autor_institutionen. Spalten droppen,
+    // FTS-Index ohne autoren_text neu aufbauen (Suche jetzt ueber JOIN).
+    $papersCols = $db->query('PRAGMA table_info(papers)')->fetchAll(PDO::FETCH_COLUMN, 1);
+    if (in_array('autoren_text', $papersCols, true)
+        || in_array('hauptautor', $papersCols, true)
+        || in_array('affiliationen', $papersCols, true)
+    ) {
+        $db->exec('DROP TABLE IF EXISTS papers_fts');
+        if (in_array('autoren_text', $papersCols, true))  $db->exec('ALTER TABLE papers DROP COLUMN autoren_text');
+        if (in_array('hauptautor', $papersCols, true))    $db->exec('ALTER TABLE papers DROP COLUMN hauptautor');
+        if (in_array('affiliationen', $papersCols, true)) $db->exec('ALTER TABLE papers DROP COLUMN affiliationen');
+        $db->exec("CREATE VIRTUAL TABLE papers_fts USING fts5(
+            titel, abstract_text, content='papers', content_rowid='rowid'
+        )");
+        rebuildFtsIndex($db);
     }
 
     $db->exec('PRAGMA user_version = ' . DB_SCHEMA_VERSION);
