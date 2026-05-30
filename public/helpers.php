@@ -895,6 +895,104 @@ function getPaperAffiliations(string $paperId): array
 }
 
 /**
+ * Autoren eines Papers als ", "-getrennter String (Position-Reihenfolge).
+ * Ab Schema v11 ist paper_autoren Source of Truth; papers.autoren_text ist weg.
+ */
+function buildPaperAutorenString(string $paperId): string
+{
+    static $cache = [];
+    if (isset($cache[$paperId])) return $cache[$paperId];
+    $stmt = getDb()->prepare("
+        SELECT COALESCE(NULLIF(a.anzeige_name, ''), TRIM(a.vorname || ' ' || a.nachname)) AS name
+        FROM paper_autoren pa
+        JOIN autoren a ON a.id = pa.autor_id
+        WHERE pa.paper_id = ?
+        ORDER BY pa.position
+    ");
+    $stmt->execute([$paperId]);
+    return $cache[$paperId] = implode(', ', $stmt->fetchAll(PDO::FETCH_COLUMN));
+}
+
+/**
+ * Hauptautor-Name eines Papers (anzeige_name oder Vor+Nachname).
+ * Ab Schema v11 aus paper_autoren.ist_hauptautor abgeleitet.
+ */
+function buildPaperHauptautor(string $paperId): string
+{
+    static $cache = [];
+    if (isset($cache[$paperId])) return $cache[$paperId];
+    $stmt = getDb()->prepare("
+        SELECT COALESCE(NULLIF(a.anzeige_name, ''), TRIM(a.vorname || ' ' || a.nachname)) AS name
+        FROM paper_autoren pa
+        JOIN autoren a ON a.id = pa.autor_id
+        WHERE pa.paper_id = ? AND pa.ist_hauptautor = 1
+        ORDER BY pa.position LIMIT 1
+    ");
+    $stmt->execute([$paperId]);
+    return $cache[$paperId] = (string)($stmt->fetchColumn() ?: '');
+}
+
+/**
+ * Pro Paper-Row: autoren_text + hauptautor aus paper_autoren generieren.
+ * Batch-effizient (1 Query fuer alle Papers in $rows).
+ *
+ * Belegt die Schluessel 'autoren_text' und 'hauptautor' auf jedem Row
+ * — bestehende Templates lesen die Keys unveraendert weiter.
+ *
+ * @param array<int, array<string, mixed>> $rows  Paper-Rows mit 'id'
+ */
+function attachPaperAutoren(array &$rows): void
+{
+    if (empty($rows)) return;
+    $ids = array_values(array_unique(array_column($rows, 'id')));
+    if (empty($ids)) return;
+    $place = implode(',', array_fill(0, count($ids), '?'));
+    $stmt = getDb()->prepare("
+        SELECT pa.paper_id, pa.ist_hauptautor,
+               COALESCE(NULLIF(a.anzeige_name, ''), TRIM(a.vorname || ' ' || a.nachname)) AS name
+        FROM paper_autoren pa
+        JOIN autoren a ON a.id = pa.autor_id
+        WHERE pa.paper_id IN ($place)
+        ORDER BY pa.paper_id, pa.position
+    ");
+    $stmt->execute($ids);
+    $byPaper = [];
+    foreach ($stmt as $r) {
+        $pid = (string)$r['paper_id'];
+        $byPaper[$pid]['names'][] = $r['name'];
+        if ($r['ist_hauptautor']) {
+            $byPaper[$pid]['haupt'] = $r['name'];
+        }
+    }
+    foreach ($rows as &$row) {
+        $pid = (string)$row['id'];
+        $row['autoren_text'] = isset($byPaper[$pid]) ? implode(', ', $byPaper[$pid]['names']) : '';
+        $row['hauptautor']   = $byPaper[$pid]['haupt'] ?? '';
+    }
+}
+
+/**
+ * Affiliationen eines Papers als zusammengefasster String (distinct, ", "-getrennt).
+ * Ersetzt die freie papers.affiliationen-Spalte (ab v11 weg).
+ */
+function buildPaperAffiliationenString(string $paperId): string
+{
+    static $cache = [];
+    if (isset($cache[$paperId])) return $cache[$paperId];
+    $lang    = currentLang() === 'en' ? 'en' : 'de';
+    $instCol = $lang === 'en' ? "COALESCE(NULLIF(i.name_en,''), i.name_de)" : 'i.name_de';
+    $stmt = getDb()->prepare("
+        SELECT DISTINCT $instCol AS name
+        FROM paper_autor_institutionen pai
+        JOIN institutionen i ON i.id = pai.institut_id
+        WHERE pai.paper_id = ?
+        ORDER BY name COLLATE NOCASE
+    ");
+    $stmt->execute([$paperId]);
+    return $cache[$paperId] = implode(', ', $stmt->fetchAll(PDO::FETCH_COLUMN));
+}
+
+/**
  * Zentrale Paper-Suche fuer Frontend (/suche) UND Admin (/admin/papers).
  *
  * Eine Wahrheit, ein WHERE-Builder, ein SQL — wird ueberall wiederverwendet.
